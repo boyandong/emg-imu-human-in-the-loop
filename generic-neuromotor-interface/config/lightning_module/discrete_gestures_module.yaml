@@ -1,0 +1,26 @@
+_target_: generic_neuromotor_interface.lightning.DiscreteGesturesModule
+
+optimizer:
+  _target_: torch.optim.Adam
+  lr: 1e-4
+  _partial_: true
+
+network:
+  _target_: generic_neuromotor_interface.networks.DiscreteGesturesArchitecture
+  input_channels: 8
+  conv_output_channels: 512
+  lstm_hidden_size: 512
+  lstm_num_layers: 3
+  output_channels: 9
+learning_rate: 5e-4
+# Meta 2025: halve the learning rate every 25 epochs after warm-up.
+lr_scheduler_milestones: [25, 50, 75, 100, 125, 150, 175, 200, 225]
+lr_scheduler_factor: 0.5
+warmup_start_factor: 0.001
+warmup_end_factor: 1.0
+warmup_total_epochs: 5
+# Retained in the module hyperparameters for checkpoint compatibility.  The
+# effective clipping configuration lives under trainer in discrete_gestures.yaml.
+gradient_clip_val: 0.5
+# Keep the loss unweighted after the 5x experiment reduced held-out accuracy.
+positive_class_weight: 1.0

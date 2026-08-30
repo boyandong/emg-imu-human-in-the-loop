@@ -1,0 +1,38 @@
+{
+  "name": "meta_discrete_7_short_v2",
+  "labels": [
+    "thumb_tap",
+    "thumb_swipe_left",
+    "thumb_swipe_right",
+    "thumb_swipe_up",
+    "thumb_swipe_down",
+    "index_hold",
+    "middle_hold"
+  ],
+  "trials_per_class": 12,
+  "countdown_sec": 2.0,
+  "prompt_duration_sec": 2.0,
+  "rest_min_sec": 0.8,
+  "rest_max_sec": 1.4,
+  "randomize": true,
+  "hold_min_sec": 2.5,
+  "hold_max_sec": 2.5,
+  "release_display_sec": 1.2,
+  "timed_null_actions": [
+    "null_finger_snap",
+    "null_finger_flick"
+  ],
+  "timed_null_repetitions": 3,
+  "timed_null_prompt_duration_sec": 1.0,
+  "null_instructions": {
+    "null_finger_snap": "使用中指与拇指完成一次响指；手腕和前臂保持不动",
+    "null_finger_flick": "拇指压住食指后快速释放，使食指向前弹出一次；手腕和前臂保持不动"
+  },
+  "continuous_null_blocks": [
+    {
+      "name": "null_typing",
+      "instruction": "请在键盘上自然、连续地打字",
+      "duration_sec": 60.0
+    }
+  ]
+}
