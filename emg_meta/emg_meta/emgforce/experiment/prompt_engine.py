@@ -90,7 +90,9 @@ class PromptEngine(QObject):
                     sequence.extend((navigation[step], activation[step]))
                 sequence.append(navigation[3])
         else:
-            sequence = [label for label in config.labels for _ in range(config.trials_per_class)]
+            sequence = [
+                label for label in config.labels for _ in range(config.trial_count(label))
+            ]
             if config.randomize:
                 self._rng.shuffle(sequence)
         timed_null = [

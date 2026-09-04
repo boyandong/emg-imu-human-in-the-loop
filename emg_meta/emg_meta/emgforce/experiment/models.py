@@ -45,6 +45,7 @@ class ProtocolConfig:
     rest_min_sec: float = 1.0
     rest_max_sec: float = 2.0
     randomize: bool = True
+    trials_per_label: dict[str, int] = field(default_factory=dict)
     hold_min_sec: float = 2.5
     hold_max_sec: float = 2.5
     release_display_sec: float = 1.2
@@ -63,6 +64,13 @@ class ProtocolConfig:
             raise ValueError("实验协议中的动作标签不能重复")
         if self.trials_per_class < 1:
             raise ValueError("每类试次数必须大于 0")
+        unknown_trial_labels = set(self.trials_per_label) - set(self.labels)
+        if unknown_trial_labels:
+            raise ValueError(
+                "分类试次数包含未声明的动作：" + ", ".join(sorted(unknown_trial_labels)))
+        if any(isinstance(count, bool) or not isinstance(count, int) or count < 1
+               for count in self.trials_per_label.values()):
+            raise ValueError("每个动作的独立试次数必须为正整数")
         if min(self.countdown_sec, self.prompt_duration_sec,
                self.rest_min_sec, self.rest_max_sec, self.hold_min_sec,
                self.hold_max_sec, self.release_display_sec) < 0:
@@ -119,6 +127,9 @@ class ProtocolConfig:
             if str(block.get("name")) == label:
                 return float(block["duration_sec"])
         return self.prompt_duration_sec
+
+    def trial_count(self, label: str) -> int:
+        return int(self.trials_per_label.get(label, self.trials_per_class))
 
     def null_instruction(self, label: str) -> str:
         if label in self.null_instructions:

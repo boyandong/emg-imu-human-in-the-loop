@@ -9,7 +9,8 @@ from PySide6.QtWidgets import QApplication
 from emgforce.experiment.models import ProtocolConfig
 from emgforce.experiment.prompt_engine import PromptEngine, PromptState
 from emgforce.ui.prompt_window import (
-    NAVIGATION_DELTAS, NavigationGridCanvas, ParticipantPromptWindow, TaskRoute,
+    ACTION_NAMES, MUSIC_CONTROL_LABELS, NAVIGATION_DELTAS, NavigationGridCanvas,
+    ParticipantPromptWindow, TaskRoute,
 )
 
 
@@ -20,6 +21,23 @@ DISCRETE_LABELS = [
     "thumb_tap", "thumb_swipe_left", "thumb_swipe_right",
     "thumb_swipe_up", "thumb_swipe_down", "index_hold", "middle_hold",
 ]
+
+
+def test_music_control_labels_use_full_arm_directions_and_independent_trials() -> None:
+    app = QApplication.instance() or QApplication([])
+    labels = [
+        "open_hand", "fist", "forward", "backward", "left", "right", "up", "down",
+        "index_pinch",
+    ]
+    prompt = ParticipantPromptWindow()
+    prompt.configure_task(labels, labels)
+    assert set(labels) == MUSIC_CONTROL_LABELS
+    assert prompt.actions_per_route == 1
+    assert len(prompt.routes) == len(labels)
+    assert ACTION_NAMES["forward"] == "手臂向前"
+    assert ACTION_NAMES["index_pinch"] == "拇指与食指捏合"
+    assert ACTION_NAMES["fist"] == "主观 7/10 稳定握拳"
+    app.processEvents()
 
 
 def test_discrete_protocol_is_grouped_into_balanced_routes() -> None:

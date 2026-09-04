@@ -84,7 +84,7 @@ def test_rebuild_corpus_scans_exports_and_removes_stale_rows(tmp_path) -> None:
         "P001/2026-08-21_S011/session_meta_aligned.hdf5",
     }
     assert dict(zip(frame["session"], frame["split"])) == {
-        "S01": "train", "S011": "val",
+        "S01": "train", "S011": "test",
     }
     manifest = json.loads((root / "training_manifest.json").read_text(encoding="utf-8"))
     assert manifest["sessions"] == 2
@@ -92,7 +92,7 @@ def test_rebuild_corpus_scans_exports_and_removes_stale_rows(tmp_path) -> None:
 
 def test_rebuild_corpus_uses_fixed_session_splits(tmp_path) -> None:
     root = tmp_path / "data"
-    for number in range(1, 16):
+    for number in range(1, 12):
         _write_ready_export(
             root / "P001" / f"2026-08-{number:02d}_S{number:02d}"
             / "session_meta_aligned.hdf5",
@@ -102,10 +102,10 @@ def test_rebuild_corpus_uses_fixed_session_splits(tmp_path) -> None:
     result = rebuild_corpus(root)
 
     frame = pd.read_csv(result.corpus_path).set_index("session")
-    assert (result.train_sessions, result.val_sessions, result.test_sessions) == (10, 2, 3)
-    assert set(frame.loc[[f"S{number:02d}" for number in range(1, 11)], "split"]) == {"train"}
-    assert set(frame.loc[["S11", "S12"], "split"]) == {"val"}
-    assert set(frame.loc[["S13", "S14", "S15"], "split"]) == {"test"}
+    assert (result.train_sessions, result.val_sessions, result.test_sessions) == (8, 2, 1)
+    assert set(frame.loc[[f"S{number:02d}" for number in range(1, 9)], "split"]) == {"train"}
+    assert set(frame.loc[["S09", "S10"], "split"]) == {"val"}
+    assert set(frame.loc[["S11"], "split"]) == {"test"}
 
 
 def test_upload_plan_rejects_unsafe_dataset_path(tmp_path) -> None:

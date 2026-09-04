@@ -57,15 +57,15 @@ def resolve_dataset_split(session_id: str, requested: str = "auto") -> str:
     match = re.search(r"(\d{1,3})$", session_id.strip())
     if match is None:
         raise ValueError(
-            "自动划分需要场次编号以 01–12 结尾，例如 S01；也可以手动选择划分")
+            "自动划分需要场次编号以 01–11 结尾，例如 S01；也可以手动选择划分")
     number = int(match.group(1))
-    if 1 <= number <= 10:
+    if 1 <= number <= 8:
         return "train"
-    if 11 <= number <= 12:
+    if 9 <= number <= 10:
         return "val"
-    if 13 <= number <= 15:
+    if number == 11:
         return "test"
-    raise ValueError("固定评估划分只支持 S01–S15 自动划分")
+    raise ValueError("每位受试者固定采集 11 轮，自动划分只支持 S01–S11")
 
 
 def infer_data_root(path: Path) -> Path | None:

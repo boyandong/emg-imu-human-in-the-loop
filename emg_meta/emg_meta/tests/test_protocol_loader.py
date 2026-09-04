@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 import json
+import os
+from collections import Counter
 from pathlib import Path
 
 import pytest
+from PySide6.QtWidgets import QApplication
 
 from emgforce.experiment.protocol_loader import ProtocolLoader
 from emgforce.experiment.prompt_engine import PromptEngine
@@ -56,3 +59,55 @@ def test_posture_protocol_is_additive_and_keeps_null_schedule_unchanged() -> Non
     assert posture.timed_null_repetitions == base.timed_null_repetitions
     assert posture.continuous_null_blocks == base.continuous_null_blocks
     assert PromptEngine(seed=7).prepare(posture) == PromptEngine(seed=7).prepare(base)
+
+
+def test_jilv_music_protocol_matches_runtime_gesture_ids() -> None:
+    protocol_dir = Path(__file__).parents[1] / "protocols"
+    config = ProtocolLoader(protocol_dir).load("jilv_music_9")
+    assert config.name == "jilv_music_9_v3"
+    assert config.labels == [
+        "open_hand", "fist", "forward", "backward", "left", "right", "up", "down",
+        "index_pinch",
+    ]
+    sequence = PromptEngine(seed=9).prepare(config)
+    assert len(sequence) == 108
+    assert set(sequence) == set(config.labels)
+    assert Counter(sequence) == Counter({
+        "open_hand": 28, "fist": 28, "index_pinch": 28,
+        "forward": 4, "backward": 4, "left": 4,
+        "right": 4, "up": 4, "down": 4,
+    })
+
+
+def test_existing_session_id_advances_without_overwrite(tmp_path: Path) -> None:
+    from emgforce.ui.experiment_page import ExperimentPage
+
+    os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+    app = QApplication.instance() or QApplication([])
+    participant_dir = tmp_path / "Dong"
+    (participant_dir / "2026-09-01_S01").mkdir(parents=True)
+    (participant_dir / "2026-09-02_S03").mkdir()
+    page = ExperimentPage(Path(__file__).parents[1] / "protocols", tmp_path)
+    assert page._available_session_id("Dong") == "S02"
+    page.participant_id.setText("Dong")
+    page.refresh_session_id()
+    assert page.session_id.text() == "S02"
+    assert "2 / 11" in page.session_plan_status.text()
+    app.processEvents()
+
+
+def test_participant_is_limited_to_eleven_sessions(tmp_path: Path) -> None:
+    from emgforce.ui.experiment_page import ExperimentPage
+
+    os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+    app = QApplication.instance() or QApplication([])
+    for number in range(1, 12):
+        (tmp_path / "P001" / f"2026-09-01_S{number:02d}").mkdir(parents=True)
+    page = ExperimentPage(Path(__file__).parents[1] / "protocols", tmp_path)
+    with pytest.raises(ValueError, match="11 / 11"):
+        page._available_session_id("P001")
+    page.participant_id.setText("P001")
+    page.refresh_session_id()
+    assert page.session_id.text() == "已完成"
+    assert not page.start.isEnabled()
+    app.processEvents()

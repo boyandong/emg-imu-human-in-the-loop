@@ -5,6 +5,7 @@ from pathlib import Path
 import h5py
 import numpy as np
 import pandas as pd
+import pytest
 
 from emgforce.processing.meta_corpus import (
     CORPUS_FILENAME, MANIFEST_FILENAME, resolve_dataset_split,
@@ -42,12 +43,11 @@ def test_training_preprocessing_removes_low_frequency_without_mutating_raw() -> 
 def test_session_split_policy() -> None:
     assert resolve_dataset_split("S01") == "train"
     assert resolve_dataset_split("participant_S08") == "train"
-    assert resolve_dataset_split("S09") == "train"
-    assert resolve_dataset_split("S10") == "train"
-    assert resolve_dataset_split("S11") == "val"
-    assert resolve_dataset_split("S12") == "val"
-    assert resolve_dataset_split("S13") == "test"
-    assert resolve_dataset_split("S15") == "test"
+    assert resolve_dataset_split("S09") == "val"
+    assert resolve_dataset_split("S10") == "val"
+    assert resolve_dataset_split("S11") == "test"
+    with pytest.raises(ValueError, match="S01–S11"):
+        resolve_dataset_split("S12")
     assert resolve_dataset_split("custom", "val") == "val"
 
 
@@ -93,7 +93,7 @@ def test_corpus_upsert_is_relative_atomic_and_deduplicated(tmp_path) -> None:
     assert len(corpus) == 1
     assert corpus.iloc[0]["dataset"] == \
         "P001/2026-01-01_S09/session_meta_aligned.hdf5"
-    assert corpus.iloc[0]["split"] == "train"
+    assert corpus.iloc[0]["split"] == "val"
     assert corpus.iloc[0]["prompt_count"] == 2
     assert corpus.iloc[0]["preprocessing_version"] == PREPROCESSING_VERSION
     assert (data_root / MANIFEST_FILENAME).exists()

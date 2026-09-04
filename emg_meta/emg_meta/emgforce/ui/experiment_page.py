@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 
 import numpy as np
 from PySide6.QtCore import Qt, Signal
@@ -17,6 +18,9 @@ from emgforce.quality.monitor import SignalQualityMonitor
 from .prompt_window import ParticipantPromptWindow
 
 
+SESSIONS_PER_PARTICIPANT = 11
+
+
 class ExperimentPage(QWidget):
     start_requested = Signal(object, object, object)
     stop_requested = Signal()
@@ -24,9 +28,10 @@ class ExperimentPage(QWidget):
     bad_requested = Signal(str, str); manual_mark_requested = Signal(str)
     new_donning_requested = Signal(); new_stage_requested = Signal(str)
 
-    def __init__(self, protocol_dir: Path) -> None:
+    def __init__(self, protocol_dir: Path, data_root: Path | None = None) -> None:
         super().__init__(); self.setObjectName("experimentPage")
         self.loader = ProtocolLoader(protocol_dir); self.protocols = {}
+        self.data_root = Path(data_root) if data_root is not None else Path(protocol_dir).parent / "data"
         self._was_running = False
 
         root = QVBoxLayout(self); root.setContentsMargins(0, 0, 0, 0)
@@ -48,14 +53,16 @@ class ExperimentPage(QWidget):
                             ("左手", "left"), ("双利手", "ambidextrous")):
             self.dominant.addItem(text, value)
         self.participant_id.setPlaceholderText("例如：P001")
+        self.participant_id.editingFinished.connect(self.refresh_session_id)
         self._add_field(participant, 0, "参与者编号 *", self.participant_id)
         self._add_field(participant, 1, "惯用手", self.dominant)
 
         session_box, session = self._make_card("实验设置", "确定场次、数据集、流程和当前实验条件", grid=True)
-        self.session_id = QLineEdit("S01"); self.experiment_name = QLineEdit("手势数据集_v1")
+        self.session_id = QLineEdit("S01"); self.session_id.setReadOnly(True)
+        self.experiment_name = QLineEdit("肌律九状态数据集_v1")
         self.protocol = QComboBox(); self.stage_name = QLineEdit("默认")
         self.dataset_split = QComboBox()
-        for text, value in (("自动（S01–S08 训练，S09–S10 验证，S11–S12 测试）", "auto"),
+        for text, value in (("自动（S01–S08 训练，S09–S10 验证，S11 测试）", "auto"),
                             ("训练集 train", "train"), ("验证集 val", "val"),
                             ("测试集 test", "test")):
             self.dataset_split.addItem(text, value)
@@ -67,6 +74,9 @@ class ExperimentPage(QWidget):
                 ("数据集划分", self.dataset_split),
                 ("当前阶段", self.stage_name))):
             self._add_field(session, row, field_title, widget)
+        self.session_plan_status = QLabel("输入受试者编号后自动安排场次 · 每人共 11 轮")
+        self.session_plan_status.setObjectName("muted")
+        session.addWidget(self.session_plan_status, 5, 0, 1, 2)
         left_column.addWidget(participant_box); left_column.addWidget(session_box)
         self.reload_protocols()
 
@@ -98,7 +108,9 @@ class ExperimentPage(QWidget):
         check.addLayout(result_area); check.addLayout(action_area)
         left_column.addWidget(check_box); left_column.addStretch()
 
-        panel, panel_layout = self._make_card("离散网格导航任务", "使用离散手势沿节点序列导航，并在彩色节点完成激活动作")
+        panel, panel_layout = self._make_card(
+            "音乐控制动作采集",
+            "每轮 108 次：六方向各 4 次；张手、握拳、食指捏合各 28 次")
         self.prompt_panel = ParticipantPromptWindow(self)
         panel_layout.addWidget(self.prompt_panel)
 
@@ -159,7 +171,7 @@ class ExperimentPage(QWidget):
         try: self.protocols = self.loader.discover()
         except Exception as exc: QMessageBox.warning(self, "实验协议错误", str(exc)); self.protocols = {}
         self.protocol.clear(); self.protocol.addItems(self.protocols)
-        default_protocol = "meta_discrete_7_v1"
+        default_protocol = "jilv_music_9_v3"
         if default_protocol in self.protocols:
             self.protocol.setCurrentText(default_protocol)
 
@@ -181,19 +193,70 @@ class ExperimentPage(QWidget):
 
     def _emit_start(self) -> None:
         try:
-            participant = ParticipantInfo(
-                self.participant_id.text().strip(), str(self.dominant.currentData() or "")
-            )
+            participant_id = self.participant_id.text().strip()
+            participant = ParticipantInfo(participant_id, str(self.dominant.currentData() or ""))
+            participant.validate()
+            session_id = self._available_session_id(participant_id)
+            if session_id != self.session_id.text().strip():
+                self.session_id.setText(session_id)
             info = SessionInfo(
-                self.session_id.text().strip(), self.experiment_name.text().strip(),
+                session_id, self.experiment_name.text().strip(),
                 self.protocol.currentText(),
                 stage_name=self.stage_name.text().strip() or "default",
                 dataset_split=str(self.dataset_split.currentData() or "auto"),
             )
             protocol = self.loader.load(self.protocols[self.protocol.currentText()])
-            participant.validate(); info.validate()
+            info.validate()
         except Exception as exc: QMessageBox.warning(self, "无法开始实验", str(exc)); return
         self.start_requested.emit(participant, info, protocol)
+
+    def _used_session_numbers(self, participant_id: str) -> set[int]:
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*", participant_id):
+            return set()
+        participant_dir = self.data_root / participant_id
+        used: set[int] = set()
+        if participant_dir.exists():
+            for path in participant_dir.iterdir():
+                if not path.is_dir():
+                    continue
+                match = re.search(r"_S(\d+)$", path.name, re.IGNORECASE)
+                if match:
+                    used.add(int(match.group(1)))
+        return used
+
+    def _available_session_id(self, participant_id: str) -> str:
+        """Find the first unused S01..S11 across all collection dates."""
+        used = self._used_session_numbers(participant_id)
+        for number in range(1, SESSIONS_PER_PARTICIPANT + 1):
+            if number not in used:
+                return f"S{number:02d}"
+        raise ValueError("该受试者已经完成 11 / 11 轮，不能再创建新场次")
+
+    def refresh_session_id(self) -> None:
+        participant_id = self.participant_id.text().strip()
+        if not participant_id:
+            self.session_id.setText("S01")
+            self.session_plan_status.setText("输入受试者编号后自动安排场次 · 每人共 11 轮")
+            self.start.setEnabled(not self._was_running)
+            return
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*", participant_id):
+            self.session_plan_status.setText("受试者编号只能包含字母、数字、点、下划线和连字符")
+            self.start.setEnabled(False)
+            return
+        used = self._used_session_numbers(participant_id)
+        try:
+            session_id = self._available_session_id(participant_id)
+        except ValueError:
+            self.session_id.setText("已完成")
+            self.session_plan_status.setText("该受试者已完成 11 / 11 轮")
+            self.start.setEnabled(False)
+            return
+        self.session_id.setText(session_id)
+        completed = len(used & set(range(1, SESSIONS_PER_PARTICIPANT + 1)))
+        self.session_plan_status.setText(
+            f"已完成 {completed} / 11 轮 · 下一轮 {session_id}"
+        )
+        self.start.setEnabled(not self._was_running)
 
     def _mark_bad(self) -> None:
         reason = "operator_reject"
@@ -228,7 +291,7 @@ class ExperimentPage(QWidget):
             "click": "点击", "left_swipe": "向左滑动", "right_swipe": "向右滑动",
             "rest": "静息", "thumb_up": "拇指向上", "thumb_down": "拇指向下",
             "index_pinch": "食指捏合", "middle_pinch": "中指捏合",
-            "fist": "握拳", "open_hand": "张开手掌",
+            "fist": "主观 7/10 稳定握拳", "open_hand": "自然松手（不要用力撑开）",
             "thumb_tap": "拇指轻点", "thumb_swipe_left": "拇指向左滑",
             "thumb_swipe_right": "拇指向右滑", "thumb_swipe_up": "拇指向上滑",
             "thumb_swipe_down": "拇指向下滑", "index_hold": "食指捏合并保持",

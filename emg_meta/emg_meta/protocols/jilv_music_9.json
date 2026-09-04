@@ -1,0 +1,33 @@
+{
+  "name": "jilv_music_9_v3",
+  "labels": [
+    "open_hand",
+    "fist",
+    "forward",
+    "backward",
+    "left",
+    "right",
+    "up",
+    "down",
+    "index_pinch"
+  ],
+  "trials_per_class": 12,
+  "trials_per_label": {
+    "open_hand": 28,
+    "fist": 28,
+    "forward": 4,
+    "backward": 4,
+    "left": 4,
+    "right": 4,
+    "up": 4,
+    "down": 4,
+    "index_pinch": 28
+  },
+  "countdown_sec": 2.0,
+  "prompt_duration_sec": 1.5,
+  "rest_min_sec": 0.8,
+  "rest_max_sec": 1.2,
+  "randomize": true,
+  "posture_name": "自然佩戴",
+  "posture_instruction": "松手时让手指自然、松散地张开，不要主动用力撑开；握拳时手指完全合拢，采用主观 7/10 力度稳定保持，不颤抖、不疼痛，并尽量让各次力度相近；方向以佩戴者身体为基准，每次动作后回到中立放松位置"
+}

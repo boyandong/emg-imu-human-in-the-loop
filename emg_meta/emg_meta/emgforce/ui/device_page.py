@@ -9,7 +9,7 @@ from PySide6.QtCore import QPoint, QRect, Qt, QTimer, Signal
 from PySide6.QtGui import QColor
 from PySide6.QtWidgets import (
     QCheckBox, QComboBox, QFrame, QGridLayout, QHBoxLayout, QLabel, QLayout,
-    QPushButton, QScrollArea, QSpinBox, QVBoxLayout, QWidget,
+    QProgressBar, QPushButton, QScrollArea, QSpinBox, QVBoxLayout, QWidget,
 )
 from serial.tools import list_ports
 
@@ -93,6 +93,7 @@ class DevicePage(QWidget):
 
     connect_requested = Signal(str, bool)
     disconnect_requested = Signal()
+    calibration_requested = Signal()
     MAX_DISPLAY_SECONDS = 10
     DEFAULT_DISPLAY_SECONDS = 5
 
@@ -199,6 +200,34 @@ class DevicePage(QWidget):
         self.pause_button.toggled.connect(lambda checked: self.pause_button.setText("继续显示" if checked else "暂停显示"))
         self.clear_button.clicked.connect(self.clear_buffers); display_layout.addLayout(display_buttons); layout.addWidget(display_card)
 
+        music_card, music_layout = card(); music_layout.addWidget(section_label("音乐力度控制"))
+        explanation = QLabel("自然松手与主观 7/10 稳定握拳用于个人标定。松手时让手指松散张开，不要用力撑开；握拳应可重复保持且不颤抖不疼痛。")
+        explanation.setObjectName("muted"); explanation.setWordWrap(True)
+        explanation.setStyleSheet("font-size: 14px;"); music_layout.addWidget(explanation)
+        self.calibration_instruction = QLabel("连接手环后开始标定")
+        self.calibration_instruction.setWordWrap(True)
+        self.calibration_instruction.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.calibration_instruction.setMinimumHeight(76)
+        self.calibration_instruction.setStyleSheet(
+            "font-size: 20px; font-weight: 800; color: #0f172a; padding: 10px 6px;"
+        )
+        music_layout.addWidget(self.calibration_instruction)
+        self.calibration_progress = QProgressBar(); self.calibration_progress.setRange(0, 100)
+        self.calibration_progress.setValue(0); self.calibration_progress.setFixedHeight(24)
+        music_layout.addWidget(self.calibration_progress)
+        self.calibration_button = QPushButton("开始个人力度标定（约 17 秒）")
+        self.calibration_button.setObjectName("primary"); self.calibration_button.setFixedHeight(44)
+        self.calibration_button.setStyleSheet("font-size: 15px; font-weight: 700;")
+        self.calibration_button.setEnabled(False); self.calibration_button.clicked.connect(self.calibration_requested)
+        music_layout.addWidget(self.calibration_button)
+        self.music_values_label = QLabel("EMG 力度：0.00  ·  IMU 运动：0.00")
+        self.music_values_label.setObjectName("muted")
+        self.music_values_label.setStyleSheet("font-size: 16px; font-weight: 700;")
+        music_layout.addWidget(self.music_values_label)
+        self.music_output_label = QLabel("音乐输出：设备未连接")
+        self.music_output_label.setObjectName("muted"); self.music_output_label.setWordWrap(True)
+        music_layout.addWidget(self.music_output_label); layout.addWidget(music_card)
+
         stats_card, stats_layout = card(); stats_layout.addWidget(section_label("接收统计"))
         self.total_frames_label = QLabel("有效帧：0"); self.emg_frames_label = QLabel("EMG 帧：0")
         self.imu_rate_label = QLabel("IMU 包速率：0 Hz"); self.duplicate_label = QLabel("重复帧：0")
@@ -294,6 +323,7 @@ class DevicePage(QWidget):
         self.connection_metric.value.setStyleSheet("color: #059669;" if connected else "")
         self.connect.setEnabled(not connected); self.simulate.setEnabled(not connected)
         self.disconnect.setEnabled(connected); self.port.setEnabled(not connected); self.refresh.setEnabled(not connected)
+        self.calibration_button.setEnabled(connected)
         # A disabled-state stylesheet repolish can otherwise leave stale row
         # geometry on Windows fractional DPI scaling.
         QTimer.singleShot(0, self._activate_layout)
@@ -301,7 +331,7 @@ class DevicePage(QWidget):
     def _activate_layout(self) -> None:
         for widget in (self.port, self.refresh, self.connect, self.simulate, self.disconnect,
                        self.window_spin, self.emg_range_spin, self.highpass_button,
-                       self.pause_button, self.clear_button):
+                       self.pause_button, self.clear_button, self.calibration_button):
             widget.updateGeometry()
         if self.layout() is not None:
             self.layout().invalidate(); self.layout().activate()
@@ -309,6 +339,17 @@ class DevicePage(QWidget):
     def set_recording(self, recording: bool) -> None:
         self.record_metric.value.setText("记录中" if recording else "未记录")
         self.record_metric.value.setStyleSheet("color: #e11d48;" if recording else "")
+
+    def set_music_values(self, effort: float, motion: float) -> None:
+        self.music_values_label.setText(f"EMG 力度：{effort:.2f}  ·  IMU 运动：{motion:.2f}")
+
+    def set_music_calibration(self, instruction: str, progress: int, ready: bool) -> None:
+        self.calibration_instruction.setText(instruction)
+        self.calibration_progress.setValue(max(0, min(100, int(progress))))
+        self.calibration_button.setText("重新标定个人力度" if ready else "重新开始力度标定")
+
+    def set_music_output(self, status: str) -> None:
+        self.music_output_label.setText(f"音乐输出：{status}")
 
     def showEvent(self, event) -> None:  # noqa: N802
         super().showEvent(event)

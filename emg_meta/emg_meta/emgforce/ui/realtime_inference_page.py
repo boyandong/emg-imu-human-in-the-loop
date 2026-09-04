@@ -216,6 +216,8 @@ class RemoteModelWorker(QThread):
 class RealtimeInferencePage(QWidget):
     """Load a local model bundle and run replay or fixed-lag live inference."""
 
+    music_gesture_ready = Signal(int, float)
+
     def __init__(self, models_root: Path) -> None:
         super().__init__()
         self.models_root = Path(models_root)
@@ -854,6 +856,19 @@ class RealtimeInferencePage(QWidget):
                 self._probability_values[name].setText(f"{float(probability):.3f}")
         peak_index = int(np.argmax(frame.probabilities))
         peak = float(frame.probabilities[peak_index])
+        # Only the new music label set may drive the music engine.  This keeps
+        # legacy thumb models from accidentally controlling a direction layer.
+        music_labels = {
+            "forward": 1, "backward": 2, "left": 3, "right": 4,
+            "up": 5, "down": 6, "index_pinch": 7,
+        }
+        required = set(music_labels)
+        if required.issubset(set(frame.labels)):
+            peak_name = frame.labels[peak_index]
+            gesture = music_labels.get(peak_name, 0) if peak >= self.threshold.value() else 0
+            self.music_gesture_ready.emit(gesture, peak if gesture else 1.0)
+        else:
+            self.music_gesture_ready.emit(0, 1.0)
         self.current_probability.setText(
             f"最高概率 {peak:.3f} · 推理 {frame.inference_ms:.0f} ms"
             f" · 输出数据龄 {frame.output_age_ms:.0f} ms"

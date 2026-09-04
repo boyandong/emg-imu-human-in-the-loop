@@ -20,9 +20,12 @@ from emgforce.experiment.prompt_engine import PromptState
 
 ACTION_NAMES = {
     "click": "点击", "left_swipe": "向左滑动", "right_swipe": "向右滑动",
-    "rest": "静息", "thumb_up": "拇指向上", "thumb_down": "拇指向下",
-    "index_pinch": "食指捏合", "middle_pinch": "中指捏合",
-    "fist": "握拳", "open_hand": "张开手掌",
+    "rest": "保持放松（无动作）", "thumb_up": "拇指向上", "thumb_down": "拇指向下",
+    "forward": "手臂向前", "backward": "手臂向后",
+    "left": "手臂向左", "right": "手臂向右",
+    "up": "手臂向上", "down": "手臂向下",
+    "index_pinch": "拇指与食指捏合", "middle_pinch": "拇指与中指捏合（保留）",
+    "fist": "主观 7/10 稳定握拳", "open_hand": "自然松手（不要用力撑开）",
     "thumb_tap": "拇指轻点", "thumb_swipe_left": "拇指向左滑",
     "thumb_swipe_right": "拇指向右滑", "thumb_swipe_up": "拇指向上滑",
     "thumb_swipe_down": "拇指向下滑", "index_hold": "食指保持",
@@ -39,15 +42,25 @@ NAVIGATION_DELTAS = {
     "thumb_swipe_right": (1, 0), "right_swipe": (1, 0),
     "thumb_swipe_up": (0, -1), "thumb_up": (0, -1),
     "thumb_swipe_down": (0, 1), "thumb_down": (0, 1),
+    "forward": (1, -1), "backward": (-1, 1),
+    "left": (-1, 0), "right": (1, 0),
+    "up": (0, -1), "down": (0, 1),
 }
-ACTIVATION_ACTIONS = {"thumb_tap", "index_hold", "middle_hold"}
+ACTIVATION_ACTIONS = {
+    "thumb_tap", "index_hold", "middle_hold", "index_pinch", "middle_pinch", "rest",
+    "fist", "open_hand",
+}
 DISCRETE_ACTIONS = set(NAVIGATION_DELTAS) | ACTIVATION_ACTIONS
 ACTION_SYMBOLS = {
     "thumb_swipe_left": "←", "left_swipe": "←",
     "thumb_swipe_right": "→", "right_swipe": "→",
     "thumb_swipe_up": "↑", "thumb_up": "↑",
     "thumb_swipe_down": "↓", "thumb_down": "↓",
+    "forward": "↗", "backward": "↙", "left": "←", "right": "→",
+    "up": "↑", "down": "↓",
     "thumb_tap": "●", "index_hold": "●", "middle_hold": "●",
+    "index_pinch": "●", "middle_pinch": "●", "rest": "○",
+    "fist": "●", "open_hand": "○",
 }
 ACTIVATION_COLORS = {
     "thumb_tap": QColor("#9bea55"),
@@ -55,12 +68,20 @@ ACTIVATION_COLORS = {
     "middle_hold": QColor("#65d3ef"),
     "index_press": QColor("#ef1741"), "index_release": QColor("#ef1741"),
     "middle_press": QColor("#7c3aed"), "middle_release": QColor("#7c3aed"),
+    "index_pinch": QColor("#ef1741"), "middle_pinch": QColor("#7c3aed"),
+    "rest": QColor("#98a2b3"), "open_hand": QColor("#98a2b3"),
+    "fist": QColor("#f59e0b"),
 }
 FINGER_TEXT_COLORS = {
     "thumb": QColor("#2563eb"),
     "index": QColor("#e11d48"),
     "middle": QColor("#7c3aed"),
     "neutral": QColor("#172033"),
+}
+
+MUSIC_CONTROL_LABELS = {
+    "open_hand", "fist", "forward", "backward", "left", "right", "up", "down",
+    "index_pinch",
 }
 
 
@@ -581,11 +602,16 @@ class ParticipantPromptWindow(QWidget):
                 self.posture_text.show()
             else:
                 self.posture_text.clear(); self.posture_text.hide()
-        if set(labels) == {
+        label_set = set(labels)
+        if label_set == {
             "thumb_tap", "thumb_swipe_left", "thumb_swipe_right",
             "thumb_swipe_up", "thumb_swipe_down", "index_hold", "middle_hold",
         }:
             self.actions_per_route = 7
+        elif label_set == MUSIC_CONTROL_LABELS:
+            # Music gestures are independent states rather than steps in one
+            # thumb-navigation route, so each cue gets its own visual trial.
+            self.actions_per_route = 1
         else:
             self.actions_per_route = max(1, len(labels))
         first_null = next(
@@ -684,7 +710,14 @@ class ParticipantPromptWindow(QWidget):
                 self._set_status(True, True)
                 return
             is_activation = label in ACTIVATION_ACTIONS
-            self.state_label.setText("激活动作" if is_activation else "导航动作")
+            if label in {"rest", "open_hand"}:
+                self.state_label.setText("放松基线")
+            elif label == "fist":
+                self.state_label.setText("7/10 握拳参考")
+            elif label in {"index_pinch", "middle_pinch"}:
+                self.state_label.setText("捏合动作")
+            else:
+                self.state_label.setText("方向动作")
             self.instruction_text.setText(f"正在采集：{ACTION_NAMES.get(label, label)}")
             self._set_instruction_tone(label)
             if is_activation: self.canvas.show_activation(label)

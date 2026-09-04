@@ -9,6 +9,7 @@ from PySide6.QtWidgets import QMainWindow, QMessageBox, QTabWidget, QVBoxLayout,
 from emgforce.config import BAUDRATE, SOFTWARE_NAME
 from emgforce.controller import AcquisitionController
 from emgforce.experiment.session import ExperimentSession
+from emgforce.music_control import MusicControlBridge
 from emgforce.styles import LIGHT_STYLESHEET
 from emgforce.worker import AcquisitionConfig, AcquisitionWorker
 
@@ -31,9 +32,10 @@ class MainWindow(QMainWindow):
         self.setStyleSheet(LIGHT_STYLESHEET)
         self.worker: AcquisitionWorker | None = None; self.connected_port = ""
         self.acquisition = AcquisitionController(self)
+        self.music_control = MusicControlBridge(self)
         self.session = ExperimentSession(self.acquisition, self.project_root / "data", self)
         self.main_tabs = QTabWidget()
-        self.device_page = DevicePage(); self.experiment_page = ExperimentPage(self.project_root / "protocols"); self.data_check_page = DataCheckPage(self.project_root / "data"); self.dataset_upload_page = DatasetUploadPage(self.project_root / "data"); self.training_page = TrainingPage(); self.realtime_inference_page = RealtimeInferencePage(self.project_root / "models")
+        self.device_page = DevicePage(); self.experiment_page = ExperimentPage(self.project_root / "protocols", self.project_root / "data"); self.data_check_page = DataCheckPage(self.project_root / "data"); self.dataset_upload_page = DatasetUploadPage(self.project_root / "data"); self.training_page = TrainingPage(); self.realtime_inference_page = RealtimeInferencePage(self.project_root / "models")
         self.prompt_window = self.experiment_page.prompt_panel
         self.main_tabs.addTab(self.device_page, "设备监测"); self.main_tabs.addTab(self.experiment_page, "实验采集"); self.main_tabs.addTab(self.data_check_page, "数据检查"); self.main_tabs.addTab(self.dataset_upload_page, "数据上传"); self.main_tabs.addTab(self.training_page, "训练模型"); self.main_tabs.addTab(self.realtime_inference_page, "实时识别")
         root = QWidget(); root.setObjectName("root")
@@ -46,7 +48,13 @@ class MainWindow(QMainWindow):
 
     def _wire(self) -> None:
         self.device_page.connect_requested.connect(self.connect_device); self.device_page.disconnect_requested.connect(self.disconnect_device)
-        self.acquisition.emg_display_ready.connect(self.device_page.append_emg); self.acquisition.emg_display_ready.connect(self.realtime_inference_page.ingest_emg); self.acquisition.imu_display_ready.connect(self.device_page.update_imu)
+        self.device_page.calibration_requested.connect(self.music_control.start_calibration)
+        self.acquisition.emg_display_ready.connect(self.device_page.append_emg); self.acquisition.emg_display_ready.connect(self.realtime_inference_page.ingest_emg); self.acquisition.emg_display_ready.connect(self.music_control.ingest_emg)
+        self.acquisition.imu_display_ready.connect(self.device_page.update_imu); self.acquisition.imu_display_ready.connect(self.music_control.ingest_imu)
+        self.music_control.values_changed.connect(self.device_page.set_music_values)
+        self.music_control.calibration_changed.connect(self.device_page.set_music_calibration)
+        self.music_control.output_changed.connect(self.device_page.set_music_output)
+        self.realtime_inference_page.music_gesture_ready.connect(self.music_control.set_gesture)
         self.acquisition.statistics_ready.connect(self.device_page.update_stats); self.acquisition.packet_loss.connect(self.session.packet_loss)
         self.acquisition.recording_error.connect(self._recorder_error)
         page = self.experiment_page
@@ -77,6 +85,7 @@ class MainWindow(QMainWindow):
     def _connected(self, name: str) -> None:
         reconnect = bool(self.connected_port); self.connected_port = name; self.device_page.set_connected(name, True)
         self.realtime_inference_page.set_connected(True)
+        self.music_control.set_connected(True)
         self.statusBar().showMessage(f"● 已连接 | {name} | 2000 Hz | 8 通道")
         LOGGER.info("serial connect: %s", name)
         if reconnect or self.session.active: self.session.device_reconnected()
@@ -84,6 +93,7 @@ class MainWindow(QMainWindow):
     def _disconnected(self, message: str) -> None:
         was_connected = bool(self.connected_port); self.connected_port = ""; self.device_page.set_connected("", False)
         self.realtime_inference_page.set_connected(False)
+        self.music_control.set_connected(False)
         self.statusBar().showMessage(f"● 已断开 | {message}"); LOGGER.info("serial disconnect")
         if was_connected: self.session.device_disconnected()
 
@@ -119,6 +129,7 @@ class MainWindow(QMainWindow):
 
     def _session_stopped(self, path: Path) -> None:
         self.experiment_page.set_running(False)
+        self.experiment_page.refresh_session_id()
         aligned = self.session.last_aligned_path
         message = (f"🎉 采集完成！原始文件：{path} | Meta 对齐文件：{aligned}"
                    if aligned else f"🎉 采集完成！实验文件：{path}")
@@ -162,6 +173,7 @@ class MainWindow(QMainWindow):
                 if not worker.wait(3000):
                     raise TimeoutError("串口采集线程未能停止")
                 self.worker = None
+            self.music_control.close()
         except Exception as exc:
             QMessageBox.critical(self, "无法安全退出", str(exc)); event.ignore(); return
         LOGGER.info("app close"); event.accept()
