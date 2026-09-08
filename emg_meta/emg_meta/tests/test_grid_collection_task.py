@@ -23,20 +23,22 @@ DISCRETE_LABELS = [
 ]
 
 
-def test_music_control_labels_use_full_arm_directions_and_independent_trials() -> None:
+def test_music_control_labels_combine_arm_state_and_hand_action() -> None:
     app = QApplication.instance() or QApplication([])
     labels = [
-        "open_hand", "fist", "forward", "backward", "left", "right", "up", "down",
-        "index_pinch",
+        f"{arm}_{hand}"
+        for arm in ("still", "up", "down", "left", "right", "forward", "backward")
+        for hand in ("index_pinch", "fist", "open_hand")
     ]
     prompt = ParticipantPromptWindow()
     prompt.configure_task(labels, labels)
     assert set(labels) == MUSIC_CONTROL_LABELS
     assert prompt.actions_per_route == 1
     assert len(prompt.routes) == len(labels)
-    assert ACTION_NAMES["forward"] == "手臂向前"
-    assert ACTION_NAMES["index_pinch"] == "拇指与食指捏合"
-    assert ACTION_NAMES["fist"] == "主观 7/10 稳定握拳"
+    assert ACTION_NAMES["forward_index_pinch"] == "手臂向前摆动 + 拇指与食指捏合"
+    assert ACTION_NAMES["still_fist"] == "手臂静止 + 主观 7/10 稳定握拳"
+    assert "still_index_pinch" not in NAVIGATION_DELTAS
+    assert NAVIGATION_DELTAS["up_open_hand"] == (0, -1)
     app.processEvents()
 
 

@@ -1,0 +1,39 @@
+{
+  "name": "jilv_music_21_v1",
+  "labels": [
+    "still_index_pinch",
+    "still_fist",
+    "still_open_hand",
+    "up_index_pinch",
+    "up_fist",
+    "up_open_hand",
+    "down_index_pinch",
+    "down_fist",
+    "down_open_hand",
+    "left_index_pinch",
+    "left_fist",
+    "left_open_hand",
+    "right_index_pinch",
+    "right_fist",
+    "right_open_hand",
+    "forward_index_pinch",
+    "forward_fist",
+    "forward_open_hand",
+    "backward_index_pinch",
+    "backward_fist",
+    "backward_open_hand"
+  ],
+  "trials_per_class": 3,
+  "trials_per_label": {
+    "still_index_pinch": 18,
+    "still_fist": 18,
+    "still_open_hand": 18
+  },
+  "countdown_sec": 2.0,
+  "prompt_duration_sec": 1.5,
+  "rest_min_sec": 0.8,
+  "rest_max_sec": 1.2,
+  "randomize": true,
+  "posture_name": "静止与运动组合采集",
+  "posture_instruction": "本轮包含静止与运动两组等量样本，动作提示顺序随机。静止标签要求手臂和手腕不移动；运动标签要求按提示向上、下、左、右、前或后摆动手臂，并在摆动过程中完成食指捏合、握拳或自然张开。方向以佩戴者身体为基准，每次动作后回到中立放松位置"
+}

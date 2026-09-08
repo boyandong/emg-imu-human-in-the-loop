@@ -61,22 +61,27 @@ def test_posture_protocol_is_additive_and_keeps_null_schedule_unchanged() -> Non
     assert PromptEngine(seed=7).prepare(posture) == PromptEngine(seed=7).prepare(base)
 
 
-def test_jilv_music_protocol_matches_runtime_gesture_ids() -> None:
+def test_jilv_music_protocol_balances_stationary_and_moving_combinations() -> None:
     protocol_dir = Path(__file__).parents[1] / "protocols"
-    config = ProtocolLoader(protocol_dir).load("jilv_music_9")
-    assert config.name == "jilv_music_9_v3"
+    config = ProtocolLoader(protocol_dir).load("jilv_music_21")
+    assert config.name == "jilv_music_21_v1"
     assert config.labels == [
-        "open_hand", "fist", "forward", "backward", "left", "right", "up", "down",
-        "index_pinch",
+        f"{arm}_{hand}"
+        for arm in ("still", "up", "down", "left", "right", "forward", "backward")
+        for hand in ("index_pinch", "fist", "open_hand")
     ]
     sequence = PromptEngine(seed=9).prepare(config)
     assert len(sequence) == 108
     assert set(sequence) == set(config.labels)
-    assert Counter(sequence) == Counter({
-        "open_hand": 28, "fist": 28, "index_pinch": 28,
-        "forward": 4, "backward": 4, "left": 4,
-        "right": 4, "up": 4, "down": 4,
-    })
+    counts = Counter(sequence)
+    assert all(counts[label] == 18 for label in config.labels[:3])
+    assert all(counts[label] == 3 for label in config.labels[3:])
+    assert sum(counts[label] for label in config.labels[:3]) == 54
+    assert sum(counts[label] for label in config.labels[3:]) == 54
+    assert config.randomize is True
+    assert sequence != [
+        label for label in config.labels for _ in range(config.trial_count(label))
+    ]
 
 
 def test_existing_session_id_advances_without_overwrite(tmp_path: Path) -> None:

@@ -37,6 +37,31 @@ ACTION_NAMES = {
     "null_typing": "自然连续打字",
 }
 
+ARM_STATE_NAMES = {
+    "still": "手臂静止",
+    "up": "手臂向上摆动",
+    "down": "手臂向下摆动",
+    "left": "手臂向左摆动",
+    "right": "手臂向右摆动",
+    "forward": "手臂向前摆动",
+    "backward": "手臂向后摆动",
+}
+HAND_ACTION_NAMES = {
+    "index_pinch": "拇指与食指捏合",
+    "fist": "主观 7/10 稳定握拳",
+    "open_hand": "自然张开/放松",
+}
+MUSIC_CONTROL_LABELS = {
+    f"{arm_state}_{hand_action}"
+    for arm_state in ARM_STATE_NAMES
+    for hand_action in HAND_ACTION_NAMES
+}
+ACTION_NAMES.update({
+    f"{arm_state}_{hand_action}": f"{arm_name} + {HAND_ACTION_NAMES[hand_action]}"
+    for arm_state, arm_name in ARM_STATE_NAMES.items()
+    for hand_action in HAND_ACTION_NAMES
+})
+
 NAVIGATION_DELTAS = {
     "thumb_swipe_left": (-1, 0), "left_swipe": (-1, 0),
     "thumb_swipe_right": (1, 0), "right_swipe": (1, 0),
@@ -46,10 +71,13 @@ NAVIGATION_DELTAS = {
     "left": (-1, 0), "right": (1, 0),
     "up": (0, -1), "down": (0, 1),
 }
+for _arm_state in ("up", "down", "left", "right", "forward", "backward"):
+    for _hand_action in HAND_ACTION_NAMES:
+        NAVIGATION_DELTAS[f"{_arm_state}_{_hand_action}"] = NAVIGATION_DELTAS[_arm_state]
 ACTIVATION_ACTIONS = {
     "thumb_tap", "index_hold", "middle_hold", "index_pinch", "middle_pinch", "rest",
     "fist", "open_hand",
-}
+} | {f"still_{hand_action}" for hand_action in HAND_ACTION_NAMES}
 DISCRETE_ACTIONS = set(NAVIGATION_DELTAS) | ACTIVATION_ACTIONS
 ACTION_SYMBOLS = {
     "thumb_swipe_left": "←", "left_swipe": "←",
@@ -62,6 +90,10 @@ ACTION_SYMBOLS = {
     "index_pinch": "●", "middle_pinch": "●", "rest": "○",
     "fist": "●", "open_hand": "○",
 }
+ACTION_SYMBOLS.update({
+    label: ("○" if label.endswith("_open_hand") else "●")
+    for label in MUSIC_CONTROL_LABELS
+})
 ACTIVATION_COLORS = {
     "thumb_tap": QColor("#9bea55"),
     "index_hold": QColor("#ef1741"),
@@ -72,6 +104,11 @@ ACTIVATION_COLORS = {
     "rest": QColor("#98a2b3"), "open_hand": QColor("#98a2b3"),
     "fist": QColor("#f59e0b"),
 }
+ACTIVATION_COLORS.update({
+    "still_index_pinch": QColor("#ef1741"),
+    "still_fist": QColor("#f59e0b"),
+    "still_open_hand": QColor("#98a2b3"),
+})
 FINGER_TEXT_COLORS = {
     "thumb": QColor("#2563eb"),
     "index": QColor("#e11d48"),
@@ -79,13 +116,9 @@ FINGER_TEXT_COLORS = {
     "neutral": QColor("#172033"),
 }
 
-MUSIC_CONTROL_LABELS = {
-    "open_hand", "fist", "forward", "backward", "left", "right", "up", "down",
-    "index_pinch",
-}
-
-
 def finger_tone(action: str) -> str:
+    if action.endswith("_index_pinch"):
+        return "index"
     for finger in ("thumb", "index", "middle"):
         if action.startswith(f"{finger}_"):
             return finger
@@ -710,7 +743,11 @@ class ParticipantPromptWindow(QWidget):
                 self._set_status(True, True)
                 return
             is_activation = label in ACTIVATION_ACTIONS
-            if label in {"rest", "open_hand"}:
+            if label in MUSIC_CONTROL_LABELS:
+                arm_state, hand_action = label.split("_", 1)
+                phase_name = "静止手部动作" if arm_state == "still" else "手臂与手部组合动作"
+                self.state_label.setText(f"{phase_name} · {HAND_ACTION_NAMES[hand_action]}")
+            elif label in {"rest", "open_hand"}:
                 self.state_label.setText("放松基线")
             elif label == "fist":
                 self.state_label.setText("7/10 握拳参考")

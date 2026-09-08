@@ -15,7 +15,7 @@ from emgforce.experiment.prompt_engine import PromptState
 from emgforce.experiment.protocol_loader import ProtocolLoader
 from emgforce.quality.monitor import SignalQualityMonitor
 
-from .prompt_window import ParticipantPromptWindow
+from .prompt_window import ACTION_NAMES, ParticipantPromptWindow
 
 
 SESSIONS_PER_PARTICIPANT = 11
@@ -171,7 +171,7 @@ class ExperimentPage(QWidget):
         try: self.protocols = self.loader.discover()
         except Exception as exc: QMessageBox.warning(self, "实验协议错误", str(exc)); self.protocols = {}
         self.protocol.clear(); self.protocol.addItems(self.protocols)
-        default_protocol = "jilv_music_9_v3"
+        default_protocol = "jilv_music_21_v1"
         if default_protocol in self.protocols:
             self.protocol.setCurrentText(default_protocol)
 
@@ -287,7 +287,7 @@ class ExperimentPage(QWidget):
 
     @staticmethod
     def _label_name(label: str) -> str:
-        return {
+        return ACTION_NAMES.get(label, {
             "click": "点击", "left_swipe": "向左滑动", "right_swipe": "向右滑动",
             "rest": "静息", "thumb_up": "拇指向上", "thumb_down": "拇指向下",
             "index_pinch": "食指捏合", "middle_pinch": "中指捏合",
@@ -299,4 +299,4 @@ class ExperimentPage(QWidget):
             "null_finger_snap": "弹指（非目标动作）",
             "null_finger_flick": "快速甩动手指（非目标动作）",
             "null_typing": "自然连续打字",
-        }.get(label, label)
+        }.get(label, label))
