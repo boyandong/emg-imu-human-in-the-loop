@@ -18,11 +18,13 @@ class TrialManager:
         self.current: TrialInfo | None = None
 
     def start(self, trial_id: int, label: str, stage_id: int,
-              donning_id: int, sample_index: int) -> TrialInfo:
+              donning_id: int, sample_index: int,
+              relative_onset_offset_ms: int = 0) -> TrialInfo:
         if self.current is not None:
             raise RuntimeError("已有尚未结束的试次")
         self.current = TrialInfo(trial_id, label, stage_id, donning_id,
-                                 trial_start_sample=sample_index)
+                                 trial_start_sample=sample_index,
+                                 relative_onset_offset_ms=relative_onset_offset_ms)
         return self.current
 
     def set_index(self, field: str, sample_index: int) -> None:

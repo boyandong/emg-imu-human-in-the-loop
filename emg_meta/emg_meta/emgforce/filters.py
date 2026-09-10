@@ -152,11 +152,13 @@ class EmgDisplayFilterBank:
     """多通道 EMG 实时显示预处理滤波器组。
 
     每个通道都有互不共享的滤波状态，处理顺序为：
-    动态均值消除 -> 50 Hz 陷波 -> 100 Hz 陷波 -> 20 Hz 高通
-    -> 850 Hz 低通 -> 900 Hz 一阶柔和低通。
+    动态均值消除 -> 20 Hz 高通 -> 90 Hz 低通。
+
+    原始数据始终不滤波保存。50 Hz 陷波不默认启用，只有质量检查确认
+    存在明显市电污染时才应开启，避免无条件破坏有效频谱。
     """
 
-    def __init__(self, channels: int = 8, sample_rate: float = 2000.0) -> None:
+    def __init__(self, channels: int = 8, sample_rate: float = 250.0) -> None:
         self.channels = channels
         self.sample_rate = sample_rate
         # 每个通道分别创建一套滤波器，避免通道间的历史状态互相影响。
@@ -167,17 +169,9 @@ class EmgDisplayFilterBank:
         return (
             # 1. 去除缓慢变化的基线和直流偏置。
             RunningMeanRemoval(self.sample_rate, time_constant_s=1.0),
-            # 2. 抑制市电基频 50 Hz 及其一阶谐波 100 Hz。
-            notch(self.sample_rate, 50.0, q=30.0),
-            notch(self.sample_rate, 100.0, q=30.0),
-            notch(self.sample_rate, 150.0, q=30.0),
-            notch(self.sample_rate, 200.0, q=30.0),
-            notch(self.sample_rate, 250.0, q=30.0),
-            # 3. 构成 20~850 Hz 的二阶 Butterworth 带通。
+            # 2. 构成适合 250 Hz 采样（Nyquist 125 Hz）的 20~90 Hz 带通。
             butterworth_highpass(self.sample_rate, 20.0),
-            butterworth_lowpass(self.sample_rate, 850.0),
-            # 4. 在 900 Hz 附近增加柔和滚降，进一步抑制高频噪声。
-            #FirstOrderLowPass(self.sample_rate, 900.0),
+            butterworth_lowpass(self.sample_rate, 90.0),
         )
 
     def reset(self) -> None:

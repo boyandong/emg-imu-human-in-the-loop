@@ -34,7 +34,10 @@ def test_hdf5_raw_emg_imu_events_trials_round_trip(tmp_path) -> None:
         assert h5["streams/imu/gyro"].shape == (1, 3)
         assert h5["events"][0]["note"].decode() == "提示"
         assert h5["trials"].shape == (1,)
-        assert h5["meta"].attrs["schema_version"] == "2.1"
+        assert h5["meta"].attrs["schema_version"] == "3.0"
+        assert "sample_time_ns" in h5["streams/emg"]
+        assert "pc_received_ns" in h5["streams/emg"]
+        assert "packet_audit" in h5
     reader = Hdf5SessionReader(path)
     assert reader.validate() == []
     assert reader.summary()["emg_samples"] == 5

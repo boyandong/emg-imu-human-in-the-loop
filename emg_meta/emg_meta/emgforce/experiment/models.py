@@ -25,6 +25,14 @@ class SessionInfo:
     stage_id: int = 1
     stage_name: str = "default"
     dataset_split: str = "train"
+    quality_report_json: str = ""
+    donning_notes: str = ""
+    tested_arm: str = ""
+    channel1_orientation: str = ""
+    anatomical_marker: str = ""
+    strap_setting: str = ""
+    stabilization_sec: int = 60
+    physical_condition: str = ""
 
     def validate(self) -> None:
         if not self.session_id.strip():
@@ -56,6 +64,7 @@ class ProtocolConfig:
     continuous_null_blocks: list[dict[str, Any]] = field(default_factory=list)
     posture_name: str = ""
     posture_instruction: str = ""
+    onset_offsets_ms: list[int] = field(default_factory=list)
 
     def validate(self) -> None:
         if not self.name.strip() or not self.labels:
@@ -109,6 +118,8 @@ class ProtocolConfig:
             raise ValueError("null 操作说明不能为空")
         if self.posture_instruction.strip() and not self.posture_name.strip():
             raise ValueError("配置姿态说明时必须同时配置 posture_name")
+        if any(offset not in {-200, 0, 200} for offset in self.onset_offsets_ms):
+            raise ValueError("动作相对起始偏移只允许 -200、0 或 200 ms")
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -181,3 +192,4 @@ class TrialInfo:
     valid: bool = True
     reject_reason: str = ""
     note: str = ""
+    relative_onset_offset_ms: int = 0

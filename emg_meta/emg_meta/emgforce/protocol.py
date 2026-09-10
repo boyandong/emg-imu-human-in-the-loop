@@ -32,6 +32,7 @@ class Packet:
     previous_sequence: int | None = None
     lost_before: int = 0
     duplicate: bool = False
+    out_of_order: bool = False
 
 
 @dataclass(slots=True)
@@ -42,6 +43,7 @@ class ParserStats:
     imu_frames: int = 0
     lost_frames: int = 0
     duplicate_frames: int = 0
+    out_of_order_frames: int = 0
     discarded_bytes: int = 0
 
 
@@ -88,9 +90,10 @@ class FrameParser:
             raw = bytes(self._buffer[:FRAME_SIZE])
             del self._buffer[:FRAME_SIZE]
             packet = self._decode(raw, stamp)
-            previous, lost, duplicate = self._update_sequence(packet.sequence)
+            previous, lost, duplicate, out_of_order = self._update_sequence(packet.sequence)
             packet = replace(packet, previous_sequence=previous,
-                             lost_before=lost, duplicate=duplicate)
+                             lost_before=lost, duplicate=duplicate,
+                             out_of_order=out_of_order)
             self.stats.frames += 1
             if packet.packet_type == "EMG":
                 self.stats.emg_frames += 1
@@ -99,24 +102,24 @@ class FrameParser:
             packets.append(packet)
         return packets
 
-    def _update_sequence(self, sequence: int) -> tuple[int | None, int, bool]:
+    def _update_sequence(self, sequence: int) -> tuple[int | None, int, bool, bool]:
         if self._last_sequence is None:
             self._last_sequence = sequence
-            return None, 0, False
+            return None, 0, False, False
         previous = self._last_sequence
         delta = (sequence - self._last_sequence) & 0xFF
         if delta == 0:
             self.stats.duplicate_frames += 1
-            return previous, 0, True
+            return previous, 0, True, False
         elif delta <= 128:
             lost = delta - 1
             self.stats.lost_frames += lost
             self._last_sequence = sequence
-            return previous, lost, False
+            return previous, lost, False, False
         else:
             # Late/out-of-order packets do not move the continuity reference.
-            self.stats.duplicate_frames += 1
-            return previous, 0, True
+            self.stats.out_of_order_frames += 1
+            return previous, 0, False, True
 
     @staticmethod
     def _decode(raw: bytes, received_ns: int) -> Packet:

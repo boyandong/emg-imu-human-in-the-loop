@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 import re
+import json
 
 import numpy as np
 from PySide6.QtCore import Qt, Signal
@@ -33,6 +34,8 @@ class ExperimentPage(QWidget):
         self.loader = ProtocolLoader(protocol_dir); self.protocols = {}
         self.data_root = Path(data_root) if data_root is not None else Path(protocol_dir).parent / "data"
         self._was_running = False
+        self._quality_approved = False
+        self._quality_report: dict = {}
 
         root = QVBoxLayout(self); root.setContentsMargins(0, 0, 0, 0)
         scroll = QScrollArea(); scroll.setObjectName("experimentScroll")
@@ -59,7 +62,7 @@ class ExperimentPage(QWidget):
 
         session_box, session = self._make_card("实验设置", "确定场次、数据集、流程和当前实验条件", grid=True)
         self.session_id = QLineEdit("S01"); self.session_id.setReadOnly(True)
-        self.experiment_name = QLineEdit("肌律九状态数据集_v1")
+        self.experiment_name = QLineEdit("肌律二十八组合数据集_v1")
         self.protocol = QComboBox(); self.stage_name = QLineEdit("默认")
         self.dataset_split = QComboBox()
         for text, value in (("自动（S01–S08 训练，S09–S10 验证，S11 测试）", "auto"),
@@ -77,10 +80,22 @@ class ExperimentPage(QWidget):
         self.session_plan_status = QLabel("输入受试者编号后自动安排场次 · 每人共 11 轮")
         self.session_plan_status.setObjectName("muted")
         session.addWidget(self.session_plan_status, 5, 0, 1, 2)
+        self.donning_notes = QLineEdit()
+        self.donning_notes.setPlaceholderText("佩戴编号、局部参考照片文件名或其他说明")
+        self.tested_arm = QComboBox(); self.tested_arm.addItem("右臂", "right"); self.tested_arm.addItem("左臂", "left")
+        self.channel1_orientation = QLineEdit(); self.channel1_orientation.setPlaceholderText("例如：通道1朝拇指侧/标记线朝上")
+        self.anatomical_marker = QLineEdit(); self.anatomical_marker.setPlaceholderText("例如：腕横纹上方 6 cm")
+        self.strap_setting = QLineEdit(); self.strap_setting.setPlaceholderText("例如：刻度3，松紧 2/5")
+        self.physical_condition = QLineEdit(); self.physical_condition.setPlaceholderText("近期上肢用力、湿皮肤、疲劳；没有则填“无”")
+        for row, (title, widget) in enumerate((
+                ("测试手臂 *", self.tested_arm), ("通道1方向 *", self.channel1_orientation),
+                ("解剖高度/起点 *", self.anatomical_marker), ("绑带刻度与松紧 *", self.strap_setting),
+                ("身体与皮肤状态 *", self.physical_condition), ("佩戴备注", self.donning_notes)), start=6):
+            self._add_field(session, row, title, widget)
         left_column.addWidget(participant_box); left_column.addWidget(session_box)
         self.reload_protocols()
 
-        check_box, check = self._make_card("信号质量检查", "分析最近 5 秒肌电数据，仅用于提示电极接触质量")
+        check_box, check = self._make_card("采集前质量门控", "先静息采集 8 秒；检查饱和、断线、50 Hz 干扰和相邻通道异常")
         self.signal_result = QLabel("尚未检查"); self.signal_result.setObjectName("signalResult")
         self.signal_result.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.quality_grid_widget = QWidget(); quality_grid = QGridLayout(self.quality_grid_widget)
@@ -110,7 +125,7 @@ class ExperimentPage(QWidget):
 
         panel, panel_layout = self._make_card(
             "音乐控制动作采集",
-            "每轮 108 次：六方向各 4 次；张手、握拳、食指捏合各 28 次")
+            "每轮 144 次：28 种手臂×手部组合随机出现；保留 ±200 ms 起始偏移")
         self.prompt_panel = ParticipantPromptWindow(self)
         panel_layout.addWidget(self.prompt_panel)
 
@@ -171,16 +186,20 @@ class ExperimentPage(QWidget):
         try: self.protocols = self.loader.discover()
         except Exception as exc: QMessageBox.warning(self, "实验协议错误", str(exc)); self.protocols = {}
         self.protocol.clear(); self.protocol.addItems(self.protocols)
-        default_protocol = "jilv_music_21_v1"
+        default_protocol = "jilv_music_28_v1"
         if default_protocol in self.protocols:
             self.protocol.setCurrentText(default_protocol)
 
     def run_signal_check(self, samples: np.ndarray) -> bool:
-        if len(samples) < 100:
+        if len(samples) < 8 * 250:
             self.quality_grid_widget.hide(); self.signal_result.show()
-            self.signal_result.setText("无数据：请先连接设备并等待至少 0.05 秒"); return False
-        result = SignalQualityMonitor().calculate(samples)
+            self.signal_result.setText("数据不足：请保持自然放松并连续等待至少 8 秒"); return False
+        monitor = SignalQualityMonitor()
+        result = monitor.calculate(samples)
+        self._quality_report = monitor.report(samples)
         passed = all(item.status == "GOOD" for item in result)
+        passed = passed and bool(self._quality_report.get("passed"))
+        self._quality_approved = passed
         status_names = {"GOOD": "良好", "WARNING": "警告", "NO DATA": "无数据"}
         card_names = {"GOOD": "qualityGood", "WARNING": "qualityWarning", "NO DATA": "qualityBad"}
         self.signal_result.hide(); self.quality_grid_widget.show()
@@ -192,8 +211,17 @@ class ExperimentPage(QWidget):
         return passed
 
     def _emit_start(self) -> None:
+        if not self._quality_approved:
+            QMessageBox.warning(self, "质量门控未通过",
+                                "请先连接设备，静息至少 8 秒并执行信号检查；如确认设备状态可用，可点击“忽略警告并继续”。")
+            return
         try:
             participant_id = self.participant_id.text().strip()
+            required = (self.channel1_orientation.text().strip(),
+                        self.anatomical_marker.text().strip(), self.strap_setting.text().strip(),
+                        self.physical_condition.text().strip())
+            if not all(required):
+                raise ValueError("请完整填写通道1方向、解剖高度、绑带松紧和身体/皮肤状态")
             participant = ParticipantInfo(participant_id, str(self.dominant.currentData() or ""))
             participant.validate()
             session_id = self._available_session_id(participant_id)
@@ -204,6 +232,14 @@ class ExperimentPage(QWidget):
                 self.protocol.currentText(),
                 stage_name=self.stage_name.text().strip() or "default",
                 dataset_split=str(self.dataset_split.currentData() or "auto"),
+                quality_report_json=json.dumps(self._quality_report, ensure_ascii=False),
+                donning_notes=self.donning_notes.text().strip(),
+                tested_arm=str(self.tested_arm.currentData()),
+                channel1_orientation=self.channel1_orientation.text().strip(),
+                anatomical_marker=self.anatomical_marker.text().strip(),
+                strap_setting=self.strap_setting.text().strip(),
+                stabilization_sec=60,
+                physical_condition=self.physical_condition.text().strip(),
             )
             protocol = self.loader.load(self.protocols[self.protocol.currentText()])
             info.validate()
@@ -291,7 +327,7 @@ class ExperimentPage(QWidget):
             "click": "点击", "left_swipe": "向左滑动", "right_swipe": "向右滑动",
             "rest": "静息", "thumb_up": "拇指向上", "thumb_down": "拇指向下",
             "index_pinch": "食指捏合", "middle_pinch": "中指捏合",
-            "fist": "主观 7/10 稳定握拳", "open_hand": "自然松手（不要用力撑开）",
+            "fist": "舒适力度稳定握拳", "open_hand": "主动伸展张手（不是自然放松）",
             "thumb_tap": "拇指轻点", "thumb_swipe_left": "拇指向左滑",
             "thumb_swipe_right": "拇指向右滑", "thumb_swipe_up": "拇指向上滑",
             "thumb_swipe_down": "拇指向下滑", "index_hold": "食指捏合并保持",

@@ -10,7 +10,7 @@ from pathlib import Path
 from PySide6.QtCore import QObject, Signal
 
 from emgforce import __version__
-from emgforce.config import BAUDRATE, EMG_CHANNELS, SAMPLING_RATE
+from emgforce.config import BAUDRATE, EMG_CHANNELS, IMU_SAMPLING_RATE, SAMPLING_RATE
 from emgforce.controller import AcquisitionController
 from emgforce.processing.meta_corpus import resolve_dataset_split
 from emgforce.processing.meta_alignment import export_meta_aligned
@@ -76,6 +76,8 @@ class ExperimentSession(QObject):
             **asdict(participant), "session_id": info.session_id,
             "experiment_name": info.experiment_name,
             "sampling_rate": SAMPLING_RATE, "num_emg_channels": EMG_CHANNELS,
+            "emg_nominal_rate_hz": SAMPLING_RATE,
+            "imu_nominal_rate_hz": IMU_SAMPLING_RATE,
             "baudrate": BAUDRATE, "serial_port": info.serial_port,
             "software_version": __version__, "protocol_name": protocol.name,
             "dataset_split": info.dataset_split,
@@ -85,12 +87,21 @@ class ExperimentSession(QObject):
             "task": "discrete_gestures",
             "posture_name": protocol.posture_name or "unspecified",
             "posture_instruction": protocol.posture_instruction,
+            "quality_report_json": info.quality_report_json,
+            "donning_notes": info.donning_notes,
+            "tested_arm": info.tested_arm,
+            "channel1_orientation": info.channel1_orientation,
+            "anatomical_marker": info.anatomical_marker,
+            "strap_setting": info.strap_setting,
+            "stabilization_sec": info.stabilization_sec,
+            "physical_condition": info.physical_condition,
         }
         config_payload = {
             "participant": asdict(participant), "session": asdict(info),
             "protocol": protocol.to_dict(), "automatic": {
                 "start_datetime": started, "software_version": __version__,
                 "sampling_rate": SAMPLING_RATE, "num_emg_channels": EMG_CHANNELS,
+                "imu_sampling_rate": IMU_SAMPLING_RATE,
                 "baudrate": BAUDRATE,
             },
         }
@@ -131,8 +142,9 @@ class ExperimentSession(QObject):
         self._event(EventType.STAGE_END)
         self._event(EventType.DONNING_END)
         self._event(EventType.SESSION_END)
-        self.acquisition.end_recording()
         assert self.recorder is not None
+        self.recorder.update_metadata(self.acquisition.recording_summary())
+        self.acquisition.end_recording()
         self.recorder.stop()
         path = self.paths.hdf5 if self.paths else None
         if path is not None and self.paths is not None and self._uses_meta_discrete_labels():
@@ -219,7 +231,8 @@ class ExperimentSession(QObject):
             self._event(EventType.STAGE_START, note=stage_name)
             self._automatic_stage_name = stage_name
         index = self.acquisition.current_sample_index
-        self.trials.start(trial_id, label, self.stage_id, self.donning_id, index)
+        self.trials.start(trial_id, label, self.stage_id, self.donning_id, index,
+                          self.prompt.current_onset_offset_ms)
         self._event(EventType.TRIAL_START, label=label, trial_id=trial_id)
 
     def _rest_started(self, trial_id: int, label: str) -> None:

@@ -101,7 +101,7 @@ class DevicePage(QWidget):
         super().__init__(); self.setObjectName("devicePage")
         self.is_connected = False; self.highpass_enabled = False
         self._filter = EmgDisplayFilterBank(EMG_CHANNELS, SAMPLING_RATE)
-        self._qc_raw: deque[np.ndarray] = deque(maxlen=SAMPLING_RATE * 5)
+        self._qc_raw: deque[np.ndarray] = deque(maxlen=SAMPLING_RATE * 8)
         self.emg_time: deque[float] = deque(maxlen=SAMPLING_RATE * self.DEFAULT_DISPLAY_SECONDS)
         self.emg_values = [deque(maxlen=SAMPLING_RATE * self.DEFAULT_DISPLAY_SECONDS) for _ in range(8)]
         self.imu_time: deque[float] = deque(maxlen=1000 * self.DEFAULT_DISPLAY_SECONDS)
@@ -254,7 +254,7 @@ class DevicePage(QWidget):
     def _build_dashboard(self) -> QScrollArea:
         content = QWidget(); content.setObjectName("dashboard")
         layout = QVBoxLayout(content); layout.setContentsMargins(0, 0, 4, 4); layout.setSpacing(14)
-        heading = QHBoxLayout(); heading.addWidget(section_label("肌电信号 · 8 通道 · 2 kHz")); heading.addStretch()
+        heading = QHBoxLayout(); heading.addWidget(section_label(f"肌电信号 · 8 通道 · {SAMPLING_RATE} Hz")); heading.addStretch()
         hint = QLabel("固定时间窗 · 固定幅值 · 已关闭缩放与拖动"); hint.setObjectName("muted"); heading.addWidget(hint)
         layout.addLayout(heading)
         grid = QVBoxLayout(); grid.setContentsMargins(0, 0, 0, 0); grid.setSpacing(2)

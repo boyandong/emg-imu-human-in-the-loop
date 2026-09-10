@@ -9,7 +9,7 @@ from dataclasses import dataclass
 import serial
 from PySide6.QtCore import QThread, Signal
 
-from .config import BAUDRATE, SAMPLING_RATE, SERIAL_TIMEOUT_SEC
+from .config import BAUDRATE, IMU_SAMPLING_RATE, SAMPLING_RATE, SERIAL_TIMEOUT_SEC
 from .protocol import FrameParser, Packet
 
 
@@ -19,6 +19,7 @@ class AcquisitionConfig:
     baudrate: int = BAUDRATE
     simulated: bool = False
     emg_sample_rate: float = SAMPLING_RATE
+    imu_sample_rate: float = IMU_SAMPLING_RATE
 
 
 class AcquisitionWorker(QThread):
@@ -85,11 +86,13 @@ class AcquisitionWorker(QThread):
 
     def _run_simulator(self) -> None:
         sample = 0
+        imu_sample = 0
         next_tick = time.perf_counter()
         last_stats = time.monotonic()
         while not self._stop_event.is_set():
             batch: list[Packet] = []
-            for _ in range(40):
+            batch_size = 5
+            for _ in range(batch_size):
                 t = sample / self.config.emg_sample_rate
                 emg = tuple(int(
                     150 * math.sin(2 * math.pi * (18 + channel * 3) * t)
@@ -98,14 +101,18 @@ class AcquisitionWorker(QThread):
                 ) for channel in range(8))
                 batch.extend(self.parser.feed(self._make_emg_frame(emg), time.monotonic_ns()))
                 sample += 1
-                if sample % 20 == 0:
-                    batch.extend(self.parser.feed(self._make_imu_frame(t), time.monotonic_ns()))
+                expected_imu = int(sample * self.config.imu_sample_rate / self.config.emg_sample_rate)
+                while imu_sample < expected_imu:
+                    batch.extend(self.parser.feed(
+                        self._make_imu_frame(imu_sample / self.config.imu_sample_rate),
+                        time.monotonic_ns()))
+                    imu_sample += 1
             self.packets_ready.emit(batch)
             now = time.monotonic()
             if now - last_stats >= 0.5:
                 self.stats_ready.emit(self.parser.stats)
                 last_stats = now
-            next_tick += 0.02
+            next_tick += batch_size / self.config.emg_sample_rate
             self._stop_event.wait(max(0.0, next_tick - time.perf_counter()))
             if next_tick < time.perf_counter() - 0.02:
                 next_tick = time.perf_counter()

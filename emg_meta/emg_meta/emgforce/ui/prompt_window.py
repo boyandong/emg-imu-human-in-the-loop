@@ -25,7 +25,8 @@ ACTION_NAMES = {
     "left": "手臂向左", "right": "手臂向右",
     "up": "手臂向上", "down": "手臂向下",
     "index_pinch": "拇指与食指捏合", "middle_pinch": "拇指与中指捏合（保留）",
-    "fist": "主观 7/10 稳定握拳", "open_hand": "自然松手（不要用力撑开）",
+    "fist": "舒适力度稳定握拳", "open_hand": "主动伸展张手（不是自然放松）",
+    "neutral": "自然放松（手指不主动用力）",
     "thumb_tap": "拇指轻点", "thumb_swipe_left": "拇指向左滑",
     "thumb_swipe_right": "拇指向右滑", "thumb_swipe_up": "拇指向上滑",
     "thumb_swipe_down": "拇指向下滑", "index_hold": "食指保持",
@@ -47,9 +48,10 @@ ARM_STATE_NAMES = {
     "backward": "手臂向后摆动",
 }
 HAND_ACTION_NAMES = {
+    "neutral": "自然放松（无手指动作）",
     "index_pinch": "拇指与食指捏合",
-    "fist": "主观 7/10 稳定握拳",
-    "open_hand": "自然张开/放松",
+    "fist": "舒适力度稳定握拳",
+    "open_hand": "主动伸展张手",
 }
 MUSIC_CONTROL_LABELS = {
     f"{arm_state}_{hand_action}"
@@ -76,7 +78,7 @@ for _arm_state in ("up", "down", "left", "right", "forward", "backward"):
         NAVIGATION_DELTAS[f"{_arm_state}_{_hand_action}"] = NAVIGATION_DELTAS[_arm_state]
 ACTIVATION_ACTIONS = {
     "thumb_tap", "index_hold", "middle_hold", "index_pinch", "middle_pinch", "rest",
-    "fist", "open_hand",
+    "fist", "open_hand", "neutral",
 } | {f"still_{hand_action}" for hand_action in HAND_ACTION_NAMES}
 DISCRETE_ACTIONS = set(NAVIGATION_DELTAS) | ACTIVATION_ACTIONS
 ACTION_SYMBOLS = {

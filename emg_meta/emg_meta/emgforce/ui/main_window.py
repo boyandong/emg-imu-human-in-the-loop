@@ -6,7 +6,7 @@ from pathlib import Path
 from PySide6.QtGui import QCloseEvent
 from PySide6.QtWidgets import QMainWindow, QMessageBox, QTabWidget, QVBoxLayout, QWidget
 
-from emgforce.config import BAUDRATE, SOFTWARE_NAME
+from emgforce.config import BAUDRATE, SAMPLING_RATE, SOFTWARE_NAME
 from emgforce.controller import AcquisitionController
 from emgforce.experiment.session import ExperimentSession
 from emgforce.music_control import MusicControlBridge
@@ -42,7 +42,7 @@ class MainWindow(QMainWindow):
         root_layout = QVBoxLayout(root); root_layout.setContentsMargins(0, 0, 0, 0); root_layout.setSpacing(0)
         root_layout.addWidget(self.device_page.header); root_layout.addWidget(self.main_tabs, 1)
         self.setCentralWidget(root)
-        self.statusBar().showMessage("● 未连接 | 2000 Hz | 8 通道 | 丢包 0.0%")
+        self.statusBar().showMessage(f"● 未连接 | {SAMPLING_RATE} Hz | 8 通道 | 丢包 0.0%")
         self._wire()
         LOGGER.info("app start")
 
@@ -58,8 +58,8 @@ class MainWindow(QMainWindow):
         self.acquisition.statistics_ready.connect(self.device_page.update_stats); self.acquisition.packet_loss.connect(self.session.packet_loss)
         self.acquisition.recording_error.connect(self._recorder_error)
         page = self.experiment_page
-        page.signal_check.clicked.connect(lambda: page.run_signal_check(self.device_page.recent_raw(5)))
-        page.continue_anyway.clicked.connect(lambda: page.signal_result.setText("已由操作人员确认：忽略警告并继续"))
+        page.signal_check.clicked.connect(lambda: page.run_signal_check(self.device_page.recent_raw(8)))
+        page.continue_anyway.clicked.connect(self._approve_quality_override)
         page.start_requested.connect(self.start_session); page.stop_requested.connect(self.stop_session)
         page.pause_requested.connect(self.session.prompt.pause); page.resume_requested.connect(self.session.prompt.resume)
         page.skip_requested.connect(self.session.prompt.skip); page.repeat_requested.connect(self.session.prompt.repeat)
@@ -86,7 +86,7 @@ class MainWindow(QMainWindow):
         reconnect = bool(self.connected_port); self.connected_port = name; self.device_page.set_connected(name, True)
         self.realtime_inference_page.set_connected(True)
         self.music_control.set_connected(True)
-        self.statusBar().showMessage(f"● 已连接 | {name} | 2000 Hz | 8 通道")
+        self.statusBar().showMessage(f"● 已连接 | {name} | {SAMPLING_RATE} Hz | 8 通道")
         LOGGER.info("serial connect: %s", name)
         if reconnect or self.session.active: self.session.device_reconnected()
 
@@ -112,6 +112,13 @@ class MainWindow(QMainWindow):
         self.experiment_page.set_running(True); self.experiment_page.update_identity(participant.participant_id, info.session_id, protocol.name, 1, info.stage_id)
         self.device_page.set_recording(True)
         self.statusBar().showMessage(f"● 正在记录 | {paths.hdf5}")
+
+    def _approve_quality_override(self) -> None:
+        self.experiment_page._quality_approved = True
+        self.experiment_page._quality_report.setdefault("passed", False)
+        self.experiment_page._quality_report["operator_override"] = True
+        self.experiment_page.signal_result.show()
+        self.experiment_page.signal_result.setText("已由操作人员确认：忽略警告并继续（将写入质量报告）")
 
     def stop_session(self) -> None:
         try: self.session.stop()

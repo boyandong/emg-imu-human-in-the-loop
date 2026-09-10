@@ -31,3 +31,12 @@ def test_duplicate_is_annotated_and_rollover_is_not_loss() -> None:
     duplicate = parser.feed(emg_frame(0, (0,) * 8))[0]
     assert rollover.lost_before == 0
     assert duplicate.duplicate
+
+
+def test_late_packet_is_counted_separately_from_duplicate() -> None:
+    parser = FrameParser()
+    parser.feed(emg_frame(10, (0,) * 8))
+    parser.feed(emg_frame(12, (0,) * 8))
+    late = parser.feed(emg_frame(11, (0,) * 8))[0]
+    assert late.out_of_order and not late.duplicate
+    assert parser.stats.out_of_order_frames == 1

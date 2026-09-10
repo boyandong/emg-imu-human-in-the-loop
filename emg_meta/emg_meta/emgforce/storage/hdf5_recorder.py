@@ -61,19 +61,32 @@ class Hdf5Recorder:
         self.active = True
 
     def enqueue_emg(self, raw: np.ndarray, sample_index: np.ndarray,
-                    packet_seq: np.ndarray) -> None:
+                    packet_seq: np.ndarray, pc_received_ns: np.ndarray | None = None,
+                    sample_time_ns: np.ndarray | None = None) -> None:
+        count = len(raw)
+        pc_received_ns = (np.full(count, -1, np.int64) if pc_received_ns is None
+                          else np.asarray(pc_received_ns, dtype=np.int64))
+        sample_time_ns = (np.full(count, -1, np.int64) if sample_time_ns is None
+                          else np.asarray(sample_time_ns, dtype=np.int64))
         self._put("emg", (
             np.asarray(raw, dtype=np.int32).copy(),
             np.asarray(sample_index, dtype=np.int64).copy(),
             np.asarray(packet_seq, dtype=np.uint8).copy(),
+            pc_received_ns.copy(), sample_time_ns.copy(),
         ))
 
     def enqueue_imu(self, gyro: np.ndarray, accel: np.ndarray,
                     pc_monotonic_ns: np.ndarray, packet_seq: np.ndarray,
-                    emg_sample_index: np.ndarray) -> None:
+                    emg_sample_index: np.ndarray,
+                    sample_time_ns: np.ndarray | None = None) -> None:
+        sample_time_ns = (np.asarray(pc_monotonic_ns, dtype=np.int64)
+                          if sample_time_ns is None else np.asarray(sample_time_ns, dtype=np.int64))
         self._put("imu", tuple(np.asarray(value).copy() for value in (
-            gyro, accel, pc_monotonic_ns, packet_seq, emg_sample_index
+            gyro, accel, pc_monotonic_ns, packet_seq, emg_sample_index, sample_time_ns
         )))
+
+    def update_metadata(self, values: dict[str, Any]) -> None:
+        self._put("metadata", dict(values))
 
     def enqueue_event(self, event: ExperimentEvent) -> None:
         self._put("event", event)
@@ -83,6 +96,9 @@ class Hdf5Recorder:
 
     def enqueue_cue_event(self, event: CueEvent) -> None:
         self._put("cue_event", event)
+
+    def enqueue_packet_audit(self, rows: np.ndarray) -> None:
+        self._put("packet_audit", np.asarray(rows).copy())
 
     def stop(self, timeout: float = 15.0) -> None:
         if self._thread is None:
@@ -126,6 +142,11 @@ class Hdf5Recorder:
                     self._append_trial(datasets["trials"], payload)
                 elif kind == "cue_event":
                     self._append_cue_event(datasets["cue_events"], payload)
+                elif kind == "metadata":
+                    for key, value in payload.items():
+                        handle["meta"].attrs[key] = value
+                elif kind == "packet_audit":
+                    self._append(datasets["packet_audit"], payload)
                 elif kind == "stop":
                     if emg_buffer:
                         self._flush_emg(datasets, emg_buffer)
@@ -148,7 +169,7 @@ class Hdf5Recorder:
         meta = handle.create_group("meta")
         for key, value in metadata.items():
             meta.attrs[key] = "" if value is None else value
-        meta.attrs["schema_version"] = "2.1"
+        meta.attrs["schema_version"] = "3.0"
         meta.attrs["label_alignment_status"] = "raw_cues_only"
         streams = handle.create_group("streams")
         emg = streams.create_group("emg")
@@ -160,6 +181,10 @@ class Hdf5Recorder:
                 dtype="i8", chunks=(4000,)),
             "emg_seq": emg.create_dataset("packet_seq", (0,), maxshape=(None,),
                 dtype="u1", chunks=(4000,)),
+            "emg_received_ns": emg.create_dataset("pc_received_ns", (0,), maxshape=(None,),
+                dtype="i8", chunks=(4000,)),
+            "emg_time_ns": emg.create_dataset("sample_time_ns", (0,), maxshape=(None,),
+                dtype="i8", chunks=(4000,)),
             "gyro": imu.create_dataset("gyro", (0, 3), maxshape=(None, 3),
                 dtype="f4", chunks=(1000, 3)),
             "accel": imu.create_dataset("accel", (0, 3), maxshape=(None, 3),
@@ -169,6 +194,8 @@ class Hdf5Recorder:
             "imu_seq": imu.create_dataset("packet_seq", (0,), maxshape=(None,),
                 dtype="u1", chunks=(2000,)),
             "imu_emg_index": imu.create_dataset("emg_sample_index", (0,), maxshape=(None,),
+                dtype="i8", chunks=(2000,)),
+            "imu_time_ns": imu.create_dataset("sample_time_ns", (0,), maxshape=(None,),
                 dtype="i8", chunks=(2000,)),
         }
         string = h5py.string_dtype("utf-8")
@@ -184,6 +211,7 @@ class Hdf5Recorder:
             ("rest_start_sample", "i8"), ("prompt_start_sample", "i8"),
             ("prompt_end_sample", "i8"), ("trial_end_sample", "i8"),
             ("valid", "?"), ("reject_reason", string), ("note", string),
+            ("relative_onset_offset_ms", "i4"),
         ])
         result["events"] = handle.create_dataset("events", (0,), maxshape=(None,),
                                                   dtype=event_dtype, chunks=(256,))
@@ -198,16 +226,26 @@ class Hdf5Recorder:
             "cue_events", (0,), maxshape=(None,), dtype=gesture_dtype, chunks=(128,))
         result["cue_events"].attrs["time_reference"] = "session_relative_seconds"
         result["cue_events"].attrs["semantics"] = "ui_action_cue_not_movement_onset"
+        audit_dtype = np.dtype([
+            ("packet_type", "u1"), ("packet_seq", "u1"),
+            ("pc_received_ns", "i8"), ("lost_before", "i4"),
+            ("duplicate", "?"), ("out_of_order", "?"),
+        ])
+        result["packet_audit"] = handle.create_dataset(
+            "packet_audit", (0,), maxshape=(None,), dtype=audit_dtype, chunks=(1000,))
+        result["packet_audit"].attrs["packet_type_codes"] = "1=EMG,2=IMU"
         return result
 
     def _flush_emg(self, d: dict[str, Any], blocks: list[tuple[np.ndarray, ...]]) -> None:
-        values = [np.concatenate([block[i] for block in blocks], axis=0) for i in range(3)]
-        for key, value in zip(("emg_raw", "emg_index", "emg_seq"), values):
+        values = [np.concatenate([block[i] for block in blocks], axis=0) for i in range(5)]
+        for key, value in zip(("emg_raw", "emg_index", "emg_seq",
+                               "emg_received_ns", "emg_time_ns"), values):
             self._append(d[key], value)
         self.emg_samples_written += len(values[0])
 
     def _append_imu(self, d: dict[str, Any], payload: tuple[np.ndarray, ...]) -> None:
-        for key, value in zip(("gyro", "accel", "imu_ns", "imu_seq", "imu_emg_index"), payload):
+        for key, value in zip(("gyro", "accel", "imu_ns", "imu_seq",
+                               "imu_emg_index", "imu_time_ns"), payload):
             self._append(d[key], value)
         self.imu_samples_written += len(payload[0])
 
@@ -233,6 +271,7 @@ class Hdf5Recorder:
             trial.trial_start_sample, trial.rest_start_sample, trial.prompt_start_sample,
             trial.prompt_end_sample, trial.trial_end_sample, trial.valid,
             trial.reject_reason, trial.note,
+            trial.relative_onset_offset_ms,
         )], dtype=dataset.dtype)
         cls._append(dataset, row)
 

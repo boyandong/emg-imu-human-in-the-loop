@@ -43,6 +43,7 @@ class PromptEngine(QObject):
         self._rng = random.Random(seed)
         self.config: ProtocolConfig | None = None
         self.sequence: list[str] = []
+        self.onset_offsets: list[int] = []
         self.position = -1
         self.state = PromptState.IDLE
         self._deadline = 0.0
@@ -58,6 +59,10 @@ class PromptEngine(QObject):
     def scheduled_deadline_monotonic_ns(self) -> int:
         """Planned transition deadline used for timer-lateness diagnostics."""
         return round(self._deadline * 1_000_000_000)
+
+    @property
+    def current_onset_offset_ms(self) -> int:
+        return self.onset_offsets[self.position] if 0 <= self.position < len(self.onset_offsets) else 0
 
     def prepare(self, config: ProtocolConfig) -> list[str]:
         config.validate()
@@ -108,6 +113,8 @@ class PromptEngine(QObject):
         sequence.extend(str(block["name"]) for block in config.continuous_null_blocks)
         self.config = config
         self.sequence = sequence
+        offsets = config.onset_offsets_ms or [0]
+        self.onset_offsets = [self._rng.choice(offsets) for _ in sequence]
         self.position = -1
         self.state = PromptState.IDLE
         return list(sequence)
@@ -178,7 +185,7 @@ class PromptEngine(QObject):
             else:
                 self._set_state(PromptState.PROMPT)
                 if self.config.null_kind(self.current_label) is None:
-                    self.gesture_cued.emit(self.position + 1, self.current_label)
+                    self._emit_combination_cues()
                 self._schedule(self.config.prompt_duration(self.current_label))
         elif self.state == PromptState.PROMPT:
             self.prompt_ended.emit(self.position + 1, self.current_label)
@@ -200,6 +207,7 @@ class PromptEngine(QObject):
         assert self.config is not None
         if self._repeat_after_current and self.current_label:
             self.sequence.insert(self.position + 1, self.current_label)
+            self.onset_offsets.insert(self.position + 1, self.current_onset_offset_ms)
             self._repeat_after_current = False
         self.position += 1
         if self.position >= len(self.sequence):
@@ -221,3 +229,22 @@ class PromptEngine(QObject):
     def _set_state(self, state: PromptState) -> None:
         self.state = state
         self.state_changed.emit(state, self.current_label, self.position + 1, len(self.sequence))
+
+    def _emit_combination_cues(self) -> None:
+        parts = self.current_label.split("_", 1)
+        if len(parts) != 2 or parts[0] not in {
+                "still", "up", "down", "left", "right", "forward", "backward"}:
+            self.gesture_cued.emit(self.position + 1, self.current_label)
+            return
+        arm, hand = parts
+        offset = self.current_onset_offset_ms
+        first, second = ((f"hand:{hand}", f"arm:{arm}") if offset < 0
+                         else (f"arm:{arm}", f"hand:{hand}"))
+        if offset == 0:
+            self.gesture_cued.emit(self.position + 1, f"arm:{arm}")
+            self.gesture_cued.emit(self.position + 1, f"hand:{hand}")
+        else:
+            self.gesture_cued.emit(self.position + 1, first)
+            trial_id = self.position + 1
+            QTimer.singleShot(abs(offset), lambda cue=second, tid=trial_id:
+                              self.gesture_cued.emit(tid, cue))
