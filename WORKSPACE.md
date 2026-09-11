@@ -2,7 +2,7 @@
 
 ## 核心模块
 
-- `collection/`：数据采集程序，跟踪 `doublesong1/EMG`；当前版本 `collection-v2.1.0`。
+- `collection/`：数据采集程序，来源于 `doublesong1/EMG`，已连同原提交历史并入总仓库；导入版本为 `collection-v2.1.0`。
 - `emgimu_classifier/`：HumanState 分类与实时服务。
 - `muscle_music/`：音乐交互与前端反馈。
 - `docs/research_reviews/`：科研过程复盘。
