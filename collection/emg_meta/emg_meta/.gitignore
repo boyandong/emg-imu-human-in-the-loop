@@ -1,0 +1,33 @@
+﻿# Python bytecode
+__pycache__/
+*.py[cod]
+*.class
+
+# Pytest & test caches/temps
+.pytest_cache/
+.pytest_tmp*/
+.test_artifacts/
+
+# Data & Large binary files
+data/
+models/**/*.ckpt
+models/**/*.ts
+*.h5
+*.hdf5
+*.mat
+*.csv
+*.xlsx
+
+# Logs
+*.log
+app.log
+
+# Environment & IDE
+.env
+.venv
+env/
+venv/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

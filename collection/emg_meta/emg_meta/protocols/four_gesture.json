@@ -1,0 +1,11 @@
+{
+  "name": "four_gesture_v1",
+  "labels": ["click", "left_swipe", "right_swipe", "rest"],
+  "trials_per_class": 50,
+  "countdown_sec": 2.0,
+  "prompt_duration_sec": 1.0,
+  "rest_min_sec": 0.6,
+  "rest_max_sec": 1.0,
+  "randomize": true
+
+}

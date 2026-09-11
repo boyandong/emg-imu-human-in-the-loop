@@ -1,0 +1,40 @@
+# Nested repository metadata and generated caches
+**/.git/
+**/__pycache__/
+**/.pytest_cache/
+**/.pytest_tmp*/
+**/.test_artifacts/
+**/.codex_backup*/
+**/.codex_remote_fix/
+**/*.egg-info/
+
+# Training data, model artifacts, and logs
+**/data/
+**/lightning_logs/
+*.h5
+*.hdf5
+*.mat
+*.npy
+*.npz
+*.ckpt
+*.pt
+*.pth
+*.ts
+*.onnx
+*.log
+
+# Local environments and secrets
+.env
+.env.*
+.venv/
+venv/
+env/
+*.pem
+*.key
+
+# Editors and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.py[cod]

@@ -1,0 +1,35 @@
+{
+  "protocol": "jilv_music_28_v2",
+  "protocol_status": "frozen_for_formal_collection",
+  "sampling": {
+    "emg_hz": 250,
+    "imu_hz": 112,
+    "timestamp_source_without_firmware_support": "pc_reconstructed"
+  },
+  "participant_plan": {
+    "sessions": 4,
+    "independent_redonning_per_session": true,
+    "split": {
+      "S01": "train_first_donning_day_1",
+      "S02": "train_redonning_day_1",
+      "S03": "validation_redonning_day_2",
+      "S04": "final_test_locked_after_model_freeze"
+    }
+  },
+  "per_session": {
+    "labels": 28,
+    "formal_trials": 144,
+    "stationary_trials": 72,
+    "moving_trials": 72,
+    "stationary_trials_per_label": 18,
+    "moving_trials_per_label": 3,
+    "blocks": 12,
+    "trials_per_block": 12,
+    "stationary_per_block": 6,
+    "moving_per_block": 6,
+    "forced_break_seconds": 60,
+    "onset_offsets_ms": [-200, 0, 200],
+    "session_calibration_seconds_approx": 64
+  },
+  "gate": "SESSION_COLLECTION_READINESS.json must have status=passed"
+}
