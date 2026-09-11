@@ -1,0 +1,139 @@
+{
+  "direction_macro_f1": 0.5144522661549564,
+  "gesture_macro_f1": 0.48202259787059676,
+  "joint_accuracy": 0.3815093288777499,
+  "direction_coverage": 0.9370648844333055,
+  "gesture_coverage": 0.9986076301865775,
+  "direction_ece": 0.16492402078720925,
+  "gesture_ece": 0.13335000485637194,
+  "p50_latency_ms": null,
+  "p95_latency_ms": null,
+  "direction_labels": [
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "gesture_labels": [
+    -1,
+    0,
+    1,
+    2
+  ],
+  "direction_confusion_matrix": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      67,
+      618,
+      55,
+      69,
+      74,
+      13,
+      58,
+      257
+    ],
+    [
+      42,
+      10,
+      161,
+      68,
+      42,
+      64,
+      8,
+      5
+    ],
+    [
+      33,
+      58,
+      26,
+      199,
+      34,
+      4,
+      13,
+      27
+    ],
+    [
+      29,
+      40,
+      2,
+      64,
+      219,
+      11,
+      23,
+      11
+    ],
+    [
+      28,
+      16,
+      1,
+      203,
+      7,
+      129,
+      11,
+      5
+    ],
+    [
+      17,
+      14,
+      46,
+      15,
+      10,
+      8,
+      276,
+      8
+    ],
+    [
+      10,
+      8,
+      32,
+      5,
+      1,
+      1,
+      80,
+      256
+    ]
+  ],
+  "gesture_confusion_matrix": [
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      5,
+      2301,
+      142,
+      352
+    ],
+    [
+      0,
+      278,
+      90,
+      28
+    ],
+    [
+      0,
+      234,
+      2,
+      159
+    ]
+  ],
+  "evaluated_at_utc": "2026-09-09T15:26:40.343723+00:00",
+  "model_path": "C:\\Users\\\u8463\u4f2f\u8a00\\Desktop\\EMG-project\\emgimu_classifier\\artifacts\\reference_baseline.pkl",
+  "model_sha256": "2d6dd7b72b0c3ad8ad6de64da1128982d76fe8f9e1a8b2af99e2f085f77ce5d2",
+  "split": "test"
+}
