@@ -35,6 +35,11 @@ class ExternalDatasetSpec:
 
 
 DATASETS: dict[str, ExternalDatasetSpec] = {
+    "unibo_inail": ExternalDatasetSpec(
+        "UniBo-INAIL", 4, 500, False, ChannelPolicy.SOURCE_ADAPTER_ONLY,
+        "LGPL-2.1", True, "cross-day and cross-posture H benchmark",
+        "https://github.com/pulp-bio/unibo-inail-semg-dataset",
+    ),
     "epn100_myo": ExternalDatasetSpec(
         "EMG-IMU-EPN-100+ (Myo)", 8, 200, True, ChannelPolicy.CIRCULAR_8,
         "verify-at-download", False, "pretrain D and H separately",
@@ -132,4 +137,3 @@ def canonical_label(
     if key not in mapping:
         raise KeyError(f"label {label!r} has no approved canonical mapping")
     return mapping[key]
-

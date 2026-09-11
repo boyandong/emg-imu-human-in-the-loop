@@ -36,6 +36,14 @@ class Trial:
     stable_mask: np.ndarray
     session_date: str | None
     events: dict[str, float]
+    window_quality: np.ndarray
+    missing_mask: np.ndarray
+    channel_quality: np.ndarray
+    timestamp_valid: np.ndarray
+    imu_valid: np.ndarray
+    interpolated_imu: np.ndarray
+    quality_gate_pass: bool
+    metadata: dict[str, object]
 
     @property
     def split(self) -> str:
@@ -112,6 +120,57 @@ def load_trial(path: str | Path, *, expected_rate_hz: float = 200.0) -> Trial:
             raise DatasetError("stable_mask length does not match samples")
     else:
         stable_mask = (direction != int(Direction.UNKNOWN)) & (gesture != int(Gesture.UNKNOWN))
+    window_quality = (
+        np.asarray(handle["window_quality"], dtype=np.float64).reshape(-1)
+        if "window_quality" in handle.files else np.ones(n, dtype=np.float64)
+    )
+    missing_mask = (
+        np.asarray(handle["missing_mask"], dtype=bool).reshape(-1)
+        if "missing_mask" in handle.files else np.zeros(n, dtype=bool)
+    )
+    timestamp_valid = (
+        np.asarray(handle["timestamp_valid"], dtype=bool).reshape(-1)
+        if "timestamp_valid" in handle.files else np.ones(n, dtype=bool)
+    )
+    imu_valid = (
+        np.asarray(handle["imu_valid"], dtype=bool).reshape(-1)
+        if "imu_valid" in handle.files else np.ones(n, dtype=bool)
+    )
+    interpolated_imu = (
+        np.asarray(handle["interpolated_imu"], dtype=bool).reshape(-1)
+        if "interpolated_imu" in handle.files else np.zeros(n, dtype=bool)
+    )
+    channel_quality = (
+        np.asarray(handle["channel_quality"], dtype=np.float64).reshape(-1)
+        if "channel_quality" in handle.files else np.ones(8, dtype=np.float64)
+    )
+    for name, values in (
+        ("window_quality", window_quality), ("missing_mask", missing_mask),
+        ("timestamp_valid", timestamp_valid), ("imu_valid", imu_valid),
+        ("interpolated_imu", interpolated_imu),
+    ):
+        if len(values) != n:
+            raise DatasetError(f"{name} length does not match samples")
+    if channel_quality.shape != (8,) or not np.isfinite(channel_quality).all():
+        raise DatasetError("channel_quality must contain 8 finite values")
+    if not np.isfinite(window_quality).all() or np.any((window_quality < 0) | (window_quality > 1)):
+        raise DatasetError("window_quality must lie in [0,1]")
+    if np.any((channel_quality < 0) | (channel_quality > 1)):
+        raise DatasetError("channel_quality must lie in [0,1]")
+    quality_gate_pass = (
+        bool(int(np.asarray(handle["quality_gate_pass"]).reshape(-1)[0]))
+        if "quality_gate_pass" in handle.files else True
+    )
+    metadata: dict[str, object] = {}
+    if "metadata_json" in handle.files:
+        raw_metadata = _scalar_text(handle, "metadata_json")
+        try:
+            parsed = json.loads(raw_metadata)
+        except json.JSONDecodeError as exc:
+            raise DatasetError(f"metadata_json is invalid: {exc}") from exc
+        if not isinstance(parsed, dict):
+            raise DatasetError("metadata_json must contain an object")
+        metadata = parsed
     return Trial(
         source,
         _scalar_text(handle, "session_id"),
@@ -128,6 +187,14 @@ def load_trial(path: str | Path, *, expected_rate_hz: float = 200.0) -> Trial:
             key: float(np.asarray(handle[key]).reshape(-1)[0])
             for key in EVENT_FIELDS if key in handle.files and np.asarray(handle[key]).size == 1
         },
+        window_quality,
+        missing_mask,
+        channel_quality,
+        timestamp_valid,
+        imu_valid,
+        interpolated_imu,
+        quality_gate_pass,
+        metadata,
     )
 
 
@@ -172,6 +239,7 @@ class FeatureWindows:
     gesture: np.ndarray
     trial_id: np.ndarray
     timestamp_ms: np.ndarray
+    session_id: np.ndarray | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -182,6 +250,35 @@ class RawWindows:
     gesture: np.ndarray
     trial_id: np.ndarray
     timestamp_ms: np.ndarray
+    session_id: np.ndarray | None = None
+
+
+def hierarchical_window_weights(
+    trial_id: np.ndarray,
+    session_id: np.ndarray | None = None,
+) -> np.ndarray:
+    """Equalize sessions, then trials, while retaining every overlapping window."""
+    trials = np.asarray(trial_id).reshape(-1)
+    if not len(trials):
+        raise ValueError("cannot weight an empty window collection")
+    sessions = (
+        np.zeros(len(trials), dtype=np.int8)
+        if session_id is None else np.asarray(session_id).reshape(-1)
+    )
+    if len(sessions) != len(trials):
+        raise ValueError("session_id and trial_id must have equal lengths")
+    weights = np.zeros(len(trials), dtype=np.float64)
+    unique_sessions = np.unique(sessions)
+    for session in unique_sessions:
+        session_mask = sessions == session
+        session_trials = np.unique(trials[session_mask])
+        for trial in session_trials:
+            mask = session_mask & (trials == trial)
+            weights[mask] = 1.0 / (
+                len(unique_sessions) * len(session_trials) * int(np.count_nonzero(mask))
+            )
+    # Mean one keeps regularization/loss scales comparable with unweighted fits.
+    return weights * len(weights)
 
 
 def build_feature_windows(
@@ -191,14 +288,22 @@ def build_feature_windows(
     window_samples: int = 40,
     hop_samples: int = 8,
     stable_fraction: float = 0.9,
+    min_window_quality: float = 0.8,
+    max_missing_ratio: float = 0.1,
+    min_valid_emg_channels: int = 6,
 ) -> FeatureWindows:
     emg_features: list[np.ndarray] = []
     imu_features: list[np.ndarray] = []
     directions: list[int] = []
     gestures: list[int] = []
     trial_ids: list[str] = []
+    session_ids: list[str] = []
     timestamps: list[float] = []
     for trial in trials:
+        if not trial.quality_gate_pass:
+            continue
+        if int(np.count_nonzero(trial.channel_quality >= 0.5)) < min_valid_emg_channels:
+            continue
         calibration = calibrations.get(trial.session_id)
         if calibration is None:
             raise DatasetError(f"missing calibration for session {trial.session_id}")
@@ -211,6 +316,14 @@ def build_feature_windows(
             start = end - window_samples
             if float(trial.stable_mask[start:end].mean()) < stable_fraction:
                 continue
+            if float(trial.window_quality[start:end].mean()) < min_window_quality:
+                continue
+            if float(trial.missing_mask[start:end].mean()) > max_missing_ratio:
+                continue
+            if not bool(np.all(trial.timestamp_valid[start:end])):
+                continue
+            if float(trial.imu_valid[start:end].mean()) < 1.0 - max_missing_ratio:
+                continue
             d_values = trial.direction[start:end]
             h_values = trial.gesture[start:end]
             d = int(np.bincount(d_values[d_values >= 0]).argmax()) if np.any(d_values >= 0) else -1
@@ -222,13 +335,16 @@ def build_feature_windows(
             directions.append(d)
             gestures.append(h)
             trial_ids.append(trial.trial_id)
+            session_ids.append(trial.session_id)
             timestamps.append(float(trial.timestamp_ms[end - 1]))
     if not emg_features:
         raise DatasetError("no stable feature windows were produced")
     return FeatureWindows(
-        np.stack(emg_features), np.stack(imu_features),
-        np.asarray(directions, dtype=np.int16), np.asarray(gestures, dtype=np.int16),
-        np.asarray(trial_ids), np.asarray(timestamps),
+        emg=np.stack(emg_features), imu=np.stack(imu_features),
+        direction=np.asarray(directions, dtype=np.int16),
+        gesture=np.asarray(gestures, dtype=np.int16),
+        trial_id=np.asarray(trial_ids), timestamp_ms=np.asarray(timestamps),
+        session_id=np.asarray(session_ids),
     )
 
 
@@ -239,14 +355,22 @@ def build_raw_windows(
     window_samples: int = 40,
     hop_samples: int = 8,
     stable_fraction: float = 0.9,
+    min_window_quality: float = 0.8,
+    max_missing_ratio: float = 0.1,
+    min_valid_emg_channels: int = 6,
 ) -> RawWindows:
     emg_windows: list[np.ndarray] = []
     imu_windows: list[np.ndarray] = []
     directions: list[int] = []
     gestures: list[int] = []
     trial_ids: list[str] = []
+    session_ids: list[str] = []
     timestamps: list[float] = []
     for trial in trials:
+        if not trial.quality_gate_pass:
+            continue
+        if int(np.count_nonzero(trial.channel_quality >= 0.5)) < min_valid_emg_channels:
+            continue
         calibration = calibrations.get(trial.session_id)
         if calibration is None:
             raise DatasetError(f"missing calibration for session {trial.session_id}")
@@ -260,6 +384,14 @@ def build_raw_windows(
             start = end - window_samples
             if float(trial.stable_mask[start:end].mean()) < stable_fraction:
                 continue
+            if float(trial.window_quality[start:end].mean()) < min_window_quality:
+                continue
+            if float(trial.missing_mask[start:end].mean()) > max_missing_ratio:
+                continue
+            if not bool(np.all(trial.timestamp_valid[start:end])):
+                continue
+            if float(trial.imu_valid[start:end].mean()) < 1.0 - max_missing_ratio:
+                continue
             d_values = trial.direction[start:end]
             h_values = trial.gesture[start:end]
             d = int(np.bincount(d_values[d_values >= 0]).argmax()) if np.any(d_values >= 0) else -1
@@ -271,13 +403,16 @@ def build_raw_windows(
             directions.append(d)
             gestures.append(h)
             trial_ids.append(trial.trial_id)
+            session_ids.append(trial.session_id)
             timestamps.append(float(trial.timestamp_ms[end - 1]))
     if not emg_windows:
         raise DatasetError("no stable raw windows were produced")
     return RawWindows(
-        np.stack(emg_windows), np.stack(imu_windows),
-        np.asarray(directions, dtype=np.int64), np.asarray(gestures, dtype=np.int64),
-        np.asarray(trial_ids), np.asarray(timestamps),
+        emg=np.stack(emg_windows), imu=np.stack(imu_windows),
+        direction=np.asarray(directions, dtype=np.int64),
+        gesture=np.asarray(gestures, dtype=np.int64),
+        trial_id=np.asarray(trial_ids), timestamp_ms=np.asarray(timestamps),
+        session_id=np.asarray(session_ids),
     )
 
 
@@ -288,9 +423,34 @@ def dataset_report(trials: Iterable[Trial]) -> dict[str, object]:
     split_combinations: dict[str, set[str]] = {"train": set(), "validation": set(), "test": set()}
     session_combination_counts: dict[str, dict[str, int]] = {str(index): {} for index in range(1, 5)}
     onset_offsets: dict[tuple[str, str], list[float]] = {}
+    quality_by_session: dict[str, dict[str, object]] = {}
     for trial in rows:
         split_counts[trial.split] += 1
         stable = trial.stable_mask
+        quality = quality_by_session.setdefault(trial.session_id, {
+            "quality_gate_pass": True,
+            "window_quality_sum": 0.0,
+            "sample_count": 0,
+            "missing_samples": 0,
+            "interpolated_imu_samples": 0,
+            "minimum_valid_emg_channels": 8,
+            "wearing": trial.metadata.get("wearing", {}),
+        })
+        quality["quality_gate_pass"] = bool(quality["quality_gate_pass"]) and trial.quality_gate_pass
+        quality["window_quality_sum"] = float(quality["window_quality_sum"]) + float(
+            np.sum(trial.window_quality)
+        )
+        quality["sample_count"] = int(quality["sample_count"]) + len(trial.timestamp_ms)
+        quality["missing_samples"] = int(quality["missing_samples"]) + int(
+            np.count_nonzero(trial.missing_mask)
+        )
+        quality["interpolated_imu_samples"] = int(
+            quality["interpolated_imu_samples"]
+        ) + int(np.count_nonzero(trial.interpolated_imu))
+        quality["minimum_valid_emg_channels"] = min(
+            int(quality["minimum_valid_emg_channels"]),
+            int(np.count_nonzero(trial.channel_quality >= 0.5)),
+        )
         pairs = set(zip(trial.direction[stable].tolist(), trial.gesture[stable].tolist()))
         for direction, gesture in pairs:
             key = f"{Direction(direction).name}+{Gesture(gesture).name}"
@@ -340,6 +500,18 @@ def dataset_report(trials: Iterable[Trial]) -> dict[str, object]:
                 formal_issues.append(
                     f"session {session}: {key} lacks onset offsets {missing_targets} ms (tolerance 80 ms)"
                 )
+    quality_summary = {}
+    for session, values in quality_by_session.items():
+        count = max(int(values.pop("sample_count")), 1)
+        quality_sum = float(values.pop("window_quality_sum"))
+        missing_samples = int(values.pop("missing_samples"))
+        interpolated_samples = int(values.pop("interpolated_imu_samples"))
+        quality_summary[session] = {
+            **values,
+            "mean_window_quality": quality_sum / count,
+            "missing_ratio": missing_samples / count,
+            "interpolated_imu_ratio": interpolated_samples / count,
+        }
     return {
         "trial_count": len(rows),
         "split_counts": split_counts,
@@ -350,6 +522,7 @@ def dataset_report(trials: Iterable[Trial]) -> dict[str, object]:
         },
         "session_dates": dates_by_session,
         "formal_collection_issues": formal_issues,
+        "quality_by_session": quality_summary,
     }
 
 

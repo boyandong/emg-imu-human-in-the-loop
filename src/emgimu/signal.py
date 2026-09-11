@@ -142,7 +142,7 @@ def estimate_signal_quality(
     emg_finite = np.isfinite(emg).mean(axis=0)
     imu_finite = np.isfinite(imu).mean(axis=0)
     emg_dynamic = np.std(np.nan_to_num(emg), axis=0) > 1e-10
-    imu_dynamic_or_stable = np.all(np.isfinite(np.nan_to_num(imu)), axis=0)
+    imu_dynamic_or_stable = np.all(np.isfinite(imu), axis=0)
     length_factor = min(len(emg), len(imu)) / max(expected_samples, 1)
     emg_score = float(np.clip(np.mean(emg_finite * emg_dynamic) * length_factor, 0.0, 1.0))
     imu_score = float(np.clip(np.mean(imu_finite * imu_dynamic_or_stable) * length_factor, 0.0, 1.0))

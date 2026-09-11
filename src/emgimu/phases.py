@@ -82,3 +82,47 @@ class PhaseTracker:
             phase = Phase.ACTIVE
         return PhaseUpdate(self.stable, phase, confidence)
 
+
+class OpenAwareGestureTracker(PhaseTracker):
+    """Gesture tracker that preserves an observed Open pose through EMG decay."""
+
+    def __init__(
+        self,
+        idle_label: IntEnum | int,
+        open_label: IntEnum | int,
+        unknown_label: IntEnum | int = -1,
+        *,
+        confirm_frames: int = 2,
+        hold_after_frames: int = 3,
+        open_release_frames: int = 8,
+    ) -> None:
+        super().__init__(
+            idle_label, unknown_label,
+            confirm_frames=confirm_frames, hold_after_frames=hold_after_frames,
+        )
+        if open_release_frames < confirm_frames:
+            raise ValueError("open_release_frames must be at least confirm_frames")
+        self.open_label = int(open_label)
+        self.open_release_frames = int(open_release_frames)
+        self.open_release_count = 0
+
+    def reset(self) -> None:
+        super().reset()
+        self.open_release_count = 0
+
+    def update(self, label: IntEnum | int, confidence: float, *, valid: bool = True) -> PhaseUpdate:
+        label = int(label)
+        if self.stable == self.open_label and valid and label == self.idle_label:
+            self.open_release_count += 1
+            if self.open_release_count < self.open_release_frames:
+                self.stable_frames += 1
+                return PhaseUpdate(self.open_label, Phase.HOLD, confidence)
+            self.stable = self.idle_label
+            self.candidate = self.idle_label
+            self.candidate_count = 0
+            self.stable_frames = 0
+            self.open_release_count = 0
+            return PhaseUpdate(self.idle_label, Phase.RELEASE, confidence, changed=True)
+        if label != self.idle_label:
+            self.open_release_count = 0
+        return super().update(label, confidence, valid=valid)

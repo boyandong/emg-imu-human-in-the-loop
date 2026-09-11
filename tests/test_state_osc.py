@@ -1,7 +1,9 @@
 import unittest
 
+import numpy as np
+
 from emgimu.osc import OSC_V2_ADDRESS, decode_message, encode_message
-from emgimu.service import RAW_OSC_ADDRESS, parse_raw_message
+from emgimu.service import RAW_OSC_ADDRESS, RAW_OSC_V2_ADDRESS, parse_raw_message
 from emgimu.state import (
     Confidence, Consistency, Direction, Gesture, HumanState, Phase, PhasePair,
     QualityFlag, SignalQuality,
@@ -38,6 +40,19 @@ class StateOscTests(unittest.TestCase):
         self.assertEqual(sample.emg.shape, (8,))
         self.assertEqual(sample.accel.shape, (3,))
         self.assertEqual(sample.gyro.shape, (3,))
+
+    def test_raw_v2_input_carries_quality(self):
+        values = [100, *range(8), 1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+        values.extend([0.4, 1, 1, 0, 1, 0, 1, 0, *([0.75] * 8)])
+        sample = parse_raw_message(encode_message(RAW_OSC_V2_ADDRESS, *values))
+        self.assertIsNotNone(sample)
+        self.assertAlmostEqual(sample.sample_quality, 0.4, places=5)
+        self.assertTrue(sample.missing)
+        self.assertFalse(sample.imu_valid)
+        self.assertTrue(sample.interpolated_imu)
+        self.assertFalse(sample.quality_gate_pass)
+        self.assertTrue(sample.duplicate_packet)
+        np.testing.assert_allclose(sample.channel_quality, 0.75)
 
 
 if __name__ == "__main__":

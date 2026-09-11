@@ -48,6 +48,14 @@ class QualityFlag(IntFlag):
     CALIBRATED = 1 << 3
     INTERPOLATED_IMU = 1 << 4
     DROPPED_SAMPLES = 1 << 5
+    DUPLICATE_PACKET = 1 << 6
+    OUT_OF_ORDER_PACKET = 1 << 7
+    QUALITY_GATE_FAILED = 1 << 8
+    BAD_CHANNELS = 1 << 9
+    MODEL_DRIFT = 1 << 10
+    MODEL_DISAGREEMENT = 1 << 11
+    LOW_CONFIDENCE = 1 << 12
+    CALIBRATION_UNCERTAIN = 1 << 13
 
 
 def clamp01(value: float) -> float:
@@ -101,6 +109,10 @@ class HumanState:
     confidence: Confidence
     signal_quality: SignalQuality
     consistency_score: float | None = None
+    direction_margin: float = 0.0
+    gesture_margin: float = 0.0
+    direction_drift: float = 0.0
+    gesture_drift: float = 0.0
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "timestamp_ms", int(self.timestamp_ms))
@@ -111,6 +123,8 @@ class HumanState:
         object.__setattr__(self, "consistency", Consistency(self.consistency))
         if self.consistency_score is not None:
             object.__setattr__(self, "consistency_score", clamp01(self.consistency_score))
+        for name in ("direction_margin", "gesture_margin", "direction_drift", "gesture_drift"):
+            object.__setattr__(self, name, clamp01(getattr(self, name)))
 
     def to_dict(self) -> dict[str, Any]:
         result = asdict(self)

@@ -4,7 +4,13 @@ from pathlib import Path
 
 import numpy as np
 
-from emgimu.data import DatasetError, dataset_report, discover_trials, validate_no_leakage
+from emgimu.data import (
+    DatasetError,
+    dataset_report,
+    discover_trials,
+    hierarchical_window_weights,
+    validate_no_leakage,
+)
 
 
 def write_trial(path: Path, session: str, trial_id: str, direction: int = 0, gesture: int = 0):
@@ -18,6 +24,17 @@ def write_trial(path: Path, session: str, trial_id: str, direction: int = 0, ges
 
 
 class DataTests(unittest.TestCase):
+    def test_window_weights_equalize_sessions_then_trials(self):
+        sessions = np.asarray(["1"] * 6 + ["2"] * 4)
+        trials = np.asarray(["a"] * 2 + ["b"] * 4 + ["c"] * 4)
+        weights = hierarchical_window_weights(trials, sessions)
+        self.assertAlmostEqual(float(weights.mean()), 1.0)
+        self.assertAlmostEqual(float(weights[sessions == "1"].sum()), 5.0)
+        self.assertAlmostEqual(float(weights[sessions == "2"].sum()), 5.0)
+        self.assertAlmostEqual(float(weights[trials == "a"].sum()), 2.5)
+        self.assertAlmostEqual(float(weights[trials == "b"].sum()), 2.5)
+        self.assertAlmostEqual(float(weights[trials == "c"].sum()), 5.0)
+
     def test_discovers_and_reports_missing_combinations(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

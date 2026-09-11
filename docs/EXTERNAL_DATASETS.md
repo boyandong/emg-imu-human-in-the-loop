@@ -4,6 +4,7 @@
 
 | 数据集 | 第一版用途 | 原始输入策略 |
 |---|---|---|
+| UniBo-INAIL | H 跨日/跨姿态 benchmark | 保持原生 4 通道，独立 benchmark adapter |
 | EMG-IMU-EPN-100+ Myo | 分别预训练 D/H | 8 通道 200 Hz 环形输入 |
 | EMG-EPN-612 | 预训练 H | 8 通道 200 Hz环形输入 |
 | Electrode Shift | 腕带旋转鲁棒性 | 循环通道增强/校正 |
@@ -23,3 +24,16 @@
 
 代码中的来源登记、标签白名单和策略执行位于 `emgimu.external`。
 
+## UniBo-INAIL 标准化
+
+UniBo 数据不进入自采 Session 1–4 数据加载器。转换、检查和统计分别运行：
+
+```powershell
+emgimu benchmark-adapt unibo-inail PATH_TO_OFFICIAL_DATA --output PATH_TO_OUTPUT
+emgimu benchmark-check PATH_TO_OUTPUT
+emgimu benchmark-report PATH_TO_OUTPUT
+```
+
+输出保留 4 个命名肌肉通道且不生成 `imu` 字段。主 H benchmark 只映射
+Rest、Power grip、2-finger pinch、Open hand；3-finger pinch 和 Pointing index
+保留但不参与四分类。固定分区为 Day 1–5 train、Day 6 validation、Day 7–8 test。

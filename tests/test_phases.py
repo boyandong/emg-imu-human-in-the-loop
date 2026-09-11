@@ -1,7 +1,7 @@
 import unittest
 
-from emgimu.phases import PhaseTracker
-from emgimu.state import Direction, Phase
+from emgimu.phases import OpenAwareGestureTracker, PhaseTracker
+from emgimu.state import Direction, Gesture, Phase
 
 
 class PhaseTests(unittest.TestCase):
@@ -26,7 +26,22 @@ class PhaseTests(unittest.TestCase):
         self.assertEqual(unknown.phase, Phase.UNKNOWN)
         self.assertEqual(unknown.stable_label, Direction.UNKNOWN)
 
+    def test_open_memory_survives_decay_until_sustained_release(self):
+        tracker = OpenAwareGestureTracker(
+            Gesture.NEUTRAL, Gesture.OPEN, Gesture.UNKNOWN,
+            open_release_frames=4,
+        )
+        tracker.update(Gesture.OPEN, 0.9)
+        opened = tracker.update(Gesture.OPEN, 0.9)
+        self.assertEqual(opened.stable_label, Gesture.OPEN)
+        for _ in range(3):
+            held = tracker.update(Gesture.NEUTRAL, 0.7)
+            self.assertEqual(held.stable_label, Gesture.OPEN)
+            self.assertEqual(held.phase, Phase.HOLD)
+        released = tracker.update(Gesture.NEUTRAL, 0.8)
+        self.assertEqual(released.stable_label, Gesture.NEUTRAL)
+        self.assertEqual(released.phase, Phase.RELEASE)
+
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -33,6 +33,8 @@ class DualBranchConfig:
     gesture_classes: int = 4
     dropout: float = 0.10
     modality_dropout: float = 0.20
+    tcn_dilations: tuple[int, ...] = (1, 2, 4, 8)
+    dual_emg_representation: bool = True
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -63,11 +65,22 @@ if nn is not None:
 
 
     class CircularEMGEncoder(nn.Module):
-        def __init__(self, hidden_dim: int, embedding_dim: int, dropout: float) -> None:
+        def __init__(
+            self, hidden_dim: int, embedding_dim: int, dropout: float,
+            dilations: tuple[int, ...],
+            dual_representation: bool,
+        ) -> None:
             super().__init__()
             self.spatial = nn.Conv2d(1, hidden_dim, kernel_size=(3, 5))
+            self.shape_spatial = (
+                nn.Conv2d(1, hidden_dim, kernel_size=(3, 5))
+                if dual_representation else None
+            )
+            self.shape_gate_logit = (
+                nn.Parameter(torch.tensor(-1.0)) if dual_representation else None
+            )
             self.tcn = nn.Sequential(*[
-                ResidualTCNBlock(hidden_dim, dilation, dropout) for dilation in (1, 2, 4)
+                ResidualTCNBlock(hidden_dim, dilation, dropout) for dilation in dilations
             ])
             self.output = nn.Linear(hidden_dim, embedding_dim)
 
@@ -77,16 +90,26 @@ if nn is not None:
             x = F.pad(x, (4, 0, 0, 0))
             x = F.pad(x, (0, 0, 1, 1), mode="circular")
             x = F.gelu(self.spatial(x)).mean(dim=2)
+            if self.shape_spatial is not None:
+                scale = torch.sqrt(torch.mean(emg.square(), dim=(1, 2), keepdim=True) + 1e-6)
+                shape = (emg / scale).transpose(1, 2).unsqueeze(1)
+                shape = F.pad(shape, (4, 0, 0, 0))
+                shape = F.pad(shape, (0, 0, 1, 1), mode="circular")
+                shape = F.gelu(self.shape_spatial(shape)).mean(dim=2)
+                x = x + torch.sigmoid(self.shape_gate_logit) * shape
             x = self.tcn(x)
             return self.output(x[:, :, -1])
 
 
     class IMUEncoder(nn.Module):
-        def __init__(self, hidden_dim: int, embedding_dim: int, dropout: float) -> None:
+        def __init__(
+            self, hidden_dim: int, embedding_dim: int, dropout: float,
+            dilations: tuple[int, ...],
+        ) -> None:
             super().__init__()
             self.input = nn.Conv1d(6, hidden_dim, 1)
             self.tcn = nn.Sequential(*[
-                ResidualTCNBlock(hidden_dim, dilation, dropout) for dilation in (1, 2, 4)
+                ResidualTCNBlock(hidden_dim, dilation, dropout) for dilation in dilations
             ])
             self.output = nn.Linear(hidden_dim, embedding_dim)
 
@@ -102,8 +125,13 @@ if nn is not None:
             super().__init__()
             self.config = config or DualBranchConfig()
             cfg = self.config
-            self.emg_encoder = CircularEMGEncoder(cfg.hidden_dim, cfg.embedding_dim, cfg.dropout)
-            self.imu_encoder = IMUEncoder(cfg.hidden_dim, cfg.embedding_dim, cfg.dropout)
+            self.emg_encoder = CircularEMGEncoder(
+                cfg.hidden_dim, cfg.embedding_dim, cfg.dropout, cfg.tcn_dilations,
+                cfg.dual_emg_representation,
+            )
+            self.imu_encoder = IMUEncoder(
+                cfg.hidden_dim, cfg.embedding_dim, cfg.dropout, cfg.tcn_dilations,
+            )
             self.emg_to_direction = nn.Linear(cfg.embedding_dim, cfg.embedding_dim)
             self.imu_to_gesture = nn.Linear(cfg.embedding_dim, cfg.embedding_dim)
             # Sigmoid(-2) starts near 0.12: the non-primary modality begins as weak evidence.
@@ -149,12 +177,23 @@ if nn is not None:
         *,
         direction_weight: "torch.Tensor | None" = None,
         gesture_weight: "torch.Tensor | None" = None,
+        sample_weight: "torch.Tensor | None" = None,
     ) -> "torch.Tensor":
-        primary = F.cross_entropy(output["direction"], direction, weight=direction_weight)
-        primary = primary + F.cross_entropy(output["gesture"], gesture, weight=gesture_weight)
-        auxiliary = F.cross_entropy(output["direction_aux"], direction, weight=direction_weight)
-        auxiliary = auxiliary + F.cross_entropy(output["gesture_aux"], gesture, weight=gesture_weight)
-        return primary + 0.2 * auxiliary + 0.01 * output["gate_penalty"]
+        per_sample = F.cross_entropy(
+            output["direction"], direction, weight=direction_weight, reduction="none",
+        )
+        per_sample = per_sample + F.cross_entropy(
+            output["gesture"], gesture, weight=gesture_weight, reduction="none",
+        )
+        auxiliary = F.cross_entropy(
+            output["direction_aux"], direction, weight=direction_weight, reduction="none",
+        )
+        auxiliary = auxiliary + F.cross_entropy(
+            output["gesture_aux"], gesture, weight=gesture_weight, reduction="none",
+        )
+        combined = per_sample + 0.2 * auxiliary
+        primary = combined.mean() if sample_weight is None else (combined * sample_weight).mean()
+        return primary + 0.01 * output["gate_penalty"]
 
 
     class NeuralPredictor:
@@ -166,6 +205,8 @@ if nn is not None:
             gesture_temperature: float = 1.0,
             direction_threshold: float = 0.0,
             gesture_threshold: float = 0.0,
+            auxiliary_disagreement_threshold: float = 0.75,
+            metadata: dict[str, Any] | None = None,
             device: str = "cpu",
         ) -> None:
             self.model = model.to(device).eval()
@@ -174,6 +215,8 @@ if nn is not None:
             self.gesture_temperature = float(gesture_temperature)
             self.direction_threshold = float(direction_threshold)
             self.gesture_threshold = float(gesture_threshold)
+            self.auxiliary_disagreement_threshold = float(auxiliary_disagreement_threshold)
+            self.metadata = dict(metadata or {})
 
         @torch.inference_mode()
         def predict(self, normalized_emg: np.ndarray, normalized_imu: np.ndarray) -> HeadPrediction:
@@ -186,9 +229,28 @@ if nn is not None:
             h_index = int(h_prob.argmax())
             q_d = float(d_prob[d_index])
             q_h = float(h_prob[h_index])
-            direction = Direction(d_index) if q_d >= self.direction_threshold else Direction.UNKNOWN
-            gesture = Gesture(h_index) if q_h >= self.gesture_threshold else Gesture.UNKNOWN
-            return HeadPrediction(direction, gesture, q_d, q_h)
+            d_margin = q_d - float(torch.topk(d_prob, min(2, len(d_prob))).values[-1])
+            h_margin = q_h - float(torch.topk(h_prob, min(2, len(h_prob))).values[-1])
+            d_aux = torch.softmax(output["direction_aux"], dim=-1)[0]
+            h_aux = torch.softmax(output["gesture_aux"], dim=-1)[0]
+            d_disagrees = int(d_aux.argmax()) != d_index and float(d_aux.max()) >= self.auxiliary_disagreement_threshold
+            h_disagrees = int(h_aux.argmax()) != h_index and float(h_aux.max()) >= self.auxiliary_disagreement_threshold
+            direction = (
+                Direction(d_index)
+                if q_d >= self.direction_threshold and not d_disagrees else Direction.UNKNOWN
+            )
+            gesture = (
+                Gesture(h_index)
+                if q_h >= self.gesture_threshold and not h_disagrees else Gesture.UNKNOWN
+            )
+            return HeadPrediction(
+                direction=direction, gesture=gesture, q_direction=q_d, q_gesture=q_h,
+                direction_margin=d_margin, gesture_margin=h_margin,
+                direction_confidence_rejected=q_d < self.direction_threshold,
+                gesture_confidence_rejected=q_h < self.gesture_threshold,
+                direction_disagreement_rejected=d_disagrees,
+                gesture_disagreement_rejected=h_disagrees,
+            )
 
 else:  # pragma: no cover - lightweight placeholders keep non-neural CLI usable
     class DualBranchCausalNet:

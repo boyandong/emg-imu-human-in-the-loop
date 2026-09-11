@@ -5,7 +5,7 @@ from typing import Mapping
 
 import numpy as np
 
-from .state import Direction
+from .state import Direction, Gesture
 
 
 BODY_DIRECTION_VECTORS: dict[Direction, np.ndarray] = {
@@ -37,6 +37,19 @@ def find_circular_channel_shift(current: np.ndarray, reference: np.ndarray) -> i
     reference = reference / max(float(np.linalg.norm(reference)), 1e-12)
     errors = [np.mean((np.roll(current, shift) - reference) ** 2) for shift in range(8)]
     return int(np.argmin(errors))
+
+
+def circular_channel_shift_errors(current: np.ndarray, reference: np.ndarray) -> np.ndarray:
+    """Return normalized matching errors for every circular channel shift."""
+    current = np.asarray(current, dtype=np.float64).reshape(-1)
+    reference = np.asarray(reference, dtype=np.float64).reshape(-1)
+    if current.shape != (8,) or reference.shape != (8,):
+        raise ValueError("channel profiles must each contain 8 values")
+    current = current / max(float(np.linalg.norm(current)), 1e-12)
+    reference = reference / max(float(np.linalg.norm(reference)), 1e-12)
+    return np.asarray([
+        np.mean((np.roll(current, shift) - reference) ** 2) for shift in range(8)
+    ], dtype=np.float64)
 
 
 def fit_body_rotation(
@@ -85,6 +98,15 @@ class SessionCalibration:
     gyro_motion_scale: float = 1.0
     sample_rate_hz: int = 200
     notch_50hz: bool = False
+    calibration_version: int = 2
+    emg_scale_mode: str = "per_channel"
+    emg_global_scale: float = 1.0
+    emg_channel_shift_errors: np.ndarray = field(default_factory=lambda: np.zeros(8))
+    emg_channel_shift_margin: float = 0.0
+    emg_channel_shift_confident: bool = False
+    emg_channel_shift_evaluated: bool = False
+    body_rotation_residual: float = 0.0
+    body_rotation_fitted: bool = False
 
     def __post_init__(self) -> None:
         self.emg_center = np.asarray(self.emg_center, dtype=np.float64).reshape(8)
@@ -96,7 +118,18 @@ class SessionCalibration:
             raise ValueError("all EMG scales must be positive")
         if self.accel_motion_scale <= 0 or self.gyro_motion_scale <= 0:
             raise ValueError("motion scales must be positive")
+        if self.emg_global_scale <= 0:
+            raise ValueError("global EMG scale must be positive")
+        if self.emg_scale_mode not in {"per_channel", "global"}:
+            raise ValueError("emg_scale_mode must be per_channel or global")
         self.emg_channel_shift = int(self.emg_channel_shift) % 8
+        self.emg_channel_shift_errors = np.asarray(
+            self.emg_channel_shift_errors, dtype=np.float64,
+        ).reshape(8)
+        if not np.isfinite(self.emg_channel_shift_errors).all():
+            raise ValueError("channel shift errors must be finite")
+        self.emg_channel_shift_margin = float(max(self.emg_channel_shift_margin, 0.0))
+        self.body_rotation_residual = float(max(self.body_rotation_residual, 0.0))
 
     @classmethod
     def identity(cls, sample_rate_hz: int = 200) -> "SessionCalibration":
@@ -108,7 +141,8 @@ class SessionCalibration:
 
     def transform_emg(self, emg: np.ndarray) -> np.ndarray:
         array = np.asarray(emg, dtype=np.float64)
-        normalized = (array - self.emg_center) / self.emg_scale
+        scale = self.emg_scale if self.emg_scale_mode == "per_channel" else self.emg_global_scale
+        normalized = (array - self.emg_center) / scale
         return np.roll(normalized, self.emg_channel_shift, axis=-1)
 
     def transform_imu(self, accel: np.ndarray, gyro: np.ndarray) -> np.ndarray:
@@ -132,16 +166,29 @@ class SessionCalibration:
             "gyro_motion_scale": self.gyro_motion_scale,
             "sample_rate_hz": self.sample_rate_hz,
             "notch_50hz": self.notch_50hz,
+            "calibration_version": self.calibration_version,
+            "emg_scale_mode": self.emg_scale_mode,
+            "emg_global_scale": self.emg_global_scale,
+            "emg_channel_shift_errors": self.emg_channel_shift_errors.tolist(),
+            "emg_channel_shift_margin": self.emg_channel_shift_margin,
+            "emg_channel_shift_confident": self.emg_channel_shift_confident,
+            "emg_channel_shift_evaluated": self.emg_channel_shift_evaluated,
+            "body_rotation_residual": self.body_rotation_residual,
+            "body_rotation_fitted": self.body_rotation_fitted,
         }
 
     @classmethod
     def from_dict(cls, value: Mapping[str, object]) -> "SessionCalibration":
-        return cls(**dict(value))
+        payload = dict(value)
+        if "calibration_version" not in payload:
+            payload["calibration_version"] = 1
+            payload.setdefault("emg_scale_mode", "per_channel")
+        return cls(**payload)
 
 
 def fit_session_calibration(
     rest_emg: np.ndarray,
-    gesture_emg: np.ndarray,
+    gesture_emg: np.ndarray | Mapping[Gesture | str, np.ndarray],
     rest_accel: np.ndarray,
     rest_gyro: np.ndarray,
     motion_accel: np.ndarray,
@@ -149,10 +196,23 @@ def fit_session_calibration(
     *,
     observed_direction_vectors: Mapping[Direction, np.ndarray] | None = None,
     reference_emg_profile: np.ndarray | None = None,
+    reference_emg_profiles: Mapping[Gesture | str, np.ndarray] | None = None,
     sample_rate_hz: int = 200,
+    emg_scale_mode: str = "global",
+    shift_confidence_threshold: float = 0.10,
 ) -> SessionCalibration:
     rest_emg = _samples(rest_emg, 8, "rest_emg")
-    gesture_emg = _samples(gesture_emg, 8, "gesture_emg")
+    if isinstance(gesture_emg, Mapping):
+        gesture_blocks = {
+            str(key.name if isinstance(key, Gesture) else key).lower(): _samples(
+                value, 8, f"gesture_emg[{key}]",
+            )
+            for key, value in gesture_emg.items()
+        }
+        if not gesture_blocks:
+            raise ValueError("gesture_emg mapping must not be empty")
+    else:
+        gesture_blocks = {"combined": _samples(gesture_emg, 8, "gesture_emg")}
     rest_accel = _samples(rest_accel, 3, "rest_accel")
     rest_gyro = _samples(rest_gyro, 3, "rest_gyro")
     motion_accel = _samples(motion_accel, 3, "motion_accel")
@@ -162,17 +222,52 @@ def fit_session_calibration(
     from .signal import CausalEMGFilter, line_noise_ratio_db
     notch_50hz = line_noise_ratio_db(rest_emg, sample_rate_hz) >= 6.0
     rest_filter = CausalEMGFilter(sample_rate_hz, notch_50hz=notch_50hz)
-    gesture_filter = CausalEMGFilter(sample_rate_hz, notch_50hz=notch_50hz)
     filtered_rest_emg = rest_filter.process(rest_emg)
-    filtered_gesture_emg = gesture_filter.process(gesture_emg)
+    filtered_gesture_blocks = {
+        key: CausalEMGFilter(sample_rate_hz, notch_50hz=notch_50hz).process(value)
+        for key, value in gesture_blocks.items()
+    }
+    filtered_gesture_emg = np.concatenate(list(filtered_gesture_blocks.values()))
     emg_center = np.median(filtered_rest_emg, axis=0)
     comfortable = np.percentile(np.abs(filtered_gesture_emg - emg_center), 95, axis=0)
     rest_noise = np.percentile(np.abs(filtered_rest_emg - emg_center), 95, axis=0)
     emg_scale = np.maximum(comfortable, np.maximum(rest_noise * 3.0, 1e-6))
-    profile = np.sqrt(np.mean(((filtered_gesture_emg - emg_center) / emg_scale) ** 2, axis=0))
+    emg_global_scale = max(
+        float(np.percentile(np.abs(filtered_gesture_emg - emg_center), 95)),
+        float(np.percentile(np.abs(filtered_rest_emg - emg_center), 95)) * 3.0,
+        1e-6,
+    )
+    profiles = {
+        key: np.sqrt(np.mean((values - emg_center) ** 2, axis=0))
+        for key, values in filtered_gesture_blocks.items()
+    }
     shift = 0
-    if reference_emg_profile is not None:
-        shift = find_circular_channel_shift(profile, reference_emg_profile)
+    shift_errors = np.zeros(8, dtype=np.float64)
+    shift_margin = 0.0
+    shift_confident = False
+    reference_profiles = {
+        str(key.name if isinstance(key, Gesture) else key).lower(): np.asarray(value)
+        for key, value in (reference_emg_profiles or {}).items()
+    }
+    matched_errors: list[np.ndarray] = []
+    for key, profile in profiles.items():
+        reference = reference_profiles.get(key)
+        if reference is not None:
+            matched_errors.append(circular_channel_shift_errors(profile, reference))
+    if not matched_errors and reference_emg_profile is not None:
+        aggregate_profile = np.sqrt(np.mean((filtered_gesture_emg - emg_center) ** 2, axis=0))
+        matched_errors.append(circular_channel_shift_errors(aggregate_profile, reference_emg_profile))
+    if matched_errors:
+        shift_errors = np.mean(np.stack(matched_errors), axis=0)
+        order = np.argsort(shift_errors)
+        candidate_shift = int(order[0])
+        best, second = float(shift_errors[order[0]]), float(shift_errors[order[1]])
+        shift_margin = max(0.0, (second - best) / max(second, 1e-12))
+        shift_confident = shift_margin >= shift_confidence_threshold
+        # An ambiguous rotation is safer left uncorrected than silently rolled
+        # to the wrong physical channels.  The candidate remains recoverable as
+        # argmin(emg_channel_shift_errors) for diagnostics or guided retry.
+        shift = candidate_shift if shift_confident else 0
 
     gravity = np.median(rest_accel, axis=0)
     gyro_bias = np.median(rest_gyro, axis=0)
@@ -180,15 +275,36 @@ def fit_session_calibration(
     gyro_norm = np.linalg.norm(motion_gyro - gyro_bias, axis=1)
     accel_scale = max(float(np.percentile(accel_norm, 95)), 1e-6)
     gyro_scale = max(float(np.percentile(gyro_norm, 95)), 1e-6)
+    body_rotation = fit_body_rotation(observed_direction_vectors)
+    body_residual = 0.0
+    if observed_direction_vectors:
+        residuals = []
+        for raw_direction, raw_vector in observed_direction_vectors.items():
+            direction = Direction(raw_direction)
+            vector = np.asarray(raw_vector, dtype=np.float64).reshape(3)
+            norm = float(np.linalg.norm(vector))
+            if direction in BODY_DIRECTION_VECTORS and norm > 1e-9:
+                residuals.append(float(np.linalg.norm(
+                    (vector / norm) @ body_rotation.T - BODY_DIRECTION_VECTORS[direction]
+                )))
+        body_residual = float(np.mean(residuals)) if residuals else 0.0
     return SessionCalibration(
         emg_center=emg_center,
         emg_scale=emg_scale,
         gravity_device=gravity,
         gyro_bias=gyro_bias,
-        device_to_body=fit_body_rotation(observed_direction_vectors),
+        device_to_body=body_rotation,
         emg_channel_shift=shift,
         accel_motion_scale=accel_scale,
         gyro_motion_scale=gyro_scale,
         sample_rate_hz=int(sample_rate_hz),
         notch_50hz=notch_50hz,
+        emg_scale_mode=emg_scale_mode,
+        emg_global_scale=emg_global_scale,
+        emg_channel_shift_errors=shift_errors,
+        emg_channel_shift_margin=shift_margin,
+        emg_channel_shift_confident=shift_confident,
+        emg_channel_shift_evaluated=bool(matched_errors),
+        body_rotation_residual=body_residual,
+        body_rotation_fitted=bool(observed_direction_vectors),
     )

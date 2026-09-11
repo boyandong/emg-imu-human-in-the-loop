@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -8,7 +9,7 @@ from typing import Any
 import numpy as np
 
 from .baseline import BaselinePredictor, TemperatureScaler, _softmax
-from .data import RawWindows
+from .data import RawWindows, hierarchical_window_weights
 from .neural import (
     DualBranchCausalNet,
     DualBranchConfig,
@@ -27,8 +28,15 @@ class NeuralTrainingResult:
     history: tuple[dict[str, float], ...]
 
 
-def _class_weights(labels: np.ndarray, class_count: int, device: str) -> "torch.Tensor":
-    counts = np.bincount(labels, minlength=class_count).astype(np.float64)
+def _class_weights(
+    labels: np.ndarray,
+    class_count: int,
+    device: str,
+    sample_weight: np.ndarray | None = None,
+) -> "torch.Tensor":
+    counts = np.bincount(
+        labels, weights=sample_weight, minlength=class_count,
+    ).astype(np.float64)
     weights = counts.sum() / np.maximum(counts, 1.0)
     weights /= weights.mean()
     return torch.as_tensor(weights, dtype=torch.float32, device=device)
@@ -62,8 +70,16 @@ def train_dual_branch(
     cfg = config or DualBranchConfig()
     model = DualBranchCausalNet(cfg).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
-    d_weight = _class_weights(train.direction, cfg.direction_classes, device)
-    h_weight = _class_weights(train.gesture, cfg.gesture_classes, device)
+    train_window_weight = hierarchical_window_weights(train.trial_id, train.session_id)
+    validation_window_weight = hierarchical_window_weights(
+        validation.trial_id, validation.session_id,
+    )
+    d_weight = _class_weights(
+        train.direction, cfg.direction_classes, device, train_window_weight,
+    )
+    h_weight = _class_weights(
+        train.gesture, cfg.gesture_classes, device, train_window_weight,
+    )
     best_loss = float("inf")
     best_epoch = -1
     best_state: dict[str, Any] | None = None
@@ -79,10 +95,14 @@ def train_dual_branch(
             imu = torch.as_tensor(train.imu[indices], dtype=torch.float32, device=device)
             direction = torch.as_tensor(train.direction[indices], dtype=torch.long, device=device)
             gesture = torch.as_tensor(train.gesture[indices], dtype=torch.long, device=device)
+            sample_weight = torch.as_tensor(
+                train_window_weight[indices], dtype=torch.float32, device=device,
+            )
             emg, imu = augment_training_batch(emg, imu)
             optimizer.zero_grad(set_to_none=True)
             loss = dual_branch_loss(model(emg, imu), direction, gesture,
-                                    direction_weight=d_weight, gesture_weight=h_weight)
+                                    direction_weight=d_weight, gesture_weight=h_weight,
+                                    sample_weight=sample_weight)
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             optimizer.step()
@@ -98,8 +118,12 @@ def train_dual_branch(
                 imu = torch.as_tensor(validation.imu[indices], dtype=torch.float32, device=device)
                 direction = torch.as_tensor(validation.direction[indices], dtype=torch.long, device=device)
                 gesture = torch.as_tensor(validation.gesture[indices], dtype=torch.long, device=device)
+                sample_weight = torch.as_tensor(
+                    validation_window_weight[indices], dtype=torch.float32, device=device,
+                )
                 loss = dual_branch_loss(model(emg, imu), direction, gesture,
-                                        direction_weight=d_weight, gesture_weight=h_weight)
+                                        direction_weight=d_weight, gesture_weight=h_weight,
+                                        sample_weight=sample_weight)
                 validation_total += float(loss) * len(indices)
                 validation_count += len(indices)
         train_loss = train_total / max(train_count, 1)
@@ -121,17 +145,23 @@ def train_dual_branch(
     d_logits, h_logits = _collect_logits(model, validation, batch_size=batch_size, device=device)
     d_classes = np.arange(cfg.direction_classes)
     h_classes = np.arange(cfg.gesture_classes)
-    d_temp = TemperatureScaler().fit(d_logits, validation.direction, d_classes).temperature
-    h_temp = TemperatureScaler().fit(h_logits, validation.gesture, h_classes).temperature
+    d_temp = TemperatureScaler().fit(
+        d_logits, validation.direction, d_classes, validation_window_weight,
+    ).temperature
+    h_temp = TemperatureScaler().fit(
+        h_logits, validation.gesture, h_classes, validation_window_weight,
+    ).temperature
     d_prob = _softmax(d_logits, d_temp)
     h_prob = _softmax(h_logits, h_temp)
     d_index = d_prob.argmax(axis=1)
     h_index = h_prob.argmax(axis=1)
     d_threshold = BaselinePredictor._select_threshold(
         d_prob, d_index, d_index, validation.direction,
+        sample_weight=validation_window_weight,
     )
     h_threshold = BaselinePredictor._select_threshold(
         h_prob, h_index, h_index, validation.gesture,
+        sample_weight=validation_window_weight,
     )
     predictor = NeuralPredictor(
         model,
@@ -141,6 +171,7 @@ def train_dual_branch(
         gesture_threshold=h_threshold,
         device=device,
     )
+    predictor.metadata["window_weighting"] = "equal_session_then_trial_v1"
     return NeuralTrainingResult(predictor, best_epoch, best_loss, tuple(history))
 
 
@@ -178,6 +209,8 @@ def save_neural_artifact(result: NeuralTrainingResult, path: str | Path) -> None
         "gesture_temperature": predictor.gesture_temperature,
         "direction_threshold": predictor.direction_threshold,
         "gesture_threshold": predictor.gesture_threshold,
+        "auxiliary_disagreement_threshold": predictor.auxiliary_disagreement_threshold,
+        "metadata": predictor.metadata,
         "best_epoch": result.best_epoch,
         "validation_loss": result.validation_loss,
         "history": list(result.history),
@@ -190,16 +223,50 @@ def save_neural_artifact(result: NeuralTrainingResult, path: str | Path) -> None
 def load_neural_artifact(path: str | Path, *, device: str = "cpu") -> NeuralPredictor:
     if torch is None:
         raise RuntimeError("install the neural extra before loading")
-    payload = torch.load(path, map_location=device, weights_only=False)
+    source = Path(path)
+    payload = torch.load(source, map_location=device, weights_only=False)
     if payload.get("format_version") != 1:
         raise ValueError("unsupported neural artifact format")
-    model = DualBranchCausalNet(DualBranchConfig(**payload["config"]))
+    raw_config = dict(payload["config"])
+    # Format-v1 artifacts predate the fourth dilation block.  Preserve their
+    # exact parameter topology while new models use the longer receptive field.
+    raw_config.setdefault("tcn_dilations", (1, 2, 4))
+    raw_config.setdefault("dual_emg_representation", False)
+    model = DualBranchCausalNet(DualBranchConfig(**raw_config))
     model.load_state_dict(payload["state_dict"])
+    metadata = dict(payload.get("metadata", {}))
+    metadata["loaded_artifact_sha256"] = hashlib.sha256(source.read_bytes()).hexdigest()
     return NeuralPredictor(
         model,
         direction_temperature=payload["direction_temperature"],
         gesture_temperature=payload["gesture_temperature"],
         direction_threshold=payload["direction_threshold"],
         gesture_threshold=payload["gesture_threshold"],
+        auxiliary_disagreement_threshold=payload.get("auxiliary_disagreement_threshold", 0.75),
+        metadata=metadata,
         device=device,
     )
+
+
+def copy_neural_artifact_with_metadata(
+    source: str | Path,
+    destination: str | Path,
+    updates: dict[str, Any],
+) -> None:
+    """Copy a validated neural artifact while changing metadata only."""
+    if torch is None:
+        raise RuntimeError("install the neural extra before freezing a neural artifact")
+    source_path = Path(source)
+    destination_path = Path(destination)
+    payload = torch.load(source_path, map_location="cpu", weights_only=False)
+    if payload.get("format_version") != 1:
+        raise ValueError("unsupported neural artifact format")
+    # Load once before copying so topology/state incompatibility cannot be hidden
+    # behind a metadata-only freeze operation.
+    load_neural_artifact(source_path)
+    metadata = dict(payload.get("metadata", {}))
+    metadata.update(updates)
+    metadata.pop("loaded_artifact_sha256", None)
+    payload["metadata"] = metadata
+    destination_path.parent.mkdir(parents=True, exist_ok=True)
+    torch.save(payload, destination_path)
