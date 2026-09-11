@@ -97,19 +97,19 @@ def test_existing_session_id_advances_without_overwrite(tmp_path: Path) -> None:
     page.participant_id.setText("Dong")
     page.refresh_session_id()
     assert page.session_id.text() == "S02"
-    assert "2 / 11" in page.session_plan_status.text()
+    assert "2 / 4" in page.session_plan_status.text()
     app.processEvents()
 
 
-def test_participant_is_limited_to_eleven_sessions(tmp_path: Path) -> None:
+def test_participant_is_limited_to_four_sessions(tmp_path: Path) -> None:
     from emgforce.ui.experiment_page import ExperimentPage
 
     os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
     app = QApplication.instance() or QApplication([])
-    for number in range(1, 12):
+    for number in range(1, 5):
         (tmp_path / "P001" / f"2026-09-01_S{number:02d}").mkdir(parents=True)
     page = ExperimentPage(Path(__file__).parents[1] / "protocols", tmp_path)
-    with pytest.raises(ValueError, match="11 / 11"):
+    with pytest.raises(ValueError, match="4 / 4"):
         page._available_session_id("P001")
     page.participant_id.setText("P001")
     page.refresh_session_id()

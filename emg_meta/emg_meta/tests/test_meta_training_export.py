@@ -42,12 +42,11 @@ def test_training_preprocessing_removes_low_frequency_without_mutating_raw() -> 
 
 def test_session_split_policy() -> None:
     assert resolve_dataset_split("S01") == "train"
-    assert resolve_dataset_split("participant_S08") == "train"
-    assert resolve_dataset_split("S09") == "val"
-    assert resolve_dataset_split("S10") == "val"
-    assert resolve_dataset_split("S11") == "test"
-    with pytest.raises(ValueError, match="S01–S11"):
-        resolve_dataset_split("S12")
+    assert resolve_dataset_split("participant_S02") == "train"
+    assert resolve_dataset_split("S03") == "val"
+    assert resolve_dataset_split("S04") == "test"
+    with pytest.raises(ValueError, match="S01–S04"):
+        resolve_dataset_split("S05")
     assert resolve_dataset_split("custom", "val") == "val"
 
 
@@ -66,7 +65,7 @@ def _write_aligned(path: Path, *, prompt_count: int = 2,
         dataset.attrs["preprocessing_version"] = preprocessing_version
         meta = handle.create_group("meta")
         meta.attrs["participant_id"] = "P001"
-        meta.attrs["session_id"] = "S09"
+        meta.attrs["session_id"] = "S03"
         meta.attrs["protocol_name"] = "meta_discrete_7_short_v2"
         meta.attrs["dataset_split"] = "auto"
     names = ["index_press", "index_release"][:prompt_count]
@@ -82,7 +81,7 @@ def _write_aligned(path: Path, *, prompt_count: int = 2,
 
 def test_corpus_upsert_is_relative_atomic_and_deduplicated(tmp_path) -> None:
     data_root = tmp_path / "data"
-    aligned = data_root / "P001" / "2026-01-01_S09" / "session_meta_aligned.hdf5"
+    aligned = data_root / "P001" / "2026-01-01_S03" / "session_meta_aligned.hdf5"
     _write_aligned(aligned)
 
     first = upsert_corpus_entry(aligned)
@@ -92,7 +91,7 @@ def test_corpus_upsert_is_relative_atomic_and_deduplicated(tmp_path) -> None:
     corpus = pd.read_csv(first)
     assert len(corpus) == 1
     assert corpus.iloc[0]["dataset"] == \
-        "P001/2026-01-01_S09/session_meta_aligned.hdf5"
+        "P001/2026-01-01_S03/session_meta_aligned.hdf5"
     assert corpus.iloc[0]["split"] == "val"
     assert corpus.iloc[0]["prompt_count"] == 2
     assert corpus.iloc[0]["preprocessing_version"] == PREPROCESSING_VERSION

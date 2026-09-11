@@ -42,5 +42,6 @@ Session。这样每个目标事件类别累计 144 次，处在官方较短记�
 从 `meta_8ch_v1` 起，原始 `session.h5` 继续保留设备 ADC count；训练用
 `session_meta_aligned.hdf5/data.emg` 单独执行 40 Hz 高通、50 Hz 谐波陷波和明确记录参数的
 Session 全局幅值归一化。数据根目录同时生成 `discrete_gestures_corpus.csv`，按照
-S01–S08 / S09–S10 / S11–S12 分别登记为 train / val / test。旧的未预处理导出不得与
+历史 Meta 数据原使用多 Session 划分；新的正式采集统一为 S01–S02 / S03 / S04，
+分别登记为 train / val / test。旧的未预处理导出不得与
 新导出混合训练。

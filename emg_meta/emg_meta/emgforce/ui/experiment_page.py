@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 import re
 import json
+import hashlib
 
 import numpy as np
 from PySide6.QtCore import Qt, Signal
@@ -19,7 +20,7 @@ from emgforce.quality.monitor import SignalQualityMonitor
 from .prompt_window import ACTION_NAMES, ParticipantPromptWindow
 
 
-SESSIONS_PER_PARTICIPANT = 11
+SESSIONS_PER_PARTICIPANT = 4
 
 
 class ExperimentPage(QWidget):
@@ -62,13 +63,11 @@ class ExperimentPage(QWidget):
 
         session_box, session = self._make_card("实验设置", "确定场次、数据集、流程和当前实验条件", grid=True)
         self.session_id = QLineEdit("S01"); self.session_id.setReadOnly(True)
-        self.experiment_name = QLineEdit("肌律二十八组合数据集_v1")
+        self.experiment_name = QLineEdit("肌律二十八组合正式数据集_v2")
         self.protocol = QComboBox(); self.stage_name = QLineEdit("默认")
         self.dataset_split = QComboBox()
-        for text, value in (("自动（S01–S08 训练，S09–S10 验证，S11 测试）", "auto"),
-                            ("训练集 train", "train"), ("验证集 val", "val"),
-                            ("测试集 test", "test")):
-            self.dataset_split.addItem(text, value)
+        self.dataset_split.addItem(
+            "自动固定（S01–S02 train，S03 validation，S04 final test）", "auto")
         self.session_id.setPlaceholderText("例如：S01")
         self.experiment_name.setPlaceholderText("例如：手势数据集_v1")
         self.stage_name.setPlaceholderText("例如：默认、掌心向上")
@@ -77,7 +76,7 @@ class ExperimentPage(QWidget):
                 ("数据集划分", self.dataset_split),
                 ("当前阶段", self.stage_name))):
             self._add_field(session, row, field_title, widget)
-        self.session_plan_status = QLabel("输入受试者编号后自动安排场次 · 每人共 11 轮")
+        self.session_plan_status = QLabel("输入受试者编号后自动安排场次 · 每人正式采集 4 轮")
         self.session_plan_status.setObjectName("muted")
         session.addWidget(self.session_plan_status, 5, 0, 1, 2)
         self.donning_notes = QLineEdit()
@@ -87,10 +86,25 @@ class ExperimentPage(QWidget):
         self.anatomical_marker = QLineEdit(); self.anatomical_marker.setPlaceholderText("例如：腕横纹上方 6 cm")
         self.strap_setting = QLineEdit(); self.strap_setting.setPlaceholderText("例如：刻度3，松紧 2/5")
         self.physical_condition = QLineEdit(); self.physical_condition.setPlaceholderText("近期上肢用力、湿皮肤、疲劳；没有则填“无”")
+        self.anatomical_distance_mm = QLineEdit(); self.anatomical_distance_mm.setPlaceholderText("例如：60")
+        self.strap_scale = QLineEdit(); self.strap_scale.setPlaceholderText("例如：刻度 3")
+        self.strap_tightness = QComboBox()
+        for score in range(6): self.strap_tightness.addItem(f"{score} / 5", score)
+        self.skin_condition = QLineEdit(); self.skin_condition.setPlaceholderText("例如：干燥、无破损")
+        self.fatigue_before = QComboBox()
+        for score in range(11): self.fatigue_before.addItem(f"{score} / 10", score)
+        self.reference_photo = QLineEdit(); self.reference_photo.setPlaceholderText("统一角度参考照片的完整路径")
+        self.operator_id = QLineEdit(); self.operator_id.setPlaceholderText("例如：OP01")
         for row, (title, widget) in enumerate((
                 ("测试手臂 *", self.tested_arm), ("通道1方向 *", self.channel1_orientation),
                 ("解剖高度/起点 *", self.anatomical_marker), ("绑带刻度与松紧 *", self.strap_setting),
                 ("身体与皮肤状态 *", self.physical_condition), ("佩戴备注", self.donning_notes)), start=6):
+            self._add_field(session, row, title, widget)
+        for row, (title, widget) in enumerate((
+                ("解剖距离 mm *", self.anatomical_distance_mm),
+                ("绑带刻度 *", self.strap_scale), ("绑带松紧 *", self.strap_tightness),
+                ("皮肤状态 *", self.skin_condition), ("采集前疲劳 *", self.fatigue_before),
+                ("参考照片路径 *", self.reference_photo), ("操作员编号 *", self.operator_id)), start=12):
             self._add_field(session, row, title, widget)
         left_column.addWidget(participant_box); left_column.addWidget(session_box)
         self.reload_protocols()
@@ -114,7 +128,7 @@ class ExperimentPage(QWidget):
             quality_grid.setColumnStretch(channel % 4, 1)
             self.quality_cards.append((quality_card, status_label, metrics_label))
         self.quality_grid_widget.hide()
-        self.signal_check = QPushButton("执行信号检查"); self.continue_anyway = QPushButton("忽略警告并继续")
+        self.signal_check = QPushButton("执行/重新执行信号检查"); self.continue_anyway = QPushButton("填写原因并忽略警告")
         self.signal_check.setObjectName("primary")
         result_area = QVBoxLayout(); result_area.addWidget(self.signal_result); result_area.addWidget(self.quality_grid_widget)
         action_area = QHBoxLayout(); action_area.setSpacing(8)
@@ -131,7 +145,7 @@ class ExperimentPage(QWidget):
 
         primary_actions = QHBoxLayout(); primary_actions.setSpacing(8)
         self.start = QPushButton("开始实验"); self.start.setObjectName("record")
-        self.pause = QPushButton("暂停"); self.resume = QPushButton("继续"); self.skip = QPushButton("跳过试次"); self.repeat = QPushButton("重复试次")
+        self.pause = QPushButton("暂停"); self.resume = QPushButton("继续"); self.skip = QPushButton("废弃试次"); self.repeat = QPushButton("废弃并立即补采")
         self.bad = QPushButton("标记异常"); self.manual = QPushButton("手动标记"); self.stop = QPushButton("停止实验"); self.stop.setObjectName("danger")
         action_buttons = (self.start, self.pause, self.resume, self.skip, self.repeat, self.bad, self.manual, self.stop)
         for button in action_buttons:
@@ -186,7 +200,12 @@ class ExperimentPage(QWidget):
         try: self.protocols = self.loader.discover()
         except Exception as exc: QMessageBox.warning(self, "实验协议错误", str(exc)); self.protocols = {}
         self.protocol.clear(); self.protocol.addItems(self.protocols)
-        default_protocol = "jilv_music_28_v1"
+        formal = {name: path for name, path in self.protocols.items()
+                  if self.loader.load(path).formal_collection}
+        if formal:
+            self.protocols = formal
+            self.protocol.clear(); self.protocol.addItems(self.protocols)
+        default_protocol = "jilv_music_28_v2"
         if default_protocol in self.protocols:
             self.protocol.setCurrentText(default_protocol)
 
@@ -217,16 +236,40 @@ class ExperimentPage(QWidget):
             return
         try:
             participant_id = self.participant_id.text().strip()
+            protocol = self.loader.load(self.protocols[self.protocol.currentText()])
             required = (self.channel1_orientation.text().strip(),
                         self.anatomical_marker.text().strip(), self.strap_setting.text().strip(),
-                        self.physical_condition.text().strip())
+                        self.physical_condition.text().strip(),
+                        self.anatomical_distance_mm.text().strip(), self.strap_scale.text().strip(),
+                        self.skin_condition.text().strip(), self.reference_photo.text().strip(),
+                        self.operator_id.text().strip())
             if not all(required):
-                raise ValueError("请完整填写通道1方向、解剖高度、绑带松紧和身体/皮肤状态")
+                raise ValueError("请完整填写结构化佩戴、皮肤、疲劳、参考照片和操作员信息")
             participant = ParticipantInfo(participant_id, str(self.dominant.currentData() or ""))
             participant.validate()
+            if protocol.formal_collection and not participant.dominant_hand:
+                raise ValueError("正式采集必须填写惯用手")
             session_id = self._available_session_id(participant_id)
             if session_id != self.session_id.text().strip():
                 self.session_id.setText(session_id)
+            photo_path = Path(self.reference_photo.text().strip())
+            if float(self.anatomical_distance_mm.text()) <= 0:
+                raise ValueError("解剖距离必须为正数（mm）")
+            if protocol.formal_collection and not photo_path.is_file():
+                raise ValueError("正式采集必须选择存在的参考照片文件")
+            photo_hash = ""
+            if photo_path.is_file():
+                photo_hash = hashlib.sha256(photo_path.read_bytes()).hexdigest()
+            model_frozen = session_id != "S04"
+            if session_id == "S04":
+                answer = QMessageBox.question(
+                    self, "S04 正式测试锁定",
+                    "S04 是 Final test。确认分类模型、阈值和校准算法已经冻结，且采集后不会根据结果调参吗？",
+                    QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                    QMessageBox.StandardButton.No)
+                if answer != QMessageBox.StandardButton.Yes:
+                    raise ValueError("未确认算法冻结，不能创建 S04")
+                model_frozen = True
             info = SessionInfo(
                 session_id, self.experiment_name.text().strip(),
                 self.protocol.currentText(),
@@ -240,8 +283,18 @@ class ExperimentPage(QWidget):
                 strap_setting=self.strap_setting.text().strip(),
                 stabilization_sec=60,
                 physical_condition=self.physical_condition.text().strip(),
+                recorded_arm=str(self.tested_arm.currentData()), donning_code="D01",
+                anatomical_distance_mm=float(self.anatomical_distance_mm.text()),
+                strap_scale=self.strap_scale.text().strip(),
+                strap_tightness=int(self.strap_tightness.currentData()),
+                skin_condition=self.skin_condition.text().strip(),
+                fatigue_before=int(self.fatigue_before.currentData()),
+                reference_photo_name=photo_path.name,
+                reference_photo_sha256=photo_hash,
+                operator_id=self.operator_id.text().strip(),
+                quality_override_reason=str(self._quality_report.get("operator_override_reason", "")),
+                model_frozen_confirmed=model_frozen,
             )
-            protocol = self.loader.load(self.protocols[self.protocol.currentText()])
             info.validate()
         except Exception as exc: QMessageBox.warning(self, "无法开始实验", str(exc)); return
         self.start_requested.emit(participant, info, protocol)
@@ -261,18 +314,18 @@ class ExperimentPage(QWidget):
         return used
 
     def _available_session_id(self, participant_id: str) -> str:
-        """Find the first unused S01..S11 across all collection dates."""
+        """Find the first unused formal S01..S04 across all collection dates."""
         used = self._used_session_numbers(participant_id)
         for number in range(1, SESSIONS_PER_PARTICIPANT + 1):
             if number not in used:
                 return f"S{number:02d}"
-        raise ValueError("该受试者已经完成 11 / 11 轮，不能再创建新场次")
+        raise ValueError("该受试者已经完成 4 / 4 个正式 Session，不能再创建新场次")
 
     def refresh_session_id(self) -> None:
         participant_id = self.participant_id.text().strip()
         if not participant_id:
             self.session_id.setText("S01")
-            self.session_plan_status.setText("输入受试者编号后自动安排场次 · 每人共 11 轮")
+            self.session_plan_status.setText("输入受试者编号后自动安排场次 · 每人正式采集 4 轮")
             self.start.setEnabled(not self._was_running)
             return
         if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*", participant_id):
@@ -284,13 +337,13 @@ class ExperimentPage(QWidget):
             session_id = self._available_session_id(participant_id)
         except ValueError:
             self.session_id.setText("已完成")
-            self.session_plan_status.setText("该受试者已完成 11 / 11 轮")
+            self.session_plan_status.setText("该受试者已完成 4 / 4 个正式 Session")
             self.start.setEnabled(False)
             return
         self.session_id.setText(session_id)
         completed = len(used & set(range(1, SESSIONS_PER_PARTICIPANT + 1)))
         self.session_plan_status.setText(
-            f"已完成 {completed} / 11 轮 · 下一轮 {session_id}"
+            f"已完成 {completed} / 4 轮 · 下一轮 {session_id}"
         )
         self.start.setEnabled(not self._was_running)
 
@@ -302,6 +355,10 @@ class ExperimentPage(QWidget):
         if self._was_running and not running:
             if self.prompt_panel.current_state != PromptState.FINISHED:
                 self.prompt_panel.reset_task()
+            self._quality_approved = False
+            self._quality_report = {}
+            self.signal_result.show(); self.signal_result.setText("新 Session 必须重新执行 8 秒质量检查")
+            self.quality_grid_widget.hide()
         self._was_running = running
         for button in (self.pause, self.resume, self.skip, self.repeat, self.bad, self.manual, self.stop, self.new_donning, self.new_stage): button.setEnabled(running)
 

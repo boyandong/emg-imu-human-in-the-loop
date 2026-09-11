@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 from pathlib import Path
 
 from .models import ProtocolConfig
@@ -27,11 +28,14 @@ class ProtocolLoader:
             path = self.directory / f"{path}.json"
         elif not path.is_absolute():
             path = self.directory / path
-        payload = json.loads(path.read_text(encoding="utf-8"))
+        raw = path.read_bytes()
+        payload = json.loads(raw.decode("utf-8"))
         allowed = set(ProtocolConfig.__dataclass_fields__)
         unknown = set(payload) - allowed
         if unknown:
             raise ValueError(f"未知实验协议字段：{', '.join(sorted(unknown))}")
         config = ProtocolConfig(**payload)
+        config.source_filename = path.name
+        config.source_sha256 = hashlib.sha256(raw).hexdigest()
         config.validate()
         return config

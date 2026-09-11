@@ -28,7 +28,7 @@ def test_music_control_labels_combine_arm_state_and_hand_action() -> None:
     labels = [
         f"{arm}_{hand}"
         for arm in ("still", "up", "down", "left", "right", "forward", "backward")
-        for hand in ("index_pinch", "fist", "open_hand")
+        for hand in ("neutral", "index_pinch", "fist", "open_hand")
     ]
     prompt = ParticipantPromptWindow()
     prompt.configure_task(labels, labels)
@@ -36,7 +36,7 @@ def test_music_control_labels_combine_arm_state_and_hand_action() -> None:
     assert prompt.actions_per_route == 1
     assert len(prompt.routes) == len(labels)
     assert ACTION_NAMES["forward_index_pinch"] == "手臂向前摆动 + 拇指与食指捏合"
-    assert ACTION_NAMES["still_fist"] == "手臂静止 + 主观 7/10 稳定握拳"
+    assert ACTION_NAMES["still_fist"] == "手臂静止 + 舒适力度稳定握拳"
     assert "still_index_pinch" not in NAVIGATION_DELTAS
     assert NAVIGATION_DELTAS["up_open_hand"] == (0, -1)
     app.processEvents()

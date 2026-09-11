@@ -5,6 +5,8 @@ from typing import Any
 
 import numpy as np
 
+from emgforce.collection_protocol import QUALITY_THRESHOLD_VERSION
+
 
 @dataclass(frozen=True, slots=True)
 class ChannelQuality:
@@ -19,6 +21,7 @@ class SignalQualityMonitor:
 
     def __init__(self, saturation_level: int = 8_300_000) -> None:
         self.saturation_level = saturation_level
+        self.threshold_version = QUALITY_THRESHOLD_VERSION
 
     def calculate(self, samples: np.ndarray) -> list[ChannelQuality]:
         data = np.asarray(samples, dtype=np.float64)
@@ -59,9 +62,28 @@ class SignalQualityMonitor:
         passed = not reasons and all(item.status == "GOOD" for item in channels)
         return {
             "passed": passed, "grade": "GOOD" if passed else "BAD", "reasons": reasons,
+            "threshold_version": self.threshold_version,
+            "thresholds": {
+                "saturation_abs_counts": self.saturation_level,
+                "zero_ratio_max": 0.98,
+                "mains_50hz_ratio_max": 0.35,
+                "adjacent_abs_correlation_max": 0.995,
+            },
             "duration_sec": len(data) / sample_rate, "sample_rate_hz": sample_rate,
             "channel_mad": mad.tolist(), "channel_p95": p95.tolist(),
             "saturation_ratio": saturation_ratio.tolist(), "zero_ratio": zero_ratio.tolist(),
             "mains_50hz_ratio": mains_ratio.tolist(),
             "adjacent_channel_correlation": adjacent.tolist(),
         }
+
+    def continuous_reasons(self, samples: np.ndarray) -> list[str]:
+        """Cheap rolling checks suitable for acquisition-time trial invalidation."""
+        data = np.asarray(samples)
+        if data.ndim != 2 or data.shape[1] != 8 or len(data) == 0:
+            return ["no_data"]
+        reasons: list[str] = []
+        if np.any(np.mean(np.abs(data) >= self.saturation_level, axis=0) > 0.001):
+            reasons.append("clipping")
+        if np.any(np.ptp(data, axis=0) == 0) or np.any(np.mean(data == 0, axis=0) > 0.98):
+            reasons.append("flatline_or_disconnected_channel")
+        return reasons

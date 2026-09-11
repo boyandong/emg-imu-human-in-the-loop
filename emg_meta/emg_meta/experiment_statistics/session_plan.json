@@ -1,43 +1,35 @@
 {
-  "protocol": "meta_discrete_7_short_v2",
-  "statistics_snapshot_date": "2026-08-19",
+  "protocol": "jilv_music_28_v2",
+  "protocol_status": "frozen_for_formal_collection",
+  "sampling": {
+    "emg_hz": 250,
+    "imu_hz": 112,
+    "timestamp_source_without_firmware_support": "pc_reconstructed"
+  },
   "participant_plan": {
-    "sessions": 12,
+    "sessions": 4,
     "independent_redonning_per_session": true,
     "split": {
-      "train": 8,
-      "validation": 2,
-      "test_untouched": 2
+      "S01": "train_first_donning_day_1",
+      "S02": "train_redonning_day_1",
+      "S03": "validation_redonning_day_2",
+      "S04": "final_test_locked_after_model_freeze"
     }
   },
   "per_session": {
-    "target_actions": 7,
-    "trials_per_target_action": 12,
-    "target_trials": 84,
-    "timed_null": {
-      "null_finger_snap": 3,
-      "null_finger_flick": 3
-    },
-    "continuous_null": {
-      "null_typing_blocks": 1,
-      "null_typing_seconds": 60
-    },
-    "trial_rows": 91,
-    "estimated_minutes": 8.92
+    "labels": 28,
+    "formal_trials": 144,
+    "stationary_trials": 72,
+    "moving_trials": 72,
+    "stationary_trials_per_label": 18,
+    "moving_trials_per_label": 3,
+    "blocks": 12,
+    "trials_per_block": 12,
+    "stationary_per_block": 6,
+    "moving_per_block": 6,
+    "forced_break_seconds": 60,
+    "onset_offsets_ms": [-200, 0, 200],
+    "session_calibration_seconds_approx": 64
   },
-  "all_12_sessions": {
-    "trials_per_target_action": 144,
-    "target_trials": 1008,
-    "target_events": 1296,
-    "events_per_meta_output_class": 144,
-    "finger_snap_trials": 36,
-    "finger_flick_trials": 36,
-    "typing_blocks": 12,
-    "typing_seconds": 720
-  },
-  "definitions": {
-    "session": "一次独立佩戴或重新调整腕带后完成的采集",
-    "trial": "界面提示并完成一次高层动作",
-    "event": "导出到Meta格式的一个离散输出事件；保持Trial包含press和release两个event"
-  }
+  "gate": "SESSION_COLLECTION_READINESS.json must have status=passed"
 }

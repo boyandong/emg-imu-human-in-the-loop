@@ -57,15 +57,15 @@ def resolve_dataset_split(session_id: str, requested: str = "auto") -> str:
     match = re.search(r"(\d{1,3})$", session_id.strip())
     if match is None:
         raise ValueError(
-            "自动划分需要场次编号以 01–11 结尾，例如 S01；也可以手动选择划分")
+            "自动划分需要正式场次编号 S01–S04")
     number = int(match.group(1))
-    if 1 <= number <= 8:
+    if 1 <= number <= 2:
         return "train"
-    if 9 <= number <= 10:
+    if number == 3:
         return "val"
-    if number == 11:
+    if number == 4:
         return "test"
-    raise ValueError("每位受试者固定采集 11 轮，自动划分只支持 S01–S11")
+    raise ValueError("每位受试者固定采集四轮，自动划分只支持 S01–S04")
 
 
 def infer_data_root(path: Path) -> Path | None:
@@ -253,7 +253,7 @@ def _atomic_csv(frame: pd.DataFrame, path: Path) -> None:
 
 
 def _redistribute_splits(frame: pd.DataFrame) -> pd.DataFrame:
-    """Apply the shared, leakage-free S01-S10/S011-S012/S013-S015 split."""
+    """Apply the frozen, leakage-free S01-S02/S03/S04 split."""
     frame = frame.sort_values(["start", "dataset"], kind="stable").copy()
     frame["split"] = [resolve_dataset_split(str(value)) for value in frame["session"]]
     return frame

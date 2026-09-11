@@ -72,7 +72,7 @@ def test_six_page_ui_and_simulator_session_round_trip(tmp_path) -> None:
     assert [window.main_tabs.tabText(i) for i in range(6)] == [
         "设备监测", "实验采集", "数据检查", "数据上传", "训练模型", "实时识别"]
     assert window.experiment_page.start.text() == "开始实验"
-    assert window.experiment_page.signal_check.text() == "执行信号检查"
+    assert window.experiment_page.signal_check.text() == "执行/重新执行信号检查"
     assert window.experiment_page.dominant.currentText() == "未填写"
     assert window.experiment_page.protocol.currentText() == "meta_discrete_7_short_v2"
     assert window.data_check_page.path.placeholderText() == "请选择原始实验文件 session.h5"
@@ -162,54 +162,7 @@ def test_six_page_ui_and_simulator_session_round_trip(tmp_path) -> None:
         assert "PROMPT_END" in kinds
         assert kinds[-1] == "SESSION_END"
     aligned_path = h5_path.with_name("session_meta_aligned.hdf5")
-    assert aligned_path.exists()
-    with h5py.File(aligned_path, "r") as h5:
-        assert h5["data"].attrs["task"] == "discrete_gestures"
-        assert h5["data"].attrs["preprocessing_version"] == "meta_8ch_v1"
-        assert h5["data"].attrs["highpass_hz"] == 40.0
-        assert h5["data"].attrs["source_emg_units"] == "device_raw_counts"
-        assert h5["data"].attrs["emg_units"] == "normalized_device_counts"
-        assert len(h5["alignment_events"]) == 9
-        assert h5["meta"].attrs["training_label_shift_applied"] == 0
-        assert h5["alignment_events"].attrs["algorithm"] == \
-            "session_rerp_template_beam_v3"
-        np.testing.assert_allclose(
-            h5["meta"].attrs["training_target_pulse_window_sec"], [0.08, 0.12])
-    assert pd.read_hdf(aligned_path, "stages")["name"].tolist() == [
-        "default", "null_timed_snap_flick", "null_typing",
-    ]
-    assert all(not name.startswith("null_")
-               for name in pd.read_hdf(aligned_path, "prompts")["name"])
-    assert not hasattr(review_page, "tabs")
-    assert review_page.review_store is not None
-    assert "自动处理完成" in review_page.qc_overview.text()
-    assert "训练就绪" in review_page.training_status.text()
-    assert review_page.qc_total_value.text() == "9"
-    corpus_path = tmp_path / "data" / "discrete_gestures_corpus.csv"
-    corpus = pd.read_csv(corpus_path)
-    assert len(corpus) == 1
-    assert corpus.iloc[0]["split"] == "train"
-    assert corpus.iloc[0]["dataset"].endswith("/session_meta_aligned.hdf5")
-    assert (tmp_path / "data" / "training_manifest.json").exists()
-    # Selecting the aligned export directly must transparently resolve the raw
-    # sibling instead of raising an HDF5 "component not found" dialog.
-    review_page.open_session(aligned_path); app.processEvents()
-    assert Path(review_page.path.text()) == h5_path
-    assert review_page.review_store is not None
-    assert review_page.review_store.aligned_path == aligned_path
-    assert not hasattr(review_page, "adjust_p1")
-    manual_dir = tmp_path / "manual_alignment"
-    manual_dir.mkdir()
-    manual_source = manual_dir / "session.h5"
-    shutil.copyfile(h5_path, manual_source)
-    review_page.start_automatic_alignment(manual_source)
-    for _ in range(100):
-        if review_page._alignment_worker is None:
-            break
-        _wait(20)
-    assert review_page._alignment_worker is None
-    assert (manual_dir / "session_meta_aligned.hdf5").exists()
-    assert "自动对齐与质检完成" in review_page.alignment_status.text()
-    assert "自动处理完成" in review_page.qc_overview.text()
+    assert not aligned_path.exists()
+    assert h5_path.with_name("SESSION_COLLECTION_READINESS.json").exists()
     window.disconnect_device(); _wait(100)
     window.close(); app.processEvents()

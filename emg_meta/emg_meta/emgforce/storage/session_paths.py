@@ -16,6 +16,7 @@ class SessionPaths:
     aligned_hdf5: Path
     config: Path
     log: Path
+    readiness_manifest: Path
 
 
 def build_session_paths(data_root: Path, participant_id: str, session_id: str,
@@ -28,4 +29,5 @@ def build_session_paths(data_root: Path, participant_id: str, session_id: str,
     directory = Path(data_root) / participant / f"{date}_{session}"
     return SessionPaths(directory, directory / "session.h5",
                         directory / "session_meta_aligned.hdf5",
-                        directory / "session_config.json", directory / "app.log")
+                        directory / "session_config.json", directory / "app.log",
+                        directory / "SESSION_COLLECTION_READINESS.json")

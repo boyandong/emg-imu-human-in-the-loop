@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 import time
+from dataclasses import asdict
 
 import numpy as np
 from PySide6.QtCore import QObject, Signal, Slot
@@ -10,6 +11,7 @@ from .config import IMU_SAMPLING_RATE, SAMPLING_RATE
 from .protocol import Packet, ParserStats
 from .sample_clock import SampleIndexClock
 from .storage.hdf5_recorder import Hdf5Recorder
+from .quality.monitor import SignalQualityMonitor
 
 
 LOGGER = logging.getLogger(__name__)
@@ -23,6 +25,7 @@ class AcquisitionController(QObject):
     packet_loss = Signal(int, int, int)
     statistics_ready = Signal(object)
     recording_error = Signal(str)
+    quality_alert = Signal(str)
 
     def __init__(self, parent: QObject | None = None) -> None:
         super().__init__(parent)
@@ -33,6 +36,9 @@ class AcquisitionController(QObject):
         self._imu_time_origin_ns: int | None = None
         self._imu_session_index = 0
         self._last_stats = ParserStats()
+        self._stats_baseline = ParserStats()
+        self._quality_window = np.empty((0, 8), dtype=np.int32)
+        self._last_quality_alert_ns = 0
 
     @property
     def current_sample_index(self) -> int:
@@ -45,6 +51,9 @@ class AcquisitionController(QObject):
         self._emg_time_origin_ns = None
         self._imu_time_origin_ns = None
         self._imu_session_index = 0
+        self._stats_baseline = ParserStats(**asdict(self._last_stats))
+        self._quality_window = np.empty((0, 8), dtype=np.int32)
+        self._last_quality_alert_ns = 0
         self._recording = True
 
     def recording_summary(self) -> dict[str, float | int]:
@@ -53,9 +62,10 @@ class AcquisitionController(QObject):
         return {
             "measured_emg_rate_hz": self._effective_rate(emg_count, self._emg_time_origin_ns),
             "measured_imu_rate_hz": self._effective_rate(imu_count, self._imu_time_origin_ns),
-            "lost_frames": self._last_stats.lost_frames,
-            "duplicate_frames": self._last_stats.duplicate_frames,
-            "out_of_order_frames": self._last_stats.out_of_order_frames,
+            "received_frames": max(0, self._last_stats.frames - self._stats_baseline.frames),
+            "lost_frames": max(0, self._last_stats.lost_frames - self._stats_baseline.lost_frames),
+            "duplicate_frames": max(0, self._last_stats.duplicate_frames - self._stats_baseline.duplicate_frames),
+            "out_of_order_frames": max(0, self._last_stats.out_of_order_frames - self._stats_baseline.out_of_order_frames),
         }
 
     @staticmethod
@@ -68,6 +78,10 @@ class AcquisitionController(QObject):
     def end_recording(self) -> None:
         self._recording = False
         self.recorder = None
+
+    def reset_trial_quality_window(self) -> None:
+        self._quality_window = np.empty((0, 8), dtype=np.int32)
+        self._last_quality_alert_ns = 0
 
     @Slot(object)
     def ingest_packets(self, packets: list[Packet]) -> None:
@@ -113,6 +127,14 @@ class AcquisitionController(QObject):
                     self._recording = False
                     self.recording_error.emit(str(exc))
             self.emg_display_ready.emit(raw, global_index)
+            if self._recording:
+                self._quality_window = np.concatenate((self._quality_window, raw), axis=0)[-2 * SAMPLING_RATE:]
+                if len(self._quality_window) >= 2 * SAMPLING_RATE:
+                    reasons = SignalQualityMonitor().continuous_reasons(self._quality_window)
+                    now = time.monotonic_ns()
+                    if reasons and now - self._last_quality_alert_ns >= 2_000_000_000:
+                        self._last_quality_alert_ns = now
+                        self.quality_alert.emit(",".join(reasons))
 
         if imu_packets:
             gyro = np.asarray([p.gyro_rad_s for p in imu_packets], dtype=np.float32)

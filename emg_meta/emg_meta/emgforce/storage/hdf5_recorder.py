@@ -140,6 +140,8 @@ class Hdf5Recorder:
                     self._append_event(datasets["events"], payload)
                 elif kind == "trial":
                     self._append_trial(datasets["trials"], payload)
+                    if payload.trial_kind == "calibration":
+                        self._append_trial(datasets["calibration_blocks"], payload)
                 elif kind == "cue_event":
                     self._append_cue_event(datasets["cue_events"], payload)
                 elif kind == "metadata":
@@ -171,6 +173,8 @@ class Hdf5Recorder:
             meta.attrs[key] = "" if value is None else value
         meta.attrs["schema_version"] = "3.0"
         meta.attrs["label_alignment_status"] = "raw_cues_only"
+        meta.attrs["timestamp_source"] = metadata.get(
+            "timestamp_source", "pc_reconstructed")
         streams = handle.create_group("streams")
         emg = streams.create_group("emg")
         imu = streams.create_group("imu")
@@ -198,6 +202,10 @@ class Hdf5Recorder:
             "imu_time_ns": imu.create_dataset("sample_time_ns", (0,), maxshape=(None,),
                 dtype="i8", chunks=(2000,)),
         }
+        emg.attrs["nominal_rate_hz"] = metadata.get("emg_nominal_rate_hz", 0)
+        imu.attrs["nominal_rate_hz"] = metadata.get("imu_nominal_rate_hz", 0)
+        emg.attrs["timestamp_source"] = metadata.get("timestamp_source", "pc_reconstructed")
+        imu.attrs["timestamp_source"] = metadata.get("timestamp_source", "pc_reconstructed")
         string = h5py.string_dtype("utf-8")
         event_dtype = np.dtype([
             ("event_id", "i8"), ("sample_index", "i8"), ("time_sec", "f8"),
@@ -212,15 +220,31 @@ class Hdf5Recorder:
             ("prompt_end_sample", "i8"), ("trial_end_sample", "i8"),
             ("valid", "?"), ("reject_reason", string), ("note", string),
             ("relative_onset_offset_ms", "i4"),
+            ("trial_kind", string), ("block_index", "i4"),
+            ("attempt", "i4"), ("rerecord_of_trial_id", "i8"),
+            ("event_uid", string), ("stable_start_sample", "i8"),
+            ("stable_end_sample", "i8"), ("release_prompt_sample", "i8"),
+            ("completion_status", string), ("discard_reason", string),
         ])
         result["events"] = handle.create_dataset("events", (0,), maxshape=(None,),
                                                   dtype=event_dtype, chunks=(256,))
         result["trials"] = handle.create_dataset("trials", (0,), maxshape=(None,),
                                                   dtype=trial_dtype, chunks=(128,))
+        result["trials"].attrs["label_semantics"] = \
+            "formal label applies only to stable_start_sample..stable_end_sample"
+        result["trials"].attrs["outside_stable_interval"] = "unknown_or_transition"
+        result["trials"].attrs["onset_semantics"] = \
+            "cue_guarded interval; not measured biological onset"
+        result["calibration_blocks"] = handle.create_dataset(
+            "calibration_blocks", (0,), maxshape=(None,),
+            dtype=trial_dtype, chunks=(64,))
+        result["calibration_blocks"].attrs["raw_data_reference"] = \
+            "streams/emg/raw and streams/imu/* via sample-index intervals"
         gesture_dtype = np.dtype([
             ("name", string), ("sample_index", "i8"), ("time_sec", "f8"),
             ("trial_id", "i8"), ("stage_id", "i8"),
             ("scheduled_monotonic_ns", "i8"), ("emitted_monotonic_ns", "i8"),
+            ("event_uid", string),
         ])
         result["cue_events"] = handle.create_dataset(
             "cue_events", (0,), maxshape=(None,), dtype=gesture_dtype, chunks=(128,))
@@ -272,6 +296,11 @@ class Hdf5Recorder:
             trial.prompt_end_sample, trial.trial_end_sample, trial.valid,
             trial.reject_reason, trial.note,
             trial.relative_onset_offset_ms,
+            trial.trial_kind, trial.block_index, trial.attempt,
+            trial.rerecord_of_trial_id, trial.event_uid,
+            trial.stable_start_sample, trial.stable_end_sample,
+            trial.release_prompt_sample, trial.completion_status,
+            trial.discard_reason,
         )], dtype=dataset.dtype)
         cls._append(dataset, row)
 
@@ -282,5 +311,6 @@ class Hdf5Recorder:
             event.name, event.sample_index, event.time_sec,
             event.trial_id, event.stage_id,
             event.scheduled_monotonic_ns, event.emitted_monotonic_ns,
+            event.event_uid,
         )], dtype=dataset.dtype)
         cls._append(dataset, row)

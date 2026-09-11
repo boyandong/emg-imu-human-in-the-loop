@@ -33,6 +33,19 @@ class SessionInfo:
     strap_setting: str = ""
     stabilization_sec: int = 60
     physical_condition: str = ""
+    recorded_arm: str = ""
+    donning_code: str = "D01"
+    anatomical_distance_mm: float = 0.0
+    strap_scale: str = ""
+    strap_tightness: int = -1
+    skin_condition: str = ""
+    fatigue_before: int = -1
+    fatigue_after: int = -1
+    reference_photo_name: str = ""
+    reference_photo_sha256: str = ""
+    operator_id: str = ""
+    quality_override_reason: str = ""
+    model_frozen_confirmed: bool = False
 
     def validate(self) -> None:
         if not self.session_id.strip():
@@ -41,6 +54,12 @@ class SessionInfo:
             raise ValueError("实验名称必填")
         if self.dataset_split not in {"auto", "train", "val", "test"}:
             raise ValueError("数据集划分只能是自动、训练、验证或测试")
+        if self.strap_tightness not in range(-1, 6):
+            raise ValueError("绑带松紧必须为 0–5，未知时为 -1")
+        for name, value in (("采集前疲劳", self.fatigue_before),
+                            ("采集后疲劳", self.fatigue_after)):
+            if value not in range(-1, 11):
+                raise ValueError(f"{name}必须为 0–10，未记录时为 -1")
 
 
 @dataclass(slots=True)
@@ -65,6 +84,15 @@ class ProtocolConfig:
     posture_name: str = ""
     posture_instruction: str = ""
     onset_offsets_ms: list[int] = field(default_factory=list)
+    formal_collection: bool = False
+    protocol_version: str = ""
+    block_size: int = 0
+    block_break_sec: float = 0.0
+    calibration_blocks: list[dict[str, Any]] = field(default_factory=list)
+    transition_guard_ms: int = 300
+    quality_threshold_version: str = ""
+    source_filename: str = ""
+    source_sha256: str = ""
 
     def validate(self) -> None:
         if not self.name.strip() or not self.labels:
@@ -120,6 +148,26 @@ class ProtocolConfig:
             raise ValueError("配置姿态说明时必须同时配置 posture_name")
         if any(offset not in {-200, 0, 200} for offset in self.onset_offsets_ms):
             raise ValueError("动作相对起始偏移只允许 -200、0 或 200 ms")
+        if self.block_size < 0 or self.block_break_sec < 0:
+            raise ValueError("block 大小和强制休息时长不能为负")
+        if self.formal_collection and (self.block_size < 1 or self.block_break_sec <= 0):
+            raise ValueError("正式协议必须配置 block_size 和 block_break_sec")
+        if self.transition_guard_ms < 0:
+            raise ValueError("过渡保护时间不能为负")
+        calibration_names: list[str] = []
+        for block in self.calibration_blocks:
+            if not isinstance(block, dict):
+                raise ValueError("校准块必须使用对象配置")
+            name = str(block.get("name", "")).strip()
+            if not name.startswith("calibration_"):
+                raise ValueError("校准块名称必须以 calibration_ 开头")
+            if float(block.get("duration_sec", 0)) <= 0:
+                raise ValueError("校准块采集时长必须大于 0")
+            if not str(block.get("instruction", "")).strip():
+                raise ValueError("校准块必须提供动作说明")
+            calibration_names.append(name)
+        if len(calibration_names) != len(set(calibration_names)):
+            raise ValueError("校准块名称不能重复")
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -137,7 +185,16 @@ class ProtocolConfig:
         for block in self.continuous_null_blocks:
             if str(block.get("name")) == label:
                 return float(block["duration_sec"])
+        for block in self.calibration_blocks:
+            if str(block.get("name")) == label:
+                return float(block["duration_sec"])
         return self.prompt_duration_sec
+
+    def calibration_block(self, label: str) -> dict[str, Any] | None:
+        for block in self.calibration_blocks:
+            if str(block.get("name")) == label:
+                return block
+        return None
 
     def trial_count(self, label: str) -> int:
         return int(self.trials_per_label.get(label, self.trials_per_class))
@@ -176,6 +233,7 @@ class CueEvent:
     stage_id: int
     scheduled_monotonic_ns: int = -1
     emitted_monotonic_ns: int = -1
+    event_uid: str = ""
 
 
 @dataclass(slots=True)
@@ -193,3 +251,13 @@ class TrialInfo:
     reject_reason: str = ""
     note: str = ""
     relative_onset_offset_ms: int = 0
+    trial_kind: str = "formal"
+    block_index: int = 0
+    attempt: int = 1
+    rerecord_of_trial_id: int = -1
+    event_uid: str = ""
+    stable_start_sample: int = -1
+    stable_end_sample: int = -1
+    release_prompt_sample: int = -1
+    completion_status: str = "pending"
+    discard_reason: str = ""

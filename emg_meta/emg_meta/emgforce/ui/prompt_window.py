@@ -588,6 +588,7 @@ class ParticipantPromptWindow(QWidget):
         self.trial_locations: list[tuple[int, int]] = []
         self.null_kinds: dict[str, str] = {}
         self.null_instructions: dict[str, str] = {}
+        self.calibration_instructions: dict[str, str] = {}
 
         layout = QVBoxLayout(self); layout.setContentsMargins(18, 16, 18, 16); layout.setSpacing(10)
         header = QGridLayout(); header.setContentsMargins(0, 0, 0, 0)
@@ -622,6 +623,7 @@ class ParticipantPromptWindow(QWidget):
                        protocol: ProtocolConfig | None = None) -> None:
         self.null_kinds = {}
         self.null_instructions = {}
+        self.calibration_instructions = {}
         if protocol is not None:
             self.null_kinds = {
                 label: kind for label in sequence
@@ -629,6 +631,10 @@ class ParticipantPromptWindow(QWidget):
             }
             self.null_instructions = {
                 label: protocol.null_instruction(label) for label in self.null_kinds
+            }
+            self.calibration_instructions = {
+                str(block["name"]): str(block["instruction"])
+                for block in protocol.calibration_blocks
             }
             if protocol.posture_name:
                 instruction = protocol.posture_instruction or protocol.posture_name
@@ -672,7 +678,7 @@ class ParticipantPromptWindow(QWidget):
 
     def reset_task(self) -> None:
         self.routes = []; self.trial_locations = []; self.null_kinds = {}
-        self.null_instructions = {}; self.current_task_trial = 0
+        self.null_instructions = {}; self.calibration_instructions = {}; self.current_task_trial = 0
         self.posture_text.clear(); self.posture_text.hide()
         self.progress_label.setText("Trial 0 / 0"); self.state_label.setText("离散网格导航")
         self.instruction_text.setText("等待开始"); self._set_instruction_tone("")
@@ -720,10 +726,14 @@ class ParticipantPromptWindow(QWidget):
             self._set_status(True, False)
         elif state == PromptState.REST:
             null_kind = self.null_kinds.get(label)
-            self.state_label.setText("准备 null 行为" if null_kind else "准备下一步")
+            calibration = self.calibration_instructions.get(label)
+            self.state_label.setText(
+                "准备 Session 校准" if calibration else
+                ("准备 null 行为" if null_kind else "准备下一步"))
+            display = calibration or ACTION_NAMES.get(label, label)
             self.instruction_text.setText(
-                f"下一行为：{ACTION_NAMES.get(label, label)} · 请准备"
-                if null_kind else f"下一动作：{ACTION_NAMES.get(label, label)} · 请准备")
+                f"下一行为：{display} · 请准备" if null_kind
+                else f"下一动作：{display} · 请准备")
             self._set_instruction_tone("")
             if null_kind == "continuous":
                 self.canvas.show_preview(label)
@@ -732,6 +742,14 @@ class ParticipantPromptWindow(QWidget):
             self._set_status(True, False)
         elif state == PromptState.PROMPT:
             null_kind = self.null_kinds.get(label)
+            calibration = self.calibration_instructions.get(label)
+            if calibration:
+                self.state_label.setText("Session 校准（原始数据与区间将保存）")
+                self.instruction_text.setText(f"现在执行：{calibration}")
+                self._set_instruction_tone("")
+                self.canvas.show_null(label, calibration, continuous=True)
+                self._set_status(True, True)
+                return
             if null_kind:
                 continuous = null_kind == "continuous"
                 self.state_label.setText("连续自然行为（null）" if continuous else "定时非目标动作（null）")
@@ -763,17 +781,33 @@ class ParticipantPromptWindow(QWidget):
             else: self.canvas.show_navigation(label)
             self._set_status(True, True)
         elif state == PromptState.HOLD:
-            action = "index_press" if label == "index_hold" else "middle_press"
-            self.state_label.setText("按下并保持")
-            self.instruction_text.setText(f"正在采集：{ACTION_NAMES[action]}")
+            if label.endswith("_open_hand"):
+                action = label
+                self.state_label.setText("Open：主动伸展并保持张开")
+                self.instruction_text.setText(f"正在采集稳定 Open：{ACTION_NAMES[action]}")
+            else:
+                action = "index_press" if label == "index_hold" else "middle_press"
+                self.state_label.setText("按下并保持")
+                self.instruction_text.setText(f"正在采集：{ACTION_NAMES[action]}")
             self._set_instruction_tone(action)
             self.canvas.show_activation(action); self._set_status(True, True)
         elif state == PromptState.RELEASE:
-            action = "index_release" if label == "index_hold" else "middle_release"
-            self.state_label.setText("松开")
-            self.instruction_text.setText(f"正在采集：{ACTION_NAMES[action]}")
+            if label.endswith("_open_hand"):
+                action = "neutral"
+                self.state_label.setText("Release：停止主动伸展")
+                self.instruction_text.setText("回到自然放松；回程区间不作为稳定 Open 标签")
+            else:
+                action = "index_release" if label == "index_hold" else "middle_release"
+                self.state_label.setText("松开")
+                self.instruction_text.setText(f"正在采集：{ACTION_NAMES[action]}")
             self._set_instruction_tone(action)
             self.canvas.show_activation(action); self._set_status(True, True)
+        elif state == PromptState.BREAK:
+            self.state_label.setText("Block 强制休息")
+            self.instruction_text.setText("请自然放松并休息；记录疲劳/不适后继续")
+            self._set_instruction_tone("")
+            self.canvas.pause_scrolling_preview(); self.canvas.pause_countdown()
+            self._set_status(True, False)
         elif state == PromptState.PAUSED:
             self.state_label.setText("已暂停"); self.instruction_text.setText("实验已暂停")
             self._set_instruction_tone("")

@@ -57,6 +57,7 @@ def test_raw_cues_are_preserved_and_meta_export_uses_aligned_times(tmp_path) -> 
     raw = np.zeros((8000, 8), np.int32)
     carrier = np.where(np.arange(4000) % 2, 1200, -1200).astype(np.int32)
     raw[2300:6300] = carrier[:, None]
+    raw += np.random.default_rng(7).integers(-3, 4, size=raw.shape, dtype=np.int32)
     recorder.enqueue_emg(raw, np.arange(len(raw)),
                          np.arange(len(raw), dtype=np.uint8))
     recorder.enqueue_event(ExperimentEvent(
@@ -76,8 +77,8 @@ def test_raw_cues_are_preserved_and_meta_export_uses_aligned_times(tmp_path) -> 
         assert h5["meta"].attrs["label_alignment_status"] == "raw_cues_only"
         assert [value.decode() for value in h5["cue_events"]["name"]] == [
             "index_press", "null_finger_snap", "index_release"]
-        assert h5["cue_events"].dtype.names[-2:] == (
-            "scheduled_monotonic_ns", "emitted_monotonic_ns")
+        assert {"scheduled_monotonic_ns", "emitted_monotonic_ns", "event_uid"}.issubset(
+            h5["cue_events"].dtype.names)
     export_meta_aligned(path, target)
     prompts = pd.read_hdf(target, "prompts")
     stages = pd.read_hdf(target, "stages")

@@ -1,17 +1,25 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import os
 import re
 import shlex
 import shutil
 import subprocess
 import time
+from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 from typing import Callable
 
 import pandas as pd
+import h5py
+import numpy as np
+
+from emgforce.collection_protocol import (
+    FORMAL_PROTOCOL_NAME, SESSION_MANIFEST_FILENAME,
+)
 
 from emgforce.processing.meta_corpus import (
     CORPUS_FILENAME, MANIFEST_FILENAME, validate_training_export,
@@ -26,6 +34,7 @@ SSH_RETRY_ATTEMPTS = 3
 SSH_COMMAND_TIMEOUT_SEC = 60.0
 SSH_HASH_TIMEOUT_SEC = 600.0
 SCP_TIMEOUT_SEC = 1800.0
+FORMAL_DATASET_MANIFEST_FILENAME = "formal_collection_manifest.json"
 
 
 @dataclass(frozen=True, slots=True)
@@ -73,6 +82,9 @@ def validate_server_settings(host: str, remote_root: str) -> tuple[str, str]:
 
 def build_upload_plan(data_root: Path, *, refresh_manifest: bool = True) -> UploadPlan:
     root = Path(data_root).resolve()
+    formal_manifests = sorted(root.rglob(SESSION_MANIFEST_FILENAME))
+    if formal_manifests:
+        return _build_formal_upload_plan(root, formal_manifests)
     corpus_path = root / CORPUS_FILENAME
     if not corpus_path.exists():
         raise ValueError(f"缺少 {CORPUS_FILENAME}，请先完成 Meta 对齐导出")
@@ -134,6 +146,93 @@ def build_upload_plan(data_root: Path, *, refresh_manifest: bool = True) -> Uplo
         root, items, len(dataset_items), prompt_total, train, val, test,
         sum(item.size_bytes for item in items), warnings,
     )
+
+
+def _build_formal_upload_plan(root: Path, manifest_paths: list[Path]) -> UploadPlan:
+    """Upload only sessions that already passed the collection-side gate."""
+    dataset_items: list[UploadItem] = []
+    records: list[dict[str, object]] = []
+    warnings: list[str] = []
+    split_counts = Counter()
+    formal_trials = 0
+    sessions_by_participant: dict[str, set[str]] = {}
+
+    for readiness_path in manifest_paths:
+        payload = json.loads(readiness_path.read_text(encoding="utf-8"))
+        relative_manifest = readiness_path.relative_to(root).as_posix()
+        if payload.get("status") != "passed":
+            warnings.append(f"跳过未通过采集门禁的 Session：{relative_manifest}")
+            continue
+        hdf5_path = readiness_path.with_name(str(payload.get("hdf5_file", "session.h5")))
+        if not hdf5_path.is_file():
+            raise ValueError(f"门禁通过但 HDF5 不存在：{hdf5_path}")
+        actual_hash = sha256_file(hdf5_path)
+        if actual_hash != str(payload.get("hdf5_sha256", "")):
+            raise ValueError(f"门禁后 HDF5 已变化，必须重新验收：{hdf5_path}")
+        with h5py.File(hdf5_path, "r") as handle:
+            meta = handle["meta"].attrs
+            protocol = str(meta.get("protocol_name", ""))
+            if protocol != FORMAL_PROTOCOL_NAME:
+                raise ValueError(f"正式上传只接受 {FORMAL_PROTOCOL_NAME}：{hdf5_path}")
+            participant = str(meta.get("participant_id", ""))
+            session = str(meta.get("session_id", "")).upper()
+            split = str(meta.get("dataset_split", ""))
+            if split not in {"train", "val", "test"}:
+                raise ValueError(f"正式 Session split 无效：{hdf5_path}")
+            trials = handle["trials"][:]
+            count = sum(bool(row["valid"]) and _decode_text(row["trial_kind"]) == "formal"
+                        for row in trials)
+        sessions_by_participant.setdefault(participant, set()).add(session)
+        split_counts[split] += 1
+        formal_trials += count
+        relative_hdf5 = hdf5_path.relative_to(root).as_posix()
+        dataset_items.extend((
+            UploadItem(hdf5_path, relative_hdf5, hdf5_path.stat().st_size),
+            UploadItem(readiness_path, relative_manifest, readiness_path.stat().st_size),
+        ))
+        records.append({
+            "participant_id": participant, "session_id": session, "split": split,
+            "dataset": relative_hdf5, "readiness": relative_manifest,
+            "hdf5_sha256": actual_hash, "valid_formal_trials": count,
+        })
+
+    if not records:
+        raise ValueError("没有 status=passed 的正式 Session 可上传")
+    for participant, sessions in sessions_by_participant.items():
+        if "S03" in sessions and "S02" not in sessions:
+            raise ValueError(f"{participant} 缺少 S02，不能上传 S03")
+        if "S04" in sessions and not {"S01", "S02", "S03"}.issubset(sessions):
+            raise ValueError(f"{participant} 的 S04 缺少前置 S01–S03")
+    if split_counts["train"] < 2 or split_counts["val"] < 1:
+        warnings.append("尚未形成完整 S01–S03 训练/验证集合")
+    if split_counts["test"] == 0:
+        warnings.append("S04 尚未采集；冻结算法后再创建 final test")
+
+    root_manifest = root / FORMAL_DATASET_MANIFEST_FILENAME
+    manifest_payload = {
+        "format": "formal_emg_hdf5_v3_collection_v1",
+        "protocol": FORMAL_PROTOCOL_NAME,
+        "sessions": sorted(records, key=lambda row: (
+            str(row["participant_id"]), str(row["session_id"]))),
+        "sessions_by_split": dict(split_counts),
+        "valid_formal_trials": formal_trials,
+    }
+    temporary = root_manifest.with_name(f".{root_manifest.name}.{os.getpid()}.tmp")
+    temporary.write_text(json.dumps(manifest_payload, ensure_ascii=False, indent=2),
+                         encoding="utf-8")
+    temporary.replace(root_manifest)
+    items = tuple(dataset_items + [UploadItem(
+        root_manifest, root_manifest.name, root_manifest.stat().st_size)])
+    return UploadPlan(
+        root, items, len(records), formal_trials,
+        int(split_counts["train"]), int(split_counts["val"]),
+        int(split_counts["test"]), sum(item.size_bytes for item in items),
+        tuple(warnings),
+    )
+
+
+def _decode_text(value: object) -> str:
+    return bytes(value).decode("utf-8") if isinstance(value, (bytes, np.bytes_)) else str(value)
 
 
 def test_ssh_connection(host: str, remote_root: str,

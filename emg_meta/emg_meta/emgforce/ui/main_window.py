@@ -4,7 +4,9 @@ import logging
 from pathlib import Path
 
 from PySide6.QtGui import QCloseEvent
-from PySide6.QtWidgets import QMainWindow, QMessageBox, QTabWidget, QVBoxLayout, QWidget
+from PySide6.QtWidgets import (
+    QInputDialog, QMainWindow, QMessageBox, QTabWidget, QVBoxLayout, QWidget,
+)
 
 from emgforce.config import BAUDRATE, SAMPLING_RATE, SOFTWARE_NAME
 from emgforce.controller import AcquisitionController
@@ -57,6 +59,7 @@ class MainWindow(QMainWindow):
         self.realtime_inference_page.music_gesture_ready.connect(self.music_control.set_gesture)
         self.acquisition.statistics_ready.connect(self.device_page.update_stats); self.acquisition.packet_loss.connect(self.session.packet_loss)
         self.acquisition.recording_error.connect(self._recorder_error)
+        self.acquisition.quality_alert.connect(self.session.quality_alert)
         page = self.experiment_page
         page.signal_check.clicked.connect(lambda: page.run_signal_check(self.device_page.recent_raw(8)))
         page.continue_anyway.clicked.connect(self._approve_quality_override)
@@ -68,6 +71,7 @@ class MainWindow(QMainWindow):
         self.session.prompt.state_changed.connect(page.update_state)
         self.session.prompt.phase_scheduled.connect(page.update_phase_duration)
         self.session.prompt.finished.connect(self._protocol_finished)
+        self.session.prompt.block_break_ended.connect(self._record_block_fatigue)
         self.session.session_stopped.connect(self._session_stopped); self.session.recorder_error.connect(self._recorder_error)
 
     def connect_device(self, port: str, simulated: bool) -> None:
@@ -114,9 +118,15 @@ class MainWindow(QMainWindow):
         self.statusBar().showMessage(f"● 正在记录 | {paths.hdf5}")
 
     def _approve_quality_override(self) -> None:
+        reason, accepted = QInputDialog.getText(
+            self, "质量门控人工忽略", "必须填写忽略原因（将写入 HDF5 审计记录）：")
+        if not accepted or not reason.strip():
+            QMessageBox.warning(self, "未忽略", "没有填写原因，质量门控仍未通过")
+            return
         self.experiment_page._quality_approved = True
         self.experiment_page._quality_report.setdefault("passed", False)
         self.experiment_page._quality_report["operator_override"] = True
+        self.experiment_page._quality_report["operator_override_reason"] = reason.strip()
         self.experiment_page.signal_result.show()
         self.experiment_page.signal_result.setText("已由操作人员确认：忽略警告并继续（将写入质量报告）")
 
@@ -129,6 +139,12 @@ class MainWindow(QMainWindow):
         if not self.session.active:
             return
         from PySide6.QtCore import QCoreApplication
+        if self.session.protocol and self.session.protocol.formal_collection:
+            score, accepted = QInputDialog.getInt(
+                self, "采集后疲劳", "请记录采集后疲劳/不适程度（0–10）：",
+                0, 0, 10, 1)
+            if accepted:
+                self.session.update_fatigue_after(score)
         self.statusBar().showMessage("🎉 本次 Session 数据采集已全部完成，正在安全保存数据…")
         QCoreApplication.processEvents()
         self.stop_session()
@@ -140,11 +156,25 @@ class MainWindow(QMainWindow):
         aligned = self.session.last_aligned_path
         message = (f"🎉 采集完成！原始文件：{path} | Meta 对齐文件：{aligned}"
                    if aligned else f"🎉 采集完成！实验文件：{path}")
+        readiness = self.session.last_readiness
+        if readiness is not None:
+            message += (" | 分类门禁：通过" if readiness.get("status") == "passed"
+                        else " | 分类门禁：未通过，请查看 SESSION_COLLECTION_READINESS.json")
         self.statusBar().showMessage(message)
         self.device_page.set_recording(False)
         if path:
             self.data_check_page.open_session(Path(path))
             self.dataset_upload_page.refresh_plan()
+
+    def _record_block_fatigue(self, block: int, total: int) -> None:
+        if not self.session.protocol or not self.session.protocol.formal_collection:
+            return
+        score, accepted = QInputDialog.getInt(
+            self, "Block 休息与疲劳记录",
+            f"Block {block} / {total} 已完成。请记录当前疲劳/不适程度（0–10）：",
+            0, 0, 10, 1)
+        if accepted:
+            self.session.record_fatigue(block, score)
 
 
     def _mark_bad(self, reason: str, note: str) -> None:

@@ -1,10 +1,11 @@
 # EMG Data Collection
 
-纯 sEMG 科研数据采集上位机：连接 8 通道、2000 Hz、24-bit EMG + 6-axis IMU
+正式采集上位机：连接 8 通道、250 Hz、24-bit EMG + 112 Hz 6-axis IMU
 设备，按 JSON Protocol 展示 Prompt，并将连续原始数据、事件与 Trial 索引写入 HDF5。
 
-采集主线不包含在线训练或识别。Meta 七动作协议在原始文件安全关闭后，
-会运行离线 Session 模板强制对齐并生成独立的 Meta 格式导出；对齐永远不修改原始采集文件。
+正式采集协议冻结为 `jilv_music_28_v2`。采集结束后自动生成
+`SESSION_COLLECTION_READINESS.json`；只有 `status=passed` 的 Session 才能进入分类流程。
+历史 Meta 七动作与 2000 Hz 对齐代码只用于旧数据复现，不属于当前正式采集主线。
 
 ## 安装与启动
 
@@ -19,13 +20,12 @@ python main.py
 
 ## 新 Session
 
-默认实验协议为 `jilv_music_21_v1`，标签由手臂状态和手部动作共同组成。手臂状态为
-静止、上、下、左、右、前、后，手部动作为拇指与食指捏合、主观 7/10 稳定握拳、
-自然张开/放松，共形成 21 个明确的组合标签。
-每轮保持 108 个试次：静止状态下的三种手部动作各 18 次，共 54 次；六个摆动方向
-与三种手部动作形成 18 个运动组合，每个组合 3 次，也共 54 次。静止与运动数据各占
-一半，但 108 个动作提示会随机打散；HDF5 Trial 标签使用完整组合名称。
-旧的 Meta 拇指手势协议仍保留用于原研究复现，但不再作为新采集的默认协议。
+唯一正式实验协议为 `jilv_music_28_v2`。手臂状态为静止、上、下、左、右、前、后，
+手部状态为 Neutral（自然放松）、食指捏合、舒适力度握拳和主动 Open，共 28 个组合。
+每个 Session 有 144 个正式 trial：4 个静止组合各 18 次，24 个运动组合各 3 次，
+静止与运动数据各占一半。正式 trial 分为 12 个 block，每个 block 内固定包含 6 个静止
+和 6 个运动组合后再随机；每个 block 后强制休息 60 秒并记录疲劳/不适。
+`-200/0/+200 ms` onset 条件在每个标签内平衡，不再无约束地逐 trial 随机抽取。
 
 1. 连接真实设备或模拟器，在设备页确认 8 通道波形。
    正式音乐体验前，在“音乐力度控制”卡片开始约 17 秒的个人标定：先自然松手约
@@ -34,15 +34,19 @@ python main.py
    且不颤抖、不疼痛。该握拳参考映射为 0.85，给演奏时更强的自然发力
    留出约 15% 余量；输出仍限制在 0–1，不要求极限用力。
 2. 在实验采集页填写 Participant ID 和 Experiment Name。离开 Participant ID 输入框后，
-   Session ID 会根据该受试者跨日期已有数据自动更新为下一轮 `Sxx`。每人固定采集 11 轮；
-   自动模式将 S01–S08 设为 train、S09–S10 设为 val、S11 设为 test。
-3. 点击 Signal Check，确认 8 个通道的 RMS、Peak-to-Peak 与饱和状态。
-4. 选择 Protocol，点击 Start Session。参与者窗口可以拖到第二显示器。
-5. 实验期间可 Pause/Resume、Skip、Repeat、Mark Bad、Manual Mark，并切换 Donning/Stage。
-6. 最后一个 Trial 完成后会自动安全停止；需要提前结束时也可点击 Stop Session。原始文件保存到
+   Session ID 会严格按已有数据自动更新。每人固定四轮：S01/S02 为 train，S03 为 validation，
+   S04 为 final test。S02 缺失时不能创建 S03；S04 必须确认模型、阈值和校准算法已经冻结。
+3. 填写结构化佩戴元数据和统一角度参考照片路径；照片 SHA-256 会写入 HDF5。
+4. 保持自然放松至少 8 秒并执行质量检查。失败时优先重新检查；人工忽略必须填写原因，
+   且质量失败的 Session 不会通过最终分类门禁。
+5. 点击开始后先完成约 64 秒 Session 校准：自然静息、两次 Pinch、两次 Fist、两次 Open、
+   六个方向和最终静息复核。每个校准块的原始数据与样本区间都会保存；失败块自动补采。
+6. 正式采集中持续检查饱和、断线、坏通道和丢包。异常 trial 保留为 invalid 并追加补采，
+   不会无记录覆盖。Open 明确显示 Hold 与 Release，提示时刻不冒充人体动作 onset。
+7. 最后一个 Trial 完成后会自动安全停止；需要提前结束时也可点击 Stop Session。原始文件保存到
    `data/<Participant>/<date>_<Session>/session.h5`。
-7. Meta 七动作协议会额外生成 `session_meta_aligned.hdf5`，并在 `data/` 根目录原子更新
-   `discrete_gestures_corpus.csv` 和 `training_manifest.json`。
+8. 同目录生成 `SESSION_COLLECTION_READINESS.json`，检查 HDF5 v3、采样率、28 组合、Open、
+   offset 平衡、有效次数、校准、质量、包审计、重录原因、元数据和文件完整性。
 
 ## 新 Protocol
 
@@ -63,14 +67,15 @@ python main.py
 
 重启软件或重新进入后即可发现该 Protocol。
 
-### Meta 式 null 数据
+### 历史 Meta 式 null 数据（非正式采集协议）
 
 `meta_discrete_7_short_v2` 每个 Session 采集七个高层动作各 12 个 Trial（共 12 条
 平衡导航路线），并在目标手势完成后追加论文明确描述的两类负样本：定时执行的
 响指/屈指弹出，以及持续进行的自然键盘打字。定时 null 使用与目标动作相同的滚动
 指示线；连续 null 只显示行为要求并持续记录指定时长。
 
-建议每位参与者采集 12 个独立重新佩戴的短 Session，并按 8 个训练、2 个验证、
+以下仅说明旧数据复现安排，不适用于新的 `jilv_music_28_v2`。历史方案建议每位参与者
+采集 12 个独立重新佩戴的短 Session，并按 8 个训练、2 个验证、
 2 个最终测试 Session 划分。这样每个高层动作累计 144 个 Trial；保持动作分别产生
 按下和松开事件，因此九个 Meta 输出事件也各累计 144 次。单个 Session 理论时长
 约 9 分钟（不含重新佩戴和信号检查）。
@@ -100,9 +105,11 @@ null 数据始终写入连续 EMG、`trials`、`events` 和带起止时间的 `s
 Trial 有效性、丢包事件，并按 Trial 回放 8 通道连续 EMG；红线对应 PROMPT_START。
 
 HDF5 原始文件主结构：`/meta`、`/streams/emg`、`/streams/imu`、`/events`、
-`/trials`、`/cue_events`。`cue_events` 仅表示 UI 发出动作提示的样本位置，
+`/trials`、`/calibration_blocks`、`/cue_events` 和 `/packet_audit`。`cue_events` 仅表示 UI 发出动作提示的样本位置，
 不冒充真实生理动作起点，原始文件中不写入最终 `prompts`。
 EMG `raw` 为 `[N,8] int32`，显示滤波数据不会进入正式文件。
+EMG 与 IMU 分别保存标称率、实测率和独立时间轴。在固件没有硬件时间戳时，
+`timestamp_source=pc_reconstructed`，因此只能用于工程延迟估算，不能解释毫秒级生理时延。
 
 Meta V3 对齐文件包含 `/data`、Pandas `/prompts(name,time)`、
 `/stages(start,end,name)`、`/alignment_events`、`/alignment_templates` 和

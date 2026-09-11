@@ -119,7 +119,7 @@ class DatasetUploadPage(QWidget):
 
         dataset_card, dataset_layout = self._make_card(
             "本地训练数据集",
-            "自动读取 corpus，只上传登记且通过 meta_8ch_v1 就绪检查的对齐文件")
+            "正式协议只上传 SESSION_COLLECTION_READINESS.json 为 passed 且哈希未变化的 HDF5；旧 Meta 数据继续读取 corpus")
         path_row = QHBoxLayout()
         self.local_path = QLineEdit(str(self.data_root.resolve()))
         self.local_path.setReadOnly(True)
@@ -139,7 +139,7 @@ class DatasetUploadPage(QWidget):
         metrics.setSpacing(10)
         self.sessions_value = self._metric(metrics, 0, "Session", "--")
         self.split_value = self._metric(metrics, 1, "Train / Val / Test", "--")
-        self.prompts_value = self._metric(metrics, 2, "有效 Prompts", "--")
+        self.prompts_value = self._metric(metrics, 2, "有效 Trial / Prompts", "--")
         self.size_value = self._metric(metrics, 3, "上传大小", "--")
         dataset_layout.addLayout(metrics)
         self.file_list = QPlainTextEdit()
