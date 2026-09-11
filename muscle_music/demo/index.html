@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="肌律：用手腕动作实时生成音乐。">
+  <title>肌律 · 手势生成音乐</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="肌律首页">
+        <span class="brand-mark">律</span>
+        <span><strong>肌律</strong><small>JILV</small></span>
+      </a>
+
+      <div class="top-actions">
+        <div class="source-readout" id="sourceReadout" data-state="waiting">
+          <span class="source-dot"></span>
+          <span id="sourceText">等待手环</span>
+          <strong>OSC 9000</strong>
+        </div>
+        <button id="autoButton" class="quiet-button">自动演示</button>
+        <button id="startButton" class="start-button">开始</button>
+      </div>
+    </header>
+
+    <section class="music-room" id="visualStage" aria-label="实时音乐生成画面">
+      <canvas id="musicCanvas" role="img" aria-label="手势生成的六个音乐声部随节拍实时变化"></canvas>
+
+      <div class="transport-readout" aria-hidden="true">
+        <span id="transportDot" class="transport-dot"></span>
+        <span id="transportText">尚未开始</span>
+        <strong id="clockText">1.1</strong>
+      </div>
+
+      <div class="now-playing" aria-live="polite">
+        <span id="currentGesture">等待动作</span>
+        <h1 id="mainStatus">挥动手腕，画出你的音乐</h1>
+        <p id="personalityLabel">六个方向，六种声音</p>
+      </div>
+
+      <div class="harmony-readout">
+        <span id="harmonyText">A NATURAL MINOR · 112 BPM</span>
+        <div class="bar-progress" aria-hidden="true"><i id="beatHand"></i></div>
+      </div>
+
+      <div class="direction-dock" id="orbit" aria-label="无手环时可点击方向试听">
+        <button class="layer" data-gesture="forward" style="--layer-color:#45c7a3" aria-label="向前：鼓">
+          <i class="shape shape-drum"></i><span><b>前</b><small>鼓</small></span>
+        </button>
+        <button class="layer" data-gesture="back" style="--layer-color:#8f82dc" aria-label="向后：环境">
+          <i class="shape shape-texture"></i><span><b>后</b><small>环境</small></span>
+        </button>
+        <button class="layer" data-gesture="left" style="--layer-color:#55aee6" aria-label="向左：和弦">
+          <i class="shape shape-chord"></i><span><b>左</b><small>和弦</small></span>
+        </button>
+        <button class="layer" data-gesture="right" style="--layer-color:#ed729d" aria-label="向右：旋律">
+          <i class="shape shape-lead"></i><span><b>右</b><small>旋律</small></span>
+        </button>
+        <button class="layer" data-gesture="up" style="--layer-color:#e8b94f" aria-label="向上：琶音">
+          <i class="shape shape-arp"></i><span><b>上</b><small>琶音</small></span>
+        </button>
+        <button class="layer" data-gesture="down" style="--layer-color:#ee8a55" aria-label="向下：贝斯">
+          <i class="shape shape-bass"></i><span><b>下</b><small>贝斯</small></span>
+        </button>
+      </div>
+    </section>
+
+    <div class="event-line">
+      <span class="event-pulse"></span>
+      <span id="eventLog" aria-live="polite">点击开始，然后挥向任意方向。</span>
+    </div>
+
+    <details class="settings-drawer">
+      <summary>声音与设备设置</summary>
+      <div class="settings-grid">
+        <section class="settings-section">
+          <div class="settings-heading">
+            <h2>动作输入</h2>
+            <span class="live-badge" id="liveBadge">等待数据</span>
+          </div>
+          <div class="telemetry-grid">
+            <div><span>识别</span><strong id="gestureValue">无动作</strong></div>
+            <div><span>置信度</span><strong id="confidenceValue">--</strong></div>
+            <div><span>强度</span><strong id="motionValue">58</strong></div>
+          </div>
+          <label class="motion-control" for="motionSlider">
+            <span>演示强度 <small id="motionMode">手动</small></span>
+            <input id="motionSlider" type="range" min="0" max="100" value="58">
+          </label>
+          <p>当前手环使用 200 Hz 六轴 IMU。这里保留连接和识别信息，现场演示时可以收起。</p>
+          <div class="profile-grid" aria-label="本次演奏特征">
+            <div><span>动态</span><b id="profileMotion">0.50</b></div>
+            <div><span>连奏</span><b id="profileLegato">0.32</b></div>
+            <div><span>声部</span><b id="profileLayers">0 / 6</b></div>
+            <div><span>复杂度</span><b id="profileComplexity">0.00</b></div>
+          </div>
+        </section>
+
+        <section class="settings-section mixer-card">
+          <div class="settings-heading">
+            <h2>六轨混音</h2>
+            <button id="resetMixButton" class="text-button">恢复默认</button>
+          </div>
+          <div class="master-controls">
+            <label class="switch-control"><input id="autoMixToggle" type="checkbox" checked><span>自动平衡</span></label>
+            <label>空间 <input id="spaceSlider" type="range" min="0" max="100" value="46"><output id="spaceValue">46</output></label>
+            <label>总音量 <input id="masterSlider" type="range" min="0" max="100" value="72"><output id="masterValue">72</output></label>
+            <div class="master-meter" aria-label="主输出电平"><i id="masterMeter"></i></div>
+          </div>
+          <div class="channel-grid">
+            <article class="channel" data-mix-channel="0" style="--channel-color:#45c7a3"><div class="channel-title"><i></i><span>鼓</span></div><input aria-label="鼓音量" type="range" min="0" max="100" value="82"><div><output>82</output><button class="mute-button" aria-label="静音鼓">M</button></div></article>
+            <article class="channel" data-mix-channel="1" style="--channel-color:#8f82dc"><div class="channel-title"><i></i><span>环境</span></div><input aria-label="环境音量" type="range" min="0" max="100" value="45"><div><output>45</output><button class="mute-button" aria-label="静音环境">M</button></div></article>
+            <article class="channel" data-mix-channel="2" style="--channel-color:#55aee6"><div class="channel-title"><i></i><span>和弦</span></div><input aria-label="和弦音量" type="range" min="0" max="100" value="62"><div><output>62</output><button class="mute-button" aria-label="静音和弦">M</button></div></article>
+            <article class="channel" data-mix-channel="3" style="--channel-color:#ed729d"><div class="channel-title"><i></i><span>旋律</span></div><input aria-label="旋律音量" type="range" min="0" max="100" value="74"><div><output>74</output><button class="mute-button" aria-label="静音旋律">M</button></div></article>
+            <article class="channel" data-mix-channel="4" style="--channel-color:#e8b94f"><div class="channel-title"><i></i><span>琶音</span></div><input aria-label="琶音音量" type="range" min="0" max="100" value="55"><div><output>55</output><button class="mute-button" aria-label="静音琶音">M</button></div></article>
+            <article class="channel" data-mix-channel="5" style="--channel-color:#ee8a55"><div class="channel-title"><i></i><span>贝斯</span></div><input aria-label="贝斯音量" type="range" min="0" max="100" value="78"><div><output>78</output><button class="mute-button" aria-label="静音贝斯">M</button></div></article>
+          </div>
+        </section>
+      </div>
+    </details>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

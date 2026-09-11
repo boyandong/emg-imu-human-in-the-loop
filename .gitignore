@@ -1,0 +1,52 @@
+# Local source-repository backups used while assembling the monorepo
+.module_sources/
+
+# Human-participant data and identifying media
+**/data/
+**/participants/
+**/reference_photos/
+**/photos/
+*.h5
+*.hdf5
+*.mat
+*.npy
+*.npz
+*.csv
+*.xlsx
+
+# Models, logs and generated artifacts
+**/models/
+**/artifacts/
+**/lightning_logs/
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.ts
+*.log
+
+# Environments, caches and credentials
+.env
+.env.*
+.venv/
+venv/
+env/
+**/__pycache__/
+**/.pytest_cache/
+**/.pytest_tmp*/
+**/.test_artifacts/
+*.py[cod]
+*.pem
+*.key
+
+# Non-EMG material retained locally in this workspace
+work/
+tmp/
+output/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
