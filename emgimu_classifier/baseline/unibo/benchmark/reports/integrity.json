@@ -1,0 +1,16 @@
+{
+  "status": "ok",
+  "errors": [],
+  "warnings": [
+    "excluded 2779 actively labelled samples from counter-zero regions outside numbered repetitions"
+  ],
+  "trial_count": 11291,
+  "eligible_trial_count": 6774,
+  "subject_session_groups": 56,
+  "expected_subjects": 7,
+  "expected_days_per_subject": 8,
+  "expected_postures_per_day": 4,
+  "expected_sources": 224,
+  "discovered_sources": 224,
+  "missing_sources": []
+}

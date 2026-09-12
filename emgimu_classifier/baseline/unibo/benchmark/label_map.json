@@ -1,0 +1,42 @@
+{
+  "dataset_id": "unibo-inail",
+  "source_label_field": "relabel",
+  "source_labels": {
+    "1": {
+      "name": "rest",
+      "hand_label": 0,
+      "eligible": true
+    },
+    "2": {
+      "name": "power_grip",
+      "hand_label": 2,
+      "eligible": true
+    },
+    "3": {
+      "name": "two_finger_pinch",
+      "hand_label": 1,
+      "eligible": true
+    },
+    "4": {
+      "name": "three_finger_pinch",
+      "hand_label": -1,
+      "eligible": false
+    },
+    "5": {
+      "name": "pointing_index",
+      "hand_label": -1,
+      "eligible": false
+    },
+    "6": {
+      "name": "open_hand",
+      "hand_label": 3,
+      "eligible": true
+    }
+  },
+  "posture_labels": {
+    "1": "proximal",
+    "2": "distal",
+    "3": "distal_palm_down",
+    "4": "distal_arm_45deg_up"
+  }
+}

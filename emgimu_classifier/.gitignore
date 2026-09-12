@@ -8,3 +8,11 @@ build/
 dist/
 *.pkl
 *.pt
+
+# Local-only public benchmark inputs and generated experiment artifacts.
+baseline/unibo/official/
+baseline/unibo/*.zip
+baseline/unibo/benchmark/trials/
+baseline/unibo/models/
+baseline/unibo/results/
+baseline/unibo/.*.tmp-*/

@@ -23,6 +23,7 @@ def write_source_mat(
     missing: str | None = None,
     nan_emg: bool = False,
     invalid_label: bool = False,
+    active_counter_zero: bool = False,
 ) -> None:
     rng = np.random.default_rng(42)
     emg_blocks: list[np.ndarray] = []
@@ -45,7 +46,7 @@ def write_source_mat(
         relabel_blocks.append(relabel)
         counter_blocks.append(np.full(length, counter, dtype=np.float32))
 
-    append_block(1, 0, 50)
+    append_block(6 if active_counter_zero else 1, 0, 50)
     # Two repetitions make the counter reset (2 -> 1) visible at gesture boundaries.
     for gesture in (6, 5, 4, 3, 2):
         append_block(gesture, 1)
@@ -76,7 +77,7 @@ class UniBoAdapterTests(unittest.TestCase):
 
             result = UniBoInailAdapter().adapt(source, output)
 
-            self.assertEqual(result.trial_count, 11)
+            self.assertEqual(result.trial_count, 10)
             self.assertTrue((output / "manifest.json").is_file())
             self.assertTrue((output / "label_map.json").is_file())
             self.assertTrue((output / "splits.json").is_file())
@@ -114,6 +115,28 @@ class UniBoAdapterTests(unittest.TestCase):
             )
             self.assertGreater(statistics["unmapped_sample_fraction"], 0.0)
             self.assertIn("OPEN", statistics["stable_duration_seconds_by_hand_label"])
+            self.assertEqual(statistics["excluded_counter_zero_runs"], 1)
+            self.assertEqual(statistics["excluded_counter_zero_samples"], 50)
+
+    def test_counter_zero_active_boundary_is_excluded_and_reported(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "source"
+            source.mkdir()
+            write_source_mat(
+                source / "user1_day1_posture1.mat",
+                active_counter_zero=True,
+            )
+            output = root / "converted"
+
+            result = UniBoInailAdapter().adapt(source, output)
+
+            self.assertEqual(result.trial_count, 10)
+            statistics = json.loads(
+                (output / "reports" / "statistics.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(statistics["excluded_counter_zero_active_samples"], 50)
+            self.assertTrue(any("counter-zero" in warning for warning in result.warnings))
 
     def test_fixed_subject_day_splits(self):
         with tempfile.TemporaryDirectory() as directory:

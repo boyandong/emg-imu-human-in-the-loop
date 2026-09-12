@@ -1,0 +1,21 @@
+{
+  "dataset": "UniBo-INAIL sEMG dataset",
+  "official_repository": "https://github.com/pulp-bio/unibo-inail-semg-dataset",
+  "archive_url": "https://github.com/pulp-bio/unibo-inail-semg-dataset/archive/refs/heads/main.zip",
+  "archive_ref": "main",
+  "downloaded_at_local_date": "2026-09-12",
+  "archive_file": "unibo-official-main.zip",
+  "archive_size_bytes": 513385791,
+  "archive_sha256": "E32F1649B7B9B775A6B03328FB862EBF21A18C7CA6B4D9ABB50B7281CAEFBCE3",
+  "license_id": "LGPL-2.1",
+  "official_mat_files": 224,
+  "official_data_directory": "official/data",
+  "canonical_benchmark_directory": "benchmark",
+  "canonical_trial_count": 11291,
+  "eligible_four_class_trial_count": 6774,
+  "subject_count": 7,
+  "subject_day_group_count": 56,
+  "integrity_status": "ok",
+  "archive_commit": null,
+  "archive_commit_note": "The downloaded moving main ref is pinned locally by archive_sha256; the exact Git commit was not recorded and must not be inferred."
+}

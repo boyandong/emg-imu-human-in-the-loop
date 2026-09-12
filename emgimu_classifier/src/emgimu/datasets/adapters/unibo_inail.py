@@ -180,12 +180,26 @@ class UniBoInailAdapter:
         posture_trials: Counter[str] = Counter()
         session_trials: Counter[str] = Counter()
         repetitions: dict[tuple[int, int, int, int], int] = defaultdict(int)
+        excluded_counter_zero_runs = 0
+        excluded_counter_zero_samples = 0
+        excluded_counter_zero_active_samples = 0
         try:
             for path, subject, day, posture in files:
                 emg, label, relabel, counter = _load_source(path)
                 file_trial_count = 0
                 for start, end in _contiguous_runs(counter):
                     counter_value = int(counter[start])
+                    # The official files use counter=0 outside numbered
+                    # repetitions.  Some recordings retain active labels in
+                    # these boundary regions, so exclude them rather than
+                    # silently treating them as either rest or a trial.
+                    if counter_value == 0:
+                        excluded_counter_zero_runs += 1
+                        excluded_counter_zero_samples += end - start
+                        excluded_counter_zero_active_samples += int(
+                            np.count_nonzero(label[start:end] != 1)
+                        )
+                        continue
                     gesture = _source_gesture(label[start:end], counter_value, path)
                     if counter_value > 0:
                         repetitions[(subject, day, posture, gesture)] += 1
@@ -276,6 +290,12 @@ class UniBoInailAdapter:
             missing_sources = sorted(expected - set(keys))
             if missing_sources:
                 warnings.append(f"missing {len(missing_sources)} of 224 subject/day/posture sources")
+            if excluded_counter_zero_active_samples:
+                warnings.append(
+                    "excluded "
+                    f"{excluded_counter_zero_active_samples} actively labelled samples from "
+                    "counter-zero regions outside numbered repetitions"
+                )
             for subject, day, posture in sorted(set(keys)):
                 for gesture in range(2, 7):
                     count = repetitions.get((subject, day, posture, gesture), 0)
@@ -354,6 +374,9 @@ class UniBoInailAdapter:
                 "trials_by_subject_session": dict(sorted(session_trials.items())),
                 "unmapped_active_gestures": [4, 5],
                 "missing_source_count": len(missing_sources),
+                "excluded_counter_zero_runs": excluded_counter_zero_runs,
+                "excluded_counter_zero_samples": excluded_counter_zero_samples,
+                "excluded_counter_zero_active_samples": excluded_counter_zero_active_samples,
             })
             (stage / "reports" / "CAPABILITIES.md").write_text(
                 _capabilities_markdown(), encoding="utf-8",
