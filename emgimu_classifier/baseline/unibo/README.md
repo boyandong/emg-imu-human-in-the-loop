@@ -92,3 +92,21 @@ python -m emgimu.datasets.unibo_neural_baseline baseline/unibo/benchmark `
 ```
 
 `--device auto` 会在 CUDA PyTorch 可用时使用 GPU，否则使用 CPU。
+
+## 运行完整人体表征消融
+
+G0–G6 的 RBF-SVM 消融使用 Day 1–3→4、Day 1–4→5 和 Day 1–5→6
+三个时间顺序开发 fold。运行器不会读取 Day 7–8，也不接受 `--evaluate-test`：
+
+```powershell
+$env:PYTHONPATH = (Resolve-Path src)
+python -m emgimu.datasets.unibo_physiology baseline/unibo/benchmark `
+  --output-root baseline/unibo --run-id physiology_full_20260913 `
+  --report-path baseline/unibo/ABLATION_RESULTS_20260913.md
+```
+
+G0 固定为旧 24 维；G1/G2/G3/G5/G6 分别为 8/6/10/20/4 维。
+G4 为 k 个整窗 NMF activation；E45 还加入 early、late 和 late-minus-early
+activation，因此其 G4 部分为 4k 维。每个 fold 独立拟合 scaler、Neutral P95、
+NMF basis、SVM、温度和拒识阈值。模型、逐窗口预测和大型结果仍由 `.gitignore`
+排除；日期化 Markdown 总结可进入 Git。

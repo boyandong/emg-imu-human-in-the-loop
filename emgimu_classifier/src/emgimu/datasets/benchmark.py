@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Mapping
+from typing import Iterable, Mapping
 
 import numpy as np
 
@@ -157,7 +157,10 @@ def _load_json(path: Path) -> dict[str, object]:
     return value
 
 
-def check_benchmark_dataset(root: str | Path) -> dict[str, object]:
+def check_benchmark_dataset(
+    root: str | Path,
+    splits_to_check: Iterable[str] | None = None,
+) -> dict[str, object]:
     dataset_root = Path(root)
     errors: list[str] = []
     warnings: list[str] = []
@@ -193,7 +196,19 @@ def check_benchmark_dataset(root: str | Path) -> dict[str, object]:
     except (KeyError, TypeError) as exc:
         errors.append(f"invalid splits.json: {exc}")
 
-    paths = sorted((dataset_root / "trials").rglob("*.npz"))
+    selected_splits = None if splits_to_check is None else set(map(str, splits_to_check))
+    if selected_splits is not None and (not selected_splits or selected_splits - {"train", "validation", "test"}):
+        errors.append("splits_to_check must be a nonempty subset of train/validation/test")
+    trials_root = dataset_root / "trials"
+    paths = sorted(trials_root.rglob("*.npz"))
+    if selected_splits is not None:
+        filtered_paths = []
+        for path in paths:
+            relative = path.relative_to(trials_root).parts
+            path_group = f"{relative[0]}/{relative[1]}" if len(relative) >= 2 else ""
+            if membership.get(path_group) in selected_splits:
+                filtered_paths.append(path)
+        paths = filtered_paths
     if not paths:
         errors.append("no trial NPZ files found")
     trial_ids: set[str] = set()
@@ -237,7 +252,7 @@ def check_benchmark_dataset(root: str | Path) -> dict[str, object]:
             errors.append("UniBo non-circular layout must remain four channels")
 
     declared = manifest.get("trial_count")
-    if declared is not None and int(declared) != len(paths):
+    if selected_splits is None and declared is not None and int(declared) != len(paths):
         errors.append(f"manifest trial_count={declared}, files={len(paths)}")
     return {
         "status": "ok" if not errors else "error",

@@ -28,6 +28,7 @@ HAND_CLASSES = np.asarray(
     dtype=np.int16,
 )
 HAND_NAMES = {int(value): Gesture(int(value)).name for value in HAND_CLASSES}
+ACTIVE_HAND_CLASSES = HAND_CLASSES[1:]
 FEATURE_SCHEMA = "unibo_rectified_emg_td24_v1"
 
 
@@ -165,7 +166,13 @@ def load_unibo_windows(
         }
         for split in requested
     }
-    for path in sorted((root / "trials").rglob("*.npz")):
+    trials_root = root / "trials"
+    for path in sorted(trials_root.rglob("*.npz")):
+        relative_parts = path.relative_to(trials_root).parts
+        if len(relative_parts) >= 2:
+            path_group = f"{relative_parts[0]}/{relative_parts[1]}"
+            if membership.get(path_group) not in rows:
+                continue
         trial = load_benchmark_trial(path, expected_channels=4, expected_rate_hz=200.0)
         if not trial.benchmark_eligible:
             continue
@@ -239,7 +246,13 @@ def load_unibo_raw_windows(
         }
         for split in requested
     }
-    for path in sorted((root / "trials").rglob("*.npz")):
+    trials_root = root / "trials"
+    for path in sorted(trials_root.rglob("*.npz")):
+        relative_parts = path.relative_to(trials_root).parts
+        if len(relative_parts) >= 2:
+            path_group = f"{relative_parts[0]}/{relative_parts[1]}"
+            if membership.get(path_group) not in rows:
+                continue
         trial = load_benchmark_trial(path, expected_channels=4, expected_rate_hz=200.0)
         if not trial.benchmark_eligible:
             continue
@@ -345,10 +358,17 @@ def _metric_summary(
     precision, recall, f1, support = precision_recall_fscore_support(
         truth, predicted, labels=HAND_CLASSES, sample_weight=weights, zero_division=0,
     )
+    active_mask = np.isin(truth, ACTIVE_HAND_CLASSES)
     coverage = float(np.average(predicted >= 0, weights=weights))
     return {
         "accuracy": float(accuracy_score(truth, predicted, sample_weight=weights)),
         "macro_f1": float(np.mean(f1)),
+        # F1 is computed from the complete four-class population.  Neutral
+        # predictions of an active class therefore remain false positives.
+        "active_gesture_macro_f1": float(np.mean(f1[1:])),
+        "active_gesture_accuracy": float(accuracy_score(
+            truth[active_mask], predicted[active_mask], sample_weight=weights[active_mask],
+        )),
         "coverage": coverage,
         "accepted_risk": (
             float(np.average(predicted[predicted >= 0] != truth[predicted >= 0],
@@ -357,6 +377,10 @@ def _metric_summary(
         ),
         "ece": float(expected_calibration_error(
             truth, predicted, confidence, sample_weight=weights,
+        )),
+        "active_ece": float(expected_calibration_error(
+            truth[active_mask], predicted[active_mask], confidence[active_mask],
+            sample_weight=weights[active_mask],
         )),
         "per_class": {
             HAND_NAMES[int(label)]: {
@@ -374,6 +398,20 @@ def _metric_summary(
             truth, predicted, labels=np.r_[-1, HAND_CLASSES],
         ).astype(int).tolist(),
         "confusion_labels": ["UNKNOWN", *[HAND_NAMES[int(label)] for label in HAND_CLASSES]],
+        "fist_confusions": {
+            "to_open_count": int(np.count_nonzero(
+                (truth == int(Gesture.FIST)) & (predicted == int(Gesture.OPEN))
+            )),
+            "to_pinch_count": int(np.count_nonzero(
+                (truth == int(Gesture.FIST)) & (predicted == int(Gesture.PINCH))
+            )),
+            "to_open_weighted_rate": float(np.sum(weights[
+                (truth == int(Gesture.FIST)) & (predicted == int(Gesture.OPEN))
+            ]) / np.sum(weights[truth == int(Gesture.FIST)])),
+            "to_pinch_weighted_rate": float(np.sum(weights[
+                (truth == int(Gesture.FIST)) & (predicted == int(Gesture.PINCH))
+            ]) / np.sum(weights[truth == int(Gesture.FIST)])),
+        },
     }
 
 
@@ -447,12 +485,23 @@ def _stratified_metrics(
     for dimension, values in dimensions.items():
         for value in np.unique(values):
             mask = values == value
+            active_mask = mask & np.isin(windows.labels, ACTIVE_HAND_CLASSES)
             result[f"{dimension}:{value}"] = {
                 "windows": int(np.count_nonzero(mask)),
                 "macro_f1": float(f1_score(
                     windows.labels[mask], predicted[mask], labels=HAND_CLASSES,
                     average="macro", sample_weight=weights[mask], zero_division=0,
                 )),
+                "active_gesture_macro_f1": float(f1_score(
+                    windows.labels[mask], predicted[mask], labels=ACTIVE_HAND_CLASSES,
+                    average="macro", sample_weight=weights[mask], zero_division=0,
+                )),
+                "active_gesture_accuracy": (
+                    float(np.average(
+                        predicted[active_mask] == windows.labels[active_mask],
+                        weights=weights[active_mask],
+                    )) if np.any(active_mask) else float("nan")
+                ),
                 "coverage": float(np.average(predicted[mask] >= 0, weights=weights[mask])),
             }
     return result
@@ -497,6 +546,21 @@ def evaluate_unibo_probabilities(
     )
     if not np.array_equal(segment_truth, segment_raw_truth):
         raise RuntimeError("segment aggregation order changed")
+    active_mask = np.isin(windows.labels, ACTIVE_HAND_CLASSES)
+    risk_all = [
+        {"threshold": float(row[0]), "coverage": float(row[1]), "risk": float(row[2])}
+        for row in risk_coverage_curve(
+            windows.labels, raw, confidence, sample_weight=weights,
+        )
+    ]
+    risk_active = [
+        {"threshold": float(row[0]), "coverage": float(row[1]), "risk": float(row[2])}
+        for row in risk_coverage_curve(
+            windows.labels[active_mask], raw[active_mask], confidence[active_mask],
+            sample_weight=weights[active_mask],
+        )
+    ]
+    stratified = _stratified_metrics(windows, raw, weights)
     summary = {
         "split": split,
         "windows": len(windows),
@@ -512,13 +576,23 @@ def evaluate_unibo_probabilities(
         "trial_label_segment_selective": _metric_summary(
             segment_truth, segment_selected, segment_confidence, segment_weights,
         ),
+        "stratified_raw": stratified,
         "stratified_selective": _stratified_metrics(windows, selected, weights),
-        "risk_coverage": [
-            {"threshold": float(row[0]), "coverage": float(row[1]), "risk": float(row[2])}
-            for row in risk_coverage_curve(
-                windows.labels, raw, confidence, sample_weight=weights,
+        "worst_groups_raw": {
+            dimension: min(
+                (
+                    {"group": key.split(":", 1)[1], **value}
+                    for key, value in stratified.items() if key.startswith(f"{dimension}:")
+                ),
+                key=lambda row: row["active_gesture_macro_f1"],
             )
-        ],
+            for dimension in ("subject", "day", "posture", "subject_day")
+        },
+        # Keep the legacy key for old consumers while making the all/active
+        # populations explicit in new JSON and CSV outputs.
+        "risk_coverage": risk_all,
+        "risk_coverage_all": risk_all,
+        "risk_coverage_active": risk_active,
     }
     arrays = {
         "raw": raw,
@@ -592,12 +666,16 @@ def _write_confusion_matrices(path: Path, metrics: Mapping[str, Any]) -> None:
 def _write_risk_coverage(path: Path, metrics: Mapping[str, Any]) -> None:
     with path.open("w", newline="", encoding="utf-8") as stream:
         writer = csv.writer(stream)
-        writer.writerow(["split", "threshold", "coverage", "risk"])
+        writer.writerow(["split", "population", "threshold", "coverage", "risk"])
         for split in ("validation", "test"):
             if split not in metrics:
                 continue
-            for row in metrics[split]["risk_coverage"]:
-                writer.writerow([split, row["threshold"], row["coverage"], row["risk"]])
+            for population, key in (("all", "risk_coverage_all"), ("active", "risk_coverage_active")):
+                rows = metrics[split].get(key, metrics[split].get("risk_coverage", []))
+                for row in rows:
+                    writer.writerow([
+                        split, population, row["threshold"], row["coverage"], row["risk"],
+                    ])
 
 
 def _git_metadata(repository_root: Path) -> dict[str, Any]:
@@ -633,7 +711,10 @@ def run_svm_baseline(
     final_result = output / "results" / run_id
     if final_model.exists() or final_result.exists():
         raise FileExistsError(f"run_id already exists and will not be overwritten: {run_id}")
-    integrity = check_benchmark_dataset(dataset)
+    integrity = check_benchmark_dataset(
+        dataset,
+        splits_to_check=None if evaluate_test else ("train", "validation"),
+    )
     if integrity["status"] != "ok":
         raise BenchmarkDatasetError(f"benchmark integrity failed: {integrity['errors']}")
 

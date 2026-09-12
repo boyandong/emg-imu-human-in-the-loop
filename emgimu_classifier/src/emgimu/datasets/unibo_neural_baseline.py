@@ -206,7 +206,10 @@ def run_tcn_baseline(
     final_result = output / "results" / run_id
     if final_model.exists() or final_result.exists():
         raise FileExistsError(f"run_id already exists and will not be overwritten: {run_id}")
-    integrity = check_benchmark_dataset(dataset)
+    integrity = check_benchmark_dataset(
+        dataset,
+        splits_to_check=None if evaluate_test else ("train", "validation"),
+    )
     if integrity["status"] != "ok":
         raise BenchmarkDatasetError(f"benchmark integrity failed: {integrity['errors']}")
 
