@@ -28,6 +28,7 @@ from .base import AdapterResult
 SOURCE_URL = "https://physionet.org/content/grabmyo/1.1.0/"
 SOURCE_RATE_HZ = 2048.0
 ADAPTER_VERSION = "1.0.0"
+EXPECTED_PHYSICAL_TRIALS = 3 * 43 * 17 * 7
 RECORD_PATTERN = re.compile(
     r"^session(\d+)_participant(\d+)_gesture(\d+)_trial(\d+)\.hea$",
     re.IGNORECASE,
@@ -54,6 +55,56 @@ GESTURES = (
     "hand_close",
     "rest",
 )
+
+
+def audit_grabmyo_source(
+    source_root: str | Path, *, require_complete: bool = False,
+) -> dict[str, object]:
+    """Check record identity, data pairs, and formal-dataset completeness."""
+    source = Path(source_root)
+    if not source.is_dir():
+        raise BenchmarkDatasetError(f"GRABMyo source directory does not exist: {source}")
+    identities: list[tuple[int, int, int, int]] = []
+    missing_data: list[str] = []
+    for path in sorted(source.rglob("*.hea")):
+        match = RECORD_PATTERN.match(path.name)
+        if match is None:
+            continue
+        identity = tuple(map(int, match.groups()))
+        session, participant, gesture, repetition = identity
+        if not (
+            1 <= session <= 3 and 1 <= participant <= 43
+            and 1 <= gesture <= 17 and 1 <= repetition <= 7
+        ):
+            raise BenchmarkDatasetError(f"out-of-range GRABMyo record name: {path.name}")
+        identities.append(identity)
+        if not path.with_suffix(".dat").is_file():
+            missing_data.append(path.relative_to(source).as_posix())
+    if not identities:
+        raise BenchmarkDatasetError(f"no GRABMyo WFDB headers found under {source}")
+    if len(identities) != len(set(identities)):
+        raise BenchmarkDatasetError("duplicate GRABMyo session/participant/gesture/trial records")
+    if missing_data:
+        raise BenchmarkDatasetError(
+            f"{len(missing_data)} GRABMyo headers have no matching .dat file; "
+            f"first missing pair: {missing_data[0]}"
+        )
+    complete = len(identities) == EXPECTED_PHYSICAL_TRIALS
+    if require_complete and not complete:
+        raise BenchmarkDatasetError(
+            f"incomplete GRABMyo source: found {len(identities)} of "
+            f"{EXPECTED_PHYSICAL_TRIALS} physical trials"
+        )
+    return {
+        "status": "complete" if complete else "partial",
+        "physical_trials": len(identities),
+        "expected_physical_trials": EXPECTED_PHYSICAL_TRIALS,
+        "subjects": len({identity[1] for identity in identities}),
+        "sessions": len({identity[0] for identity in identities}),
+        "gestures": len({identity[2] for identity in identities}),
+        "repetitions": len({identity[3] for identity in identities}),
+        "missing_data_pairs": 0,
+    }
 
 
 def _sha256(path: Path) -> str:
@@ -178,8 +229,7 @@ class GrabMyoAdapter:
     def adapt(self, source_root: str | Path, output_root: str | Path) -> AdapterResult:
         source = Path(source_root)
         output = Path(output_root)
-        if not source.is_dir():
-            raise BenchmarkDatasetError(f"GRABMyo source directory does not exist: {source}")
+        audit_grabmyo_source(source)
         if output.exists():
             raise BenchmarkDatasetError(f"output already exists; refusing to overwrite: {output}")
         headers: list[tuple[Path, int, int, int, int]] = []
@@ -260,9 +310,10 @@ class GrabMyoAdapter:
                     "samples": len(emg),
                 })
                 counts[GESTURES[gesture - 1]] += 1
-            expected_count = 3 * 43 * 17 * 7
-            if len(headers) != expected_count:
-                warnings.append(f"found {len(headers)} of {expected_count} expected physical trials")
+            if len(headers) != EXPECTED_PHYSICAL_TRIALS:
+                warnings.append(
+                    f"found {len(headers)} of {EXPECTED_PHYSICAL_TRIALS} expected physical trials"
+                )
             _write_json(stage / "splits.json", {
                 "protocol_id": "grabmyo_recording_days_v1",
                 "session_semantics": manifest.session_semantics,

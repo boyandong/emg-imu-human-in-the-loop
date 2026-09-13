@@ -6,7 +6,7 @@ from pathlib import Path
 
 import numpy as np
 
-from emgimu.datasets.adapters.grabmyo import GrabMyoAdapter
+from emgimu.datasets.adapters.grabmyo import GrabMyoAdapter, audit_grabmyo_source
 from emgimu.datasets.hla_schema import OntologyRelation, check_hla_dataset, load_hla_manifest, load_hla_trial
 from emgimu.state import Gesture
 
@@ -30,6 +30,16 @@ def write_record(root: Path, *, gesture: int = 4, samples: int = 16) -> Path:
 
 
 class GrabMyoAdapterTests(unittest.TestCase):
+    def test_source_audit_distinguishes_partial_from_formal_complete_data(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            write_record(root)
+            audit = audit_grabmyo_source(root)
+            self.assertEqual(audit["status"], "partial")
+            self.assertEqual(audit["physical_trials"], 1)
+            with self.assertRaisesRegex(ValueError, "found 1 of 15351"):
+                audit_grabmyo_source(root, require_complete=True)
+
     def test_wfdb_record_creates_forearm_and_wrist_views(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
