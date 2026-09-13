@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "main_window": {
+    "protocol_id": "hla_250ms_50ms_v1",
+    "window_ms": 250,
+    "hop_ms": 50,
+    "split_before_windowing": true,
+    "cross_trial_windows": false
+  },
+  "pilot_window": {
+    "protocol_id": "unibo_legacy_200ms_200ms_v1",
+    "window_ms": 200,
+    "hop_ms": 200,
+    "scope": "round_0_reproduction_only"
+  },
+  "screening": {
+    "seed": 42,
+    "full_seeds": [42, 43, 44],
+    "paired_bootstrap_iterations": 2000,
+    "selection_unit": "subject_session"
+  },
+  "calibration": {
+    "rest_seconds": [0, 10],
+    "trials_per_gesture": [0, 1, 3, 5, 10],
+    "sampling_seeds": [42, 43, 44, 45, 46],
+    "split_unit": "physical_trial"
+  },
+  "round_3_gates": {
+    "r1_full_min_gain_on_two_datasets": 0.01,
+    "r1_full_max_loss_on_any_dataset": 0.01,
+    "r3_min_gain_over_best_single_branch_on_two_datasets": 0.01,
+    "maximum_surviving_representations": 2
+  },
+  "round_4_gates": {
+    "median_three_shot_recovery": 0.70,
+    "maximum_fraction_harmed_by_more_than_0_02": 0.20,
+    "maximum_surviving_personal_adapters": 2
+  },
+  "round_5_gates": {
+    "maximum_portability_tax_on_two_datasets": 0.05,
+    "maximum_portability_tax_on_any_dataset": 0.10
+  },
+  "round_6_gates": {
+    "maximum_adjacent_hardware_level_drop": 0.10
+  },
+  "required_run_outputs": [
+    "run_manifest.json",
+    "config.json",
+    "metrics.csv",
+    "per_class.csv",
+    "calibration_curve.csv",
+    "predictions.csv",
+    "confusion_matrix.csv",
+    "risk_coverage.csv",
+    "model.sha256",
+    "environment.json",
+    "test_log.txt"
+  ]
+}

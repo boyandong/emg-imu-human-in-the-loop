@@ -1,0 +1,35 @@
+{
+  "registry_version": "1.0",
+  "source_branch": "origin/codex/unibo-full-physiology-ablation",
+  "source_commit": "4c63517",
+  "status": "frozen_report_values_pending_artifact_provenance_audit",
+  "selection_metric": "active_macro_f1",
+  "runs": {
+    "E0": {
+      "features": ["G0"],
+      "mean_active_macro_f1": 0.5915,
+      "mean_all_macro_f1": 0.6928,
+      "day6_active_macro_f1": 0.5994,
+      "day6_all_macro_f1": 0.6982,
+      "role": "traditional_reference"
+    },
+    "E5": {
+      "features": ["G0", "G1", "G2", "G3", "G5"],
+      "mean_active_macro_f1": 0.6063,
+      "mean_all_macro_f1": 0.7038,
+      "role": "selected_pure_emg_pilot"
+    },
+    "E6b": {
+      "features": ["G0", "G1", "G2", "G3", "G5", "G6"],
+      "mean_active_macro_f1": 0.6126,
+      "mean_all_macro_f1": 0.7086,
+      "role": "oracle_posture_upper_bound_not_deployable"
+    }
+  },
+  "decisions": {
+    "G1_G2_G3": "retain_for_cross_dataset_retest_not_assumed_effective",
+    "G4": "paused_on_four_channel_data_retest_on_high_density_data",
+    "G5": "retain_as_r1_core_candidate",
+    "G6": "context_side_experiment_only"
+  }
+}
