@@ -27,7 +27,7 @@ from .base import AdapterResult
 
 SOURCE_URL = "https://physionet.org/content/grabmyo/1.1.0/"
 SOURCE_RATE_HZ = 2048.0
-ADAPTER_VERSION = "1.0.0"
+ADAPTER_VERSION = "1.1.0"
 EXPECTED_PHYSICAL_TRIALS = 3 * 43 * 17 * 7
 RECORD_PATTERN = re.compile(
     r"^session(\d+)_participant(\d+)_gesture(\d+)_trial(\d+)\.hea$",
@@ -143,16 +143,27 @@ def _ontology() -> tuple[OntologyEntry, ...]:
 
 def _ring_channels(prefix: str, count: int, first_index: int = 1) -> tuple[ChannelSpec, ...]:
     per_ring = count // 2
-    return tuple(
-        ChannelSpec(
+    channels: list[ChannelSpec] = []
+    for index in range(first_index, first_index + count):
+        offset = index - first_index
+        ring_index = offset // per_ring
+        angle_deg = (offset % per_ring) * 360.0 / per_ring
+        radians = np.deg2rad(angle_deg)
+        # The official placement is two circumferential rings separated along
+        # the arm. Radius and participant dimensions are unavailable, so use a
+        # normalized device coordinate system: unit-circle x/y plus ring index
+        # on the longitudinal z axis. This preserves known topology without
+        # inventing subject-specific metric anatomy.
+        channels.append(ChannelSpec(
             channel_id=f"{prefix.lower()}{index}",
             name=f"{prefix}{index}",
-            ring_angle_deg=((index - first_index) % per_ring) * 360.0 / per_ring,
+            position_xyz=(float(np.cos(radians)), float(np.sin(radians)), float(ring_index)),
+            coordinate_system="grabmyo_normalized_device_ring",
+            ring_angle_deg=angle_deg,
             anatomical_region=None,
             usable_band_hz=(10.0, 450.0),
-        )
-        for index in range(first_index, first_index + count)
-    )
+        ))
+    return tuple(channels)
 
 
 def _manifest() -> DatasetManifestV2:

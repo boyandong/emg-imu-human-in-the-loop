@@ -53,6 +53,15 @@ class GrabMyoAdapterTests(unittest.TestCase):
                 "grabmyo_forearm_16": 1, "grabmyo_wrist_12": 1,
             })
             manifest = load_hla_manifest(output)
+            forearm_channels = manifest.channel_layouts["grabmyo_forearm_16"]
+            wrist_channels = manifest.channel_layouts["grabmyo_wrist_12"]
+            self.assertEqual(forearm_channels[0].ring_angle_deg, forearm_channels[8].ring_angle_deg)
+            self.assertNotEqual(forearm_channels[0].position_xyz, forearm_channels[8].position_xyz)
+            self.assertEqual(wrist_channels[0].ring_angle_deg, wrist_channels[6].ring_angle_deg)
+            self.assertNotEqual(wrist_channels[0].position_xyz, wrist_channels[6].position_xyz)
+            self.assertEqual(
+                forearm_channels[0].coordinate_system, "grabmyo_normalized_device_ring",
+            )
             opposition = manifest.ontology_by_source()["4"]
             self.assertEqual(opposition.relation, OntologyRelation.RELATED)
             self.assertIsNone(opposition.canonical_gesture)
