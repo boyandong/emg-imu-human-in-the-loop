@@ -1,0 +1,76 @@
+{
+  "protocol_id": "hla-grabmyo-representation-screen-v1",
+  "declared_date": "2026-09-13",
+  "declared_before_results": true,
+  "purpose": "Test whether the Myo R1-core and R3 trends reproduce on higher-rate forearm and wrist hardware views before Round 4 personalization.",
+  "dataset": {
+    "dataset_id": "grabmyo",
+    "dataset_version": "1.1.0",
+    "required_physical_trials": 15351,
+    "required_integrity_status": "ok",
+    "sensor_views": [
+      "grabmyo_forearm_16",
+      "grabmyo_wrist_12"
+    ],
+    "task_class_count": 17,
+    "neutral_task_label": 16
+  },
+  "screen": {
+    "held_out_subjects": [
+      "p01",
+      "p08",
+      "p15",
+      "p22",
+      "p29",
+      "p36",
+      "p43"
+    ],
+    "held_out_subject_selection": "Uniformly spaced identifiers across the 43-subject cohort; not selected from model results.",
+    "representations": [
+      "R0",
+      "R1-core",
+      "R2",
+      "R3",
+      "R2-wide"
+    ],
+    "seed": 42,
+    "window_ms": 250,
+    "hop_ms": 50,
+    "maximum_windows_per_physical_trial": 10,
+    "maximum_epochs": 30,
+    "early_stopping_patience": 5,
+    "batch_size": 128,
+    "target_subject_role": "evaluation only",
+    "validation_subject_role": "one source subject only",
+    "training_subject_role": "all remaining source subjects",
+    "selection_metric": "subject-level active macro-F1",
+    "secondary_metrics": [
+      "accuracy",
+      "macro-F1",
+      "per-class recall",
+      "risk-coverage"
+    ]
+  },
+  "stage_2_confirmation": {
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "candidates": "At most the top two representations after the paired seed-42 screen.",
+    "statistical_unit": "subject after averaging random seeds",
+    "confidence_interval": "2000-iteration paired subject bootstrap"
+  },
+  "round_3_gate": {
+    "r3_reference": "the better of R1-core and R2 within each dataset view",
+    "minimum_active_macro_f1_gain": 0.01,
+    "minimum_independent_datasets": 2,
+    "interpretation": "A GRABMyo view can support but cannot by itself satisfy the two-dataset R3 retention gate."
+  },
+  "limitations": [
+    "This is a seven-target compute screen, not the full 43-subject GRABMyo benchmark.",
+    "The ten-window cap is a declared approximation and must be removed for a final specialist estimate.",
+    "Forearm and wrist are correlated views from the same people and do not count as two independent datasets.",
+    "No target-subject calibration is used in this screen."
+  ]
+}
