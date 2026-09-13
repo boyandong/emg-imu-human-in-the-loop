@@ -13,7 +13,7 @@ from typing import Any
 
 import numpy as np
 from PySide6.QtCore import QThread, Signal
-from scipy.signal import resample_poly
+from scipy.signal import butter, resample_poly, sosfilt
 
 from emgforce.algorithms import UNIBO_4CH_ADAPTER
 
@@ -39,6 +39,9 @@ DEFAULT_CHANNEL_MAP = (0, 2, 4, 6)
 DEVICE_SAMPLE_RATE = 250
 UNIBO_SAMPLE_RATE = 200
 WINDOW_SECONDS = 0.2
+PREPROCESS_CONTEXT_SECONDS = 2.0
+ENVELOPE_LOW_PASS_HZ = 3.0
+ADAPTER_EVENT_THRESHOLD = 0.50
 
 
 @dataclass(frozen=True, slots=True)
@@ -181,6 +184,12 @@ class UniBoAdapterRuntime:
         self.experiment = str(self.artifact.get("experiment", self.artifact_path.parent.parent.name))
         self.fold = str(self.artifact.get("fold", self.artifact_path.parent.name))
         self.channel_gains = np.ones(4, dtype=np.float64)
+        self.channel_center = np.zeros(4, dtype=np.float64)
+        self._bandpass = butter(
+            4, [20.0, 90.0], btype="bandpass", fs=DEVICE_SAMPLE_RATE, output="sos")
+        self._envelope_lowpass = butter(
+            2, ENVELOPE_LOW_PASS_HZ, btype="lowpass",
+            fs=DEVICE_SAMPLE_RATE, output="sos")
 
     @property
     def raw_window_samples(self) -> int:
@@ -190,16 +199,36 @@ class UniBoAdapterRuntime:
     def model_window_samples(self) -> int:
         return round(UNIBO_SAMPLE_RATE * WINDOW_SECONDS)
 
-    def _select_and_resample(self, raw: np.ndarray) -> np.ndarray:
+    @property
+    def context_samples(self) -> int:
+        return round(DEVICE_SAMPLE_RATE * PREPROCESS_CONTEXT_SECONDS)
+
+    def _selected_raw(self, raw: np.ndarray) -> np.ndarray:
         values = np.asarray(raw, dtype=np.float64)
         if values.ndim != 2 or values.shape[1] != 8:
             raise ValueError(f"UniBo 适配器要求输入 [samples,8]，实际为 {values.shape}")
-        selected = values[:, self.channel_map]
-        converted = resample_poly(selected, up=4, down=5, axis=0)
+        return values[:, self.channel_map]
+
+    def _envelope(self, raw: np.ndarray) -> np.ndarray:
+        """Convert bipolar ADC samples to UniBo-like rectified envelopes."""
+        selected = self._selected_raw(raw) - self.channel_center.reshape(1, 4)
+        bandpassed = sosfilt(self._bandpass, selected, axis=0)
+        rectified = np.abs(bandpassed)
+        return sosfilt(self._envelope_lowpass, rectified, axis=0)
+
+    @staticmethod
+    def _resample_envelope(envelope: np.ndarray) -> np.ndarray:
+        converted = resample_poly(envelope, up=4, down=5, axis=0)
         return converted.astype(np.float64, copy=False)
 
     def calibrate_neutral(self, raw: np.ndarray) -> np.ndarray:
-        converted = self._select_and_resample(raw)
+        selected = self._selected_raw(raw)
+        if len(selected) < self.context_samples:
+            raise ValueError(f"静息校准数据至少需要 {PREPROCESS_CONTEXT_SECONDS:g} 秒")
+        self.channel_center = np.median(selected, axis=0)
+        # Discard the first second so both IIR stages reach a steady state.
+        envelope = self._envelope(raw)[DEVICE_SAMPLE_RATE:]
+        converted = self._resample_envelope(envelope)
         if len(converted) < self.model_window_samples:
             raise ValueError("静息校准数据不足 200 ms")
         window_count = 1 + (len(converted) - self.model_window_samples) // 10
@@ -220,10 +249,11 @@ class UniBoAdapterRuntime:
         return self.channel_gains.copy()
 
     def predict(self, raw_window: np.ndarray) -> np.ndarray:
-        if len(raw_window) != self.raw_window_samples:
+        if len(raw_window) < self.context_samples:
             raise ValueError(
-                f"UniBo 实时窗口必须为 {self.raw_window_samples} 个 250 Hz 采样点")
-        converted = self._select_and_resample(raw_window)
+                f"UniBo 实时预处理至少需要 {self.context_samples} 个 250 Hz 历史采样点")
+        envelope = self._envelope(raw_window[-self.context_samples:])
+        converted = self._resample_envelope(envelope[-self.raw_window_samples:])
         if len(converted) != self.model_window_samples:
             raise RuntimeError(f"250→200 Hz 重采样得到异常长度：{len(converted)}")
         converted *= self.channel_gains.reshape(1, 4)
@@ -254,9 +284,10 @@ class UniBoAdapterRuntime:
             algorithm_id=UNIBO_4CH_ADAPTER,
             runtime_backend="unibo_svm_adapter",
             preprocessing={
-                "online_event_threshold": self.threshold,
+                "online_event_threshold": ADAPTER_EVENT_THRESHOLD,
                 "source_sample_rate_hz": UNIBO_SAMPLE_RATE,
                 "window_samples": self.model_window_samples,
+                "input_preprocessing": "20-90Hz bandpass -> rectify -> 3Hz envelope",
             },
             metadata={
                 "experimental_adapter": True,
@@ -334,7 +365,7 @@ class UniBoRealtimeWorker(QThread):
         try:
             runtime = UniBoAdapterRuntime(self.artifact_path, self.channel_map, self.posture)
             bundle = runtime.make_bundle()
-            self._threshold = runtime.threshold
+            self._threshold = ADAPTER_EVENT_THRESHOLD
             self.model_loaded.emit(bundle)
             self.status_changed.emit("UniBo 适配器已加载；请保持静息完成通道幅值校准")
             raw_buffer = np.empty((0, 8), dtype=np.int32)
@@ -407,11 +438,11 @@ class UniBoRealtimeWorker(QThread):
                     continue
                 if self._mode != "recognizing":
                     continue
-                raw_buffer = np.concatenate((raw_buffer, raw), axis=0)[-500:]
-                if len(raw_buffer) < runtime.raw_window_samples or time.monotonic() < next_inference:
+                raw_buffer = np.concatenate((raw_buffer, raw), axis=0)[-runtime.context_samples:]
+                if len(raw_buffer) < runtime.context_samples or time.monotonic() < next_inference:
                     continue
                 started = time.perf_counter()
-                probabilities = runtime.predict(raw_buffer[-runtime.raw_window_samples:])
+                probabilities = runtime.predict(raw_buffer)
                 inference_ms = (time.perf_counter() - started) * 1000.0
                 peak_index = int(np.argmax(probabilities))
                 peak_name = MODEL_LABELS[peak_index]

@@ -241,10 +241,12 @@ The **Realtime recognition** page automatically discovers the tracked UniBo
 `E0`, `E5`, and `E6b` Day 1–5 to Day 6 artifacts. `E5` is listed first because
 it is the strongest model that does not require an external posture label.
 
-The adapter accepts the collector's eight-channel 250 Hz stream, selects four
-distinct channels for `ECU`, `EDC`, `FCR`, and `FCU`, resamples each 200 ms
-window to the UniBo model's 200 Hz rate with an anti-aliasing polyphase filter,
-and displays `Neutral`, `Pinch`, `Fist`, and `Open` probabilities. Keep the hand
+The adapter accepts the collector's eight-channel 250 Hz bipolar ADC stream,
+selects four distinct channels for `ECU`, `EDC`, `FCR`, and `FCU`, removes the
+rest offset, applies a 20–90 Hz band-pass, full-wave rectification, and a 3 Hz
+envelope low-pass, then resamples each 200 ms window to the UniBo model's 200 Hz
+rate with an anti-aliasing polyphase filter. It displays `Neutral`, `Pinch`,
+`Fist`, and `Open` probabilities. Keep the hand
 relaxed during the eight-second calibration so the adapter can match the four
 selected channel amplitudes to the training fold. `E6b` also requires the
 posture selector.

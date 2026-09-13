@@ -349,7 +349,7 @@ class RealtimeInferencePage(QWidget):
         page.addWidget(remote_card)
 
         live_card, live_layout = self._make_card(
-            "实时识别", "固定延迟零相位预处理；校准只对本次电极佩戴有效")
+            "实时识别", "按所选模型执行对应预处理；校准只对本次电极佩戴有效")
         settings = QGridLayout()
         settings.setHorizontalSpacing(12)
         settings.setVerticalSpacing(10)

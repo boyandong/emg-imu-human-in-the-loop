@@ -37,7 +37,7 @@ def test_real_e5_artifact_calibrates_and_predicts_four_probabilities() -> None:
 
     gains = runtime.calibrate_neutral(neutral)
     probabilities = runtime.predict(
-        random.normal(0.0, 1500.0, size=(50, 8)).astype(np.int32))
+        random.normal(0.0, 1500.0, size=(runtime.context_samples, 8)).astype(np.int32))
 
     assert gains.shape == (4,)
     assert np.all(np.isfinite(gains))
@@ -45,3 +45,19 @@ def test_real_e5_artifact_calibrates_and_predicts_four_probabilities() -> None:
     assert probabilities.shape == (4,)
     assert np.all(probabilities >= 0)
     assert float(probabilities.sum()) == pytest.approx(1.0, abs=1e-6)
+    assert runtime.make_bundle().preprocessing["online_event_threshold"] == 0.50
+
+
+def test_bipolar_device_signal_is_converted_to_smooth_positive_envelope() -> None:
+    e5 = discover_unibo_models(REPOSITORY)[0]
+    runtime = UniBoAdapterRuntime(e5.artifact, (0, 2, 4, 6))
+    random = np.random.default_rng(7)
+    raw = random.normal(0.0, 1000.0, size=(8 * 250, 8)).astype(np.int32)
+    runtime.channel_center = np.median(raw[:, runtime.channel_map], axis=0)
+
+    envelope = runtime._envelope(raw)[-runtime.raw_window_samples:]
+    rms = np.sqrt(np.mean(envelope * envelope, axis=0))
+
+    assert np.all(envelope >= 0)
+    assert np.all(np.mean(envelope, axis=0) / rms > 0.95)
+    assert np.all(np.std(envelope, axis=0) / rms < 0.32)
