@@ -15,8 +15,12 @@ conda activate emgforce
 python main.py
 ```
 
+Windows 也可以直接双击 `run_emgforce.bat`。脚本会自动查找 `emgforce`
+Conda 环境；如果环境在其他目录，可先把 `EMGFORCE_PYTHON` 设为该环境的
+`python.exe` 完整路径。
+
 界面包含“设备监测 / 实验采集 / 数据检查 / 数据上传 / 训练模型 / 实时识别”六页。可在设备页选择串口，也可用
-`Connect Simulator` 在没有硬件时完成全流程。
+“连接模拟设备”在没有硬件时完成全流程。
 
 ## 新 Session
 

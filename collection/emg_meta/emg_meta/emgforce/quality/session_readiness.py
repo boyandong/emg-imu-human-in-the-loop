@@ -44,7 +44,8 @@ def generate_session_readiness(
         hdf5_path: Path, output_path: Path | None = None) -> dict[str, Any]:
     """Audit a closed acquisition and atomically write its collection gate."""
     hdf5_path = Path(hdf5_path)
-    output_path = output_path or hdf5_path.with_name(SESSION_MANIFEST_FILENAME)
+    output_path = (Path(output_path) if output_path is not None
+                   else hdf5_path.with_name(SESSION_MANIFEST_FILENAME))
     problems: list[str] = []
     warnings: list[str] = []
     checks: dict[str, Any] = {}
@@ -305,7 +306,13 @@ def generate_session_readiness(
         "problems": problems,
         "warnings": warnings,
     }
-    temporary = output_path.with_name(f".{output_path.name}.{os.getpid()}.tmp")
+    # A UI session may finish while another page is refreshing its data view.
+    # Reassert the destination directory before the atomic sibling write so a
+    # successfully closed recording always receives its readiness report.
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    # Keep the sibling name short enough for Windows installations where the
+    # project path is already close to the legacy MAX_PATH boundary.
+    temporary = output_path.with_name(f".readiness.{os.getpid()}.tmp")
     temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     temporary.replace(output_path)
     return payload
