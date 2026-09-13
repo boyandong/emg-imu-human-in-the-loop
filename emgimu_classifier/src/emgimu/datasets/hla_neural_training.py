@@ -87,11 +87,21 @@ def _collect_examples(dataset_root: Path, config: HLANeuralRunConfig) -> tuple[_
     manifest = load_hla_manifest(dataset_root)
     if config.sensor_view not in manifest.channel_layouts:
         raise ValueError(f"unknown sensor view {config.sensor_view!r}")
+    trials_root = dataset_root / "trials"
     all_paths: list[tuple[Path, str]] = []
-    for path in sorted((dataset_root / "trials").rglob("*.npz")):
-        trial = load_hla_trial(path, manifest)
-        if trial.channel_layout_id == config.sensor_view:
-            all_paths.append((path, trial.subject_id))
+    for path in sorted(trials_root.rglob("*.npz")):
+        relative = path.relative_to(trials_root)
+        # V2 adapters store trials as subject/session/layout/file. Filtering from
+        # the auditable path index avoids decompressing every large trial twice.
+        if len(relative.parts) >= 4 and relative.parts[-2] == config.sensor_view:
+            all_paths.append((path, relative.parts[0]))
+        elif len(relative.parts) < 4:
+            # The schema itself does not require the canonical adapter layout.
+            # Preserve compatibility for small/custom V2 datasets at the cost of
+            # one metadata read; official large adapters take the fast path above.
+            trial = load_hla_trial(path, manifest)
+            if trial.channel_layout_id == config.sensor_view:
+                all_paths.append((path, trial.subject_id))
     subjects = sorted({subject for _, subject in all_paths})
     if config.target_subject not in subjects:
         raise ValueError(f"target subject {config.target_subject!r} is absent")
@@ -101,6 +111,7 @@ def _collect_examples(dataset_root: Path, config: HLANeuralRunConfig) -> tuple[_
         if config.target_subject not in subjects:
             raise AssertionError("target subject was lost during subject selection")
     subject_set = set(subjects)
+    uses_raw = config.representation in {"R2", "R3", "R2-wide"}
     raw_rows: dict[int, list[np.ndarray]] = {rate: [] for rate in DEFAULT_STREAM_RATES_HZ}
     availability_rows: list[np.ndarray] = []
     feature_rows: list[np.ndarray] = []
@@ -116,19 +127,24 @@ def _collect_examples(dataset_root: Path, config: HLANeuralRunConfig) -> tuple[_
         if subject not in subject_set:
             continue
         trial = load_hla_trial(path, manifest)
+        if trial.subject_id != subject or trial.channel_layout_id != config.sensor_view:
+            raise ValueError(f"trial metadata disagrees with its V2 path index: {path}")
         windows = window_trial(trial)
         for index in _select(len(windows), config.maximum_windows_per_trial):
             emg = windows.emg[index]
-            multi = build_multirate_window(emg, trial.sample_rate_hz)
-            for rate, stream in multi.streams.items():
-                shape = tuple(stream.shape)
-                previous = stream_shapes.setdefault(rate, shape)
-                if previous != shape:
-                    raise ValueError(f"{rate} Hz stream shape varies within one sensor view")
-            for rate in DEFAULT_STREAM_RATES_HZ:
-                if rate in multi.streams:
-                    raw_rows[rate].append(multi.streams[rate].T)
-            availability_rows.append(multi.availability.astype(np.float32))
+            if uses_raw:
+                multi = build_multirate_window(emg, trial.sample_rate_hz)
+                for rate, stream in multi.streams.items():
+                    shape = tuple(stream.shape)
+                    previous = stream_shapes.setdefault(rate, shape)
+                    if previous != shape:
+                        raise ValueError(f"{rate} Hz stream shape varies within one sensor view")
+                for rate in DEFAULT_STREAM_RATES_HZ:
+                    if rate in multi.streams:
+                        raw_rows[rate].append(multi.streams[rate].T)
+                availability_rows.append(multi.availability.astype(np.float32))
+            else:
+                availability_rows.append(np.zeros(len(DEFAULT_STREAM_RATES_HZ), dtype=np.float32))
             if uses_features:
                 feature_rows.append(extract_hla_feature_tokens(emg, groups))
             label_rows.append(int(windows.labels[index]))
