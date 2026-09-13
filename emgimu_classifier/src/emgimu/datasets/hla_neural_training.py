@@ -48,6 +48,7 @@ class HLANeuralRunConfig:
     weight_decay: float = 1e-4
     neutral_label: int = 0
     device: str = "cuda"
+    test_log_path: str | None = None
 
     def __post_init__(self) -> None:
         if self.representation not in {"R0", "R1-core", "R2", "R3", "R2-wide"}:
@@ -335,6 +336,9 @@ def run_neural_subject_fold(
     output = Path(output_root)
     if output.exists():
         raise ValueError(f"output already exists; refusing to overwrite: {output}")
+    test_log_source = Path(config.test_log_path) if config.test_log_path else None
+    if test_log_source is not None and not test_log_source.is_file():
+        raise ValueError(f"pre-run test log is absent: {test_log_source}")
     output.mkdir(parents=True)
     if prepared is None:
         examples, class_count = _collect_examples(dataset, config)
@@ -454,6 +458,9 @@ def run_neural_subject_fold(
     report["source_commit"] = source_commit
     report["source_worktree_dirty"] = source_dirty
     report["dataset_manifest_sha256"] = _sha256(dataset / "manifest.json")
+    report["pre_run_test_log_sha256"] = (
+        _sha256(test_log_source) if test_log_source is not None else None
+    )
     (output / "run_manifest.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     prediction_rows = [
         {"trial_id": str(examples.trials[index]),
@@ -516,8 +523,9 @@ def run_neural_subject_fold(
     (output / "environment.json").write_text(
         json.dumps(environment, indent=2) + "\n", encoding="utf-8",
     )
-    (output / "test_log.txt").write_text(
-        "Formal runs must replace this line with the exact pre-run test command and result.\n",
-        encoding="utf-8",
-    )
+    if test_log_source is None:
+        test_log = "Formal runs must supply --test-log with the exact pre-run test result.\n"
+    else:
+        test_log = test_log_source.read_text(encoding="utf-8")
+    (output / "test_log.txt").write_text(test_log, encoding="utf-8")
     return output

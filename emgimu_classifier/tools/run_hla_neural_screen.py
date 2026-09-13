@@ -54,6 +54,10 @@ def main() -> int:
     parser.add_argument("--patience", type=int, default=5)
     parser.add_argument("--batch-size", type=int, default=128)
     parser.add_argument("--device", default="cuda")
+    parser.add_argument(
+        "--test-log", type=Path,
+        help="exact pre-run test output copied into every run artifact",
+    )
     args = parser.parse_args()
     targets = tuple(value.strip() for value in args.targets.split(",") if value.strip())
     representations = tuple(value.strip() for value in args.representations.split(",") if value.strip())
@@ -71,6 +75,27 @@ def main() -> int:
         ratio = parameter_counts["R2-wide"] / parameter_counts["R3"]
         if not 0.8 <= ratio <= 1.25:
             raise ValueError(f"R2-wide/R3 parameter ratio {ratio:.3f} is not a valid capacity control")
+    pending_targets = [
+        target for target in targets
+        if any(
+            not _complete(args.output_root / f"{representation}_{target}_s{args.seed}")
+            for representation in representations
+        )
+    ]
+    shared_prepared = None
+    if args.maximum_subjects is None and pending_targets:
+        # With the full subject set, target selection only changes training
+        # masks. Decode, window, resample, and featurize a large dataset once.
+        preparation_config = HLANeuralRunConfig(
+            representation="R3", sensor_view=args.sensor_view,
+            target_subject=pending_targets[0], seed=args.seed,
+            maximum_subjects=None,
+            maximum_windows_per_trial=args.maximum_windows_per_trial,
+            batch_size=args.batch_size, maximum_epochs=args.epochs,
+            patience=args.patience, device=args.device,
+            test_log_path=str(args.test_log) if args.test_log else None,
+        )
+        shared_prepared = prepare_hla_screen_examples(args.dataset_root, preparation_config)
     for target in targets:
         pending = [
             representation for representation in representations
@@ -79,14 +104,18 @@ def main() -> int:
         if not pending:
             print(f"SKIP_ALL_COMPLETE {target}", flush=True)
             continue
-        preparation_config = HLANeuralRunConfig(
-            representation="R3", sensor_view=args.sensor_view, target_subject=target,
-            seed=args.seed, maximum_subjects=args.maximum_subjects,
-            maximum_windows_per_trial=args.maximum_windows_per_trial,
-            batch_size=args.batch_size, maximum_epochs=args.epochs,
-            patience=args.patience, device=args.device,
-        )
-        prepared = prepare_hla_screen_examples(args.dataset_root, preparation_config)
+        if shared_prepared is None:
+            preparation_config = HLANeuralRunConfig(
+                representation="R3", sensor_view=args.sensor_view, target_subject=target,
+                seed=args.seed, maximum_subjects=args.maximum_subjects,
+                maximum_windows_per_trial=args.maximum_windows_per_trial,
+                batch_size=args.batch_size, maximum_epochs=args.epochs,
+                patience=args.patience, device=args.device,
+                test_log_path=str(args.test_log) if args.test_log else None,
+            )
+            prepared = prepare_hla_screen_examples(args.dataset_root, preparation_config)
+        else:
+            prepared = shared_prepared
         for representation in representations:
             destination = args.output_root / f"{representation}_{target}_s{args.seed}"
             if _complete(destination):
@@ -106,6 +135,7 @@ def main() -> int:
                     maximum_epochs=args.epochs,
                     patience=args.patience,
                     device=args.device,
+                    test_log_path=str(args.test_log) if args.test_log else None,
                 ),
                 prepared=prepared,
             )

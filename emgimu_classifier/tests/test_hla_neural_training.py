@@ -46,10 +46,13 @@ def test_neural_fold_has_three_disjoint_subject_roles(tmp_path: Path) -> None:
                 source_label=np.full(120, str(label)), task_label=np.full(120, label),
                 canonical_label=np.full(120, label), stable_mask=np.ones(120, dtype=bool),
             ))
+    test_log = tmp_path / "pre-run-tests.txt"
+    test_log.write_text("114 passed, 1 skipped\n", encoding="utf-8")
     config = HLANeuralRunConfig(
         representation="R3", sensor_view="two", target_subject="s0",
         validation_subject="s1", maximum_windows_per_trial=2, batch_size=4,
         maximum_epochs=2, patience=2, device="cpu",
+        test_log_path=str(test_log),
     )
     prepared = prepare_hla_screen_examples(dataset, config)
     assert _representation_view(prepared[0], "R0").features.shape[-1] == 6
@@ -61,6 +64,8 @@ def test_neural_fold_has_three_disjoint_subject_roles(tmp_path: Path) -> None:
     assert report["validation_subject"] == "s1"
     assert set(report["train_subjects"]) == {"s2", "s3"}
     assert (output / "model.pt").is_file()
+    assert (output / "test_log.txt").read_text(encoding="utf-8") == "114 passed, 1 skipped\n"
+    assert report["pre_run_test_log_sha256"] is not None
     for name in (
         "metrics.csv", "per_class.csv", "calibration_curve.csv", "predictions.csv",
         "confusion_matrix.csv", "risk_coverage.csv", "model.sha256",
