@@ -235,3 +235,20 @@ D:\Users\qxy\anaconda3\envs\emgforce\python.exe -m pip install --no-deps -e thir
 当前 epoch 45 模型的验证准确率约 55.1%，测试 CLER 为 0.0892。CLER 较低表示在已匹配到的
 测试事件中分类混淆较少，但不等同于低漏检率；实时页因此同时显示九路概率、阈值、模型来源、
 hold 状态和事件日志，便于区分“没有触发”和“触发了错误类别”。
+# UniBo 8-channel live adapter
+
+The **Realtime recognition** page automatically discovers the tracked UniBo
+`E0`, `E5`, and `E6b` Day 1–5 to Day 6 artifacts. `E5` is listed first because
+it is the strongest model that does not require an external posture label.
+
+The adapter accepts the collector's eight-channel 250 Hz stream, selects four
+distinct channels for `ECU`, `EDC`, `FCR`, and `FCU`, resamples each 200 ms
+window to the UniBo model's 200 Hz rate with an anti-aliasing polyphase filter,
+and displays `Neutral`, `Pinch`, `Fist`, and `Open` probabilities. Keep the hand
+relaxed during the eight-second calibration so the adapter can match the four
+selected channel amplitudes to the training fold. `E6b` also requires the
+posture selector.
+
+The ring electrodes do not reproduce the anatomical UniBo electrode geometry.
+The UI and runtime metadata therefore mark this path as an experimental domain
+adapter; its live output is not a reproduction of the reported Day 6 metrics.

@@ -5,6 +5,7 @@ from dataclasses import dataclass
 
 META_CONV_LSTM = "meta_conv_lstm_v1"
 PERSONAL_MPF_TDS = "personal_mpf_tds_v1"
+UNIBO_4CH_ADAPTER = "unibo_4ch_to_ring8_v1"
 
 
 @dataclass(frozen=True, slots=True)
@@ -54,5 +55,7 @@ def get_algorithm(algorithm_id: str | None) -> AlgorithmSpec:
 
 
 def algorithm_display_name(algorithm_id: str | None, *, short: bool = False) -> str:
+    if algorithm_id == UNIBO_4CH_ADAPTER:
+        return "UniBo 4→8 通道实验适配" if not short else "UniBo 4→8"
     spec = get_algorithm(algorithm_id)
     return spec.short_name if short else spec.display_name

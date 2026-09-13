@@ -18,6 +18,10 @@ from PySide6.QtWidgets import (
 from emgforce.algorithms import ALGORITHMS, META_CONV_LSTM, algorithm_display_name, get_algorithm
 from emgforce.inference.engine import PredictionFrame
 from emgforce.inference.model_bundle import ModelBundle, discover_model_bundles
+from emgforce.inference.unibo_adapter import (
+    DEFAULT_CHANNEL_MAP, MUSCLE_NAMES, POSTURE_NAMES, UniBoModelInfo,
+    UniBoRealtimeWorker, discover_unibo_models, unibo_key_path,
+)
 from emgforce.inference.worker import OfflineReplayWorker, RealtimeInferenceWorker
 from emgforce.transfer.dataset_upload import CommandResult
 from emgforce.transfer.remote_models import (
@@ -221,13 +225,14 @@ class RealtimeInferencePage(QWidget):
     def __init__(self, models_root: Path) -> None:
         super().__init__()
         self.models_root = Path(models_root)
-        self.worker: RealtimeInferenceWorker | None = None
+        self.worker: RealtimeInferenceWorker | UniBoRealtimeWorker | None = None
         self.replay_worker: OfflineReplayWorker | None = None
         self.remote_model_worker: RemoteModelWorker | None = None
         self.bundle: ModelBundle | None = None
         self._connected = False
         self._probability_bars: dict[str, QProgressBar] = {}
         self._probability_values: dict[str, QLabel] = {}
+        self._unibo_models: dict[str, UniBoModelInfo] = {}
         self._gesture_reset_timer = QTimer(self)
         self._gesture_reset_timer.setSingleShot(True)
         self._gesture_reset_timer.timeout.connect(self._reset_current_gesture)
@@ -243,7 +248,7 @@ class RealtimeInferencePage(QWidget):
         page.setSpacing(16)
 
         model_card, model_layout = self._make_card(
-            "本地识别模型", "Conv-LSTM 与 MPF+TDS 模型可在同一上位机中安全切换；每次只加载一个后端")
+            "本地识别模型", "支持 Conv-LSTM、MPF+TDS 和 UniBo 四分类适配；每次只加载一个后端")
         model_row = QHBoxLayout()
         self.model_combo = QComboBox()
         self.model_combo.setMinimumHeight(40)
@@ -266,6 +271,38 @@ class RealtimeInferencePage(QWidget):
         self.model_details.setObjectName("muted")
         model_layout.addWidget(self.model_status)
         model_layout.addWidget(self.model_details)
+        self.unibo_adapter_panel = QFrame()
+        self.unibo_adapter_panel.setObjectName("qcMetricNeutral")
+        unibo_grid = QGridLayout(self.unibo_adapter_panel)
+        unibo_grid.setContentsMargins(14, 10, 14, 10)
+        unibo_grid.setHorizontalSpacing(10)
+        unibo_title = QLabel("UniBo 肌肉映射（实验适配）")
+        unibo_title.setStyleSheet("font-weight: 700; color: #1d4ed8;")
+        unibo_grid.addWidget(unibo_title, 0, 0, 1, 2)
+        self.unibo_channel_combos: list[QComboBox] = []
+        for column, (muscle, default_channel) in enumerate(zip(MUSCLE_NAMES, DEFAULT_CHANNEL_MAP)):
+            combo = QComboBox()
+            for channel in range(8):
+                combo.addItem(f"CH{channel + 1}", channel)
+            combo.setCurrentIndex(default_channel)
+            combo.setMinimumHeight(36)
+            self.unibo_channel_combos.append(combo)
+            unibo_grid.addWidget(QLabel(muscle), 1, column * 2)
+            unibo_grid.addWidget(combo, 1, column * 2 + 1)
+        self.unibo_posture = QComboBox()
+        for posture, name in POSTURE_NAMES.items():
+            self.unibo_posture.addItem(name, posture)
+        self.unibo_posture.setMinimumHeight(36)
+        unibo_grid.addWidget(QLabel("E6b 姿态"), 2, 0)
+        unibo_grid.addWidget(self.unibo_posture, 2, 1, 1, 3)
+        warning = QLabel(
+            "当前腕带环形电极与 UniBo 的 ECU/EDC/FCR/FCU 解剖位置不同；"
+            "这里会先做 250→200 Hz 抗混叠重采样，再按上方映射推理。结果用于现场试验，不等同于 UniBo Day 6 验证指标。")
+        warning.setWordWrap(True)
+        warning.setObjectName("muted")
+        unibo_grid.addWidget(warning, 3, 0, 1, 8)
+        self.unibo_adapter_panel.setVisible(False)
+        model_layout.addWidget(self.unibo_adapter_panel)
         page.addWidget(model_card)
 
         remote_card, remote_layout = self._make_card(
@@ -422,7 +459,7 @@ class RealtimeInferencePage(QWidget):
         current_layout.addWidget(current_box, 1)
 
         probability_card, probability_layout = self._make_card(
-            "九路事件概率", "论文在线阈值 0.50；50 ms 防抖，并对食指/中指执行 press-release 状态机")
+            "模型输出概率", "实时显示当前模型的全部输出；超过所选阈值时更新识别事件")
         probability_card.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         self.probability_grid = QGridLayout()
         self.probability_grid.setHorizontalSpacing(10)
@@ -505,6 +542,22 @@ class RealtimeInferencePage(QWidget):
             label = (f"[{algorithm}] {bundle.model_id} · {trained_at} · epoch {epoch} · "
                      f"{val_text} · {cler_text}")
             self.model_combo.addItem(label, str(bundle.root))
+        self._unibo_models = {
+            info.combo_key: info for info in discover_unibo_models(self.models_root)
+        }
+        for info in self._unibo_models.values():
+            accuracy = (f"ACC {info.validation_accuracy:.4f}"
+                        if info.validation_accuracy is not None else "ACC --")
+            macro_f1 = (f"macro-F1 {info.validation_macro_f1:.4f}"
+                        if info.validation_macro_f1 is not None else "macro-F1 --")
+            active_f1 = (f"active-F1 {info.validation_active_f1:.4f}"
+                         if info.validation_active_f1 is not None else "active-F1 --")
+            context = " · 需选择姿态" if info.posture_required else ""
+            self.model_combo.addItem(
+                f"[UniBo 4→8] {info.experiment} · {info.fold} · {accuracy} · "
+                f"{macro_f1} · {active_f1}{context}",
+                info.combo_key,
+            )
         if previous:
             index = self.model_combo.findData(previous)
             if index >= 0:
@@ -515,10 +568,34 @@ class RealtimeInferencePage(QWidget):
     def _on_model_combo_changed(self) -> None:
         path_str = self.model_combo.currentData()
         if not path_str:
+            self.unibo_adapter_panel.setVisible(False)
             self.model_details.setText("--")
             self.model_status.setText(f"未在 {self.models_root} 找到完整模型包")
             self.load_model_button.setEnabled(False)
             return
+        unibo_path = unibo_key_path(path_str)
+        if unibo_path is not None:
+            self.unibo_adapter_panel.setVisible(True)
+            info = self._unibo_models.get(str(path_str))
+            if info is None or not unibo_path.is_file():
+                self.model_details.setText("--")
+                self.model_status.setText(f"UniBo 模型文件不存在：{unibo_path}")
+                self.load_model_button.setEnabled(False)
+                return
+            posture_text = "需要 E6b 姿态上下文" if info.posture_required else "不依赖姿态上下文"
+            self.unibo_posture.setEnabled(info.posture_required)
+            self.model_details.setText(
+                f"UniBo {info.experiment} · {info.fold} · 原生 4 通道 / 200 Hz / 4 类别 · {posture_text}\n"
+                f"现场输入：8 通道 / 250 Hz；默认 ECU/EDC/FCR/FCU = CH1/CH3/CH5/CH7\n"
+                f"权重：{unibo_path}")
+            is_loaded = self.bundle is not None and self.bundle.artifact.resolve() == unibo_path.resolve()
+            self.model_status.setText(
+                f"当前运行中模型：UniBo {info.experiment} 实验适配"
+                if is_loaded else
+                f"已选择 UniBo {info.experiment}（确认通道映射后点击「加载模型」）")
+            self.load_model_button.setEnabled(True)
+            return
+        self.unibo_adapter_panel.setVisible(False)
         path = Path(path_str)
         manifest_path = path / "manifest.json"
         if not manifest_path.is_file():
@@ -626,7 +703,19 @@ class RealtimeInferencePage(QWidget):
             return
         self.model_status.setText("正在校验并加载模型……")
         self.load_model_button.setEnabled(False)
-        worker = RealtimeInferenceWorker(Path(path), self)
+        unibo_path = unibo_key_path(path)
+        if unibo_path is not None:
+            channel_map = tuple(
+                int(combo.currentData()) for combo in self.unibo_channel_combos)
+            if len(set(channel_map)) != 4:
+                self.model_status.setText("ECU/EDC/FCR/FCU 必须选择四个不同的设备通道")
+                self.load_model_button.setEnabled(True)
+                return
+            worker = UniBoRealtimeWorker(
+                unibo_path, channel_map,
+                posture=int(self.unibo_posture.currentData()), parent=self)
+        else:
+            worker = RealtimeInferenceWorker(Path(path), self)
         self.worker = worker
         worker.model_loaded.connect(self._model_loaded)
         worker.status_changed.connect(self._live_status_changed)
@@ -651,7 +740,8 @@ class RealtimeInferencePage(QWidget):
             self.live_status.setText("请先连接设备并加载模型")
             return
         seconds = self.calibration_seconds.value()
-        self.calibration_progress.setRange(0, seconds * 2000)
+        sample_rate = self.bundle.sample_rate if self.bundle is not None else 250
+        self.calibration_progress.setRange(0, seconds * sample_rate)
         self.calibration_progress.setValue(0)
         self._show_calibration_guidance(0)
         self.worker.begin_calibration(seconds)
@@ -673,6 +763,9 @@ class RealtimeInferencePage(QWidget):
     def run_replay(self) -> None:
         if self.bundle is None or self.replay_worker is not None:
             self.replay_result.setText("请先加载模型，或等待当前回放结束")
+            return
+        if self.bundle.metadata.get("experimental_adapter"):
+            self.replay_result.setText("UniBo 适配器请使用实时 8 通道输入；该回放格式不兼容")
             return
         path = Path(self.replay_path.text().strip())
         if not path.is_file():
@@ -802,7 +895,19 @@ class RealtimeInferencePage(QWidget):
             f"源文件：{checkpoint_path} · SHA-256 {digest}…")
         self._build_probability_rows(bundle)
         self._update_live_buttons()
-        self.run_replay_button.setEnabled(True)
+        experimental = bool(bundle.metadata.get("experimental_adapter"))
+        self.calibration_seconds.setValue(8 if experimental else 24)
+        self.run_replay_button.setEnabled(not experimental)
+        if experimental:
+            mapping = bundle.metadata.get("channel_mapping", {})
+            mapping_text = ", ".join(f"{key}={value}" for key, value in mapping.items())
+            self.model_status.setText(
+                f"模型加载成功：[{algorithm_name}] {bundle.model_id}；请先静息校准")
+            self.model_details.setText(
+                f"现场 8 通道 / 250 Hz → UniBo 4 通道 / 200 Hz · 四分类 · {mapping_text}\n"
+                f"姿态：{bundle.metadata.get('posture_name')} · 源文件：{checkpoint_path} · "
+                f"SHA-256 {digest}… · 实验域适配")
+            self.replay_result.setText("UniBo 适配模型使用 200 ms 原始窗口；请通过上方实时识别验证")
         self.load_model_button.setEnabled(True)
 
 
@@ -911,6 +1016,12 @@ class RealtimeInferencePage(QWidget):
         self.calibration_progress.setRange(0, max(1, total))
         self.calibration_progress.setValue(current)
         if total > 0:
+            if self.bundle is not None and self.bundle.metadata.get("experimental_adapter"):
+                self.calibration_instruction.setText("保持自然静息")
+                self.calibration_detail.setText(
+                    "手掌放松且暂时不要动作；正在估计四路肌肉映射的幅值增益")
+                self.calibration_icon.set_action("rest")
+                return
             guidance_index = min(
                 len(CALIBRATION_GUIDANCE) - 1,
                 int((current / total) * len(CALIBRATION_GUIDANCE)),
@@ -920,12 +1031,21 @@ class RealtimeInferencePage(QWidget):
     def _calibration_finished(self, scale: float) -> None:
         self.calibration_progress.setValue(self.calibration_progress.maximum())
         self.calibration_instruction.setText("校准完成")
-        self.calibration_detail.setText(
-            f"本次佩戴缩放系数 {scale:.3f}，现在可以点击“开始实时识别”")
+        if self.bundle is not None and self.bundle.metadata.get("experimental_adapter"):
+            self.calibration_detail.setText(
+                f"UniBo 四路几何平均转换增益 {scale:.6g}，现在可以点击“开始实时识别”")
+        else:
+            self.calibration_detail.setText(
+                f"本次佩戴缩放系数 {scale:.3f}，现在可以点击“开始实时识别”")
         self.calibration_icon.set_action("idle")
         self.start_button.setEnabled(self._connected)
 
     def _show_calibration_guidance(self, index: int) -> None:
+        if self.bundle is not None and self.bundle.metadata.get("experimental_adapter"):
+            self.calibration_instruction.setText("保持自然静息")
+            self.calibration_detail.setText("校准期间保持手掌自然放松，不要执行捏合、握拳或张手")
+            self.calibration_icon.set_action("rest")
+            return
         item = CALIBRATION_GUIDANCE[int(index)]
         title, detail = item[0], item[1]
         action = item[2] if len(item) > 2 else "idle"
