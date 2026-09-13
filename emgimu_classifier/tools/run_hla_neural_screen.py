@@ -55,6 +55,10 @@ def main() -> int:
     parser.add_argument("--batch-size", type=int, default=128)
     parser.add_argument("--device", default="cuda")
     parser.add_argument(
+        "--neutral-label", type=int, default=0,
+        help="dataset-specific task label excluded from active macro-F1",
+    )
+    parser.add_argument(
         "--test-log", type=Path,
         help="exact pre-run test output copied into every run artifact",
     )
@@ -93,6 +97,7 @@ def main() -> int:
             maximum_windows_per_trial=args.maximum_windows_per_trial,
             batch_size=args.batch_size, maximum_epochs=args.epochs,
             patience=args.patience, device=args.device,
+            neutral_label=args.neutral_label,
             test_log_path=str(args.test_log) if args.test_log else None,
         )
         shared_prepared = prepare_hla_screen_examples(args.dataset_root, preparation_config)
@@ -111,6 +116,7 @@ def main() -> int:
                 maximum_windows_per_trial=args.maximum_windows_per_trial,
                 batch_size=args.batch_size, maximum_epochs=args.epochs,
                 patience=args.patience, device=args.device,
+                neutral_label=args.neutral_label,
                 test_log_path=str(args.test_log) if args.test_log else None,
             )
             prepared = prepare_hla_screen_examples(args.dataset_root, preparation_config)
@@ -135,6 +141,7 @@ def main() -> int:
                     maximum_epochs=args.epochs,
                     patience=args.patience,
                     device=args.device,
+                    neutral_label=args.neutral_label,
                     test_log_path=str(args.test_log) if args.test_log else None,
                 ),
                 prepared=prepared,
@@ -156,6 +163,7 @@ def main() -> int:
         "status": "complete" if len(common_targets) == len(targets) else "partial",
         "seed": args.seed,
         "sensor_view": args.sensor_view,
+        "neutral_label": args.neutral_label,
         "targets": targets,
         "common_completed_targets": common_targets,
         "parameter_counts": parameter_counts,

@@ -11,6 +11,15 @@ pytestmark = pytest.mark.skipif(
 )
 
 
+def test_active_macro_f1_uses_dataset_specific_neutral_label() -> None:
+    from emgimu.datasets.hla_neural_training import _metrics
+
+    actual = np.asarray([0, 16])
+    predicted = np.asarray([16, 16])
+    assert _metrics(actual, predicted, neutral_label=16)["active_macro_f1"] == 0.0
+    assert _metrics(actual, predicted, neutral_label=0)["active_macro_f1"] == pytest.approx(2 / 3)
+
+
 def test_neural_fold_has_three_disjoint_subject_roles(tmp_path: Path) -> None:
     from emgimu.datasets.hla_neural_training import (
         HLANeuralRunConfig, _representation_view, prepare_hla_screen_examples,
