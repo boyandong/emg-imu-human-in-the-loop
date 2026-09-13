@@ -27,9 +27,11 @@ def _complete(path: Path) -> bool:
         return False
 
 
-def _bootstrap(values: np.ndarray, seed: int, iterations: int = 2000) -> list[float]:
+def _bootstrap(
+    values: np.ndarray, seed: int, iterations: int = 2000,
+) -> list[float | None]:
     if len(values) < 2:
-        return [float("nan"), float("nan")]
+        return [None, None]
     rng = np.random.default_rng(seed)
     samples = np.asarray([
         np.mean(values[rng.integers(0, len(values), len(values))])
