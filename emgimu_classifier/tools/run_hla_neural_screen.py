@@ -7,7 +7,11 @@ from pathlib import Path
 import numpy as np
 
 from emgimu.datasets.hla_neural import HLAEncoderConfig, HLAMultiDatasetModel, hla_parameter_count
-from emgimu.datasets.hla_neural_training import HLANeuralRunConfig, run_neural_subject_fold
+from emgimu.datasets.hla_neural_training import (
+    HLANeuralRunConfig,
+    prepare_hla_screen_examples,
+    run_neural_subject_fold,
+)
 
 
 REPRESENTATIONS = ("R0", "R1-core", "R2", "R3", "R2-wide")
@@ -65,8 +69,23 @@ def main() -> int:
         ratio = parameter_counts["R2-wide"] / parameter_counts["R3"]
         if not 0.8 <= ratio <= 1.25:
             raise ValueError(f"R2-wide/R3 parameter ratio {ratio:.3f} is not a valid capacity control")
-    for representation in representations:
-        for target in targets:
+    for target in targets:
+        pending = [
+            representation for representation in representations
+            if not _complete(args.output_root / f"{representation}_{target}_s{args.seed}")
+        ]
+        if not pending:
+            print(f"SKIP_ALL_COMPLETE {target}", flush=True)
+            continue
+        preparation_config = HLANeuralRunConfig(
+            representation="R3", sensor_view=args.sensor_view, target_subject=target,
+            seed=args.seed, maximum_subjects=args.maximum_subjects,
+            maximum_windows_per_trial=args.maximum_windows_per_trial,
+            batch_size=args.batch_size, maximum_epochs=args.epochs,
+            patience=args.patience, device=args.device,
+        )
+        prepared = prepare_hla_screen_examples(args.dataset_root, preparation_config)
+        for representation in representations:
             destination = args.output_root / f"{representation}_{target}_s{args.seed}"
             if _complete(destination):
                 print(f"SKIP_COMPLETE {destination.name}", flush=True)
@@ -86,6 +105,7 @@ def main() -> int:
                     patience=args.patience,
                     device=args.device,
                 ),
+                prepared=prepared,
             )
             print(f"COMPLETE {destination.name}", flush=True)
     rows: dict[str, dict[str, float]] = {}

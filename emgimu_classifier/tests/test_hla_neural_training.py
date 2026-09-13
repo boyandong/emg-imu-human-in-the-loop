@@ -12,7 +12,10 @@ pytestmark = pytest.mark.skipif(
 
 
 def test_neural_fold_has_three_disjoint_subject_roles(tmp_path: Path) -> None:
-    from emgimu.datasets.hla_neural_training import HLANeuralRunConfig, run_neural_subject_fold
+    from emgimu.datasets.hla_neural_training import (
+        HLANeuralRunConfig, _representation_view, prepare_hla_screen_examples,
+        run_neural_subject_fold,
+    )
     from emgimu.datasets.hla_schema import (
         ChannelSpec, DatasetManifestV2, EMGTrial, OntologyEntry, OntologyRelation,
         write_hla_manifest, write_hla_trial,
@@ -43,11 +46,15 @@ def test_neural_fold_has_three_disjoint_subject_roles(tmp_path: Path) -> None:
                 source_label=np.full(120, str(label)), task_label=np.full(120, label),
                 canonical_label=np.full(120, label), stable_mask=np.ones(120, dtype=bool),
             ))
-    output = run_neural_subject_fold(dataset, tmp_path / "run", HLANeuralRunConfig(
+    config = HLANeuralRunConfig(
         representation="R3", sensor_view="two", target_subject="s0",
         validation_subject="s1", maximum_windows_per_trial=2, batch_size=4,
         maximum_epochs=2, patience=2, device="cpu",
-    ))
+    )
+    prepared = prepare_hla_screen_examples(dataset, config)
+    assert _representation_view(prepared[0], "R0").features.shape[-1] == 6
+    assert _representation_view(prepared[0], "R2").features is None
+    output = run_neural_subject_fold(dataset, tmp_path / "run", config, prepared=prepared)
     import json
     report = json.loads((output / "run_manifest.json").read_text())
     assert report["target_subject"] == "s0"

@@ -8,7 +8,7 @@ import random
 import subprocess
 import sys
 import time
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
@@ -174,6 +174,42 @@ def _collect_examples(dataset_root: Path, config: HLANeuralRunConfig) -> tuple[_
     ), class_count
 
 
+def prepare_hla_screen_examples(
+    dataset_root: str | Path,
+    config: HLANeuralRunConfig,
+) -> tuple[_Examples, int]:
+    """Prepare the R3 superset once for matched R0/R1/R2/R3 screens."""
+    return _collect_examples(Path(dataset_root), replace(config, representation="R3"))
+
+
+def _representation_view(examples: _Examples, representation: str) -> _Examples:
+    uses_raw = representation in {"R2", "R3", "R2-wide"}
+    if representation == "R0":
+        if examples.features is None or examples.features.shape[-1] < 6:
+            raise ValueError("prepared examples do not contain G0 tokens")
+        features = examples.features[..., :6]
+    elif representation in {"R1-core", "R3"}:
+        if examples.features is None or examples.features.shape[-1] != 11:
+            raise ValueError("prepared examples do not contain G0+G5 tokens")
+        features = examples.features
+    else:
+        features = None
+    availability = (
+        examples.availability if uses_raw
+        else np.zeros_like(examples.availability, dtype=np.float32)
+    )
+    return _Examples(
+        streams=examples.streams if uses_raw else {},
+        availability=availability,
+        features=features,
+        metadata=examples.metadata,
+        labels=examples.labels,
+        subjects=examples.subjects,
+        trials=examples.trials,
+        timestamps=examples.timestamps,
+    )
+
+
 def _fit_normalization(examples: _Examples, train: np.ndarray) -> dict[str, Any]:
     scales: dict[int, float] = {}
     for rate, values in examples.streams.items():
@@ -281,6 +317,8 @@ def run_neural_subject_fold(
     dataset_root: str | Path,
     output_root: str | Path,
     config: HLANeuralRunConfig,
+    *,
+    prepared: tuple[_Examples, int] | None = None,
 ) -> Path:
     """Train one source-only-selected LOSO fold for an HLA representation."""
     _require_torch()
@@ -298,7 +336,11 @@ def run_neural_subject_fold(
     if output.exists():
         raise ValueError(f"output already exists; refusing to overwrite: {output}")
     output.mkdir(parents=True)
-    examples, class_count = _collect_examples(dataset, config)
+    if prepared is None:
+        examples, class_count = _collect_examples(dataset, config)
+    else:
+        prepared_examples, class_count = prepared
+        examples = _representation_view(prepared_examples, config.representation)
     source_subjects = sorted(set(examples.subjects.tolist()) - {config.target_subject})
     validation_subject = config.validation_subject or source_subjects[-1]
     if validation_subject not in source_subjects:
