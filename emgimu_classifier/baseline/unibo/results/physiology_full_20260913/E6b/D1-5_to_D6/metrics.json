@@ -1,0 +1,768 @@
+{
+  "validation": {
+    "split": "validation",
+    "windows": 24338,
+    "trials": 851,
+    "subject_day_groups": 7,
+    "window_raw": {
+      "accuracy": 0.8153053949487493,
+      "macro_f1": 0.723203074750821,
+      "active_gesture_macro_f1": 0.6330567545616823,
+      "active_gesture_accuracy": 0.6367058317588601,
+      "coverage": 1.0,
+      "accepted_risk": 0.18469460505125063,
+      "ece": 0.10292091288635162,
+      "active_ece": 0.15094303613441495,
+      "per_class": {
+        "NEUTRAL": {
+          "precision": 0.9933792515657152,
+          "recall": 0.9939049581386389,
+          "f1": 0.9936420353182374,
+          "weighted_support": 12169.000000000211,
+          "coverage": 1.0
+        },
+        "PINCH": {
+          "precision": 0.6672561432714919,
+          "recall": 0.5497629859178703,
+          "f1": 0.6028380670422482,
+          "weighted_support": 4005.186178669946,
+          "coverage": 1.0
+        },
+        "FIST": {
+          "precision": 0.5769855664415885,
+          "recall": 0.5848788784004104,
+          "f1": 0.580905410182293,
+          "weighted_support": 4019.5533569461945,
+          "coverage": 1.0
+        },
+        "OPEN": {
+          "precision": 0.6673274889744016,
+          "recall": 0.7709984259699797,
+          "f1": 0.7154267864605056,
+          "weighted_support": 4144.26046438422,
+          "coverage": 1.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          12614,
+          3,
+          24,
+          40
+        ],
+        [
+          0,
+          3,
+          2101,
+          1307,
+          555
+        ],
+        [
+          0,
+          62,
+          505,
+          2338,
+          794
+        ],
+        [
+          0,
+          0,
+          401,
+          465,
+          3126
+        ]
+      ],
+      "confusion_labels": [
+        "UNKNOWN",
+        "NEUTRAL",
+        "PINCH",
+        "FIST",
+        "OPEN"
+      ],
+      "fist_confusions": {
+        "to_open_count": 794,
+        "to_pinch_count": 505,
+        "to_open_weighted_rate": 0.24060260800513378,
+        "to_pinch_weighted_rate": 0.15512180875279727
+      }
+    },
+    "window_selective": {
+      "accuracy": 0.8142024503701422,
+      "macro_f1": 0.7238379810127992,
+      "active_gesture_macro_f1": 0.6338866578252405,
+      "active_gesture_accuracy": 0.6351962866616262,
+      "coverage": 0.9955342511749076,
+      "accepted_risk": 0.18214521558727043,
+      "ece": 0.10402385746495883,
+      "active_ece": 0.15245258123164898,
+      "per_class": {
+        "NEUTRAL": {
+          "precision": 0.9941757577244946,
+          "recall": 0.9932086140786585,
+          "f1": 0.9936919505754754,
+          "weighted_support": 12169.000000000211,
+          "coverage": 0.9981366831821378
+        },
+        "PINCH": {
+          "precision": 0.6696803095862413,
+          "recall": 0.5486927627740881,
+          "f1": 0.6031793505259113,
+          "weighted_support": 4005.186178669946,
+          "coverage": 0.9919046096148033
+        },
+        "FIST": {
+          "precision": 0.5805958041856317,
+          "recall": 0.5831008517439107,
+          "f1": 0.5818456317022885,
+          "weighted_support": 4019.5533569461945,
+          "coverage": 0.9928649289387396
+        },
+        "OPEN": {
+          "precision": 0.6706999184705175,
+          "recall": 0.7693247043522363,
+          "f1": 0.7166349912475215,
+          "weighted_support": 4144.26046438422,
+          "coverage": 0.9939894347267645
+        }
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          14,
+          12609,
+          3,
+          21,
+          34
+        ],
+        [
+          34,
+          2,
+          2096,
+          1288,
+          546
+        ],
+        [
+          24,
+          55,
+          500,
+          2332,
+          788
+        ],
+        [
+          28,
+          0,
+          391,
+          455,
+          3118
+        ]
+      ],
+      "confusion_labels": [
+        "UNKNOWN",
+        "NEUTRAL",
+        "PINCH",
+        "FIST",
+        "OPEN"
+      ],
+      "fist_confusions": {
+        "to_open_count": 788,
+        "to_pinch_count": 500,
+        "to_open_weighted_rate": 0.23884424012002045,
+        "to_pinch_weighted_rate": 0.153762047863263
+      }
+    },
+    "trial_label_segment_raw": {
+      "accuracy": 0.8447453758362851,
+      "macro_f1": 0.7669187640469375,
+      "active_gesture_macro_f1": 0.6910063756086146,
+      "active_gesture_accuracy": 0.6942329791420702,
+      "coverage": 1.0,
+      "accepted_risk": 0.15525462416371508,
+      "ece": 0.10973357931501362,
+      "active_ece": 0.0379290276678743,
+      "per_class": {
+        "NEUTRAL": {
+          "precision": 0.9940548136356043,
+          "recall": 0.9952577725304997,
+          "f1": 0.994655929361907,
+          "weighted_support": 851.000000000009,
+          "coverage": 1.0
+        },
+        "PINCH": {
+          "precision": 0.7230032501064392,
+          "recall": 0.6152417734838341,
+          "f1": 0.6647837936832882,
+          "weighted_support": 280.08985438803626,
+          "coverage": 1.0
+        },
+        "FIST": {
+          "precision": 0.6182186964858783,
+          "recall": 0.6249737883048172,
+          "f1": 0.6215778899414677,
+          "weighted_support": 281.0945769382133,
+          "coverage": 1.0
+        },
+        "OPEN": {
+          "precision": 0.7414399165443671,
+          "recall": 0.837748451511511,
+          "f1": 0.7866574432010875,
+          "weighted_support": 289.81556867375036,
+          "coverage": 1.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          847,
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          0,
+          172,
+          85,
+          23
+        ],
+        [
+          0,
+          5,
+          40,
+          176,
+          60
+        ],
+        [
+          0,
+          0,
+          27,
+          21,
+          242
+        ]
+      ],
+      "confusion_labels": [
+        "UNKNOWN",
+        "NEUTRAL",
+        "PINCH",
+        "FIST",
+        "OPEN"
+      ],
+      "fist_confusions": {
+        "to_open_count": 60,
+        "to_pinch_count": 40,
+        "to_open_weighted_rate": 0.21589858456846023,
+        "to_pinch_weighted_rate": 0.14110708668922461
+      }
+    },
+    "trial_label_segment_selective": {
+      "accuracy": 0.6110247933884297,
+      "macro_f1": 0.5089156582202448,
+      "active_gesture_macro_f1": 0.34841047250379925,
+      "active_gesture_accuracy": 0.23983785911058642,
+      "coverage": 0.6406101928374656,
+      "accepted_risk": 0.04618315440469767,
+      "ece": 0.29318379372689496,
+      "active_ece": 0.44821542920842283,
+      "per_class": {
+        "NEUTRAL": {
+          "precision": 0.9987894310325853,
+          "recall": 0.9822117276662731,
+          "f1": 0.9904312153695812,
+          "weighted_support": 851.000000000009,
+          "coverage": 0.9822117276662732
+        },
+        "PINCH": {
+          "precision": 0.9639191909151902,
+          "recall": 0.09276592691792616,
+          "f1": 0.16924409307967012,
+          "weighted_support": 280.08985438803626,
+          "coverage": 0.16779581978190167
+        },
+        "FIST": {
+          "precision": 0.7651120412877214,
+          "recall": 0.22061192393842613,
+          "f1": 0.34247486195228255,
+          "weighted_support": 281.0945769382133,
+          "coverage": 0.32498689415240906
+        },
+        "OPEN": {
+          "precision": 0.7983263521246431,
+          "recall": 0.4006217065729861,
+          "f1": 0.533512462479445,
+          "weighted_support": 289.81556867375036,
+          "coverage": 0.40062170657298685
+        }
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          15,
+          836,
+          0,
+          0,
+          0
+        ],
+        [
+          233,
+          0,
+          26,
+          19,
+          2
+        ],
+        [
+          190,
+          1,
+          1,
+          62,
+          27
+        ],
+        [
+          175,
+          0,
+          0,
+          0,
+          115
+        ]
+      ],
+      "confusion_labels": [
+        "UNKNOWN",
+        "NEUTRAL",
+        "PINCH",
+        "FIST",
+        "OPEN"
+      ],
+      "fist_confusions": {
+        "to_open_count": 27,
+        "to_pinch_count": 1,
+        "to_open_weighted_rate": 0.09731091836248393,
+        "to_pinch_weighted_rate": 0.003459943763999428
+      }
+    },
+    "stratified_raw": {
+      "subject:u01": {
+        "windows": 3555,
+        "macro_f1": 0.8207897522985483,
+        "active_gesture_macro_f1": 0.7629044275992016,
+        "active_gesture_accuracy": 0.7612879073540837,
+        "coverage": 1.0
+      },
+      "subject:u02": {
+        "windows": 3778,
+        "macro_f1": 0.7211783885208884,
+        "active_gesture_macro_f1": 0.6285331935293772,
+        "active_gesture_accuracy": 0.6402999515104778,
+        "coverage": 1.0
+      },
+      "subject:u03": {
+        "windows": 2761,
+        "macro_f1": 0.6145328474948444,
+        "active_gesture_macro_f1": 0.4860437966597924,
+        "active_gesture_accuracy": 0.4870947496947497,
+        "coverage": 1.0
+      },
+      "subject:u04": {
+        "windows": 4682,
+        "macro_f1": 0.8156618922714998,
+        "active_gesture_macro_f1": 0.7542158563619997,
+        "active_gesture_accuracy": 0.7603633260740124,
+        "coverage": 1.0
+      },
+      "subject:u05": {
+        "windows": 3500,
+        "macro_f1": 0.80427159639547,
+        "active_gesture_macro_f1": 0.7431776647468782,
+        "active_gesture_accuracy": 0.757061893918072,
+        "coverage": 1.0
+      },
+      "subject:u06": {
+        "windows": 2484,
+        "macro_f1": 0.6403652593499707,
+        "active_gesture_macro_f1": 0.5204870124666277,
+        "active_gesture_accuracy": 0.5995616883116883,
+        "coverage": 1.0
+      },
+      "subject:u07": {
+        "windows": 3578,
+        "macro_f1": 0.5370462337070362,
+        "active_gesture_macro_f1": 0.3912015293872635,
+        "active_gesture_accuracy": 0.451271305448937,
+        "coverage": 1.0
+      },
+      "day:d06": {
+        "windows": 24338,
+        "macro_f1": 0.723203074750821,
+        "active_gesture_macro_f1": 0.6330567545616823,
+        "active_gesture_accuracy": 0.6367058317588601,
+        "coverage": 1.0
+      },
+      "posture:1": {
+        "windows": 6066,
+        "macro_f1": 0.7063510206441524,
+        "active_gesture_macro_f1": 0.6087044924489402,
+        "active_gesture_accuracy": 0.6226182116880179,
+        "coverage": 1.0
+      },
+      "posture:2": {
+        "windows": 6065,
+        "macro_f1": 0.7180744425843486,
+        "active_gesture_macro_f1": 0.625490760889203,
+        "active_gesture_accuracy": 0.626439132487048,
+        "coverage": 1.0
+      },
+      "posture:3": {
+        "windows": 6213,
+        "macro_f1": 0.7586648941300448,
+        "active_gesture_macro_f1": 0.6799091164426884,
+        "active_gesture_accuracy": 0.6832829506282471,
+        "coverage": 1.0
+      },
+      "posture:4": {
+        "windows": 5994,
+        "macro_f1": 0.7069651904156534,
+        "active_gesture_macro_f1": 0.6142959696755678,
+        "active_gesture_accuracy": 0.6155307755101014,
+        "coverage": 1.0
+      },
+      "subject_day:u01/d06": {
+        "windows": 3555,
+        "macro_f1": 0.8207897522985483,
+        "active_gesture_macro_f1": 0.7629044275992016,
+        "active_gesture_accuracy": 0.7612879073540837,
+        "coverage": 1.0
+      },
+      "subject_day:u02/d06": {
+        "windows": 3778,
+        "macro_f1": 0.7211783885208884,
+        "active_gesture_macro_f1": 0.6285331935293772,
+        "active_gesture_accuracy": 0.6402999515104778,
+        "coverage": 1.0
+      },
+      "subject_day:u03/d06": {
+        "windows": 2761,
+        "macro_f1": 0.6145328474948444,
+        "active_gesture_macro_f1": 0.4860437966597924,
+        "active_gesture_accuracy": 0.4870947496947497,
+        "coverage": 1.0
+      },
+      "subject_day:u04/d06": {
+        "windows": 4682,
+        "macro_f1": 0.8156618922714998,
+        "active_gesture_macro_f1": 0.7542158563619997,
+        "active_gesture_accuracy": 0.7603633260740124,
+        "coverage": 1.0
+      },
+      "subject_day:u05/d06": {
+        "windows": 3500,
+        "macro_f1": 0.80427159639547,
+        "active_gesture_macro_f1": 0.7431776647468782,
+        "active_gesture_accuracy": 0.757061893918072,
+        "coverage": 1.0
+      },
+      "subject_day:u06/d06": {
+        "windows": 2484,
+        "macro_f1": 0.6403652593499707,
+        "active_gesture_macro_f1": 0.5204870124666277,
+        "active_gesture_accuracy": 0.5995616883116883,
+        "coverage": 1.0
+      },
+      "subject_day:u07/d06": {
+        "windows": 3578,
+        "macro_f1": 0.5370462337070362,
+        "active_gesture_macro_f1": 0.3912015293872635,
+        "active_gesture_accuracy": 0.451271305448937,
+        "coverage": 1.0
+      }
+    },
+    "stratified_selective": {
+      "subject:u01": {
+        "windows": 3555,
+        "macro_f1": 0.8205703519878101,
+        "active_gesture_macro_f1": 0.7626118938515507,
+        "active_gesture_accuracy": 0.7593434629096394,
+        "coverage": 0.997824074074074
+      },
+      "subject:u02": {
+        "windows": 3778,
+        "macro_f1": 0.7210809684675921,
+        "active_gesture_macro_f1": 0.6285060229066208,
+        "active_gesture_accuracy": 0.63915123356176,
+        "coverage": 0.997800359118006
+      },
+      "subject:u03": {
+        "windows": 2761,
+        "macro_f1": 0.614989837309579,
+        "active_gesture_macro_f1": 0.4866531164127721,
+        "active_gesture_accuracy": 0.48503414363414366,
+        "coverage": 0.9945797979797979
+      },
+      "subject:u04": {
+        "windows": 4682,
+        "macro_f1": 0.816809088382919,
+        "active_gesture_macro_f1": 0.7557454511772254,
+        "active_gesture_accuracy": 0.7575258598318146,
+        "coverage": 0.9939064526723531
+      },
+      "subject:u05": {
+        "windows": 3500,
+        "macro_f1": 0.8064104644718991,
+        "active_gesture_macro_f1": 0.7463631865972989,
+        "active_gesture_accuracy": 0.7558752018222888,
+        "coverage": 0.9930408340994465
+      },
+      "subject:u06": {
+        "windows": 2484,
+        "macro_f1": 0.6410589141650235,
+        "active_gesture_macro_f1": 0.5214118855533646,
+        "active_gesture_accuracy": 0.5995616883116883,
+        "coverage": 0.998287037037037
+      },
+      "subject:u07": {
+        "windows": 3578,
+        "macro_f1": 0.537075760155893,
+        "active_gesture_macro_f1": 0.3907245522879952,
+        "active_gesture_accuracy": 0.4498824165600482,
+        "coverage": 0.9933012032436376
+      },
+      "day:d06": {
+        "windows": 24338,
+        "macro_f1": 0.7238379810127992,
+        "active_gesture_macro_f1": 0.6338866578252405,
+        "active_gesture_accuracy": 0.6351962866616262,
+        "coverage": 0.9955342511749076
+      },
+      "posture:1": {
+        "windows": 6066,
+        "macro_f1": 0.7061633676833954,
+        "active_gesture_macro_f1": 0.6084542885012642,
+        "active_gesture_accuracy": 0.6207474179910012,
+        "coverage": 0.9968394761088771
+      },
+      "posture:2": {
+        "windows": 6065,
+        "macro_f1": 0.718588421422601,
+        "active_gesture_macro_f1": 0.6264606099138973,
+        "active_gesture_accuracy": 0.6245407016804502,
+        "coverage": 0.9945533376399206
+      },
+      "posture:3": {
+        "windows": 6213,
+        "macro_f1": 0.7592952205877841,
+        "active_gesture_macro_f1": 0.6807495517196741,
+        "active_gesture_accuracy": 0.682479164730239,
+        "coverage": 0.997618120782101
+      },
+      "posture:4": {
+        "windows": 5994,
+        "macro_f1": 0.7083528916997498,
+        "active_gesture_macro_f1": 0.615818350591427,
+        "active_gesture_accuracy": 0.6140652932972246,
+        "coverage": 0.9932266642773699
+      },
+      "subject_day:u01/d06": {
+        "windows": 3555,
+        "macro_f1": 0.8205703519878101,
+        "active_gesture_macro_f1": 0.7626118938515507,
+        "active_gesture_accuracy": 0.7593434629096394,
+        "coverage": 0.997824074074074
+      },
+      "subject_day:u02/d06": {
+        "windows": 3778,
+        "macro_f1": 0.7210809684675921,
+        "active_gesture_macro_f1": 0.6285060229066208,
+        "active_gesture_accuracy": 0.63915123356176,
+        "coverage": 0.997800359118006
+      },
+      "subject_day:u03/d06": {
+        "windows": 2761,
+        "macro_f1": 0.614989837309579,
+        "active_gesture_macro_f1": 0.4866531164127721,
+        "active_gesture_accuracy": 0.48503414363414366,
+        "coverage": 0.9945797979797979
+      },
+      "subject_day:u04/d06": {
+        "windows": 4682,
+        "macro_f1": 0.816809088382919,
+        "active_gesture_macro_f1": 0.7557454511772254,
+        "active_gesture_accuracy": 0.7575258598318146,
+        "coverage": 0.9939064526723531
+      },
+      "subject_day:u05/d06": {
+        "windows": 3500,
+        "macro_f1": 0.8064104644718991,
+        "active_gesture_macro_f1": 0.7463631865972989,
+        "active_gesture_accuracy": 0.7558752018222888,
+        "coverage": 0.9930408340994465
+      },
+      "subject_day:u06/d06": {
+        "windows": 2484,
+        "macro_f1": 0.6410589141650235,
+        "active_gesture_macro_f1": 0.5214118855533646,
+        "active_gesture_accuracy": 0.5995616883116883,
+        "coverage": 0.998287037037037
+      },
+      "subject_day:u07/d06": {
+        "windows": 3578,
+        "macro_f1": 0.537075760155893,
+        "active_gesture_macro_f1": 0.3907245522879952,
+        "active_gesture_accuracy": 0.4498824165600482,
+        "coverage": 0.9933012032436376
+      }
+    },
+    "worst_groups_raw": {
+      "subject": {
+        "group": "u07",
+        "windows": 3578,
+        "macro_f1": 0.5370462337070362,
+        "active_gesture_macro_f1": 0.3912015293872635,
+        "active_gesture_accuracy": 0.451271305448937,
+        "coverage": 1.0
+      },
+      "day": {
+        "group": "d06",
+        "windows": 24338,
+        "macro_f1": 0.723203074750821,
+        "active_gesture_macro_f1": 0.6330567545616823,
+        "active_gesture_accuracy": 0.6367058317588601,
+        "coverage": 1.0
+      },
+      "posture": {
+        "group": "1",
+        "windows": 6066,
+        "macro_f1": 0.7063510206441524,
+        "active_gesture_macro_f1": 0.6087044924489402,
+        "active_gesture_accuracy": 0.6226182116880179,
+        "coverage": 1.0
+      },
+      "subject_day": {
+        "group": "u07/d06",
+        "windows": 3578,
+        "macro_f1": 0.5370462337070362,
+        "active_gesture_macro_f1": 0.3912015293872635,
+        "active_gesture_accuracy": 0.451271305448937,
+        "coverage": 1.0
+      }
+    },
+    "risk_coverage": [
+      {
+        "threshold": 0.3308070637724734,
+        "coverage": 1.0,
+        "risk": 0.18469460505125063
+      },
+      {
+        "threshold": 0.7699481834730512,
+        "coverage": 0.9000504555394852,
+        "risk": 0.14360186842407344
+      },
+      {
+        "threshold": 0.7770158633310101,
+        "coverage": 0.8000156020958187,
+        "risk": 0.1074294159092111
+      },
+      {
+        "threshold": 0.7846928569350344,
+        "coverage": 0.7000207979727611,
+        "risk": 0.069470025385924
+      },
+      {
+        "threshold": 0.789652516170229,
+        "coverage": 0.600000210481595,
+        "risk": 0.04869245333362013
+      },
+      {
+        "threshold": 0.7947284274728484,
+        "coverage": 0.5000457061536152,
+        "risk": 0.03606898192586661
+      }
+    ],
+    "risk_coverage_all": [
+      {
+        "threshold": 0.3308070637724734,
+        "coverage": 1.0,
+        "risk": 0.18469460505125063
+      },
+      {
+        "threshold": 0.7699481834730512,
+        "coverage": 0.9000504555394852,
+        "risk": 0.14360186842407344
+      },
+      {
+        "threshold": 0.7770158633310101,
+        "coverage": 0.8000156020958187,
+        "risk": 0.1074294159092111
+      },
+      {
+        "threshold": 0.7846928569350344,
+        "coverage": 0.7000207979727611,
+        "risk": 0.069470025385924
+      },
+      {
+        "threshold": 0.789652516170229,
+        "coverage": 0.600000210481595,
+        "risk": 0.04869245333362013
+      },
+      {
+        "threshold": 0.7947284274728484,
+        "coverage": 0.5000457061536152,
+        "risk": 0.03606898192586661
+      }
+    ],
+    "risk_coverage_active": [
+      {
+        "threshold": 0.3308070637724734,
+        "coverage": 1.0,
+        "risk": 0.3632941682411399
+      },
+      {
+        "threshold": 0.7674163322620464,
+        "coverage": 0.9000127079426491,
+        "risk": 0.3411926335478138
+      },
+      {
+        "threshold": 0.7700201674243495,
+        "coverage": 0.8000910333747822,
+        "risk": 0.3151195422094016
+      },
+      {
+        "threshold": 0.7730358113765144,
+        "coverage": 0.7000159140272759,
+        "risk": 0.2965555603408228
+      },
+      {
+        "threshold": 0.7772910564647779,
+        "coverage": 0.6000943505911456,
+        "risk": 0.27503050989708017
+      },
+      {
+        "threshold": 0.7820023938223067,
+        "coverage": 0.5001004508564513,
+        "risk": 0.2544790301862394
+      }
+    ]
+  }
+}

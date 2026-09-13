@@ -1,0 +1,24 @@
+{
+  "experiment": "E5",
+  "groups": [
+    "G0",
+    "G1",
+    "G2",
+    "G3",
+    "G5"
+  ],
+  "fold": "D1-5_to_D6",
+  "nmf_components": null,
+  "nmf_seed": 42,
+  "temporal_synergy": false,
+  "feature_dimension": 68,
+  "selected_C": 1.0,
+  "gamma": "scale",
+  "temperature": 0.7071067811865476,
+  "threshold": 0.76,
+  "training_seconds": 130.91057050000381,
+  "inference_seconds": 20.89967539999634,
+  "inference_ms_per_window": 0.8587260826689268,
+  "model_sha256": "ed28a60efc8d05b15f6de5d87f16d239d52f47bf1585ba23650619794c2d958d",
+  "test_evaluated": false
+}

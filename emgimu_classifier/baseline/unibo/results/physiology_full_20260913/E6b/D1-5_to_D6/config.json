@@ -1,0 +1,25 @@
+{
+  "experiment": "E6b",
+  "groups": [
+    "G0",
+    "G1",
+    "G2",
+    "G3",
+    "G5",
+    "G6"
+  ],
+  "fold": "D1-5_to_D6",
+  "nmf_components": null,
+  "nmf_seed": 42,
+  "temporal_synergy": false,
+  "feature_dimension": 72,
+  "selected_C": 1.0,
+  "gamma": "scale",
+  "temperature": 0.7071067811865476,
+  "threshold": 0.76,
+  "training_seconds": 290.08936329999415,
+  "inference_seconds": 40.01681010000175,
+  "inference_ms_per_window": 1.6442111143069171,
+  "model_sha256": "f8524eea2a7e77eebb2b411f2a40b7bcdeba3e9f855857864959b0bd1af212af",
+  "test_evaluated": false
+}

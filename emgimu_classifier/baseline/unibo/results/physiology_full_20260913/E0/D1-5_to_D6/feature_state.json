@@ -1,0 +1,48 @@
+{
+  "groups": [
+    "G0"
+  ],
+  "feature_dimension": 24,
+  "feature_names": [
+    "G0.rms.ECU",
+    "G0.rms.EDC",
+    "G0.rms.FCR",
+    "G0.rms.FCU",
+    "G0.mav.ECU",
+    "G0.mav.EDC",
+    "G0.mav.FCR",
+    "G0.mav.FCU",
+    "G0.standard_deviation.ECU",
+    "G0.standard_deviation.EDC",
+    "G0.standard_deviation.FCR",
+    "G0.standard_deviation.FCU",
+    "G0.waveform_length.ECU",
+    "G0.waveform_length.EDC",
+    "G0.waveform_length.FCR",
+    "G0.waveform_length.FCU",
+    "G0.iqr.ECU",
+    "G0.iqr.EDC",
+    "G0.iqr.FCR",
+    "G0.iqr.FCU",
+    "G0.relative_energy.ECU",
+    "G0.relative_energy.EDC",
+    "G0.relative_energy.FCR",
+    "G0.relative_energy.FCU"
+  ],
+  "channel_order": [
+    "ECU",
+    "EDC",
+    "FCR",
+    "FCU"
+  ],
+  "neutral_rms_weighted_p95": null,
+  "posture_mapping": {
+    "1": "proximal",
+    "2": "distal",
+    "3": "distal_palm_down",
+    "4": "distal_arm_45deg_up"
+  },
+  "unknown_posture_policy": "reject",
+  "posture_context_interpretation": null,
+  "nmf": null
+}
