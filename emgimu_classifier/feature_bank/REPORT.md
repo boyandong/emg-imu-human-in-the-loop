@@ -362,8 +362,8 @@ E. The anchor-coordinate comparison below shows selective improvement of relativ
 not universal reduction of harmful cross-user variation.
 F. F8 alone is unstable; the combined MANUS system shows one-shot context contribution.
 Re-donning is confounded with session/day, so an isolated physical re-donning claim is unproven.
-G. Individual worst-condition improvements exist (for example UniBo posture 2), but the complete
-system's seven-coordinate mean and minimum envelope comparison is still incomplete.
+G. The frozen expert-package envelope below improves the paired mean and minimum dimension;
+a universal full system evaluated across all seven failures remains incomplete.
 H. MANUS one-shot fine-tuning gives substantial bounded-cohort recovery at roughly six trials;
 EPN needs more calibration for a smaller gain. Current-device recovery and onboarding cost
 must be established with its own labelled recordings.
@@ -396,3 +396,16 @@ is compared directly. At five trials, independent X1H J improves 0.572→0.749, 
 anchor view for particular spaces, not a universal invariant coordinate system. Three users
 and centroid-level diagnosis limit the claim; raw distance magnitudes are not comparable
 across these spaces. Current table integrity checks cover 65 sources and 7019 rows.
+
+## Frozen expert-package robustness envelope
+
+`system_robustness_envelope.csv` reports six available native-task coordinates, matched
+baseline coordinates where available, and separate worst-condition cells. The descriptive
+candidate mean is 0.5701 and minimum available coordinate is 0.4718. On five paired
+coordinates, baseline/candidate means are 0.5378/0.5670 and minimum coordinates are
+0.4370/0.4718. Force lacks an independently persisted final F0 reference; real-quality
+performance remains N/A. Means use different datasets, tasks and metric aggregations and
+must not be interpreted as one population's accuracy or a universally evaluated model.
+The minimum dimension is different from the worst condition within a dimension; both are
+kept separate. This is supplementary evidence for the fixed benchmark-specific expert
+package, not completion of the original seven-failure full-system comparison.

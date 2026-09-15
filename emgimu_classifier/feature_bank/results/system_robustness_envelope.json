@@ -1,0 +1,18 @@
+{
+  "scope": "frozen benchmark-specific expert package; different native tasks and aggregations; not one universally evaluated full model",
+  "mean_R_available": 0.570144062854002,
+  "R_min_available": 0.47177991413649895,
+  "paired_factors": [
+    "wearing",
+    "day",
+    "user",
+    "posture",
+    "speed"
+  ],
+  "paired_baseline_mean": 0.53782459269751,
+  "paired_candidate_mean": 0.5669697585456172,
+  "paired_baseline_R_min": 0.4370125256876662,
+  "paired_candidate_R_min": 0.47177991413649895,
+  "missing": "force final F0 reference and real-quality benchmark; multi-failure universal full-system comparison incomplete",
+  "warning": "descriptive mean across unlike tasks; no common-population accuracy inference; session/speed/reapplication confounds remain"
+}
