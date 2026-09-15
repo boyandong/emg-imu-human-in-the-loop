@@ -27,14 +27,21 @@ def build(root:Path,output:Path)->None:
         rows.append({'factor':factor,'run_id':run,'candidate_model':family,'baseline_R':float(base['macro_f1']),
             'candidate_R':float(candidate['macro_f1']),'baseline_worst_condition':worst[0],
             'candidate_worst_condition':worst[1],'delta_R':float(candidate['macro_f1'])-float(base['macro_f1'])})
-    force=next(r for r in load(root,'feature_bank_force_product_final_20260915','calibration_curve.csv') if r['subject']=='ALL' and r['condition']=='ALL' and r['shots_per_class']=='0')
-    rows.append({'factor':'force','run_id':'feature_bank_force_product_final_20260915','candidate_model':force['feature_bank'],
-        'baseline_R':'N/A','candidate_R':float(force['macro_f1']),'baseline_worst_condition':'N/A','candidate_worst_condition':'N/A','delta_R':'N/A'})
+    force_rows=[r for r in load(root,'feature_bank_force_final_reference_20260915') if r['subject']=='ALL']
+    force_base=next(r for r in force_rows if r['feature_family']=='F0' and r['condition']=='ALL')
+    force=next(r for r in force_rows if r['feature_family']!='F0' and r['condition']=='ALL')
+    rows.append({'factor':'force','run_id':'feature_bank_force_final_reference_20260915','candidate_model':force['feature_family'],
+        'baseline_R':float(force_base['macro_f1']),'candidate_R':float(force['macro_f1']),
+        'baseline_worst_condition':min(float(r['macro_f1']) for r in force_rows if r['feature_family']=='F0' and r['condition']!='ALL'),
+        'candidate_worst_condition':min(float(r['macro_f1']) for r in force_rows if r['feature_family']!='F0' and r['condition']!='ALL'),
+        'delta_R':float(force['macro_f1'])-float(force_base['macro_f1'])})
     raw=[float(r['zero_shot_same_eval_macro_f1']) for r in load(root,'feature_bank_epn_calibration_diagnostics_final_20260915_v2','per_family_calibration_gain.csv') if r['family']=='F0' and r['shots_per_class']=='0']
-    full=next(r for r in load(root,'feature_bank_full_fusion_final_20260915','calibration_curve.csv') if r['subject']=='ALL' and r['shots_per_class']=='0' and r['method']=='full')
+    full_rows=[r for r in load(root,'feature_bank_full_fusion_final_20260915','calibration_curve.csv') if r['shots_per_class']=='0' and r['method']=='full']
+    full=next(r for r in full_rows if r['subject']=='ALL')
     baseline=float(np.mean(raw));candidate=float(full['macro_f1'])
     rows.append({'factor':'user','run_id':'feature_bank_full_fusion_final_20260915','candidate_model':'eight-provider uniform zero-shot fusion',
-        'baseline_R':baseline,'candidate_R':candidate,'baseline_worst_condition':'N/A','candidate_worst_condition':'N/A','delta_R':candidate-baseline})
+        'baseline_R':baseline,'candidate_R':candidate,'baseline_worst_condition':min(raw),
+        'candidate_worst_condition':min(float(r['macro_f1']) for r in full_rows if r['subject']!='ALL'),'delta_R':candidate-baseline})
     rows.append({'factor':'quality','run_id':'N/A','candidate_model':'N/A','baseline_R':'N/A','candidate_R':'N/A',
         'baseline_worst_condition':'N/A','candidate_worst_condition':'N/A','delta_R':'N/A'})
     rows.sort(key=lambda r:('force','wearing','day','user','posture','speed','quality').index(r['factor']))
@@ -47,7 +54,7 @@ def build(root:Path,output:Path)->None:
         'paired_candidate_mean':float(np.mean([r['candidate_R'] for r in paired])),
         'paired_baseline_R_min':float(min(r['baseline_R'] for r in paired)),
         'paired_candidate_R_min':float(min(r['candidate_R'] for r in paired)),
-        'missing':'force final F0 reference and real-quality benchmark; multi-failure universal full-system comparison incomplete',
+        'missing':'real-quality benchmark; multi-failure universal full-system comparison incomplete',
         'warning':'descriptive mean across unlike tasks; no common-population accuracy inference; session/speed/reapplication confounds remain'}
     with (output/'system_robustness_envelope.csv').open('w',newline='',encoding='utf-8') as handle:
         writer=csv.DictWriter(handle,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)

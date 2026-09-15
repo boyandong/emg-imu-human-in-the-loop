@@ -66,6 +66,12 @@
     "bytes": 15878
   },
   {
+    "run_id": "feature_bank_force_final_reference_20260915",
+    "artifact": "feature_family_results.csv",
+    "sha256": "fc112c4bc2f03be5af7fcd9c10028e5c3e4dc99e6a54cdf163e866575dcac265",
+    "bytes": 21786
+  },
+  {
     "run_id": "feature_bank_force_audited_validation_20260915",
     "artifact": "conditional_incremental.csv",
     "sha256": "80c4aece0d994a83c3cec13f3105869bdfb4e046fe3c3390ac4220b77aee5c0b",

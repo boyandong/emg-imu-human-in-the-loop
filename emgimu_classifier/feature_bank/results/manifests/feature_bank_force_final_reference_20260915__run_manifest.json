@@ -1,0 +1,32 @@
+{
+  "seed": 20260915,
+  "train_subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "target_subjects": [
+    9,
+    10
+  ],
+  "source_force": "Ramp",
+  "target_force": [
+    "20P",
+    "30P",
+    "40P",
+    "50P",
+    "60P",
+    "70P",
+    "80P",
+    "MVC",
+    "Light",
+    "Medium",
+    "Hard"
+  ],
+  "classifier_C": 1,
+  "frozen_bank": "feature_bank_force_zero_final_20260915",
+  "reference_rule": "same F0 family and source-fit logistic parameters as development; no test tuning"
+}

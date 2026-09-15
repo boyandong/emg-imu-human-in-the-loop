@@ -37,6 +37,7 @@ RUNS = (
     'feature_bank_epn_selection_20260915',
     'feature_bank_force_zero_validation_20260915',
     'feature_bank_force_zero_final_20260915',
+    'feature_bank_force_final_reference_20260915',
     'feature_bank_full_fusion_validation_20260915',
     'feature_bank_full_fusion_final_20260915',
     'feature_bank_manus_full_fusion_validation_20260915_v2',

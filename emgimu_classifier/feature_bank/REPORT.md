@@ -409,3 +409,19 @@ must not be interpreted as one population's accuracy or a universally evaluated 
 The minimum dimension is different from the worst condition within a dimension; both are
 kept separate. This is supplementary evidence for the fixed benchmark-specific expert
 package, not completion of the original seven-failure full-system comparison.
+
+## Independent force reference and harder-condition caution
+
+The final source-only F0 reference now uses the original source-fit feature state and
+prespecified C=1 logistic regression on the same Ramp subjects 1–6. It evaluates precisely
+the same target subjects 9–10 and intensity trials as the frozen bank, whose probability
+outputs are verified unchanged. Independent F0/bank pooled F1 is 0.5788/0.5860. The
+worst intensity-cell F1 slightly declines 0.4853→0.4841; wearing's worst after-shift domain
+also declines 0.3938→0.3638 despite its higher pooled F1. Overall improvement therefore
+does not imply improvement of every hard condition.
+
+The expert-package envelope now has six paired coordinates: descriptive baseline/candidate
+means are 0.5447/0.5701 and minimum aggregate dimensions 0.4370/0.4718. Individual
+worst-condition cells remain separate and expose the regressions above. Real quality is N/A;
+the original universal-system comparison remains open. Current result integrity covers
+66 sources, 7091 rows and 252 explicit split checks.
