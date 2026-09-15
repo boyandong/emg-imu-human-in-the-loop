@@ -1,0 +1,22 @@
+{
+  "status": "source_index_verified_scientific_completion_unproven",
+  "documents": [
+    {
+      "document": "docx_pre.txt",
+      "source_sha256": "9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8",
+      "total_lines": 1133,
+      "indexed_nonblank_lines": 786,
+      "omitted_nonblank_lines": 0
+    },
+    {
+      "document": "docx_goal.txt",
+      "source_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
+      "total_lines": 2642,
+      "indexed_nonblank_lines": 1800,
+      "omitted_nonblank_lines": 0
+    }
+  ],
+  "indexed_rows": 2586,
+  "queue_sha256": "4860e803ee85c4123375b7dc9a0518ae5592526da09c7f9b6e90d8fb882271d1",
+  "limitation": "Every nonblank line is indexed, including context and separators. Rows are not independent requirements. No existing test or summary status is promoted to completion."
+}

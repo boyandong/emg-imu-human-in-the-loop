@@ -7,6 +7,15 @@ from source evidence, validation evidence or prespecified controls; final scores
 Seed: 20260915. Classical logistic regression runs use CPU; no neural training is needed
 for these representation comparisons.
 
+The previous 28-row `REQUIREMENT_AUDIT.csv` is a triage summary, not an exhaustive
+acceptance checklist; its broad locators must not be treated as exact source references.
+`DOCUMENT_SCOPE_QUEUE.csv` now preserves all 2,586 nonblank extracted specification
+lines (786 prerequisite, 1,800 goal), with exact source line numbers and source hashes.
+Read-back validation proves no nonblank source line was omitted. Every queue row remains
+unverified until contextual requirements and authoritative evidence are inspected;
+formulas, examples and separators are included and are not independent requirements.
+`DOCUMENT_SCOPE_AUDIT.json` proves index coverage only, not scientific completion.
+
 ## Current interpretation of the evidence
 
 The full bank has local gains and failures. It does not improve every task or the minimum
