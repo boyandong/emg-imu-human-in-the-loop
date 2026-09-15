@@ -5,7 +5,7 @@
 | Dataset | Force | User | Day or session | Wearing | Posture | Speed | Quality | Supported calibration |
 |---|---|---|---|---|---|---|---|---|
 | LibEMG Contraction Intensity | yes; target intensity and subjective levels | yes | two acquisition days stated, but filenames do not expose a trustworthy day field | no | no | no | synthetic only | personal; force zero-shot and product mode |
-| LibEMG Electrode Shift | no | yes | before/after domains | yes | no | no | synthetic plus source QC | wearing/session-style calibration |
+| LibEMG Electrode Shift | no | yes | before/after domains | yes | no | no | synthetic plus source QC | per-wearing-domain 0/1-shot; 2/5 unsupported (two trials/class/domain) |
 | UniBo-INAIL | no | yes | 8 days | reapplication is confounded with day | 4 oracle labels | no | synthetic only | personal and cross-day session calibration |
 | EMG-EPN612 | no | 612 users | no validated repeated-session key | no | no | no | synthetic only | personal 0/1/2/5-shot |
 | sEMG-MANUS | no | yes | up to 3 sessions | confounded with session | no controlled posture | slow/medium/fast | source anomaly flags plus synthetic | personal and session calibration |

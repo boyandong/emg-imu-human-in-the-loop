@@ -1,0 +1,2534 @@
+[
+  {
+    "user": 18,
+    "domain": "trial_1",
+    "shots": 0,
+    "session_signature": {},
+    "context_weights": [
+      0.5,
+      0.5
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "quality_summary": null
+  },
+  {
+    "user": 18,
+    "domain": "trial_1",
+    "shots": 1,
+    "session_signature": {
+      "F0": {
+        "vector": [
+          8.165135383605957,
+          9.286567687988281,
+          0.12301889806985855,
+          8.710097312927246,
+          8.183639526367188,
+          0.038788650184869766,
+          0.28828904032707214,
+          0.9998798370361328,
+          0.08225119113922119,
+          0.6419113278388977,
+          2.939211130142212,
+          -2.5805301666259766,
+          0.17813684046268463,
+          2.6007654666900635,
+          5.5178656578063965,
+          2.7195632457733154,
+          5.9090576171875,
+          -5.144404411315918,
+          1.0679844617843628,
+          1.2927494049072266
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      },
+      "F3_Ring": {
+        "vector": [
+          8.345771789550781,
+          11.947980880737305,
+          4.927326679229736,
+          8.029735565185547,
+          6.1620025634765625,
+          -0.3300873935222626,
+          0.5898804664611816,
+          0.6742879748344421,
+          0.5190789699554443,
+          0.3031071424484253,
+          14.813214302062988,
+          1.0416285991668701,
+          1.4457238912582397,
+          2.797116756439209,
+          7.886058330535889,
+          14.055561065673828,
+          14.86774730682373,
+          2.089477777481079,
+          3.728989839553833,
+          1.5526673793792725
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      }
+    },
+    "context_weights": [
+      0.5106773370391616,
+      0.48932266296083843
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F0_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F3_Ring_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ]
+    },
+    "quality_summary": {
+      "mean_absolute_quality_shift": 30.0328369140625,
+      "availability": {
+        "adc_clipping": false,
+        "line_noise": true,
+        "low_frequency_pre_highpass": false
+      },
+      "interpretation": "calibration/source observability difference; not hardware fault labels"
+    }
+  },
+  {
+    "user": 18,
+    "domain": "trial_2",
+    "shots": 0,
+    "session_signature": {},
+    "context_weights": [
+      0.5,
+      0.5
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "quality_summary": null
+  },
+  {
+    "user": 18,
+    "domain": "trial_2",
+    "shots": 1,
+    "session_signature": {
+      "F0": {
+        "vector": [
+          8.96605110168457,
+          7.177088260650635,
+          0.18027269840240479,
+          8.54376220703125,
+          7.2267608642578125,
+          0.17694397270679474,
+          0.30664074420928955,
+          0.9997417330741882,
+          -0.014955107122659683,
+          0.6931225061416626,
+          1.9830249547958374,
+          -0.21588647365570068,
+          -0.09840717911720276,
+          3.09928560256958,
+          3.0078914165496826,
+          1.1997604370117188,
+          3.1648213863372803,
+          -5.993542194366455,
+          0.8174404501914978,
+          -0.030514847487211227
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      },
+      "F3_Ring": {
+        "vector": [
+          7.00527811050415,
+          6.20060396194458,
+          6.2390055656433105,
+          5.928255081176758,
+          5.668044567108154,
+          -0.4845695197582245,
+          0.34133774042129517,
+          0.5908665060997009,
+          0.4646109938621521,
+          0.2022455930709839,
+          5.324450492858887,
+          1.3507212400436401,
+          -0.3405708074569702,
+          2.204031229019165,
+          2.400336742401123,
+          3.612921953201294,
+          6.491584300994873,
+          -0.564291775226593,
+          3.631626605987549,
+          1.102273941040039
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      }
+    },
+    "context_weights": [
+      0.5394322027160012,
+      0.4605677972839988
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F0_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F3_Ring_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ]
+    },
+    "quality_summary": {
+      "mean_absolute_quality_shift": 29.101787567138672,
+      "availability": {
+        "adc_clipping": false,
+        "line_noise": true,
+        "low_frequency_pre_highpass": false
+      },
+      "interpretation": "calibration/source observability difference; not hardware fault labels"
+    }
+  },
+  {
+    "user": 18,
+    "domain": "trial_3",
+    "shots": 0,
+    "session_signature": {},
+    "context_weights": [
+      0.5,
+      0.5
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "quality_summary": null
+  },
+  {
+    "user": 18,
+    "domain": "trial_3",
+    "shots": 1,
+    "session_signature": {
+      "F0": {
+        "vector": [
+          7.507396697998047,
+          6.436962604522705,
+          0.1402520090341568,
+          9.011497497558594,
+          9.020817756652832,
+          0.2081516832113266,
+          0.48729220032691956,
+          0.9998460412025452,
+          -0.07490530610084534,
+          0.650712251663208,
+          1.3301628828048706,
+          -0.9164042472839355,
+          -0.23048020899295807,
+          4.736231803894043,
+          3.1832873821258545,
+          -0.2559996545314789,
+          5.959291934967041,
+          -6.010551929473877,
+          3.0271973609924316,
+          2.343355655670166
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      },
+      "F3_Ring": {
+        "vector": [
+          4.752133369445801,
+          14.810812950134277,
+          3.1179986000061035,
+          5.391578197479248,
+          5.166236877441406,
+          0.40575215220451355,
+          0.5651212930679321,
+          0.8643651008605957,
+          0.614301323890686,
+          -0.11956612020730972,
+          12.525252342224121,
+          -0.005612513050436974,
+          1.8358343839645386,
+          3.070791006088257,
+          12.944973945617676,
+          14.089553833007812,
+          15.67621898651123,
+          -1.080629587173462,
+          1.349850058555603,
+          -1.3078640699386597
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      }
+    },
+    "context_weights": [
+      0.4979838165657007,
+      0.5020161834342993
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F0_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F3_Ring_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ]
+    },
+    "quality_summary": {
+      "mean_absolute_quality_shift": 27.470056533813477,
+      "availability": {
+        "adc_clipping": false,
+        "line_noise": true,
+        "low_frequency_pre_highpass": false
+      },
+      "interpretation": "calibration/source observability difference; not hardware fault labels"
+    }
+  },
+  {
+    "user": 18,
+    "domain": "trial_4",
+    "shots": 0,
+    "session_signature": {},
+    "context_weights": [
+      0.5,
+      0.5
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "quality_summary": null
+  },
+  {
+    "user": 18,
+    "domain": "trial_4",
+    "shots": 1,
+    "session_signature": {
+      "F0": {
+        "vector": [
+          7.300478935241699,
+          6.359093189239502,
+          0.23084181547164917,
+          8.238680839538574,
+          12.43564510345459,
+          0.08531414717435837,
+          0.2890828251838684,
+          0.9996017813682556,
+          0.07925286889076233,
+          0.7143102288246155,
+          0.018271446228027344,
+          -1.5805869102478027,
+          -1.363044023513794,
+          6.563769340515137,
+          1.0354863405227661,
+          -2.9931342601776123,
+          8.609859466552734,
+          -3.469724178314209,
+          9.129960060119629,
+          7.038650035858154
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      },
+      "F3_Ring": {
+        "vector": [
+          7.411746978759766,
+          4.975114822387695,
+          4.410598278045654,
+          5.823136806488037,
+          5.4690351486206055,
+          0.03744098171591759,
+          0.3652685284614563,
+          0.8314271569252014,
+          0.557898759841919,
+          0.30772510170936584,
+          7.060276508331299,
+          2.027963876724243,
+          0.07789099961519241,
+          1.4320645332336426,
+          3.373399496078491,
+          3.724034547805786,
+          5.841964244842529,
+          2.062199115753174,
+          2.287122964859009,
+          1.6667872667312622
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      }
+    },
+    "context_weights": [
+      0.5023760898323257,
+      0.4976239101676742
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F0_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F3_Ring_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ]
+    },
+    "quality_summary": {
+      "mean_absolute_quality_shift": 29.066974639892578,
+      "availability": {
+        "adc_clipping": false,
+        "line_noise": true,
+        "low_frequency_pre_highpass": false
+      },
+      "interpretation": "calibration/source observability difference; not hardware fault labels"
+    }
+  },
+  {
+    "user": 19,
+    "domain": "trial_1",
+    "shots": 0,
+    "session_signature": {},
+    "context_weights": [
+      0.5,
+      0.5
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "quality_summary": null
+  },
+  {
+    "user": 19,
+    "domain": "trial_1",
+    "shots": 1,
+    "session_signature": {
+      "F0": {
+        "vector": [
+          8.578939437866211,
+          5.5689287185668945,
+          4.453533172607422,
+          8.412224769592285,
+          15.389704704284668,
+          0.41181066632270813,
+          0.2480526864528656,
+          0.6912122964859009,
+          0.28717708587646484,
+          0.34561169147491455,
+          -1.5655255317687988,
+          -2.5044050216674805,
+          -2.632939338684082,
+          6.047072887420654,
+          1.301632285118103,
+          0.6671617031097412,
+          10.244568824768066,
+          -1.1247897148132324,
+          14.515790939331055,
+          11.529196739196777
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      },
+      "F3_Ring": {
+        "vector": [
+          7.168385028839111,
+          5.483835220336914,
+          5.58977746963501,
+          7.396646022796631,
+          6.546611785888672,
+          0.29339057207107544,
+          0.2130335569381714,
+          0.4855199158191681,
+          0.48199349641799927,
+          0.23669178783893585,
+          -3.134296178817749,
+          -0.4581088423728943,
+          1.0753905773162842,
+          1.0030003786087036,
+          3.4117231369018555,
+          1.7694025039672852,
+          3.6884593963623047,
+          2.2974789142608643,
+          4.962788105010986,
+          3.412851333618164
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      }
+    },
+    "context_weights": [
+      0.5099760841395382,
+      0.49002391586046173
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F0_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F3_Ring_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ]
+    },
+    "quality_summary": {
+      "mean_absolute_quality_shift": 14.354657173156738,
+      "availability": {
+        "adc_clipping": false,
+        "line_noise": true,
+        "low_frequency_pre_highpass": false
+      },
+      "interpretation": "calibration/source observability difference; not hardware fault labels"
+    }
+  },
+  {
+    "user": 19,
+    "domain": "trial_2",
+    "shots": 0,
+    "session_signature": {},
+    "context_weights": [
+      0.5,
+      0.5
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "quality_summary": null
+  },
+  {
+    "user": 19,
+    "domain": "trial_2",
+    "shots": 1,
+    "session_signature": {
+      "F0": {
+        "vector": [
+          11.350528717041016,
+          5.511253356933594,
+          4.0970845222473145,
+          7.406341075897217,
+          5.8223161697387695,
+          -0.13997504115104675,
+          0.21976238489151,
+          0.7519586086273193,
+          0.5524817705154419,
+          0.5513743162155151,
+          -3.3967795372009277,
+          -5.080169677734375,
+          -2.5557539463043213,
+          -5.378143787384033,
+          0.8842779994010925,
+          2.611302137374878,
+          1.1263962984085083,
+          2.0111491680145264,
+          1.7502809762954712,
+          1.4051519632339478
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      },
+      "F3_Ring": {
+        "vector": [
+          8.705724716186523,
+          6.3537726402282715,
+          6.938868999481201,
+          4.953576564788818,
+          8.288591384887695,
+          -0.04906922206282616,
+          0.4811907410621643,
+          0.5446634888648987,
+          0.7490447163581848,
+          0.0755823478102684,
+          -1.1377038955688477,
+          -1.1741286516189575,
+          1.0002074241638184,
+          1.4254428148269653,
+          3.7987751960754395,
+          4.564692497253418,
+          4.945255756378174,
+          5.990490913391113,
+          7.202466011047363,
+          6.567469596862793
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      }
+    },
+    "context_weights": [
+      0.5048842607196478,
+      0.49511573928035224
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F0_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F3_Ring_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ]
+    },
+    "quality_summary": {
+      "mean_absolute_quality_shift": 14.055119514465332,
+      "availability": {
+        "adc_clipping": false,
+        "line_noise": true,
+        "low_frequency_pre_highpass": false
+      },
+      "interpretation": "calibration/source observability difference; not hardware fault labels"
+    }
+  },
+  {
+    "user": 19,
+    "domain": "trial_3",
+    "shots": 0,
+    "session_signature": {},
+    "context_weights": [
+      0.5,
+      0.5
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "quality_summary": null
+  },
+  {
+    "user": 19,
+    "domain": "trial_3",
+    "shots": 1,
+    "session_signature": {
+      "F0": {
+        "vector": [
+          10.382414817810059,
+          7.5095906257629395,
+          4.295811176300049,
+          7.8660383224487305,
+          4.472936630249023,
+          0.0840095728635788,
+          0.1632448434829712,
+          0.6976193785667419,
+          0.3900447189807892,
+          0.6896909475326538,
+          -0.886259138584137,
+          -4.602206230163574,
+          -3.726736068725586,
+          -5.101705551147461,
+          4.569714069366455,
+          3.6421170234680176,
+          3.1504249572753906,
+          0.5692160725593567,
+          0.019138826057314873,
+          -0.34722617268562317
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      },
+      "F3_Ring": {
+        "vector": [
+          13.190690994262695,
+          3.9056782722473145,
+          5.313051223754883,
+          4.805167198181152,
+          5.0541672706604,
+          -0.6974462270736694,
+          0.5557959675788879,
+          0.6374545097351074,
+          0.6739245653152466,
+          -0.24744896590709686,
+          -3.800441026687622,
+          -1.8894448280334473,
+          -0.4234746992588043,
+          0.6540753841400146,
+          3.762739896774292,
+          3.392176628112793,
+          2.975590229034424,
+          3.452709674835205,
+          4.5744123458862305,
+          2.1250052452087402
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      }
+    },
+    "context_weights": [
+      0.5425712099049798,
+      0.4574287900950202
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F0_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F3_Ring_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ]
+    },
+    "quality_summary": {
+      "mean_absolute_quality_shift": 14.05787181854248,
+      "availability": {
+        "adc_clipping": false,
+        "line_noise": true,
+        "low_frequency_pre_highpass": false
+      },
+      "interpretation": "calibration/source observability difference; not hardware fault labels"
+    }
+  },
+  {
+    "user": 19,
+    "domain": "trial_4",
+    "shots": 0,
+    "session_signature": {},
+    "context_weights": [
+      0.5,
+      0.5
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "quality_summary": null
+  },
+  {
+    "user": 19,
+    "domain": "trial_4",
+    "shots": 1,
+    "session_signature": {
+      "F0": {
+        "vector": [
+          10.099873542785645,
+          7.658505916595459,
+          4.864247798919678,
+          8.349085807800293,
+          8.530277252197266,
+          0.22674664855003357,
+          0.03279661387205124,
+          0.5392808318138123,
+          0.31612181663513184,
+          0.5287643074989319,
+          -1.591251015663147,
+          -2.5197677612304688,
+          -3.7703261375427246,
+          0.9801720380783081,
+          3.7070226669311523,
+          3.811884641647339,
+          1.42632257938385,
+          0.8053781390190125,
+          4.345335006713867,
+          4.595480918884277
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      },
+      "F3_Ring": {
+        "vector": [
+          6.304897308349609,
+          5.816627502441406,
+          7.7686004638671875,
+          6.51719856262207,
+          3.85005259513855,
+          0.5246337056159973,
+          0.7276646494865417,
+          0.3519962728023529,
+          0.4579211473464966,
+          0.2305704802274704,
+          1.7989091873168945,
+          3.560648202896118,
+          0.9552631974220276,
+          -1.2377442121505737,
+          3.8359591960906982,
+          6.546099662780762,
+          5.2976460456848145,
+          7.301253795623779,
+          6.602988243103027,
+          1.9546339511871338
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      }
+    },
+    "context_weights": [
+      0.47671308173136945,
+      0.5232869182686306
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F0_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F3_Ring_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ]
+    },
+    "quality_summary": {
+      "mean_absolute_quality_shift": 13.52117919921875,
+      "availability": {
+        "adc_clipping": false,
+        "line_noise": true,
+        "low_frequency_pre_highpass": false
+      },
+      "interpretation": "calibration/source observability difference; not hardware fault labels"
+    }
+  },
+  {
+    "user": 20,
+    "domain": "trial_1",
+    "shots": 0,
+    "session_signature": {},
+    "context_weights": [
+      0.5,
+      0.5
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "quality_summary": null
+  },
+  {
+    "user": 20,
+    "domain": "trial_1",
+    "shots": 1,
+    "session_signature": {
+      "F0": {
+        "vector": [
+          8.718884468078613,
+          7.068652153015137,
+          8.366003036499023,
+          9.320713996887207,
+          12.92063045501709,
+          0.06881827861070633,
+          0.37790536880493164,
+          0.6133008003234863,
+          0.04491100087761879,
+          -0.10199860483407974,
+          -0.9816500544548035,
+          -1.8559824228286743,
+          -1.3980612754821777,
+          -2.961947202682495,
+          -0.6779975295066833,
+          -2.7358126640319824,
+          -3.138995885848999,
+          -1.792514681816101,
+          -8.10231876373291,
+          -4.985523700714111
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      },
+      "F3_Ring": {
+        "vector": [
+          9.627659797668457,
+          6.009748458862305,
+          8.80984115600586,
+          4.108720302581787,
+          7.321613311767578,
+          0.4529441297054291,
+          0.1677980124950409,
+          -0.3686327338218689,
+          0.7007425427436829,
+          0.19380168616771698,
+          8.355515480041504,
+          2.601154327392578,
+          8.535547256469727,
+          8.899242401123047,
+          0.5747718811035156,
+          2.6768479347229004,
+          4.21359395980835,
+          0.025520043447613716,
+          3.811234712600708,
+          4.782115459442139
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      }
+    },
+    "context_weights": [
+      0.49408552382055976,
+      0.5059144761794403
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F0_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F3_Ring_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ]
+    },
+    "quality_summary": {
+      "mean_absolute_quality_shift": 9.970781326293945,
+      "availability": {
+        "adc_clipping": false,
+        "line_noise": true,
+        "low_frequency_pre_highpass": false
+      },
+      "interpretation": "calibration/source observability difference; not hardware fault labels"
+    }
+  },
+  {
+    "user": 20,
+    "domain": "trial_2",
+    "shots": 0,
+    "session_signature": {},
+    "context_weights": [
+      0.5,
+      0.5
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "quality_summary": null
+  },
+  {
+    "user": 20,
+    "domain": "trial_2",
+    "shots": 1,
+    "session_signature": {
+      "F0": {
+        "vector": [
+          12.067367553710938,
+          7.043277740478516,
+          8.229215621948242,
+          11.537501335144043,
+          7.861605644226074,
+          0.27833327651023865,
+          0.39269933104515076,
+          0.6519258618354797,
+          0.07155204564332962,
+          0.2849983274936676,
+          5.913066864013672,
+          4.807072639465332,
+          4.012772560119629,
+          2.8490049839019775,
+          -0.8701283931732178,
+          1.1472090482711792,
+          -2.70436954498291,
+          1.206047534942627,
+          -2.109488010406494,
+          -1.8833907842636108
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      },
+      "F3_Ring": {
+        "vector": [
+          7.385104656219482,
+          7.710055351257324,
+          5.561973571777344,
+          7.149058818817139,
+          5.988296031951904,
+          0.452226459980011,
+          0.11460919678211212,
+          0.12831531465053558,
+          0.38051775097846985,
+          -0.05341354385018349,
+          8.607346534729004,
+          3.3514552116394043,
+          5.804418563842773,
+          5.54367733001709,
+          2.8058018684387207,
+          1.4393523931503296,
+          7.362879753112793,
+          -0.7948428392410278,
+          2.1412503719329834,
+          5.2613301277160645
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      }
+    },
+    "context_weights": [
+      0.5258725189610298,
+      0.4741274810389702
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F0_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F3_Ring_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ]
+    },
+    "quality_summary": {
+      "mean_absolute_quality_shift": 8.238813400268555,
+      "availability": {
+        "adc_clipping": false,
+        "line_noise": true,
+        "low_frequency_pre_highpass": false
+      },
+      "interpretation": "calibration/source observability difference; not hardware fault labels"
+    }
+  },
+  {
+    "user": 20,
+    "domain": "trial_3",
+    "shots": 0,
+    "session_signature": {},
+    "context_weights": [
+      0.5,
+      0.5
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "quality_summary": null
+  },
+  {
+    "user": 20,
+    "domain": "trial_3",
+    "shots": 1,
+    "session_signature": {
+      "F0": {
+        "vector": [
+          9.711098670959473,
+          7.1956963539123535,
+          8.982502937316895,
+          12.571776390075684,
+          5.0690507888793945,
+          0.06845685094594955,
+          0.4175238311290741,
+          0.6292808651924133,
+          -0.006081948056817055,
+          0.6950022578239441,
+          -0.9113920331001282,
+          -1.5294222831726074,
+          -0.6938750147819519,
+          -1.4715701341629028,
+          1.2025716304779053,
+          -3.2130956649780273,
+          0.49178144335746765,
+          -3.599442958831787,
+          1.2799431085586548,
+          -2.132868528366089
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      },
+      "F3_Ring": {
+        "vector": [
+          7.696226119995117,
+          8.552129745483398,
+          7.983340740203857,
+          5.059028625488281,
+          6.569057941436768,
+          0.13130038976669312,
+          0.1278207004070282,
+          -0.07813001424074173,
+          0.814358651638031,
+          0.03235165774822235,
+          5.963626384735107,
+          3.0123770236968994,
+          4.113710403442383,
+          5.5310235023498535,
+          1.134520411491394,
+          5.344998359680176,
+          8.285848617553711,
+          1.888100504875183,
+          5.48122501373291,
+          6.467990875244141
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      }
+    },
+    "context_weights": [
+      0.5302559028271959,
+      0.46974409717280413
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F0_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F3_Ring_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ]
+    },
+    "quality_summary": {
+      "mean_absolute_quality_shift": 9.389481544494629,
+      "availability": {
+        "adc_clipping": false,
+        "line_noise": true,
+        "low_frequency_pre_highpass": false
+      },
+      "interpretation": "calibration/source observability difference; not hardware fault labels"
+    }
+  },
+  {
+    "user": 20,
+    "domain": "trial_4",
+    "shots": 0,
+    "session_signature": {},
+    "context_weights": [
+      0.5,
+      0.5
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_blended": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "quality_summary": null
+  },
+  {
+    "user": 20,
+    "domain": "trial_4",
+    "shots": 1,
+    "session_signature": {
+      "F0": {
+        "vector": [
+          10.196855545043945,
+          7.850408554077148,
+          8.387374877929688,
+          11.706828117370605,
+          9.17008113861084,
+          -0.07941051572561264,
+          0.40050870180130005,
+          0.6442902088165283,
+          0.04647703841328621,
+          0.11879917234182358,
+          -1.7162153720855713,
+          -3.873013496398926,
+          -2.3568780422210693,
+          -4.439474582672119,
+          -1.441522240638733,
+          -1.0529216527938843,
+          -3.8724923133850098,
+          -2.3539655208587646,
+          -3.480541944503784,
+          -4.559381008148193
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      },
+      "F3_Ring": {
+        "vector": [
+          8.086599349975586,
+          6.061084747314453,
+          8.171908378601074,
+          5.679415225982666,
+          5.358367443084717,
+          0.5835699439048767,
+          0.41811445355415344,
+          -0.5071147084236145,
+          0.8439345955848694,
+          0.17066942155361176,
+          3.4478628635406494,
+          3.727778434753418,
+          3.161130666732788,
+          8.572689056396484,
+          1.8745094537734985,
+          2.7221853733062744,
+          6.674545764923096,
+          -0.37495771050453186,
+          3.693159818649292,
+          6.259190559387207
+        ],
+        "names": [
+          "F8.residual_norm.0",
+          "F8.residual_norm.1",
+          "F8.residual_norm.2",
+          "F8.residual_norm.3",
+          "F8.residual_norm.4",
+          "F8.cosine_agreement.0",
+          "F8.cosine_agreement.1",
+          "F8.cosine_agreement.2",
+          "F8.cosine_agreement.3",
+          "F8.cosine_agreement.4",
+          "F8.geometry_delta.0.1",
+          "F8.geometry_delta.0.2",
+          "F8.geometry_delta.0.3",
+          "F8.geometry_delta.0.4",
+          "F8.geometry_delta.1.2",
+          "F8.geometry_delta.1.3",
+          "F8.geometry_delta.1.4",
+          "F8.geometry_delta.2.3",
+          "F8.geometry_delta.2.4",
+          "F8.geometry_delta.3.4"
+        ]
+      }
+    },
+    "context_weights": [
+      0.4850271367275813,
+      0.5149728632724188
+    ],
+    "prototype_beta": {
+      "F0_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F0_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F0_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ],
+      "F3_Ring_long_term": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "F3_Ring_local": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "F3_Ring_blended": [
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334,
+        0.8333333333333334
+      ]
+    },
+    "quality_summary": {
+      "mean_absolute_quality_shift": 9.953401565551758,
+      "availability": {
+        "adc_clipping": false,
+        "line_noise": true,
+        "low_frequency_pre_highpass": false
+      },
+      "interpretation": "calibration/source observability difference; not hardware fault labels"
+    }
+  }
+]

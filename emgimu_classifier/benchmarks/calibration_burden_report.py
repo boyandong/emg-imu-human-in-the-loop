@@ -13,6 +13,7 @@ PROTOCOLS=(
  ('Force source-only anchors','feature_bank_force_zero_final_20260915',7,3.,False,False,'ALL'),
 )
 CORE_PROTOCOLS=(
+ ('Wearing session local-anchor control','feature_bank_wearing_session_final_20260916',5,1.,True,False,'ALL','population_plus_local_anchor'),
  ('Force Core source-temp anchor','feature_bank_force_core_temperature_final_20260916',7,3.,False,False,'ALL','Core'),
  ('MANUS Core source-temp anchor','feature_bank_manus_core_temperature_final_20260916',6,10.,True,False,'ALL','Core'),
  ('Force concat Core anchor','feature_bank_force_concat_core_calibration_final_20260915',7,3.,False,False,'ALL','Core'),
@@ -36,13 +37,17 @@ def recorded_cost(root,run,shots,raw_root,evidence,cache):
                 if run.startswith('feature_bank_force'):
                     native=raw_root/'libemg_force/official/ContractionIntensity-main'/trial.split('_')[0]/(trial+'.csv')
                     data=native.read_bytes();rate=1000.
+                elif run.startswith('feature_bank_wearing'):
+                    native=raw_root/'libemg_electrode_shift/CIILData-main.zip'
+                    with zipfile.ZipFile(native) as handle:data=handle.read(trial)
+                    rate=200.
                 else:
                     native=raw_root/'semg_manus/semg-manus-dataset-v1.zip'
                     with zipfile.ZipFile(native) as handle:data=handle.read(trial)
                     rate=200.
                 samples=sum(bool(line.strip()) and not line.lstrip().startswith(b'#') for line in data.splitlines())
                 cache[trial]=samples/rate
-                evidence[trial]={'native_path':str(native),'zip_member':trial if run.startswith('feature_bank_manus') else None,
+                evidence[trial]={'native_path':str(native),'zip_member':trial if not run.startswith('feature_bank_force') else None,
                     'sha256':hashlib.sha256(data).hexdigest(),'samples':samples,'nominal_rate_hz':rate,'signal_seconds':samples/rate}
             total+=cache[trial]
         totals.append(total)
@@ -50,19 +55,21 @@ def recorded_cost(root,run,shots,raw_root,evidence,cache):
     return sum(totals)/len(totals),min(totals),max(totals),hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def build(root:Path,output:Path,raw_root:Path|None=None)->None:
+def build(root:Path,output:Path,raw_root:Path|None=None,local_root:Path|None=None)->None:
     rows=[];curves=[];evidence={};cache={};sources={}
     protocols=tuple((*p,None) for p in PROTOCOLS)+CORE_PROTOCOLS
     for label,run,classes,duration,session,target_force,condition,model in protocols:
-        sources[run]=hashlib.sha256((root/run/'calibration_curve.csv').read_bytes()).hexdigest()
-        with (root/run/'calibration_curve.csv').open(encoding='utf-8-sig',newline='') as handle:
+        run_root=root if (root/run).is_dir() or local_root is None else local_root
+        sources[run]=hashlib.sha256((run_root/run/'calibration_curve.csv').read_bytes()).hexdigest()
+        with (run_root/run/'calibration_curve.csv').open(encoding='utf-8-sig',newline='') as handle:
             source=[r for r in csv.DictReader(handle) if r['subject']=='ALL' and r['condition']==condition
-                and (model is None or (r['model']==model and r['method'] in ('with_anchor','unsupported','unsupported_5_shot')))]
+                and (model is None or (run.startswith('feature_bank_wearing') and r['method'] in (model,'unsupported_budget'))
+                     or (r.get('model')==model and r['method'] in ('with_anchor','unsupported','unsupported_5_shot')))]
         points=[]
         for shots in (0,1,2,5):
             cell=next((r for r in source if int(r['shots_per_class'])==shots),None)
             supported=cell is not None and bool(cell.get('macro_f1',''))
-            cost=recorded_cost(root,run,shots,raw_root,evidence,cache) if model is not None and supported else None
+            cost=recorded_cost(run_root,run,shots,raw_root,evidence,cache) if model is not None and supported else None
             rows.append({'protocol':label,'run_id':run,'shots_per_class':shots,'supported':supported,
                 'classes':classes,'calibration_trials':classes*shots if supported else 'N/A',
                 'estimated_signal_seconds':cost[0] if cost else classes*shots*duration if supported else 'N/A',
@@ -88,7 +95,7 @@ def build(root:Path,output:Path,raw_root:Path|None=None)->None:
         '<text x="230" y="510">Labelled trials per task class</text>',
         '<text x="15" y="85">Macro-F1</text>'])
     for i,(label,points) in enumerate(curves):
-        color=('#2166ac','#b2182b','#1b7837','#762a83','#e08214','#4d9221','#c51b7d','#008837','#666666','#a6611a','#018571')[i]
+        color=('#2166ac','#b2182b','#1b7837','#762a83','#e08214','#4d9221','#c51b7d','#008837','#666666','#a6611a','#018571','#984ea3')[i]
         coordinates=' '.join(f'{x:.3f},{y:.3f}' for x,y in (xy(a,b) for a,b in points))
         svg.append(f'<polyline points="{coordinates}" fill="none" stroke="{color}" stroke-width="2"/>')
         for a,b in points:
@@ -105,4 +112,5 @@ def build(root:Path,output:Path,raw_root:Path|None=None)->None:
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('root',type=Path);p.add_argument('output',type=Path);p.add_argument('--raw-root',type=Path)
-    a=p.parse_args();build(a.root,a.output,a.raw_root)
+    p.add_argument('--local-root',type=Path)
+    a=p.parse_args();build(a.root,a.output,a.raw_root,a.local_root)

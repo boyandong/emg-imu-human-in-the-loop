@@ -49,7 +49,7 @@ quality and cannot support a claim that the complete available minimum improved.
 | C: Which families are specialists? | Ring helps average wearing/force performance in some compositions; spectral helps some load/force cells; temporal helps the native UniBo shortlist. | All force Core additions reduce Core's condition minimum. Some FMG position minima also fall. Historical RLCS/CES/Frequency equivalence is unverified. |
 | D: Which need personal calibration? | MANUS session models can recover strongly with a small own-session budget; current EPN anchors can harm performance. Ramp-only force Core anchors recover only a small amount. | No universal anchor benefit or device calibration prescription follows. |
 | E: Does Personal Anchor reduce cross-user variation? | No for the tested EPN branch: all nonzero budgets lower observed mean/minimum F1 and raise standard deviation relative to matched no-anchor controls. | Three final users, descriptive variation; this does not reject every anchor design. |
-| F: Does Session Signature help cross-day/re-donning? | MANUS session profiles measure shifts. Matched current-session prototypes outperform the fixed long/current blend in the tested controls. | A measured signature shift is not proof of predictive value; matched re-donning and broader cross-day signature tests remain open. |
+| F: Does Session Signature help cross-day/re-donning? | MANUS session profiles measure shifts. Matched current-session prototypes outperform the fixed long/current blend in the tested controls. | Targeted before/after wearing-domain controls now exist: local prototypes improve F1 with worse LL; cosine context weighting has no final F1 gain. Calendar-session, broader cross-day and own-device verification remain open. |
 | G: Does the bank improve R_min? | Not for the complete seven-axis vector. Frozen concatenated force Core improves its own force-condition minimum; adding families can raise average F1 while lowering that minimum. | No global robustness recovery; unlike/correlated tasks and synthetic-quality scope remain explicit. |
 | H: How much product calibration is needed? | Offline budgets range from limited Ramp-only recovery to large MANUS own-session recovery; EPN can fail even at five-shot. | Trial duration estimates exclude preparation/transitions. No measured device-level latency, accuracy or calibration duration claim. |
 
@@ -88,9 +88,9 @@ The current temporal comparison shares most errors (G5/reference-F5 model correl
 
 Six new benchmark archives are complete. Five canonical CSVs, schema/provenance audits,
 source run manifests, trial lists, dimensions, per-user/per-class diagnostics, calibration
-burden estimates and SVG curves are available. The latest suite ran 155 tests with one
-skip; consolidated integrity covers 184 artifacts, 48,747 rows and 810 explicit
-partitions, while canonical record verification covers 47,264 rows. These are narrow
+burden estimates and SVG curves are available. The latest suite ran 158 tests with one
+skip; consolidated integrity covers 188 artifacts, 49,303 rows and 858 explicit
+partitions, while canonical record verification covers 47,820 rows. These are narrow
 integrity/implementation checks, not proof that every scientific requirement is complete.
 
 The highest-priority remaining work is the exact historical dataset/algorithm audit,
@@ -1945,3 +1945,77 @@ ran 155 tests (one skip); current compile checks and replay pass. Integrity cove
 184 source artifacts, 48,747 rows and 810 explicit partitions; canonical record
 verification covers 47,264 rows. All new work remains local; full completion is
 still unproven against the two complete specifications.
+
+
+## Matched wearing-domain Session calibration (2026-09-16)
+
+Runs `feature_bank_wearing_session_validation_20260916` and
+`feature_bank_wearing_session_final_20260916` reuse frozen subject-specific before-
+wearing F0/ring classifiers and their repetition-held-out source temperatures.
+Validation users are 15/16/17 and final users 18/19/20, with four native after-wearing
+domains each. Each source class has five repetitions; each after-wearing
+class/domain has only TWO repetitions. Per-domain 0/1-shot is supported; 2/5-shot
+is explicitly missing because no held-out trial remains. Other wearing domains
+are never pooled into calibration. The five native classes are close/open/rest/
+flexion/extension; there is no pinch class. Native recordings are eight-channel
+Myo at 200 Hz; the current device is not evaluated.
+
+Long-term prototypes/scales remain immutable. Source class count determines
+beta=5/(5+shots); local prototypes are calibration means in the same source-MAD
+coordinates. Session signatures contain five residual norms, five cosine
+agreements and ten class-pair geometry changes per family. A fixed previously
+prespecified cosine-agreement rule modifies uniform provider weights. Source-only
+quality-observability diagnostics record calibration/source differences with
+unknown ADC/pre-highpass availability masked; they do not gate this classifier
+comparison or supply hardware fault labels. Signal rest-center/channel-scale
+session updates are not tested by this prototype/context control.
+
+Final mean individual-user/domain scores on the MATCHED one-shot remaining
+trials (12 cells, five evaluation trials each) are:
+
+| Method | Macro-F1 | LogLoss |
+|---|---:|---:|
+| Source provider uniform | 0.519444 | 0.990131 |
+| Source provider Session Signature weighting | 0.519444 | 0.989171 |
+| Long-term prototype uniform | 0.586111 | 1.423913 |
+| Current-session local prototype uniform | 0.701111 | 1.272471 |
+| Source-budget blended prototype uniform | 0.683333 | 1.391350 |
+| Fixed source/local probability mix | 0.519444 | 1.014047 |
+
+Method IDs contain `population`, but the reused source classifiers are personal
+before-wearing models, not generic cross-user classifiers. Population denotes
+uniform fixed provider weighting in these controls. Only the source-classifier
+probabilities have empirical OOF temperature calibration; prototype distance-
+softmax controls use fixed source similarity scale and are not claimed empirically
+probability-calibrated. Current local prototypes improve F1 on these matched
+trials while worsening LL relative to source classifiers. Session Signature has
+no final F1 benefit; the fixed source/local mix fails to recover a final F1 gain.
+Validation local-prototype F1 is 0.852778 vs matched source 0.447222, while the
+validation cosine rule improves 0.447222 ->0.522222. The validation gain must not
+be promoted into a final/deployment gain. Bouts/windows within a trial are not
+independent observations. Calibration excludes entire trials; cal0/1 use different
+evaluation sets, so causal recovery comparisons are within each budget only.
+
+Each wearing condition requires five one-shot trials, mean 15.11 seconds of native
+recorded signal (range 15.075-15.13), plus unmeasured human setup/transitions. The
+cost report now has 12 protocols/48 rows and 12 SVG curves; all 44 earlier costs
+were checked exactly unchanged. Raw sample/rate evidence covers 160 selected
+recordings. The wearing curve shows the fixed source/local mixing CONTROL,
+not a final-selected local-prototype deployment replacement. Native before/after
+wearing conditions are not fabricated calendar-session/day labels, and the
+reference ring is not claimed to reproduce unavailable historical RLCS.
+
+Saved-profile replay reproduces 144 probability arrays per phase (288 total,
+maximum absolute error 0) and verifies parent source hashes and immutable long-
+term profiles. Three tests cover whole-trial class coverage, rejection of budgets
+that empty evaluation and ambiguous duplicate source roots. The full suite ran
+158 tests (one skip); compile checks passed. Integrity covers 188 source artifacts,
+49,303 rows and 858 explicit partitions; canonical verification covers 47,820 rows
+and descriptive per-subject analysis has 7,684 summaries. These integrity checks
+are not an exhaustive scientific completion audit.
+
+New experiment outputs live under workspace `work/benchmark_runs` rather than
+writing outside the permitted workspace. Consolidation accepts `--local-root`
+and records explicit source-root provenance for these runs; the verifier reads
+that bound root. Existing external benchmark source rows remain unchanged.
+No new GitHub push is performed; the two specifications remain incomplete.

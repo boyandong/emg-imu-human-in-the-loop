@@ -1,0 +1,25 @@
+{
+  "phase": "final",
+  "users": [
+    18,
+    19,
+    20
+  ],
+  "families": [
+    "F0",
+    "F3_Ring"
+  ],
+  "parent_run": "feature_bank_wearing_full_fusion_final_20260915",
+  "parent_sha256": {
+    "fitted_states.pkl": "75231bd969852c0995b119e536af23e045c95d1d2e0216b4ea6a796fa5bc0a85",
+    "run_manifest.json": "75b07deb4e5af20f146241ec1523894bb2dc6b53ac7316a9ee22f3ad2fc8851c",
+    "split_trial_ids.json": "f215e2f870c8b97ad77d0a7056778b3629044c1993ac5414ac19f2daf738efec"
+  },
+  "raw_archive_sha256": "4cfa9a4861193f230179fa87d53eda7503e66b5cfedeae81c81e476f53f6b2b6",
+  "classifier_fit": false,
+  "prototype_beta": "source class count/(source class count+calibration class count)",
+  "context_rule": "uniform source-provider weights times clipped (mean class cosine+1)/2; prespecified MANUS rule",
+  "population_anchor_alpha": "shots/(shots+2), fixed budget rule",
+  "probability_calibration": "reused before-wearing repetition-held-out OOF source temperatures",
+  "evidence_boundary": "same-user before/after native wearing conditions, not calendar session/day labels; reference ring is not historical RLCS; unknown ADC/pre-highpass masked; no device accuracy claim"
+}

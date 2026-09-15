@@ -7,6 +7,8 @@ import json
 
 
 RUNS = (
+    'feature_bank_wearing_session_validation_20260916',
+    'feature_bank_wearing_session_final_20260916',
     'feature_bank_unibo_sequence_incremental_validation_20260916',
     'feature_bank_unibo_sequence_incremental_final_20260916',
     'feature_bank_unibo_sequence_temporal_validation_20260916',
@@ -122,18 +124,27 @@ ARTIFACTS = ('feature_family_results.csv', 'conditional_incremental.csv', 'inter
              'anchor_variation_diagnostics.csv', 'force_worst_condition.csv')
 
 
-def consolidate(root: Path, output: Path) -> None:
+def run_directory(root,run,local_root=None):
+    candidates=[base/run for base in (root,local_root) if base is not None and (base/run).is_dir()]
+    if len(candidates)>1:raise ValueError(f'Ambiguous source run: {run}')
+    return candidates[0] if candidates else root/run
+
+
+def consolidate(root: Path, output: Path, local_root=None) -> None:
     output.mkdir(parents=True, exist_ok=True)
     provenance = []
     for name in ARTIFACTS:
         rows = []
         for run in RUNS:
-            source = root / run / name
+            directory=run_directory(root,run,local_root)
+            source = directory / name
             if not source.exists():
                 continue
             data = source.read_bytes()
             provenance.append({'run_id': run, 'artifact': name,
                                'sha256': hashlib.sha256(data).hexdigest(), 'bytes': len(data)})
+            if directory.parent!=root:
+                provenance[-1]['source_root']=str(directory.parent.resolve())
             with source.open(encoding='utf-8-sig', newline='') as handle:
                 rows.extend({'run_id': run, **row} for row in csv.DictReader(handle))
         if not rows:
@@ -146,7 +157,7 @@ def consolidate(root: Path, output: Path) -> None:
     manifests = output / 'manifests'
     manifests.mkdir(exist_ok=True)
     for run in RUNS:
-        for source in (root / run).glob('*.json'):
+        for source in run_directory(root,run,local_root).glob('*.json'):
             (manifests / f'{run}__{source.name}').write_bytes(source.read_bytes())
     (output / 'provenance.json').write_text(json.dumps(provenance, indent=2), encoding='utf-8')
     source=root/'feature_bank_force_audited_validation_20260915/family_diagnostics.csv'
@@ -157,5 +168,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('root', type=Path)
     parser.add_argument('output', type=Path)
+    parser.add_argument('--local-root',type=Path)
     args = parser.parse_args()
-    consolidate(args.root, args.output)
+    consolidate(args.root, args.output,args.local_root)

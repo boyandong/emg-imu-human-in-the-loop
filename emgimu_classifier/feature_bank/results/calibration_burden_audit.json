@@ -1,17 +1,498 @@
 {
   "status": "ok",
-  "cost_rows": 44,
+  "cost_rows": 48,
   "curve_sources_sha256": {
     "feature_bank_epn612_trial_finetune_final_20260915": "da4ac3d70bc98616e2cb1172395d84da27286b94592aceee6f97481688024a88",
     "feature_bank_manus_calibration_final_20260915": "f2d138e3b5aa39f3115951e23c0da54d5aa45c1f2aaf0a0f201385724a19b737",
     "feature_bank_force_product_final_20260915": "cbeb16f3bfbb1ce03fcb3f2872e5c39937b8c785b721855f4047a50aac9b15da",
     "feature_bank_force_zero_final_20260915": "42d4e49c1f7bb221ff0aa0f4d02c0afcaa143775abbdf344b4fb287ecc4c1dbe",
+    "feature_bank_wearing_session_final_20260916": "21a03fdc9d204ff34dfcc6ba86ccd51da4df993ae7f30c8a6359d82b9aaa3f3c",
     "feature_bank_force_core_temperature_final_20260916": "d18345314a905382f4164e7ca72bd1f738f847503554f059adfe8735d4a01144",
     "feature_bank_manus_core_temperature_final_20260916": "b7f2c19666dcc3d8f1750d3eaf2f78b3aa8de9a60fa7863cca7861553f66c83b",
     "feature_bank_force_concat_core_calibration_final_20260915": "505ba1134db331042ba74116325a2ce4c3d5b9abe97a6f10672c860d99ae40c5",
     "feature_bank_manus_concat_core_calibration_final_20260916": "e5be5f2e913506c26b49d455f42072b0b84393920a5b9845e6056a2bd9a7ae8a"
   },
   "native_calibration_trials": {
+    "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_0.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_0.csv",
+      "sha256": "55945010f162800f3735e3ba9ac5c24edb46caa23e8f7ebb78d69827115f1379",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_1.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_1.csv",
+      "sha256": "339f01ea1146c585fca7f3fe49d8ec30c74cfc44b5644390d59338bdc275eedf",
+      "samples": 608,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.04
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_2.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_2.csv",
+      "sha256": "92f2401bd941232d3e162807bd5639ee636aef96ee69950039f9c2cd0510d7f9",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_3.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_3.csv",
+      "sha256": "02d49fa13968fdc9a1a6fc3252fadefe48a5a12df8810b0d4961762cb08aefb7",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_4.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_4.csv",
+      "sha256": "78c08822ea8e9017225a403c8180e327a13ef58247962e03f5732f7ace782c0f",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_2/R_1_C_0.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_2/R_1_C_0.csv",
+      "sha256": "9e9cb4953a67e447d8bb0a34f46abb700caf9092f3cfbdc8143c131a6946053f",
+      "samples": 608,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.04
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_2/R_0_C_1.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_2/R_0_C_1.csv",
+      "sha256": "966869a65274773f98d2044f22388cabc8547ffc757eb098ae2b9e44b32bebb2",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_2/R_1_C_2.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_2/R_1_C_2.csv",
+      "sha256": "521e5de159266d2289eff07c214d6220b3401e4a97eca7982af83a30112651e9",
+      "samples": 606,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.03
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_2/R_0_C_3.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_2/R_0_C_3.csv",
+      "sha256": "a236783d56b895a61877a6a2f96a07e985d056b90a9d0b3d9a35d6e095307170",
+      "samples": 606,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.03
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_2/R_0_C_4.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_2/R_0_C_4.csv",
+      "sha256": "bc4ddc353a111f4320bce5f36882649fa8de057026463af7386b185e80e32cce",
+      "samples": 601,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.005
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_3/R_0_C_0.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_3/R_0_C_0.csv",
+      "sha256": "355285402c0d36770bc6550f624697d2764cd127f094cc6329e159684bfa18eb",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_3/R_0_C_1.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_3/R_0_C_1.csv",
+      "sha256": "903ceeb29eff32bc06408097bf7822cde2938b50f939ec10075d128d08723a21",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_3/R_0_C_2.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_3/R_0_C_2.csv",
+      "sha256": "f867c7d32a49606e7b1379102caea6320cff34d7f9b56b37f5b1fe1811da819a",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_3/R_1_C_3.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_3/R_1_C_3.csv",
+      "sha256": "307dca633ed3fc508893716e208dc2df0d9de98b526b208993ad213a03ced0fc",
+      "samples": 606,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.03
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_3/R_1_C_4.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_3/R_1_C_4.csv",
+      "sha256": "b3cafd5eba1e45e8b2812d65c41eebad6d590c59297916bf0df774a7e3271c9f",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_4/R_1_C_0.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_4/R_1_C_0.csv",
+      "sha256": "c65e812da2b203066fe3cdfc21232e858dec2121890381c8ddc7883c9a18f75f",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_4/R_0_C_1.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_4/R_0_C_1.csv",
+      "sha256": "a5183b68db9145aaea29f2ca14db932bcc3f9742797bd837df01e04c19cd2891",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_4/R_1_C_2.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_4/R_1_C_2.csv",
+      "sha256": "8d13fc59e9fce629b731fe830544f4e0a6c7d90fd2a6b222f16440efdb6147f6",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_4/R_0_C_3.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_4/R_0_C_3.csv",
+      "sha256": "7a0f0174b4cc9f302a7239721a8ee37ab5c387278be5ec43f433a068e2ae6476",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject18/trial_4/R_0_C_4.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject18/trial_4/R_0_C_4.csv",
+      "sha256": "7a2d93430e9fd9b1b44b2aa8c4d637a7a27a18e20785d31d7b22e8a251b17aa6",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_1/R_1_C_0.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_1/R_1_C_0.csv",
+      "sha256": "ef2fe773e22eec73bdf9861373ea0e32df6eb2719233cd037e7212dd038cc7b7",
+      "samples": 606,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.03
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_1/R_1_C_1.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_1/R_1_C_1.csv",
+      "sha256": "ff5b5a87dc9f232f61c326d81a3fe882f6d06e179558f40908f43ed00bb79285",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_1/R_1_C_2.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_1/R_1_C_2.csv",
+      "sha256": "bddaa739c951c2bb4261f12e6cb516ac5df4db2093383a54df6bca1930b849a1",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_1/R_0_C_3.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_1/R_0_C_3.csv",
+      "sha256": "ceea3f374162999482e26124ec8c4104802155b57fc4f148c0ed1859a0596424",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_1/R_1_C_4.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_1/R_1_C_4.csv",
+      "sha256": "519d8db8ba4dcd74f968d0390876bd13c1f7d2d8fdc55a2df05279ee4b30d03d",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_2/R_0_C_0.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_2/R_0_C_0.csv",
+      "sha256": "ce01be26b7f7a9b573594364af22b9f71d199a7f0ff235055c761e4f768b6af9",
+      "samples": 606,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.03
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_2/R_1_C_1.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_2/R_1_C_1.csv",
+      "sha256": "40f245012fb3f619e4597565d6a8396e9a7777e795f2b5c29cb8c35b623eeb04",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_2/R_0_C_2.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_2/R_0_C_2.csv",
+      "sha256": "ef6adf73c02029c60c3a56e41e9c3c4c760aefb27f9018a380f584da8bc8409b",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_2/R_0_C_3.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_2/R_0_C_3.csv",
+      "sha256": "da7461afe5b8d42ad35e524efd9972f674ee8811131c6b75942df3c0262bc34d",
+      "samples": 603,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.015
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_2/R_0_C_4.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_2/R_0_C_4.csv",
+      "sha256": "924a0dc01a60ec8cc764dd4d406be906ad3b1218b00c44456e0d433edffa3be3",
+      "samples": 607,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.035
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_3/R_0_C_0.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_3/R_0_C_0.csv",
+      "sha256": "ada571408cdfd4c2415054b6181ef09d50d5906e83525ad2f01aeb62da0edd27",
+      "samples": 601,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.005
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_3/R_0_C_1.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_3/R_0_C_1.csv",
+      "sha256": "c63cd085d53efb9bad3987d411f8eda42af7d77edfa59164348aff4bbfa6e024",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_3/R_0_C_2.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_3/R_0_C_2.csv",
+      "sha256": "21ab16ff548eccfdc3cd453f7ac0e413076832076942e74b7126b313202ab106",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_3/R_1_C_3.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_3/R_1_C_3.csv",
+      "sha256": "d64ec9bd155fe2e2396f69953aca061ee3eea5cedaed9725dc9fa5d312c40361",
+      "samples": 602,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.01
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_3/R_1_C_4.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_3/R_1_C_4.csv",
+      "sha256": "6e48d43a9e6cf074f769a60e05ca77d85b6e4e819f44df53b155a2e7c4500a78",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_4/R_1_C_0.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_4/R_1_C_0.csv",
+      "sha256": "5a4db13605c8733f4c013d9a2384b0b27aa0ecda249afbbd82b508e6b2bf62b8",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_4/R_0_C_1.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_4/R_0_C_1.csv",
+      "sha256": "a79e9dd0db4ece48dc3f6fd6dd8f00e26c17e0d6be62aea1a346c87947eff52c",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_4/R_1_C_2.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_4/R_1_C_2.csv",
+      "sha256": "51cf4bc4cf6e16cfa117622aeb4e2e3594c0f43c9e4b5bb191d05e82a6bda377",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_4/R_1_C_3.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_4/R_1_C_3.csv",
+      "sha256": "b1bd766537c46503aa057860a4f3006e88c5ed68f1b37594b77781b802e4cdbf",
+      "samples": 607,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.035
+    },
+    "CIILData-main/ElectrodeShift/subject19/trial_4/R_1_C_4.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject19/trial_4/R_1_C_4.csv",
+      "sha256": "fdd10cc737571cdd2d5eb97032748f5f268adb70379043c2add2dfd03ce73e49",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_1/R_1_C_0.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_1/R_1_C_0.csv",
+      "sha256": "a7f9f4abbe2674a0fe3e99bf04c300ddeeb40202f41e86ead3957b2eccf65b75",
+      "samples": 602,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.01
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_1/R_0_C_1.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_1/R_0_C_1.csv",
+      "sha256": "9484fbadaf7a2d4e491f93473f77891bd86787b4fbff40e47eba891c48433fb6",
+      "samples": 606,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.03
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_1/R_1_C_2.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_1/R_1_C_2.csv",
+      "sha256": "3ad99ed95d72b018f319c53de383c7d536548252016489fc5f11c998b0eb7107",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_1/R_0_C_3.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_1/R_0_C_3.csv",
+      "sha256": "9681f2e6a69fa35785f3514d0cc95887ae17cfbfee684a293a11123e836902fa",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_1/R_0_C_4.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_1/R_0_C_4.csv",
+      "sha256": "d0a3e8e91e0d21b935b3741c1eb01acdd55752037ae2352f56b36d9c88f63693",
+      "samples": 606,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.03
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_2/R_0_C_0.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_2/R_0_C_0.csv",
+      "sha256": "0b0cfbb05acf0d4f618cdaad8a297c99eceb415e6a69b44cffe97674ac87cc7d",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_2/R_0_C_1.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_2/R_0_C_1.csv",
+      "sha256": "9676e8f7f91cd48a9881d4aed61fdc86f60cf57ad0298631f0f67a3aa30b4599",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_2/R_1_C_2.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_2/R_1_C_2.csv",
+      "sha256": "41b112a8720795781159eb3d864c06db5b8af92b2ed1e8c0b2ebfeed76cc9897",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_2/R_1_C_3.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_2/R_1_C_3.csv",
+      "sha256": "0ae578e10553e2abcbabcf86438715963a0a99d64692d952d28b609a7956bfc1",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_2/R_0_C_4.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_2/R_0_C_4.csv",
+      "sha256": "c0a949fe64d937cbc4a6ea45e933b3b8057a3c2730736beed6e42c745ff0394b",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_3/R_0_C_0.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_3/R_0_C_0.csv",
+      "sha256": "ea725bcdf5ce15569059b7308ccc4e108c09afc77e54e9d912470d504b97291c",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_3/R_1_C_1.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_3/R_1_C_1.csv",
+      "sha256": "2907af8ddbdb6c3dec3fb0e39295ce3cacd7f9bed27b17b94d1426269ab40899",
+      "samples": 605,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.025
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_3/R_1_C_2.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_3/R_1_C_2.csv",
+      "sha256": "8c77793e9f337329aa6aa2e60ad9719f5c85bfe04605700c00d12c46b9789152",
+      "samples": 602,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.01
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_3/R_0_C_3.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_3/R_0_C_3.csv",
+      "sha256": "3d36d02075329c215535661ad125e219edfcef5ca5257813a954665b9746eb75",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_3/R_0_C_4.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_3/R_0_C_4.csv",
+      "sha256": "41d8d66b8bfa6b78ed57c589206c2755a80e4a2377cf10834774279a81f8634c",
+      "samples": 606,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.03
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_4/R_0_C_0.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_4/R_0_C_0.csv",
+      "sha256": "57043029fefe9b61b08f4d414e0c2d4e6d9ed32dda65e3a4449b5a89e047a0c3",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_4/R_0_C_1.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_4/R_0_C_1.csv",
+      "sha256": "0476557b6051784db92d33f1b309e8cae814c80c331c9a1fa9c9e511636a575b",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_4/R_1_C_2.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_4/R_1_C_2.csv",
+      "sha256": "b8801dedb29c541aeb27cc16c89efd4dd72ebdbecf8b528a1da7ac6df8729644",
+      "samples": 608,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.04
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_4/R_1_C_3.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_4/R_1_C_3.csv",
+      "sha256": "fcb21bd02720fdea63d3843fcf93c0010d57f5e5b9f81345563654dc99ab625b",
+      "samples": 604,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.02
+    },
+    "CIILData-main/ElectrodeShift/subject20/trial_4/R_1_C_4.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "zip_member": "CIILData-main/ElectrodeShift/subject20/trial_4/R_1_C_4.csv",
+      "sha256": "6aaba0703c063d04248a77d1433b97b9ae6f2c4dc826625e200fbc5ac5c9b35a",
+      "samples": 606,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 3.03
+    },
     "S9_Ramp_C1_R2": {
       "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C1_R2.csv",
       "zip_member": null,

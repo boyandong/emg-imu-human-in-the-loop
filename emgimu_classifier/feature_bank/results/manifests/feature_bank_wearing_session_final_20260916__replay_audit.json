@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "prediction_arrays_replayed": 144,
+  "maximum_absolute_probability_error": 0.0,
+  "long_term_profiles_immutable": true,
+  "classifier_fit": false,
+  "parent_source_hashes_verified": true,
+  "scope": "Source/profile and held-out prediction replay; no device-level inference claim"
+}

@@ -10,7 +10,7 @@ def verify(source_root:Path, results:Path)->dict:
     provenance=json.loads((results/'provenance.json').read_text(encoding='utf-8'))
     checked_rows=0
     for entry in provenance:
-        source=source_root/entry['run_id']/entry['artifact']
+        source=Path(entry.get('source_root',source_root))/entry['run_id']/entry['artifact']
         if hashlib.sha256(source.read_bytes()).hexdigest()!=entry['sha256']:
             raise ValueError(f'changed source: {source}')
         with source.open(encoding='utf-8-sig',newline='') as handle:expected=list(csv.DictReader(handle))
