@@ -1,0 +1,65 @@
+dataset,phase,subject,shots_per_class,condition,gesture,q10,q50,q90,pattern_spread,windows,trials,status
+libemg_contraction_intensity,validation,7,0,Ramp,ALL_ACTIVE,N/A,N/A,N/A,N/A,0,0,no target calibration
+libemg_contraction_intensity,validation,7,1,Ramp,ALL_ACTIVE,0.0750829109500869,0.11767544362117872,0.24942241151374633,0.4092888350441272,48,6,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,7,1,Ramp,1,0.07835651423852884,0.14303358232000232,0.23712964638237347,0.4858986950281815,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,7,1,Ramp,2,0.10707596803623436,0.24942241151374633,0.34256044976915967,0.32293446702775264,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,7,1,Ramp,3,0.08081339020391619,0.10057047655393173,0.15327613044123878,0.35943654033016526,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,7,1,Ramp,4,0.0685587680048293,0.0750829109500869,0.0941338906401735,0.30053777796514525,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,7,1,Ramp,5,0.06653810965504478,0.09732503179882404,0.1617605986505204,0.521308423455308,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,7,1,Ramp,6,0.08129661708533682,0.11767544362117872,0.213649821427503,0.46561710645821053,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,7,2,Ramp,ALL_ACTIVE,0.0731927320119602,0.11767544362117872,0.23712964638237347,0.4454781412258287,96,12,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,7,2,Ramp,1,0.10385252289623709,0.1457555841601471,0.22252609480892585,0.5018738666287436,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,7,2,Ramp,2,0.16760800381349872,0.24602890203629654,0.33672429095359274,0.3945920659841389,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,7,2,Ramp,3,0.07738675529935286,0.10057047655393173,0.15022498609539506,0.4171672647703958,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,7,2,Ramp,4,0.062489269044128805,0.0731927320119602,0.0941338906401735,0.3242931992430619,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,7,2,Ramp,5,0.07272846857963305,0.1018681393033326,0.16887877078965105,0.6046443028333779,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,7,2,Ramp,6,0.08129661708533682,0.11767544362117872,0.20172004874418517,0.43029814789525433,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,8,0,Ramp,ALL_ACTIVE,N/A,N/A,N/A,N/A,0,0,no target calibration
+libemg_contraction_intensity,validation,8,1,Ramp,ALL_ACTIVE,0.0710085748592957,0.14636517079941472,0.45453622313994335,0.4850424640489524,48,6,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,8,1,Ramp,1,0.11694357085048925,0.3066700120146432,0.37445367323676637,0.5895622696753466,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,8,1,Ramp,2,0.219166973853835,0.45453622313994335,0.8981055872681019,0.22921860762298057,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,8,1,Ramp,3,0.07131719259811169,0.12025502078853155,0.19019270669808824,0.8168141162681957,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,8,1,Ramp,4,0.06285606259864426,0.0710085748592957,0.09641235093094189,0.457321581203048,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,8,1,Ramp,5,0.061866635608429386,0.11780371342991236,0.1815207049087379,0.3519283093414612,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,8,1,Ramp,6,0.10874749219544005,0.1569294600838572,0.3001967980077505,0.4654099001826826,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,8,2,Ramp,ALL_ACTIVE,0.07188049971253087,0.15118928470509432,0.4401423108433557,0.535556332405778,96,12,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,8,2,Ramp,1,0.1454111945293341,0.3066700120146432,0.39088291401991493,0.8245393902547591,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,8,2,Ramp,2,0.219166973853835,0.45453622313994335,0.8439504777299176,0.32783649152247973,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,8,2,Ramp,3,0.07188049971253087,0.1289515254197883,0.17476042888082458,0.699582162135916,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,8,2,Ramp,4,0.06132381978699347,0.08135067829154444,0.09868714890230938,0.4763191594043136,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,8,2,Ramp,5,0.06190038114954811,0.11780371342991236,0.1815207049087379,0.383464812662981,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,8,2,Ramp,6,0.10874749219544005,0.1804259655341783,0.29536628223310685,0.5015959784542188,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,validation,7,5,Ramp,ALL_ACTIVE,N/A,N/A,N/A,N/A,0,0,unsupported: only four Ramp trials/class
+libemg_contraction_intensity,validation,8,5,Ramp,ALL_ACTIVE,N/A,N/A,N/A,N/A,0,0,unsupported: only four Ramp trials/class
+libemg_contraction_intensity,final,9,0,Ramp,ALL_ACTIVE,N/A,N/A,N/A,N/A,0,0,no target calibration
+libemg_contraction_intensity,final,9,1,Ramp,ALL_ACTIVE,0.1267367811202027,0.3185986858635729,0.5738191415952968,0.4381252499208064,48,6,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,9,1,Ramp,1,0.31367392158142077,0.4385973999416803,0.6102420781189006,0.5518647905741318,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,9,1,Ramp,2,0.15307709493587981,0.29955661545168505,0.5790715993584047,0.2871758660103174,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,9,1,Ramp,3,0.24044144411026677,0.3322285604132575,0.6344158056324263,0.6372025381270017,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,9,1,Ramp,4,0.07439686917515966,0.12077170356991344,0.19915436932521707,0.6569978326148517,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,9,1,Ramp,5,0.1267367811202027,0.25242810353642875,0.3194233613826656,0.3155623817406147,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,9,1,Ramp,6,0.2566722179094524,0.4061086960874673,0.6528236244182863,0.17994809045792176,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,9,2,Ramp,ALL_ACTIVE,0.1297350344898659,0.32061488008695155,0.5738191415952968,0.5372742875887146,96,12,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,9,2,Ramp,1,0.282015516541367,0.4645258882509427,0.6385001511257556,0.6807115245298734,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,9,2,Ramp,2,0.20394978489439364,0.3867192190986501,0.5790715993584047,0.5494085287489323,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,9,2,Ramp,3,0.24044144411026677,0.3677766878602566,0.5433713955940517,0.6027949737683416,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,9,2,Ramp,4,0.07439686917515966,0.12450777620014096,0.23875515891576843,0.7733823571830141,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,9,2,Ramp,5,0.1297350344898659,0.25242810353642875,0.3194233613826656,0.33785900455484175,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,9,2,Ramp,6,0.2566722179094524,0.4061086960874673,0.6032546685956787,0.2794893367472852,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,10,0,Ramp,ALL_ACTIVE,N/A,N/A,N/A,N/A,0,0,no target calibration
+libemg_contraction_intensity,final,10,1,Ramp,ALL_ACTIVE,0.08478882267334377,0.1618379306646935,0.3063138480617562,0.3804266398955017,48,6,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,10,1,Ramp,1,0.11996081199189838,0.20513367178054817,0.3063138480617562,0.3381073172145498,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,10,1,Ramp,2,0.09220894786182457,0.24473833179882687,0.6151510107411884,0.4072710214293007,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,10,1,Ramp,3,0.08001380432352055,0.15352392680290003,0.23474097616846198,0.4224370255018423,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,10,1,Ramp,4,0.08392714303972587,0.0881410418587891,0.14542809386076044,0.42000209446784864,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,10,1,Ramp,5,0.08478882267334377,0.1618379306646935,0.24562602326701882,0.2636588593037276,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,10,1,Ramp,6,0.08062350681402938,0.17557283594314854,0.2609816927782512,0.43108352145574114,8,1,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,10,2,Ramp,ALL_ACTIVE,0.08699213415757467,0.16408859696245887,0.29733966798287653,0.4975559822259757,96,12,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,10,2,Ramp,1,0.11996081199189838,0.20513367178054817,0.30546768193135615,0.40006154180670894,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,10,2,Ramp,2,0.10376180526015932,0.24473833179882687,0.46811093413631066,0.5452352811484753,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,10,2,Ramp,3,0.08001380432352055,0.15672723760940205,0.23371179147489432,0.5632545556222115,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,10,2,Ramp,4,0.08083050167401526,0.09418438642725056,0.1387887782515301,0.7162439889466097,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,10,2,Ramp,5,0.08699213415757467,0.1618379306646935,0.24446658814483851,0.2651617367720581,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,10,2,Ramp,6,0.10483646922443439,0.17557283594314854,0.24732798985566737,0.4953787890597907,16,2,calibration-only signal range; no mechanical-force estimate
+libemg_contraction_intensity,final,9,5,Ramp,ALL_ACTIVE,N/A,N/A,N/A,N/A,0,0,unsupported: only four Ramp trials/class
+libemg_contraction_intensity,final,10,5,Ramp,ALL_ACTIVE,N/A,N/A,N/A,N/A,0,0,unsupported: only four Ramp trials/class

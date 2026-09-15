@@ -1110,6 +1110,43 @@ CCA reproduction. Source temperature calibration simulates cal5 and may transfer
 imperfectly to other budgets. Full tests pass 119 cases with one skip. Historical
 reuse and remaining complete-document evidence remain unfinished.
 
+### Calibration activation range and within-gesture pattern spread
+
+`PersonalActivationProfile` now records the document's signal-range quantities:
+`A_raw=sqrt(mean_channel(RMS_channel²))`, q10/q50/q90, and within-gesture spatial
+pattern spread. Trial weights give each whole calibration trial equal mass;
+quantiles use the frozen inverse weighted empirical CDF without interpolation.
+Pattern coordinates use the new reference `RMS/global_RMS`, not a claimed historical
+X1-H reproduction. The pooled within-gesture spread is the mean of per-gesture
+spreads, explicitly separate from pooled between-gesture variation. Zero-activation
+windows are excluded from pattern calculations rather than treated as meaningful
+spatial patterns.
+
+`benchmarks/export_activation_profiles.py` reuses exact cal1/cal2 Ramp trial IDs from
+the force full-bank probability runs (validation users 7/8, final users 9/10).
+It opens no unseen-force conditions, fits no classifiers and uses no evaluation
+samples. Original `Info.txt` identifies No Movement as the first native class, matching
+C1/adapter label0; these windows are excluded from active-range calculations.
+The source metadata and split hashes are retained in `activation_profile_audit.json`.
+`personal_activation_profiles.{csv,json}` retain eight profiles and 64 records,
+including explicit unavailable cal0 and unsupported cal5 entries.
+
+| Final subject / Ramp calibration | q10 | q50 | q90 | Mean within-gesture pattern spread |
+|---|---:|---:|---:|---:|
+| User 9 / cal1 | 0.1267 | 0.3186 | 0.5738 | 0.4381 |
+| User 9 / cal2 | 0.1297 | 0.3206 | 0.5738 | 0.5373 |
+| User 10 / cal1 | 0.0848 | 0.1618 | 0.3063 | 0.3804 |
+| User 10 / cal2 | 0.0870 | 0.1641 | 0.2973 | 0.4976 |
+
+These are archive signal units, using eight sparse 200 ms windows per trial. Ramp
+in this public dataset uses 20–80% MVC feedback: the profile describes that observed
+calibration signal range, not measured mechanical force, unconstrained natural
+product use or fatigue. It does not change existing classification results. Three
+tests verify rest exclusion, equal-trial weighting under window duplication, rejection
+of mixed-label/rest-only trials and separation of within/between-gesture variation.
+Full tests pass 122 cases with one skip. Remaining complete-document evidence and
+historical baseline reuse remain open.
+
 ### Per-subject variation and class summaries
 
 `benchmarks/per_subject_analysis.py` derives 3342 subject/condition summaries from

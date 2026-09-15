@@ -1,0 +1,1270 @@
+{
+  "validation_7_1": {
+    "channels": 8,
+    "calibration_trials": [
+      "S7_Ramp_C1_R1",
+      "S7_Ramp_C2_R2",
+      "S7_Ramp_C3_R3",
+      "S7_Ramp_C4_R1",
+      "S7_Ramp_C5_R3",
+      "S7_Ramp_C6_R2",
+      "S7_Ramp_C7_R3"
+    ],
+    "rest_label": 0,
+    "rest_windows_excluded": 8,
+    "quantile_rule": "inverse weighted empirical CDF; equal trial mass; no interpolation",
+    "amplitude_definition": "sqrt(mean_channel(RMS_channel**2)); archive signal units",
+    "pattern_definition": "RMS_channel/global_RMS; new reference, historical X1-H equivalence unverified",
+    "interpretation": "observed calibration activation range, not measured mechanical force",
+    "groups": {
+      "ALL_ACTIVE": {
+        "q10": 0.0750829109500869,
+        "q50": 0.11767544362117872,
+        "q90": 0.24942241151374633,
+        "pattern_mean": [
+          0.8843633162230913,
+          1.5812257570262929,
+          0.4916393392373828,
+          1.37456934717824,
+          0.6043648929474675,
+          0.5784520519601254,
+          0.36419110831880497,
+          0.6320442519938889
+        ],
+        "pattern_spread": 0.4092888350441272,
+        "windows": 48,
+        "trials": 6,
+        "zero_activation_pattern_windows_excluded": 0,
+        "pooled_across_gestures_pattern_spread": 1.0654979573673657,
+        "pattern_spread_definition": "mean of within-gesture weighted distances; excludes between-gesture separation"
+      },
+      "1": {
+        "q10": 0.07835651423852884,
+        "q50": 0.14303358232000232,
+        "q90": 0.23712964638237347,
+        "pattern_mean": [
+          0.3416520769481678,
+          0.6725570983947253,
+          0.26686335378003356,
+          1.2823947202860524,
+          1.5612977169072484,
+          1.3540363369783646,
+          0.7541277149241794,
+          0.6908341600250384
+        ],
+        "pattern_spread": 0.4858986950281815,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "2": {
+        "q10": 0.10707596803623436,
+        "q50": 0.24942241151374633,
+        "q90": 0.34256044976915967,
+        "pattern_mean": [
+          0.944974129135856,
+          2.452911223169021,
+          0.46764767008473473,
+          0.7433405988300112,
+          0.13927374140566381,
+          0.12152431091377278,
+          0.12836708890478138,
+          0.3682794734076156
+        ],
+        "pattern_spread": 0.32293446702775264,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "3": {
+        "q10": 0.08081339020391619,
+        "q50": 0.10057047655393173,
+        "q90": 0.15327613044123878,
+        "pattern_mean": [
+          1.0521057861708023,
+          1.639648478399976,
+          0.492634429566453,
+          1.6018198838938613,
+          0.34807432228305324,
+          0.44936506258888154,
+          0.5644274619830629,
+          0.7825436872067552
+        ],
+        "pattern_spread": 0.35943654033016526,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "4": {
+        "q10": 0.0685587680048293,
+        "q50": 0.0750829109500869,
+        "q90": 0.0941338906401735,
+        "pattern_mean": [
+          0.5814461116507754,
+          1.6148978708762678,
+          0.4419926036873937,
+          1.870276319734423,
+          0.5998784195591365,
+          0.5939667222445315,
+          0.2959536574617331,
+          0.667074202740583
+        ],
+        "pattern_spread": 0.30053777796514525,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "5": {
+        "q10": 0.06653810965504478,
+        "q50": 0.09732503179882404,
+        "q90": 0.1617605986505204,
+        "pattern_mean": [
+          1.7669292082079904,
+          1.263702698369643,
+          0.3646840867826637,
+          1.4329667555603294,
+          0.2485231762446291,
+          0.2076069301112876,
+          0.2146011473607296,
+          0.782521611093908
+        ],
+        "pattern_spread": 0.521308423455308,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "6": {
+        "q10": 0.08129661708533682,
+        "q50": 0.11767544362117872,
+        "q90": 0.213649821427503,
+        "pattern_mean": [
+          0.6190725852249546,
+          1.8436371729481231,
+          0.916013891523018,
+          1.3166178047647636,
+          0.7291419812850727,
+          0.744212948923914,
+          0.2276695792783435,
+          0.5010123774894333
+        ],
+        "pattern_spread": 0.46561710645821053,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      }
+    }
+  },
+  "validation_7_2": {
+    "channels": 8,
+    "calibration_trials": [
+      "S7_Ramp_C1_R1",
+      "S7_Ramp_C1_R4",
+      "S7_Ramp_C2_R1",
+      "S7_Ramp_C2_R2",
+      "S7_Ramp_C3_R1",
+      "S7_Ramp_C3_R3",
+      "S7_Ramp_C4_R1",
+      "S7_Ramp_C4_R2",
+      "S7_Ramp_C5_R3",
+      "S7_Ramp_C5_R4",
+      "S7_Ramp_C6_R2",
+      "S7_Ramp_C6_R3",
+      "S7_Ramp_C7_R2",
+      "S7_Ramp_C7_R3"
+    ],
+    "rest_label": 0,
+    "rest_windows_excluded": 16,
+    "quantile_rule": "inverse weighted empirical CDF; equal trial mass; no interpolation",
+    "amplitude_definition": "sqrt(mean_channel(RMS_channel**2)); archive signal units",
+    "pattern_definition": "RMS_channel/global_RMS; new reference, historical X1-H equivalence unverified",
+    "interpretation": "observed calibration activation range, not measured mechanical force",
+    "groups": {
+      "ALL_ACTIVE": {
+        "q10": 0.0731927320119602,
+        "q50": 0.11767544362117872,
+        "q90": 0.23712964638237347,
+        "pattern_mean": [
+          0.8904588847124483,
+          1.571735039046181,
+          0.48611914715559473,
+          1.4166159768137019,
+          0.5969054684832219,
+          0.5554505357817618,
+          0.3765459699283608,
+          0.6411752109206915
+        ],
+        "pattern_spread": 0.4454781412258287,
+        "windows": 96,
+        "trials": 12,
+        "zero_activation_pattern_windows_excluded": 0,
+        "pooled_across_gestures_pattern_spread": 1.0362044960985368,
+        "pattern_spread_definition": "mean of within-gesture weighted distances; excludes between-gesture separation"
+      },
+      "1": {
+        "q10": 0.10385252289623709,
+        "q50": 0.1457555841601471,
+        "q90": 0.22252609480892585,
+        "pattern_mean": [
+          0.3314033114603482,
+          0.6761741663972554,
+          0.25192196845811166,
+          1.3789619395877497,
+          1.5377055496646204,
+          1.3019199278176998,
+          0.7852415658472746,
+          0.6681465937015922
+        ],
+        "pattern_spread": 0.5018738666287436,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "2": {
+        "q10": 0.16760800381349872,
+        "q50": 0.24602890203629654,
+        "q90": 0.33672429095359274,
+        "pattern_mean": [
+          1.1609436393276198,
+          2.3338834286492167,
+          0.4247677605625685,
+          0.7603492021347495,
+          0.15106592274946998,
+          0.11394909999510802,
+          0.13214786905990106,
+          0.45177342134717485
+        ],
+        "pattern_spread": 0.3945920659841389,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "3": {
+        "q10": 0.07738675529935286,
+        "q50": 0.10057047655393173,
+        "q90": 0.15022498609539506,
+        "pattern_mean": [
+          0.9959070682915295,
+          1.6325032970391704,
+          0.4931749919635822,
+          1.588716566288505,
+          0.34423403137686903,
+          0.4577048773598787,
+          0.6052170493572415,
+          0.8268969377874278
+        ],
+        "pattern_spread": 0.4171672647703958,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "4": {
+        "q10": 0.062489269044128805,
+        "q50": 0.0731927320119602,
+        "q90": 0.0941338906401735,
+        "pattern_mean": [
+          0.5795098190022864,
+          1.5568156411768406,
+          0.4567272111440204,
+          1.955502640876585,
+          0.5697963176838714,
+          0.5419072461712185,
+          0.29455156271888505,
+          0.6182421054603416
+        ],
+        "pattern_spread": 0.3242931992430619,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "5": {
+        "q10": 0.07272846857963305,
+        "q50": 0.1018681393033326,
+        "q90": 0.16887877078965105,
+        "pattern_mean": [
+          1.6459824072240319,
+          1.439325308527058,
+          0.3954797914022584,
+          1.395257986982544,
+          0.2565892162555241,
+          0.25000076637948704,
+          0.21428277853590716,
+          0.7044348728981077
+        ],
+        "pattern_spread": 0.6046443028333779,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "6": {
+        "q10": 0.08129661708533682,
+        "q50": 0.11767544362117872,
+        "q90": 0.20172004874418517,
+        "pattern_mean": [
+          0.6290070629688734,
+          1.791708392487545,
+          0.8946431594030257,
+          1.420907525012077,
+          0.7220417731689756,
+          0.6672212969671788,
+          0.22783499405095423,
+          0.5775573343295058
+        ],
+        "pattern_spread": 0.43029814789525433,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      }
+    }
+  },
+  "validation_8_1": {
+    "channels": 8,
+    "calibration_trials": [
+      "S8_Ramp_C1_R3",
+      "S8_Ramp_C2_R3",
+      "S8_Ramp_C3_R4",
+      "S8_Ramp_C4_R4",
+      "S8_Ramp_C5_R3",
+      "S8_Ramp_C6_R2",
+      "S8_Ramp_C7_R4"
+    ],
+    "rest_label": 0,
+    "rest_windows_excluded": 8,
+    "quantile_rule": "inverse weighted empirical CDF; equal trial mass; no interpolation",
+    "amplitude_definition": "sqrt(mean_channel(RMS_channel**2)); archive signal units",
+    "pattern_definition": "RMS_channel/global_RMS; new reference, historical X1-H equivalence unverified",
+    "interpretation": "observed calibration activation range, not measured mechanical force",
+    "groups": {
+      "ALL_ACTIVE": {
+        "q10": 0.0710085748592957,
+        "q50": 0.14636517079941472,
+        "q90": 0.45453622313994335,
+        "pattern_mean": [
+          0.6748075066006658,
+          1.3210534447234943,
+          0.6857827539256537,
+          1.3709628101362534,
+          0.7165771496333911,
+          0.5279830986141409,
+          0.7815237654414676,
+          0.5773994939988482
+        ],
+        "pattern_spread": 0.4850424640489524,
+        "windows": 48,
+        "trials": 6,
+        "zero_activation_pattern_windows_excluded": 0,
+        "pooled_across_gestures_pattern_spread": 1.2378279005327242,
+        "pattern_spread_definition": "mean of within-gesture weighted distances; excludes between-gesture separation"
+      },
+      "1": {
+        "q10": 0.11694357085048925,
+        "q50": 0.3066700120146432,
+        "q90": 0.37445367323676637,
+        "pattern_mean": [
+          0.26005322016090215,
+          0.6773624651634564,
+          0.33680308107814677,
+          1.158412910357984,
+          0.9350091968873069,
+          0.8283615692485322,
+          1.9678077221322456,
+          0.4395238481253758
+        ],
+        "pattern_spread": 0.5895622696753466,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "2": {
+        "q10": 0.219166973853835,
+        "q50": 0.45453622313994335,
+        "q90": 0.8981055872681019,
+        "pattern_mean": [
+          1.2637013193590307,
+          2.371501588122177,
+          0.20155045655811324,
+          0.4692333588866133,
+          0.4577064119071922,
+          0.14890956366411126,
+          0.14101370549467904,
+          0.43141100382927994
+        ],
+        "pattern_spread": 0.22921860762298057,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "3": {
+        "q10": 0.07131719259811169,
+        "q50": 0.12025502078853155,
+        "q90": 0.19019270669808824,
+        "pattern_mean": [
+          0.5992184831533598,
+          0.8684705230679378,
+          0.7610199917134705,
+          1.4889926718797468,
+          0.5306848935519353,
+          0.5490439317388217,
+          1.3766810776281175,
+          0.9274176970691819
+        ],
+        "pattern_spread": 0.8168141162681957,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "4": {
+        "q10": 0.06285606259864426,
+        "q50": 0.0710085748592957,
+        "q90": 0.09641235093094189,
+        "pattern_mean": [
+          0.5966244955431942,
+          0.6681355986415193,
+          0.9358986318821569,
+          2.0413925546149883,
+          0.8926167953595701,
+          0.4994986756866625,
+          0.49782011760801603,
+          0.7835413137032297
+        ],
+        "pattern_spread": 0.457321581203048,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "5": {
+        "q10": 0.061866635608429386,
+        "q50": 0.11780371342991236,
+        "q90": 0.1815207049087379,
+        "pattern_mean": [
+          0.7611020576575639,
+          1.5477370238045867,
+          0.8131235149079106,
+          1.7783245912634131,
+          0.5648843863003699,
+          0.5686008889016773,
+          0.3825409420630498,
+          0.49538510627132826
+        ],
+        "pattern_spread": 0.3519283093414612,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "6": {
+        "q10": 0.10874749219544005,
+        "q50": 0.1569294600838572,
+        "q90": 0.3001967980077505,
+        "pattern_mean": [
+          0.5681454637299439,
+          1.793113469541289,
+          1.0663008474141242,
+          1.2894207738147756,
+          0.918561213793974,
+          0.5734839624450406,
+          0.3232790277226971,
+          0.3871179949946936
+        ],
+        "pattern_spread": 0.4654099001826826,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      }
+    }
+  },
+  "validation_8_2": {
+    "channels": 8,
+    "calibration_trials": [
+      "S8_Ramp_C1_R2",
+      "S8_Ramp_C1_R3",
+      "S8_Ramp_C2_R3",
+      "S8_Ramp_C2_R4",
+      "S8_Ramp_C3_R2",
+      "S8_Ramp_C3_R4",
+      "S8_Ramp_C4_R2",
+      "S8_Ramp_C4_R4",
+      "S8_Ramp_C5_R2",
+      "S8_Ramp_C5_R3",
+      "S8_Ramp_C6_R2",
+      "S8_Ramp_C6_R3",
+      "S8_Ramp_C7_R3",
+      "S8_Ramp_C7_R4"
+    ],
+    "rest_label": 0,
+    "rest_windows_excluded": 16,
+    "quantile_rule": "inverse weighted empirical CDF; equal trial mass; no interpolation",
+    "amplitude_definition": "sqrt(mean_channel(RMS_channel**2)); archive signal units",
+    "pattern_definition": "RMS_channel/global_RMS; new reference, historical X1-H equivalence unverified",
+    "interpretation": "observed calibration activation range, not measured mechanical force",
+    "groups": {
+      "ALL_ACTIVE": {
+        "q10": 0.07188049971253087,
+        "q50": 0.15118928470509432,
+        "q90": 0.4401423108433557,
+        "pattern_mean": [
+          0.6631343907281285,
+          1.2924585170042011,
+          0.6885976883165239,
+          1.3911368252421736,
+          0.7410305773302123,
+          0.5434728155713269,
+          0.7367271357151827,
+          0.5774342817477933
+        ],
+        "pattern_spread": 0.535556332405778,
+        "windows": 96,
+        "trials": 12,
+        "zero_activation_pattern_windows_excluded": 0,
+        "pooled_across_gestures_pattern_spread": 1.2590149616515085,
+        "pattern_spread_definition": "mean of within-gesture weighted distances; excludes between-gesture separation"
+      },
+      "1": {
+        "q10": 0.1454111945293341,
+        "q50": 0.3066700120146432,
+        "q90": 0.39088291401991493,
+        "pattern_mean": [
+          0.2571107372261768,
+          0.6715870927352732,
+          0.3239882552828755,
+          1.1150331840662933,
+          1.2123958906856453,
+          1.0011098420225504,
+          1.6628855000263836,
+          0.39567138601259566
+        ],
+        "pattern_spread": 0.8245393902547591,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "2": {
+        "q10": 0.219166973853835,
+        "q50": 0.45453622313994335,
+        "q90": 0.8439504777299176,
+        "pattern_mean": [
+          1.27696756346128,
+          2.314885819869238,
+          0.24774171968649641,
+          0.5636110554761319,
+          0.45359742111697837,
+          0.15242544624864046,
+          0.14260159283161147,
+          0.471176705929762
+        ],
+        "pattern_spread": 0.32783649152247973,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "3": {
+        "q10": 0.07188049971253087,
+        "q50": 0.1289515254197883,
+        "q90": 0.17476042888082458,
+        "pattern_mean": [
+          0.5873224445076696,
+          0.8088106565277904,
+          0.7695642440210627,
+          1.436197393476646,
+          0.5418293339470824,
+          0.5928333634841232,
+          1.4624617396903543,
+          0.9882278051087023
+        ],
+        "pattern_spread": 0.699582162135916,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "4": {
+        "q10": 0.06132381978699347,
+        "q50": 0.08135067829154444,
+        "q90": 0.09868714890230938,
+        "pattern_mean": [
+          0.5234731091454581,
+          0.5940954706531811,
+          0.870349793390492,
+          2.2032305984355247,
+          0.7211840466658698,
+          0.43483480051179957,
+          0.48026489381794146,
+          0.7565549184932961
+        ],
+        "pattern_spread": 0.4763191594043136,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "5": {
+        "q10": 0.06190038114954811,
+        "q50": 0.11780371342991236,
+        "q90": 0.1815207049087379,
+        "pattern_mean": [
+          0.7816137291737629,
+          1.566921938903199,
+          0.8148112248654082,
+          1.7351847763191945,
+          0.6564568942565969,
+          0.5119744592539497,
+          0.36602688635962627,
+          0.4805544419741509
+        ],
+        "pattern_spread": 0.383464812662981,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "6": {
+        "q10": 0.10874749219544005,
+        "q50": 0.1804259655341783,
+        "q90": 0.29536628223310685,
+        "pattern_mean": [
+          0.5523187608544247,
+          1.7984501233365215,
+          1.105130892652808,
+          1.2935639436792539,
+          0.8607198773090996,
+          0.5676589819068965,
+          0.3061222015651782,
+          0.37242043296825367
+        ],
+        "pattern_spread": 0.5015959784542188,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      }
+    }
+  },
+  "final_9_1": {
+    "channels": 8,
+    "calibration_trials": [
+      "S9_Ramp_C1_R2",
+      "S9_Ramp_C2_R3",
+      "S9_Ramp_C3_R2",
+      "S9_Ramp_C4_R1",
+      "S9_Ramp_C5_R4",
+      "S9_Ramp_C6_R2",
+      "S9_Ramp_C7_R3"
+    ],
+    "rest_label": 0,
+    "rest_windows_excluded": 8,
+    "quantile_rule": "inverse weighted empirical CDF; equal trial mass; no interpolation",
+    "amplitude_definition": "sqrt(mean_channel(RMS_channel**2)); archive signal units",
+    "pattern_definition": "RMS_channel/global_RMS; new reference, historical X1-H equivalence unverified",
+    "interpretation": "observed calibration activation range, not measured mechanical force",
+    "groups": {
+      "ALL_ACTIVE": {
+        "q10": 0.1267367811202027,
+        "q50": 0.3185986858635729,
+        "q90": 0.5738191415952968,
+        "pattern_mean": [
+          0.45712442875048254,
+          0.953129248124393,
+          0.6646350280628329,
+          1.2851499616721465,
+          1.1099446916363116,
+          0.7933147193653128,
+          0.7880241866619252,
+          0.3123604765944536
+        ],
+        "pattern_spread": 0.4381252499208064,
+        "windows": 48,
+        "trials": 6,
+        "zero_activation_pattern_windows_excluded": 0,
+        "pooled_across_gestures_pattern_spread": 1.4566904216134413,
+        "pattern_spread_definition": "mean of within-gesture weighted distances; excludes between-gesture separation"
+      },
+      "1": {
+        "q10": 0.31367392158142077,
+        "q50": 0.4385973999416803,
+        "q90": 0.6102420781189006,
+        "pattern_mean": [
+          0.12281853075988591,
+          0.098078324719415,
+          0.15698818804206097,
+          0.6282637511762772,
+          2.2915672677297834,
+          1.1930744894932819,
+          0.7022692853639415,
+          0.23682557105202984
+        ],
+        "pattern_spread": 0.5518647905741318,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "2": {
+        "q10": 0.15307709493587981,
+        "q50": 0.29955661545168505,
+        "q90": 0.5790715993584047,
+        "pattern_mean": [
+          0.6780541039364876,
+          1.7122065335296668,
+          0.48017326771262386,
+          2.0360243019331232,
+          0.21562981648099427,
+          0.1181295532416656,
+          0.11618108287421777,
+          0.23719677358104477
+        ],
+        "pattern_spread": 0.2871758660103174,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "3": {
+        "q10": 0.24044144411026677,
+        "q50": 0.3322285604132575,
+        "q90": 0.6344158056324263,
+        "pattern_mean": [
+          0.32328857926654264,
+          0.6233997280675897,
+          0.6077800410271488,
+          1.042846216901195,
+          0.9167255434057041,
+          0.862446476880902,
+          1.9713845567137565,
+          0.4109723895385258
+        ],
+        "pattern_spread": 0.6372025381270017,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "4": {
+        "q10": 0.07439686917515966,
+        "q50": 0.12077170356991344,
+        "q90": 0.19915436932521707,
+        "pattern_mean": [
+          0.58102582971131,
+          1.1506351486927495,
+          1.2792262820369278,
+          1.540442108124844,
+          0.6536413021468637,
+          1.021578031230604,
+          0.44287836303918504,
+          0.43170252719688945
+        ],
+        "pattern_spread": 0.6569978326148517,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "5": {
+        "q10": 0.1267367811202027,
+        "q50": 0.25242810353642875,
+        "q90": 0.3194233613826656,
+        "pattern_mean": [
+          0.8815849025276021,
+          1.7905128436985438,
+          0.775153816878935,
+          1.5665512708156568,
+          0.5992660271734765,
+          0.5620222115055248,
+          0.24633339489067035,
+          0.34457615468435
+        ],
+        "pattern_spread": 0.3155623817406147,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "6": {
+        "q10": 0.2566722179094524,
+        "q50": 0.4061086960874673,
+        "q90": 0.6528236244182863,
+        "pattern_mean": [
+          0.15597462630106654,
+          0.3439429100383951,
+          0.6884885726793002,
+          0.8967721210817815,
+          1.982838192881049,
+          1.0026375538398986,
+          1.2490984370897789,
+          0.21288944351388234
+        ],
+        "pattern_spread": 0.17994809045792176,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      }
+    }
+  },
+  "final_9_2": {
+    "channels": 8,
+    "calibration_trials": [
+      "S9_Ramp_C1_R2",
+      "S9_Ramp_C1_R3",
+      "S9_Ramp_C2_R2",
+      "S9_Ramp_C2_R3",
+      "S9_Ramp_C3_R2",
+      "S9_Ramp_C3_R3",
+      "S9_Ramp_C4_R1",
+      "S9_Ramp_C4_R2",
+      "S9_Ramp_C5_R2",
+      "S9_Ramp_C5_R4",
+      "S9_Ramp_C6_R2",
+      "S9_Ramp_C6_R4",
+      "S9_Ramp_C7_R2",
+      "S9_Ramp_C7_R3"
+    ],
+    "rest_label": 0,
+    "rest_windows_excluded": 16,
+    "quantile_rule": "inverse weighted empirical CDF; equal trial mass; no interpolation",
+    "amplitude_definition": "sqrt(mean_channel(RMS_channel**2)); archive signal units",
+    "pattern_definition": "RMS_channel/global_RMS; new reference, historical X1-H equivalence unverified",
+    "interpretation": "observed calibration activation range, not measured mechanical force",
+    "groups": {
+      "ALL_ACTIVE": {
+        "q10": 0.1297350344898659,
+        "q50": 0.32061488008695155,
+        "q90": 0.5738191415952968,
+        "pattern_mean": [
+          0.4866742913508129,
+          0.964024265370283,
+          0.6304020530091723,
+          1.2589868362284904,
+          1.0241890493300216,
+          0.7467675644922195,
+          0.8986538708067173,
+          0.3822116786421361
+        ],
+        "pattern_spread": 0.5372742875887146,
+        "windows": 96,
+        "trials": 12,
+        "zero_activation_pattern_windows_excluded": 0,
+        "pooled_across_gestures_pattern_spread": 1.4831232207014449,
+        "pattern_spread_definition": "mean of within-gesture weighted distances; excludes between-gesture separation"
+      },
+      "1": {
+        "q10": 0.282015516541367,
+        "q50": 0.4645258882509427,
+        "q90": 0.6385001511257556,
+        "pattern_mean": [
+          0.12400003451037427,
+          0.10260160306705461,
+          0.1522780781271173,
+          0.5650642106631069,
+          2.0894370193293192,
+          1.0659378012868208,
+          1.1644716952039817,
+          0.4552430038598476
+        ],
+        "pattern_spread": 0.6807115245298734,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "2": {
+        "q10": 0.20394978489439364,
+        "q50": 0.3867192190986501,
+        "q90": 0.5790715993584047,
+        "pattern_mean": [
+          0.8459182718570959,
+          1.9430171152372877,
+          0.5731623878077965,
+          1.6299207799789786,
+          0.21196394106255892,
+          0.12144846795314321,
+          0.14143359914275977,
+          0.3068061256791891
+        ],
+        "pattern_spread": 0.5494085287489323,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "3": {
+        "q10": 0.24044144411026677,
+        "q50": 0.3677766878602566,
+        "q90": 0.5433713955940517,
+        "pattern_mean": [
+          0.32950047510514724,
+          0.49249231219471773,
+          0.52632985302032,
+          1.1154332579822122,
+          0.6415753384707119,
+          0.7985946826275624,
+          2.097472546982205,
+          0.5065719180046775
+        ],
+        "pattern_spread": 0.6027949737683416,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "4": {
+        "q10": 0.07439686917515966,
+        "q50": 0.12450777620014096,
+        "q90": 0.23875515891576843,
+        "pattern_mean": [
+          0.5390378732875555,
+          1.010613646495314,
+          1.0136074811975821,
+          1.8371190706669558,
+          0.7071835500992025,
+          0.8933004243442622,
+          0.4091832376187947,
+          0.4247046069609631
+        ],
+        "pattern_spread": 0.7733823571830141,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "5": {
+        "q10": 0.1297350344898659,
+        "q50": 0.25242810353642875,
+        "q90": 0.3194233613826656,
+        "pattern_mean": [
+          0.8873151562663442,
+          1.827847476847469,
+          0.8880158461705338,
+          1.404661939412609,
+          0.5988360802406106,
+          0.6530087618535073,
+          0.254394058147857,
+          0.3514681190466435
+        ],
+        "pattern_spread": 0.33785900455484175,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "6": {
+        "q10": 0.2566722179094524,
+        "q50": 0.4061086960874673,
+        "q90": 0.6032546685956787,
+        "pattern_mean": [
+          0.19427393707836094,
+          0.4075734383798543,
+          0.6290186717316845,
+          1.0017217586670812,
+          1.8961383667777256,
+          0.9483152488880233,
+          1.324968087744706,
+          0.2484762983014956
+        ],
+        "pattern_spread": 0.2794893367472852,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      }
+    }
+  },
+  "final_10_1": {
+    "channels": 8,
+    "calibration_trials": [
+      "S10_Ramp_C1_R4",
+      "S10_Ramp_C2_R2",
+      "S10_Ramp_C3_R3",
+      "S10_Ramp_C4_R2",
+      "S10_Ramp_C5_R1",
+      "S10_Ramp_C6_R1",
+      "S10_Ramp_C7_R3"
+    ],
+    "rest_label": 0,
+    "rest_windows_excluded": 8,
+    "quantile_rule": "inverse weighted empirical CDF; equal trial mass; no interpolation",
+    "amplitude_definition": "sqrt(mean_channel(RMS_channel**2)); archive signal units",
+    "pattern_definition": "RMS_channel/global_RMS; new reference, historical X1-H equivalence unverified",
+    "interpretation": "observed calibration activation range, not measured mechanical force",
+    "groups": {
+      "ALL_ACTIVE": {
+        "q10": 0.08478882267334377,
+        "q50": 0.1618379306646935,
+        "q90": 0.3063138480617562,
+        "pattern_mean": [
+          0.6384392412870225,
+          1.1693871253872068,
+          0.9979723315341334,
+          1.5521617733805844,
+          0.5183598995489401,
+          0.6098378999267232,
+          0.8092922213083896,
+          0.5775501375302274
+        ],
+        "pattern_spread": 0.3804266398955017,
+        "windows": 48,
+        "trials": 6,
+        "zero_activation_pattern_windows_excluded": 0,
+        "pooled_across_gestures_pattern_spread": 1.0090783867736108,
+        "pattern_spread_definition": "mean of within-gesture weighted distances; excludes between-gesture separation"
+      },
+      "1": {
+        "q10": 0.11996081199189838,
+        "q50": 0.20513367178054817,
+        "q90": 0.3063138480617562,
+        "pattern_mean": [
+          0.23402945539202358,
+          0.49590417334852505,
+          0.28024544265764817,
+          1.1688277665759483,
+          0.5730233684993907,
+          0.7253281222517763,
+          1.8410880592621193,
+          1.3718863768782037
+        ],
+        "pattern_spread": 0.3381073172145498,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "2": {
+        "q10": 0.09220894786182457,
+        "q50": 0.24473833179882687,
+        "q90": 0.6151510107411884,
+        "pattern_mean": [
+          0.8794568311338948,
+          1.9829992190615449,
+          0.9038511727070144,
+          1.3897871307515743,
+          0.2989360530617922,
+          0.3479837770497889,
+          0.20063671944087677,
+          0.299073122701759
+        ],
+        "pattern_spread": 0.4072710214293007,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "3": {
+        "q10": 0.08001380432352055,
+        "q50": 0.15352392680290003,
+        "q90": 0.23474097616846198,
+        "pattern_mean": [
+          0.5777862733722549,
+          1.020609775118608,
+          1.118173798657196,
+          1.6808251518364994,
+          0.47329137291505013,
+          0.5605789475821049,
+          1.1828168559087657,
+          0.603773207957345
+        ],
+        "pattern_spread": 0.4224370255018423,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "4": {
+        "q10": 0.08392714303972587,
+        "q50": 0.0881410418587891,
+        "q90": 0.14542809386076044,
+        "pattern_mean": [
+          0.6864935545649804,
+          1.110369768394785,
+          1.5486029441500069,
+          1.4543130733423677,
+          0.7549203491958314,
+          0.8544764024331525,
+          0.3096876714018863,
+          0.3942393368385184
+        ],
+        "pattern_spread": 0.42000209446784864,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "5": {
+        "q10": 0.08478882267334377,
+        "q50": 0.1618379306646935,
+        "q90": 0.24562602326701882,
+        "pattern_mean": [
+          0.6314927236163858,
+          1.5878464677518447,
+          0.8691254136187627,
+          1.7733388460196844,
+          0.58534880300383,
+          0.6629572808730964,
+          0.4552427333111314,
+          0.3174908444396923
+        ],
+        "pattern_spread": 0.2636588593037276,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "6": {
+        "q10": 0.08062350681402938,
+        "q50": 0.17557283594314854,
+        "q90": 0.2609816927782512,
+        "pattern_mean": [
+          0.8213766096425948,
+          0.8185933486479324,
+          1.267835217414172,
+          1.845878671757435,
+          0.424639450617746,
+          0.5077028693704204,
+          0.866281288525558,
+          0.47883793636584665
+        ],
+        "pattern_spread": 0.43108352145574114,
+        "windows": 8,
+        "trials": 1,
+        "zero_activation_pattern_windows_excluded": 0
+      }
+    }
+  },
+  "final_10_2": {
+    "channels": 8,
+    "calibration_trials": [
+      "S10_Ramp_C1_R3",
+      "S10_Ramp_C1_R4",
+      "S10_Ramp_C2_R2",
+      "S10_Ramp_C2_R3",
+      "S10_Ramp_C3_R3",
+      "S10_Ramp_C3_R4",
+      "S10_Ramp_C4_R2",
+      "S10_Ramp_C4_R3",
+      "S10_Ramp_C5_R1",
+      "S10_Ramp_C5_R3",
+      "S10_Ramp_C6_R1",
+      "S10_Ramp_C6_R2",
+      "S10_Ramp_C7_R2",
+      "S10_Ramp_C7_R3"
+    ],
+    "rest_label": 0,
+    "rest_windows_excluded": 16,
+    "quantile_rule": "inverse weighted empirical CDF; equal trial mass; no interpolation",
+    "amplitude_definition": "sqrt(mean_channel(RMS_channel**2)); archive signal units",
+    "pattern_definition": "RMS_channel/global_RMS; new reference, historical X1-H equivalence unverified",
+    "interpretation": "observed calibration activation range, not measured mechanical force",
+    "groups": {
+      "ALL_ACTIVE": {
+        "q10": 0.08699213415757467,
+        "q50": 0.16408859696245887,
+        "q90": 0.29733966798287653,
+        "pattern_mean": [
+          0.7487224050357932,
+          1.1539161075840936,
+          0.8933835832304728,
+          1.5607758371634421,
+          0.5196515326753554,
+          0.6134294430021181,
+          0.7956293125334469,
+          0.575119411475438
+        ],
+        "pattern_spread": 0.4975559822259757,
+        "windows": 96,
+        "trials": 12,
+        "zero_activation_pattern_windows_excluded": 0,
+        "pooled_across_gestures_pattern_spread": 1.0388102219059572,
+        "pattern_spread_definition": "mean of within-gesture weighted distances; excludes between-gesture separation"
+      },
+      "1": {
+        "q10": 0.11996081199189838,
+        "q50": 0.20513367178054817,
+        "q90": 0.30546768193135615,
+        "pattern_mean": [
+          0.2677885583775711,
+          0.4939097441868572,
+          0.27820386290742344,
+          1.032680838336249,
+          0.5855102380734686,
+          0.7438612599933667,
+          1.9161500832279994,
+          1.3428221360822075
+        ],
+        "pattern_spread": 0.40006154180670894,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "2": {
+        "q10": 0.10376180526015932,
+        "q50": 0.24473833179882687,
+        "q90": 0.46811093413631066,
+        "pattern_mean": [
+          1.1245087724168528,
+          1.8013327221932327,
+          0.8958329523137943,
+          1.401570698293059,
+          0.32223249443541846,
+          0.3709187436664317,
+          0.18758030926655592,
+          0.347098146114411
+        ],
+        "pattern_spread": 0.5452352811484753,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "3": {
+        "q10": 0.08001380432352055,
+        "q50": 0.15672723760940205,
+        "q90": 0.23371179147489432,
+        "pattern_mean": [
+          0.7241036913609415,
+          1.0413100655550585,
+          1.0629605607912693,
+          1.7409870162602719,
+          0.48894301707045396,
+          0.5759354011706554,
+          0.9880925879978544,
+          0.568820117357873
+        ],
+        "pattern_spread": 0.5632545556222115,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "4": {
+        "q10": 0.08083050167401526,
+        "q50": 0.09418438642725056,
+        "q90": 0.1387887782515301,
+        "pattern_mean": [
+          1.0554303328617545,
+          1.1213283332847634,
+          1.2084977918991855,
+          1.4704192756029182,
+          0.7065411842455904,
+          0.8074580875553364,
+          0.3265688525675094,
+          0.41200995346938174
+        ],
+        "pattern_spread": 0.7162439889466097,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "5": {
+        "q10": 0.08699213415757467,
+        "q50": 0.1618379306646935,
+        "q90": 0.24446658814483851,
+        "pattern_mean": [
+          0.6461451638508298,
+          1.6513024295866756,
+          0.8101978202945755,
+          1.7521977509118087,
+          0.569402406172752,
+          0.654641359092792,
+          0.4409015662208017,
+          0.3182289570632905
+        ],
+        "pattern_spread": 0.2651617367720581,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      },
+      "6": {
+        "q10": 0.10483646922443439,
+        "q50": 0.17557283594314854,
+        "q90": 0.24732798985566737,
+        "pattern_mean": [
+          0.6743579113468099,
+          0.8143133506979765,
+          1.1046085111765886,
+          1.9667994435763445,
+          0.4452798560544491,
+          0.5277618065341262,
+          0.9144824759199607,
+          0.4617371587654641
+        ],
+        "pattern_spread": 0.4953787890597907,
+        "windows": 16,
+        "trials": 2,
+        "zero_activation_pattern_windows_excluded": 0
+      }
+    }
+  }
+}

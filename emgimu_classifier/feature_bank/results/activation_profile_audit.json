@@ -1,0 +1,28 @@
+{
+  "status": "ok",
+  "profiles": 8,
+  "rows": 64,
+  "split_sources": [
+    {
+      "phase": "validation",
+      "split_sha256": "d2b1cf192dcb3e3c38ac5a4ecb51b52a33e192422d5a6ff0fe600b2585e1cc52",
+      "calibration_only_conditions": [
+        "Ramp"
+      ],
+      "unseen_force_recordings_opened": false
+    },
+    {
+      "phase": "final",
+      "split_sha256": "f7189a7e56e0b08b04de57a95dc4bad92e403ab34b891fd9511d1bca9dafcea1",
+      "calibration_only_conditions": [
+        "Ramp"
+      ],
+      "unseen_force_recordings_opened": false
+    }
+  ],
+  "original_info_sha256": "305d2ce587a8212c5900190e4048bb416e34272349d38c31f2590e4b7f05ec8a",
+  "native_rest_mapping": "C1/adapter label0 follows No Movement as first class in original Info.txt",
+  "scope": "observed Ramp 20\u201380% MVC-feedback activation range; not unconstrained natural-product envelope or fatigue",
+  "classifier_fit": false,
+  "evaluation_samples_used": false
+}
