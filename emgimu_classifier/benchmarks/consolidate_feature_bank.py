@@ -7,6 +7,10 @@ import json
 
 
 RUNS = (
+    'feature_bank_force_core_temperature_validation_20260916',
+    'feature_bank_force_core_temperature_final_20260916',
+    'feature_bank_manus_core_temperature_validation_20260916',
+    'feature_bank_manus_core_temperature_final_20260916',
     'feature_bank_force_core_probability_source_20260916',
     'feature_bank_manus_core_probability_source_20260916',
     'feature_bank_manus_concat_core_calibration_validation_20260916',

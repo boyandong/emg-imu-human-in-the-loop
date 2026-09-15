@@ -11,6 +11,7 @@ from .calibration import PersonalAnchor
 from .screening import SEED
 from .core_incremental_oof import write
 from .unibo_temporal_complementarity import complementarity
+from .core_probability_oof import load_temperatures, apply_temperature, verify_calibration_audit
 
 METRICS=('macro_f1','accuracy','log_loss','brier','ece')
 
@@ -28,12 +29,15 @@ def split(y,u,trials,user,shots):
     return cal,ev
 
 
-def run(source,target,output):
+def run(source,target,output,probability_source=None):
     if output.exists():raise FileExistsError(output)
     manifest=json.loads((target/'run_manifest.json').read_text())
     if manifest['source_session']!=1 or manifest['target_session'] not in (2,3):raise AssertionError('Wrong session partition')
     if hashlib.sha256((source/'fitted_states.pkl').read_bytes()).hexdigest()!=manifest['source_fit_sha256']:raise AssertionError('Changed source fits')
     families,models=pickle.loads((source/'fitted_states.pkl').read_bytes());before=pickle.dumps((families,models))
+    if probability_source:
+        _,audit=load_temperatures(source,probability_source,models)
+        manifest={**manifest,'probability_calibration':audit,'probabilities':'source-user OOF temperatures before frozen anchor mixing'}
     rows=[];increments=[];pairs=[];splits=[];saved={};anchors={}
     with np.load(target/'heldout_predictions.npz',allow_pickle=False) as z:
         y=z['labels'];u=z['users'];trials=z['trials'];speed=z['speeds']
@@ -43,7 +47,7 @@ def run(source,target,output):
                 cal,ev=split(y,u,trials,user,shots)
                 branches={'without_anchor':{},'with_anchor':{}}
                 for name,(scaler,model,members) in models.items():
-                    base=z[name][ev];branches['without_anchor'][name]=base
+                    base=apply_temperature(z[name][ev],name,manifest);branches['without_anchor'][name]=base
                     p=base
                     if shots:
                         x=scaler.transform(np.concatenate([z[f'features_{n}'] for n in members],1))
@@ -110,6 +114,7 @@ def run(source,target,output):
 
 def replay(source,target,output):
     manifest=json.loads((output/'run_manifest.json').read_text())
+    verify_calibration_audit(manifest)
     if hashlib.sha256((source/'fitted_states.pkl').read_bytes()).hexdigest()!=manifest['source_fit_sha256'] or hashlib.sha256((target/'heldout_predictions.npz').read_bytes()).hexdigest()!=manifest['target_prediction_sha256']:raise AssertionError('Changed provenance')
     anchors=pickle.loads((output/'anchors.pkl').read_bytes());count=0;error=0.
     with np.load(output/'calibration_predictions.npz',allow_pickle=False) as z,np.load(target/'heldout_predictions.npz',allow_pickle=False) as original:
@@ -119,7 +124,7 @@ def replay(source,target,output):
                 _,ev=split(original['labels'],original['users'],original['trials'],user,shots)
                 np.testing.assert_array_equal(ev,z[f'{user}_{shots}::indices'])
                 for name in ('Core',*(f'Core+{n}' for n in ADDED),'F0',*ADDED):
-                    key=f'{user}_{shots}_{name}';p=original[name][ev]
+                    key=f'{user}_{shots}_{name}';p=apply_temperature(original[name][ev],name,manifest)
                     np.testing.assert_array_equal(p,z[f'{key}::without_anchor'])
                     if shots:
                         anchor,temperature=anchors[(user,shots,name)]
@@ -133,4 +138,5 @@ def replay(source,target,output):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('source',type=Path);p.add_argument('target',type=Path);p.add_argument('output',type=Path);p.add_argument('--replay',action='store_true')
-    a=p.parse_args();replay(a.source,a.target,a.output) if a.replay else run(a.source,a.target,a.output)
+    p.add_argument('--probability-source',type=Path)
+    a=p.parse_args();replay(a.source,a.target,a.output) if a.replay else run(a.source,a.target,a.output,a.probability_source)

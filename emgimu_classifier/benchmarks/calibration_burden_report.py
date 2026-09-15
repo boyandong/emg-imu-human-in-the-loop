@@ -13,6 +13,8 @@ PROTOCOLS=(
  ('Force source-only anchors','feature_bank_force_zero_final_20260915',7,3.,False,False,'ALL'),
 )
 CORE_PROTOCOLS=(
+ ('Force Core source-temp anchor','feature_bank_force_core_temperature_final_20260916',7,3.,False,False,'ALL','Core'),
+ ('MANUS Core source-temp anchor','feature_bank_manus_core_temperature_final_20260916',6,10.,True,False,'ALL','Core'),
  ('Force concat Core anchor','feature_bank_force_concat_core_calibration_final_20260915',7,3.,False,False,'ALL','Core'),
  ('Force Core + Spectral anchor','feature_bank_force_concat_core_calibration_final_20260915',7,3.,False,False,'ALL','Core+F4_Spectral'),
  ('MANUS concat Core anchor','feature_bank_manus_concat_core_calibration_final_20260916',6,10.,True,False,'ALL','Core'),
@@ -86,7 +88,7 @@ def build(root:Path,output:Path,raw_root:Path|None=None)->None:
         '<text x="230" y="510">Labelled trials per task class</text>',
         '<text x="15" y="85">Macro-F1</text>'])
     for i,(label,points) in enumerate(curves):
-        color=('#2166ac','#b2182b','#1b7837','#762a83','#e08214','#4d9221','#c51b7d','#008837','#666666')[i]
+        color=('#2166ac','#b2182b','#1b7837','#762a83','#e08214','#4d9221','#c51b7d','#008837','#666666','#a6611a','#018571')[i]
         coordinates=' '.join(f'{x:.3f},{y:.3f}' for x,y in (xy(a,b) for a,b in points))
         svg.append(f'<polyline points="{coordinates}" fill="none" stroke="{color}" stroke-width="2"/>')
         for a,b in points:

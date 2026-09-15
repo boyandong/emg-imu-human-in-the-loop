@@ -1,9 +1,9 @@
 {
   "status": "ok",
-  "subject_condition_summaries": 5615,
+  "subject_condition_summaries": 7343,
   "anchor_comparisons": 8,
   "source_csv_sha256": {
-    "calibration_curve.csv": "b475c907be4c2ba48b61d654d675a2d77687fe711cd2a129f41a407ab9c602d4",
+    "calibration_curve.csv": "bcba0e2c41d335116e071cf79ba5cde5024208905b01a3aea8838360a2734616",
     "ablation_full_bank.csv": "49cd371d40e57a1ad610cf9df8589b00c111a933df227de1cb6dff76d47a036a",
     "feature_family_results.csv": "30f4da53ac0dff39a1cab49ab607d4e6e4f1e40c67ee1b8d3f7ef450c7ea0d60"
   },

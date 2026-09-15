@@ -162,6 +162,30 @@
     "bytes": 21786
   },
   {
+    "run_id": "feature_bank_force_core_temperature_validation_20260916",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "cb6b5e7f923d9e7021c05520499c71f53379589b9b5b33c878a404aadc9b3244",
+    "bytes": 170456
+  },
+  {
+    "run_id": "feature_bank_force_core_temperature_final_20260916",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "fb96b5fb5f957441cc0796069eae3359f22b7ac5aa29dfd92379a40ddbf4021b",
+    "bytes": 167084
+  },
+  {
+    "run_id": "feature_bank_manus_core_temperature_validation_20260916",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "0b1f544e15ec10c732c365c05a1d032cba4ad39c7ae6bec4d87dd7e3869a0ff6",
+    "bytes": 69705
+  },
+  {
+    "run_id": "feature_bank_manus_core_temperature_final_20260916",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "d58a97973fef507f9ce9a0b5667650170b3a041e66423d4956f5b35116a7672f",
+    "bytes": 67923
+  },
+  {
     "run_id": "feature_bank_manus_concat_core_calibration_validation_20260916",
     "artifact": "conditional_incremental.csv",
     "sha256": "60247e4ea2454df70d03ddb8caf4a96978f59d52296b4f9d8a2b14b227d4931d",
@@ -262,6 +286,30 @@
     "artifact": "interaction_results.csv",
     "sha256": "1874c20bb5fd043d97e31d56a1627174007c7b7484911de62c99de2a08703bb0",
     "bytes": 5617
+  },
+  {
+    "run_id": "feature_bank_force_core_temperature_validation_20260916",
+    "artifact": "error_complementarity.csv",
+    "sha256": "d7f91b007ac3421957b951e0a08824d54cdf819e6b32332811c9f79436922173",
+    "bytes": 133075
+  },
+  {
+    "run_id": "feature_bank_force_core_temperature_final_20260916",
+    "artifact": "error_complementarity.csv",
+    "sha256": "ed3472adaf85b12fba7e8aca8d1d51abb856b0659f2ee304cd1c394a225c4b37",
+    "bytes": 130638
+  },
+  {
+    "run_id": "feature_bank_manus_core_temperature_validation_20260916",
+    "artifact": "error_complementarity.csv",
+    "sha256": "075458d50024dbe04234e1bc0d716911a1febcc66340b7b43023e03b3577f7bf",
+    "bytes": 60308
+  },
+  {
+    "run_id": "feature_bank_manus_core_temperature_final_20260916",
+    "artifact": "error_complementarity.csv",
+    "sha256": "e997404ad47b07e75d369c29a5bcf15145b6023e29792c3fd599dede6ca8e953",
+    "bytes": 58990
   },
   {
     "run_id": "feature_bank_manus_concat_core_calibration_validation_20260916",
@@ -388,6 +436,30 @@
     "artifact": "error_complementarity.csv",
     "sha256": "8dd8258bb4ddfae80475d1dd7f8baaa15409b9591675160742d25134904467cf",
     "bytes": 6824
+  },
+  {
+    "run_id": "feature_bank_force_core_temperature_validation_20260916",
+    "artifact": "calibration_curve.csv",
+    "sha256": "69f75a271a1d26a4f4b56d27616af263b72b286e3a21442e3e41fb740b92d51f",
+    "bytes": 690810
+  },
+  {
+    "run_id": "feature_bank_force_core_temperature_final_20260916",
+    "artifact": "calibration_curve.csv",
+    "sha256": "d18345314a905382f4164e7ca72bd1f738f847503554f059adfe8735d4a01144",
+    "bytes": 685687
+  },
+  {
+    "run_id": "feature_bank_manus_core_temperature_validation_20260916",
+    "artifact": "calibration_curve.csv",
+    "sha256": "953cfce15d29945585b9d330efec11a99e4ae84a18f9c678d6b8ff2de4077759",
+    "bytes": 373495
+  },
+  {
+    "run_id": "feature_bank_manus_core_temperature_final_20260916",
+    "artifact": "calibration_curve.csv",
+    "sha256": "b7f2c19666dcc3d8f1750d3eaf2f78b3aa8de9a60fa7863cca7861553f66c83b",
+    "bytes": 368524
   },
   {
     "run_id": "feature_bank_manus_concat_core_calibration_validation_20260916",

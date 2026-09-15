@@ -79,9 +79,9 @@ The current temporal comparison shares most errors (G5/reference-F5 model correl
 
 Six new benchmark archives are complete. Five canonical CSVs, schema/provenance audits,
 source run manifests, trial lists, dimensions, per-user/per-class diagnostics, calibration
-burden estimates and SVG curves are available. The latest suite ran 145 tests with one
-skip; consolidated integrity covers 164 artifacts, 37,971 rows and 741 explicit
-partitions, while canonical record verification covers 36,488 rows. These are narrow
+burden estimates and SVG curves are available. The latest suite ran 147 tests with one
+skip; consolidated integrity covers 176 artifacts, 48,563 rows and 789 explicit
+partitions, while canonical record verification covers 47,080 rows. These are narrow
 integrity/implementation checks, not proof that every scientific requirement is complete.
 
 The highest-priority remaining work is the exact historical dataset/algorithm audit,
@@ -1800,3 +1800,52 @@ The suite ran 145 tests with one skip. Integrity checks cover 164 artifacts,
 37,971 rows and 741 explicit partitions; canonical verification covers 36,488 rows.
 Target integration and held-out confirmation of the probability-calibrated Core
 anchors remain unfinished, alongside exact historical and other scientific requirements.
+
+### Frozen source-temperature integration in independent Core anchor controls
+
+`--probability-source` now binds source-only OOF calibration to exact dataset/users,
+source-fitting trials, Core model specifications and original source-fit hashes.
+OOF source coverage and temperature reproduction are checked before target mixing.
+Output manifests retain calibration manifest/OOF-array hashes and exact temperatures;
+replay rejects changed probability provenance. Omitting the option preserves original
+native-probability behavior. No new classifier fits occur in these target runs.
+
+Four new independent validation/final runs retain the original trials, anchor method,
+selection seed and alpha; only the population probability temperature changes.
+Scalar temperature leaves standalone decisions unchanged. Matched no-anchor F1 at
+all budgets therefore reproduces the original matched no-anchor values, while mixed
+anchor decisions can change. The original native-probability controls remain available.
+
+| Final Core mean-user F1 | cal0 | cal1 | cal2 |
+|---|---:|---:|---:|
+| Force, matched no anchor | 0.4902 | 0.4902 | 0.4902 |
+| Force, native probability anchor | 0.4902 | 0.4943 | 0.5005 |
+| Force, source-temperature anchor | 0.4902 | 0.5308 | 0.5573 |
+| MANUS, matched no anchor | 0.4161 | 0.4040 | 0.3102 |
+| MANUS, native probability anchor | 0.4161 | 0.4159 | 0.3333 |
+| MANUS, source-temperature anchor | 0.4161 | 0.4074 | 0.3380 |
+
+Force average calibration recovery improves through probability organization without
+adding measured signal information, but its minimum force-condition mean-user F1 is
+0.4199/0.4282/0.3829. Two-shot therefore lowers the observed minimum below cal0 and
+below the native-anchor cal2 minimum 0.4328, despite higher average F1. This is not
+universal force robustness recovery. MANUS Core gains remain limited; Temporal
+extension cal1 decreases from matched no-anchor 0.4396 to anchor 0.4210, while cal2
+rises from 0.3185 to 0.3676. Budgets remove different MANUS evaluation trials, so only
+within-budget matched comparisons support calibration effects.
+
+Runs `feature_bank_force_core_temperature_validation_20260916`, `_final_20260916`
+and `feature_bank_manus_core_temperature_validation_20260916`, `_final_20260916`
+retain all model variants, source-temperature audits and exact calibration splits.
+Both force phases reproduce 60 anchor/60 matched control arrays; both MANUS phases
+reproduce 108/108 arrays exactly. Tests reject wrong source-user calibration and
+verify temperature decision preservation and legacy identity behavior.
+
+The suite ran 147 tests with one skip. Integrity checks cover 176 artifacts,
+48,563 rows and 789 explicit partitions; canonical verification covers 47,080 rows.
+Calibration burden now includes eleven protocols/44 cost rows, with source-temperature
+Core rows using the same recorded sample-count duration evidence as native Core.
+All 36 earlier cost rows preserve their recorded values. The full-system vector is
+unchanged: supplemental final gains do not replace frozen full-bank algorithms.
+Historical data/formulas, remaining named comparisons and exhaustive scientific
+requirement audit still remain incomplete; no new GitHub push is performed.

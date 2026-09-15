@@ -93,6 +93,40 @@ def run(raw,source,output):
     (output/'probability_calibration.json').write_text(json.dumps(evidence,indent=2))
 
 
+def load_temperatures(source,calibration,models):
+    expected=json.loads((source/'run_manifest.json').read_text())
+    manifest=json.loads((calibration/'run_manifest.json').read_text())
+    if manifest['dataset']!=expected['dataset'] or manifest['source_users']!=expected['source_users'] or manifest['target_data_opened']:
+        raise AssertionError('Probability calibration must match source users/dataset and exclude targets')
+    if set(manifest['fit_trials'])!=set(expected['source_trials']) or len(set(manifest['fit_trials']))!=len(manifest['fit_trials']):
+        raise AssertionError('Probability fitting trial mismatch')
+    specs={n:list(members) for n,(_,_,members) in models.items()}
+    if manifest['specs']!=specs or set(manifest['temperatures'])!=set(models):raise AssertionError('Different Core model specifications')
+    for name,key in (('fitted_states.pkl','source_fit_sha256'),('run_manifest.json','source_manifest_sha256')):
+        if hashlib.sha256((source/name).read_bytes()).hexdigest()!=manifest[key]:raise AssertionError('Changed probability source fit')
+    with np.load(calibration/'oof_predictions.npz',allow_pickle=False) as z:
+        if set(z['users'])!=set(expected['source_users']) or set(z['trials'])!=set(expected['source_trials']):raise AssertionError('OOF source coverage mismatch')
+        for name,temp in manifest['temperatures'].items():
+            if not np.isfinite(temp) or temp<=0:raise AssertionError('Invalid source temperature')
+            np.testing.assert_allclose(temp,fit_temperature(z[f'raw_{name}'],z['labels']),atol=1e-10,rtol=1e-9)
+    audit={'source_run':calibration.name,'path':str(calibration.resolve()),'temperatures':manifest['temperatures'],
+        'source_users':manifest['source_users'],'target_data_opened':False,
+        'sha256':{n:hashlib.sha256((calibration/n).read_bytes()).hexdigest() for n in ('run_manifest.json','oof_predictions.npz')}}
+    return manifest['temperatures'],audit
+
+
+def apply_temperature(p,name,manifest):
+    audit=manifest.get('probability_calibration')
+    return temperature_probability(p,audit['temperatures'][name]) if audit else p
+
+
+def verify_calibration_audit(manifest):
+    audit=manifest.get('probability_calibration')
+    if audit:
+        for name,expected in audit['sha256'].items():
+            if hashlib.sha256((Path(audit['path'])/name).read_bytes()).hexdigest()!=expected:raise AssertionError('Changed source probability calibration')
+
+
 def replay(source,output):
     manifest=json.loads((output/'run_manifest.json').read_text())
     for name,key in (('fitted_states.pkl','source_fit_sha256'),('run_manifest.json','source_manifest_sha256')):

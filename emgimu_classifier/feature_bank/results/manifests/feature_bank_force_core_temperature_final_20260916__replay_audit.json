@@ -1,0 +1,7 @@
+{
+  "status": "ok",
+  "anchor_probability_arrays_checked": 60,
+  "matching_no_anchor_arrays_checked": 60,
+  "max_absolute_probability_error": 0.0,
+  "source_hashes_checked": true
+}

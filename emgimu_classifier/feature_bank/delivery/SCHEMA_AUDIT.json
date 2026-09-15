@@ -44,7 +44,7 @@
       "canonical_csv_sha256": "155d6bf18b051c06cb5e899c746d18280e074ec5580906b29ed541a09a07abce"
     },
     "conditional_incremental.csv": {
-      "rows": 3005,
+      "rows": 5397,
       "required_fields": [
         "dataset",
         "subject",
@@ -74,11 +74,11 @@
           "condition": 12
         }
       },
-      "source_csv_sha256": "6302f251b9248ce6d693fb51742607c46cd5532d8ed264cdac6938f6ee7da26b",
-      "canonical_csv_sha256": "7cb0bd1883ce91c18ea9c3455957c402586c549af98d090dd356e1c35faf3750"
+      "source_csv_sha256": "0cecdd16e94069766dbf3a80f3db226b06c961d4e33550f47e5eedec2ce66d8e",
+      "canonical_csv_sha256": "e338d38b5b1aea4bdb88e90a0f655706474ae2b699ad86b2246cb31876a62f4b"
     },
     "error_complementarity.csv": {
-      "rows": 2759,
+      "rows": 4479,
       "required_fields": [
         "dataset",
         "subject",
@@ -125,11 +125,11 @@
           "session/domain": 60
         }
       },
-      "source_csv_sha256": "fbc5782c977b812b59407b22c59ebb50b67570a344fcfc313c6867224a8201cc",
-      "canonical_csv_sha256": "cf11d294aa8b4245d491b3dd05ee17d7c5efeca8ec128d1a4de6958ea484cb79"
+      "source_csv_sha256": "499f5336061112bc0ed3d567fb2410a4190d0f4c74bbf80ffa29cdf79c7d7f1b",
+      "canonical_csv_sha256": "50d97b0deb4644fb6f1a87532e96d051974944581fef0b720608946063603906"
     },
     "calibration_curve.csv": {
-      "rows": 12462,
+      "rows": 18942,
       "required_fields": [
         "dataset",
         "subject",
@@ -142,11 +142,27 @@
         "log_loss"
       ],
       "missing_field_counts": {
-        "macro_f1": 286,
-        "log_loss": 286,
+        "macro_f1": 454,
+        "log_loss": 454,
         "method": 504
       },
       "missing_by_run": {
+        "feature_bank_force_core_temperature_validation_20260916": {
+          "macro_f1": 30,
+          "log_loss": 30
+        },
+        "feature_bank_force_core_temperature_final_20260916": {
+          "macro_f1": 30,
+          "log_loss": 30
+        },
+        "feature_bank_manus_core_temperature_validation_20260916": {
+          "macro_f1": 54,
+          "log_loss": 54
+        },
+        "feature_bank_manus_core_temperature_final_20260916": {
+          "macro_f1": 54,
+          "log_loss": 54
+        },
         "feature_bank_manus_concat_core_calibration_validation_20260916": {
           "macro_f1": 54,
           "log_loss": 54
@@ -239,8 +255,8 @@
           "log_loss": 7
         }
       },
-      "source_csv_sha256": "b475c907be4c2ba48b61d654d675a2d77687fe711cd2a129f41a407ab9c602d4",
-      "canonical_csv_sha256": "ee1a446301f631c94dcbdbcf36f616720b920590e741ff22c599511fdadca42a"
+      "source_csv_sha256": "bcba0e2c41d335116e071cf79ba5cde5024208905b01a3aea8838360a2734616",
+      "canonical_csv_sha256": "ec0e76b3b4529a4bd5ea14566039339158e8d9b11245e1819e1d33e8835213b6"
     },
     "ablation_full_bank.csv": {
       "rows": 14603,

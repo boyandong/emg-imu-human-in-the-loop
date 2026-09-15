@@ -13,6 +13,7 @@ from .calibration_study import CONDITIONS
 from .screening import metrics, SEED
 from .core_incremental_oof import write
 from .unibo_temporal_complementarity import complementarity
+from .core_probability_oof import load_temperatures, apply_temperature, verify_calibration_audit
 
 
 def choose(cy,cu,trials,user,shots):
@@ -37,7 +38,7 @@ def add_unsupported(rows):
     return rows
 
 
-def run(raw,source,target_run,output):
+def run(raw,source,target_run,output,probability_source=None):
     if output.exists():raise FileExistsError(output)
     manifest=json.loads((target_run/'run_manifest.json').read_text())
     if manifest['phase'] not in ('validation','final') or manifest['source_users']!=list(range(1,7)):
@@ -47,6 +48,9 @@ def run(raw,source,target_run,output):
     if hashlib.sha256((source/'fitted_states.pkl').read_bytes()).hexdigest()!=manifest['source_fit_sha256']:
         raise AssertionError('Source classifier changed')
     states,models=pickle.loads((source/'fitted_states.pkl').read_bytes());before=pickle.dumps((states,models))
+    if probability_source:
+        _,audit=load_temperatures(source,probability_source,models)
+        manifest={**manifest,'probability_calibration':audit,'probabilities':'source-user OOF temperatures before frozen anchor mixing'}
     calibration=load_libemg_force_windows(raw,subjects=users,conditions=('Ramp',))
     features={}
     for name in IDS:
@@ -63,7 +67,7 @@ def run(raw,source,target_run,output):
                 cal=choose(cy,cu,cal_trials,user,shots)
                 branches={'without_anchor':{},'with_anchor':{}}
                 for name,(scaler,model,members) in models.items():
-                    original=z[name][ev];branches['without_anchor'][name]=original
+                    original=apply_temperature(z[name][ev],name,manifest);branches['without_anchor'][name]=original
                     if shots:
                         cx=scaler.transform(np.concatenate([features[n][cal] for n in members],1))
                         tx=scaler.transform(np.concatenate([z[f'features_{n}'][ev] for n in members],1))
@@ -126,6 +130,7 @@ def run(raw,source,target_run,output):
 
 def replay(source,target_run,output):
     manifest=json.loads((output/'run_manifest.json').read_text())
+    verify_calibration_audit(manifest)
     if hashlib.sha256((source/'fitted_states.pkl').read_bytes()).hexdigest()!=manifest['source_fit_sha256'] or hashlib.sha256((target_run/'heldout_predictions.npz').read_bytes()).hexdigest()!=manifest['target_prediction_sha256']:
         raise AssertionError('Changed source or target provenance')
     anchors=pickle.loads((output/'anchors.pkl').read_bytes());error=0.;count=0
@@ -134,7 +139,7 @@ def replay(source,target_run,output):
         for user in manifest['target_users']:
             for shots in (0,1,2):
                 for name in ('Core',*(f'Core+{n}' for n in ADDED),'F0',*ADDED):
-                    key=f'{user}_{shots}_{name}';p=original[name][original['users']==user]
+                    key=f'{user}_{shots}_{name}';p=apply_temperature(original[name][original['users']==user],name,manifest)
                     np.testing.assert_array_equal(z[f'{key}::without_anchor'],p)
                     if shots:
                         anchor,scale=anchors[(user,shots,name)]
@@ -149,4 +154,5 @@ def replay(source,target_run,output):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('raw',type=Path);p.add_argument('source',type=Path);p.add_argument('target_run',type=Path);p.add_argument('output',type=Path);p.add_argument('--replay',action='store_true')
-    a=p.parse_args();replay(a.source,a.target_run,a.output) if a.replay else run(a.raw,a.source,a.target_run,a.output)
+    p.add_argument('--probability-source',type=Path)
+    a=p.parse_args();replay(a.source,a.target_run,a.output) if a.replay else run(a.raw,a.source,a.target_run,a.output,a.probability_source)
