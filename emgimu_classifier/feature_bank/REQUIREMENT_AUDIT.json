@@ -1,0 +1,18 @@
+{
+  "completion_proven": false,
+  "scope": "triage of primary requirements and A-H questions; not exhaustive numbered/formula completion audit",
+  "requirements": 27,
+  "all_evidence_files_present": true,
+  "documents": {
+    "docx_pre.txt": "9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8",
+    "docx_goal.txt": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0"
+  },
+  "locator_warning": "line ranges are search regions in extracted text; final audit must verify exact document clauses and formulas",
+  "next_required_work": [
+    "labelled synthetic corruption classification with frozen source models",
+    "remaining named complementarity and interaction pairs",
+    "multi-family Core coverage beyond EPN",
+    "exact historical DS2 and family reproduction",
+    "coherent final report and exhaustive requirement audit"
+  ]
+}

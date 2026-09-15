@@ -1361,3 +1361,18 @@ Multi-family Core evidence now includes source OOF and independent EPN users;
 other datasets, calibrated Core comparisons and original historical algorithms
 remain incomplete. This is still a late-fusion proxy, not a concatenated-feature
 classifier experiment or an end-to-end live-device improvement claim.
+
+### Requirement triage and next scientific gap
+
+`REQUIREMENT_AUDIT.csv` and `.json` bind 27 primary requirements and A–H questions
+to current evidence files and hashes. This is a triage, not the exhaustive final
+numbered/formula audit. File presence does not prove scientific completion. Historical
+DS2 reproduction remains missing; most requirements retain partial status. Narrow
+verified observations retain their dataset/user/method boundaries.
+
+The next available substantive gap is labelled synthetic-corruption classification.
+Current quality controls demonstrate signal-observation behavior, but do not measure
+whether a frozen classifier or quality-routed fusion maintains gesture discrimination
+under those corruptions. Consequently the quality robustness axis remains unavailable.
+Other priorities are remaining named complementarity pairs, Core evidence beyond EPN,
+exact historical algorithm reproduction and the final coherent requirement audit.
