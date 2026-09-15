@@ -325,3 +325,14 @@ centroid-displacement and gesture-separation cells in source-standardized trial 
 independent predictors with zero probability difference and checks unchanged states and
 disjoint before/after trial identifiers. The original before-trained subject-specific protocol
 remains fixed; this is not a new cross-user wearing experiment.
+
+## External load and limb-position state audit
+
+EMG-FMG audited runs persist native eight-channel EMG family/scaler/classifier states,
+trial-aligned predictions and scenario-specific train/evaluation partitions. All original
+F1 cells remain unchanged. The source-standardized class-centroid diagnostic table adds
+363 family/subject/load-or-position cells. External grasped load is kept distinct from
+voluntary contraction intensity. Validation replay reproduces all 54 predictors with zero
+probability difference. Nested subject/scenario split checks are now covered by the integrity
+verifier and two regression tests (including a deliberate train/test overlap).
+Independent replay also reproduces all twelve predictors with zero probability difference.

@@ -48,13 +48,13 @@
     "bytes": 7391
   },
   {
-    "run_id": "feature_bank_emg_fmg_validation_20260915",
+    "run_id": "feature_bank_emg_fmg_audited_validation_20260915",
     "artifact": "feature_family_results.csv",
     "sha256": "ce68971a905e3532a1cc548562190e1ee31e8a41d0b05c1148024db9550a2c03",
     "bytes": 106941
   },
   {
-    "run_id": "feature_bank_emg_fmg_final_20260915",
+    "run_id": "feature_bank_emg_fmg_audited_final_20260915",
     "artifact": "feature_family_results.csv",
     "sha256": "9cc9d57f232df6877bf4a9f3b99c7b484484d0a8268640e3b04b944653be81d4",
     "bytes": 22807
@@ -364,5 +364,17 @@
     "artifact": "wearing_family_diagnostics.csv",
     "sha256": "b8dcc3d0b2b34103c0165cdec2d40252acbb8763d16e1fa7a5133b51468ab0f3",
     "bytes": 4510
+  },
+  {
+    "run_id": "feature_bank_emg_fmg_audited_validation_20260915",
+    "artifact": "load_position_family_diagnostics.csv",
+    "sha256": "61f93ab1ec13faf845ffdb2a76279db7a72edf4f16aa093a021bed6b190ef1a3",
+    "bytes": 56591
+  },
+  {
+    "run_id": "feature_bank_emg_fmg_audited_final_20260915",
+    "artifact": "load_position_family_diagnostics.csv",
+    "sha256": "73a2789ccbe43a6899dce1f86799a08b840c19a88a25d3b7c0158fed4fe5eb9d",
+    "bytes": 12173
   }
 ]
