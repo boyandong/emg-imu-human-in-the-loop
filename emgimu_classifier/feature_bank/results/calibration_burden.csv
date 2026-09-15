@@ -1,0 +1,17 @@
+protocol,run_id,shots_per_class,supported,classes,calibration_trials,estimated_signal_seconds,estimate_basis,each_target_session,all_task_gestures_required,target_force_required,target_posture_required,macro_f1
+EPN personal fine-tune,feature_bank_epn612_trial_finetune_final_20260915,0,True,6,0,0.0,5 seconds/trial approximate; preparation and transitions excluded,False,True,False,not controlled,0.43860753737612007
+EPN personal fine-tune,feature_bank_epn612_trial_finetune_final_20260915,1,True,6,6,30.0,5 seconds/trial approximate; preparation and transitions excluded,False,True,False,not controlled,0.4298168188214233
+EPN personal fine-tune,feature_bank_epn612_trial_finetune_final_20260915,2,True,6,12,60.0,5 seconds/trial approximate; preparation and transitions excluded,False,True,False,not controlled,0.44191765347710277
+EPN personal fine-tune,feature_bank_epn612_trial_finetune_final_20260915,5,True,6,30,150.0,5 seconds/trial approximate; preparation and transitions excluded,False,True,False,not controlled,0.4653332792951259
+MANUS session fine-tune,feature_bank_manus_calibration_final_20260915,0,True,6,0,0.0,10 seconds/trial approximate; preparation and transitions excluded,True,True,False,not controlled,0.416067266067266
+MANUS session fine-tune,feature_bank_manus_calibration_final_20260915,1,True,6,6,60.0,10 seconds/trial approximate; preparation and transitions excluded,True,True,False,not controlled,0.6861111111111112
+MANUS session fine-tune,feature_bank_manus_calibration_final_20260915,2,True,6,12,120.0,10 seconds/trial approximate; preparation and transitions excluded,True,True,False,not controlled,0.6064814814814815
+MANUS session fine-tune,feature_bank_manus_calibration_final_20260915,5,False,6,N/A,N/A,10 seconds/trial approximate; preparation and transitions excluded,True,True,False,not controlled,
+Force ProductMode,feature_bank_force_product_final_20260915,0,True,7,0,0.0,3 seconds/trial approximate; preparation and transitions excluded,False,True,True,not controlled,0.5860155843959264
+Force ProductMode,feature_bank_force_product_final_20260915,1,True,7,7,21.0,3 seconds/trial approximate; preparation and transitions excluded,False,True,True,not controlled,0.5855893085280256
+Force ProductMode,feature_bank_force_product_final_20260915,2,True,7,14,42.0,3 seconds/trial approximate; preparation and transitions excluded,False,True,True,not controlled,0.6063028811681566
+Force ProductMode,feature_bank_force_product_final_20260915,5,False,7,N/A,N/A,3 seconds/trial approximate; preparation and transitions excluded,False,True,True,not controlled,
+Force source-only anchors,feature_bank_force_zero_final_20260915,0,True,7,0,0.0,3 seconds/trial approximate; preparation and transitions excluded,False,True,False,not controlled,0.5581603941238125
+Force source-only anchors,feature_bank_force_zero_final_20260915,1,True,7,7,21.0,3 seconds/trial approximate; preparation and transitions excluded,False,True,False,not controlled,0.5630111060057615
+Force source-only anchors,feature_bank_force_zero_final_20260915,2,True,7,14,42.0,3 seconds/trial approximate; preparation and transitions excluded,False,True,False,not controlled,0.5674605362357903
+Force source-only anchors,feature_bank_force_zero_final_20260915,5,False,7,N/A,N/A,3 seconds/trial approximate; preparation and transitions excluded,False,True,False,not controlled,

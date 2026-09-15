@@ -336,3 +336,50 @@ voluntary contraction intensity. Validation replay reproduces all 54 predictors 
 probability difference. Nested subject/scenario split checks are now covered by the integrity
 verifier and two regression tests (including a deliberate train/test overlap).
 Independent replay also reproduces all twelve predictors with zero probability difference.
+
+## Calibration burden
+
+`calibration_burden.csv` and the standalone `performance_vs_calibration_budget.svg` report
+0/1/2/5 budgets, supported trial counts, signal-duration estimates and force/session needs.
+EPN five-shot needs 30 six-class trials (about 150 signal seconds). MANUS one-shot needs
+six task-class trials (about 60 seconds) each target session; two-shot needs twelve, with
+very few remaining test trials. Force one-shot needs seven trials (about 21 seconds);
+ProductMode uses target intensity, whereas source-only calibration uses Ramp. Estimates
+exclude setup, transitions and rests. These native task costs cannot be transferred directly
+to the current four-gesture device. A duration estimate is not a validated live onboarding time.
+
+## Research questions and family roles — current evidence
+
+A. Both information and organization limit performance: specialist views improve particular
+failures, while indiscriminate stacking and anchor probability mixing can lose useful evidence.
+B. CSP/X1H contribute on force development; ring/CSP/IMU contribute conditionally in EPN;
+combined MANUS removals show context-dependent temporal/ring/anchor value.
+C. X1H is a force specialist; ring and covariance are wearing specialists; SPD is a position/
+session specialist; temporal summaries help UniBo days. No family is universally invariant.
+D. EPN X1H/CSP anchor views show positive five-trial gains, and personal DTW improves the small
+MANUS cohort. F0/quality anchor mixing can harm EPN. Calibration value depends on feature space.
+E. Predictive gains do not yet prove reduced cross-user variation in anchor coordinates;
+that specific representation-distance comparison remains missing.
+F. F8 alone is unstable; the combined MANUS system shows one-shot context contribution.
+Re-donning is confounded with session/day, so an isolated physical re-donning claim is unproven.
+G. Individual worst-condition improvements exist (for example UniBo posture 2), but the complete
+system's seven-coordinate mean and minimum envelope comparison is still incomplete.
+H. MANUS one-shot fine-tuning gives substantial bounded-cohort recovery at roughly six trials;
+EPN needs more calibration for a smaller gain. Current-device recovery and onboarding cost
+must be established with its own labelled recordings.
+
+| Family | Evidence-supported role in the evaluated protocols |
+|---|---|
+| F0 local detail | Backbone reference; indispensable in EPN shortlist |
+| F1 X1H | Specialist for force; calibration amplifier in EPN |
+| F2 covariance / CSP / SPD | Specialists with different wearing, force and session strengths |
+| F3 ring | Specialist for wearing; complementary expert in EPN |
+| F4 spectral | Specialist for external load; auxiliary force evidence |
+| F5 temporal / DTW | Day specialist; calibrated temporal expert in MANUS |
+| F6 real body context | Complementary expert in EPN; oracle posture variant is an upper bound |
+| F7 personal anchor | Calibration amplifier in selected spaces; harmful mixing in others |
+| F8 session signature | Context-dependent complementary expert; no stable isolated gain |
+| F9 quality | Observability specialist; F1/log-loss gains can disagree |
+
+These roles concern the implemented variants. Historical X1H/RLCS/G5 priors are retained;
+missing historical DS2 artifacts prevent claiming formula or baseline equivalence.
