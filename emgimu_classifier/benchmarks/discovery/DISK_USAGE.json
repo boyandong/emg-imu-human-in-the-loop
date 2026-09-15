@@ -4,11 +4,12 @@
     "files": 3458
   },
   "processed": {
-    "bytes": 271379821,
-    "files": 11452
+    "bytes": 347367384,
+    "files": 11707
   },
   "manifests": {
-    "bytes": 2872147,
-    "files": 22
-  }
+    "bytes": 6838214,
+    "files": 70
+  },
+  "observed_at": "2026-09-15T18:13:58.777254+08:00"
 }

@@ -342,6 +342,18 @@
     "bytes": 193061
   },
   {
+    "run_id": "feature_bank_load_position_full_validation_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "2b44fd4f556b3afac4dce525a0e539eba36968b16b9d76a289a3f3d2d117677b",
+    "bytes": 232636
+  },
+  {
+    "run_id": "feature_bank_load_position_full_final_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "c150b3315f0d9c8a2266030f07fe9c4103b0e65a47cb297a8c42845cebe520f8",
+    "bytes": 230474
+  },
+  {
     "run_id": "feature_bank_unibo_full_fusion_validation_20260915",
     "artifact": "ablation_full_bank.csv",
     "sha256": "21f1f40d09d3dad89c3029b8f4b42ca41d370cfaf1886f9e74c0abcf869e31ef",

@@ -7,6 +7,8 @@ import json
 
 
 RUNS = (
+    'feature_bank_load_position_full_validation_20260915',
+    'feature_bank_load_position_full_final_20260915',
     'feature_bank_unibo_full_source_20260915',
     'feature_bank_unibo_full_fusion_validation_20260915',
     'feature_bank_unibo_full_fusion_final_20260915',

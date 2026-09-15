@@ -761,3 +761,52 @@ source state, also with zero error. Full tests remain 107 passing cases with one
 Current table integrity covers 96 sources, 15035 rows and 401 explicit partition checks;
 source calibration uses an additional dedicated partition audit. Load/position full-bank
 evaluation and the historical DS2 requirement remain open.
+
+## EMG-only load/position full-bank source-condition OOF
+
+`feature_bank_load_position_full_{validation,final}_20260915` evaluates a fixed nine-
+provider package on validation subjects 1–3 and final subjects 4–6. Load-shift training
+uses only 0g across eight positions; source probability folds hold out position pairs.
+Position-shift training uses only position1 across five loads; source probability folds
+hold out individual loads. Every family/scaler/window classifier is refit inside each
+source fold. Source OOF trial-mean probabilities alone fit temperatures, which are
+applied to final trial-mean provider predictions. Target load/position trials never fit
+models or probabilities, and no target personal calibration is used.
+
+Only EMG columns 9–16 enter the adapter; FMG is excluded. Acquisition is 2000 Hz,
+with the original central-nine-second crop and eight sparse windows per trial. External
+loading remains distinct from voluntary contraction intensity. Provider dimensions are
+F0 48, X1-H 8, trace covariance 36, CSP 8, SPD 36, ring 40, spectral 72, temporal 57,
+quality 53 (358 total), verified consistent across subjects/scenarios. Providers use
+independent L2-regularized classifiers, not one concatenated high-dimensional classifier.
+
+Each phase exports 728 subject/mean-subject condition cells, raw/calibrated F0,
+raw/calibrated uniform fusion, quality fusion and all nine provider removals. The
+reported F9 provider removal retains its separate quality routing; removing both F9
+roles jointly remains a distinct component-ablation requirement. Uniform-calibrated
+fusion supplies the full-bank routing-off control.
+
+| Final mean per-user method | Load ALL F1 | Worst load F1 | Position ALL F1 | Worst position F1 |
+|---|---:|---:|---:|---:|
+| F0 | 0.6239 | 0.5837 | 0.6112 | 0.2978 |
+| Raw uniform bank | 0.7648 | 0.6756 | 0.6652 | 0.2846 |
+| Calibrated uniform bank | 0.7547 | 0.6505 | 0.6514 | 0.2745 |
+| Calibrated quality full bank | 0.7400 | 0.6128 | 0.6622 | 0.2800 |
+
+Raw F0 reproduces the original final baseline exactly. The raw bank substantially
+improves load F1 but slightly worsens its log loss (0.8356→0.8390); source calibration
+improves bank log loss to 0.7791 while reducing F1. Quality routing further reduces
+load F1/worst-load F1. For position shifts, raw-bank log loss improves 1.1270→0.9665,
+but its worst-position F1 declines. Source-calibrated F0 sharpens the wrong shifted
+predictions, increasing position log loss to 2.0938; calibration is not uniformly safe
+under nuisance shift. These supplemental results use previously opened final subjects
+without selecting a new package from their scores.
+
+All source-fold states/predictions, temperatures and evaluation identifiers are retained.
+Replay checks 138 source-OOF/target arrays per phase, recomputes source temperatures,
+verifies source/target trial partitions and confirms immutable fitted state without
+refitting. Target probability error is zero in both phases. The 107-test suite passes
+with one skip. Disk usage has been remeasured in `benchmarks/discovery/DISK_USAGE.json`:
+raw 17169777002 bytes, processed 347367384, external manifests 6838214 (timestamped
+snapshot, excluding this repository's own small files). Joint quality-role removal,
+remaining full-system evidence and historical DS2 still require work.
