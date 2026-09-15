@@ -7,6 +7,10 @@ import json
 
 
 RUNS = (
+    'feature_bank_manus_selected_validation_20260915',
+    'feature_bank_manus_selected_final_20260915',
+    'feature_bank_epn_selected_validation_20260915',
+    'feature_bank_epn_selected_final_20260915',
     'feature_bank_manus_reliability_selection_20260915',
     'feature_bank_epn_reliability_selection_20260915',
     'feature_bank_manus_calibrated_quality_validation_20260915',

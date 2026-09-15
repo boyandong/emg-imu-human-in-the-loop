@@ -968,3 +968,36 @@ This closes source selection evidence for the two full-bank calibration protocol
 the selected policies are not yet applied to their held-out target runs. Historical
 fixed-rule results remain unchanged. Long-term/session-local prototype blending and
 the remaining requirement audit also remain open.
+
+### Applying the selected reliability policy
+
+`feature_bank_{epn,manus}_selected_{validation,final}_20260915` applies the same
+source-selected policy in both phases, reusing frozen source family/classifier states
+and source OOF temperatures. Policy loading verifies exact source trials, native
+dataset, family order, source OOF hash, no target access during selection and finite
+normalized population weights. Two regression tests reject wrong dataset/trials,
+target-data access and modified OOF provenance, and preserve selected parameters.
+The population-only branch is explicitly named `population_only` because its source
+prior is nonuniform. Historical `uniform_population` outputs remain unchanged.
+
+| Final mean-user macro-F1 | cal0 | cal1 | cal2 | cal5 |
+|---|---:|---:|---:|---:|
+| EPN selected full anchor fusion | 0.4725 | 0.4053 | 0.4346 | 0.4115 |
+| EPN selected without F7 anchor | 0.4725 | 0.4708 | 0.4670 | 0.4952 |
+| EPN selected population-only | 0.4725 | 0.4752 | 0.4749 | 0.4802 |
+| MANUS selected full F7/F8/F9 | 0.4631 | 0.5126 | 0.5926 | N/A |
+| MANUS selected population-only | 0.4650 | 0.4315 | 0.3861 | N/A |
+
+Against earlier fixed-rule full systems, MANUS improves at cal0 and cal2 but declines
+at cal1; EPN improves only at cal2 and declines at cal0/cal1/cal5. EPN's anchor branch
+still harms held-out-user transfer relative to the same selected system without F7.
+Source CV scores therefore must not be treated as guarantees for new users. Selected
+MANUS full log losses are 1.4186/1.4101/1.4190; EPN full losses are
+1.4968/1.5399/1.5951/1.6074. Calibration budgets use different evaluation trial sets,
+while all compared methods within a budget share the same remaining whole trials.
+
+All 1164 saved prediction arrays replay with maximum error ≤1.67e-16 and unchanged
+family/classifier state. The four runs add 1416 calibration metric rows plus their
+leave-family tables. Full tests pass 113 cases with one skip. This completes application
+of these source-selected reliability policies; long-term/session-local prototype
+blending, remaining historical reuse and document-level evidence remain unfinished.

@@ -94,6 +94,22 @@ def run(archive:Path, oof:Path, output:Path, dataset:str):
     print(json.dumps({'status':'ok','selected':selected,'rows':len(rows),'target_data_opened':False}))
 
 
+def load_policy(path,dataset,source_trials,ids,oof):
+    policy=json.loads(path.read_text());selected=policy['selected']
+    if policy['dataset']!=dataset or tuple(policy['families'])!=tuple(ids):
+        raise AssertionError('Reliability policy dataset/families differ')
+    if set(policy['source_trials'])!=set(source_trials) or policy.get('target_data_opened') is not False:
+        raise AssertionError('Reliability selection must use source trials only')
+    if oof is None or hashlib.sha256((oof/'oof_predictions.npz').read_bytes()).hexdigest()!=policy['source_oof_sha256']:
+        raise AssertionError('Reliability source OOF provenance differs')
+    w=np.asarray(policy['population_weights'],dtype=float);n0=float(selected['n0']);tau=float(selected['reliability_temperature'])
+    if w.shape!=(len(ids),) or not np.all(np.isfinite(w)) or np.any(w<0) or not np.isclose(w.sum(),1):
+        raise ValueError('Invalid reliability population weights')
+    if not np.isfinite(n0) or n0<0 or not np.isfinite(tau) or tau<=0:raise ValueError('Invalid reliability parameters')
+    return w,n0,tau,{'path':str(path),'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
+        'selection_scope':'source-user OOF only','selected':selected}
+
+
 def replay(output:Path):
     policy=json.loads((output/'run_manifest.json').read_text());ids=tuple(policy['families'])
     splits=json.loads((output/'split_trial_ids.json').read_text());checked=set();error=0.

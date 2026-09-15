@@ -41,8 +41,9 @@ def replay(archive:Path,run_root:Path,dataset:str,phase:str,joint_output:Path|No
             raw[name]=temperature_probability(raw[name],temperatures[name])
         if source is not None:
             a,ay,au,_,_=aggregate(family.transform(source.batch),source);profiles[name]=scaler.transform(a)
-    population=np.ones(len(FAMILIES))/len(FAMILIES)
-    reliability=ReliabilityWeights(tuple(range(6)),FAMILIES,population,n0=8)
+    manifest=json.loads((run_root/'run_manifest.json').read_text())
+    population=np.asarray(manifest.get('population_weights',np.ones(len(FAMILIES))/len(FAMILIES)),dtype=float)
+    reliability=ReliabilityWeights(tuple(range(6)),FAMILIES,population,n0=manifest.get('n0',8),temperature=manifest.get('reliability_temperature',1))
     checked=set();max_error=0.;joint_rows=[];joint_predictions={};groups={}
     with np.load(run_root/'heldout_predictions.npz',allow_pickle=False) as saved:
         for key,value in (('labels',y),('users',u),('trials',trials)):
@@ -60,7 +61,7 @@ def replay(archive:Path,run_root:Path,dataset:str,phase:str,joint_output:Path|No
                     logits-=logits.max(1,keepdims=True);p=np.exp(logits);p/=p.sum(1,keepdims=True)
                     alpha=shots/(shots+2);personal[n]=(1-alpha)*personal[n]+alpha*p
             variants={'full':(personal,weights,None),'without_F7_anchor':({n:raw[n][ev] for n in FAMILIES},weights,None),
-                'uniform_population':({n:raw[n][ev] for n in FAMILIES},population,None),
+                ('population_only' if manifest.get('reliability_policy') else 'uniform_population'):({n:raw[n][ev] for n in FAMILIES},population,None),
                 **{f'without_{n}':({f:p for f,p in personal.items() if f!=n},weights,None) for n in FAMILIES}}
             if source is not None:
                 context=weights.copy()

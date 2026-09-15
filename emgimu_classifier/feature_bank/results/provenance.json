@@ -168,6 +168,30 @@
     "bytes": 6824
   },
   {
+    "run_id": "feature_bank_manus_selected_validation_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "b9d9b2e5808e02148aa3eb714e08496bc1a8250b036208e53552c62437b6585f",
+    "bytes": 194354
+  },
+  {
+    "run_id": "feature_bank_manus_selected_final_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "9f19e6dcc91f5e418202d862e9acb8515c86eebfe7f470bf87a4df9eae7b9432",
+    "bytes": 192160
+  },
+  {
+    "run_id": "feature_bank_epn_selected_validation_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "f0898b6e8b72dfec8878b3691764412320bd65e284e5342d030cd1c6b858209b",
+    "bytes": 62593
+  },
+  {
+    "run_id": "feature_bank_epn_selected_final_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "864db5da575b71b2dce3892266df44b30a43011f0436fec293a278b28a0ec27b",
+    "bytes": 62340
+  },
+  {
     "run_id": "feature_bank_manus_reliability_selection_20260915",
     "artifact": "calibration_curve.csv",
     "sha256": "e60d12329235fc308bf3391888b66876282aafc8d4eb785d7d970affbe587279",
@@ -358,6 +382,30 @@
     "artifact": "calibration_curve.csv",
     "sha256": "4b9a67e32431b38dcf4beb5f3ae572ce78a634fd366822986684ce9b315c69f7",
     "bytes": 193061
+  },
+  {
+    "run_id": "feature_bank_manus_selected_validation_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "0c11ae69c1fa58c436237ee1e8ff4a9174becc2d5a74309a0178057f66b02dc0",
+    "bytes": 186690
+  },
+  {
+    "run_id": "feature_bank_manus_selected_final_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "9fa5f4eb41f436a714569db1f2331f42d2ae648629e1e7e44f1b1aed1a826305",
+    "bytes": 184599
+  },
+  {
+    "run_id": "feature_bank_epn_selected_validation_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "761d40752112db84c37bd1c0944199d76d3481530fc90edcbb0cdfac3ae7b69b",
+    "bytes": 56725
+  },
+  {
+    "run_id": "feature_bank_epn_selected_final_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "02d3d02b7ec571b06641e7f44462b7d15b85543c1ed1396a5426278bd0cd394c",
+    "bytes": 56525
   },
   {
     "run_id": "feature_bank_manus_calibrated_quality_validation_20260915",

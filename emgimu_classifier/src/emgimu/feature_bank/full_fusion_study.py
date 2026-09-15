@@ -17,7 +17,7 @@ from .screening import SEED
 FAMILIES=('F0','F1_X1H','F2b_CSP','F3_Ring','F4_Spectral','F5_Temporal','F6_IMU','F9_Quality')
 
 
-def run(archive:Path,output:Path,phase:str,dataset:str='epn612',source_run:Path|None=None,probability_oof:Path|None=None)->None:
+def run(archive:Path,output:Path,phase:str,dataset:str='epn612',source_run:Path|None=None,probability_oof:Path|None=None,reliability_policy:Path|None=None)->None:
     if output.exists():raise FileExistsError(output)
     aggregate=aggregate_trials; score=_metrics; condition='cross_user';budgets=(0,1,2,5)
     if dataset=='semg_manus':
@@ -70,7 +70,11 @@ def run(archive:Path,output:Path,phase:str,dataset:str='epn612',source_run:Path|
             'fit_users':source_users,'fit_trials':at.tolist(),'temperatures':temperatures,
             'fit_scope':'source training/session OOF probabilities and labels only; target calibration excluded'}
     population=np.ones(len(FAMILIES))/len(FAMILIES)
-    reliability=ReliabilityWeights(tuple(range(6)),FAMILIES,population,n0=8)
+    n0=8.;reliability_temperature=1.;policy_audit=None
+    if reliability_policy:
+        from .reliability_selection import load_policy
+        population,n0,reliability_temperature,policy_audit=load_policy(reliability_policy,dataset,at,FAMILIES,probability_oof)
+    reliability=ReliabilityWeights(tuple(range(6)),FAMILIES,population,n0=n0,temperature=reliability_temperature)
     rows=[];splits=[];anchors={};saved={}
     print('[2/3] comparing full bank, no-anchor and all provider removals',flush=True)
     for user in users:
@@ -93,7 +97,7 @@ def run(archive:Path,output:Path,phase:str,dataset:str='epn612',source_run:Path|
                     anchors[(user,shots,name)]=(anchor,temperature)
             variants={'full':(personalized,weights),
                 'without_F7_anchor':({name:probabilities[name][ev] for name in FAMILIES},weights),
-                'uniform_population':({name:probabilities[name][ev] for name in FAMILIES},population),
+                ('population_only' if reliability_policy else 'uniform_population'):({name:probabilities[name][ev] for name in FAMILIES},population),
                 **{f'without_{name}':({n:p for n,p in personalized.items() if n!=name},weights) for name in FAMILIES}}
             if dataset=='semg_manus':
                 context=weights.copy()
@@ -132,19 +136,20 @@ def run(archive:Path,output:Path,phase:str,dataset:str='epn612',source_run:Path|
                 'shots_per_class':5,'feature_bank':'|'.join(FAMILIES),'method':'unsupported',
                 'removed_family':'N/A',**{k:'' for k in ('macro_f1','accuracy','log_loss','brier','ece','per_class_f1_json')}})
     print('[3/3] saving full-bank evidence and fitted states',flush=True);output.mkdir(parents=True)
-    for name,values in (('calibration_curve',rows),('ablation_full_bank',[r for r in rows if r['method']!='uniform_population'])):
+    for name,values in (('calibration_curve',rows),('ablation_full_bank',[r for r in rows if r['method'] not in ('uniform_population','population_only')])):
         with (output/f'{name}.csv').open('w',newline='',encoding='utf-8') as handle:
             writer=csv.DictWriter(handle,fieldnames=list(values[0]));writer.writeheader();writer.writerows(values)
     (output/'split_trial_ids.json').write_text(json.dumps(splits,indent=2),encoding='utf-8')
     (output/'session_signatures.json').write_text(json.dumps(signature_rows,indent=2),encoding='utf-8')
     if probability_audit:(output/'probability_calibration.json').write_text(json.dumps(probability_audit,indent=2),encoding='utf-8')
     (output/'run_manifest.json').write_text(json.dumps({'phase':phase,'seed':SEED,'source_trials':at.tolist(),
-        'families':FAMILIES,'population_weights':population.tolist(),'n0':8,'anchor_alpha':'shots/(shots+2)',
+        'families':FAMILIES,'population_weights':population.tolist(),'n0':n0,'reliability_temperature':reliability_temperature,
+        'reliability_policy':policy_audit,'anchor_alpha':'shots/(shots+2)',
         'anchor_temperature':'calibration distance median only','dataset':dataset,
         'F8':'calibration class cosine agreement' if dataset=='semg_manus' else 'N/A: no validated repeated-session key',
         'quality':'F0/CSP min quality, robust providers mean quality, IMU/context 1' if dataset=='semg_manus' else 'F9 classifier provider only',
         'unsupported_5':'three trials/class/session' if dataset=='semg_manus' else None,
-        'rule_selection':'fixed before validation; no tuning on final users',
+        'rule_selection':'source-user OOF selection; no target tuning' if reliability_policy else 'fixed before validation; no tuning on final users',
         'classifier_or_family_fit':source_run is None,'reused_source_run':source_run.name if source_run else None,
         'probability_calibration':'source-user OOF temperature' if probability_oof else 'native logistic probability'},indent=2),encoding='utf-8')
     with (output/'fitted_states.pkl').open('wb') as handle:pickle.dump((states,anchors),handle)
@@ -157,4 +162,5 @@ if __name__=='__main__':
     parser.add_argument('--phase',choices=('validation','final'),required=True)
     parser.add_argument('--dataset',choices=('epn612','semg_manus'),default='epn612')
     parser.add_argument('--source-run',type=Path);parser.add_argument('--probability-oof',type=Path)
-    args=parser.parse_args();run(args.archive,args.output,args.phase,args.dataset,args.source_run,args.probability_oof)
+    parser.add_argument('--reliability-policy',type=Path)
+    args=parser.parse_args();run(args.archive,args.output,args.phase,args.dataset,args.source_run,args.probability_oof,args.reliability_policy)
