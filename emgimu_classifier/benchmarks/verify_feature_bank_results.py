@@ -24,7 +24,8 @@ def verify(source_root:Path, results:Path)->dict:
     for path in (results/'manifests').glob('*__split_trial_ids.json'):
         data=json.loads(path.read_text(encoding='utf-8'))
         if isinstance(data,dict):
-            if set(data.get('train',[]))&set(data.get('validation',[])):raise ValueError(f'train leakage: {path}')
+            partitions=[set(data[key]) for key in ('train','validation','test') if key in data]
+            if any(a&b for i,a in enumerate(partitions) for b in partitions[i+1:]):raise ValueError(f'split leakage: {path}')
             split_checks+=1
         else:
             for row in data:

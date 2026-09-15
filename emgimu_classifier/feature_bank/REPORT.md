@@ -292,3 +292,15 @@ zero difference; independent EPN replays all 132 arrays with maximum error 1.67e
 classifier or family fitting occurs. Validation runs have the same full replay coverage.
 Replay audits are copied into result manifests. This proves these saved fusion outputs can
 be reconstructed, while historical DS2 and other runners' reproducibility gaps remain open.
+
+## UniBo validation state and drift audit
+
+The original Day 1–5→6 validation protocol now persists family/classifier/scaler states,
+aligned predictions and explicit trial partitions. Audited rerun F1 scores exactly match
+the original validation scores. Nine native four-channel families generate same-user
+day displacement matched by posture/class, posture displacement matched by class, and
+within-posture gesture separation. Coordinates are standardized on source windows only;
+centroids are window-pooled and this analysis does not control reapplication within day.
+The dedicated `cross_day_posture_diagnostics.csv` contains these diagnostic cells. Test-split
+intersection verification now checks every available train/validation/test partition pair.
+Independent UniBo final-state persistence and replay remain incomplete.

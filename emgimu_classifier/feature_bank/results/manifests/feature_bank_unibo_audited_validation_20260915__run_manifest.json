@@ -1,0 +1,39 @@
+{
+  "phase": "validation",
+  "seed": 20260915,
+  "train_days": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "target_days": [
+    6
+  ],
+  "families": [
+    "F0",
+    "F1_X1H",
+    "F2a_Cov",
+    "F2b_CSP",
+    "F2c_SPD",
+    "F4_Spectral",
+    "F5_Temporal",
+    "F9_Quality",
+    "F6_Posture"
+  ],
+  "frozen_added_family": null,
+  "ring_features_excluded": "UniBo has named muscles, not circular electrodes",
+  "F6_interpretation": "oracle posture upper bound",
+  "dimensions": {
+    "F0": 24,
+    "F1_X1H": 4,
+    "F2a_Cov": 10,
+    "F2b_CSP": 8,
+    "F2c_SPD": 10,
+    "F4_Spectral": 40,
+    "F5_Temporal": 29,
+    "F9_Quality": 29,
+    "F6_Posture": 4
+  }
+}
