@@ -4,6 +4,7 @@ import argparse
 import csv
 import json
 import pickle
+import hashlib
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
@@ -16,8 +17,9 @@ from .screening import SEED
 FAMILIES=('F0','F1_X1H','F2b_CSP','F3_Ring','F4_Spectral','F5_Temporal','F6_IMU','F9_Quality')
 
 
-def run(archive:Path,output:Path,phase:str,dataset:str='epn612')->None:
+def run(archive:Path,output:Path,phase:str,dataset:str='epn612',source_run:Path|None=None,probability_oof:Path|None=None)->None:
     if output.exists():raise FileExistsError(output)
+    if probability_oof and dataset!='epn612':raise ValueError('this source-user OOF adapter applies only to EPN')
     aggregate=aggregate_trials; score=_metrics; condition='cross_user';budgets=(0,1,2,5)
     if dataset=='semg_manus':
         from emgimu.datasets.semg_manus import load_semg_manus_windows
@@ -33,16 +35,38 @@ def run(archive:Path,output:Path,phase:str,dataset:str='epn612')->None:
         users=(16,17,18) if phase=='validation' else (19,20,21)
         train=load_epn612_windows(archive,users=range(1,16));target=load_epn612_windows(archive,users=users)
     print(f'[1/3] loaded frozen {dataset} {phase}',flush=True)
+    previous=None;previous_before=None;probability_audit=None
+    if source_run:
+        previous,_=pickle.loads((source_run/'fitted_states.pkl').read_bytes());previous_before=pickle.dumps(previous)
+        old_manifest=json.loads((source_run/'run_manifest.json').read_text())
+        if old_manifest.get('dataset','epn612')!=dataset or set(old_manifest['source_trials'])!=set(train.trials):
+            raise AssertionError('different dataset or source fitting trials')
     features={};probabilities={};states={};source_features={};signature_rows=[]
     for name in FAMILIES:
-        family=FACTORIES[name]()
-        a,ay,au,at,_=aggregate(family.fit_transform(train.batch,train.labels),train)
+        family=previous[name][0] if previous else FACTORIES[name]()
+        a,ay,au,at,_=aggregate(family.transform(train.batch) if previous else family.fit_transform(train.batch,train.labels),train)
         b,y,u,trials,w=aggregate(family.transform(target.batch),target)
         if name=='F9_Quality':quality_mean=np.clip(b[:,-3],0,1);quality_min=np.clip(b[:,-2],0,1)
-        scaler=StandardScaler().fit(a)
-        model=LogisticRegression(C=1,class_weight='balanced',max_iter=1000,random_state=SEED).fit(scaler.transform(a),ay)
+        if previous:_,scaler,model=previous[name]
+        else:
+            scaler=StandardScaler().fit(a)
+            model=LogisticRegression(C=1,class_weight='balanced',max_iter=1000,random_state=SEED).fit(scaler.transform(a),ay)
         features[name]=scaler.transform(b);probabilities[name]=model.predict_proba(features[name]);states[name]=(family,scaler,model)
         source_features[name]=scaler.transform(a)
+    if previous and pickle.dumps(previous)!=previous_before:raise AssertionError('reused source state changed')
+    if probability_oof:
+        from .force_nested_oof import fit_temperature, temperature_probability
+        oof_path=probability_oof/'oof_predictions.npz'
+        with np.load(oof_path,allow_pickle=False) as oof:
+            if set(oof['trials'])!=set(at) or set(oof['users'])!=set(range(1,16)):
+                raise AssertionError('OOF probability fitting must use source users 1-15 only')
+            label_by_trial=dict(zip(at,ay))
+            if any(label_by_trial[t]!=label for t,label in zip(oof['trials'],oof['labels'])):raise AssertionError('OOF labels changed')
+            temperatures={n:fit_temperature(oof[f'raw_{n}'],oof['labels']) for n in FAMILIES}
+        probabilities={n:temperature_probability(p,temperatures[n]) for n,p in probabilities.items()}
+        probability_audit={'source_run':probability_oof.name,'source_oof_sha256':hashlib.sha256(oof_path.read_bytes()).hexdigest(),
+            'fit_users':list(range(1,16)),'fit_trials':at.tolist(),'temperatures':temperatures,
+            'fit_scope':'source-user OOF probabilities and labels only; target-user calibration excluded'}
     population=np.ones(len(FAMILIES))/len(FAMILIES)
     reliability=ReliabilityWeights(tuple(range(6)),FAMILIES,population,n0=8)
     rows=[];splits=[];anchors={};saved={}
@@ -111,13 +135,16 @@ def run(archive:Path,output:Path,phase:str,dataset:str='epn612')->None:
             writer=csv.DictWriter(handle,fieldnames=list(values[0]));writer.writeheader();writer.writerows(values)
     (output/'split_trial_ids.json').write_text(json.dumps(splits,indent=2),encoding='utf-8')
     (output/'session_signatures.json').write_text(json.dumps(signature_rows,indent=2),encoding='utf-8')
+    if probability_audit:(output/'probability_calibration.json').write_text(json.dumps(probability_audit,indent=2),encoding='utf-8')
     (output/'run_manifest.json').write_text(json.dumps({'phase':phase,'seed':SEED,'source_trials':at.tolist(),
         'families':FAMILIES,'population_weights':population.tolist(),'n0':8,'anchor_alpha':'shots/(shots+2)',
         'anchor_temperature':'calibration distance median only','dataset':dataset,
         'F8':'calibration class cosine agreement' if dataset=='semg_manus' else 'N/A: no validated repeated-session key',
         'quality':'F0/CSP min quality, robust providers mean quality, IMU/context 1' if dataset=='semg_manus' else 'F9 classifier provider only',
         'unsupported_5':'three trials/class/session' if dataset=='semg_manus' else None,
-        'rule_selection':'fixed before validation; no tuning on final users'},indent=2),encoding='utf-8')
+        'rule_selection':'fixed before validation; no tuning on final users',
+        'classifier_or_family_fit':source_run is None,'reused_source_run':source_run.name if source_run else None,
+        'probability_calibration':'source-user OOF temperature' if probability_oof else 'native logistic probability'},indent=2),encoding='utf-8')
     with (output/'fitted_states.pkl').open('wb') as handle:pickle.dump((states,anchors),handle)
     np.savez_compressed(output/'heldout_predictions.npz',**saved,labels=y,trials=trials,users=u)
     print(json.dumps({'status':'ok','rows':len(rows)}),flush=True)
@@ -126,4 +153,6 @@ def run(archive:Path,output:Path,phase:str,dataset:str='epn612')->None:
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('archive',type=Path);parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--phase',choices=('validation','final'),required=True)
-    parser.add_argument('--dataset',choices=('epn612','semg_manus'),default='epn612');args=parser.parse_args();run(args.archive,args.output,args.phase,args.dataset)
+    parser.add_argument('--dataset',choices=('epn612','semg_manus'),default='epn612')
+    parser.add_argument('--source-run',type=Path);parser.add_argument('--probability-oof',type=Path)
+    args=parser.parse_args();run(args.archive,args.output,args.phase,args.dataset,args.source_run,args.probability_oof)

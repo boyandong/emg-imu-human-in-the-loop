@@ -12,6 +12,8 @@ from .full_fusion_study import FAMILIES
 def replay(archive:Path,run_root:Path,dataset:str,phase:str)->dict:
     states,anchors=pickle.loads((run_root/'fitted_states.pkl').read_bytes())
     before=pickle.dumps(states);splits=json.loads((run_root/'split_trial_ids.json').read_text(encoding='utf-8'))
+    calibration_path=run_root/'probability_calibration.json'
+    temperatures=json.loads(calibration_path.read_text())['temperatures'] if calibration_path.exists() else {}
     users=sorted({s['user'] for s in splits});source=None
     if dataset=='semg_manus':
         from emgimu.datasets.semg_manus import load_semg_manus_windows
@@ -29,12 +31,17 @@ def replay(archive:Path,run_root:Path,dataset:str,phase:str)->dict:
         b,y,u,trials,_=aggregate(family.transform(target.batch),target)
         if name=='F9_Quality':qmean=np.clip(b[:,-3],0,1);qmin=np.clip(b[:,-2],0,1)
         features[name]=scaler.transform(b);raw[name]=model.predict_proba(features[name])
+        if temperatures:
+            from .force_nested_oof import temperature_probability
+            raw[name]=temperature_probability(raw[name],temperatures[name])
         if source is not None:
             a,ay,au,_,_=aggregate(family.transform(source.batch),source);profiles[name]=scaler.transform(a)
     population=np.ones(len(FAMILIES))/len(FAMILIES)
     reliability=ReliabilityWeights(tuple(range(6)),FAMILIES,population,n0=8)
     checked=set();max_error=0.
     with np.load(run_root/'heldout_predictions.npz',allow_pickle=False) as saved:
+        for key,value in (('labels',y),('users',u),('trials',trials)):
+            np.testing.assert_array_equal(saved[key],value)
         for split in splits:
             user=split['user'];shots=split['shots'];cal=np.flatnonzero(np.isin(trials,split['calibration']))
             ev=np.flatnonzero(np.isin(trials,split['evaluation']))
@@ -75,7 +82,8 @@ def replay(archive:Path,run_root:Path,dataset:str,phase:str)->dict:
     if pickle.dumps(states)!=before:raise AssertionError('replay mutated family/classifier state')
     result={'status':'ok','run_id':run_root.name,'prediction_arrays_checked':len(checked),
         'max_absolute_probability_error':max_error,'classifier_or_family_fit':False,
-        'session_profile_rebuilt_from_source_only':source is not None,'scope':'all saved probability variants in this run'}
+        'session_profile_rebuilt_from_source_only':source is not None,'source_oof_probability_calibration':bool(temperatures),
+        'scope':'all saved probability variants in this run'}
     (run_root/'replay_audit.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
     return result
 

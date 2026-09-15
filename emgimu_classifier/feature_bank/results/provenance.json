@@ -150,6 +150,18 @@
     "bytes": 6824
   },
   {
+    "run_id": "feature_bank_epn_probability_validation_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "7b280f248393be2bad5ec2eccfb4bbfed50135b72f9d68f8032c2b3cea2fd43c",
+    "bytes": 62596
+  },
+  {
+    "run_id": "feature_bank_epn_probability_final_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "e9c387e1d0596752a44f8ac535ecb9753c22a69cf20f1e06072868bb678dc218",
+    "bytes": 62198
+  },
+  {
     "run_id": "feature_bank_force_probability_validation_20260915",
     "artifact": "calibration_curve.csv",
     "sha256": "20ad7c428a64f024e52644234a4afcc6a16d8244ff9e368cda53766ce916638e",
@@ -304,6 +316,18 @@
     "artifact": "calibration_curve.csv",
     "sha256": "4b9a67e32431b38dcf4beb5f3ae572ce78a634fd366822986684ce9b315c69f7",
     "bytes": 193061
+  },
+  {
+    "run_id": "feature_bank_epn_probability_validation_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "1d0f4a37e61935f0ac977ddcd746f80a4e054c21a60b44ed53ed7fe2debea8c9",
+    "bytes": 56633
+  },
+  {
+    "run_id": "feature_bank_epn_probability_final_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "7fed6c8a878f1ac693f845f21e23b537957644ed4e67fadcd89d210acaa467b2",
+    "bytes": 56276
   },
   {
     "run_id": "feature_bank_force_probability_validation_20260915",

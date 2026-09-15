@@ -574,3 +574,37 @@ Current table integrity checks 78 source artifacts, 7986 rows and 294 explicit p
 All 105 tests pass with one skip. Applying these source-only temperatures to the fixed
 target EPN fusion protocol remains the next experiment; other failure protocols and
 the original historical DS2 requirement remain open.
+
+## EPN source-only calibrated target fusion: anchor negative transfer
+
+`feature_bank_epn_probability_{validation,final}_20260915` reuses all eight original
+source-fit EPN providers, with temperatures fitted only to raw source-user OOF
+probabilities from users 1–15. Source trial identifiers and labels match the raw adapter;
+fitting IDs, temperatures and source-OOF hash are saved. Validation/final use identical
+calibration metadata, and no family/scaler/classifier fitting occurs. Legacy EPN source
+manifests lack a dataset field; compatibility accepts that legacy format only alongside
+exact source-trial matching. Users 16–18 and 19–21 remain target validation/final groups.
+
+| Final mean per-user macro-F1 | 0/class | 1/class | 2/class | 5/class |
+|---|---:|---:|---:|---:|
+| Uniform population fusion | 0.4792 | 0.4818 | 0.4818 | 0.4909 |
+| Personal reliability without anchors | 0.4792 | 0.4762 | 0.4770 | 0.4791 |
+| Personal reliability plus anchors | 0.4792 | 0.4124 | 0.4240 | 0.4214 |
+
+Target calibration trials are fully removed from evaluation. Rows at different budgets
+therefore have different evaluation trial sets; within each budget every method uses
+exactly the same remaining trials. This is target-user product personalization, not
+source-only zero-shot robustness once target labelled examples are provided.
+
+The final full-bank log loss is 1.5069/1.5523/1.5897/1.6092, while population fusion at
+five shots is 1.4966. Anchor mixing causes both classification and probability-quality
+regression in this EPN setting, contrasting with force two-shot improvement. This
+supports family/task-specific calibration rather than a universal fixed anchor mixture.
+It does not justify tuning the mixture on final users. Original and corrected runs remain
+separately identified, with all provider removals retained. These supplemental results
+use previously opened final users and are not a new untouched test.
+
+Both phases replay 132 saved probability arrays, with maximum error 2.23e-16, exact
+trial/user/label alignment and unchanged fitted source state. All 105 tests pass with
+one skip. The full-system seven-failure evaluation and remaining dataset-specific OOF
+evidence still require further work.
