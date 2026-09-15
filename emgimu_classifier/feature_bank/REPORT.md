@@ -1,12 +1,97 @@
 # Feature Bank + Personal Calibration — interim evidence
 
 This is an incomplete execution of the two supplied specifications, not a completion claim.
-All reported evaluations use held-out subjects or sessions. Final families and calibration
-hyperparameters were selected on validation data; final data was not used to tune them.
+Predictive evaluations use source OOF or held-out subjects/sessions; descriptive target
+diagnostics are explicitly labelled. Model compositions and calibration rules are frozen
+from source evidence, validation evidence or prespecified controls; final scores do not tune them.
 Seed: 20260915. Classical logistic regression runs use CPU; no neural training is needed
 for these representation comparisons.
 
-## Independent test results
+## Current interpretation of the evidence
+
+The full bank has local gains and failures. It does not improve every task or the minimum
+of the complete available robustness vector. The following seven-axis table describes
+fixed full-bank algorithms at cal0; it does not substitute the best observed specialist.
+Different tasks have different classes, users and aggregation. The values are descriptive
+and cannot be read as accuracy of one universally fitted classifier.
+
+| Axis | F0 F1 | Full bank F1 | Evidence boundary |
+|---|---:|---:|---|
+| force | 0.4929 | 0.4516 | source users Ramp only; independent users and unseen force conditions |
+| wearing | 0.4912 | 0.5917 | same-user before/after electrode shift |
+| day | 0.7044 | 0.6992 | UniBo native four muscles, Days 7/8 |
+| user | 0.4370 | 0.4792 | EPN selected 21-user subset, three final users |
+| posture | 0.7044 | 0.6992 | same observations as day; posture strata, no fabricated IMU |
+| speed/session | 0.4152 | 0.4582 | MANUS six users, six finger classes; session and speed confounded |
+| synthetic quality | 0.4473 | 0.3875 | seven paired fixed corruptions, mean individual-user/scenario F1; clean excluded |
+
+Authoritative values, run IDs, condition minima and aggregation are in
+`results/full_system_robustness_vector.csv`. Across these unlike axes, descriptive means
+are 0.5275 -> 0.5381, but minimum axis F1 is 0.4152 -> 0.3875. Quality/force share native
+trials and day/posture share observations. The earlier six-axis vector omitted synthetic
+quality and cannot support a claim that the complete available minimum improved.
+
+### Answers to questions A–H, with remaining uncertainty
+
+| Question | Current answer | Boundary / remaining requirement |
+|---|---|---|
+| A: Missing information or poor organization? | Both remain plausible. Feature organization and calibration alter performance substantially; extra dimensions and stronger nuisance deletion can hurt. | No experiment isolates the physical cause of current eight-channel hardware failure. |
+| B: Which families add conditional information? | EPN fixed late-fusion Core receives log-loss gains from spectral/temporal/quality providers, but final F1 gains are inconsistent. Actual concatenated force Core receives spectral final F1 gains with worse log loss; other additions reverse validation gains or reduce minima. | Force Core has 0/1/2-shot controls; Core coverage on other eligible tasks remains incomplete. This is predictive information, not estimated mutual information. |
+| C: Which families are specialists? | Ring helps average wearing/force performance in some compositions; spectral helps some load/force cells; temporal helps the native UniBo shortlist. | All force Core additions reduce Core's condition minimum. Some FMG position minima also fall. Historical RLCS/CES/Frequency equivalence is unverified. |
+| D: Which need personal calibration? | MANUS session models can recover strongly with a small own-session budget; current EPN anchors can harm performance. Ramp-only force Core anchors recover only a small amount. | No universal anchor benefit or device calibration prescription follows. |
+| E: Does Personal Anchor reduce cross-user variation? | No for the tested EPN branch: all nonzero budgets lower observed mean/minimum F1 and raise standard deviation relative to matched no-anchor controls. | Three final users, descriptive variation; this does not reject every anchor design. |
+| F: Does Session Signature help cross-day/re-donning? | MANUS session profiles measure shifts. Matched current-session prototypes outperform the fixed long/current blend in the tested controls. | A measured signature shift is not proof of predictive value; matched re-donning and broader cross-day signature tests remain open. |
+| G: Does the bank improve R_min? | Not for the complete seven-axis vector. Frozen concatenated force Core improves its own force-condition minimum; adding families can raise average F1 while lowering that minimum. | No global robustness recovery; unlike/correlated tasks and synthetic-quality scope remain explicit. |
+| H: How much product calibration is needed? | Offline budgets range from limited Ramp-only recovery to large MANUS own-session recovery; EPN can fail even at five-shot. | Trial duration estimates exclude preparation/transitions. No measured device-level latency, accuracy or calibration duration claim. |
+
+### Calibration recovery and model-composition limits
+
+Force concatenated Core final mean-user F1 at cal0/1/2 is 0.4902/0.4943/0.5005;
+its minimum force-condition mean-user F1 is 0.4199/0.4328/0.4328. Calibration uses
+7/14 own-user Ramp trials and never the evaluated force conditions. Five-shot is
+unsupported because only four Ramp trials per native class exist.
+
+Selected-policy EPN full-bank F1 at cal0/1/2/5 is 0.4725/0.4053/0.4346/0.4115,
+versus matched no-anchor 0.4725/0.4708/0.4670/0.4952. The negative result identifies
+the current anchor-probability mixing branch; it must not be hidden behind a different
+fine-tuned model. Calibration trials are excluded, so budgets have different test trials.
+
+MANUS selected-policy full F1 at cal0/1/2 is 0.4631/0.5126/0.5926. Supplemental
+source-scale matched local prototypes reach 0.4631/0.6633/0.8241, while fixed
+long/local blending reaches 0.4582/0.5398/0.6176. This supplemental control is not
+a final-selected deployment replacement. Two-shot leaves only one trial per class
+per user (36 evaluation trials); high apparent recovery has a narrow evidence scope.
+
+Synthetic-quality mean-user/scenario F1 is F0 0.4473, original uniform fusion 0.3875,
+without the quality classifier 0.4209, quality routing with that classifier 0.3384,
+and routing without that classifier 0.3884. Quality observation can detect corruption
+without identifying a reliable gesture provider. These fixed diagnostic controls do
+not justify promoting a routing policy based on final scores.
+
+### Historical priors, delivery status and next experiment
+
+Historical conclusions about X1-H, RLCS, CES, nRLCS and Frequency remain historical
+priors. Exact original DS2 raw data and validated implementations/results are missing;
+new reference formulas do not reproduce or refute them. Original UniBo G0/G5 formulas
+are reused through an explicit native-four-channel compatibility adapter and tested.
+The current temporal comparison shares most errors (G5/reference-F5 model correlation
+0.9045 around F0); it is a common-baseline model comparison, not standalone G5/DTW.
+
+Six new benchmark archives are complete. Five canonical CSVs, schema/provenance audits,
+source run manifests, trial lists, dimensions, per-user/per-class diagnostics, calibration
+burden estimates and SVG curves are available. The latest suite ran 139 tests with one
+skip; consolidated integrity covers 150 artifacts, 33,855 rows and 697 explicit
+partitions, while canonical record verification covers 32,372 rows. These are narrow
+integrity/implementation checks, not proof that every scientific requirement is complete.
+
+The highest-priority remaining work is the exact historical dataset/algorithm audit,
+remaining named complementarity pairs and Core comparisons on other eligible datasets,
+followed by an exhaustive formula/requirement audit. Current device failures still require
+labelled eight-channel recordings and a held-out device-specific evaluation; UniBo's
+four named muscles cannot establish that product's live accuracy. New results stay in
+local commits; the specifications prohibit automatic GitHub push.
+
+## Earlier specialist test results (supplementary)
 
 | Dataset / failure | F0 macro-F1 | Frozen bank macro-F1 | Bank |
 |---|---:|---:|---|
