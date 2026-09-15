@@ -1,5 +1,11 @@
 [
   {
+    "run_id": "feature_bank_epn_core_incremental_20260915",
+    "artifact": "feature_family_results.csv",
+    "sha256": "c1708c34859e6437dd628d4f1a63f7e378c8a26fdd7d85e9344c0676be88302d",
+    "bytes": 68459
+  },
+  {
     "run_id": "feature_bank_unibo_validated_reuse_validation_20260915",
     "artifact": "feature_family_results.csv",
     "sha256": "7a69fedd954aeadd2a0007329f5dd140b7e29feb4d647436e55aa5b71f7b1c94",
@@ -96,6 +102,12 @@
     "bytes": 21786
   },
   {
+    "run_id": "feature_bank_epn_core_incremental_20260915",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "37bed807e1c5f49e8e76655b4cca000f399906c845e37b4af8dea9b6cc290e36",
+    "bytes": 12430
+  },
+  {
     "run_id": "feature_bank_force_audited_validation_20260915",
     "artifact": "conditional_incremental.csv",
     "sha256": "80c4aece0d994a83c3cec13f3105869bdfb4e046fe3c3390ac4220b77aee5c0b",
@@ -112,6 +124,18 @@
     "artifact": "conditional_incremental.csv",
     "sha256": "8aa070a90a9c9412499055e8b353daf7f93e9171baf461dc19d0782a720486ea",
     "bytes": 1286
+  },
+  {
+    "run_id": "feature_bank_epn_core_incremental_20260915",
+    "artifact": "interaction_results.csv",
+    "sha256": "1874c20bb5fd043d97e31d56a1627174007c7b7484911de62c99de2a08703bb0",
+    "bytes": 5617
+  },
+  {
+    "run_id": "feature_bank_epn_core_incremental_20260915",
+    "artifact": "error_complementarity.csv",
+    "sha256": "945e938dd34294a035ef13648c0f9edc8c56497c16774286ec24f4daf96d7ee7",
+    "bytes": 10963
   },
   {
     "run_id": "feature_bank_manus_nested_oof_20260915",

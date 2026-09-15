@@ -1292,3 +1292,38 @@ probability mixing branch as harmful relative to its otherwise identical no-anch
 control. Different budgets exclude different calibration trials and cannot be treated
 as repeated measurements on one identical test set. No target-score tuning or model
 fitting is performed for this analysis. Complete-document audit remains unfinished.
+
+### Multi-family Core conditional analysis and finite source OOF interactions
+
+The previous conditional tables used F0 alone as Core. The new EPN source-only
+analysis freezes Core = F0 + Ring + CSP + IMU and tests four additional providers.
+All 2,250 source-user trials are outer-held OOF predictions; provider temperatures
+come from the corresponding inner-source OOF folds. No development/final users are
+opened, no classifiers are refitted, and no combination weights are optimized.
+Core averages four six-class probability views (24 input coordinates); each addition
+averages five views (30 coordinates). This is a predictive conditional proxy for
+fixed uniform late fusion, not a concatenated-feature classifier or mutual information.
+
+| Added provider | Delta log loss (positive is improvement) | Delta macro F1 | Delta Brier | Users with improved log loss / 15 |
+|---|---:|---:|---:|---:|
+| X1 reference | -0.029259 | -0.011332 | -0.001952 | 0 |
+| Spectral | 0.014360 | -0.000379 | 0.001358 | 12 |
+| Temporal | 0.009591 | 0.005373 | 0.000740 | 14 |
+| Quality | 0.033351 | 0.009405 | 0.002712 | 14 |
+
+Error complementarity compares Core directly against each individual provider,
+using the same outer-held trials. Two prespecified combinations are tested around
+F0: X1/frequency and X1/CSP. Their negative-log-loss interaction scores are
+0.041973 and 0.041554; macro-F1 interaction scores are 0.011326 and 0.014663.
+Positive interaction measures model-composition synergy under probability averaging;
+it does not establish a physiological factor interaction. Original historical X1-H
+and Frequency equivalence remains unverified. Other documented pairs and target-held
+multi-family Core comparisons remain open; this supplement does not close Stage 2–4.
+
+The run is `feature_bank_epn_core_incremental_20260915`. Eleven saved probability
+arrays replay exactly. Source-user coverage, nested trial separation and fold IDs
+are checked; regression tests reject overlapping outer trials and target-user input.
+The suite ran 129 tests with one skip. Consolidated integrity verification covers
+127 source artifacts, 24,539 rows and 678 explicit partition checks; canonical
+record verification covers 23,072 rows. These checks establish recorded integrity,
+not full-document scientific completion or live-device accuracy. New work stays local.

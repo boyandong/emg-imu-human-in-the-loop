@@ -1,0 +1,78 @@
+{
+  "dataset": "epn612",
+  "phase": "source_nested_oof",
+  "source_run": "feature_bank_epn_nested_oof_20260915",
+  "source_oof_sha256": "155f156754049a43fe44dbe1e1ca074bceb0a0f3fab3ac932dd0f103543422c3",
+  "families": [
+    "F0",
+    "F3_Ring",
+    "F2b_CSP",
+    "F6_IMU"
+  ],
+  "specs": {
+    "Core": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU"
+    ],
+    "Core+F1_X1H": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU",
+      "F1_X1H"
+    ],
+    "Core+F4_Spectral": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU",
+      "F4_Spectral"
+    ],
+    "Core+F5_Temporal": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU",
+      "F5_Temporal"
+    ],
+    "Core+F9_Quality": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU",
+      "F9_Quality"
+    ],
+    "B0": [
+      "F0"
+    ],
+    "B0+X1": [
+      "F0",
+      "F1_X1H"
+    ],
+    "B0+Frequency": [
+      "F0",
+      "F4_Spectral"
+    ],
+    "B0+CSP": [
+      "F0",
+      "F2b_CSP"
+    ],
+    "B0+X1+Frequency": [
+      "F0",
+      "F1_X1H",
+      "F4_Spectral"
+    ],
+    "B0+X1+CSP": [
+      "F0",
+      "F1_X1H",
+      "F2b_CSP"
+    ]
+  },
+  "target_users_opened": false,
+  "classifier_or_family_fit": false,
+  "probability_calibration": "existing per-outer-fold inner-source OOF temperatures",
+  "scope": "predictive conditional proxy under fixed uniform multiview late fusion; not concat-classifier retraining or mutual information",
+  "interaction_selection": "only X1/frequency and X1/CSP; prespecified theoretical pairs with prior source OOF disagreement0.5613/0.3573; no all-pairs search"
+}

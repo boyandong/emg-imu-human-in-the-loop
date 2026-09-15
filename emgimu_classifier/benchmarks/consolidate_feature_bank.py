@@ -7,6 +7,7 @@ import json
 
 
 RUNS = (
+    'feature_bank_epn_core_incremental_20260915',
     'feature_bank_epn_relative_spectrum_source_20260915',
     'feature_bank_epn_relative_spectrum_validation_20260915',
     'feature_bank_epn_relative_spectrum_final_20260915',
@@ -89,7 +90,7 @@ RUNS = (
     'feature_bank_epn_calibration_diagnostics_validation_20260915_v2',
     'feature_bank_epn_calibration_diagnostics_final_20260915_v2',
 )
-ARTIFACTS = ('feature_family_results.csv', 'conditional_incremental.csv',
+ARTIFACTS = ('feature_family_results.csv', 'conditional_incremental.csv', 'interaction_results.csv',
              'error_complementarity.csv', 'calibration_curve.csv', 'ablation_full_bank.csv',
              'per_family_calibration_gain.csv', 'cross_session_family_diagnostics.csv',
              'cross_user_family_diagnostics.csv', 'cross_day_posture_diagnostics.csv',
