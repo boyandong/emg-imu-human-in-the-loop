@@ -547,3 +547,30 @@ unsupported five-shot rows are retained. Current table integrity covers 76 sourc
 artifacts, 7942 rows and 285 explicit partitions. The 105-test suite passes with one skip.
 Other native benchmarks still require comparable grouped OOF probability calibration;
 the original DS2 release and universal-system completion remain unresolved.
+
+## EPN nested source-user OOF and auditable inner calibration
+
+`feature_bank_epn_nested_oof_20260915` extends the grouped protocol to the eight-provider
+EPN bank, including its real IMU provider. Source users 1–15 are divided into three
+outer folds of five users each. Every outer training set has ten users, divided into
+two internal folds of five. All family/scaler/classifier fitting remains within the
+corresponding training subjects. Temperature bounds and source-only fitting rules
+are identical to the force study. No target users 16–21 are loaded.
+
+The run covers all 2250 labelled source trials and exports raw/calibrated OOF predictions
+and the 28-pair error-complementarity matrix. Calibrated/raw log loss is 1.4517/1.5180
+for F0, 1.5340/1.7712 for spectral and 1.4485/1.5585 for quality; all eight providers'
+log loss improves while F1 remains unchanged. These are source cross-user results,
+not a target-user personalization gain or evidence that all eight providers should be
+used at deployment.
+
+Unlike the earlier force run, this run retains every inner fitted state and inner OOF
+probability block. Replay checks all 48 outer and 48 inner blocks with zero error,
+recomputes each outer temperature from replayed inner predictions/labels, verifies
+nested trial partitions and exact identifier alignment, and confirms fitted-state
+immutability without classifier/family fitting. The previous force artifact remains
+replayable with its original, more limited inner evidence; it is not overwritten.
+Current table integrity checks 78 source artifacts, 7986 rows and 294 explicit partitions.
+All 105 tests pass with one skip. Applying these source-only temperatures to the fixed
+target EPN fusion protocol remains the next experiment; other failure protocols and
+the original historical DS2 requirement remain open.
