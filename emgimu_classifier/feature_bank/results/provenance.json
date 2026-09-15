@@ -1,5 +1,17 @@
 [
   {
+    "run_id": "feature_bank_force_concat_core_validation_20260915",
+    "artifact": "feature_family_results.csv",
+    "sha256": "b9c627ee7012a5176ef980cd5f3f15c2aa0b72dd45588a4e3427531caefe7a2e",
+    "bytes": 122968
+  },
+  {
+    "run_id": "feature_bank_force_concat_core_final_20260915",
+    "artifact": "feature_family_results.csv",
+    "sha256": "7ce61a8782a57f9d738ff5b03233b70a3ff53f61c9030159ac16f26e8a7f281f",
+    "bytes": 122784
+  },
+  {
     "run_id": "feature_bank_force_quality_validation_20260915",
     "artifact": "feature_family_results.csv",
     "sha256": "5f82bcf98ca929086d4ecae4f47662ca99c057f86b3dae47b931f8a17be554cc",
@@ -126,6 +138,18 @@
     "bytes": 21786
   },
   {
+    "run_id": "feature_bank_force_concat_core_validation_20260915",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "cda45b77115cf43ae4823c8afd8fc14acebf93cb86d58d094a166f02f33ecaf4",
+    "bytes": 26338
+  },
+  {
+    "run_id": "feature_bank_force_concat_core_final_20260915",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "199ab4656229ca591418b4f9a7253f3ff6d8b47e773b914e572d5a7b3eeecc25",
+    "bytes": 25704
+  },
+  {
     "run_id": "feature_bank_epn_core_incremental_validation_20260915",
     "artifact": "conditional_incremental.csv",
     "sha256": "1f8631ff7e0f821b46ffa778a698a9638fdae9d27da36e9faddbf71deb8054d7",
@@ -178,6 +202,18 @@
     "artifact": "interaction_results.csv",
     "sha256": "1874c20bb5fd043d97e31d56a1627174007c7b7484911de62c99de2a08703bb0",
     "bytes": 5617
+  },
+  {
+    "run_id": "feature_bank_force_concat_core_validation_20260915",
+    "artifact": "error_complementarity.csv",
+    "sha256": "11848426f58b1c8194a851234e9d8bc8ca876f79b0911128b38e3e6ade4e586f",
+    "bytes": 31560
+  },
+  {
+    "run_id": "feature_bank_force_concat_core_final_20260915",
+    "artifact": "error_complementarity.csv",
+    "sha256": "a02d43334484114ee1454a1d8e7b3e3780b8f4cb65c62c3a084d1acb3ebfde88",
+    "bytes": 30777
   },
   {
     "run_id": "feature_bank_unibo_temporal_complementarity_validation_20260915",

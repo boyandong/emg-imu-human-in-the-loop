@@ -7,6 +7,9 @@ import json
 
 
 RUNS = (
+    'feature_bank_force_concat_core_source_20260915',
+    'feature_bank_force_concat_core_validation_20260915',
+    'feature_bank_force_concat_core_final_20260915',
     'feature_bank_unibo_temporal_complementarity_validation_20260915',
     'feature_bank_force_quality_validation_20260915',
     'feature_bank_force_quality_final_20260915',

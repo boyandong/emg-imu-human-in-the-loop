@@ -1468,3 +1468,55 @@ one skip; integrity checks cover 138 artifacts, 25,299 rows and 683 explicit tri
 partitions. Canonical verification covers 23,816 rows. Standalone G5/temporal/DTW
 comparisons, exact historical RLCS/anchor comparisons and other remaining document
 requirements are still incomplete.
+
+### Concatenated-feature force Core and four conditional additions
+
+The existing source-selected Core (`calibration_study.FROZEN_FAMILIES`) is frozen
+as F0 + CSP + X1 reference. Source users 1–6 Ramp trials fit five new balanced
+logistic classifiers after source-only scaling: Core 70 dimensions, +Ring 110,
++Spectral 142, +Temporal 127 and +Quality 123. Original source-fitted family states
+are reused without modification. C=1 and max_iter=2000 are prespecified; every new
+fit converges. Original standalone F0 and four additional-provider classifiers are
+retained for matched error complementarity. No target data enters these fits.
+Historical X1-H equivalence is still unverified; this Core contains the explicitly
+labelled reference formula.
+
+Validation users 7/8 and final users 9/10 are evaluated at zero target calibration
+across eleven unseen force conditions. Unlike the earlier EPN late-fusion proxy,
+these are actual concatenated-feature classifier comparisons. Each phase records
+360 model-score rows, 144 Core conditional increments and 144 Core-versus-provider
+complementarity rows across users and force conditions. ALL pools trial means;
+it must not be confused with earlier mean-per-user or window-level aggregates.
+
+| Addition | Validation delta LL / F1 | Final delta LL / F1 |
+|---|---:|---:|
+| Ring | -0.411435 / -0.050955 | 0.308815 / 0.063290 |
+| Spectral | 0.143674 / 0.041118 | -0.117984 / 0.019426 |
+| Temporal | 0.109059 / 0.014460 | -0.657338 / -0.036093 |
+| Quality | -0.130708 / 0.017601 | -0.374717 / -0.056856 |
+
+| Final model | Pooled trial macro F1 | Minimum force-condition pooled macro F1 |
+|---|---:|---:|
+| F0 | 0.5118 | 0.4102 |
+| Core | 0.5176 | 0.4642 |
+| Core + Ring | 0.5809 | 0.3944 |
+| Core + Spectral | 0.5370 | 0.4355 |
+| Core + Temporal | 0.4815 | 0.3894 |
+| Core + Quality | 0.4607 | 0.3641 |
+
+Core improves the observed force-condition minimum relative to F0. All four
+additions lower that minimum relative to Core, even when pooled F1 rises. Ring's
+large final average gain does not justify promotion after its validation decline.
+Spectral's validation gain partly transfers to final F1 while final log loss worsens;
+Temporal's validation gain reverses. Thus the source-selected representation retains
+useful organization, while extra dimensions can reduce the worst-case envelope.
+No family selection or weight adjustment is made using these final scores.
+
+Runs `feature_bank_force_concat_core_source_20260915`, `_validation_20260915`
+and `_final_20260915` preserve source fitting evidence and explicit trial splits.
+Twenty classifier probability arrays replay exactly from retained target feature
+coordinates and immutable source scalers/models; source fit and manifest hashes
+are checked. The suite ran 137 tests with one skip. Integrity checks cover
+144 artifacts, 26,595 rows and 685 explicit partitions; canonical verification
+covers 25,112 rows. Calibrated Core comparisons, other dataset Core studies,
+remaining named pairs and exact historical reproduction still remain open.

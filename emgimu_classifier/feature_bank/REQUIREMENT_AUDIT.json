@@ -14,5 +14,6 @@
     "exact historical DS2 and family reproduction",
     "coherent final report and exhaustive requirement audit"
   ],
-  "synthetic_quality_evidence": "feature_bank_force_quality_validation_20260915 and final; native classifiers frozen, seven fixed perturbations plus clean; current fusion/routing degrades quality robustness"
+  "synthetic_quality_evidence": "feature_bank_force_quality_validation_20260915 and final; native classifiers frozen, seven fixed perturbations plus clean; current fusion/routing degrades quality robustness",
+  "force_Core_evidence": "actual concatenated-feature source-only Core and four additions; independent validation/final users, no calibration; mean gains can lower minimum force condition"
 }

@@ -1,0 +1,7 @@
+{
+  "status": "ok",
+  "source_hashes_checked": true,
+  "classifier_probability_arrays_checked": 10,
+  "max_absolute_probability_error": 0.0,
+  "classifier_or_family_fit": false
+}
