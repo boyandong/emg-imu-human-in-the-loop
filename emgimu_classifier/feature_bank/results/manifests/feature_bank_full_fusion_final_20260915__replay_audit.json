@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_full_fusion_final_20260915",
+  "prediction_arrays_checked": 132,
+  "max_absolute_probability_error": 1.6653345369377348e-16,
+  "classifier_or_family_fit": false,
+  "session_profile_rebuilt_from_source_only": false,
+  "scope": "all saved probability variants in this run"
+}

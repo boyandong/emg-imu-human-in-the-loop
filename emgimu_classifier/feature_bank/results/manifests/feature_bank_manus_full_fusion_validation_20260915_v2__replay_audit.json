@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_manus_full_fusion_validation_20260915_v2",
+  "prediction_arrays_checked": 450,
+  "max_absolute_probability_error": 0.0,
+  "classifier_or_family_fit": false,
+  "session_profile_rebuilt_from_source_only": true,
+  "scope": "all saved probability variants in this run"
+}

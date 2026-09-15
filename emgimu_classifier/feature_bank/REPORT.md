@@ -281,3 +281,14 @@ constructed for a held-out user. All distances use frozen source-fit coordinates
 raw/robust and ring/anchor complementarity cells are appended to the common table. Model
 state is asserted unchanged after transforms; evaluation labels are only diagnostic inputs.
 These results diagnose the existing fixed anchor rule, not a newly optimized personal model.
+
+## Full-system prediction replay
+
+`python -m emgimu.feature_bank.replay_fusion` independently transforms raw inputs using saved
+family/scaler/classifier states, rebuilds source-only session profiles where applicable, and
+replays every saved fusion variant. It asserts unchanged classifier/family state and complete
+coverage of prediction-array keys. Independent MANUS replays all 450 probability arrays with
+zero difference; independent EPN replays all 132 arrays with maximum error 1.67e-16. No
+classifier or family fitting occurs. Validation runs have the same full replay coverage.
+Replay audits are copied into result manifests. This proves these saved fusion outputs can
+be reconstructed, while historical DS2 and other runners' reproducibility gaps remain open.
