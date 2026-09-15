@@ -880,3 +880,29 @@ with unchanged fitted state and no fitting during replay.
 These 72 validation rows document reuse and its measured differences; they do not
 replace historical results or establish final-day improvement. The full test suite
 now passes 111 tests with one skip. The complete document-level objective remains open.
+
+### Quality-role controls with target calibration
+
+`feature_bank_manus_calibrated_quality_{validation,final}_20260915` extends the joint
+quality removal to supported cal0/1/2. F7 anchors, source-only reliability priors and
+F8 context are held fixed across controls; each budget removes the same whole
+calibration trials from every compared method. No classifier/family or source
+temperature fitting is performed. All 450 original saved probability arrays per phase
+replay exactly; 18 full user/budget blocks per phase also match before control export.
+The two runs retain 664 metric rows, 144 variant probability arrays and explicit trial
+partitions. Native speed rows with no evaluation trials after calibration are omitted,
+not interpreted as zero performance. Cal5 remains unsupported (three trials/class).
+
+| Final mean-user macro-F1 | cal0 | cal1 | cal2 |
+|---|---:|---:|---:|
+| Full F7/F8/F9 system | 0.4582 | 0.5264 | 0.5574 |
+| Without quality routing | 0.4440 | 0.4744 | 0.5315 |
+| Without quality probability provider | 0.4296 | 0.5364 | 0.5593 |
+| Without routing and provider | 0.4439 | 0.5031 | 0.5593 |
+
+At cal1, removing the quality classifier helps while removing both roles hurts;
+at cal2, joint removal has a small positive F1 difference. Full log loss remains
+worse than joint removal at each budget (1.4287/1.4256/1.4342 versus
+1.4191/1.4205/1.4276). These final results describe frozen controls, without selecting
+new policies on final data. Supported nonzero MANUS budgets now have joint controls;
+historical DS2 and further document-level evidence remain open.

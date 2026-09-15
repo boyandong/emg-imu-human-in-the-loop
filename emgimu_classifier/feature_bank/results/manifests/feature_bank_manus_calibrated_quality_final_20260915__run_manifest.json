@@ -1,0 +1,16 @@
+{
+  "source_run": "feature_bank_manus_probability_final_20260915",
+  "dataset": "semg_manus",
+  "phase": "final",
+  "source_state_sha256": "d87401fef2f05fc4706930243da8df3c5aaa8f2209a50408230e0ba4edffef94",
+  "source_predictions_sha256": "de888907e82742e16d8fef422b7203b444256aa8c39597814e587c3882cb6356",
+  "classifier_or_family_fit": false,
+  "full_units_replayed": 18,
+  "rows": 332,
+  "scope": "quality routing/provider removals; F7 anchors, reliability and F8 context held fixed; same evaluation trials within each budget",
+  "budgets": [
+    0,
+    1,
+    2
+  ]
+}
