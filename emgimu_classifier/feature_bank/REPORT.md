@@ -144,3 +144,15 @@ cohort, while the fixed fusion fails to capture most of its gain. Different rema
 across budgets prevent interpreting raw cross-budget changes as pure calibration gains.
 Templates, probability arrays and all calibration/evaluation IDs are preserved. Two new
 tests verify trial/window order and reject unequal path lengths without implicit alignment.
+
+## Audited force ablation and table integrity
+
+The audited force selection run now includes the full five-family shortlist and all five
+leave-one-family-out models, including removal of F0. Each is reported for ALL and all eleven
+target-intensity/subjective conditions (72 ablation rows). Validation predictions, fitted
+family states and source/validation trial IDs are saved. This is complete for that shortlist,
+not an all-dataset or all-F0–F9 system ablation.
+`benchmarks/verify_feature_bank_results.py` checks source SHA-256 hashes, copied values and
+available explicit trial-list intersections. The current audit passes 31 source artifacts,
+2230 result rows and 122 explicit split checks. It does not prove missing fit-state coverage,
+all scientific requirements or live-device performance.

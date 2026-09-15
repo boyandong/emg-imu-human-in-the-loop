@@ -180,9 +180,9 @@
     "bytes": 58
   },
   {
-    "run_id": "feature_bank_force_selection_20260915",
+    "run_id": "feature_bank_force_selection_audited_20260915",
     "artifact": "ablation_full_bank.csv",
-    "sha256": "847bc71167e5a7284e6e49744a723202f8ebc381ee217280ea1f5cd1de88325b",
-    "bytes": 651
+    "sha256": "6ff985157b7588d9ef8945a98987d810d2f31073dcbedfaa94e450fc9b9c74de",
+    "bytes": 23775
   }
 ]
