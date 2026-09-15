@@ -1,0 +1,687 @@
+{
+  "seed": 20260915,
+  "datasets_checked": 6,
+  "sampled_recordings": 36,
+  "condition_captioned_plots_checked": 36,
+  "datasets": [
+    {
+      "id": "libemg_force",
+      "source_report": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\libemg_force_sanity.json",
+      "report_sha256": "f04c742d4c40778c912f325450cf4214d2ad18c70de8a0b7cb427c040124d138",
+      "sample_strategy": "seed 20260915: three random subjects; 20P and 80P; class 1 rep 1",
+      "samples": [
+        {
+          "plot": "libemg_force_S5_20P_C1_R1_raw_envelope_psd.svg",
+          "path": "S5/S5_20P_C1_R1.csv",
+          "samples": 3008,
+          "channels": 8,
+          "duration_seconds": 3.008,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.018955769870302626,
+          "max_saturation_fraction": 0.0003324468085106383
+        },
+        {
+          "plot": "libemg_force_S5_80P_C1_R1_raw_envelope_psd.svg",
+          "path": "S5/S5_80P_C1_R1.csv",
+          "samples": 3008,
+          "channels": 8,
+          "duration_seconds": 3.008,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.02161622879946791,
+          "max_saturation_fraction": 0.0003324468085106383
+        },
+        {
+          "plot": "libemg_force_S7_20P_C1_R1_raw_envelope_psd.svg",
+          "path": "S7/S7_20P_C1_R1.csv",
+          "samples": 3072,
+          "channels": 8,
+          "duration_seconds": 3.072,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.020188863562357537,
+          "max_saturation_fraction": 0.0003255208333333333
+        },
+        {
+          "plot": "libemg_force_S7_80P_C1_R1_raw_envelope_psd.svg",
+          "path": "S7/S7_80P_C1_R1.csv",
+          "samples": 3008,
+          "channels": 8,
+          "duration_seconds": 3.008,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.02194878616561357,
+          "max_saturation_fraction": 0.0003324468085106383
+        },
+        {
+          "plot": "libemg_force_S10_20P_C1_R1_raw_envelope_psd.svg",
+          "path": "S10/S10_20P_C1_R1.csv",
+          "samples": 3008,
+          "channels": 8,
+          "duration_seconds": 3.008,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.011306950448952444,
+          "max_saturation_fraction": 0.0003324468085106383
+        },
+        {
+          "plot": "libemg_force_S10_80P_C1_R1_raw_envelope_psd.svg",
+          "path": "S10/S10_80P_C1_R1.csv",
+          "samples": 3008,
+          "channels": 8,
+          "duration_seconds": 3.008,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.010309278350515464,
+          "max_saturation_fraction": 0.0003324468085106383
+        }
+      ],
+      "plots": [
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\libemg_force_S5_20P_C1_R1_raw_envelope_psd.svg",
+          "sha256": "e7e82bf9a8e432791b60b20116f3417b7196a665af4466f0742f383f15556793",
+          "condition_caption": "S5_20P_C1_R1; 1000 Hz; 3.008 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\libemg_force_S5_80P_C1_R1_raw_envelope_psd.svg",
+          "sha256": "ac7da6e4b0ff7714b67aa3cafb67d033f269b53ad1fc9ee67a3be75627079260",
+          "condition_caption": "S5_80P_C1_R1; 1000 Hz; 3.008 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\libemg_force_S7_20P_C1_R1_raw_envelope_psd.svg",
+          "sha256": "2cdb9eea8726126af99c052c5ab1080b3796acaa6e4d293f984f23e5b602a56e",
+          "condition_caption": "S7_20P_C1_R1; 1000 Hz; 3.072 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\libemg_force_S7_80P_C1_R1_raw_envelope_psd.svg",
+          "sha256": "bd4b0f3d32fa3b1fb00c58dabeb9efee3aa37b48c7f81d66032f7095310d4664",
+          "condition_caption": "S7_80P_C1_R1; 1000 Hz; 3.008 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\libemg_force_S10_20P_C1_R1_raw_envelope_psd.svg",
+          "sha256": "537143ec788239cc917792e5f4d6a8bc3b811866e303d5bf7f129b1141cd752e",
+          "condition_caption": "S10_20P_C1_R1; 1000 Hz; 3.008 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\libemg_force_S10_80P_C1_R1_raw_envelope_psd.svg",
+          "sha256": "6d2d1386219d2e1310ee9eb2341bffd2a6229df985a89ec2897c4bd0c0c3db79",
+          "condition_caption": "S10_80P_C1_R1; 1000 Hz; 3.008 s"
+        }
+      ]
+    },
+    {
+      "id": "epn612",
+      "source_report": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\epn612_sanity.json",
+      "report_sha256": "3fdfe6b3d22020e4e20941266c95dec19a6e8f7b15d8a370abf755ecfa7feca7",
+      "sample_strategy": "seed 20260915: three random trainingJSON users; first fist and open trial",
+      "samples": [
+        {
+          "plot": "epn612_u169_fist_raw_envelope_psd.svg",
+          "member": "EMG-EPN612 Dataset/trainingJSON/user169/user169.json",
+          "trial": "idx_76",
+          "gesture": "fist",
+          "samples": 990,
+          "channels": 8,
+          "duration_seconds": 4.95,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.11627906976744186,
+          "max_saturation_fraction": 0.00202020202020202
+        },
+        {
+          "plot": "epn612_u169_open_raw_envelope_psd.svg",
+          "member": "EMG-EPN612 Dataset/trainingJSON/user169/user169.json",
+          "trial": "idx_126",
+          "gesture": "open",
+          "samples": 998,
+          "channels": 8,
+          "duration_seconds": 4.99,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.1765295887662989,
+          "max_saturation_fraction": 0.002004008016032064
+        },
+        {
+          "plot": "epn612_u227_fist_raw_envelope_psd.svg",
+          "member": "EMG-EPN612 Dataset/trainingJSON/user227/user227.json",
+          "trial": "idx_76",
+          "gesture": "fist",
+          "samples": 992,
+          "channels": 8,
+          "duration_seconds": 4.96,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.2613521695257316,
+          "max_saturation_fraction": 0.0010080645161290322
+        },
+        {
+          "plot": "epn612_u227_open_raw_envelope_psd.svg",
+          "member": "EMG-EPN612 Dataset/trainingJSON/user227/user227.json",
+          "trial": "idx_126",
+          "gesture": "open",
+          "samples": 1004,
+          "channels": 8,
+          "duration_seconds": 5.02,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.259222333000997,
+          "max_saturation_fraction": 0.00199203187250996
+        },
+        {
+          "plot": "epn612_u281_fist_raw_envelope_psd.svg",
+          "member": "EMG-EPN612 Dataset/trainingJSON/user281/user281.json",
+          "trial": "idx_76",
+          "gesture": "fist",
+          "samples": 996,
+          "channels": 8,
+          "duration_seconds": 4.98,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.19095477386934673,
+          "max_saturation_fraction": 0.001004016064257028
+        },
+        {
+          "plot": "epn612_u281_open_raw_envelope_psd.svg",
+          "member": "EMG-EPN612 Dataset/trainingJSON/user281/user281.json",
+          "trial": "idx_126",
+          "gesture": "open",
+          "samples": 996,
+          "channels": 8,
+          "duration_seconds": 4.98,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.2150753768844221,
+          "max_saturation_fraction": 0.0050200803212851405
+        }
+      ],
+      "plots": [
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\epn612_u169_fist_raw_envelope_psd.svg",
+          "sha256": "54aee1861a0156e8216a4ffade9e3941c35dfce53361b3eb45abcf5227be455d",
+          "condition_caption": "User 169; trainingJSON; gesture fist; trial idx_76; 4.95 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\epn612_u169_open_raw_envelope_psd.svg",
+          "sha256": "bdf611f8bad4bc80671ac44693f7bb82ca6cb9feed423511af0078848e6cffaf",
+          "condition_caption": "User 169; trainingJSON; gesture open; trial idx_126; 4.99 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\epn612_u227_fist_raw_envelope_psd.svg",
+          "sha256": "7ea130bf13ff1eae458369aca8b12aededc73e02e6a9ae7fd48eb08c03d5e79c",
+          "condition_caption": "User 227; trainingJSON; gesture fist; trial idx_76; 4.96 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\epn612_u227_open_raw_envelope_psd.svg",
+          "sha256": "4eeaf6122202e073f097b8f4cbb1f45a6b10a4a188cbf9b52909f49fe7e694f0",
+          "condition_caption": "User 227; trainingJSON; gesture open; trial idx_126; 5.02 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\epn612_u281_fist_raw_envelope_psd.svg",
+          "sha256": "72ef39b1261e9f5644149e73baa4d23bfbb68eb2b98a78cf90db37d969437c74",
+          "condition_caption": "User 281; trainingJSON; gesture fist; trial idx_76; 4.98 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\epn612_u281_open_raw_envelope_psd.svg",
+          "sha256": "6d670ad4057b2fdee98430362c7a7ae6027538ad405ff08ee74aadcf8dd85e06",
+          "condition_caption": "User 281; trainingJSON; gesture open; trial idx_126; 4.98 s"
+        }
+      ]
+    },
+    {
+      "id": "semg_manus",
+      "source_report": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\semg_manus_sanity.json",
+      "report_sha256": "d470e1de60790be541bb0e33e8ad684f1165adc17a600fb6822829aad3200dec",
+      "sample_strategy": "seed 20260915: three random core users; session 1; fist slow/fast",
+      "samples": [
+        {
+          "member": "data/u_10/s_1/g_flexext_fist/recording_slow_18_04_2024_13_51_31.csv",
+          "samples": 2012,
+          "channels": 8,
+          "duration_seconds": 10.06,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.08204873197414221,
+          "max_saturation_fraction": 0.0004970178926441351,
+          "plot": "semg_manus_u10_slow_raw_envelope_psd.svg"
+        },
+        {
+          "member": "data/u_10/s_1/g_flexext_fist/recording_fast_18_04_2024_13_52_23.csv",
+          "samples": 2012,
+          "channels": 8,
+          "duration_seconds": 10.06,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.05818000994530084,
+          "max_saturation_fraction": 0.0009940357852882703,
+          "plot": "semg_manus_u10_fast_raw_envelope_psd.svg"
+        },
+        {
+          "member": "data/u_13/s_1/g_flexext_fist/recording_slow_15_05_2024_14_59_16.csv",
+          "samples": 2016,
+          "channels": 8,
+          "duration_seconds": 10.08,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.09478908188585608,
+          "max_saturation_fraction": 0.000496031746031746,
+          "plot": "semg_manus_u13_slow_raw_envelope_psd.svg"
+        },
+        {
+          "member": "data/u_13/s_1/g_flexext_fist/recording_fast_15_05_2024_14_59_58.csv",
+          "samples": 2016,
+          "channels": 8,
+          "duration_seconds": 10.08,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.07890818858560794,
+          "max_saturation_fraction": 0.001984126984126984,
+          "plot": "semg_manus_u13_fast_raw_envelope_psd.svg"
+        },
+        {
+          "member": "data/u_16/s_1/g_flexext_fist/recording_slow_26_06_2024_17_12_00.csv",
+          "samples": 2016,
+          "channels": 8,
+          "duration_seconds": 10.08,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.12009925558312655,
+          "max_saturation_fraction": 0.00248015873015873,
+          "plot": "semg_manus_u16_slow_raw_envelope_psd.svg"
+        },
+        {
+          "member": "data/u_16/s_1/g_flexext_fist/recording_fast_26_06_2024_17_12_47.csv",
+          "samples": 2016,
+          "channels": 8,
+          "duration_seconds": 10.08,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.09181141439205956,
+          "max_saturation_fraction": 0.003472222222222222,
+          "plot": "semg_manus_u16_fast_raw_envelope_psd.svg"
+        }
+      ],
+      "plots": [
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\semg_manus_u10_slow_raw_envelope_psd.svg",
+          "sha256": "4708ec5ee8ad1a3bfa4d4e64623f856a2db3ad1abad5904369e29803056675b6",
+          "condition_caption": "User 10; session 1; fist flexion-extension; speed slow; 10.06 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\semg_manus_u10_fast_raw_envelope_psd.svg",
+          "sha256": "a35f3250539d35fc3c5f7a6f165886538cec85dec8d0f650a8cf081fea89a8ae",
+          "condition_caption": "User 10; session 1; fist flexion-extension; speed fast; 10.06 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\semg_manus_u13_slow_raw_envelope_psd.svg",
+          "sha256": "5ac062721104204c3316105ef6d5ba2afb60337deaf488580b12cdf01c03894f",
+          "condition_caption": "User 13; session 1; fist flexion-extension; speed slow; 10.08 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\semg_manus_u13_fast_raw_envelope_psd.svg",
+          "sha256": "84507eab414f1d1be7da68807a04f139ac9a062645c95c3adcc1dbb49e881136",
+          "condition_caption": "User 13; session 1; fist flexion-extension; speed fast; 10.08 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\semg_manus_u16_slow_raw_envelope_psd.svg",
+          "sha256": "8977a9498fba8281fc180528a5544727daac13f7983132df6ba7b659dc42ac37",
+          "condition_caption": "User 16; session 1; fist flexion-extension; speed slow; 10.08 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\semg_manus_u16_fast_raw_envelope_psd.svg",
+          "sha256": "9001ee56aae557e1ac78098d9475c851d27d32ebd03f4d4c8251a8abdd8f095e",
+          "condition_caption": "User 16; session 1; fist flexion-extension; speed fast; 10.08 s"
+        }
+      ]
+    },
+    {
+      "id": "electrode_shift",
+      "source_report": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\electrode_shift_sanity.json",
+      "report_sha256": "5666e1899980b4da299475c9759bdfe3f4eb9f040660f8cb55eea301124716a3",
+      "sample_strategy": "seed 20260915: three random subjects; before/after trial_1; close rep 0",
+      "samples": [
+        {
+          "member": "CIILData-main/ElectrodeShift/subject10/training/R_0_C_0.csv",
+          "samples": 620,
+          "channels": 8,
+          "duration_seconds": 3.1,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.0420032310177706,
+          "max_saturation_fraction": 0.0032258064516129032,
+          "plot": "electrode_shift_s10_training_raw_envelope_psd.svg"
+        },
+        {
+          "member": "CIILData-main/ElectrodeShift/subject10/trial_1/R_0_C_0.csv",
+          "samples": 626,
+          "channels": 8,
+          "duration_seconds": 3.13,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.0256,
+          "max_saturation_fraction": 0.003194888178913738,
+          "plot": "electrode_shift_s10_trial_1_raw_envelope_psd.svg"
+        },
+        {
+          "member": "CIILData-main/ElectrodeShift/subject14/training/R_0_C_0.csv",
+          "samples": 606,
+          "channels": 8,
+          "duration_seconds": 3.03,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.03305785123966942,
+          "max_saturation_fraction": 0.0016501650165016502,
+          "plot": "electrode_shift_s14_training_raw_envelope_psd.svg"
+        },
+        {
+          "member": "CIILData-main/ElectrodeShift/subject14/trial_1/R_0_C_0.csv",
+          "samples": 604,
+          "channels": 8,
+          "duration_seconds": 3.02,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.024875621890547265,
+          "max_saturation_fraction": 0.011589403973509934,
+          "plot": "electrode_shift_s14_trial_1_raw_envelope_psd.svg"
+        },
+        {
+          "member": "CIILData-main/ElectrodeShift/subject19/training/R_0_C_0.csv",
+          "samples": 602,
+          "channels": 8,
+          "duration_seconds": 3.01,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.04492512479201331,
+          "max_saturation_fraction": 0.0016611295681063123,
+          "plot": "electrode_shift_s19_training_raw_envelope_psd.svg"
+        },
+        {
+          "member": "CIILData-main/ElectrodeShift/subject19/trial_1/R_0_C_0.csv",
+          "samples": 604,
+          "channels": 8,
+          "duration_seconds": 3.02,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.08291873963515754,
+          "max_saturation_fraction": 0.0016556291390728477,
+          "plot": "electrode_shift_s19_trial_1_raw_envelope_psd.svg"
+        }
+      ],
+      "plots": [
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\electrode_shift_s10_training_raw_envelope_psd.svg",
+          "sha256": "d85014e79ab33735a1df10a7e42c95788105537dcfabe4c2d21e08b1aa87688f",
+          "condition_caption": "Subject 10; domain training; class 0; repetition 0; 3.1 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\electrode_shift_s10_trial_1_raw_envelope_psd.svg",
+          "sha256": "717608b0b140104d4bc4d42c4c0acdf4d59c455b4a3bbf05dc3009de3d37f0e4",
+          "condition_caption": "Subject 10; domain trial_1; class 0; repetition 0; 3.13 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\electrode_shift_s14_training_raw_envelope_psd.svg",
+          "sha256": "f3e24bf4af3e0994c1166f732ec3763939742f9c84eec349f4f7488ecf32c1fc",
+          "condition_caption": "Subject 14; domain training; class 0; repetition 0; 3.03 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\electrode_shift_s14_trial_1_raw_envelope_psd.svg",
+          "sha256": "0da823e4bbcd7394e8b38ba6de18379a0202b9d49d9c58bcbcfdef070d97703a",
+          "condition_caption": "Subject 14; domain trial_1; class 0; repetition 0; 3.02 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\electrode_shift_s19_training_raw_envelope_psd.svg",
+          "sha256": "fe8f0187d9d39b94a6f04083d39014ba398c43190c468278343a0410fee5e3b3",
+          "condition_caption": "Subject 19; domain training; class 0; repetition 0; 3.01 s"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\electrode_shift_s19_trial_1_raw_envelope_psd.svg",
+          "sha256": "e0b4a59ed1eec9c81e8c7841c26a7d0f9c7d24bd71f0398ea89ca01957eba325",
+          "condition_caption": "Subject 19; domain trial_1; class 0; repetition 0; 3.02 s"
+        }
+      ]
+    },
+    {
+      "id": "unibo_inail",
+      "source_report": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\unibo_inail_sanity.json",
+      "report_sha256": "e1bcbaf159d36bc1cc9999175f410a748ecb8aab731a2c4a630d1cc0e5cf7735",
+      "sample_strategy": "seed 20260915: three random subjects, two prespecified conditions",
+      "samples": [
+        {
+          "member": "D:\\emg-imu-benchmarks\\data\\raw\\unibo_inail\\official\\unibo-inail-semg-dataset-main\\data\\user_3_day_1_posture_1.mat",
+          "samples": 190008,
+          "channels": 4,
+          "duration_seconds": 380.016,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 2.105185598425321e-05,
+          "max_saturation_fraction": 5.262936297419056e-06,
+          "labels": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "plot": "unibo_s3_p1_raw_envelope_psd.svg"
+        },
+        {
+          "member": "D:\\emg-imu-benchmarks\\data\\raw\\unibo_inail\\official\\unibo-inail-semg-dataset-main\\data\\user_3_day_1_posture_2.mat",
+          "samples": 205424,
+          "channels": 4,
+          "duration_seconds": 410.848,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 3.4076028487559815e-05,
+          "max_saturation_fraction": 4.867980372303139e-06,
+          "labels": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "plot": "unibo_s3_p2_raw_envelope_psd.svg"
+        },
+        {
+          "member": "D:\\emg-imu-benchmarks\\data\\raw\\unibo_inail\\official\\unibo-inail-semg-dataset-main\\data\\user_5_day_1_posture_1.mat",
+          "samples": 159549,
+          "channels": 4,
+          "duration_seconds": 319.098,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 1.8803118810640057e-05,
+          "max_saturation_fraction": 6.267666986317683e-06,
+          "labels": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "plot": "unibo_s5_p1_raw_envelope_psd.svg"
+        },
+        {
+          "member": "D:\\emg-imu-benchmarks\\data\\raw\\unibo_inail\\official\\unibo-inail-semg-dataset-main\\data\\user_5_day_1_posture_2.mat",
+          "samples": 138885,
+          "channels": 4,
+          "duration_seconds": 277.77,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 2.1600760346764205e-05,
+          "max_saturation_fraction": 7.200201605644958e-06,
+          "labels": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "plot": "unibo_s5_p2_raw_envelope_psd.svg"
+        },
+        {
+          "member": "D:\\emg-imu-benchmarks\\data\\raw\\unibo_inail\\official\\unibo-inail-semg-dataset-main\\data\\user_7_day_1_posture_1.mat",
+          "samples": 154516,
+          "channels": 4,
+          "duration_seconds": 309.032,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 2.5887454292463516e-05,
+          "max_saturation_fraction": 6.471821688368842e-06,
+          "labels": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "plot": "unibo_s7_p1_raw_envelope_psd.svg"
+        },
+        {
+          "member": "D:\\emg-imu-benchmarks\\data\\raw\\unibo_inail\\official\\unibo-inail-semg-dataset-main\\data\\user_7_day_1_posture_2.mat",
+          "samples": 160520,
+          "channels": 4,
+          "duration_seconds": 321.04,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 3.737875267102337e-05,
+          "max_saturation_fraction": 6.22975330176925e-06,
+          "labels": [
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0
+          ],
+          "plot": "unibo_s7_p2_raw_envelope_psd.svg"
+        }
+      ],
+      "plots": [
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\unibo_s3_p1_raw_envelope_psd.svg",
+          "sha256": "910618e3f55b697fdcab5e930869b877d28e95fd484e682027e8dbd136440bd3",
+          "condition_caption": "UniBo subject 3; day 1; posture 1; first 5 s; native 4 channels"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\unibo_s3_p2_raw_envelope_psd.svg",
+          "sha256": "b5765380f374ec72d1de63206d882ab1104d1fec85a6789a5559061ed690e36e",
+          "condition_caption": "UniBo subject 3; day 1; posture 2; first 5 s; native 4 channels"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\unibo_s5_p1_raw_envelope_psd.svg",
+          "sha256": "01ef3234e0aaffd1e0661c45c493df158c2ec759816b27dfb1e85c106e6a189c",
+          "condition_caption": "UniBo subject 5; day 1; posture 1; first 5 s; native 4 channels"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\unibo_s5_p2_raw_envelope_psd.svg",
+          "sha256": "abbe91785b0d9160c6d7e3974439c164c56b059e42dac8aac6d78b937be871cf",
+          "condition_caption": "UniBo subject 5; day 1; posture 2; first 5 s; native 4 channels"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\unibo_s7_p1_raw_envelope_psd.svg",
+          "sha256": "1490f61311d505fd1b04d6c5d075570abe418369a2e1d6340e8eba8560d240f5",
+          "condition_caption": "UniBo subject 7; day 1; posture 1; first 5 s; native 4 channels"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\unibo_s7_p2_raw_envelope_psd.svg",
+          "sha256": "9314ea967ac6ec6b3b7736349c266a73c34f60acb0b18db6ed503392e6d8015e",
+          "condition_caption": "UniBo subject 7; day 1; posture 2; first 5 s; native 4 channels"
+        }
+      ]
+    },
+    {
+      "id": "emg_fmg",
+      "source_report": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\emg_fmg_sanity.json",
+      "report_sha256": "e8e6168612a706a8128e0c2f14b3c76d4f0952fde168f36ac7dcea141d00ed58",
+      "sample_strategy": "seed 20260915: three random subjects, two prespecified conditions",
+      "samples": [
+        {
+          "member": "Data/Par 14/Power/0/Power 0 1.csv",
+          "samples": 36000,
+          "channels": 8,
+          "duration_seconds": 18.0,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.058390510847523544,
+          "max_saturation_fraction": 2.777777777777778e-05,
+          "load_g": 0,
+          "position": 1,
+          "plot": "emg_fmg_s14_load0_raw_envelope_psd.svg"
+        },
+        {
+          "member": "Data/Par 14/Power/1000/Power 1000 1.csv",
+          "samples": 36000,
+          "channels": 8,
+          "duration_seconds": 18.0,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.048445790160837804,
+          "max_saturation_fraction": 2.777777777777778e-05,
+          "load_g": 1000,
+          "position": 1,
+          "plot": "emg_fmg_s14_load1000_raw_envelope_psd.svg"
+        },
+        {
+          "member": "Data/Par 20/Power/0/Power 0 1.csv",
+          "samples": 36000,
+          "channels": 8,
+          "duration_seconds": 18.0,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.046584627350759744,
+          "max_saturation_fraction": 2.777777777777778e-05,
+          "load_g": 0,
+          "position": 1,
+          "plot": "emg_fmg_s20_load0_raw_envelope_psd.svg"
+        },
+        {
+          "member": "Data/Par 20/Power/1000/Power 1000 1.csv",
+          "samples": 36000,
+          "channels": 8,
+          "duration_seconds": 18.0,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.03902886191283091,
+          "max_saturation_fraction": 2.777777777777778e-05,
+          "load_g": 1000,
+          "position": 1,
+          "plot": "emg_fmg_s20_load1000_raw_envelope_psd.svg"
+        },
+        {
+          "member": "Data/Par 25/Power/0/Power 0 1.csv",
+          "samples": 36000,
+          "channels": 8,
+          "duration_seconds": 18.0,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.05027917442151171,
+          "max_saturation_fraction": 5.555555555555556e-05,
+          "load_g": 0,
+          "position": 1,
+          "plot": "emg_fmg_s25_load0_raw_envelope_psd.svg"
+        },
+        {
+          "member": "Data/Par 25/Power/1000/Power 1000 1.csv",
+          "samples": 36000,
+          "channels": 8,
+          "duration_seconds": 18.0,
+          "nan_or_inf_fraction": 0.0,
+          "max_flatline_fraction": 0.04130670296397122,
+          "max_saturation_fraction": 5.555555555555556e-05,
+          "load_g": 1000,
+          "position": 1,
+          "plot": "emg_fmg_s25_load1000_raw_envelope_psd.svg"
+        }
+      ],
+      "plots": [
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\emg_fmg_s14_load0_raw_envelope_psd.svg",
+          "sha256": "331f66d987f39a9160604123159c0a106bae151617de37c2f4f37b68da015927",
+          "condition_caption": "EMG-FMG subject 14; Power; load 0 g; position 1; first 5 s; EMG channels 9-16"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\emg_fmg_s14_load1000_raw_envelope_psd.svg",
+          "sha256": "a0ad068a30757d6615e07f74bb5c1d79299632739aac8600307ed83982a5bfdf",
+          "condition_caption": "EMG-FMG subject 14; Power; load 1000 g; position 1; first 5 s; EMG channels 9-16"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\emg_fmg_s20_load0_raw_envelope_psd.svg",
+          "sha256": "e1d4af59ddd12c31371becec44747415dd699a1af81fe05590519a36ba6151df",
+          "condition_caption": "EMG-FMG subject 20; Power; load 0 g; position 1; first 5 s; EMG channels 9-16"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\emg_fmg_s20_load1000_raw_envelope_psd.svg",
+          "sha256": "3046b2b97cbcbdb78792b4be61dd318d4c2ffb157993c4c87cc9081193fae455",
+          "condition_caption": "EMG-FMG subject 20; Power; load 1000 g; position 1; first 5 s; EMG channels 9-16"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\emg_fmg_s25_load0_raw_envelope_psd.svg",
+          "sha256": "fb684cf28da772b56857acca3bb0d83c8b5c0a8942af363da1432feae621c92b",
+          "condition_caption": "EMG-FMG subject 25; Power; load 0 g; position 1; first 5 s; EMG channels 9-16"
+        },
+        {
+          "file": "D:\\emg-imu-benchmarks\\data\\manifests\\sanity\\emg_fmg_s25_load1000_raw_envelope_psd.svg",
+          "sha256": "d9ac5c90ea12d4813ce8e3ba2879ed6e9bef21075df264f5cf81238817c172fa",
+          "condition_caption": "EMG-FMG subject 25; Power; load 1000 g; position 1; first 5 s; EMG channels 9-16"
+        }
+      ]
+    }
+  ],
+  "scope": "three random subjects and two prespecified conditions per dataset; not a full-population QC audit",
+  "limitations": [
+    "rate comes from verified acquisition metadata, not an independent hardware clock measurement",
+    "near observed extrema is a heuristic, not confirmed ADC clipping",
+    "first-channel plots do not visually inspect every channel",
+    "UniBo source files contain labelled intervals; one file is not one isolated gesture trial"
+  ]
+}

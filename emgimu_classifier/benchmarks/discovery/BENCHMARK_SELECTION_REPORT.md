@@ -63,3 +63,21 @@ missing historical experiment artifacts. Public force data is supplementary evid
 is not silently substituted as historical DS2. Secondary downloads remain deferred rather
 than represented as complete. A 14-byte failed UniBo master-branch download is ignored;
 the verified main-branch archive is the only source used.
+
+## Reproducible sanity sample audit
+
+`SANITY_AUDIT.json` now records six datasets, each with three subjects randomly selected
+without replacement using seed 20260915 and two prespecified conditions. All 36 sampled
+recordings are readable, have the expected native EMG channel count and zero measured
+NaN/Inf fraction. Each has a raw/envelope/periodogram SVG with its actual subject and
+condition caption. The audit includes source-report and plot SHA-256 hashes; plots stay
+outside Git beside the raw-data manifests. Historical unreferenced plots remain on disk;
+the audit identifies exactly which 36 plots belong to the current sample.
+
+The highest adjacent-equal-sample fraction is 0.2614 in sampled EPN data; Myo quantization
+can cause repeated values, so this is not automatically a dead channel. The largest
+near-observed-extrema fraction is 0.01159 in the wearing data; it does not prove hardware
+clipping. These heuristics are retained for inspection rather than silently labelled clean.
+Acquisition rate comes from verified dataset metadata, not a new hardware clock test.
+UniBo source files contain many labelled intervals; its five-second plot is not an isolated
+gesture trial. This is sample-level QC, not a full-population quality or accuracy guarantee.

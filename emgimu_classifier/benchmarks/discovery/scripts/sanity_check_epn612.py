@@ -6,6 +6,7 @@ from pathlib import Path
 import zipfile
 
 import numpy as np
+from sanity_check_tier1_archives import plot as condition_plot
 
 
 def _emg(sample: dict) -> np.ndarray:
@@ -46,7 +47,7 @@ def main() -> None:
         json_count = sum(name.endswith(".json") for name in names)
         if json_count != 612:
             raise ValueError(f"expected 612 user JSON files, found {json_count}")
-        for user in (1, 153, 306):
+        for user in sorted(np.random.default_rng(20260915).choice(np.arange(1,307),3,replace=False)):
             member = f"EMG-EPN612 Dataset/trainingJSON/user{user}/user{user}.json"
             payload = json.loads(handle.read(member))
             for gesture in ("fist", "open"):
@@ -55,7 +56,10 @@ def main() -> None:
                 first = values if first is None else first
                 delta = np.diff(values, axis=0)
                 scale = np.max(np.abs(values), axis=0)
+                svg = args.output/f'epn612_u{user}_{gesture}_raw_envelope_psd.svg'
+                condition_plot(svg, values, 200, f'User {user}; trainingJSON; gesture {gesture}; trial {sample_id}; {len(values)/200:g} s')
                 results.append({
+                    "plot": svg.name,
                     "member": member, "trial": sample_id, "gesture": gesture, "samples": len(values), "channels": values.shape[1],
                     "duration_seconds": len(values) / 200.0, "nan_or_inf_fraction": float(1.0 - np.isfinite(values).mean()),
                     "max_flatline_fraction": float(np.mean(np.abs(delta) <= np.finfo(float).eps, axis=0).max()),
@@ -64,7 +68,7 @@ def main() -> None:
     plot = args.output / "epn612_raw_envelope_psd.svg"
     _write_svg(plot, first)
     report = {"dataset": "EMG-EPN612", "status": "ok", "sampling_rate_hz": 200, "users": 612,
-              "sample_strategy": "trainingJSON users 1, 153, 306; first fist and open trial", "samples": results, "plot": str(plot)}
+              "sample_strategy": "seed 20260915: three random trainingJSON users; first fist and open trial", "samples": results, "plot": str(plot)}
     (args.output / "epn612_sanity.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     print(json.dumps({"status": "ok", "json_files": 612, "samples_checked": len(results)}))
 

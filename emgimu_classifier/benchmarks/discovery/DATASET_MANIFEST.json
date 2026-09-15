@@ -127,5 +127,6 @@
       "uncompressed_size": 142600000000,
       "license": "ODC-BY-1.0"
     }
-  ]
+  ],
+  "sanity_audit": "SANITY_AUDIT.json"
 }

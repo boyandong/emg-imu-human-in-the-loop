@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 
 import numpy as np
+from sanity_check_tier1_archives import plot as condition_plot
 
 
 FILE_RE = re.compile(
@@ -32,7 +33,7 @@ def load_csv(path: Path) -> np.ndarray:
 
 def choose_samples(root: Path) -> list[Path]:
     candidates = []
-    for subject in (1, 5, 10):
+    for subject in sorted(np.random.default_rng(20260915).choice(np.arange(1,11),3,replace=False)):
         folder = root / f"S{subject}"
         for condition in ("20P", "80P"):
             match = folder / f"S{subject}_{condition}_C1_R1.csv"
@@ -85,8 +86,11 @@ def main() -> None:
         flatline = np.mean(np.abs(differences) <= np.finfo(float).eps, axis=0)
         scale = np.max(np.abs(values), axis=0)
         saturation = np.mean(np.abs(values) >= (scale * 0.999999), axis=0)
+        svg = args.output/f'libemg_force_{path.stem}_raw_envelope_psd.svg'
+        condition_plot(svg, values, 1000, f'{path.stem}; 1000 Hz; {len(values)/1000:g} s')
         sampled.append(
             {
+                "plot": svg.name,
                 "path": path.relative_to(args.root).as_posix(),
                 "samples": int(values.shape[0]),
                 "channels": 8,
@@ -114,7 +118,7 @@ def main() -> None:
         "sampling_rate_hz": 1000,
         "subjects": 10,
         "csv_files": len(files),
-        "sample_strategy": "subjects 1, 5, 10; 20P and 80P; class 1 rep 1",
+        "sample_strategy": "seed 20260915: three random subjects; 20P and 80P; class 1 rep 1",
         "samples": sampled,
         "plot": str(plot_path),
     }

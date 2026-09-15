@@ -11,7 +11,7 @@ from sanity_check_tier1_archives import qc, plot
 def run(unibo: Path, fmg: Path, output: Path) -> None:
     output.mkdir(parents=True,exist_ok=True)
     reports={'unibo_inail':[], 'emg_fmg':[]}
-    for subject in (1,4,7):
+    for subject in sorted(np.random.default_rng(20260915).choice(np.arange(1,8),3,replace=False)):
         for posture in (1,2):
             path=unibo/f'user_{subject}_day_1_posture_{posture}.mat'
             data=loadmat(path);values=data['emg']
@@ -20,10 +20,10 @@ def run(unibo: Path, fmg: Path, output: Path) -> None:
             labels=data['label'].reshape(-1)
             if len(labels)!=len(values):raise ValueError('label alignment')
             svg=output/f'unibo_s{subject}_p{posture}_raw_envelope_psd.svg'
-            plot(svg,values[:2500],500)
+            plot(svg,values[:2500],500,f'UniBo subject {subject}; day 1; posture {posture}; first 5 s; native 4 channels')
             reports['unibo_inail'].append({**qc(values,str(path),500),'labels':np.unique(labels).tolist(),'plot':svg.name})
     with zipfile.ZipFile(fmg) as archive:
-        for subject in (1,14,27):
+        for subject in sorted(np.random.default_rng(20260915).choice(np.arange(1,28),3,replace=False)):
             for load in (0,1000):
                 member=f'Data/Par {subject}/Power/{load}/Power {load} 1.csv'
                 # Case and spacing are preserved in the archive.
@@ -33,11 +33,12 @@ def run(unibo: Path, fmg: Path, output: Path) -> None:
                 values=np.loadtxt(BytesIO(archive.read(member)),delimiter=',',skiprows=1,usecols=range(8,16))
                 if values.shape!=(36000,8) or not np.all(np.isfinite(values)):raise ValueError(member)
                 svg=output/f'emg_fmg_s{subject}_load{load}_raw_envelope_psd.svg'
-                plot(svg,values[:10000],2000)
+                plot(svg,values[:10000],2000,f'EMG-FMG subject {subject}; Power; load {load} g; position 1; first 5 s; EMG channels 9-16')
                 reports['emg_fmg'].append({**qc(values,member,2000),'load_g':load,'position':1,'plot':svg.name})
     for dataset,samples in reports.items():
         (output/f'{dataset}_sanity.json').write_text(json.dumps({'dataset':dataset,'status':'ok',
             'samples':samples,'plot_unit':'first five seconds, channel 1; full trial QC',
+            'sample_strategy':'seed 20260915: three random subjects, two prespecified conditions',
             'saturation_definition':'fraction near observed extrema; not hardware clipping diagnosis'},indent=2),encoding='utf-8')
     print(json.dumps({'status':'ok','trials_checked':12,'plots':12}))
 
