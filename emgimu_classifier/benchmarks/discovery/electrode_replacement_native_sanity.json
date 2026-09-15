@@ -1,0 +1,193 @@
+{
+  "status": "sampled_native_sanity_missing_fields_not_trial_annotated",
+  "source": "https://zenodo.org/records/4039550",
+  "archive_sha256": "d30a1096ed2522b32bfafcfcb2d9cdf5ccf28e1e21a41dda77824317a8c1b1ff",
+  "native_recordings": 267,
+  "missing_recordings": [
+    "ID7_EX_P1",
+    "ID7_EX_P2",
+    "ID7_EX_P3"
+  ],
+  "seed": 20260915,
+  "subject_population": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "selected_subjects": [
+    5,
+    7,
+    10
+  ],
+  "conditions": [
+    "P1",
+    "P3"
+  ],
+  "samples": [
+    {
+      "member": "EMG dataset/ID5/ID5_PS_P1.txt",
+      "samples": 5000,
+      "channels": 8,
+      "duration_seconds": 5.0,
+      "nan_or_inf_fraction": 0.0,
+      "max_flatline_fraction": 0.015603120624124825,
+      "max_saturation_fraction": 0.0002,
+      "subject": 5,
+      "full_recording_rows": 99125,
+      "full_recording_accepted": false,
+      "missing_field_rows": [
+        {
+          "line": 8279,
+          "observed_numeric_fields": 7
+        },
+        {
+          "line": 12710,
+          "observed_numeric_fields": 7
+        },
+        {
+          "line": 36304,
+          "observed_numeric_fields": 7
+        },
+        {
+          "line": 41063,
+          "observed_numeric_fields": 7
+        },
+        {
+          "line": 65032,
+          "observed_numeric_fields": 5
+        }
+      ],
+      "qc_scope": "intact_prefix_only",
+      "recording_intent": "PS",
+      "position": "P1",
+      "raw_sha256": "0974077abd47e60eba190c077b63138f40eb2a76f4837e734e470e9da7604ad3",
+      "plot_sha256": "5b2e6b087d4e6b135bb0081b18037fec4769ca6623ec64b3d21e3f5c5286d4f0",
+      "plot": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\secondary_raw\\electrode_replacement\\plots\\ID5_PS_P1.svg",
+      "interval_labels": null,
+      "repetition_boundaries": null
+    },
+    {
+      "member": "EMG dataset/ID5/ID5_PS_P3.txt",
+      "samples": 5000,
+      "channels": 8,
+      "duration_seconds": 5.0,
+      "nan_or_inf_fraction": 0.0,
+      "max_flatline_fraction": 0.01840368073614723,
+      "max_saturation_fraction": 0.0002,
+      "subject": 5,
+      "full_recording_rows": 90147,
+      "full_recording_accepted": false,
+      "missing_field_rows": [
+        {
+          "line": 24017,
+          "observed_numeric_fields": 7
+        }
+      ],
+      "qc_scope": "intact_prefix_only",
+      "recording_intent": "PS",
+      "position": "P3",
+      "raw_sha256": "810de77c13ad442a35b07550532f2faed2db898032b45eacbab9cf6c0da0dfbb",
+      "plot_sha256": "3676dad0deb499d60549d7cd2bfe45aaa3048741aa2da6c441ba6d6cae920002",
+      "plot": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\secondary_raw\\electrode_replacement\\plots\\ID5_PS_P3.svg",
+      "interval_labels": null,
+      "repetition_boundaries": null
+    },
+    {
+      "member": "EMG dataset/ID7/ID7_PS_P1.txt",
+      "samples": 90190,
+      "channels": 8,
+      "duration_seconds": 90.19,
+      "nan_or_inf_fraction": 0.0,
+      "max_flatline_fraction": 0.014314384237545599,
+      "max_saturation_fraction": 1.108770373655616e-05,
+      "subject": 7,
+      "full_recording_rows": 90190,
+      "full_recording_accepted": true,
+      "missing_field_rows": [],
+      "qc_scope": "full_recording",
+      "recording_intent": "PS",
+      "position": "P1",
+      "raw_sha256": "5b2a2d67af0f1b9407b38031d0d88092af1ba129ceec2cd77d6f7bc62273f235",
+      "plot_sha256": "f784b916c12d2e1f0cba865eefd89e98509c431a14859cc2fde20360692236e3",
+      "plot": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\secondary_raw\\electrode_replacement\\plots\\ID7_PS_P1.svg",
+      "interval_labels": null,
+      "repetition_boundaries": null
+    },
+    {
+      "member": "EMG dataset/ID7/ID7_PS_P3.txt",
+      "samples": 89448,
+      "channels": 8,
+      "duration_seconds": 89.448,
+      "nan_or_inf_fraction": 0.0,
+      "max_flatline_fraction": 0.01572998535445571,
+      "max_saturation_fraction": 1.1179679813970127e-05,
+      "subject": 7,
+      "full_recording_rows": 89448,
+      "full_recording_accepted": true,
+      "missing_field_rows": [],
+      "qc_scope": "full_recording",
+      "recording_intent": "PS",
+      "position": "P3",
+      "raw_sha256": "95a78a0413dd228e4720d8257e7129be61be2e1a99ffe3995b4bbeb58b23d442",
+      "plot_sha256": "0ccaf07754b0b4661d62bad6bf9f94f7d007879c2df99d653becbcb102b905db",
+      "plot": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\secondary_raw\\electrode_replacement\\plots\\ID7_PS_P3.svg",
+      "interval_labels": null,
+      "repetition_boundaries": null
+    },
+    {
+      "member": "EMG dataset/ID10/ID10_PS_P1.txt",
+      "samples": 90385,
+      "channels": 8,
+      "duration_seconds": 90.385,
+      "nan_or_inf_fraction": 0.0,
+      "max_flatline_fraction": 0.010787307488050983,
+      "max_saturation_fraction": 1.1063782707307629e-05,
+      "subject": 10,
+      "full_recording_rows": 90385,
+      "full_recording_accepted": true,
+      "missing_field_rows": [],
+      "qc_scope": "full_recording",
+      "recording_intent": "PS",
+      "position": "P1",
+      "raw_sha256": "b7f8c5f000a626ecfe73c4a1c461e4611eb72ad439683d62a0c6eb6ee11334a4",
+      "plot_sha256": "dcd59ec8a3220026eeccbf320b9806091dc1873d6cc5f30f37af3c5453ce25d0",
+      "plot": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\secondary_raw\\electrode_replacement\\plots\\ID10_PS_P1.svg",
+      "interval_labels": null,
+      "repetition_boundaries": null
+    },
+    {
+      "member": "EMG dataset/ID10/ID10_PS_P3.txt",
+      "samples": 90283,
+      "channels": 8,
+      "duration_seconds": 90.283,
+      "nan_or_inf_fraction": 0.0,
+      "max_flatline_fraction": 0.012051128685673778,
+      "max_saturation_fraction": 1.1076282356589834e-05,
+      "subject": 10,
+      "full_recording_rows": 90283,
+      "full_recording_accepted": true,
+      "missing_field_rows": [],
+      "qc_scope": "full_recording",
+      "recording_intent": "PS",
+      "position": "P3",
+      "raw_sha256": "ae27ad5bb362e4868963c08c8eb93b2f1be2b605d4f3f7d7d7b1c71ca5534299",
+      "plot_sha256": "7640295b22315a007051bb7764f34aa9039caf587ac911286f202101980de5c0",
+      "plot": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\secondary_raw\\electrode_replacement\\plots\\ID10_PS_P3.svg",
+      "interval_labels": null,
+      "repetition_boundaries": null
+    }
+  ],
+  "limitations": [
+    "No native interval labels or repetition boundaries recovered",
+    "No few-shot repetition counts inferred",
+    "Observed-extrema fraction is not a calibrated ADC saturation rate",
+    "Eight raw EMG channels; no IMU or common four-class mapping established"
+  ]
+}
