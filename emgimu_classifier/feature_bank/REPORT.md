@@ -676,3 +676,43 @@ the native six finger flexion-extension classes, not wearable pinch/fist/open ac
 Current integrity checks 92 source artifacts, 13032 copied rows and 363 explicit
 partitions; all 106 tests pass with one skip. Full-bank wearing, day/posture, load/position
 and real-quality failure-system coverage still requires work; DS2 remains unresolved.
+
+## Full wearing-bank fusion with before-wearing OOF calibration
+
+`feature_bank_wearing_full_fusion_{validation,final}_20260915` evaluates the fixed nine
+non-IMU providers, including trace covariance, CSP and SPD alternatives, on the native
+five-class task. Validation subjects are 15–17, final 18–20. Each subject's classifiers
+fit only 25 before-wearing trials. Five repetition-held-out source folds refit every
+family/scaler/classifier; source OOF probabilities alone fit each provider temperature.
+All forty after-wearing trials remain evaluation-only, with zero target calibration.
+Known subject identities are shared across wearing domains, while trial IDs are disjoint.
+The new known-user trial-fold option retains the trial-leakage guard and the default
+subject-disjoint guard; both are covered by a regression test.
+
+Each phase exports 280 subject/pooled-domain cells covering all four after domains,
+ALL, F0/raw-F0, raw/uniform-calibrated/full-quality fusion and all nine full-minus-family
+variants. All source OOF states/probabilities, temperatures and target probabilities are
+retained. No IMU or target anchors/session signatures are invented for this zero-target-
+calibration comparison. Quality is a source-fit heuristic, not hardware clipping truth.
+
+| Final pooled method | ALL F1 | Worst after-domain F1 | ALL log loss |
+|---|---:|---:|---:|
+| Source-calibrated F0 | 0.4912 | 0.3938 | 2.4877 |
+| Raw uniform nine-bank | 0.6147 | 0.5136 | 0.9773 |
+| Source-calibrated uniform bank | 0.5907 | 0.4729 | 1.0250 |
+| Source-calibrated quality-weighted full bank | 0.5917 | 0.4477 | 1.0412 |
+| Full minus ring | 0.5566 | 0.4525 | 1.1769 |
+
+All methods' worst domain is trial_2. The full calibrated package improves ALL and
+worst-domain F1 over F0, but source-only probability calibration regresses against raw
+uniform fusion, and quality weighting further reduces worst-domain F1. Removing ring
+hurts ALL F1 while slightly improving the full system's worst domain. Final outcomes
+are reported without replacing the fixed package using final-subject selection.
+This is supplementary evaluation on previously opened final subjects, not a new blind
+test. Before-domain calibration cannot be assumed to improve shifted-domain probabilities.
+
+Replay checks 69 source-OOF/target arrays per phase, recomputes all temperatures from
+replayed source OOF predictions, verifies source trial partitions and target identifiers,
+and confirms state immutability without fitting. Target probability error is zero in
+both phases. All 107 tests pass with one skip. Other failure-system comparisons and
+historical DS2 remain incomplete.

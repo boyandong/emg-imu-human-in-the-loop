@@ -342,6 +342,18 @@
     "bytes": 193061
   },
   {
+    "run_id": "feature_bank_wearing_full_fusion_validation_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "522a5a06c9873bc77f4d591f85473eb31557860ce1ff16f74929db93eea2957f",
+    "bytes": 93086
+  },
+  {
+    "run_id": "feature_bank_wearing_full_fusion_final_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "aac912eae0a2848baa928f58ab7063ca81c711aca9ae72e058b16c8f978f887d",
+    "bytes": 90475
+  },
+  {
     "run_id": "feature_bank_manus_probability_validation_20260915",
     "artifact": "ablation_full_bank.csv",
     "sha256": "0e1c0ff66e133261b0737a218670ad4c07f38ed5bcce965d11d7fff34d4b305e",

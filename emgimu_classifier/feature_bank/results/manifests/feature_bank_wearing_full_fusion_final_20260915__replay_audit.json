@@ -1,0 +1,7 @@
+{
+  "status": "ok",
+  "probability_arrays_checked": 69,
+  "max_target_probability_error": 0.0,
+  "classifier_or_family_fit": false,
+  "source_oof_temperatures_recomputed": true
+}

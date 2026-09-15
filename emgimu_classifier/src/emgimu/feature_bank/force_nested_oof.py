@@ -66,8 +66,8 @@ def fit_temperature(probability, labels):
     return float(np.exp(min(candidates,key=loss)))
 
 
-def predict(train, evaluation, name, factories=FAMILY_FACTORIES):
-    if set(train.subjects)&set(evaluation.subjects):raise AssertionError('subject leakage')
+def predict(train, evaluation, name, factories=FAMILY_FACTORIES, *, subject_disjoint=True):
+    if subject_disjoint and set(train.subjects)&set(evaluation.subjects):raise AssertionError('subject leakage')
     if set(train.trials)&set(evaluation.trials):raise AssertionError('trial leakage')
     family=factories[name]()
     a,ay,_,_=aggregate(family.fit_transform(train.batch,train.labels),train)
