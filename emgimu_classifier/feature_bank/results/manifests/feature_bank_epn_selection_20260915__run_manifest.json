@@ -1,0 +1,91 @@
+{
+  "seed": 20260915,
+  "train_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "validation_users": [
+    16,
+    17,
+    18
+  ],
+  "families": [
+    "F0",
+    "F3_Ring",
+    "F2b_CSP",
+    "F6_IMU"
+  ],
+  "shortlist_rule": "top three single-family held-out validation F1 gains",
+  "scope": "development analysis; no new final-set selection",
+  "models": {
+    "baseline": [
+      "F0"
+    ],
+    "full": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU"
+    ],
+    "single_F3_Ring": [
+      "F0",
+      "F3_Ring"
+    ],
+    "single_F2b_CSP": [
+      "F0",
+      "F2b_CSP"
+    ],
+    "single_F6_IMU": [
+      "F0",
+      "F6_IMU"
+    ],
+    "pair_F3_Ring_F2b_CSP": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP"
+    ],
+    "pair_F3_Ring_F6_IMU": [
+      "F0",
+      "F3_Ring",
+      "F6_IMU"
+    ],
+    "pair_F2b_CSP_F6_IMU": [
+      "F0",
+      "F2b_CSP",
+      "F6_IMU"
+    ],
+    "leave_out_F0": [
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU"
+    ],
+    "leave_out_F3_Ring": [
+      "F0",
+      "F2b_CSP",
+      "F6_IMU"
+    ],
+    "leave_out_F2b_CSP": [
+      "F0",
+      "F3_Ring",
+      "F6_IMU"
+    ],
+    "leave_out_F6_IMU": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP"
+    ]
+  }
+}

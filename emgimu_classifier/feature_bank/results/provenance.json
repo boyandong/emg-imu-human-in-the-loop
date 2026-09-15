@@ -60,6 +60,12 @@
     "bytes": 22807
   },
   {
+    "run_id": "feature_bank_epn_selection_20260915",
+    "artifact": "feature_family_results.csv",
+    "sha256": "40b205a732d25071de0b8c94786593d14d25defcf5e484bdd68958ea8fecfff5",
+    "bytes": 15878
+  },
+  {
     "run_id": "feature_bank_force_audited_validation_20260915",
     "artifact": "conditional_incremental.csv",
     "sha256": "80c4aece0d994a83c3cec13f3105869bdfb4e046fe3c3390ac4220b77aee5c0b",
@@ -72,10 +78,22 @@
     "bytes": 867
   },
   {
+    "run_id": "feature_bank_epn_selection_20260915",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "8aa070a90a9c9412499055e8b353daf7f93e9171baf461dc19d0782a720486ea",
+    "bytes": 1286
+  },
+  {
     "run_id": "feature_bank_force_audited_validation_20260915",
     "artifact": "error_complementarity.csv",
     "sha256": "f0931d99d01a45e57de2230a692eb022c9130d052a7281f0f0e7e35a80485bb7",
     "bytes": 4022
+  },
+  {
+    "run_id": "feature_bank_epn_selection_20260915",
+    "artifact": "error_complementarity.csv",
+    "sha256": "71aa65f86a7153632d2d321587a649ce5ce70b4ed27f5ef6cb36023222fb7901",
+    "bytes": 7246
   },
   {
     "run_id": "feature_bank_force_audited_validation_20260915",
@@ -184,5 +202,11 @@
     "artifact": "ablation_full_bank.csv",
     "sha256": "6ff985157b7588d9ef8945a98987d810d2f31073dcbedfaa94e450fc9b9c74de",
     "bytes": 23775
+  },
+  {
+    "run_id": "feature_bank_epn_selection_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "4c42fe003a6a2b2307683dba68e2ef6012b1bd3585c99063ff01b1bdb4b0a44c",
+    "bytes": 7260
   }
 ]

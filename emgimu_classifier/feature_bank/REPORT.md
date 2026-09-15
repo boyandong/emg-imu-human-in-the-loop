@@ -156,3 +156,14 @@ not an all-dataset or all-F0–F9 system ablation.
 available explicit trial-list intersections. The current audit passes 31 source artifacts,
 2230 result rows and 122 explicit split checks. It does not prove missing fit-state coverage,
 all scientific requirements or live-device performance.
+
+## EPN shortlist interactions and ablation
+
+The original single-family validation screen selects ring geometry, CSP and real IMU context
+as the three strongest additions to F0. On the same held-out development users 16–18, the
+four-family full shortlist reaches 0.4498 macro-F1, compared with baseline 0.3838 and the
+best two-specialist combination 0.4245. Removing F0/ring/CSP/IMU gives 0.3294/0.4126/
+0.4245/0.4240 respectively. This supports a development-set interaction, not a new independent
+test claim. Twelve models and all subject cells are stored, together with conditional deltas,
+pairwise error complementarity, fitted classifier/family states and trial-aligned predictions.
+Result integrity now passes 35 source artifacts, 2376 rows and 123 explicit split checks.
