@@ -1,5 +1,17 @@
 [
   {
+    "run_id": "feature_bank_force_quality_validation_20260915",
+    "artifact": "feature_family_results.csv",
+    "sha256": "5f82bcf98ca929086d4ecae4f47662ca99c057f86b3dae47b931f8a17be554cc",
+    "bytes": 122309
+  },
+  {
+    "run_id": "feature_bank_force_quality_final_20260915",
+    "artifact": "feature_family_results.csv",
+    "sha256": "e933459b22c26921ca53d8c7437b1a2f72b2817a43d0271a9ccc8e413933ea3b",
+    "bytes": 120747
+  },
+  {
     "run_id": "feature_bank_epn_core_incremental_validation_20260915",
     "artifact": "feature_family_results.csv",
     "sha256": "da9ba5bb8e4c4f56c6464a8d5f97f70a55444b8d53d92a068381f7eb0565ffa8",

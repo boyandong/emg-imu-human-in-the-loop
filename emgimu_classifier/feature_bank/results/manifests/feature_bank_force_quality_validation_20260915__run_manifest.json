@@ -1,0 +1,59 @@
+{
+  "dataset": "libemg_contraction_intensity",
+  "phase": "validation",
+  "families": [
+    "F0",
+    "F1_X1H",
+    "F2b_CSP",
+    "F3_Ring",
+    "F4_Spectral",
+    "F5_Temporal",
+    "F9_Quality"
+  ],
+  "seed": 20260915,
+  "source_run": "feature_bank_force_probability_validation_20260915",
+  "source_statistics": {
+    "median_window_rms": [
+      0.06530961484461956,
+      0.09444296238584377,
+      0.08954659838945103,
+      0.16276965941960345,
+      0.09350020669557244,
+      0.09494318517530137,
+      0.05840413453921067,
+      0.05875441377771645
+    ],
+    "abs_sample_q99": [
+      1.1214,
+      1.3082,
+      0.81376,
+      0.6105131000000029,
+      1.1156,
+      1.0292,
+      1.2325,
+      0.8326831000000029
+    ]
+  },
+  "scenarios": [
+    "clean",
+    "gaussian_0.25_source_rms",
+    "gaussian_0.5_source_rms",
+    "line_50Hz_source_rms",
+    "synthetic_source_q99_saturation",
+    "dropout_ch3",
+    "contiguous_half_flatline_ch3",
+    "gain2_ch3"
+  ],
+  "classifier_or_family_fit": false,
+  "target_calibration": false,
+  "source_artifact_sha256": {
+    "fitted_states.pkl": "bd1ee4c6c1ba1d083e58f8c89872ba87567bff1952d7e16623a264e1c75dcc82",
+    "run_manifest.json": "bd8f522e738e936938a00f87fdacb18aa178f9c8ae179ab068d8e2129fd0d654",
+    "probability_calibration.json": "276bb22e5a084958aae9dff19e4d40db4bdec5fddf43af363c6c860290a96634",
+    "heldout_predictions.npz": "49fd93a90cdf92f17c343b5eda43d7b001897f2541063334b5be04dbaea3fabd"
+  },
+  "routing": "prespecified exploratory legacy F9 min for F0/CSP, mean for other providers; zero-weight fallback to base prior",
+  "scope": "paired synthetic corruption on identical native trials; force and user conditions held fixed across perturbations; not measured hardware noise",
+  "saturation": "synthetic clipping at source abs-sample q99, not known ADC bounds",
+  "window_limits": "synthetic corruption applied independently within sparse windows; discontinuities at window edges are not a continuous-device simulation"
+}

@@ -83,10 +83,27 @@ def build(results: Path) -> dict:
                      'full_worst_condition': full_worst_condition,
                      'baseline_min_user': baseline_min_user,
                      'full_min_user': min(float(r['macro_f1']) for r in full_users), 'scope': scope})
-    rows.append({k: ('quality' if k == 'factor' else 'no labelled real-quality benchmark' if k == 'scope' else 'N/A')
-                 for k in rows[0]})
+    quality_run='feature_bank_force_quality_final_20260915'
+    quality=load('feature_family_results.csv',quality_run,shots_per_class=0)
+    cells=[r for r in quality if r['subject']!='ALL' and r['scenario']!='clean']
+    def quality_stats(method):
+        selected=[r for r in cells if r['method']==method]
+        scenarios=sorted({r['scenario'] for r in selected})
+        users=sorted({r['subject'] for r in selected})
+        if len(selected)!=len(scenarios)*len(users) or len(scenarios)!=7 or len(users)!=2:
+            raise AssertionError('Incomplete fixed synthetic-quality grid')
+        values=[float(r['macro_f1']) for r in selected]
+        worst=min(statistics.mean(float(r['macro_f1']) for r in selected if r['scenario']==s) for s in scenarios)
+        min_user=min(statistics.mean(float(r['macro_f1']) for r in selected if r['subject']==u) for u in users)
+        return statistics.mean(values),worst,min_user
+    base,bworst,buser=quality_stats('F0');full,fworst,fuser=quality_stats('full_uniform')
+    rows.append({'factor':'quality','full_run':quality_run,'baseline_run':quality_run,'condition_run':quality_run,
+        'method':'full_uniform','target_shots_per_class':0,'aggregation':'mean user/scenario macro-F1; seven synthetic perturbations; clean excluded',
+        'baseline_R':base,'full_R':full,'delta_R':full-base,'baseline_worst_condition':bworst,
+        'full_worst_condition':fworst,'baseline_min_user':buser,'full_min_user':fuser,
+        'scope':'synthetic quality only; identical native force trials across paired perturbations; original frozen seven-provider uniform fusion; no measured hardware noise or target calibration'})
     rows.sort(key=lambda r: ('force', 'wearing', 'day', 'user', 'posture', 'speed', 'quality').index(r['factor']))
-    available = rows[:-1]
+    available = rows
     summary = {'status': 'ok', 'target_budget': 0,
                'scope': 'frozen full-bank algorithms on native benchmark tasks; no best expert substitution; not a universal fitted classifier',
                'mean_R_available': statistics.mean(r['full_R'] for r in available),
@@ -99,6 +116,7 @@ def build(results: Path) -> dict:
                'declined_axes': [r['factor'] for r in available if r['delta_R'] < 0],
                'source_csv_sha256': sources,
                'warnings': ['Day and posture reuse the same UniBo observations; axes are correlated.',
+                            'Quality uses seven fixed synthetic perturbations of force trials, not measured hardware-noise labels; quality and force axes share native trials.',
                             'Mean across unlike tasks is descriptive, not pooled accuracy or statistical independence.',
                             'Missing condition baselines remain N/A; no inferred worst-condition improvement.',
                             'Full-bank F7/F8 are inactive at cal0; quality routing absent where not implemented.',

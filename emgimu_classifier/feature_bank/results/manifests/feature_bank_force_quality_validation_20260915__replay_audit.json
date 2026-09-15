@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "clean_reference_arrays_checked": 4,
+  "source_state_unchanged": true,
+  "rows": 264,
+  "fusion_arrays_checked": 32,
+  "max_absolute_probability_error": 2.220446049250313e-16,
+  "source_hashes_checked": true
+}

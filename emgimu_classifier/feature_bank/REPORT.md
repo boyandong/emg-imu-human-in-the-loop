@@ -1376,3 +1376,60 @@ whether a frozen classifier or quality-routed fusion maintains gesture discrimin
 under those corruptions. Consequently the quality robustness axis remains unavailable.
 Other priorities are remaining named complementarity pairs, Core evidence beyond EPN,
 exact historical algorithm reproduction and the final coherent requirement audit.
+
+### Paired synthetic quality classification closes the missing synthetic axis
+
+Eight fixed scenarios (clean plus seven synthetic perturbations) were applied to
+identical native LibEMG force trial windows for independent users 7/8 and 9/10.
+Noise scales use median source-window RMS; synthetic saturation uses source absolute
+sample q99. Gaussian scales 0.25/0.5, 50 Hz line noise, saturation, channel-3 dropout,
+half-window channel-3 flatline and channel-3 gain 2 are prespecified. Native source
+users 1–6 Ramp family/scaler/classifier states and source-only OOF temperatures remain
+frozen. There is no target calibration, corruption-specific refit or final-score tuning.
+
+Both phases reproduce four original clean F0/uniform-fusion probability arrays.
+Thirty-two fusion arrays per phase replay from retained provider probabilities and
+quality scores with maximum absolute error below 4e-16. Both fitted state immutability
+and source artifact hashes are checked. Regression tests check perturbation input
+immutability, frozen source scaling and unaffected coordinates.
+
+| Final pooled macro F1 | F0 | Original uniform full bank | Exploratory quality routing |
+|---|---:|---:|---:|
+| clean | 0.5118 | 0.4737 | 0.4520 |
+| Gaussian 0.25 | 0.5205 | 0.4186 | 0.3857 |
+| Gaussian 0.5 | 0.4018 | 0.3589 | 0.3350 |
+| 50 Hz line | 0.4906 | 0.4128 | 0.3900 |
+| source-q99 saturation | 0.5538 | 0.5094 | 0.4619 |
+| channel-3 dropout | 0.3586 | 0.2941 | 0.1516 |
+| half flatline | 0.4602 | 0.4253 | 0.3724 |
+| channel-3 gain 2 | 0.4615 | 0.4177 | 0.3955 |
+
+The quality robustness vector uses mean **individual-user/scenario** F1 across seven
+perturbations, excluding clean: F0 0.4473, original uniform bank 0.3875. Worst scenario
+mean-user F1 is 0.3632 versus 0.3100. Exploratory routing uses legacy F9 min quality
+for F0/CSP and mean quality for remaining providers; it makes performance worse and
+is not promoted to deployment. Detectable channel failure does not prove that these
+routing weights identify the provider that retains gesture information.
+
+With the synthetic quality axis included, the seven-axis descriptive means are
+F0 0.5275 and bank 0.5381, but the minimum axis is F0 0.4152 versus bank 0.3875.
+The earlier six-axis summary excluded quality and is superseded for available-axis
+coverage. The bank does **not** raise the complete observed minimum envelope.
+These are unlike tasks with correlated axes: quality/force share trials and
+posture/day share observations. No independent-axis statistical claim is made.
+
+Runs `feature_bank_force_quality_validation_20260915` and
+`feature_bank_force_quality_final_20260915` contribute 528 rows. The suite ran
+133 tests with one skip. Integrity checks cover 137 source artifacts, 25,235 rows
+and 682 explicit partition checks; canonical record verification covers 23,752 rows.
+Synthetic source-q99 saturation is not known ADC clipping; sparse-window corruption
+is not a continuous hardware simulator or measured re-donning/noise evidence.
+Historical algorithm reproduction, remaining named pairs, Core coverage beyond EPN
+and complete-document audit still remain open. New results remain local.
+
+The matched quality-role controls reinforce this failure: mean user/scenario F1
+is 0.3875 with the quality classifier, 0.4209 when that provider is removed,
+0.3384 with quality routing and provider, and 0.3884 with routing but no quality
+classifier provider. Removing the provider improves this particular fusion while
+remaining below F0 0.4473. These fixed controls are diagnostic, not final-selected
+replacement algorithms.

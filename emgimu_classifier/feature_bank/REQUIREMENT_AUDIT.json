@@ -9,10 +9,10 @@
   },
   "locator_warning": "line ranges are search regions in extracted text; final audit must verify exact document clauses and formulas",
   "next_required_work": [
-    "labelled synthetic corruption classification with frozen source models",
     "remaining named complementarity and interaction pairs",
     "multi-family Core coverage beyond EPN",
     "exact historical DS2 and family reproduction",
     "coherent final report and exhaustive requirement audit"
-  ]
+  ],
+  "synthetic_quality_evidence": "feature_bank_force_quality_validation_20260915 and final; native classifiers frozen, seven fixed perturbations plus clean; current fusion/routing degrades quality robustness"
 }

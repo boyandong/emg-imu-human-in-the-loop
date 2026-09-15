@@ -2,7 +2,7 @@
   "status": "schema_complete_evidence_partial",
   "artifacts": {
     "feature_family_results.csv": {
-      "rows": 1851,
+      "rows": 2379,
       "required_fields": [
         "dataset",
         "subject",
@@ -40,8 +40,8 @@
           "session/domain": 6
         }
       },
-      "source_csv_sha256": "d8d31cd3515ba141bb5e0815f63564a071deeabf5de31697b5f7aa46cff2cee3",
-      "canonical_csv_sha256": "3e050d29afee980b7730648b100d4a9fcb7813a072573f37a489f7cf01a0b66d"
+      "source_csv_sha256": "0edb7f1881e27538965d040f1ff18e15953b6f2cb5b731ba376f5525ac4f2f01",
+      "canonical_csv_sha256": "4299398df2e853da60219003e367f9e996b60984575a2500361e67492ea4302f"
     },
     "conditional_incremental.csv": {
       "rows": 213,
