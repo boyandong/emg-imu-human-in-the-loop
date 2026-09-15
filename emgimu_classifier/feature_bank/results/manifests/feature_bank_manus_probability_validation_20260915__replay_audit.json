@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_manus_probability_validation_20260915",
+  "prediction_arrays_checked": 450,
+  "max_absolute_probability_error": 0.0,
+  "classifier_or_family_fit": false,
+  "session_profile_rebuilt_from_source_only": true,
+  "source_oof_probability_calibration": true,
+  "scope": "all saved probability variants in this run"
+}

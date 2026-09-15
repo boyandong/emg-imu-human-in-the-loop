@@ -27,6 +27,14 @@ class SubjectWindows:
 
 
 def protocol(root,dataset):
+    if dataset=='semg_manus':
+        from emgimu.datasets.semg_manus import load_semg_manus_windows
+        from .manus_study import GESTURES, FACTORIES, _metrics
+        from .full_fusion_study import FAMILIES
+        data=load_semg_manus_windows(root,users=range(3,9),sessions=(1,),gestures=GESTURES)
+        data=SubjectWindows(data.batch,data.labels,data.users,data.trials)
+        def score(y,p,w):return _metrics(y,p)
+        return data,FAMILIES,FACTORIES,score,tuple(range(3,9)),((3,4),(5,6),(7,8)),'semg_manus','source_session_1'
     if dataset=='epn612':
         from emgimu.datasets.epn612 import load_epn612_windows
         from .epn_study import FACTORIES, _metrics
@@ -131,7 +139,7 @@ def run(root:Path,output:Path,dataset='force'):
         **{f'raw_{n}':p for n,p in raw.items()},**{f'calibrated_{n}':p for n,p in calibrated.items()})
     (output/'split_trial_ids.json').write_text(json.dumps(splits,indent=2))
     (output/'run_manifest.json').write_text(json.dumps({'seed':SEED,'families':ids,'outer_users':groups,'dataset':dataset,
-        'source_users':source_all,'source_condition':condition,'target_users_opened':False,
+        'source_users':source_all,'source_condition':condition,'target_evaluation_data_opened':False,
         'temperature_bounds':[.25,4],'temperatures':temperatures,'probability_calibration':'two inner subject folds per outer fold',
         'fit_scope':'every family, scaler and classifier refit inside its subject fold','evaluation_unit':'trial mean',
         'scope':'source-user nested OOF only; does not replace target-domain evaluations'},indent=2))
@@ -199,5 +207,5 @@ def replay(root:Path,output:Path):
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('root',type=Path);p.add_argument('--output',type=Path,required=True)
     p.add_argument('--replay',action='store_true')
-    p.add_argument('--dataset',choices=('force','epn612'),default='force')
+    p.add_argument('--dataset',choices=('force','epn612','semg_manus'),default='force')
     a=p.parse_args();replay(a.root,a.output) if a.replay else run(a.root,a.output,a.dataset)

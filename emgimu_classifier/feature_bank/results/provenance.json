@@ -1,5 +1,11 @@
 [
   {
+    "run_id": "feature_bank_manus_nested_oof_20260915",
+    "artifact": "feature_family_results.csv",
+    "sha256": "ac5d87a9b0be2066206fbef52e4e456964d3c0c17958e23d0ac03696ed251439",
+    "bytes": 6172
+  },
+  {
     "run_id": "feature_bank_epn_nested_oof_20260915",
     "artifact": "feature_family_results.csv",
     "sha256": "18c1c474c5e0dad3562b63ec704656d9c6d727aadef6d7b1c986a6f48f3cbf4f",
@@ -102,6 +108,12 @@
     "bytes": 1286
   },
   {
+    "run_id": "feature_bank_manus_nested_oof_20260915",
+    "artifact": "error_complementarity.csv",
+    "sha256": "5cd11deb24f00b3518f585e352aef260d0a8e68e911c4c86042dc72b9ebaf7ed",
+    "bytes": 3553
+  },
+  {
     "run_id": "feature_bank_epn_nested_oof_20260915",
     "artifact": "error_complementarity.csv",
     "sha256": "a3957cff7970a3fa3bd02476f9162130d811413b761e57b6118fc34980a58892",
@@ -148,6 +160,18 @@
     "artifact": "error_complementarity.csv",
     "sha256": "8dd8258bb4ddfae80475d1dd7f8baaa15409b9591675160742d25134904467cf",
     "bytes": 6824
+  },
+  {
+    "run_id": "feature_bank_manus_probability_validation_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "c4c8db6b0f7b59b0c0fff173dc6646dd8eb76faa481f472f3bd968e1c9c0ff4a",
+    "bytes": 193635
+  },
+  {
+    "run_id": "feature_bank_manus_probability_final_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "dc081c5b4120c630ade5d51aa47fa0835e6e40c6d4c210345c7c2d3b37ba05d4",
+    "bytes": 192270
   },
   {
     "run_id": "feature_bank_epn_probability_validation_20260915",
@@ -316,6 +340,18 @@
     "artifact": "calibration_curve.csv",
     "sha256": "4b9a67e32431b38dcf4beb5f3ae572ce78a634fd366822986684ce9b315c69f7",
     "bytes": 193061
+  },
+  {
+    "run_id": "feature_bank_manus_probability_validation_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "0e1c0ff66e133261b0737a218670ad4c07f38ed5bcce965d11d7fff34d4b305e",
+    "bytes": 185908
+  },
+  {
+    "run_id": "feature_bank_manus_probability_final_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "8c57d9e7656ccf52c075546848f1cccf10d3e80604d2d7c629992dcc9187c2a2",
+    "bytes": 184652
   },
   {
     "run_id": "feature_bank_force_condition_validation_20260915",

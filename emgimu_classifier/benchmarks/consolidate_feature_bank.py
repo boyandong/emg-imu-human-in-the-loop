@@ -7,6 +7,9 @@ import json
 
 
 RUNS = (
+    'feature_bank_manus_nested_oof_20260915',
+    'feature_bank_manus_probability_validation_20260915',
+    'feature_bank_manus_probability_final_20260915',
     'feature_bank_force_condition_validation_20260915',
     'feature_bank_force_condition_final_20260915',
     'feature_bank_epn_probability_validation_20260915',

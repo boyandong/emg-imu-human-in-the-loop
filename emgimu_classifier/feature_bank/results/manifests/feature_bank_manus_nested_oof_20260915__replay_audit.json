@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "probability_blocks_checked": 48,
+  "max_absolute_probability_error": 0.0,
+  "inner_probability_blocks_checked": 48,
+  "temperature_recomputed_from_inner_oof": true,
+  "classifier_or_family_fit": false,
+  "nested_partitions_verified": true,
+  "scope": "all outer source OOF probabilities; inner probabilities and temperatures replayed when stored"
+}

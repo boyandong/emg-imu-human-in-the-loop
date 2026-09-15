@@ -19,7 +19,6 @@ FAMILIES=('F0','F1_X1H','F2b_CSP','F3_Ring','F4_Spectral','F5_Temporal','F6_IMU'
 
 def run(archive:Path,output:Path,phase:str,dataset:str='epn612',source_run:Path|None=None,probability_oof:Path|None=None)->None:
     if output.exists():raise FileExistsError(output)
-    if probability_oof and dataset!='epn612':raise ValueError('this source-user OOF adapter applies only to EPN')
     aggregate=aggregate_trials; score=_metrics; condition='cross_user';budgets=(0,1,2,5)
     if dataset=='semg_manus':
         from emgimu.datasets.semg_manus import load_semg_manus_windows
@@ -57,16 +56,19 @@ def run(archive:Path,output:Path,phase:str,dataset:str='epn612',source_run:Path|
     if probability_oof:
         from .force_nested_oof import fit_temperature, temperature_probability
         oof_path=probability_oof/'oof_predictions.npz'
+        oof_manifest=json.loads((probability_oof/'run_manifest.json').read_text())
+        if oof_manifest.get('dataset')!=dataset:raise AssertionError('different OOF source dataset')
+        source_users=sorted(int(v) for v in np.unique(au))
         with np.load(oof_path,allow_pickle=False) as oof:
-            if set(oof['trials'])!=set(at) or set(oof['users'])!=set(range(1,16)):
-                raise AssertionError('OOF probability fitting must use source users 1-15 only')
+            if set(oof['trials'])!=set(at) or set(oof['users'])!=set(source_users):
+                raise AssertionError('OOF probability fitting must use source training trials/users only')
             label_by_trial=dict(zip(at,ay))
             if any(label_by_trial[t]!=label for t,label in zip(oof['trials'],oof['labels'])):raise AssertionError('OOF labels changed')
             temperatures={n:fit_temperature(oof[f'raw_{n}'],oof['labels']) for n in FAMILIES}
         probabilities={n:temperature_probability(p,temperatures[n]) for n,p in probabilities.items()}
         probability_audit={'source_run':probability_oof.name,'source_oof_sha256':hashlib.sha256(oof_path.read_bytes()).hexdigest(),
-            'fit_users':list(range(1,16)),'fit_trials':at.tolist(),'temperatures':temperatures,
-            'fit_scope':'source-user OOF probabilities and labels only; target-user calibration excluded'}
+            'fit_users':source_users,'fit_trials':at.tolist(),'temperatures':temperatures,
+            'fit_scope':'source training/session OOF probabilities and labels only; target calibration excluded'}
     population=np.ones(len(FAMILIES))/len(FAMILIES)
     reliability=ReliabilityWeights(tuple(range(6)),FAMILIES,population,n0=8)
     rows=[];splits=[];anchors={};saved={}

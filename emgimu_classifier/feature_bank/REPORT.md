@@ -636,3 +636,43 @@ the hardest individual cells. These supplementary diagnostics preserve all negat
 results and do not select a new policy using final-user scores. The minimum condition
 is not the requested minimum across seven failure dimensions. Full tests run 106 cases,
 passing with one skip; remaining failure-system coverage is still incomplete.
+
+## MANUS source-session OOF and calibrated session fusion
+
+`feature_bank_manus_nested_oof_20260915` uses only session 1 of users 3–8, with
+outer held pairs (3,4), (5,6), (7,8) and two inner subject folds per outer fold.
+All 108 source trials have one raw and calibrated OOF prediction for each of eight
+providers, including real IMU. The 28-pair complementarity matrix and all inner/outer
+fitted states and probabilities are retained. Replay checks 48 outer and 48 inner blocks
+with zero error, recomputes all outer temperatures from inner OOF predictions, and
+confirms partition integrity/state immutability. F0 source OOF log loss improves
+2.4965→1.5089; temporal 2.0439→1.5062; all eight providers improve log loss without
+changing their class order or F1. These are source-session cross-user calibration
+results, not an OOF test on new sessions.
+
+`feature_bank_manus_probability_{validation,final}_20260915` then reuses the original
+session-1 full-bank states, fitting source-only temperatures to the saved raw OOF
+predictions. The known users are shared between source and target sessions; target
+sessions 2/3 do not enter probability fitting. The OOF manifest now states that target
+evaluation data is unopened, rather than suggesting source and target user identities
+are disjoint. No family/scaler/classifier refit occurs. Target-session calibration
+trials supply only the allowed personal anchors, reliability and session signatures,
+and are completely removed from evaluation. Source fitting metadata is identical in
+both phases. Unsupported five-shot budgets remain explicit.
+
+| Session-3 mean per-user F1 | 0/class | 1/class | 2/class |
+|---|---:|---:|---:|
+| Uniform population | 0.4440 | 0.4052 | 0.3704 |
+| Combined without anchors | 0.4582 | 0.4271 | 0.4398 |
+| Combined anchors/context/quality | 0.4582 | 0.5264 | 0.5574 |
+
+Within each budget, methods share evaluation trials; different budgets remove different
+trials. Combined log loss is 1.4287/1.4256/1.4342 versus uniform 1.4187/1.4123/1.4334,
+so higher F1 is not a universal probability-quality gain. Session-2 combined F1 is
+0.3822/0.3922/0.5019. All combined component/provider removals remain available.
+Both target phases replay 450 probability arrays with zero error and unchanged source
+state. This is supplementary evaluation on previously opened final sessions, using
+the native six finger flexion-extension classes, not wearable pinch/fist/open accuracy.
+Current integrity checks 92 source artifacts, 13032 copied rows and 363 explicit
+partitions; all 106 tests pass with one skip. Full-bank wearing, day/posture, load/position
+and real-quality failure-system coverage still requires work; DS2 remains unresolved.
