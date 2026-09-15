@@ -150,6 +150,18 @@
     "bytes": 19630
   },
   {
+    "run_id": "feature_bank_normalization_validation_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "1e9fbe226d53cf343ca1c9b2dba8bc8460868060812cd26bcc4c6bb2cffa3af6",
+    "bytes": 9360
+  },
+  {
+    "run_id": "feature_bank_normalization_final_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "0a7951ab26bdb41aa64038ab3cc6a576a01c799ffad44cf0e284f8e5577fbad1",
+    "bytes": 9088
+  },
+  {
     "run_id": "feature_bank_force_audited_validation_20260915",
     "artifact": "ablation_full_bank.csv",
     "sha256": "b50235c0e6fc469b628f3cce128e454d91dc17d8cc325cbdced4c68e4b8331d0",

@@ -82,8 +82,8 @@ Historical DS2 is blocked: no exact historical artifacts were found and the orig
 release returned 404. NinaPro requires access; secondary datasets remain explicitly deferred.
 EMG-FMG and UniBo now each have six-trial QC and six raw/envelope/PSD plots.
 F8 session signature now has a bounded MANUS reliability-fusion comparison, while full-bank
-session-context integration remains incomplete. DTW templates and personal normalization are
-implemented and unit-tested but their comparative experiments are not complete. Required prediction/state persistence
+session-context integration remains incomplete. Personal normalization now has an EPN comparison;
+DTW templates are implemented and unit-tested but their comparative experiments are not complete. Required prediction/state persistence
 is currently strongest for audited force screening; other runners need the same coverage.
 Per-family calibration gain, diagnostics across all failures, complete shortlist/full-bank
 ablation across datasets, and an integrated robustness vector remain to be completed.
@@ -118,3 +118,16 @@ methods are equal at 0.3444. Context recovers the personal weighting loss but ba
 uniform fusion, reinforcing the limited value of this particular rule. Future runner outputs
 also include source trial IDs and aligned target labels in their prediction artifacts;
 the existing runs preserve evaluation IDs and probability arrays separately.
+
+## Personal amplitude normalization follow-up
+
+Each source user's rest median and active absolute-amplitude 95th percentile are fit using
+that user's training trials only. Source-normalized F0+ring features, family states, scaler
+and classifier are then frozen. Target normalization uses explicit labelled calibration trials;
+zero-shot uses a source-population normalizer. Raw and normalized models are compared on
+exactly the same remaining trials. All states, source IDs and calibration/evaluation IDs are saved.
+Validation one-shot mean per-user F1 falls from 0.4208 raw to 0.1886 normalized. Independent
+users confirm degradation: raw/normalized F1 is 0.4389/0.3205 at one trial, 0.4407/0.3672
+at two and 0.4509/0.4355 at five. This normalization rule is not suitable as a default repair.
+The experiment changes source normalization as well as target normalization, so it measures
+the complete normalization protocol rather than isolating a single target-side transformation.
