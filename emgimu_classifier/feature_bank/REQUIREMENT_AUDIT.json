@@ -15,5 +15,6 @@
     "coherent final report and exhaustive requirement audit"
   ],
   "synthetic_quality_evidence": "feature_bank_force_quality_validation_20260915 and final; native classifiers frozen, seven fixed perturbations plus clean; current fusion/routing degrades quality robustness",
-  "force_Core_evidence": "actual concatenated-feature source-only Core and four additions; independent validation/final users, no calibration; mean gains can lower minimum force condition"
+  "force_Core_evidence": "actual concatenated-feature source-only Core and four additions; independent validation/final users, no calibration; mean gains can lower minimum force condition",
+  "force_Core_calibration_evidence": "source-frozen concat Core and additions at cal0/1/2; Ramp-only own-user anchors, identical unseen-force evaluation; explicit unsupported5; limited recovery"
 }

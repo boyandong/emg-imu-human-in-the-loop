@@ -138,6 +138,18 @@
     "bytes": 21786
   },
   {
+    "run_id": "feature_bank_force_concat_core_calibration_validation_20260915",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "101cc3d863e77541688d1c8430e687f220535aaf66d5ae00f0336d9f6d4cb175",
+    "bytes": 170049
+  },
+  {
+    "run_id": "feature_bank_force_concat_core_calibration_final_20260915",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "98fe6f99a93a52e52f04ff1a7a39d9580d2758ed7dde491e97d2c11cbbf1fb40",
+    "bytes": 166387
+  },
+  {
     "run_id": "feature_bank_force_concat_core_validation_20260915",
     "artifact": "conditional_incremental.csv",
     "sha256": "cda45b77115cf43ae4823c8afd8fc14acebf93cb86d58d094a166f02f33ecaf4",
@@ -202,6 +214,18 @@
     "artifact": "interaction_results.csv",
     "sha256": "1874c20bb5fd043d97e31d56a1627174007c7b7484911de62c99de2a08703bb0",
     "bytes": 5617
+  },
+  {
+    "run_id": "feature_bank_force_concat_core_calibration_validation_20260915",
+    "artifact": "error_complementarity.csv",
+    "sha256": "2ac5d683e3da13621b00184da5f8fcc43ced46d8b41e5d0c344c446ccd50a9f7",
+    "bytes": 133231
+  },
+  {
+    "run_id": "feature_bank_force_concat_core_calibration_final_20260915",
+    "artifact": "error_complementarity.csv",
+    "sha256": "7fa5cf834d20c3aee2e71c4dfd712becf0534361b07a711c571973bc5b8df281",
+    "bytes": 130676
   },
   {
     "run_id": "feature_bank_force_concat_core_validation_20260915",
@@ -292,6 +316,18 @@
     "artifact": "error_complementarity.csv",
     "sha256": "8dd8258bb4ddfae80475d1dd7f8baaa15409b9591675160742d25134904467cf",
     "bytes": 6824
+  },
+  {
+    "run_id": "feature_bank_force_concat_core_calibration_validation_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "62394bdf6fa08df36dc7eabaadb36514a3dca91b418b8fc8f855f1e58dcaeff1",
+    "bytes": 690120
+  },
+  {
+    "run_id": "feature_bank_force_concat_core_calibration_final_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "505ba1134db331042ba74116325a2ce4c3d5b9abe97a6f10672c860d99ae40c5",
+    "bytes": 685841
   },
   {
     "run_id": "feature_bank_epn_relative_spectrum_validation_20260915",

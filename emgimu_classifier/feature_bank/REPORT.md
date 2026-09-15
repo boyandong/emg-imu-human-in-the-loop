@@ -1520,3 +1520,49 @@ are checked. The suite ran 137 tests with one skip. Integrity checks cover
 144 artifacts, 26,595 rows and 685 explicit partitions; canonical verification
 covers 25,112 rows. Calibrated Core comparisons, other dataset Core studies,
 remaining named pairs and exact historical reproduction still remain open.
+
+### Ramp-only calibration of the concatenated-feature force Core
+
+Frozen source scalers/classifiers are reused for own-user whole-trial Ramp anchors
+at 0/1/2 shots per native class. Calibration selection is nested and deterministic
+(seed + user), covers all seven classes and excludes every unseen-force evaluation
+trial and every source-fitting trial. The same evaluation trials remain at every
+budget. No target-force calibration, scaler fit, classifier fit or target-score
+rule selection occurs. Five-shot is explicitly unsupported, with blank scores and
+blank actual calibration counts: each user has only four Ramp trials per class.
+
+Mean prototypes, calibration-MAD standardized distances and the calibration-distance
+median temperature follow the existing anchor protocol. Population and personal
+probabilities mix with fixed alpha = shots/(shots+2). Every Core/extended model has
+a matched no-anchor branch on identical evaluation trials. At cal0 the predictions
+are exactly the prior concatenated-feature study. The calibrated ALL rows average
+individual-user metrics, whereas that prior study's ALL rows pooled trials; macro F1
+is nonlinear, so these summaries differ even with identical predictions.
+
+| Final mean-user F1 | cal0 | cal1 | cal2 |
+|---|---:|---:|---:|
+| F0 | 0.4929 | 0.5062 | 0.5087 |
+| Core | 0.4902 | 0.4943 | 0.5005 |
+| Core + Ring | 0.5491 | 0.5531 | 0.5598 |
+| Core + Spectral | 0.5037 | 0.5136 | 0.5192 |
+| Core + Temporal | 0.4512 | 0.4545 | 0.4596 |
+| Core + Quality | 0.4455 | 0.4507 | 0.4668 |
+
+Calibration is helpful but limited for the frozen Core: two-shot recovery is only
+0.0102 macro F1. Minimum force-condition mean-user F1 for Core rises from 0.4199
+to 0.4328, while F0 remains 0.3614. Ring's higher average remains accompanied by a
+lower minimum (0.3107/0.3107/0.3622); Spectral minimum is 0.3853/0.3884/0.3892.
+Neither extra family therefore restores Core's observed force envelope. All variants
+are reported; final scores do not select a deployment model or anchor weight.
+
+Both phases retain own-user/model anchor states and source-coordinate inputs.
+Each reproduces 60 anchored probability arrays and 60 matched no-anchor arrays
+exactly. Source and target prediction hashes are checked. Tests verify nested own-user
+selection, zero-shot behavior, rejection of unsupported budgets and duplicate whole
+trial identities. Runs `feature_bank_force_concat_core_calibration_validation_20260915`
+and `_final_20260915` contribute 7,260 rows including explicit unsupported budgets.
+The suite ran 139 tests with one skip; integrity checks cover 150 source artifacts,
+33,855 rows and 697 explicit partitions. Canonical verification covers 32,372 rows.
+This closes the current force Core's offline calibrated comparison, while other
+Core datasets, exact historical algorithms, remaining named pairs and final exhaustive
+requirements audit remain incomplete. Current hardware performance is not established.

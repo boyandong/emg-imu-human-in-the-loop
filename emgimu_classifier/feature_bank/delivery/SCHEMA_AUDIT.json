@@ -44,7 +44,7 @@
       "canonical_csv_sha256": "bf6a5d4f1c34f99322e7446d5fb57f01827b500bbe79602d62ae7dea4a100347"
     },
     "conditional_incremental.csv": {
-      "rows": 501,
+      "rows": 2229,
       "required_fields": [
         "dataset",
         "subject",
@@ -74,11 +74,11 @@
           "condition": 12
         }
       },
-      "source_csv_sha256": "0d478615d04f31206f0ed8313986563291e4decd921171320819cdeae5e22bf1",
-      "canonical_csv_sha256": "0830bb50784de8617b95ec5801cbf6788a2b410a887022de318830dfc18f3f1f"
+      "source_csv_sha256": "25744975a874760f88bc6a63d6f9406c379e52f880c1afb3d85bc470620b32b2",
+      "canonical_csv_sha256": "8e8b585992d898876580d452764a42e1b3cbf850fb9e5031a3677435cb7443f1"
     },
     "error_complementarity.csv": {
-      "rows": 927,
+      "rows": 2079,
       "required_fields": [
         "dataset",
         "subject",
@@ -125,11 +125,11 @@
           "session/domain": 60
         }
       },
-      "source_csv_sha256": "e1f9e5771e1a4d8aea7f1493c8db80b899d4f82721681d31a350f6040249ddd2",
-      "canonical_csv_sha256": "91c16ab2c51d0cbb19aff22a357dd84bb6869b93b6a195937c50d7b22f9bbe41"
+      "source_csv_sha256": "03d2c24c05beb47138eee9bdf0a2efa9f1a59960a69c264ad97d7ad7b8e1904b",
+      "canonical_csv_sha256": "0b87c154cac1be9c343b88011126a8e4821dfc20c45167c5c5ad4d2adc998498"
     },
     "calibration_curve.csv": {
-      "rows": 5982,
+      "rows": 10362,
       "required_fields": [
         "dataset",
         "subject",
@@ -142,11 +142,19 @@
         "log_loss"
       ],
       "missing_field_counts": {
-        "macro_f1": 118,
-        "log_loss": 118,
+        "macro_f1": 178,
+        "log_loss": 178,
         "method": 504
       },
       "missing_by_run": {
+        "feature_bank_force_concat_core_calibration_validation_20260915": {
+          "macro_f1": 30,
+          "log_loss": 30
+        },
+        "feature_bank_force_concat_core_calibration_final_20260915": {
+          "macro_f1": 30,
+          "log_loss": 30
+        },
         "feature_bank_manus_selected_validation_20260915": {
           "macro_f1": 7,
           "log_loss": 7
@@ -223,8 +231,8 @@
           "log_loss": 7
         }
       },
-      "source_csv_sha256": "17338d3cd77df8aa683b18146dfc2cd1a09a359bba83053343dc60d58494062b",
-      "canonical_csv_sha256": "72f709c4775b6ea429014246553d2758bff3b0f449f03eb1a2495179fe0a7402"
+      "source_csv_sha256": "1ac8a314f665837b649e87c8237880cfa06bce221c3e6738d5f2b9a2735bfd6c",
+      "canonical_csv_sha256": "3f97586f4d88c3a202f587bc12dda442d20acd15ba3358011e78dc726a41164b"
     },
     "ablation_full_bank.csv": {
       "rows": 14603,
