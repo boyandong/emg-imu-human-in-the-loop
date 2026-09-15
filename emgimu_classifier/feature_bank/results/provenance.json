@@ -150,6 +150,18 @@
     "bytes": 21786
   },
   {
+    "run_id": "feature_bank_manus_concat_core_calibration_validation_20260916",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "60247e4ea2454df70d03ddb8caf4a96978f59d52296b4f9d8a2b14b227d4931d",
+    "bytes": 69394
+  },
+  {
+    "run_id": "feature_bank_manus_concat_core_calibration_final_20260916",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "d7614ce59350693ec90c86f09852f2e35d1323ab79f3fae0ff29afdd673fb9eb",
+    "bytes": 67616
+  },
+  {
     "run_id": "feature_bank_manus_concat_core_validation_20260916",
     "artifact": "conditional_incremental.csv",
     "sha256": "a2c4c29b91474da44505ba2a761654e24171419ed748f509fd6f88f246588fbf",
@@ -238,6 +250,18 @@
     "artifact": "interaction_results.csv",
     "sha256": "1874c20bb5fd043d97e31d56a1627174007c7b7484911de62c99de2a08703bb0",
     "bytes": 5617
+  },
+  {
+    "run_id": "feature_bank_manus_concat_core_calibration_validation_20260916",
+    "artifact": "error_complementarity.csv",
+    "sha256": "f698fc1286b643d36f134fd23e8ad9c3708a79bc4b81043ce76375601153aa4b",
+    "bytes": 60218
+  },
+  {
+    "run_id": "feature_bank_manus_concat_core_calibration_final_20260916",
+    "artifact": "error_complementarity.csv",
+    "sha256": "798404727af297bcea1b2fe4799bdeccf52873dd1dac8d4951741988b3175b57",
+    "bytes": 59430
   },
   {
     "run_id": "feature_bank_manus_concat_core_validation_20260916",
@@ -352,6 +376,18 @@
     "artifact": "error_complementarity.csv",
     "sha256": "8dd8258bb4ddfae80475d1dd7f8baaa15409b9591675160742d25134904467cf",
     "bytes": 6824
+  },
+  {
+    "run_id": "feature_bank_manus_concat_core_calibration_validation_20260916",
+    "artifact": "calibration_curve.csv",
+    "sha256": "89b33a752d65128c19cd4e96221705d887581512df4391bad205af3392450219",
+    "bytes": 373165
+  },
+  {
+    "run_id": "feature_bank_manus_concat_core_calibration_final_20260916",
+    "artifact": "calibration_curve.csv",
+    "sha256": "e5be5f2e913506c26b49d455f42072b0b84393920a5b9845e6056a2bd9a7ae8a",
+    "bytes": 369035
   },
   {
     "run_id": "feature_bank_force_concat_core_calibration_validation_20260915",

@@ -1,0 +1,7 @@
+{
+  "status": "ok",
+  "probability_arrays_checked": 108,
+  "matched_controls_checked": 108,
+  "max_absolute_probability_error": 0.0,
+  "source_target_hashes_checked": true
+}

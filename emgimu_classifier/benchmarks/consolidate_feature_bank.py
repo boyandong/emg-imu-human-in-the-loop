@@ -7,6 +7,8 @@ import json
 
 
 RUNS = (
+    'feature_bank_manus_concat_core_calibration_validation_20260916',
+    'feature_bank_manus_concat_core_calibration_final_20260916',
     'feature_bank_manus_concat_core_source_20260916',
     'feature_bank_manus_concat_core_validation_20260916',
     'feature_bank_manus_concat_core_final_20260916',

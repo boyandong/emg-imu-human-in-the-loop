@@ -79,9 +79,9 @@ The current temporal comparison shares most errors (G5/reference-F5 model correl
 
 Six new benchmark archives are complete. Five canonical CSVs, schema/provenance audits,
 source run manifests, trial lists, dimensions, per-user/per-class diagnostics, calibration
-burden estimates and SVG curves are available. The latest suite ran 141 tests with one
-skip; consolidated integrity covers 156 artifacts, 34,415 rows and 699 explicit
-partitions, while canonical record verification covers 32,932 rows. These are narrow
+burden estimates and SVG curves are available. The latest suite ran 143 tests with one
+skip; consolidated integrity covers 162 artifacts, 37,747 rows and 735 explicit
+partitions, while canonical record verification covers 36,264 rows. These are narrow
 integrity/implementation checks, not proof that every scientific requirement is complete.
 
 The highest-priority remaining work is the exact historical dataset/algorithm audit,
@@ -1696,3 +1696,45 @@ The suite ran 141 tests with one skip; integrity checks cover 156 artifacts,
 34,415 rows and 699 explicit partitions; canonical verification covers 32,932 rows.
 The complete robustness vector remains unchanged because this supplement does not
 replace previously frozen full-bank methods with a favorable final-only model.
+
+### Whole-session-trial calibration of actual MANUS concatenated Core
+
+Frozen Session-1 models are compared with and without mean/MAD personal anchors
+on identical remaining own-user Session-2/3 trials. Calibration is nested at 0/1/2
+whole trials per class with seed + user. At two-shot, each user retains exactly one
+trial per class. Scalers, feature families and classifiers remain unchanged; anchors
+use calibration labels only, calibration-distance median temperature and fixed alpha
+shots/(shots+2). No final-score model or anchor-weight selection occurs.
+
+| Final mean-user F1, matched no-anchor / anchor | cal0 | cal1 | cal2 |
+|---|---:|---:|---:|
+| F0 | 0.4152 / 0.4152 | 0.3792 / 0.4100 | 0.2796 / 0.3278 |
+| Core F0+SPD | 0.4161 / 0.4161 | 0.4040 / 0.4159 | 0.3102 / 0.3333 |
+| Core + Temporal | 0.4470 / 0.4470 | 0.4396 / 0.4381 | 0.3185 / 0.3481 |
+| Core + real IMU | 0.3957 / 0.3957 | 0.4122 / 0.4307 | 0.3241 / 0.2718 |
+
+The current Core anchor gives small matched gains at both nonzero budgets, unlike
+the much stronger earlier fine-tuning or supplemental local-prototype controls.
+The IMU model's two-shot anchor harms performance; Temporal's one-shot anchor also
+slightly harms F1. The differences are method-specific, not universal conclusions
+about personal calibration. Cal0/1/2 evaluate 108/72/36 total whole trials and cannot
+be subtracted as if they used one identical test set. Every matched no-anchor branch
+removes exactly the same calibration trials as its anchor branch.
+
+Some individual speed cells are empty after two-shot calibration. Their scores
+are explicitly blank; corresponding increments and complementarity are unavailable.
+ALL speed-cell metrics average only users with observed trials and state their
+available-user count. Remaining speed cells can lack some truth classes, with
+`classes_present` recorded; six-class macro F1 retains the task's six labels.
+This is not an isolated speed-generalization experiment or an OPEN/pinch/rest task.
+Five-shot has explicit unsupported rows; no actual trial counts or scores are invented.
+
+Runs `feature_bank_manus_concat_core_calibration_validation_20260916` and
+`_final_20260916` contribute 3,332 rows. Each phase replays 108 anchor predictions
+and 108 matched controls exactly, checks immutable source/target hashes and reproduces
+whole-trial calibration/evaluation indices. Tests verify own-user nested selection,
+held-out class coverage and rejection of duplicate trials or exhaustive budgets.
+The suite ran 143 tests with one skip. Integrity checks cover 162 artifacts,
+37,747 rows and 735 explicit partitions; canonical verification covers 36,264 rows.
+Exact historical data/algorithms, remaining named pairs, other eligible Core tasks
+and exhaustive scientific requirement audit are still incomplete. New work stays local.
