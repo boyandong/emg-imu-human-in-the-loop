@@ -85,10 +85,11 @@ F8 session signature now has a bounded MANUS reliability-fusion comparison, whil
 session-context integration remains incomplete. Personal normalization now has an EPN comparison;
 DTW templates now have a bounded ordered-RMS trial comparison. Required prediction/state persistence
 is currently strongest for audited force screening; other runners need the same coverage.
-Per-family calibration gain, diagnostics across all failures, complete shortlist/full-bank
-ablation across datasets, and an integrated robustness vector remain to be completed.
+Per-family calibration gain, diagnostics across all failures and full-system comparisons
+across datasets remain incomplete. Family robustness vectors and bounded force/EPN full-bank
+ablations are now available; they do not establish a complete multi-session system.
 
-Verification so far: 96 unittest tests passed, one skipped. This report and the active goal
+Verification so far: 100 unittest tests passed, one skipped. This report and the active goal
 remain open until those requirements and Git delivery are verified.
 
 ## Shrinkage late fusion follow-up
@@ -204,3 +205,20 @@ available providers. Missing personal calibration families receive zero reliabil
 if none has complete class coverage, an explicit error requests a population-mode fallback.
 No unavailable family is imputed. Tests cover missing providers, zero surviving weights,
 partial calibration coverage and the all-unavailable calibration case.
+
+## Multi-specialist EPN late fusion and full removals
+
+The fixed bank contains F0, X1H, CSP, ring, spectral, temporal, real IMU and quality providers.
+Independent source-trained logistic classifiers supply probabilities. Calibration-only
+reliability uses n0=8 shrinkage toward uniform population weights; each family also has a
+calibration-only personal anchor with fixed shots/(shots+2) probability mixing. All eight
+provider removals and removal of the complete anchor stage are evaluated on identical
+remaining trials. F8 is unavailable in EPN; F9 is a classifier provider in this experiment,
+not sample-level quality gating. This remains a bounded cross-user system comparison.
+
+Final mean per-user F1 for full/no-anchor/uniform is 0.4332/0.4647/0.4773 at one trial,
+0.4524/0.4755/0.4770 at two and 0.4732/0.4949/0.4829 at five. At five trials, no-anchor
+fusion also has better log-loss (1.4394 versus full 1.5723). Personal anchors in this fixed
+mixing rule hurt; reliability alone shows a small five-trial benefit. This does not justify
+default deployment of the full system. The current integrity audit passes 41 source
+artifacts, 3264 rows and 159 explicit trial split checks.

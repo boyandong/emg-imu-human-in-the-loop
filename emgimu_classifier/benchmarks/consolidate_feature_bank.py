@@ -37,6 +37,8 @@ RUNS = (
     'feature_bank_epn_selection_20260915',
     'feature_bank_force_zero_validation_20260915',
     'feature_bank_force_zero_final_20260915',
+    'feature_bank_full_fusion_validation_20260915',
+    'feature_bank_full_fusion_final_20260915',
 )
 ARTIFACTS = ('feature_family_results.csv', 'conditional_incremental.csv',
              'error_complementarity.csv', 'calibration_curve.csv', 'ablation_full_bank.csv')
