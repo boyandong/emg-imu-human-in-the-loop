@@ -314,3 +314,14 @@ trial IDs, users, days and postures, and replays every saved predictor without f
 Independent replay covers 48818 windows with zero probability difference; validation replay
 covers all nine saved predictors. State serialization is asserted unchanged. No model
 selection uses the replay results.
+
+## Wearing-state persistence and replay
+
+Electrode Shift audited validation/final runs persist per-subject family/scaler/classifier
+states, trial-aligned predictions and before/after trial partitions. F1 cells exactly match
+the original runs. `wearing_family_diagnostics.csv` adds 132 per-family/subject/after-domain
+centroid-displacement and gesture-separation cells in source-standardized trial coordinates.
+`python -m emgimu.feature_bank.replay_wearing` reproduces all 27 development and six
+independent predictors with zero probability difference and checks unchanged states and
+disjoint before/after trial identifiers. The original before-trained subject-specific protocol
+remains fixed; this is not a new cross-user wearing experiment.

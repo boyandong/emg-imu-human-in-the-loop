@@ -24,13 +24,13 @@
     "bytes": 2923
   },
   {
-    "run_id": "feature_bank_electrode_shift_validation_20260915",
+    "run_id": "feature_bank_electrode_shift_audited_validation_20260915",
     "artifact": "feature_family_results.csv",
     "sha256": "7a717ae97b434f17c28abb0d00022e7de24bf18520f6234cebc8aa0549389646",
     "bytes": 45802
   },
   {
-    "run_id": "feature_bank_electrode_shift_final_20260915",
+    "run_id": "feature_bank_electrode_shift_audited_final_20260915",
     "artifact": "feature_family_results.csv",
     "sha256": "69d9b032366a4a72fa4f40098014f725835d45e0af79d9ce564f2d72ccb5fe3f",
     "bytes": 9801
@@ -352,5 +352,17 @@
     "artifact": "cross_day_posture_diagnostics.csv",
     "sha256": "b32fa56f765cec8da9642e11936c2db3214586425c11a3196b1f51f60054ee2a",
     "bytes": 5340
+  },
+  {
+    "run_id": "feature_bank_electrode_shift_audited_validation_20260915",
+    "artifact": "wearing_family_diagnostics.csv",
+    "sha256": "4d28e1b6aab39b6e3c5dafa46c732debb0a36df2b046861dd953bbd056415e23",
+    "bytes": 20915
+  },
+  {
+    "run_id": "feature_bank_electrode_shift_audited_final_20260915",
+    "artifact": "wearing_family_diagnostics.csv",
+    "sha256": "b8dcc3d0b2b34103c0165cdec2d40252acbb8763d16e1fa7a5133b51468ab0f3",
+    "bytes": 4510
   }
 ]
