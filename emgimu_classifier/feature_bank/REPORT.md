@@ -1221,6 +1221,44 @@ be compared directly with the six-class macro-F1 above. This audit covers the se
 retained providers; it does not certify every internal candidate or all document-level
 requirements.
 
+### Quality observation formula and capability audit
+
+The legacy `QualityFamily.flatline_fraction` is a fraction of near-equal adjacent
+samples, not the document's longest consecutive flatline run. Historical transforms
+must remain reproducible, so `QualityObservabilityFamily` is a separate candidate.
+It appends longest consecutive near-equal-difference run divided by window length,
+per-channel correlation anomaly and availability-aware low-frequency power ratios.
+Flatline tolerances are frozen from source median absolute adjacent differences,
+with an explicit numerical floor; correlation median/MAD are source-only. Ring-neighbor
+mode requires verified native eight-channel topology. ADC clipping, usable spectral
+line bins and pre-highpass low-frequency observation each have explicit availability
+flags. Unknown metrics cannot be interpreted as clean measurements.
+
+The native eight-channel candidate has 80 dimensions: legacy 53, three appended
+eight-channel observations, and three availability flags. Input channel, sample rate
+and window length must match the fitted sensor contract. Low-frequency power is
+computed only with an explicit available pre-highpass observation and a usable EMG
+denominator band. Original force `Info.txt` documents 450 Hz lowpass filtering but
+does not prove absence of upstream highpass filtering; native low-frequency ratio
+therefore remains N/A, as does clipping without ADC range metadata.
+
+`quality_observability_controls.csv` retains 16 diagnostic controls on the exact
+recorded Ramp cal1 windows for users 7–10. Source thresholds fit users 1–6 Ramp only;
+source state remains unchanged, and no evaluation recordings or classifiers are used.
+For contiguous versus fragmented channel-3 flatline injections, legacy fractions
+are almost identical (0.4008/0.4006), while longest-run ratios separate them
+(0.3950/0.0083). Uncorrupted longest-run ratio is 0.0028. These are synthetic
+observation diagnostics, not labelled real-hardware noise results or evidence that
+new gating improves recognition. Native low-frequency measurements remain unavailable
+even in the exported injection table; a separate known-generated-waveform unit test
+verifies that an added 5 Hz component increases the implemented ratio.
+
+Three tests verify longest-run geometry, explicit availability/source immutability
+and controlled low-frequency contamination response. Full tests pass 127 cases with
+one skip. The legacy quality feature implementation and every historical prediction
+remain unchanged. Candidate quality fusion performance and remaining document-level
+evidence are not certified by these observation controls.
+
 ### Per-subject variation and class summaries
 
 `benchmarks/per_subject_analysis.py` derives 3342 subject/condition summaries from

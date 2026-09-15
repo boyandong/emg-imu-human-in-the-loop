@@ -1,0 +1,17 @@
+dataset,phase,subject,condition,scenario,windows,feature_dimension,legacy_flatline_fraction_ch3,longest_flatline_ratio_ch3,mean_low_frequency_power_ratio,mean_legacy_quality_score,adc_clipping_available,pre_highpass_low_frequency_available,synthetic
+libemg_contraction_intensity,validation,7,Ramp_cal1,uncorrupted,56,80,0.0069095478393137455,0.0032142854761332273,N/A,0.8325461745262146,False,False,False
+libemg_contraction_intensity,validation,7,Ramp_cal1,contiguous_flatline_ch3,56,80,0.40093323588371277,0.3950892984867096,N/A,0.8090603947639465,False,False,True
+libemg_contraction_intensity,validation,7,Ramp_cal1,fragmented_flatline_ch3,56,80,0.40093326568603516,0.0089285708963871,N/A,0.808333694934845,False,False,True
+libemg_contraction_intensity,validation,7,Ramp_cal1,synthetic_5Hz,56,80,0.0,0.0,N/A,0.2719072997570038,False,False,True
+libemg_contraction_intensity,validation,8,Ramp_cal1,uncorrupted,56,80,0.009063172154128551,0.0033928570337593555,N/A,0.7988883256912231,False,False,False
+libemg_contraction_intensity,validation,8,Ramp_cal1,contiguous_flatline_ch3,56,80,0.40281766653060913,0.39500001072883606,N/A,0.7616053819656372,False,False,True
+libemg_contraction_intensity,validation,8,Ramp_cal1,fragmented_flatline_ch3,56,80,0.4017408490180969,0.008214285597205162,N/A,0.7613111138343811,False,False,True
+libemg_contraction_intensity,validation,8,Ramp_cal1,synthetic_5Hz,56,80,0.0,0.0,N/A,0.24752266705036163,False,False,True
+libemg_contraction_intensity,final,9,Ramp_cal1,uncorrupted,56,80,0.004666187800467014,0.0019642857369035482,N/A,0.6439777612686157,False,False,False
+libemg_contraction_intensity,final,9,Ramp_cal1,contiguous_flatline_ch3,56,80,0.400125652551651,0.39500001072883606,N/A,0.6276260018348694,False,False,True
+libemg_contraction_intensity,final,9,Ramp_cal1,fragmented_flatline_ch3,56,80,0.39931800961494446,0.007678570691496134,N/A,0.6258278489112854,False,False,True
+libemg_contraction_intensity,final,9,Ramp_cal1,synthetic_5Hz,56,80,0.0,0.0,N/A,0.1975001096725464,False,False,True
+libemg_contraction_intensity,final,10,Ramp_cal1,uncorrupted,56,80,0.005473797209560871,0.002589285373687744,N/A,0.7709144949913025,False,False,False
+libemg_contraction_intensity,final,10,Ramp_cal1,contiguous_flatline_ch3,56,80,0.39949750900268555,0.3950892984867096,N/A,0.7616724967956543,False,False,True
+libemg_contraction_intensity,final,10,Ramp_cal1,fragmented_flatline_ch3,56,80,0.40039485692977905,0.008214285597205162,N/A,0.7544551491737366,False,False,True
+libemg_contraction_intensity,final,10,Ramp_cal1,synthetic_5Hz,56,80,0.0,0.00017857142665889114,N/A,0.2518048882484436,False,False,True
