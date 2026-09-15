@@ -216,16 +216,16 @@
     "bytes": 62278
   },
   {
-    "run_id": "feature_bank_manus_full_fusion_validation_20260915",
+    "run_id": "feature_bank_manus_full_fusion_validation_20260915_v2",
     "artifact": "calibration_curve.csv",
-    "sha256": "a3dbfe930ab37c07fb9646f6a81e4ad4728a0248b9f2647a413cbb2c643afe3e",
-    "bytes": 96289
+    "sha256": "1ca3736f7baffdcd88ad99dd442ad0debd0c5628a82016ef6ddf39fc7064f128",
+    "bytes": 192216
   },
   {
-    "run_id": "feature_bank_manus_full_fusion_final_20260915",
+    "run_id": "feature_bank_manus_full_fusion_final_20260915_v2",
     "artifact": "calibration_curve.csv",
-    "sha256": "436f49509baaca85a402e3e67a548c5bd83941353f2d9e54e60cbea7eceb94eb",
-    "bytes": 97063
+    "sha256": "4b9a67e32431b38dcf4beb5f3ae572ce78a634fd366822986684ce9b315c69f7",
+    "bytes": 193061
   },
   {
     "run_id": "feature_bank_force_audited_validation_20260915",
@@ -258,15 +258,15 @@
     "bytes": 56346
   },
   {
-    "run_id": "feature_bank_manus_full_fusion_validation_20260915",
+    "run_id": "feature_bank_manus_full_fusion_validation_20260915_v2",
     "artifact": "ablation_full_bank.csv",
-    "sha256": "21ee8d14d9fedd90e5f31eefbd0a300f2051b3a99d532e0a3516b4aba5e697b9",
-    "bytes": 88692
+    "sha256": "980c8541ee904e62c41d0dbf7b5d6d6414686361b087422377e5d033af8d88f1",
+    "bytes": 184619
   },
   {
-    "run_id": "feature_bank_manus_full_fusion_final_20260915",
+    "run_id": "feature_bank_manus_full_fusion_final_20260915_v2",
     "artifact": "ablation_full_bank.csv",
-    "sha256": "4101919f105b6e22e9c9c3c387ffd3b40848b99aaa551d92a2f25507191ead38",
-    "bytes": 89326
+    "sha256": "9b6b5decb45f2d7fb0db42672babdd86def9c17d53fb049fc6dda2f13cc42bf2",
+    "bytes": 185324
   }
 ]

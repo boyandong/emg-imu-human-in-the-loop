@@ -230,8 +230,8 @@ The same eight-family fusion is now evaluated on MANUS session 1→2 development
 class cosine agreement. F9 uses source-fit signal quality: F0/CSP receive minimum channel
 quality, other signal providers mean quality, and IMU/context providers retain unit quality.
 Provider removals are for the anchor/reliability bank; the additional F8 and F8+F9 variants
-separately assess context and quality weighting. This does not yet constitute removal of
-every component from the combined F8+F9 system.
+separately assess context and quality weighting. The v2 follow-up below completes combined
+system component removals using the same fixed rules.
 
 Final one-shot F1 is 0.4609 for anchor/reliability fusion, 0.4055 without anchors, 0.4509
 with F8 and 0.4972 with F8+F9. The F8+F9 log-loss is 1.2687 versus 1.2613 before context,
@@ -240,3 +240,16 @@ trial/class/user. Five-shot is unavailable and recorded in the manifest. Session
 trial IDs and fitted states are saved. Per-family dimensions extracted from actual fitted
 states are in `results/full_fusion_dimensions.json`. Current integrity checks pass 45
 source artifacts, 4314 rows and 195 explicit split checks.
+
+## Combined-system component removal audit
+
+MANUS v2 evaluates the combined anchor + reliability + F8 + F9 system and individually removes
+all eight providers, F7 anchors, F8 context and F9 quality weights. The old variants are retained
+as comparisons; unsupported five-shot rows now explicitly contain blank metrics. The independent
+one-shot full F1 remains 0.4972. Removing F7/F8/F9 weighting yields 0.4241/0.4517/0.4509;
+removing CSP increases F1 to 0.5171, while removing ring or temporal reduces it to
+0.4441/0.4414. These are frozen-model diagnostics, not permission to select a different model
+on the test set. This completes component removal for this bounded MANUS system only.
+Current copied-result integrity checks cover 45 source artifacts, 5350 rows and 231 explicit
+trial split checks. Cross-failure family diagnostics and broader reproducibility coverage
+still remain open.

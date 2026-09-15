@@ -80,9 +80,15 @@ def run(archive:Path,output:Path,phase:str,dataset:str='epn612')->None:
                     context/=context.sum()
                 variants['with_F8_context']=(personalized,context)
                 variants['with_F8_F9_quality']=(personalized,context)
+                variants.update({
+                    'combined_full':(personalized,context),
+                    'combined_without_F8_context':(personalized,weights),
+                    'combined_without_F9_quality':(personalized,context),
+                    'combined_without_F7_anchor':({name:probabilities[name][ev] for name in FAMILIES},context),
+                    **{f'combined_without_{name}':({n:p for n,p in personalized.items() if n!=name},context) for name in FAMILIES}})
             for method,(providers,weight) in variants.items():
                 q=None
-                if method=='with_F8_F9_quality':
+                if method=='with_F8_F9_quality' or (method.startswith('combined_') and method!='combined_without_F9_quality'):
                     q={name:(np.ones(len(ev)) if name in ('F6_IMU','F9_Quality') else quality_min[ev] if name in ('F0','F2b_CSP') else quality_mean[ev]) for name in FAMILIES}
                 p=late_fusion(providers,FAMILIES,weight,q)
                 rows.append({'dataset':dataset,'phase':phase,'subject':user,'condition':condition,
@@ -94,6 +100,11 @@ def run(archive:Path,output:Path,phase:str,dataset:str='epn612')->None:
         for method in variants:
             selected=[r for r in rows if r['shots_per_class']==shots and r['method']==method]
             rows.append({**selected[0],'subject':'ALL',**{k:float(np.mean([r[k] for r in selected])) for k in ('macro_f1','accuracy','log_loss','brier','ece')},'per_class_f1_json':'mean per-user aggregation'})
+    if dataset=='semg_manus':
+        for user in (*users,'ALL'):
+            rows.append({'dataset':dataset,'phase':phase,'subject':user,'condition':condition,
+                'shots_per_class':5,'feature_bank':'|'.join(FAMILIES),'method':'unsupported',
+                'removed_family':'N/A',**{k:'' for k in ('macro_f1','accuracy','log_loss','brier','ece','per_class_f1_json')}})
     print('[3/3] saving full-bank evidence and fitted states',flush=True);output.mkdir(parents=True)
     for name,values in (('calibration_curve',rows),('ablation_full_bank',[r for r in rows if r['method']!='uniform_population'])):
         with (output/f'{name}.csv').open('w',newline='',encoding='utf-8') as handle:
