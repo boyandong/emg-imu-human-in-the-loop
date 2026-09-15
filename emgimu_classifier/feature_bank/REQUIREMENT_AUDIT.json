@@ -75,5 +75,20 @@
     "not_historical_DS2": true
   },
   "test_count": 173,
-  "wearing_configuration_boundary": "New executions explicitly persist preprocessing/model/seed fields and reject invalid phases before loading final users. Existing saved experiments remain historical manifests; no retraining or retroactive configuration claim."
+  "wearing_configuration_boundary": "New executions explicitly persist preprocessing/model/seed fields and reject invalid phases before loading final users. Existing saved experiments remain historical manifests; no retraining or retroactive configuration claim.",
+  "reproducibility_metadata_inventory": {
+    "artifact": "feature_bank/REPRODUCIBILITY_METADATA_AUDIT.json",
+    "saved_run_manifests": 126,
+    "required_field_rows": 1134,
+    "completion_proven": false,
+    "boundary": "Explicit metadata key inventory; not_located means no candidate alias located, not proof the information is absent from all artifacts."
+  },
+  "saved_wearing_configuration_inspection": {
+    "artifact": "feature_bank/results/saved_wearing_configuration_audit.json",
+    "runs": 4,
+    "fitted_states": 72,
+    "configuration_records": 432,
+    "source_states_immutable": true,
+    "boundary": "Read actual saved model/scaler/family values only; no refit, no reconstructed historical environment, no modified manifests."
+  }
 }
