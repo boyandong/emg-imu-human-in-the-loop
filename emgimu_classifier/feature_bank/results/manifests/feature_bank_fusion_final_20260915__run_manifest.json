@@ -1,0 +1,40 @@
+{
+  "phase": "final",
+  "seed": 20260915,
+  "train_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "target_users": [
+    19,
+    20,
+    21
+  ],
+  "families": [
+    "F0",
+    "F3_Ring"
+  ],
+  "population_weights": [
+    0.5,
+    0.5
+  ],
+  "n0": 8,
+  "temperature": 1,
+  "classifier_C": 1,
+  "fit_unit": "source trial averages",
+  "aggregation": "mean per-user metrics",
+  "personal_fit_unit": "calibration trials only"
+}

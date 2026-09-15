@@ -1,0 +1,36 @@
+{
+  "phase": "validation",
+  "seed": 20260915,
+  "subjects": [
+    1,
+    2,
+    3
+  ],
+  "evaluation_unit": "18-second trial",
+  "EMG_columns": "9-16 only",
+  "load_shift": {
+    "train_load_g": 0,
+    "target_load_g": [
+      250,
+      500,
+      750,
+      1000
+    ]
+  },
+  "position_shift": {
+    "train_position": 1,
+    "target_positions": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "frozen_families": {
+    "load_shift": null,
+    "position_shift": null
+  }
+}

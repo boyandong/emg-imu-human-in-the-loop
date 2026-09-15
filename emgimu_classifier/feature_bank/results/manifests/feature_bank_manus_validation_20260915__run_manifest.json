@@ -1,0 +1,41 @@
+{
+  "seed": 20260915,
+  "users": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "gestures": [
+    "flexext_fist",
+    "flexext_thumb",
+    "flexext_index",
+    "flexext_middle",
+    "flexext_ring",
+    "flexext_pinky"
+  ],
+  "train_session": 1,
+  "validation_session": 2,
+  "test_session_unopened": 3,
+  "speed_cells": [
+    "slow",
+    "medium",
+    "fast"
+  ],
+  "evaluation_unit": "trial",
+  "windows_per_trial": 8,
+  "dimensions": {
+    "F0": 48,
+    "F1_X1H": 8,
+    "F2a_Cov": 36,
+    "F2b_CSP": 12,
+    "F2c_SPD": 36,
+    "F3_Ring": 40,
+    "F4_Spectral": 72,
+    "F5_Temporal": 57,
+    "F9_Quality": 53,
+    "F6_IMU": 13
+  }
+}

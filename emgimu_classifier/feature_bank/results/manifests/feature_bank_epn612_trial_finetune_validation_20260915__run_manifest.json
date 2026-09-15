@@ -1,0 +1,42 @@
+{
+  "phase": "validation",
+  "seed": 20260915,
+  "train_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "target_users": [
+    16,
+    17,
+    18
+  ],
+  "families": [
+    "F0",
+    "F3_Ring"
+  ],
+  "dimensions": {
+    "F0": 48,
+    "F3_Ring": 40
+  },
+  "post_onset_windows_per_trial": 4,
+  "calibration_method": "finetune",
+  "personal_anchor_shrinkage": null,
+  "finetune": {
+    "C": 0.1,
+    "calibration_sample_weight": "15/shots"
+  },
+  "evaluation_excludes_complete_calibration_trials": true
+}

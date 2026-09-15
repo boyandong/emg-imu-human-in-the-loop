@@ -13,6 +13,8 @@
 *.npz
 *.csv
 *.xlsx
+!emgimu_classifier/benchmarks/discovery/DATASET_CANDIDATES.csv
+!emgimu_classifier/feature_bank/results/*.csv
 
 # Models, logs and generated artifacts
 **/models/

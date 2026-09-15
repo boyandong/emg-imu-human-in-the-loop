@@ -1,0 +1,26 @@
+{
+  "phase": "final",
+  "seed": 20260915,
+  "train_days": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "target_days": [
+    7,
+    8
+  ],
+  "families": [
+    "F0",
+    "F5_Temporal"
+  ],
+  "frozen_added_family": "F5_Temporal",
+  "ring_features_excluded": "UniBo has named muscles, not circular electrodes",
+  "F6_interpretation": "oracle posture upper bound",
+  "dimensions": {
+    "F0": 24,
+    "F5_Temporal": 29
+  }
+}

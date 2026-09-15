@@ -1,0 +1,19 @@
+{
+  "seed": 20260915,
+  "subjects": [
+    15,
+    16,
+    17
+  ],
+  "corrupt_fraction_of_windows": 0.25,
+  "corruptions": [
+    "clean",
+    "channel_dropout",
+    "clipping",
+    "line_noise",
+    "motion_burst"
+  ],
+  "quality_family": "F9",
+  "feature_model": "F0+F3_Ring",
+  "synthetic_claim_only": true
+}

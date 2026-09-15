@@ -1,0 +1,27 @@
+{
+  "phase": "validation",
+  "seed": 20260915,
+  "users": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "train_session": 1,
+  "target_session": 2,
+  "families": [
+    "F0",
+    "F2c_SPD"
+  ],
+  "dimensions": {
+    "F0": 48,
+    "F2c_SPD": 36
+  },
+  "finetune": {
+    "C": 0.1,
+    "calibration_sample_weight": "6/shots"
+  },
+  "trial_disjoint": true
+}

@@ -1,0 +1,10 @@
+family,dimension,D_nuisance,D_gesture,J,definition
+F0,48,4.323118686676025,7.438009262084961,1.7205193290222163,within-user class-matched condition centroid Euclidean distance; train-standardized
+F1_X1H,8,1.2132574319839478,2.834951162338257,2.3366443819759994,within-user class-matched condition centroid Euclidean distance; train-standardized
+F2a_Cov,36,2.8347678184509277,6.249359130859375,2.2045400297623536,within-user class-matched condition centroid Euclidean distance; train-standardized
+F2b_CSP,14,1.3585530519485474,3.9125313758850098,2.8799253516603263,within-user class-matched condition centroid Euclidean distance; train-standardized
+F2c_SPD,36,2.7357089519500732,5.737123966217041,2.097125120757234,within-user class-matched condition centroid Euclidean distance; train-standardized
+F3_Ring,40,2.53010630607605,4.806631088256836,1.8997743599594263,within-user class-matched condition centroid Euclidean distance; train-standardized
+F4_Spectral,72,5.151793003082275,9.437689781188965,1.8319233275755917,within-user class-matched condition centroid Euclidean distance; train-standardized
+F5_Temporal,57,3.0016298294067383,4.605535507202148,1.534344928905135,within-user class-matched condition centroid Euclidean distance; train-standardized
+F9_Quality,53,4.1249589920043945,6.017617225646973,1.458830799847889,within-user class-matched condition centroid Euclidean distance; train-standardized

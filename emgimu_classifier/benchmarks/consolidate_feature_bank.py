@@ -1,0 +1,72 @@
+"""Copy inspectable small results; retain run IDs and never copy raw signals."""
+from pathlib import Path
+import argparse
+import csv
+import hashlib
+import json
+
+
+RUNS = (
+    'feature_bank_force_audited_validation_20260915',
+    'feature_bank_force_selection_20260915',
+    'feature_bank_force_calibration_validation_20260915_v2',
+    'feature_bank_force_calibration_final_20260915',
+    'feature_bank_epn612_trial_validation_20260915',
+    'feature_bank_epn612_trial_calibration_validation_20260915',
+    'feature_bank_epn612_trial_finetune_validation_20260915',
+    'feature_bank_epn612_trial_finetune_final_20260915',
+    'feature_bank_manus_validation_20260915',
+    'feature_bank_manus_final_20260915',
+    'feature_bank_manus_calibration_validation_20260915',
+    'feature_bank_manus_calibration_final_20260915',
+    'feature_bank_electrode_shift_validation_20260915',
+    'feature_bank_electrode_shift_final_20260915',
+    'feature_bank_quality_validation_20260915',
+    'feature_bank_unibo_validation_20260915',
+    'feature_bank_unibo_final_20260915',
+    'feature_bank_emg_fmg_validation_20260915',
+    'feature_bank_emg_fmg_final_20260915',
+    'feature_bank_fusion_validation_20260915',
+    'feature_bank_fusion_final_20260915',
+)
+ARTIFACTS = ('feature_family_results.csv', 'conditional_incremental.csv',
+             'error_complementarity.csv', 'calibration_curve.csv', 'ablation_full_bank.csv')
+
+
+def consolidate(root: Path, output: Path) -> None:
+    output.mkdir(parents=True, exist_ok=True)
+    provenance = []
+    for name in ARTIFACTS:
+        rows = []
+        for run in RUNS:
+            source = root / run / name
+            if not source.exists():
+                continue
+            data = source.read_bytes()
+            provenance.append({'run_id': run, 'artifact': name,
+                               'sha256': hashlib.sha256(data).hexdigest(), 'bytes': len(data)})
+            with source.open(encoding='utf-8-sig', newline='') as handle:
+                rows.extend({'run_id': run, **row} for row in csv.DictReader(handle))
+        if not rows:
+            raise ValueError(f'No evidence for {name}')
+        fields = list(dict.fromkeys(key for row in rows for key in row))
+        with (output / name).open('w', encoding='utf-8', newline='') as handle:
+            writer = csv.DictWriter(handle, fieldnames=fields)
+            writer.writeheader()
+            writer.writerows(rows)
+    manifests = output / 'manifests'
+    manifests.mkdir(exist_ok=True)
+    for run in RUNS:
+        for source in (root / run).glob('*.json'):
+            (manifests / f'{run}__{source.name}').write_bytes(source.read_bytes())
+    (output / 'provenance.json').write_text(json.dumps(provenance, indent=2), encoding='utf-8')
+    source=root/'feature_bank_force_audited_validation_20260915/family_diagnostics.csv'
+    (output/'family_diagnostics.csv').write_bytes(source.read_bytes())
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('root', type=Path)
+    parser.add_argument('output', type=Path)
+    args = parser.parse_args()
+    consolidate(args.root, args.output)

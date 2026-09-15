@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-15",
+  "raw_root": "D:/emg-imu-benchmarks/data/raw",
+  "immutability": "archives and extracted raw files are never modified",
+  "datasets": [
+    {
+      "id": "ds2_force",
+      "status": "blocked_original_release_404",
+      "source": "https://www.mdpi.com/2306-5729/10/12/194",
+      "expected": "20 subjects; 3 channels; 1500 Hz; 5 gestures; low/medium/high",
+      "note": "Historical artifacts absent; original Kaggle page and download API returned 404. No substitute is represented as historical DS2."
+    },
+    {
+      "id": "libemg_force",
+      "status": "downloaded_verified",
+      "source": "https://github.com/LibEMG/ContractionIntensity/archive/refs/heads/main.zip",
+      "size": 207707607,
+      "sha256": "237212D87F50C9B621E572BC780D99FAC3A9AF60B99EC8B455FB3D3DBB2D15E7",
+      "md5": "61D4A5AAEA134F3C730517A354E20870",
+      "file_count_csv": 3220,
+      "license": "not declared by repository",
+      "path": "D:/emg-imu-benchmarks/data/raw/libemg_force/contraction-intensity-main.zip"
+    },
+    {
+      "id": "libemg_electrode_shift",
+      "status": "downloaded_verified",
+      "source": "https://github.com/LibEMG/CIILData/archive/refs/heads/main.zip",
+      "expected_size_source": "GitHub repository reports about 11 MB",
+      "license": "not declared by repository",
+      "path": "D:/emg-imu-benchmarks/data/raw/libemg_electrode_shift/CIILData-main.zip",
+      "size": 11563732,
+      "sha256": "4CFA9A4861193F230179FA87D53EDA7503E66B5CFEDEAE81C81E476F53F6B2B6",
+      "md5": "711DF74C47DFE811968B8F41A37E2438"
+    },
+    {
+      "id": "unibo_inail",
+      "status": "downloaded_verified",
+      "source": "https://github.com/pulp-bio/unibo-inail-semg-dataset/archive/refs/heads/main.zip",
+      "expected_size": 513385791,
+      "expected_sha256": "E32F1649B7B9B775A6B03328FB862EBF21A18C7CA6B4D9ABB50B7281CAEFBCE3",
+      "license": "LGPL-2.1",
+      "path": "D:/emg-imu-benchmarks/data/raw/unibo_inail/unibo-inail-main.zip",
+      "size": 513385791,
+      "sha256": "E32F1649B7B9B775A6B03328FB862EBF21A18C7CA6B4D9ABB50B7281CAEFBCE3"
+    },
+    {
+      "id": "epn612",
+      "status": "downloaded_verified",
+      "source": "https://zenodo.org/api/records/4421500/files/EMG-EPN612%20Dataset.zip/content",
+      "expected_size": 5483385161,
+      "expected_md5": "98bd3c315efab607cc54b2ed2f8f3ada",
+      "license": "CC-BY-4.0",
+      "path": "D:/emg-imu-benchmarks/data/raw/epn612/EMG-EPN612-Dataset.zip",
+      "size": 5483385161,
+      "sha256": "4EE8DB037385E7BEE1E6AC6F9E9EEA4F0869E25F7825F5EB7E5BE0DFF4F93C21",
+      "md5": "98BD3C315EFAB607CC54B2ED2F8F3ADA"
+    },
+    {
+      "id": "semg_manus",
+      "status": "downloaded_verified",
+      "source": "https://zenodo.org/api/records/19261324/files/semg-manus-dataset-v1.zip/content",
+      "expected_size": 594438686,
+      "expected_md5": "2d3975173cd6b6832d50d0be0948e1f0",
+      "license": "CC-BY-4.0",
+      "path": "D:/emg-imu-benchmarks/data/raw/semg_manus/semg-manus-dataset-v1.zip",
+      "size": 594438686,
+      "sha256": "2D9E1DF613485B9A4AFE9A5A71010CA84E75A521B596F836A195B5EAF3DC1F29",
+      "md5": "2D3975173CD6B6832D50D0BE0948E1F0"
+    },
+    {
+      "id": "emg_fmg",
+      "status": "downloaded_verified",
+      "source": "https://zenodo.org/api/records/15420178/files/Data.zip/content",
+      "expected_size": 9125369365,
+      "expected_md5": "453a9e17b5a2ee4c5e8da683d4df2c29",
+      "license": "CC0",
+      "path": "D:/emg-imu-benchmarks/data/raw/emg_fmg/Data.zip",
+      "size": 9125369365,
+      "sha256": "3021E8B5FF31FD5AABA5E11F5F1C4D370D07407C0F1451F36C64A3A03B42C677",
+      "md5": "453A9E17B5A2EE4C5E8DA683D4DF2C29"
+    },
+    {
+      "id": "great",
+      "status": "deferred",
+      "source": "https://doi.org/10.5061/dryad.8sf7m0czv",
+      "expected_size": 3800000000,
+      "license": "CC0"
+    },
+    {
+      "id": "ninapro_db6",
+      "status": "access_required",
+      "source": "https://ninapro.hevs.ch/",
+      "license": "NinaPro terms"
+    },
+    {
+      "id": "grabmyo",
+      "status": "deferred",
+      "source": "https://physionet.org/content/grabmyo/1.1.0/",
+      "uncompressed_size": 9400000000,
+      "license": "ODC-BY-1.0"
+    },
+    {
+      "id": "ninapro_db5",
+      "status": "access_required",
+      "source": "https://ninapro.hevs.ch/",
+      "license": "NinaPro terms"
+    },
+    {
+      "id": "fors_emg",
+      "status": "deferred",
+      "source": "https://www.kaggle.com/datasets/ummerummanchaity/fors-emg-a-novel-semg-dataset",
+      "license": "verify at download"
+    },
+    {
+      "id": "electrode_replacement",
+      "status": "secondary",
+      "source": "https://zenodo.org/api/records/4039550/files/EMG%20dataset.7z/content",
+      "expected_size": 315604904,
+      "expected_md5": "c577384488e7fd0d7f7916485c87d72b",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "hyser",
+      "status": "metadata_only",
+      "source": "https://physionet.org/content/hd-semg/2.0.0/",
+      "uncompressed_size": 142600000000,
+      "license": "ODC-BY-1.0"
+    }
+  ]
+}

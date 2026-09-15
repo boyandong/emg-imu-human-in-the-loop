@@ -1,0 +1,45 @@
+{
+  "seed": 20260915,
+  "cohort": "trainingJSON",
+  "source_split": "trainingSamples",
+  "train_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "validation_users": [
+    16,
+    17,
+    18
+  ],
+  "test_users_unopened": [
+    19,
+    20,
+    21
+  ],
+  "post_onset_windows_per_trial": 4,
+  "dimensions": {
+    "F0": 48,
+    "F1_X1H": 8,
+    "F2a_Cov": 36,
+    "F2b_CSP": 12,
+    "F2c_SPD": 36,
+    "F3_Ring": 40,
+    "F4_Spectral": 72,
+    "F5_Temporal": 57,
+    "F9_Quality": 53,
+    "F6_IMU": 13
+  }
+}
