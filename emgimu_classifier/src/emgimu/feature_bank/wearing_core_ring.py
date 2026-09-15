@@ -67,6 +67,10 @@ def write(path, rows):
 
 
 def run(archive, output, phase, definition_mode='reference'):
+    if phase not in ('validation', 'final'):
+        raise ValueError('Explicit validation or final phase required')
+    if definition_mode not in ('reference', 'document'):
+        raise ValueError('Unsupported Core definition mode')
     if output.exists():
         raise FileExistsError(output)
     output.mkdir(parents=True)
@@ -131,6 +135,17 @@ def run(archive, output, phase, definition_mode='reference'):
     np.savez_compressed(output/'heldout_predictions.npz',**saved)
     (output/'split_trial_ids.json').write_text(json.dumps(splits,indent=2),encoding='utf-8')
     (output/'run_manifest.json').write_text(json.dumps({'phase':phase,'specifications':SPECS,'core_definition_mode':definition_mode,
+        'random_seed':20260915,
+        'subject_ids': [15,16,17] if phase=='validation' else [18,19,20],
+        'native_class_names':['close','open','rest','flexion','extension'],
+        'force_labels':None, 'calendar_session_ids':None,
+        'domain_ids':{'source':['training'],'target':['trial_1','trial_2','trial_3','trial_4']},
+        'trial_ids_artifact':'split_trial_ids.json',
+        'preprocessing':{'sample_rate_hz':200.,'channels':8,'window_ms':200.,
+            'maximum_windows_per_trial':8,'window_selection':'evenly spaced nonoverlapping native windows',
+            'trial_aggregation':'mean feature vectors','scaler':'StandardScaler source-fit per composition'},
+        'classifier':{'type':'LogisticRegression','C':1,'class_weight':'balanced','max_iter':1000,'random_state':20260915},
+        'probability_calibration':{'method':'temperature','fit_data':'source repetition-held-out OOF probabilities'},
         'F0_threshold': 'source Rest native label2 only' if definition_mode=='document' else 'source pooled adjacent differences reference',
         'CSP': 'uncentered XX transpose trace normalization; two components per tail/class' if definition_mode=='document' else 'centered/shrunk reference; one component per tail/class',
         'archive_sha256':hashlib.sha256(archive.read_bytes()).hexdigest(), 'temperatures':temperatures,

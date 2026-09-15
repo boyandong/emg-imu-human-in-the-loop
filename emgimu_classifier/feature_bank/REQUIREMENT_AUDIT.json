@@ -74,5 +74,6 @@
     "repetition_boundaries": null,
     "not_historical_DS2": true
   },
-  "test_count": 171
+  "test_count": 173,
+  "wearing_configuration_boundary": "New executions explicitly persist preprocessing/model/seed fields and reject invalid phases before loading final users. Existing saved experiments remain historical manifests; no retraining or retroactive configuration claim."
 }
