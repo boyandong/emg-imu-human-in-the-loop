@@ -1,9 +1,10 @@
 {
   "date": "2026-09-16",
-  "command": "$env:PYTHONPATH='src'; python -m unittest discover -s tests -q",
-  "tests_run": 169,
+  "command": "$env:PYTHONPATH='src'; python -m unittest discover -s tests",
+  "tests_run": 171,
   "skipped": 1,
   "result": "OK",
-  "compileall": "passed for src/emgimu/feature_bank and benchmarks",
-  "scope": "unit and synthetic integration checks; no live-device accuracy claim"
+  "compileall": "passed for src and benchmarks/discovery/scripts",
+  "scope": "unit and synthetic integration checks; no live-device accuracy claim",
+  "test_log_sha256": "eb81b4f52a64fb035310c35706067a81aac1f2ad7cbbfefcb472ce6a4334db12"
 }

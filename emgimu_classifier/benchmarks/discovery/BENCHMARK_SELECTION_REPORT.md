@@ -93,12 +93,12 @@ metadata-only secondary datasets are not assigned sampled-QC evidence.
 
 DISCOVERY_DELIVERY_AUDIT.json rechecks all seven required files, candidate fields,
 eight-point score vectors, current six-archive sizes, six source sanity-report hashes
-and36 captioned plot hashes. Exact complete-archive total is15,935,850,342 bytes,
+and 36 captioned plot hashes. The six-core archive total is 15,935,850,342 bytes.
 The original seed/population draw also reproduces three distinct subjects and two
 specified conditions for every dataset, including the restricted complete MANUS
 cohort used by the native sanity producer. This verifies sample selection evidence,
-not a fresh reread of the entire raw population.
-not total raw/extracted/processed disk usage. Multi-GB raw digests are the recorded
+not a fresh reread of the entire raw population. Archive bytes do not represent
+total raw/extracted/processed disk usage. Multi-GB raw digests are the recorded
 acquisition digests, not freshly recomputed. DISK_USAGE.json retains its dated
 2026-09-15 snapshot and must not be presented as current total disk usage.
 
@@ -110,3 +110,15 @@ the dataset URL. This does not establish a new HTTP404 or recover the archive.
 The prior404 evidence and missing old artifacts remain separate facts.
 Secondary paper/license/layout provenance and exact historical baseline recovery
 remain incomplete. File/hash/field checks do not prove full Phase-1 acceptance.
+
+
+## Optional secondary acquisition (2026-09-16)
+
+The electrode re-placement archive is now downloaded and officially checksum-verified.
+See ELECTRODE_REPLACEMENT_REVIEW.md and electrode_replacement_native_sanity.json.
+The separate secondary archive contributes 315,604,904 bytes; six core plus this
+secondary archive total 16,251,455,246 bytes (16.25 decimal GB), excluding README,
+extracted subsets and processed artifacts. This is not a current disk-usage scan.
+Two of six sampled records contain missing numeric fields and are rejected by the
+native reader; interval labels and repetition boundaries remain unavailable.
+The frozen secondary selection decision and six-core classification scores are unchanged.

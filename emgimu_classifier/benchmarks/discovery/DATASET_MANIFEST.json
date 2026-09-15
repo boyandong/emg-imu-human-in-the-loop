@@ -126,6 +126,22 @@
       "source": "https://physionet.org/content/hd-semg/2.0.0/",
       "uncompressed_size": 142600000000,
       "license": "ODC-BY-1.0"
+    },
+    {
+      "id": "electrode_replacement_secondary",
+      "tier": "secondary",
+      "status": "downloaded_verified_secondary_missing_fields",
+      "source": "https://zenodo.org/records/4039550",
+      "license": "CC-BY-4.0",
+      "path": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\secondary_raw\\electrode_replacement\\EMG dataset.7z",
+      "size": 315604904,
+      "md5": "c577384488e7fd0d7f7916485c87d72b",
+      "sha256": "d30a1096ed2522b32bfafcfcb2d9cdf5ccf28e1e21a41dda77824317a8c1b1ff",
+      "native_recordings": 267,
+      "sanity_audit": "electrode_replacement_native_sanity.json",
+      "interval_labels": null,
+      "repetition_boundaries": null,
+      "note": "Optional secondary archive; sampled missing fields reject two full recordings; not historical DS2; no classifier scores."
     }
   ],
   "sanity_audit": "SANITY_AUDIT.json"

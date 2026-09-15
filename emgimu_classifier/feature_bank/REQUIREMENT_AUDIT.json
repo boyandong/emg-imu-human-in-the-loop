@@ -58,5 +58,21 @@
     "plots_rehashed": 36,
     "selection_checks": "original three native subjects/two prespecified conditions per dataset reproduced",
     "boundary": "retrospective scores not original timing proof; exact old DS2 and secondary source provenance remain incomplete"
-  }
+  },
+  "engineering_clause_audit": {
+    "artifact": "feature_bank\\ENGINEERING_CLAUSE_AUDIT.csv",
+    "exact_clauses": 9,
+    "completion_proven": false,
+    "boundary": "Clause-level review of engineering section only; other document sections remain pending."
+  },
+  "secondary_electrode_replacement_evidence": {
+    "artifact": "benchmarks/discovery/electrode_replacement_native_sanity.json",
+    "archive_verified": true,
+    "sampled_recordings": 6,
+    "rejected_full_recordings": 2,
+    "interval_labels": null,
+    "repetition_boundaries": null,
+    "not_historical_DS2": true
+  },
+  "test_count": 171
 }
