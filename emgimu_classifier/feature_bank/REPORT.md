@@ -942,3 +942,29 @@ condition report. This evidence establishes a mixed outcome: average and minimum
 improvement coexist with declining force/day/posture coordinates. It does not prove
 that the entire robustness envelope has improved. Remaining source reuse, scientific
 diagnostics and document-level deliverables must still be audited.
+
+### Source-user reliability hyperparameter selection
+
+The earlier `n0=8`, reliability temperature `1` and uniform population weights are
+prespecified baselines, not cross-validation-selected parameters. The documents
+require source-user selection. `reliability_selection.py` now uses retained outer
+source-user OOF family/classifier states, without refitting them or opening EPN
+target users or MANUS sessions 2/3. Each held user's whole cal1/2 trials are excluded
+from its evaluation trials. Population priors in each outer fold come exclusively
+from that fold's inner-training OOF log losses, with weights proportional to
+`exp(-LogLoss_k)`. No held outer user's labels enter these population priors.
+
+The fixed grid is `n0 ∈ {2,8,32}` and `τ ∈ {0.5,1,2}`. Mean per-user/budget log loss
+selects the rule, comparing reliability fusion without personal anchor probability
+mixing so these two components remain distinguishable. MANUS source session 1 and
+EPN source users 1–15 both select `n0=2, τ=0.5`; source selection losses are 1.4835
+and 1.5253 respectively. These are tuning scores, not unbiased final estimates.
+Deployment population priors are then derived from all source outer-OOF calibrated
+probabilities. Frozen fold feature matrices, probabilities, priors, source hashes and
+calibration/evaluation trial lists are retained outside Git; small metrics and audits
+are committed. All 108 MANUS and 270 EPN selection probability arrays replay exactly.
+
+This closes source selection evidence for the two full-bank calibration protocols;
+the selected policies are not yet applied to their held-out target runs. Historical
+fixed-rule results remain unchanged. Long-term/session-local prototype blending and
+the remaining requirement audit also remain open.

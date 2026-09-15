@@ -168,6 +168,18 @@
     "bytes": 6824
   },
   {
+    "run_id": "feature_bank_manus_reliability_selection_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "e60d12329235fc308bf3391888b66876282aafc8d4eb785d7d970affbe587279",
+    "bytes": 34410
+  },
+  {
+    "run_id": "feature_bank_epn_reliability_selection_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "cb848af1b0c61c8279fd4c75bc752026b5e922565fce9966cee4f918c204ae74",
+    "bytes": 89715
+  },
+  {
     "run_id": "feature_bank_manus_probability_validation_20260915",
     "artifact": "calibration_curve.csv",
     "sha256": "c4c8db6b0f7b59b0c0fff173dc6646dd8eb76faa481f472f3bd968e1c9c0ff4a",

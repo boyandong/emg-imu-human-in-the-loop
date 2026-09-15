@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "prediction_arrays_checked": 270,
+  "max_absolute_probability_error": 0.0,
+  "classifier_or_family_fit": false,
+  "target_data_opened": false,
+  "scope": "all source selection probability arrays rebuilt from retained frozen fold features and calibration trial IDs"
+}
