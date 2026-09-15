@@ -43,14 +43,15 @@ RUNS = (
     'feature_bank_manus_full_fusion_final_20260915_v2',
     'feature_bank_manus_calibration_diagnostics_validation_20260915',
     'feature_bank_manus_calibration_diagnostics_final_20260915',
-    'feature_bank_epn_calibration_diagnostics_validation_20260915',
-    'feature_bank_epn_calibration_diagnostics_final_20260915',
+    'feature_bank_epn_calibration_diagnostics_validation_20260915_v2',
+    'feature_bank_epn_calibration_diagnostics_final_20260915_v2',
 )
 ARTIFACTS = ('feature_family_results.csv', 'conditional_incremental.csv',
              'error_complementarity.csv', 'calibration_curve.csv', 'ablation_full_bank.csv',
              'per_family_calibration_gain.csv', 'cross_session_family_diagnostics.csv',
              'cross_user_family_diagnostics.csv', 'cross_day_posture_diagnostics.csv',
-             'wearing_family_diagnostics.csv', 'load_position_family_diagnostics.csv')
+             'wearing_family_diagnostics.csv', 'load_position_family_diagnostics.csv',
+             'anchor_variation_diagnostics.csv')
 
 
 def consolidate(root: Path, output: Path) -> None:

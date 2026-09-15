@@ -1,0 +1,9 @@
+{
+  "phase": "validation",
+  "source_run": "feature_bank_full_fusion_validation_20260915",
+  "dataset": "epn612",
+  "state_sha256": "69bb0fcb0eb01e5338b7764a70ccb3ddd40df7987cbf26d5dbbc0149a6a639e5",
+  "fit_performed": false,
+  "evaluation_label_use": "offline diagnostics only; no parameter selection",
+  "transform_state_immutable": true
+}

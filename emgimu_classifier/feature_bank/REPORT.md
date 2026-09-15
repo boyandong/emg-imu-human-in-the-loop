@@ -358,8 +358,8 @@ C. X1H is a force specialist; ring and covariance are wearing specialists; SPD i
 session specialist; temporal summaries help UniBo days. No family is universally invariant.
 D. EPN X1H/CSP anchor views show positive five-trial gains, and personal DTW improves the small
 MANUS cohort. F0/quality anchor mixing can harm EPN. Calibration value depends on feature space.
-E. Predictive gains do not yet prove reduced cross-user variation in anchor coordinates;
-that specific representation-distance comparison remains missing.
+E. The anchor-coordinate comparison below shows selective improvement of relative separation,
+not universal reduction of harmful cross-user variation.
 F. F8 alone is unstable; the combined MANUS system shows one-shot context contribution.
 Re-donning is confounded with session/day, so an isolated physical re-donning claim is unproven.
 G. Individual worst-condition improvements exist (for example UniBo posture 2), but the complete
@@ -383,3 +383,16 @@ must be established with its own labelled recordings.
 
 These roles concern the implemented variants. Historical X1H/RLCS/G5 priors are retained;
 missing historical DS2 artifacts prevent claiming formula or baseline equivalence.
+
+## Cross-user anchor-coordinate comparison
+
+For the same evaluation trials, class centers are measured across the three held-out EPN
+users in source-standardized feature coordinates and in personal anchor-distance coordinates.
+`anchor_variation_diagnostics.csv` preserves 96 validation/final cells. Coordinate dimensions
+and units differ, so only the dimensionless gesture-separation / cross-user-distance ratio J
+is compared directly. At five trials, independent X1H J improves 0.572→0.749, CSP
+0.595→0.811 and IMU 0.678→0.781. F0 falls 1.125→0.142, ring 0.991→0.640, spectral
+0.663→0.204, temporal 1.110→0.344 and quality 0.916→0.152. This supports a selective
+anchor view for particular spaces, not a universal invariant coordinate system. Three users
+and centroid-level diagnosis limit the claim; raw distance magnitudes are not comparable
+across these spaces. Current table integrity checks cover 65 sources and 7019 rows.

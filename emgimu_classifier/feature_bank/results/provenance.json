@@ -108,13 +108,13 @@
     "bytes": 9483
   },
   {
-    "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915",
+    "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
     "artifact": "error_complementarity.csv",
     "sha256": "397fecc66dfcc2accbe151e6918e47ddf89a7ef27200db4d4eac8ea7c5db3364",
     "bytes": 7295
   },
   {
-    "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915",
+    "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
     "artifact": "error_complementarity.csv",
     "sha256": "8dd8258bb4ddfae80475d1dd7f8baaa15409b9591675160742d25134904467cf",
     "bytes": 6824
@@ -306,13 +306,13 @@
     "bytes": 13393
   },
   {
-    "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915",
+    "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
     "artifact": "per_family_calibration_gain.csv",
     "sha256": "31b07991c690ef44d45fb41da84e3365e99a47c45f6e18de3f71957a81c739e5",
     "bytes": 10585
   },
   {
-    "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915",
+    "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
     "artifact": "per_family_calibration_gain.csv",
     "sha256": "d4c374da12c79ad69f1b5e8e96f48192a94a7f5644ac9371bacc872c52b58f4d",
     "bytes": 10089
@@ -330,13 +330,13 @@
     "bytes": 9176
   },
   {
-    "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915",
+    "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
     "artifact": "cross_user_family_diagnostics.csv",
     "sha256": "57656b61201c11c543019f5fbd72c10e7ecdd9084dbf493730513350f6746d91",
     "bytes": 4848
   },
   {
-    "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915",
+    "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
     "artifact": "cross_user_family_diagnostics.csv",
     "sha256": "fd30ca6e5166e179632a3b868a28393738c324f03982da446c6a9dc779ac2b5d",
     "bytes": 4716
@@ -376,5 +376,17 @@
     "artifact": "load_position_family_diagnostics.csv",
     "sha256": "73a2789ccbe43a6899dce1f86799a08b840c19a88a25d3b7c0158fed4fe5eb9d",
     "bytes": 12173
+  },
+  {
+    "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+    "artifact": "anchor_variation_diagnostics.csv",
+    "sha256": "014dba4badb78ffe12937a8791607b87a521bf232cd37f777eedbe66793c94f2",
+    "bytes": 9875
+  },
+  {
+    "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+    "artifact": "anchor_variation_diagnostics.csv",
+    "sha256": "eacc0a7351b00d3ddf9a8592ffe559b23f06e63e393e90d60299c792a3427326",
+    "bytes": 9626
   }
 ]

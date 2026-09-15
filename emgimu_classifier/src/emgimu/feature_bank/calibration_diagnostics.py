@@ -43,7 +43,7 @@ def run(archive:Path,run_root:Path,output:Path,phase:str,dataset:str='semg_manus
                 'D_nuisance':dn,'D_gesture':dg,'J':dg/(dn+1e-12),'feature_dimension':b.shape[1],
                 'definition':('train-standardized source-population to target-user class displacement / within-target-user class separation' if dataset=='epn612' else 'train-standardized same-user class centroid session displacement / target within-user class separation')})
     if pickle.dumps(states)!=before:raise AssertionError('evaluation transform mutated fitted state')
-    gains=[];complementarity=[]
+    gains=[];complementarity=[];anchor_centroids={}
     print('[2/2] evaluating calibrated versus uncalibrated providers on identical trials',flush=True)
     for split in splits:
         user=split['user'];shots=split['shots'];ev=np.flatnonzero(np.isin(trials,split['evaluation']))
@@ -56,6 +56,11 @@ def run(archive:Path,run_root:Path,output:Path,phase:str,dataset:str='semg_manus
                 logits=-anchor.transform(features[name][ev])[:,:6].astype(float)/temperature
                 logits-=logits.max(1,keepdims=True);q=np.exp(logits);q/=q.sum(1,keepdims=True)
                 alpha=shots/(shots+2);calibrated=(1-alpha)*p+alpha*q
+                if dataset=='epn612':
+                    relative=anchor.transform(features[name][ev])[:,:6]
+                    for view,coordinates in (('raw_source_standardized',features[name][ev]),('personal_anchor_distances',relative)):
+                        for label in range(6):
+                            anchor_centroids[(name,shots,view,user,label)]=coordinates[y[ev]==label].mean(0)
             base=score(y[ev],p);personal=score(y[ev],calibrated)
             gains.append({'dataset':dataset,'phase':phase,'subject':user,'family':name,'shots_per_class':shots,
                 'zero_shot_same_eval_macro_f1':base['macro_f1'],'calibrated_macro_f1':personal['macro_f1'],
@@ -71,6 +76,24 @@ def run(archive:Path,run_root:Path,output:Path,phase:str,dataset:str='semg_manus
                 'family_a':a,'family_b':b,'error_correlation':corr,'disagreement':float(np.mean(ea!=eb)),
                 'a_correct_b_wrong':float(np.mean(~ea&eb)),'a_wrong_b_correct':float(np.mean(ea&~eb))})
     output.mkdir(parents=True)
+    if anchor_centroids:
+        variation=[]
+        for name in states:
+            for shots in (1,2,5):
+                for view in ('raw_source_standardized','personal_anchor_distances'):
+                    nuisance=[];gesture=[]
+                    for label in range(6):
+                        cs=[anchor_centroids[(name,shots,view,user,label)] for user in users]
+                        nuisance.extend(np.linalg.norm(a-b) for i,a in enumerate(cs) for b in cs[i+1:])
+                    for user in users:
+                        cs=[anchor_centroids[(name,shots,view,user,label)] for label in range(6)]
+                        gesture.extend(np.linalg.norm(a-b) for i,a in enumerate(cs) for b in cs[i+1:])
+                    dn=float(np.mean(nuisance));dg=float(np.mean(gesture))
+                    variation.append({'dataset':dataset,'phase':phase,'family':name,'shots_per_class':shots,'view':view,
+                        'D_cross_user':dn,'D_gesture':dg,'J':dg/(dn+1e-12),
+                        'comparison':'same evaluation trials; compare dimensionless J, not raw distances across coordinate systems'})
+        with (output/'anchor_variation_diagnostics.csv').open('w',newline='',encoding='utf-8') as handle:
+            writer=csv.DictWriter(handle,fieldnames=list(variation[0]));writer.writeheader();writer.writerows(variation)
     for name,rows in (('per_family_calibration_gain',gains),('cross_user_family_diagnostics' if dataset=='epn612' else 'cross_session_family_diagnostics',drift),('error_complementarity',complementarity)):
         with (output/f'{name}.csv').open('w',newline='',encoding='utf-8') as handle:
             writer=csv.DictWriter(handle,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
