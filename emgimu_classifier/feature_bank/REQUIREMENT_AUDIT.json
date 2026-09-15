@@ -1,7 +1,7 @@
 {
   "completion_proven": false,
   "scope": "triage of primary requirements and A-H questions; not exhaustive numbered/formula completion audit",
-  "requirements": 27,
+  "requirements": 28,
   "all_evidence_files_present": true,
   "documents": {
     "docx_pre.txt": "9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8",
@@ -18,5 +18,6 @@
   "force_Core_evidence": "actual concatenated-feature source-only Core and four additions; independent validation/final users, no calibration; mean gains can lower minimum force condition",
   "force_Core_calibration_evidence": "source-frozen concat Core and additions at cal0/1/2; Ramp-only own-user anchors, identical unseen-force evaluation; explicit unsupported5; limited recovery",
   "MANUS_Core_evidence": "source-session actual F0/SPD concatenated Core, temporal and real IMU additions; source fits reused for independent sessions2/3, cal0; gains inconsistent across sessions",
-  "MANUS_Core_calibration_evidence": "actual Core/temporal/real IMU source models, 0/1/2 whole own-session-trial anchors and matched no-anchor remaining evaluation; sparse speed missingness explicit; limited or harmful anchor outcomes"
+  "MANUS_Core_calibration_evidence": "actual Core/temporal/real IMU source models, 0/1/2 whole own-session-trial anchors and matched no-anchor remaining evaluation; sparse speed missingness explicit; limited or harmful anchor outcomes",
+  "Core_probability_calibration_evidence": "Source-only force/MANUS OOF temperatures with fold-refitted families/scalers/classifiers; 48 exact fold replays; target Core-anchor integration pending"
 }

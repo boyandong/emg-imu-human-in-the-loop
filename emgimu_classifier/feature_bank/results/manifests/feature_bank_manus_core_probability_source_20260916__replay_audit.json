@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "fold_probability_arrays_checked": 18,
+  "temperatures_checked": 6,
+  "max_absolute_probability_error": 0.0,
+  "source_hashes_checked": true,
+  "target_data_opened": false
+}

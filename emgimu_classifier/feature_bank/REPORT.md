@@ -79,9 +79,9 @@ The current temporal comparison shares most errors (G5/reference-F5 model correl
 
 Six new benchmark archives are complete. Five canonical CSVs, schema/provenance audits,
 source run manifests, trial lists, dimensions, per-user/per-class diagnostics, calibration
-burden estimates and SVG curves are available. The latest suite ran 143 tests with one
-skip; consolidated integrity covers 162 artifacts, 37,747 rows and 735 explicit
-partitions, while canonical record verification covers 36,264 rows. These are narrow
+burden estimates and SVG curves are available. The latest suite ran 145 tests with one
+skip; consolidated integrity covers 164 artifacts, 37,971 rows and 741 explicit
+partitions, while canonical record verification covers 36,488 rows. These are narrow
 integrity/implementation checks, not proof that every scientific requirement is complete.
 
 The highest-priority remaining work is the exact historical dataset/algorithm audit,
@@ -1765,3 +1765,38 @@ Validation confirms 36 cost rows, unchanged sixteen legacy rows, nine SVG curves
 matching supported point counts and valid user-duration ranges. This report-only
 change requires no new model training or classifier tests. Historical reproduction,
 remaining named pairs/Core tasks and exhaustive final scientific audit remain open.
+
+### Source OOF probability calibration for the concatenated Core specifications
+
+Exact source-user fold refitting now supplies probability temperatures for every
+force and MANUS concatenated-Core/standalone model used by the anchor controls.
+Force source users 1–6 Ramp and MANUS users 3–8 Session 1 each use three held-user
+pair folds. Families, CSP/SPD references, thresholds, scalers and classifiers are
+refitted on each fold's source-training trials before held-source prediction. No
+full-source fitted feature state is reused inside OOF, and no target recording is opened.
+
+The temperature fits raw held-source OOF probabilities and source labels only.
+Force Core temperature is 3.7062; MANUS Core is 4.0000 at the existing prespecified
+search bound. The bound is not expanded based on target scores. Calibrated scores
+on these same source OOF labels are explicitly marked as tuning/descriptive evidence,
+not nested outer-held temperature generalization; raw model predictions remain OOF.
+These source temperatures are prepared for subsequent frozen target-anchor integration.
+The earlier native-probability Core controls are retained as original results and
+must not be represented as already using these temperatures.
+
+Runs `feature_bank_force_core_probability_source_20260916` and
+`feature_bank_manus_core_probability_source_20260916` retain source trial/fold lists,
+fold-fitted family/scaler/classifier states, held-source feature coordinates, raw and
+calibrated probabilities, temperatures and exact original source-fit hashes. Thirty
+force and eighteen MANUS fold probability arrays replay exactly; all sixteen
+source temperature fits and calibrated arrays reproduce. Source guards reject a
+final-user source manifest before raw loading, and fold subset tests preserve
+aligned context/trial metadata without held-window leakage.
+
+A terminal metadata-serialization error after completed force folds was repaired
+from their saved predictions and source manifest; completed classifiers were not rerun.
+The producer now casts native source-user IDs to JSON-safe integers.
+The suite ran 145 tests with one skip. Integrity checks cover 164 artifacts,
+37,971 rows and 741 explicit partitions; canonical verification covers 36,488 rows.
+Target integration and held-out confirmation of the probability-calibrated Core
+anchors remain unfinished, alongside exact historical and other scientific requirements.
