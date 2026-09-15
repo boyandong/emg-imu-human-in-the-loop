@@ -168,6 +168,18 @@
     "bytes": 6824
   },
   {
+    "run_id": "feature_bank_epn_relative_spectrum_validation_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "9a5454738a98466f807ef76b7d055da900aceb80c209537370251c250ea44e35",
+    "bytes": 11543
+  },
+  {
+    "run_id": "feature_bank_epn_relative_spectrum_final_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "1cb28dcb88d82846a38ee6238562907cfe759911d5bdd2e5e83ae6182d30445b",
+    "bytes": 11233
+  },
+  {
     "run_id": "feature_bank_manus_selected_validation_20260915",
     "artifact": "calibration_curve.csv",
     "sha256": "b9d9b2e5808e02148aa3eb714e08496bc1a8250b036208e53552c62437b6585f",

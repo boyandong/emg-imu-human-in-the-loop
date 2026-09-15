@@ -1,0 +1,20 @@
+{
+  "dataset": "epn612",
+  "phase": "final",
+  "source_package": "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_epn_relative_spectrum_source_20260915",
+  "target_users": [
+    19,
+    20,
+    21
+  ],
+  "budgets": [
+    0,
+    1,
+    2,
+    5
+  ],
+  "dimension": 32,
+  "classifier_or_family_fit": false,
+  "scope": "raw and relative spectral observation controls; source OOF probability temperature; target references from whole calibration trials only",
+  "limitations": "relative baseline is signal context, not fatigue; source probability calibration simulates cal5; cal0 uses source population reference"
+}

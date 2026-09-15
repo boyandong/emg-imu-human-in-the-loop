@@ -1,0 +1,7 @@
+{
+  "status": "ok",
+  "prediction_arrays_checked": 24,
+  "max_absolute_probability_error": 0.0,
+  "classifier_or_family_fit": false,
+  "scope": "all heldout spectral predictions rebuilt from saved trial features, source classifiers and frozen calibration references"
+}

@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "source_oof_probability_blocks_checked": 6,
+  "max_absolute_probability_error": 0.0,
+  "source_temperatures_recomputed": true,
+  "classifier_or_family_fit": false,
+  "target_data_opened": false,
+  "source_state_sha256": "ccb36de43f558b9703a3f459318b8b647281d042b2023a8d89ad63089c6f9824",
+  "source_oof_sha256": "0df866384d0c4db45ecd011e0c813d5b94927c9278591064b504df41c6298372"
+}

@@ -1071,6 +1071,45 @@ and prevent inheritance of another phase's target session. The full suite now pa
 117 tests with one skip. Source repairs, historical DS2 reuse, remaining diagnostics
 and the complete requirements audit remain open.
 
+### Explicit calibration-relative spectral coordinates
+
+`LogBandEnergyFamily` reuses the existing spectral band's frozen Nyquist-safe
+definitions and tapered-periodogram convention. It outputs 32 log-band energy
+coordinates for native eight-channel EPN (16 for four channels).
+`RelativeSpectrumCoordinates` explicitly fits a calibration-only mean log-band
+reference and returns `log(E_current+ε)-μ_cal`. It never updates the reference from
+evaluation samples and rejects channel/rate mismatch. Two tests verify the exact
+log-power gain behavior, frozen reference and query-batch independence.
+
+`feature_bank_epn_relative_spectrum_source_20260915` trains raw log-band and
+source-user-centered log-band logistic classifiers on source users 1–15 only.
+Source user references use five labelled trials/class. Three outer source-user folds
+refit both classifiers/scalers and exclude simulated cal5 trials completely from
+OOF evaluation. Each fold's held user's spectral reference uses only its calibration
+trials. Source-only OOF probabilities fit classifier temperatures; all six source
+probability blocks replay exactly and both temperatures recompute exactly. Final
+source classifiers and references are frozen before target phases.
+
+`feature_bank_epn_relative_spectrum_{validation,final}_20260915` then compares the
+raw and relative branches at cal0/1/2/5 on users 16–18 and 19–21. Cal0 uses a source
+population reference; nonzero references use remaining-target-excluded calibration
+trials only. The two target runs add 64 metric rows and 48 probability arrays, all
+replayed exactly from retained trial features and frozen references/models.
+
+| Final mean-user macro-F1 | cal0 | cal1 | cal2 | cal5 |
+|---|---:|---:|---:|---:|
+| Raw log bands | 0.2607 | 0.2625 | 0.2549 | 0.2702 |
+| Calibration-relative log bands | 0.2577 | 0.2470 | 0.2723 | 0.2984 |
+
+Final relative-branch log losses are 1.6973/1.6967/1.6890/1.6689 versus raw
+1.6976/1.6951/1.6956/1.6872. Cal2/5 show local benefits, but validation relative F1
+declines at every nonzero budget (cal5 0.2683→0.2405). This isolated log-band view
+also remains much weaker than the broader existing spectral/full-bank views. It is
+not a replacement selected on final results, a fatigue estimate or a claimed exact
+CCA reproduction. Source temperature calibration simulates cal5 and may transfer
+imperfectly to other budgets. Full tests pass 119 cases with one skip. Historical
+reuse and remaining complete-document evidence remain unfinished.
+
 ### Per-subject variation and class summaries
 
 `benchmarks/per_subject_analysis.py` derives 3342 subject/condition summaries from
