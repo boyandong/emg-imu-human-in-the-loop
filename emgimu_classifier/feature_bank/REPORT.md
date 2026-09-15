@@ -23,11 +23,29 @@ dimensions on explicit synthetic fixtures (original G5 only on its native four
 channels). These fixtures prove interface dimensions, not dataset validity or
 scientific completion. Candidate formula status is distinct from validated reuse.
 Remaining specific gaps include F0 noise-derived thresholds, CSP uncentered
-covariance equivalence, body-frame IMU calibration and generic short-window DTW
-eligibility. Original source/result recovery remains necessary for historical
+covariance equivalence and body-frame IMU calibration. The generic short-window
+DTW eligibility gap is guarded as described below. Original source/result recovery remains necessary for historical
 X1-H/RLCS/CES/Frequency. No full requirement is automatically accepted by this audit.
 
 ## Raw ring covariance formula correction and wearing conditional increment
+
+Current DTW input guard: `CompleteSequenceBatch` requires explicit full coverage
+and a finite >=1-second physical duration for every sequence, independent of its
+compressed path-bin rate. Fit and prediction both reject ordinary short/sparse
+FeatureBatch inputs; subset selection retains durations and mutable metadata is
+revalidated at use. Native UniBo producers supply contiguous bout durations.
+Legacy MANUS sparse-window DTW refuses new execution before data loading/training;
+saved sparse results remain retrospective proxies, not full-sequence evidence.
+No native full-sequence MANUS replacement or streaming detector is claimed.
+
+`results/complete_sequence_contract_replay.json` reloads 10,139 native UniBo bouts,
+including 1,700 Day6 targets. Twenty-eight source/target probability arrays and
+14 source temperatures match saved results exactly; source states and all five
+parent artifacts remain unchanged, no classifier refit. Reproducer:
+`PYTHONPATH=src python benchmarks/replay_complete_sequence_contract.py <dataset> <parent>`.
+The 165-test suite passes with one skip. Complete-sequence eligibility is now
+enforced; producer boundary provenance and stream segmentation still require
+their own evidence. Later historical appendices retain their original test counts.
 
 Goal text lines 1480–1533 define F3c from F2a raw-signal covariance.
 Existing `RingGeometryFamily` uses envelope covariance for its ringcov block;

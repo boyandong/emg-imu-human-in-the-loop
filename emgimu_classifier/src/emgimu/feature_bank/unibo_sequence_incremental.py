@@ -6,7 +6,7 @@ import json
 import pickle
 import numpy as np
 from .core import FeatureBatch
-from .unibo_sequence_temporal import load_bouts, g5_features, bout_weights
+from .unibo_sequence_temporal import load_bouts, g5_features, bout_weights, complete_paths
 from .unibo_full_fusion import classifier
 from .unibo_study import _metrics
 from .unibo_temporal_complementarity import complementarity
@@ -37,7 +37,7 @@ def features(state,bouts):
     before=pickle.dumps(state)
     family,_,_=state['g5'];template,_=state['dtw']
     values=np.concatenate([g5_features(family,bouts),
-        template.transform(FeatureBatch(np.stack([b['path'] for b in bouts]),1.))],1)
+        template.transform(complete_paths(bouts))],1)
     if before!=pickle.dumps(state):
         raise AssertionError('Parent source feature state changed')
     return values

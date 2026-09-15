@@ -13,7 +13,7 @@ from .families import (
     default_registry,
 )
 from .calibration import PersonalAnchor, PersonalNormalizer, ReliabilityWeights, SessionSignature, late_fusion
-from .temporal import PathSignatureFamily, TemporalTemplateFamily, dtw_distance
+from .temporal import PathSignatureFamily, TemporalTemplateFamily, CompleteSequenceBatch, dtw_distance
 
 __all__ = [
     "BodyContextFamily",
@@ -34,6 +34,7 @@ __all__ = [
     "SessionSignature",
     "TemporalFormFamily",
     "TemporalTemplateFamily",
+    "CompleteSequenceBatch",
     "TraceCovarianceFamily",
     "default_registry",
     "dtw_distance",

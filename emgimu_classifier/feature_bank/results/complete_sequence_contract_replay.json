@@ -1,0 +1,19 @@
+{
+  "status": "ok",
+  "prediction_arrays_recomputed": 28,
+  "source_temperatures_recomputed": 14,
+  "source_states_immutable": true,
+  "parent_files_unchanged": true,
+  "native_bouts": 10139,
+  "target_bouts": 1700,
+  "maximum_error": 0.0,
+  "classifier_refitted": false,
+  "parent_sha256": {
+    "fitted_states.pkl": "8d26130260b26802a06aa2e7593c73b879e08d37bf65f52a922c9d1667d9a658",
+    "heldout_predictions.npz": "06b6a76f9d2529b9eb28b01f7ff6f03998299d4706e65e88e4f3b2e04a04de93",
+    "source_calibration_predictions.npz": "e9dae5f69188e8dbaf3849c1621b6f80f2100c1f2571d7d2f52ca841ccdbb7d5",
+    "bout_metadata.json": "6d0d7a1792bdd2e92631a6f39aa4092a6e4ace14d91a28185fb360acc3e45b4b",
+    "run_manifest.json": "eaf5466dccfdcb5b5bf06983aaba80a968b7b5d3044f3a36571e28123153932c"
+  },
+  "scope": "new complete-sequence input guard preserves saved native full-bout G5/DTW predictions; no short-window or hardware accuracy claim"
+}

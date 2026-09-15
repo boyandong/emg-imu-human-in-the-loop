@@ -52,7 +52,7 @@ REVIEWS = (
  ('F5_reference','F5. Temporal Form','families.py','TemporalFormFamily','reference_only',
   'New seven-channel metrics and map velocity; log early/late, normalized entropy/time differ from optional conceptual examples; cannot be called original G5.','7C+1'),
  ('F5b','F5b. DTW / template distance','temporal.py','TemporalTemplateFamily','partial',
-  'Generic class accepts short windows despite instruction not to force DTW on short windows; scientific UniBo sequence runner separately uses contiguous complete bouts with oracle boundaries.','H'),
+  'DTW requires CompleteSequenceBatch, explicit full coverage and finite native durations >=1s; compressed bin rate cannot prove completeness. Legacy sparse MANUS runner refuses new execution; full UniBo bout replay preserved. Native boundary validity and stream segmentation remain separate.','H'),
  ('F5c','F5c. Low-order path signature（可选）','temporal.py','PathSignatureFamily','optional_candidate',
   'Per-time L2 rectified path; centered start, levels1/2, no absolute time; scale-normalized raw rectification rather than smoothed envelope.','C+C squared'),
  ('F6a','F6a. IMU body-frame context','families.py','BodyContextFamily','partial',

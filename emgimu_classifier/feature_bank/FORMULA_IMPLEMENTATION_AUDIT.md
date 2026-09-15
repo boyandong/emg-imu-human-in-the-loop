@@ -19,7 +19,7 @@ Synthetic dimensions check interface shape only; they do not establish native to
 | F4d | partial | BC | Calibration-only mean log-band subtraction implemented; session-minus-long mean requires explicit separate references; context not fatigue. |
 | F5a | validated_reuse_narrow | 5C native G5 | Calls unchanged native UniBo G5 at 4ch/processed200Hz: early-minus-late and raw waveform slope; different from new TemporalFormFamily late-minus-early/envelope slope. |
 | F5_reference | reference_only | 7C+1 | New seven-channel metrics and map velocity; log early/late, normalized entropy/time differ from optional conceptual examples; cannot be called original G5. |
-| F5b | partial | H | Generic class accepts short windows despite instruction not to force DTW on short windows; scientific UniBo sequence runner separately uses contiguous complete bouts with oracle boundaries. |
+| F5b | partial | H | DTW requires CompleteSequenceBatch, explicit full coverage and finite native durations >=1s; compressed bin rate cannot prove completeness. Legacy sparse MANUS runner refuses new execution; full UniBo bout replay preserved. Native boundary validity and stream segmentation remain separate. |
 | F5c | optional_candidate | C+C squared | Per-time L2 rectified path; centered start, levels1/2, no absolute time; scale-normalized raw rectification rather than smoothed envelope. |
 | F6a | partial | 13 IMU block | Real accel/gyro magnitude summaries and mean gravity direction present; calibration body-frame transform, gravity lowpass and linear acceleration RMS absent. No stable absolute yaw claimed. |
 | F6b | candidate_formula | P posture block | Training-fixed posture one-hot, unseen category rejection; explicit oracle context, never fabricated IMU. |

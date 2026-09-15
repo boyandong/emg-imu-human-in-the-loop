@@ -175,11 +175,13 @@ class CalibrationTests(unittest.TestCase):
             reliability.personal({})
 
     def test_dtw_templates_use_calibration_only(self) -> None:
+        from emgimu.feature_bank.temporal import CompleteSequenceBatch
         batch = make_batch(windows=8, samples=20, channels=4)
+        batch = CompleteSequenceBatch(batch.emg, 20., durations_seconds=np.ones(8), full_coverage=True)
         labels = np.repeat(np.arange(4), 2)
         family = TemporalTemplateFamily().fit(batch, labels)
         templates = [item.copy() for item in family.templates_]
-        result = family.transform(FeatureBatch(batch.emg * 2.0, 200.0))
+        result = family.transform(CompleteSequenceBatch(batch.emg * 2.0, 20., durations_seconds=np.ones(8), full_coverage=True))
         self.assertEqual(result.shape, (8, 4))
         for before, after in zip(templates, family.templates_):
             np.testing.assert_array_equal(before, after)

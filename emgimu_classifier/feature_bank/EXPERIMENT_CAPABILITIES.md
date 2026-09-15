@@ -1,5 +1,12 @@
 # Feature Bank experiment capabilities
 
+DTW now requires explicit complete contiguous sequences with native duration
+>=1 second and full-coverage metadata. Compressed-path sample rate and sparse
+window count cannot establish eligibility. UniBo complete oracle-labelled bouts
+have native-data replay evidence; the legacy MANUS eight-sparse-window DTW runner
+is disabled for new runs. Its saved historical results remain proxy evidence,
+not full-sequence or streaming validation.
+
 ## Current evidence
 
 | Dataset | Force | User | Day or session | Wearing | Posture | Speed | Quality | Supported calibration |

@@ -13,7 +13,7 @@ from emgimu.datasets.benchmark import load_benchmark_trial
 from emgimu.datasets.unibo_baseline import HAND_NAMES
 from .core import FeatureBatch
 from .validated_unibo import ValidatedUniBoFamily
-from .temporal import TemporalTemplateFamily
+from .temporal import TemporalTemplateFamily, CompleteSequenceBatch
 from .unibo_full_fusion import classifier
 from .unibo_study import _metrics
 from .force_nested_oof import fit_temperature, temperature_probability
@@ -90,6 +90,11 @@ def g5_features(family, bouts):
     return np.stack([part.mean(0) for part in np.split(values, np.cumsum(lengths)[:-1])])
 
 
+def complete_paths(bouts):
+    return CompleteSequenceBatch(np.stack([b['path'] for b in bouts]), 1.,
+        durations_seconds=np.array([b['duration_seconds'] for b in bouts]), full_coverage=True)
+
+
 def fit_pair(bouts):
     if {b['label'] for b in bouts} != set(range(4)):
         raise ValueError('Matched four-class source is required')
@@ -103,7 +108,7 @@ def fit_pair(bouts):
     # chosen bout ID; a medoid of this subset is not a medoid of all source data.
     rng = np.random.default_rng(SEED)
     selected = np.concatenate([rng.permutation([i for i,b in enumerate(bouts) if b['label']==h])[:5] for h in range(4)])
-    paths = FeatureBatch(np.stack([bouts[i]['path'] for i in selected]), 1.)
+    paths = complete_paths([bouts[i] for i in selected])
     template = TemporalTemplateFamily(.1).fit(paths, np.array([bouts[i]['label'] for i in selected]))
     distances = template.transform(paths)
     distance_scale = max(float(np.median(distances)), 1e-6)
@@ -116,7 +121,7 @@ def predict_pair(state,bouts):
     family,scaler,model = state['g5']
     g5 = model.predict_proba(scaler.transform(g5_features(family,bouts)))
     template,scale = state['dtw']
-    distances = template.transform(FeatureBatch(np.stack([b['path'] for b in bouts]),1.))
+    distances = template.transform(complete_paths(bouts))
     logits = -distances.astype(float)/scale
     logits -= logits.max(1,keepdims=True)
     dtw = np.exp(logits);dtw /= dtw.sum(1,keepdims=True)

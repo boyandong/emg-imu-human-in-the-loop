@@ -24,6 +24,7 @@ def trial_paths(data, trials):
 
 
 def run(archive:Path,output:Path,phase:str)->None:
+    raise ValueError('Legacy MANUS sparse-window DTW protocol is ineligible: full contiguous native sequences are required. Prior artifacts are retrospective proxy results only.')
     if output.exists():raise FileExistsError(output)
     users=(3,4,5,6,7,8);session=2 if phase=='validation' else 3
     print('[1/3] loading MANUS and fitting frozen F0+SPD',flush=True)
