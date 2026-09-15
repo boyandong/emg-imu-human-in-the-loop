@@ -2,7 +2,7 @@
   "status": "schema_complete_evidence_partial",
   "artifacts": {
     "feature_family_results.csv": {
-      "rows": 4635,
+      "rows": 4695,
       "required_fields": [
         "dataset",
         "subject",
@@ -17,10 +17,16 @@
         "ece"
       ],
       "missing_field_counts": {
-        "session/domain": 154,
+        "session/domain": 166,
         "subject": 46
       },
       "missing_by_run": {
+        "feature_bank_wearing_document_core_validation_20260916": {
+          "session/domain": 6
+        },
+        "feature_bank_wearing_document_core_final_20260916": {
+          "session/domain": 6
+        },
         "feature_bank_wearing_core_raw_ring_validation_20260916": {
           "session/domain": 6
         },
@@ -52,11 +58,11 @@
           "session/domain": 6
         }
       },
-      "source_csv_sha256": "4752257504f91d1609f2cb061eadce22e46dedc4d0ca3d8ae1e24df4cc910f62",
-      "canonical_csv_sha256": "04d3f5a341ed6ca4f6f73ca460e13adeb145f55ad8afab0ac72ca5e32db6d82f"
+      "source_csv_sha256": "98510db7e422bdb20c6a9426ac92215226b930fa46ffc6dbceb19d9e1c96cdb3",
+      "canonical_csv_sha256": "81693012313e8841c0320fedb7e9006b4e604fc94c5da9e1446cce70cc2fcf51"
     },
     "conditional_incremental.csv": {
-      "rows": 5665,
+      "rows": 5695,
       "required_fields": [
         "dataset",
         "subject",
@@ -69,11 +75,17 @@
         "delta_brier"
       ],
       "missing_field_counts": {
-        "session/domain": 38,
+        "session/domain": 44,
         "subject": 105,
         "condition": 12
       },
       "missing_by_run": {
+        "feature_bank_wearing_document_core_validation_20260916": {
+          "session/domain": 3
+        },
+        "feature_bank_wearing_document_core_final_20260916": {
+          "session/domain": 3
+        },
         "feature_bank_wearing_core_raw_ring_validation_20260916": {
           "session/domain": 3
         },
@@ -98,11 +110,11 @@
           "condition": 12
         }
       },
-      "source_csv_sha256": "ffd176c7ee1e34af00b422bbfbe59351565710b3dbfebed33f90247f22f72be2",
-      "canonical_csv_sha256": "0c8c31377a9a23ad3319c5ca05e64c294657d192a54dfdc5ec005a5f0f07aaa8"
+      "source_csv_sha256": "df827fd0093c1af57b646f6e65b358118340cee7f2e732a98bade473cc0c99a4",
+      "canonical_csv_sha256": "0382c563099ada03595aa15b0af80d8fc28599c08fd214d02ea26e1bbaa9f3eb"
     },
     "error_complementarity.csv": {
-      "rows": 4655,
+      "rows": 4685,
       "required_fields": [
         "dataset",
         "subject",
@@ -115,14 +127,27 @@
         "a_wrong_b_correct"
       ],
       "missing_field_counts": {
-        "session/domain": 408,
-        "disagreement_rate": 30,
-        "a_correct_b_wrong": 30,
-        "a_wrong_b_correct": 30,
-        "error_correlation": 3,
+        "session/domain": 414,
+        "disagreement_rate": 60,
+        "a_correct_b_wrong": 60,
+        "a_wrong_b_correct": 60,
+        "error_correlation": 4,
         "subject": 179
       },
       "missing_by_run": {
+        "feature_bank_wearing_document_core_validation_20260916": {
+          "session/domain": 3,
+          "disagreement_rate": 15,
+          "a_correct_b_wrong": 15,
+          "a_wrong_b_correct": 15
+        },
+        "feature_bank_wearing_document_core_final_20260916": {
+          "session/domain": 3,
+          "disagreement_rate": 15,
+          "a_correct_b_wrong": 15,
+          "a_wrong_b_correct": 15,
+          "error_correlation": 1
+        },
         "feature_bank_wearing_core_raw_ring_validation_20260916": {
           "session/domain": 3,
           "disagreement_rate": 15,
@@ -166,8 +191,8 @@
           "session/domain": 60
         }
       },
-      "source_csv_sha256": "8758d160aaf97f371afff9b50ae7079a9dff3b8659b5fdc8574b07d71fe6d269",
-      "canonical_csv_sha256": "04e2a1b66841f41e9f530c642679c2079e37cb0fd895928babf277586621af53"
+      "source_csv_sha256": "b9385c81df2f9d85f401a54ea7a67965a5920f5cfe3a105685db5eae8911f391",
+      "canonical_csv_sha256": "ff849eb1b7376fb9e7bcd6678425ed6993322f40fbddc9d8bd55095acf6bb1d9"
     },
     "calibration_curve.csv": {
       "rows": 19994,

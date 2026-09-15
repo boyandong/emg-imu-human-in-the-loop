@@ -17,6 +17,7 @@ from .force_full_fusion import aggregate
 from .force_nested_oof import fit_temperature, temperature_probability
 from .ring_covariance import RawRingCovarianceFamily
 from .wearing_full_fusion import load
+from .document_signal import RestNoiseLocalDetailFamily, DocumentCspFamily
 
 SPECS = {'Core': ('F0','F1_reference','F2b_CSP'),
          'Core_plus_F3c_raw': ('F0','F1_reference','F2b_CSP','F3c_raw')}
@@ -42,8 +43,12 @@ def predict(data, state):
     return result, y, trials
 
 
-def fit(source):
-    families = {name: factory().fit(source.batch, source.labels) for name,factory in FACTORIES.items()}
+def fit(source, definition_mode='reference'):
+    if definition_mode not in ('reference','document'):
+        raise ValueError('Unsupported Core definition mode')
+    factories = FACTORIES if definition_mode=='reference' else {**FACTORIES,
+        'F0':lambda:RestNoiseLocalDetailFamily(rest_label=2),'F2b_CSP':DocumentCspFamily}
+    families = {name: factory().fit(source.batch, source.labels) for name,factory in factories.items()}
     values, y, _ = features(source, families)
     models = {}
     for name,members in SPECS.items():
@@ -61,7 +66,7 @@ def write(path, rows):
         writer.writeheader(); writer.writerows(rows)
 
 
-def run(archive, output, phase):
+def run(archive, output, phase, definition_mode='reference'):
     if output.exists():
         raise FileExistsError(output)
     output.mkdir(parents=True)
@@ -77,7 +82,7 @@ def run(archive, output, phase):
         folds = []
         for rep in sorted(set(reps)):
             a = source.take(np.flatnonzero(reps!=rep)); b = source.take(np.flatnonzero(reps==rep))
-            state = fit(a); states[(user,'fold',int(rep))] = state
+            state = fit(a,definition_mode); states[(user,'fold',int(rep))] = state
             p, y, trials = predict(b,state)
             index = np.array([np.flatnonzero(st==trial).item() for trial in trials])
             np.testing.assert_array_equal(sy[index],y)
@@ -85,7 +90,7 @@ def run(archive, output, phase):
                 oof[name][index] = p[name]
                 saved[f'{user}_fold{rep}_{name}'] = p[name]
             folds.append({'train':sorted(set(a.trials)), 'validation': sorted(set(b.trials))})
-        states[(user,'full')] = fit(source)
+        states[(user,'full')] = fit(source,definition_mode)
         for name in SPECS:
             temperatures[f'{user}_{name}'] = fit_temperature(oof[name],sy)
             saved[f'{user}_oof_{name}'] = oof[name]
@@ -101,7 +106,8 @@ def run(archive, output, phase):
             mask = np.ones(len(y),bool) if condition=='ALL' else domains==condition
             base = {'dataset':'libemg_electrode_shift','phase':phase,'subject':user,
                     'condition':condition,'calibration_budget':0,'evaluation_unit':'whole_native_trial_mean',
-                    'evaluation_trials':int(mask.sum()),'scope':'actual concatenation; personal Before-source; source OOF temperatures'}
+                    'evaluation_trials':int(mask.sum()),'core_definition_mode':definition_mode,
+                    'scope':'actual concatenation; personal Before-source; source OOF temperatures'}
             m = {name:_metrics(y[mask],p[mask]) for name,p in probability.items()}
             for name in SPECS:
                 family_rows.append({**base,'feature_family':'+'.join(SPECS[name]),
@@ -124,12 +130,14 @@ def run(archive, output, phase):
     (output/'fitted_states.pkl').write_bytes(pickle.dumps(states))
     np.savez_compressed(output/'heldout_predictions.npz',**saved)
     (output/'split_trial_ids.json').write_text(json.dumps(splits,indent=2),encoding='utf-8')
-    (output/'run_manifest.json').write_text(json.dumps({'phase':phase,'specifications':SPECS,
+    (output/'run_manifest.json').write_text(json.dumps({'phase':phase,'specifications':SPECS,'core_definition_mode':definition_mode,
+        'F0_threshold': 'source Rest native label2 only' if definition_mode=='document' else 'source pooled adjacent differences reference',
+        'CSP': 'uncentered XX transpose trace normalization; two components per tail/class' if definition_mode=='document' else 'centered/shrunk reference; one component per tail/class',
         'archive_sha256':hashlib.sha256(archive.read_bytes()).hexdigest(), 'temperatures':temperatures,
         'source_protocol':'five repetition-held-out Before source folds; families/scalers/classifiers refit within each fold',
         'candidate_definition':'document F3c raw centered shrunk trace-normalized covariance; four lags times six statistics',
         'reference_boundary':'F1 reference is not validated historical X1-H; F3c is not historical RLCS/CES',
-        'freeze':'C=1; CSP one component each tail/class; lambda=.05; 200ms native windows; no target selection',
+        'freeze':f'C=1; CSP {2 if definition_mode=="document" else 1} components per tail/class; raw-ring shrinkage=.05; 200ms native windows; no target selection',
         'limitations':'three personal users/four correlated wearing domains; five native classes no pinch; trial aggregation is not streaming'},indent=2),encoding='utf-8')
     replay(archive,output)
 
@@ -175,13 +183,51 @@ def replay(archive,output):
     print(json.dumps(audit),flush=True)
 
 
+def diagnostics(archive,output):
+    """Labelled descriptive target centroids; no classifier/probability refit."""
+    manifest = json.loads((output/'run_manifest.json').read_text(encoding='utf-8'))
+    if hashlib.sha256(archive.read_bytes()).hexdigest()!=manifest['archive_sha256']:
+        raise AssertionError('Native archive changed')
+    states = pickle.loads((output/'fitted_states.pkl').read_bytes()); before=pickle.dumps(states)
+    rows=[]
+    users=sorted({key[0] for key in states})
+    for user in users:
+        source=load(archive,user,('training',))
+        target=load(archive,user,('trial_1','trial_2','trial_3','trial_4'))
+        families,_=states[(user,'full')]
+        a,sy,_=features(source,families); b,y,trials=features(target,families)
+        domains=np.array([PATH_RE.fullmatch(t)['domain'] for t in trials])
+        for name in families:
+            scaler=StandardScaler().fit(a[name])
+            src=scaler.transform(a[name]); cur=scaler.transform(b[name])
+            centers=np.stack([src[sy==h].mean(0) for h in range(5)])
+            for domain in sorted(set(domains)):
+                selected=domains==domain
+                local=np.stack([cur[selected&(y==h)].mean(0) for h in range(5)])
+                dn=float(np.linalg.norm(local-centers,axis=1).mean())
+                dg=float(np.mean([np.linalg.norm(local[i]-local[j]) for i in range(5) for j in range(i+1,5)]))
+                rows.append({'dataset':'libemg_electrode_shift','phase':manifest['phase'],'subject':user,
+                    'condition':domain,'feature_family':name,'family_implementation':type(families[name]).__name__,
+                    'core_definition_mode':manifest.get('core_definition_mode','reference'),
+                    'D_nuisance':dn,'D_gesture':dg,'J':dg/(dn+1e-12),'feature_dimension':src.shape[1],
+                    'scope':'descriptive labelled target centroids; separate per-family scaler fits Before-source trial means only; not model selection'})
+    if before!=pickle.dumps(states):raise AssertionError('Diagnostic changed saved classifiers/families')
+    write(output/'wearing_family_diagnostics.csv',rows)
+    (output/'diagnostic_audit.json').write_text(json.dumps({'status':'ok','rows':len(rows),
+        'classifier_refitted':False,'source_states_immutable':True,'target_labels_used':'descriptive centroids only'},indent=2),encoding='utf-8')
+    print(json.dumps({'diagnostic_rows':len(rows),'classifier_refitted':False}),flush=True)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('archive',type=Path); parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--phase',choices=('validation','final')); parser.add_argument('--replay',action='store_true')
+    parser.add_argument('--definition-mode',choices=('reference','document'),default='reference')
+    parser.add_argument('--diagnostics',action='store_true')
     args = parser.parse_args()
-    if args.replay: replay(args.archive,args.output)
-    elif args.phase: run(args.archive,args.output,args.phase)
+    if args.diagnostics: diagnostics(args.archive,args.output)
+    elif args.replay: replay(args.archive,args.output)
+    elif args.phase: run(args.archive,args.output,args.phase,args.definition_mode)
     else: parser.error('--phase is required for training')
 
 

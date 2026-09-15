@@ -16,16 +16,57 @@ unverified until contextual requirements and authoritative evidence are inspecte
 formulas, examples and separators are included and are not independent requirements.
 `DOCUMENT_SCOPE_AUDIT.json` proves index coverage only, not scientific completion.
 
-`FORMULA_IMPLEMENTATION_AUDIT.md` and CSV now record 27 reviewed formula/API
+`FORMULA_IMPLEMENTATION_AUDIT.md` and CSV now record 29 reviewed formula/API
 boundaries in the precise-definition appendix, each with exact heading line,
-source AST symbol span and SHA-256. Fifteen runtime classes have measured named
+source AST symbol span and SHA-256. Seventeen runtime classes have measured named
 dimensions on explicit synthetic fixtures (original G5 only on its native four
 channels). These fixtures prove interface dimensions, not dataset validity or
 scientific completion. Candidate formula status is distinct from validated reuse.
-Remaining specific gaps include F0 noise-derived thresholds, CSP uncentered
-covariance equivalence and body-frame IMU calibration. The generic short-window
-DTW eligibility gap is guarded as described below. Original source/result recovery remains necessary for historical
+Noise-only F0 thresholds and document uncentered CSP now have independent candidate
+implementations and native held-out evidence, detailed below. Body-frame IMU
+calibration remains incomplete; generic short-window DTW is guarded. Original source/result recovery remains necessary for historical
 X1-H/RLCS/CES/Frequency. No full requirement is automatically accepted by this audit.
+
+## Document F0 noise thresholds and uncentered CSP candidates
+
+`document_signal.py` preserves old reference implementations while adding two
+independent candidates. `RestNoiseLocalDetailFamily` freezes adjacent-difference
+thresholds from explicitly labelled native Rest windows only, without joining
+boundaries; changing all active amplitudes by 10,000 leaves thresholds identical.
+Six local metrics have 48 dimensions at eight channels. Historical extra R0
+features remain unavailable, so this does not complete mandatory R0 retention.
+
+`DocumentCspFamily` implements XX transpose/(trace+epsilon) without centering or
+covariance shrinkage, one-vs-rest source means, fixed gamma=1e-5 generalized
+eigensystem and top2/bottom2 per native class. Variance normalization adds epsilon
+inside log as specified. Independent second-moment, eigen-residual and variance
+oracles pass. Five native classes give 20 CSP dimensions. All fit quantities
+remain within each source training fold.
+
+Frozen `wearing_core_ring --definition-mode document` uses F0-noise+reference
+F1+document CSP (76 dimensions), plus optional raw F3c (100). It retains five
+source-only Before repetition folds, source OOF temperatures and personal Before
+source fit, zero target calibration. Old reference runs remain intact. Both F0
+and CSP definitions change together; this comparison does not isolate either's
+causal mechanism and does not recover missing historical validated X1-H.
+
+| Cohort | Mean user Core F1 | Core+raw F3c F1 | Core LL | Core+F3c LL | Delta Brier |
+|---|---:|---:|---:|---:|---:|
+| Validation 15–17 | .466001 | .623405 | 4.556547 | 2.786742 | +.051554 |
+| Final 18–20 | .619935 | .669772 | 3.007709 | 1.671127 | +.021902 |
+
+Mean user results pool four after-wearing domains per user, whole-native-trial
+averages of eight sparse windows. Three users/cohort, five classes without Pinch,
+native 200Hz; no current-device or streaming accuracy claim. Absolute LogLoss
+remains high despite source OOF calibration: source calibration does not establish
+target reliability. No target probability fitting or final-score selection occurs.
+Both phases replay 42 arrays exactly. Ninety-six family/condition descriptive
+nuisance-distance/gesture-separation/J rows use source-only per-family diagnostic
+scalers; labelled target centroids never update models or weights. Source model
+states remain immutable. Runs:
+`feature_bank_wearing_document_core_{validation,final}_20260916`.
+Suite: 167 tests, one skip, remaining passing; compile checks pass. Full original
+baseline recovery, complete document acceptance and hardware validation remain open.
 
 ## Raw ring covariance formula correction and wearing conditional increment
 

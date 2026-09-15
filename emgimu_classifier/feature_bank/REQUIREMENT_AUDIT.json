@@ -35,5 +35,13 @@
       "feature_bank_wearing_core_raw_ring_final_20260916"
     ],
     "scope": "personal Before-source zero-target-calibration Core plus F3c; not all ST2 or historical-family completion"
+  },
+  "document_signal_candidates": {
+    "implementation": "src/emgimu/feature_bank/document_signal.py",
+    "native_runs": [
+      "feature_bank_wearing_document_core_validation_20260916",
+      "feature_bank_wearing_document_core_final_20260916"
+    ],
+    "boundary": "Rest-noise thresholds and exact uncentered source CSP; native held-out Core plus raw ring conditional comparison; no historical R0/X1-H equivalence or full acceptance claim"
   }
 }

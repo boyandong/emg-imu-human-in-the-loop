@@ -1,0 +1,7 @@
+{
+  "status": "ok",
+  "rows": 48,
+  "classifier_refitted": false,
+  "source_states_immutable": true,
+  "target_labels_used": "descriptive centroids only"
+}

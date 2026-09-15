@@ -19,10 +19,15 @@ from emgimu.feature_bank.quality_observability import QualityObservabilityFamily
 from emgimu.feature_bank.temporal import PathSignatureFamily
 from emgimu.feature_bank.relative_spectrum import LogBandEnergyFamily
 from emgimu.feature_bank.validated_unibo import ValidatedUniBoFamily
+from emgimu.feature_bank.document_signal import RestNoiseLocalDetailFamily,DocumentCspFamily
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
 # Exact historical mandatory reuse cannot be replaced by a conceptual candidate.
 REVIEWS = (
+ ('F0_noise_candidate','F0. Local / Traditional Signal Detail','document_signal.py','RestNoiseLocalDetailFamily','candidate_formula',
+  'Six metrics with thresholds frozen exclusively from native Rest adjacent-difference noise; active contraction magnitude cannot set thresholds. Historical extra R0 features still unavailable.','6C'),
+ ('F2b_document_candidate','F2b. CSP-like spatial feature','document_signal.py','DocumentCspFamily','candidate_formula',
+  'Uncentered XX transpose/(trace+epsilon), source-only one-vs-rest generalized eigenproblem, source-fixed gamma and top2/bottom2, log variance normalized plus epsilon. Native held-out wearing Core experiment available.','2 H min(2,floor(C/2))'),
  ('F0','F0. Local / Traditional Signal Detail','families.py','LocalDetailFamily','partial',
   'Six requested metrics present; thresholds fit pooled source differences rather than explicit calibration noise; old R0 retention cannot be proven without old artifacts.','6C'),
  ('F1','F1. Scale–Pattern / X1-H','families.py','ScalePatternFamily','reference_only',
@@ -91,7 +96,8 @@ def build(document, output):
                     SpdTangentFamily,RingGeometryFamily,SpectralStateFamily,TemporalFormFamily,
                     BodyContextFamily,QualityFamily,PathSignatureFamily,LogBandEnergyFamily,
                     lambda:RawRingCovarianceFamily(ring_topology=True),
-                    lambda:QualityObservabilityFamily(ring_topology=True)):
+                    lambda:QualityObservabilityFamily(ring_topology=True),
+                    lambda:RestNoiseLocalDetailFamily(rest_label=2),DocumentCspFamily):
         family = factory().fit(batch,labels); before = pickle.dumps(family)
         values = family.transform(batch)
         if values.shape!=(16,len(family.feature_names)) or not np.isfinite(values).all():

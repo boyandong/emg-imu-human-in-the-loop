@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "rows_checked": 49552,
+  "rows_checked": 49672,
   "schema_evidence_status": "schema_complete_evidence_partial",
   "scope": "all canonical record identities and original recorded values; schema missingness audited separately"
 }

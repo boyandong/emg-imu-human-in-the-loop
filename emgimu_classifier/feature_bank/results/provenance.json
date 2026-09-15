@@ -1,5 +1,19 @@
 [
   {
+    "run_id": "feature_bank_wearing_document_core_validation_20260916",
+    "artifact": "feature_family_results.csv",
+    "sha256": "3dcc897a084a7d3144a01042f7dcb48dcdd62ac82c0b37df2eb81d3342270917",
+    "bytes": 11553,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_wearing_document_core_final_20260916",
+    "artifact": "feature_family_results.csv",
+    "sha256": "5231439318d2a70fd911dc016f0b1c5e98497009ddf52d2d825882e55c93f13d",
+    "bytes": 11288,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
     "run_id": "feature_bank_wearing_core_raw_ring_validation_20260916",
     "artifact": "feature_family_results.csv",
     "sha256": "7d1cd3f5af2c1f625b306ca3303fb10f13d73638c2d8532960f9351c04dccff5",
@@ -208,6 +222,20 @@
     "bytes": 21786
   },
   {
+    "run_id": "feature_bank_wearing_document_core_validation_20260916",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "2dc931b64da727dab460631c86b2d57807efb6821f09434a8ee6e88f09c8f3c3",
+    "bytes": 6930,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_wearing_document_core_final_20260916",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "db8f24e11daa05e8f59a50e4a78d60f65f131b31e25e01d69ba874d082fcfa89",
+    "bytes": 6791,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
     "run_id": "feature_bank_wearing_core_raw_ring_validation_20260916",
     "artifact": "conditional_incremental.csv",
     "sha256": "a1aef41427e6d7d470664867ba9779596cb392b37833ba90ecc7e5e40df8645b",
@@ -372,6 +400,20 @@
     "artifact": "interaction_results.csv",
     "sha256": "1874c20bb5fd043d97e31d56a1627174007c7b7484911de62c99de2a08703bb0",
     "bytes": 5617
+  },
+  {
+    "run_id": "feature_bank_wearing_document_core_validation_20260916",
+    "artifact": "error_complementarity.csv",
+    "sha256": "87b777016b6cc45f64bcee870089bcf29662ab097989b778627927e4a65236fb",
+    "bytes": 4244,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_wearing_document_core_final_20260916",
+    "artifact": "error_complementarity.csv",
+    "sha256": "8afeee29cd02df959fadf0dec3bfb1e0b5e1e7a37c8b4d27c372ba21ef756439",
+    "bytes": 4131,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
   },
   {
     "run_id": "feature_bank_wearing_core_raw_ring_validation_20260916",
@@ -1166,6 +1208,20 @@
     "artifact": "cross_day_posture_diagnostics.csv",
     "sha256": "b32fa56f765cec8da9642e11936c2db3214586425c11a3196b1f51f60054ee2a",
     "bytes": 5340
+  },
+  {
+    "run_id": "feature_bank_wearing_document_core_validation_20260916",
+    "artifact": "wearing_family_diagnostics.csv",
+    "sha256": "ced43091eee8da075bdd3dfe4a80669e2f7200905306cb43ce75943cfabcc8f1",
+    "bytes": 12903,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_wearing_document_core_final_20260916",
+    "artifact": "wearing_family_diagnostics.csv",
+    "sha256": "b6c5ab1a175acb07156bc6181c370b66abf57233751d6b4bd24966c373a0c4d0",
+    "bytes": 12658,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
   },
   {
     "run_id": "feature_bank_electrode_shift_audited_validation_20260915",

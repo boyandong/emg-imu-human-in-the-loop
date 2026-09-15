@@ -5,6 +5,8 @@ Synthetic dimensions check interface shape only; they do not establish native to
 
 | Item | Reviewed status | Dimension | Boundary |
 |---|---|---|---|
+| F0_noise_candidate | candidate_formula | 6C | Six metrics with thresholds frozen exclusively from native Rest adjacent-difference noise; active contraction magnitude cannot set thresholds. Historical extra R0 features still unavailable. |
+| F2b_document_candidate | candidate_formula | 2 H min(2,floor(C/2)) | Uncentered XX transpose/(trace+epsilon), source-only one-vs-rest generalized eigenproblem, source-fixed gamma and top2/bottom2, log variance normalized plus epsilon. Native held-out wearing Core experiment available. |
 | F0 | partial | 6C | Six requested metrics present; thresholds fit pooled source differences rather than explicit calibration noise; old R0 retention cannot be proven without old artifacts. |
 | F1 | reference_only | C | Matches conceptual RMS/global RMS pattern; mandatory validated X1-H reuse missing. Family identifier is historical-looking but does not establish equivalence. |
 | F2a | candidate_formula | C(C+1)/2 | Centered sample covariance, fixed .05 shrinkage, epsilon diagonal, trace normalization and sqrt(2) off-diagonal vectorization; source-only fit. |
