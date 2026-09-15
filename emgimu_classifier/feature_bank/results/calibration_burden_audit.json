@@ -1,11 +1,12 @@
 {
   "status": "ok",
-  "cost_rows": 48,
+  "cost_rows": 52,
   "curve_sources_sha256": {
     "feature_bank_epn612_trial_finetune_final_20260915": "da4ac3d70bc98616e2cb1172395d84da27286b94592aceee6f97481688024a88",
     "feature_bank_manus_calibration_final_20260915": "f2d138e3b5aa39f3115951e23c0da54d5aa45c1f2aaf0a0f201385724a19b737",
     "feature_bank_force_product_final_20260915": "cbeb16f3bfbb1ce03fcb3f2872e5c39937b8c785b721855f4047a50aac9b15da",
     "feature_bank_force_zero_final_20260915": "42d4e49c1f7bb221ff0aa0f4d02c0afcaa143775abbdf344b4fb287ecc4c1dbe",
+    "feature_bank_wearing_session_normalization_final_20260916": "dcf497fd1c88ecabbad90f3ce20ee7c771d0e695cd75762583c947f9cda3e086",
     "feature_bank_wearing_session_final_20260916": "21a03fdc9d204ff34dfcc6ba86ccd51da4df993ae7f30c8a6359d82b9aaa3f3c",
     "feature_bank_force_core_temperature_final_20260916": "d18345314a905382f4164e7ca72bd1f738f847503554f059adfe8735d4a01144",
     "feature_bank_manus_core_temperature_final_20260916": "b7f2c19666dcc3d8f1750d3eaf2f78b3aa8de9a60fa7863cca7861553f66c83b",

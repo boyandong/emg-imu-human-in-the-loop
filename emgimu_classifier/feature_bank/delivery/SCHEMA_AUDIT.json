@@ -2,7 +2,7 @@
   "status": "schema_complete_evidence_partial",
   "artifacts": {
     "feature_family_results.csv": {
-      "rows": 3759,
+      "rows": 4575,
       "required_fields": [
         "dataset",
         "subject",
@@ -17,10 +17,16 @@
         "ece"
       ],
       "missing_field_counts": {
-        "subject": 46,
-        "session/domain": 94
+        "session/domain": 142,
+        "subject": 46
       },
       "missing_by_run": {
+        "feature_bank_wearing_session_normalization_validation_20260916": {
+          "session/domain": 24
+        },
+        "feature_bank_wearing_session_normalization_final_20260916": {
+          "session/domain": 24
+        },
         "feature_bank_manus_nested_oof_20260915": {
           "subject": 16
         },
@@ -40,11 +46,11 @@
           "session/domain": 6
         }
       },
-      "source_csv_sha256": "64208484799063fcb7e16dbdc0e00f813c1e9f1bceb204c5f04e5061981d408e",
-      "canonical_csv_sha256": "70bc2d5e9a47bc7ba7772d80995cc75d9b3c8a1d38d42b11b148a7ca7f228077"
+      "source_csv_sha256": "5af1c875c0ebd9f9010d18cc08d2139eb79720691f6182e044314260411d1daa",
+      "canonical_csv_sha256": "cde08edfe945469990f7c6468f19f3917af24f79eaafca01f0cfa711aa2e203a"
     },
     "conditional_incremental.csv": {
-      "rows": 5431,
+      "rows": 5635,
       "required_fields": [
         "dataset",
         "subject",
@@ -57,11 +63,17 @@
         "delta_brier"
       ],
       "missing_field_counts": {
+        "session/domain": 32,
         "subject": 105,
-        "session/domain": 20,
         "condition": 12
       },
       "missing_by_run": {
+        "feature_bank_wearing_session_normalization_validation_20260916": {
+          "session/domain": 6
+        },
+        "feature_bank_wearing_session_normalization_final_20260916": {
+          "session/domain": 6
+        },
         "feature_bank_force_audited_validation_20260915": {
           "subject": 96,
           "session/domain": 8
@@ -74,8 +86,8 @@
           "condition": 12
         }
       },
-      "source_csv_sha256": "f81c47ec469022dd67062e3886a37d974ca5dba86a6540248f16e19622f7b543",
-      "canonical_csv_sha256": "668df3f2c54c78a70ea4a9aa14a1cc64e221d5c7c44b79a5e81e2beb3b5a5dce"
+      "source_csv_sha256": "f1a11700adc1383dcece5619f1d14446e3b6365d4767344885085e9514882cc1",
+      "canonical_csv_sha256": "80cb08d95c3c08dc70e931aaf1b47e14593c0bb4eca0fffb886c6da7d3c55788"
     },
     "error_complementarity.csv": {
       "rows": 4625,
@@ -129,7 +141,7 @@
       "canonical_csv_sha256": "6c331ab805c1d80a8d5853188eccbee86e666b8e4706dc141d4bd3532aabafb9"
     },
     "calibration_curve.csv": {
-      "rows": 19402,
+      "rows": 19994,
       "required_fields": [
         "dataset",
         "subject",
@@ -142,12 +154,22 @@
         "log_loss"
       ],
       "missing_field_counts": {
-        "macro_f1": 506,
-        "log_loss": 506,
-        "session/domain": 28,
+        "macro_f1": 554,
+        "log_loss": 554,
+        "session/domain": 60,
         "method": 504
       },
       "missing_by_run": {
+        "feature_bank_wearing_session_normalization_validation_20260916": {
+          "macro_f1": 24,
+          "log_loss": 24,
+          "session/domain": 16
+        },
+        "feature_bank_wearing_session_normalization_final_20260916": {
+          "macro_f1": 24,
+          "log_loss": 24,
+          "session/domain": 16
+        },
         "feature_bank_wearing_session_validation_20260916": {
           "macro_f1": 26,
           "log_loss": 26,
@@ -266,8 +288,8 @@
           "log_loss": 7
         }
       },
-      "source_csv_sha256": "e919d230d272ed3a9b9182817e12961caa87725bfa63f052013cdd809f794a3b",
-      "canonical_csv_sha256": "d6cb1de0eb96e761ab78b9cd266ba3c843c47ec20d6fbfb9b1e243a6549fcb21"
+      "source_csv_sha256": "69a46aefae255cc51c711333223d6e5d1fae6cdbd449ccf1449165228781f0ee",
+      "canonical_csv_sha256": "d5d32c03c7c79fc13ca0ddcdf05b52c3f2f48c183be5f4d716b06ee9f6ac04c6"
     },
     "ablation_full_bank.csv": {
       "rows": 14603,

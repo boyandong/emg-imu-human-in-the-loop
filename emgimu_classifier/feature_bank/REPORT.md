@@ -88,9 +88,9 @@ The current temporal comparison shares most errors (G5/reference-F5 model correl
 
 Six new benchmark archives are complete. Five canonical CSVs, schema/provenance audits,
 source run manifests, trial lists, dimensions, per-user/per-class diagnostics, calibration
-burden estimates and SVG curves are available. The latest suite ran 158 tests with one
-skip; consolidated integrity covers 188 artifacts, 49,303 rows and 858 explicit
-partitions, while canonical record verification covers 47,820 rows. These are narrow
+burden estimates and SVG curves are available. The latest suite ran 161 tests with one
+skip; consolidated integrity covers 194 artifacts, 50,915 rows and 1,146 explicit
+partitions, while canonical record verification covers 49,432 rows. These are narrow
 integrity/implementation checks, not proof that every scientific requirement is complete.
 
 The highest-priority remaining work is the exact historical dataset/algorithm audit,
@@ -2019,3 +2019,86 @@ writing outside the permitted workspace. Consolidation accepts `--local-root`
 and records explicit source-root provenance for these runs; the verifier reads
 that bound root. Existing external benchmark source rows remain unchanged.
 No new GitHub push is performed; the two specifications remain incomplete.
+
+
+## Integrated personal/session signal calibration (2026-09-16)
+
+`SessionCalibrationPipeline` connects source-fitted rest/active normalization,
+source quality observability, source family/scaler/classifier models and immutable
+long-term prototypes to calibration-only session updates. Current rest center is
+the calibration Rest median; per-channel scale is active-calibration absolute
+Q95 about that center. Calibration updates quality diagnostics, low-dimensional
+class residual/cosine/geometry signatures and local/blended prototypes. It keeps
+the long-term normalizer, models, quality reference and prototypes unchanged.
+Native Rest label is explicitly 2 in this wearing dataset. Eight channels alone
+do not establish ring geometry: callers must supply the verified topology contract.
+Prediction rejects source-fit trials, calibration trials, different users and
+changed sample-rate/window contracts. No target evaluation transform is fit.
+Quality descriptors are recorded without unvalidated quality gating.
+
+Runs `feature_bank_wearing_session_normalization_validation_20260916` and
+`feature_bank_wearing_session_normalization_final_20260916` retain the original
+unnormalized source providers. Normalized source classifiers fit only before-
+wearing data. Each of five source OOF folds uses three before-wearing repetitions
+for every source normalizer/family/scaler/classifier/profile, the next repetition
+for simulated current-session calibration, and the held repetition for evaluation.
+All six branch/provider probability paths, including prototype controls, receive
+empirical temperatures fit from their complete source OOF predictions BEFORE
+fusion. Full personal source models fit all five before-wearing repetitions.
+This temperature protocol differs from the old raw provider's four-repetition
+source OOF; raw-vs-normalized comparisons are complete branch comparisons and
+must not be interpreted as a pure signal-normalization mechanism isolation.
+
+Final matched one-shot mean individual-user/wearing-domain scores are:
+
+| Branch | F1 | LogLoss |
+|---|---:|---:|
+| Retained unnormalized source | 0.519444 | 0.990131 |
+| Fixed historical source normalization | 0.380000 | 1.398134 |
+| Current-session rest/scale update | 0.663889 | 0.986590 |
+| Current-session update plus cosine context | 0.641667 | 0.983365 |
+| Current-session local prototype | 0.747222 | 0.831565 |
+| Current-session source-budget blended prototype | 0.563889 | 1.004060 |
+
+On the same trial split, source/current-normalized model F1 is 0.430556/0.542778
+in validation, and local-prototype validation F1 is 0.895556. Static per-channel
+normalization can hurt; current rest/scale calibration recovers signal organization
+in this measured wearing protocol. The context weighting loses final F1 relative
+to the updated source classifier, and blending retains too much historical
+prototype information in this control. These are not universal calibration laws.
+
+Family-specific final one-shot F0 model F1 changes 0.427778 -> 0.611111 with current
+normalization, while ring changes 0.263333 -> 0.331667. Uniform fusion is 0.663889,
+so weak standalone ring performance does not establish uselessness. F0 local
+prototype F1 is 0.772222 vs ring 0.428889, while local fusion is 0.747222: the same
+uniform bank can hurt relative to a specialist. Per-family tables and paired
+calibration-conditioned loss/Brier/F1 controls are exported. Those controls
+compare transformed input/prototype/fusion branches, not a literal additional-
+feature concatenated classifier or estimated conditional mutual information.
+
+Only 0/1-shot is supported: two native repetitions/class/after-wearing domain leave
+one evaluation trial/class at one-shot. Calibration never pools wearing conditions
+or fits evaluation samples. Different budgets have different remaining trials;
+all recovery comparisons above are within the one-shot split. There are three
+final users and four conditions, with only five evaluation trials per user/condition
+(60 final one-shot trials). Metrics aggregate whole-trial features averaged over
+eight representative 200-ms windows and do not measure streaming 200-ms accuracy
+or hardware latency. Native classes include no pinch; real current-device
+250 Hz data, class mapping and electrode geometry are not validated by this result.
+
+Native reload/saved-state replay reproduces 204 arrays per phase (408 total),
+including every source-OOF branch/provider and normalized target fusion path;
+source temperatures recompute and source/session state remains immutable. The
+raw branch is bound to its unchanged parent model hashes and parent replay.
+Source/class/window-trial guards are covered by three tests; the full suite ran
+161 tests (one skip), and compile checks passed. The cost report now contains
+13 protocols/52 rows and 13 standalone SVG curves; all 48 previous costs were
+checked unchanged, including the shared 15.11-sec one-shot recording duration.
+The SVG canvas grows to 635 px so the legend and evidence notes remain separate.
+Current integrity covers 194 source artifacts, 50,915 rows and 1,146 explicit
+partitions; canonical verification covers 49,432 rows and per-subject analysis
+has 8,004 summaries. These are integrity/coverage observations, not completion.
+
+Historical DS2 and exact old X1-H/RLCS/CES/Frequency remain unavailable. The
+remaining exact family/formula and complete document-clause audits are still
+required. New output stays under `work/benchmark_runs`; no new push is performed.

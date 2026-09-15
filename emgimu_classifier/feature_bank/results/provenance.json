@@ -1,5 +1,19 @@
 [
   {
+    "run_id": "feature_bank_wearing_session_normalization_validation_20260916",
+    "artifact": "feature_family_results.csv",
+    "sha256": "8c29c0086618c4daa0124b38961a63e9a3696640d450f55616ed9717ede353b5",
+    "bytes": 137960,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_wearing_session_normalization_final_20260916",
+    "artifact": "feature_family_results.csv",
+    "sha256": "afdd035e9c87ee4c0c93abf92e980722aadeffad57ea4d6f4927f92c685009ff",
+    "bytes": 133952,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
     "run_id": "feature_bank_unibo_sequence_incremental_validation_20260916",
     "artifact": "feature_family_results.csv",
     "sha256": "2398f1e7fa7ac30c0617f2aceb9e0774720d136e2be34762e5cd38f21ec12fd1",
@@ -178,6 +192,20 @@
     "artifact": "feature_family_results.csv",
     "sha256": "fc112c4bc2f03be5af7fcd9c10028e5c3e4dc99e6a54cdf163e866575dcac265",
     "bytes": 21786
+  },
+  {
+    "run_id": "feature_bank_wearing_session_normalization_validation_20260916",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "0b31b9358406de8ab3ca50d24722efbf8b0c365ec4bceb6f06de4b640e756f04",
+    "bytes": 35823,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_wearing_session_normalization_final_20260916",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "68c36b70b7a3f89d3a4126dfbd4c384eee2377801f9129a3cb4ab146927e84ae",
+    "bytes": 35285,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
   },
   {
     "run_id": "feature_bank_unibo_sequence_incremental_validation_20260916",
@@ -498,6 +526,20 @@
     "artifact": "error_complementarity.csv",
     "sha256": "8dd8258bb4ddfae80475d1dd7f8baaa15409b9591675160742d25134904467cf",
     "bytes": 6824
+  },
+  {
+    "run_id": "feature_bank_wearing_session_normalization_validation_20260916",
+    "artifact": "calibration_curve.csv",
+    "sha256": "663777a8e3a8029e3b6038cf42469a223cb318af19914b64130dcdc793cafd79",
+    "bytes": 90732,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_wearing_session_normalization_final_20260916",
+    "artifact": "calibration_curve.csv",
+    "sha256": "dcf497fd1c88ecabbad90f3ce20ee7c771d0e695cd75762583c947f9cda3e086",
+    "bytes": 88361,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
   },
   {
     "run_id": "feature_bank_wearing_session_validation_20260916",

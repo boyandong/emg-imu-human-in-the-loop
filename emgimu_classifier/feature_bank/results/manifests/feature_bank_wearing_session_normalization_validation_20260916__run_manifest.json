@@ -1,0 +1,61 @@
+{
+  "phase": "validation",
+  "users": [
+    15,
+    16,
+    17
+  ],
+  "rest_label": 2,
+  "source_temperatures": {
+    "15": {
+      "source_model_F0": 0.250000886496214,
+      "source_model_F3_Ring": 1.7803074647322283,
+      "session_model_F0": 0.2500016115767994,
+      "session_model_F3_Ring": 1.8087261121179636,
+      "source_long_anchor_F0": 0.2500015781945711,
+      "source_long_anchor_F3_Ring": 0.2500015781945711,
+      "session_long_anchor_F0": 0.2500015781945711,
+      "session_long_anchor_F3_Ring": 0.2500015781945711,
+      "session_local_anchor_F0": 0.2500015781945711,
+      "session_local_anchor_F3_Ring": 0.2500015781945711,
+      "session_blended_anchor_F0": 0.2500015781945711,
+      "session_blended_anchor_F3_Ring": 0.2500015781945711
+    },
+    "16": {
+      "source_model_F0": 0.7805429555033081,
+      "source_model_F3_Ring": 1.4155297269172542,
+      "session_model_F0": 0.7139902028970483,
+      "session_model_F3_Ring": 1.2330095489663235,
+      "source_long_anchor_F0": 0.3107686914862314,
+      "source_long_anchor_F3_Ring": 0.2500015781945711,
+      "session_long_anchor_F0": 0.2500015781945711,
+      "session_long_anchor_F3_Ring": 0.2500015781945711,
+      "session_local_anchor_F0": 0.3007703107695535,
+      "session_local_anchor_F3_Ring": 0.2500015781945711,
+      "session_blended_anchor_F0": 0.2582210969893803,
+      "session_blended_anchor_F3_Ring": 0.2500015781945711
+    },
+    "17": {
+      "source_model_F0": 0.25000085299384456,
+      "source_model_F3_Ring": 0.5627483208207311,
+      "session_model_F0": 0.25000105586105575,
+      "session_model_F3_Ring": 0.6844263920698564,
+      "source_long_anchor_F0": 0.2500015781945711,
+      "source_long_anchor_F3_Ring": 0.2500015781945711,
+      "session_long_anchor_F0": 0.2500015781945711,
+      "session_long_anchor_F3_Ring": 0.2500015781945711,
+      "session_local_anchor_F0": 0.2500015781945711,
+      "session_local_anchor_F3_Ring": 0.2500015781945711,
+      "session_blended_anchor_F0": 0.2500015781945711,
+      "session_blended_anchor_F3_Ring": 0.2500015781945711
+    }
+  },
+  "source_oof": "Each before-wearing repetition evaluates five trials; next repetition provides simulated session calibration; remaining three fit every normalizer/family/scaler/classifier/profile.",
+  "parent_sha256": {
+    "fitted_states.pkl": "5625e923d0d6691c557c8aac90e7225b435abc36d72ce4d0b5df949a449983f0",
+    "run_manifest.json": "feff0c041f7c69e4a61e56c3437eadf6ef3ec3fc331b266500a7133867ffd3a2"
+  },
+  "raw_archive_sha256": "4cfa9a4861193f230179fa87d53eda7503e66b5cfedeae81c81e476f53f6b2b6",
+  "context_rule": "prespecified clipped cosine agreement; prototype beta source class count/(source+cal class count)",
+  "evidence_boundary": "Known-user native wearing domains, not calendar days. Explicit8-channel ring200Hz/40sample contract; no actual device result. All branches have source OOF temperatures before fusion."
+}

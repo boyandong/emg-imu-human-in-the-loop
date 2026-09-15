@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "family_rows": 408,
+  "paired_control_rows": 102,
+  "provider_arrays": 288,
+  "classifiers_refit": false,
+  "scope": "Per-family empirical source-OOF probabilities and paired calibration controls, not literal concat Core additions"
+}

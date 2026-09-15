@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "prediction_arrays_replayed": 204,
+  "native_data_reloaded": true,
+  "source_temperature_recomputed": true,
+  "source_and_session_immutable": true,
+  "scope": "Integrated normalized source/session providers and source OOF; raw source baseline replay retained in parent run"
+}

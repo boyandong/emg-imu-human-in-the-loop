@@ -13,6 +13,7 @@ PROTOCOLS=(
  ('Force source-only anchors','feature_bank_force_zero_final_20260915',7,3.,False,False,'ALL'),
 )
 CORE_PROTOCOLS=(
+ ('Wearing integrated session normalization','feature_bank_wearing_session_normalization_final_20260916',5,1.,True,False,'ALL','session_model'),
  ('Wearing session local-anchor control','feature_bank_wearing_session_final_20260916',5,1.,True,False,'ALL','population_plus_local_anchor'),
  ('Force Core source-temp anchor','feature_bank_force_core_temperature_final_20260916',7,3.,False,False,'ALL','Core'),
  ('MANUS Core source-temp anchor','feature_bank_manus_core_temperature_final_20260916',6,10.,True,False,'ALL','Core'),
@@ -82,8 +83,9 @@ def build(root:Path,output:Path,raw_root:Path|None=None,local_root:Path|None=Non
         curves.append((label,points))
     with (output/'calibration_burden.csv').open('w',newline='',encoding='utf-8') as handle:
         writer=csv.DictWriter(handle,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
-    svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="590" viewBox="0 0 1200 590">',
-         '<rect width="1200" height="590" fill="white"/>',
+    canvas_height=max(590,180+len(curves)*35)
+    svg=[f'<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="{canvas_height}" viewBox="0 0 1200 {canvas_height}">',
+         f'<rect width="1200" height="{canvas_height}" fill="white"/>',
          '<g font-family="Arial" font-size="15" fill="#222">',
          '<text x="80" y="35" font-size="21">Independent performance vs calibration budget</text>']
     def xy(x,y):return 90+x/5*560,450-(y-.2)/.6*350
@@ -95,14 +97,14 @@ def build(root:Path,output:Path,raw_root:Path|None=None,local_root:Path|None=Non
         '<text x="230" y="510">Labelled trials per task class</text>',
         '<text x="15" y="85">Macro-F1</text>'])
     for i,(label,points) in enumerate(curves):
-        color=('#2166ac','#b2182b','#1b7837','#762a83','#e08214','#4d9221','#c51b7d','#008837','#666666','#a6611a','#018571','#984ea3')[i]
+        color=('#2166ac','#b2182b','#1b7837','#762a83','#e08214','#4d9221','#c51b7d','#008837','#666666','#a6611a','#018571','#984ea3','#e41a1c')[i]
         coordinates=' '.join(f'{x:.3f},{y:.3f}' for x,y in (xy(a,b) for a,b in points))
         svg.append(f'<polyline points="{coordinates}" fill="none" stroke="{color}" stroke-width="2"/>')
         for a,b in points:
             x,y=xy(a,b);svg.append(f'<circle cx="{x}" cy="{y}" r="4" fill="{color}"/>')
         svg.append(f'<text x="690" y="{140+i*35}" fill="{color}">{html.escape(label)}</text>')
-    svg.extend(['<text x="80" y="550">Tasks and aggregation differ. Budget changes also change remaining evaluation trials.</text>',
-        '<text x="80" y="575">Unsupported budgets have no plotted point; curves do not establish live-device accuracy.</text>','</g></svg>'])
+    svg.extend([f'<text x="80" y="{canvas_height-40}">Tasks and aggregation differ. Budget changes also change remaining evaluation trials.</text>',
+        f'<text x="80" y="{canvas_height-15}">Unsupported budgets have no plotted point; curves do not establish live-device accuracy.</text>','</g></svg>'])
     (output/'performance_vs_calibration_budget.svg').write_text(''.join(svg),encoding='utf-8')
     (output/'calibration_burden_audit.json').write_text(json.dumps({'status':'ok','cost_rows':len(rows),
         'curve_sources_sha256':sources,'native_calibration_trials':evidence,
