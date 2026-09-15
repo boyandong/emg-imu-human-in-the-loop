@@ -1,5 +1,17 @@
 [
   {
+    "run_id": "feature_bank_manus_concat_core_validation_20260916",
+    "artifact": "feature_family_results.csv",
+    "sha256": "999fbf701c350a5236868cceaaf6a3ded661b839cb3468444a1bb3340802c71b",
+    "bytes": 60226
+  },
+  {
+    "run_id": "feature_bank_manus_concat_core_final_20260916",
+    "artifact": "feature_family_results.csv",
+    "sha256": "040d4a57e25902b310635f28aecb31263b0932cbab295409bef5cf582500433a",
+    "bytes": 59077
+  },
+  {
     "run_id": "feature_bank_force_concat_core_validation_20260915",
     "artifact": "feature_family_results.csv",
     "sha256": "b9c627ee7012a5176ef980cd5f3f15c2aa0b72dd45588a4e3427531caefe7a2e",
@@ -138,6 +150,18 @@
     "bytes": 21786
   },
   {
+    "run_id": "feature_bank_manus_concat_core_validation_20260916",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "a2c4c29b91474da44505ba2a761654e24171419ed748f509fd6f88f246588fbf",
+    "bytes": 9351
+  },
+  {
+    "run_id": "feature_bank_manus_concat_core_final_20260916",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "25cc5c72fac8dd4ef1d334c3d16f3ea6ac270148a1fc6da4889bdee03a3dab84",
+    "bytes": 9118
+  },
+  {
     "run_id": "feature_bank_force_concat_core_calibration_validation_20260915",
     "artifact": "conditional_incremental.csv",
     "sha256": "101cc3d863e77541688d1c8430e687f220535aaf66d5ae00f0336d9f6d4cb175",
@@ -214,6 +238,18 @@
     "artifact": "interaction_results.csv",
     "sha256": "1874c20bb5fd043d97e31d56a1627174007c7b7484911de62c99de2a08703bb0",
     "bytes": 5617
+  },
+  {
+    "run_id": "feature_bank_manus_concat_core_validation_20260916",
+    "artifact": "error_complementarity.csv",
+    "sha256": "61f2daa7e568a131c6d86c6b2e8ba3cb5b6e4b72a54be13b4ee8ef84f3b843f5",
+    "bytes": 10980
+  },
+  {
+    "run_id": "feature_bank_manus_concat_core_final_20260916",
+    "artifact": "error_complementarity.csv",
+    "sha256": "bf1343db247891130dcca0d8c578d02ffca8d38ee5807eb358072fdc33055a81",
+    "bytes": 10653
   },
   {
     "run_id": "feature_bank_force_concat_core_calibration_validation_20260915",

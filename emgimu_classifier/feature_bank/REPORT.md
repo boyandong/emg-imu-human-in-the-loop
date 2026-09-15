@@ -79,9 +79,9 @@ The current temporal comparison shares most errors (G5/reference-F5 model correl
 
 Six new benchmark archives are complete. Five canonical CSVs, schema/provenance audits,
 source run manifests, trial lists, dimensions, per-user/per-class diagnostics, calibration
-burden estimates and SVG curves are available. The latest suite ran 139 tests with one
-skip; consolidated integrity covers 150 artifacts, 33,855 rows and 697 explicit
-partitions, while canonical record verification covers 32,372 rows. These are narrow
+burden estimates and SVG curves are available. The latest suite ran 141 tests with one
+skip; consolidated integrity covers 156 artifacts, 34,415 rows and 699 explicit
+partitions, while canonical record verification covers 32,932 rows. These are narrow
 integrity/implementation checks, not proof that every scientific requirement is complete.
 
 The highest-priority remaining work is the exact historical dataset/algorithm audit,
@@ -1651,3 +1651,48 @@ The suite ran 139 tests with one skip; integrity checks cover 150 source artifac
 This closes the current force Core's offline calibrated comparison, while other
 Core datasets, exact historical algorithms, remaining named pairs and final exhaustive
 requirements audit remain incomplete. Current hardware performance is not established.
+
+### Actual MANUS concatenated Core, temporal and real IMU increments
+
+Core = F0 + SPD is the previous frozen MANUS shortlist. Source Session 1 for users
+3–8 fits the SPD reference and three source-only logistic classifiers: Core 84
+coordinates, Core+Temporal 141 and Core+real IMU 97. Existing source-fitted F0,
+Temporal and IMU family/standalone classifier states are reused unchanged. Source
+trial IDs and dataset match are verified. New classifier scaling and fitting never
+open Sessions 2/3. Both target sessions reuse the exact same frozen source states.
+
+| Addition | Session-2 validation delta LL / F1 | Session-3 final delta LL / F1 |
+|---|---:|---:|
+| Temporal | 0.319669 / -0.059015 | -0.048232 / 0.038887 |
+| Real IMU | 0.047456 / -0.048124 | 0.077183 / -0.022569 |
+
+| Final pooled trial model | Overall macro F1 | Minimum speed-cell macro F1 |
+|---|---:|---:|
+| F0 | 0.4453 | 0.3234 |
+| Core | 0.4718 | 0.4339 |
+| Core + Temporal | 0.5107 | 0.4903 |
+| Core + IMU | 0.4492 | 0.3977 |
+
+Core exactly reproduces the earlier standalone F0/SPD screening results. Temporal
+has a final F1/minimum-cell gain with slightly worse final log loss, but validation
+F1 declines. IMU improves log loss in both sessions while decreasing F1 and the
+final minimum relative to Core. These demonstrate score/decision differences and
+session-dependent increments; final-only gains do not select a deployment variant.
+This study does not prove that all measured IMU features lack useful information.
+
+Each target session has 108 complete trials, six known users and six finger flexext
+classes without REST. There is no OPEN/pinch benchmark in this selected MANUS task.
+Speed and session changes are confounded; the speed-cell minima are descriptive,
+not isolated causal speed effects. ALL pools trials, while previous personal/session
+calibration tables often average individual-user F1. No target calibration is used
+for these cal0 comparisons; calibrated MANUS Core increments still remain open.
+
+Runs `feature_bank_manus_concat_core_source_20260916`, `_validation_20260916`
+and `_final_20260916` preserve source fits, dimensions, real context provenance,
+trial partitions and 560 score/increment/complementarity rows. Twelve classifier
+probability arrays replay exactly from retained feature coordinates and source fits.
+Tests reject target-session source partitions and source-phase held-out reporting.
+The suite ran 141 tests with one skip; integrity checks cover 156 artifacts,
+34,415 rows and 699 explicit partitions; canonical verification covers 32,932 rows.
+The complete robustness vector remains unchanged because this supplement does not
+replace previously frozen full-bank methods with a favorable final-only model.

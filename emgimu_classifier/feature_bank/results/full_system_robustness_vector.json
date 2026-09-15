@@ -23,7 +23,7 @@
     "force_worst_condition.csv": "4172840b6f0e4a4dc7a84c95cb2c7a2593790cc50c16c2882d1ec808bf8317a1",
     "ablation_full_bank.csv": "49cd371d40e57a1ad610cf9df8589b00c111a933df227de1cb6dff76d47a036a",
     "per_family_calibration_gain.csv": "3d26ac27a65db846171b3955d0ede4764cbc946cdafa4c5fe13c1b1ba08a0ff9",
-    "feature_family_results.csv": "a3dccfce150354744b9ca5c97d0382f4cfcc7b3b4c7f307805ce911049c1845d"
+    "feature_family_results.csv": "d2761797c699da9a72cea26ec2b0fbc5e743963caabc1c25bbe631842054b41a"
   },
   "warnings": [
     "Day and posture reuse the same UniBo observations; axes are correlated.",
