@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "source_probability_arrays_checked": 8,
+  "max_probability_error": 0.0,
+  "source_temperature_recomputed": true,
+  "classifier_or_family_fit": false,
+  "target_days_loaded": false
+}

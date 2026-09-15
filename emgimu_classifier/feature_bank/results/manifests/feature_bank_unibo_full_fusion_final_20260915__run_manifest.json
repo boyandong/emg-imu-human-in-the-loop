@@ -1,0 +1,66 @@
+{
+  "source_run": "feature_bank_unibo_audited_validation_20260915",
+  "source_days": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "inner_train_days": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "probability_calibration_day": 5,
+  "temperatures": {
+    "F0": 0.9559115487691137,
+    "F1_X1H": 1.1544387845151318,
+    "F2a_Cov": 1.4884982389000623,
+    "F2b_CSP": 1.35679821505352,
+    "F2c_SPD": 1.2497345020912831,
+    "F4_Spectral": 0.8301098230862114,
+    "F5_Temporal": 0.9219287065614028,
+    "F9_Quality": 0.9812475470922624
+  },
+  "families": [
+    "F0",
+    "F1_X1H",
+    "F2a_Cov",
+    "F2b_CSP",
+    "F2c_SPD",
+    "F4_Spectral",
+    "F5_Temporal",
+    "F9_Quality"
+  ],
+  "dimensions": {
+    "F0": 24,
+    "F1_X1H": 4,
+    "F2a_Cov": 10,
+    "F2b_CSP": 8,
+    "F2c_SPD": 10,
+    "F4_Spectral": 40,
+    "F5_Temporal": 29,
+    "F9_Quality": 29
+  },
+  "sample_rate_hz": 200,
+  "native_channels": 4,
+  "target_calibration_trials": 0,
+  "ring_or_oracle_posture_used": false,
+  "source_calibration_weights": "source hierarchical window weights in classifier; temperature unweighted windows",
+  "temperature_bounds": [
+    0.25,
+    4
+  ],
+  "scope": "source-day heldout probability calibration; not full nested OOF",
+  "source_package": "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_unibo_full_source_20260915",
+  "phase": "final",
+  "target_days": [
+    7,
+    8
+  ],
+  "classifier_or_family_fit": false,
+  "population_weights": "uniform",
+  "quality": "F0/CSP min, robust signal providers mean, F9 1"
+}

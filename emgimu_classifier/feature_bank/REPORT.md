@@ -716,3 +716,48 @@ replayed source OOF predictions, verifies source trial partitions and target ide
 and confirms state immutability without fitting. Target probability error is zero in
 both phases. All 107 tests pass with one skip. Other failure-system comparisons and
 historical DS2 remain incomplete.
+
+## UniBo full four-channel package: day/posture negative transfer
+
+`feature_bank_unibo_full_source_20260915` supplies eight non-ring, non-oracle providers.
+Internal calibration classifiers/families fit only days 1–4 and predict day 5. Those
+source-day probabilities fit temperatures in [0.25,4]. Final provider classifiers fit
+days 1–5, reusing the exact previously audited source-fit family states. The internal
+and final classifiers use the original hierarchical segment weights; temperature fitting
+uses unweighted day-5 windows, as explicitly recorded. This source-day heldout scheme
+is not a full nested OOF experiment. Source fitting covers 50607 windows, calibration
+24039; target days 6–8 are never opened during source-package construction.
+
+Actual provider dimensions are F0 24, X1-H 4, trace covariance 10, CSP 8, SPD 10,
+spectral 40, temporal 29 and quality 29 (154 total). Input remains native four-muscle
+topology; the processed windows are resampled to 200 Hz from verified 500 Hz acquisition.
+Neither synthetic eight-channel ring geometry nor oracle posture enters classification.
+
+`feature_bank_unibo_full_fusion_{validation,final}_20260915` evaluates day 6 and days
+7–8, respectively, with no additional fitting or target calibration. All eight provider
+removals, raw/calibrated uniform fusion, quality-weighted fusion and raw/calibrated F0
+are saved, including subject-day-posture cells. Validation/final export 533/910 metric
+rows over 24338/48818 windows, using the original hierarchical metric weighting.
+
+| Final method | ALL F1 | Minimum posture F1 | ALL log loss | Minimum subject-day-posture F1 |
+|---|---:|---:|---:|---:|
+| Raw F0 | 0.7044 | 0.6638 | 0.4359 | 0.3442 |
+| Raw uniform bank | 0.6944 | 0.6555 | 0.6999 | 0.3474 |
+| Calibrated uniform bank | 0.6994 | 0.6600 | 0.7042 | — |
+| Calibrated quality-weighted full bank | 0.6992 | 0.6594 | 0.6860 | 0.3280 |
+
+Posture 2 is the weakest pooled posture. Full-bank day-7/day-8 F1 is 0.7082/0.6905
+versus F0 0.7160/0.6927. The full package underperforms the original F0 backbone
+overall, by posture and in its worst individual cell; its probability loss is substantially
+higher. The earlier frozen F0+temporal expert remains stronger (F1 0.7102). Source-only
+calibration therefore does not remove harmful averaging of weak providers. This result
+is retained rather than selecting providers on the final days. These are supplemental
+comparisons on previously opened final days, not a new untouched final test.
+
+Source replay checks all eight heldout probability arrays, recomputes temperatures,
+verifies source partition coverage and immutable state, with zero error. Target replays
+check all 13 variants per phase, exact labels/trials/users/days/postures and unchanged
+source state, also with zero error. Full tests remain 107 passing cases with one skip.
+Current table integrity covers 96 sources, 15035 rows and 401 explicit partition checks;
+source calibration uses an additional dedicated partition audit. Load/position full-bank
+evaluation and the historical DS2 requirement remain open.

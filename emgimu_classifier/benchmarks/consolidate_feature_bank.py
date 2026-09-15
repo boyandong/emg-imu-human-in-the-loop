@@ -7,6 +7,9 @@ import json
 
 
 RUNS = (
+    'feature_bank_unibo_full_source_20260915',
+    'feature_bank_unibo_full_fusion_validation_20260915',
+    'feature_bank_unibo_full_fusion_final_20260915',
     'feature_bank_wearing_full_fusion_validation_20260915',
     'feature_bank_wearing_full_fusion_final_20260915',
     'feature_bank_manus_nested_oof_20260915',
