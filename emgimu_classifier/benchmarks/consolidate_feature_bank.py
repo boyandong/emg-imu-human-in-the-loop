@@ -7,6 +7,8 @@ import json
 
 
 RUNS = (
+    'feature_bank_wearing_core_raw_ring_validation_20260916',
+    'feature_bank_wearing_core_raw_ring_final_20260916',
     'feature_bank_wearing_session_normalization_validation_20260916',
     'feature_bank_wearing_session_normalization_final_20260916',
     'feature_bank_wearing_session_validation_20260916',

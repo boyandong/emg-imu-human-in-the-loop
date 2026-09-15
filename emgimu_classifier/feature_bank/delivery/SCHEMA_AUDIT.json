@@ -2,7 +2,7 @@
   "status": "schema_complete_evidence_partial",
   "artifacts": {
     "feature_family_results.csv": {
-      "rows": 4575,
+      "rows": 4635,
       "required_fields": [
         "dataset",
         "subject",
@@ -17,10 +17,16 @@
         "ece"
       ],
       "missing_field_counts": {
-        "session/domain": 142,
+        "session/domain": 154,
         "subject": 46
       },
       "missing_by_run": {
+        "feature_bank_wearing_core_raw_ring_validation_20260916": {
+          "session/domain": 6
+        },
+        "feature_bank_wearing_core_raw_ring_final_20260916": {
+          "session/domain": 6
+        },
         "feature_bank_wearing_session_normalization_validation_20260916": {
           "session/domain": 24
         },
@@ -46,11 +52,11 @@
           "session/domain": 6
         }
       },
-      "source_csv_sha256": "5af1c875c0ebd9f9010d18cc08d2139eb79720691f6182e044314260411d1daa",
-      "canonical_csv_sha256": "cde08edfe945469990f7c6468f19f3917af24f79eaafca01f0cfa711aa2e203a"
+      "source_csv_sha256": "4752257504f91d1609f2cb061eadce22e46dedc4d0ca3d8ae1e24df4cc910f62",
+      "canonical_csv_sha256": "04d3f5a341ed6ca4f6f73ca460e13adeb145f55ad8afab0ac72ca5e32db6d82f"
     },
     "conditional_incremental.csv": {
-      "rows": 5635,
+      "rows": 5665,
       "required_fields": [
         "dataset",
         "subject",
@@ -63,11 +69,17 @@
         "delta_brier"
       ],
       "missing_field_counts": {
-        "session/domain": 32,
+        "session/domain": 38,
         "subject": 105,
         "condition": 12
       },
       "missing_by_run": {
+        "feature_bank_wearing_core_raw_ring_validation_20260916": {
+          "session/domain": 3
+        },
+        "feature_bank_wearing_core_raw_ring_final_20260916": {
+          "session/domain": 3
+        },
         "feature_bank_wearing_session_normalization_validation_20260916": {
           "session/domain": 6
         },
@@ -86,11 +98,11 @@
           "condition": 12
         }
       },
-      "source_csv_sha256": "f1a11700adc1383dcece5619f1d14446e3b6365d4767344885085e9514882cc1",
-      "canonical_csv_sha256": "80cb08d95c3c08dc70e931aaf1b47e14593c0bb4eca0fffb886c6da7d3c55788"
+      "source_csv_sha256": "ffd176c7ee1e34af00b422bbfbe59351565710b3dbfebed33f90247f22f72be2",
+      "canonical_csv_sha256": "0c8c31377a9a23ad3319c5ca05e64c294657d192a54dfdc5ec005a5f0f07aaa8"
     },
     "error_complementarity.csv": {
-      "rows": 4625,
+      "rows": 4655,
       "required_fields": [
         "dataset",
         "subject",
@@ -103,10 +115,27 @@
         "a_wrong_b_correct"
       ],
       "missing_field_counts": {
-        "subject": 179,
-        "session/domain": 402
+        "session/domain": 408,
+        "disagreement_rate": 30,
+        "a_correct_b_wrong": 30,
+        "a_wrong_b_correct": 30,
+        "error_correlation": 3,
+        "subject": 179
       },
       "missing_by_run": {
+        "feature_bank_wearing_core_raw_ring_validation_20260916": {
+          "session/domain": 3,
+          "disagreement_rate": 15,
+          "a_correct_b_wrong": 15,
+          "a_wrong_b_correct": 15
+        },
+        "feature_bank_wearing_core_raw_ring_final_20260916": {
+          "session/domain": 3,
+          "disagreement_rate": 15,
+          "a_correct_b_wrong": 15,
+          "a_wrong_b_correct": 15,
+          "error_correlation": 3
+        },
         "feature_bank_manus_nested_oof_20260915": {
           "subject": 28
         },
@@ -137,8 +166,8 @@
           "session/domain": 60
         }
       },
-      "source_csv_sha256": "ddcf985a0c958974932308a65d50a76d4aba4e59a6bccd5cbf76b0caf101edac",
-      "canonical_csv_sha256": "6c331ab805c1d80a8d5853188eccbee86e666b8e4706dc141d4bd3532aabafb9"
+      "source_csv_sha256": "8758d160aaf97f371afff9b50ae7079a9dff3b8659b5fdc8574b07d71fe6d269",
+      "canonical_csv_sha256": "04e2a1b66841f41e9f530c642679c2079e37cb0fd895928babf277586621af53"
     },
     "calibration_curve.csv": {
       "rows": 19994,

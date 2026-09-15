@@ -16,6 +16,42 @@ unverified until contextual requirements and authoritative evidence are inspecte
 formulas, examples and separators are included and are not independent requirements.
 `DOCUMENT_SCOPE_AUDIT.json` proves index coverage only, not scientific completion.
 
+## Raw ring covariance formula correction and wearing conditional increment
+
+Goal text lines 1480–1533 define F3c from F2a raw-signal covariance.
+Existing `RingGeometryFamily` uses envelope covariance for its ringcov block;
+previous evidence remains a reference proxy, not exact F3c reproduction.
+Separate `RawRingCovarianceFamily` applies channel centering, fixed .05 shrinkage
+and trace normalization to raw windows. Four circular lags each output mean,
+median, std, q25, q75 and early/late mean displacement: 24 dimensions at eight
+channels. Verified ring topology must be explicitly supplied. Independent np.cov
+oracle and cyclic rotation/random permutation checks pass; old results are preserved.
+
+`wearing_core_ring.py` freezes actual concatenation Core=F0+reference F1+CSP
+(66 dimensions) versus Core+F3c (90), balanced C=1 logistic regression.
+Five Before-wearing repetition-held-out folds refit every family/scaler/classifier,
+then fit source-only temperatures for complete models before opening target data.
+F1 is not unavailable validated historical X1-H; F3c is not historical RLCS/CES.
+Each cohort has three personal-source users/four wearing domains, no target calibration.
+
+| Cohort | Mean user Core F1 | Core+F3c F1 | Mean delta LL | Mean delta Brier |
+|---|---:|---:|---:|---:|
+| Validation 15–17 | .430623 | .554775 | +1.358402 | +.035953 |
+| Final 18–20 | .545346 | .645852 | +.614565 | +.028270 |
+
+Means use each user's pooled whole-native-trial results across four domains;
+they are not stream accuracy or the differently aggregated fixed-bank robustness
+vector. Results support conditional predictive value for this fixed Core, with
+identical target-independent choices in both cohorts. Native Myo 200Hz, five
+classes without Pinch; current 250Hz device remains unvalidated. Per-user/domain,
+per-class results and paired errors appear in the two
+`feature_bank_wearing_core_raw_ring_{validation,final}_20260916` runs.
+Saved source-fold/full models replay 42 probability arrays per phase exactly,
+including source OOF temperatures; source states remain immutable. Archive hashes
+and trial splits are checked. Suite: 163 tests, one skipped, remaining pass.
+Integrated copied-value audit: 200 artifacts, 51,035 rows, 1,182 explicit partitions;
+canonical provenance: 49,552 rows. These checks do not prove full document acceptance.
+
 ## Current interpretation of the evidence
 
 The full bank has local gains and failures. It does not improve every task or the minimum

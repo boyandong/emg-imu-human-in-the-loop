@@ -1,0 +1,30 @@
+{
+  "phase": "final",
+  "specifications": {
+    "Core": [
+      "F0",
+      "F1_reference",
+      "F2b_CSP"
+    ],
+    "Core_plus_F3c_raw": [
+      "F0",
+      "F1_reference",
+      "F2b_CSP",
+      "F3c_raw"
+    ]
+  },
+  "archive_sha256": "4cfa9a4861193f230179fa87d53eda7503e66b5cfedeae81c81e476f53f6b2b6",
+  "temperatures": {
+    "18_Core": 0.250001611337782,
+    "18_Core_plus_F3c_raw": 0.25000132640024136,
+    "19_Core": 0.6835220882122091,
+    "19_Core_plus_F3c_raw": 0.5528594661023049,
+    "20_Core": 0.41950383745982367,
+    "20_Core_plus_F3c_raw": 0.250001407683072
+  },
+  "source_protocol": "five repetition-held-out Before source folds; families/scalers/classifiers refit within each fold",
+  "candidate_definition": "document F3c raw centered shrunk trace-normalized covariance; four lags times six statistics",
+  "reference_boundary": "F1 reference is not validated historical X1-H; F3c is not historical RLCS/CES",
+  "freeze": "C=1; CSP one component each tail/class; lambda=.05; 200ms native windows; no target selection",
+  "limitations": "three personal users/four correlated wearing domains; five native classes no pinch; trial aggregation is not streaming"
+}

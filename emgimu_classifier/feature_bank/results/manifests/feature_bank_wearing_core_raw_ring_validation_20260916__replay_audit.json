@@ -1,0 +1,7 @@
+{
+  "status": "ok",
+  "arrays_recomputed": 42,
+  "maximum_error": 0.0,
+  "source_states_immutable": true,
+  "scope": "saved-fold/native-data prediction replay; not exhaustive formula or document completion"
+}

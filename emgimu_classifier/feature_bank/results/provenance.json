@@ -1,5 +1,19 @@
 [
   {
+    "run_id": "feature_bank_wearing_core_raw_ring_validation_20260916",
+    "artifact": "feature_family_results.csv",
+    "sha256": "7d1cd3f5af2c1f625b306ca3303fb10f13d73638c2d8532960f9351c04dccff5",
+    "bytes": 11354,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_wearing_core_raw_ring_final_20260916",
+    "artifact": "feature_family_results.csv",
+    "sha256": "f02c64a187d23e386534247655df776e73fcd19ec1c3f85bea0d03916a3d1c16",
+    "bytes": 11032,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
     "run_id": "feature_bank_wearing_session_normalization_validation_20260916",
     "artifact": "feature_family_results.csv",
     "sha256": "8c29c0086618c4daa0124b38961a63e9a3696640d450f55616ed9717ede353b5",
@@ -194,6 +208,20 @@
     "bytes": 21786
   },
   {
+    "run_id": "feature_bank_wearing_core_raw_ring_validation_20260916",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "a1aef41427e6d7d470664867ba9779596cb392b37833ba90ecc7e5e40df8645b",
+    "bytes": 6823,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_wearing_core_raw_ring_final_20260916",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "220521991245685295b8495896398549633addf13e7ac191acf8d6c48c41ff9e",
+    "bytes": 6694,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
     "run_id": "feature_bank_wearing_session_normalization_validation_20260916",
     "artifact": "conditional_incremental.csv",
     "sha256": "0b31b9358406de8ab3ca50d24722efbf8b0c365ec4bceb6f06de4b640e756f04",
@@ -344,6 +372,20 @@
     "artifact": "interaction_results.csv",
     "sha256": "1874c20bb5fd043d97e31d56a1627174007c7b7484911de62c99de2a08703bb0",
     "bytes": 5617
+  },
+  {
+    "run_id": "feature_bank_wearing_core_raw_ring_validation_20260916",
+    "artifact": "error_complementarity.csv",
+    "sha256": "6f34dcf413617ccf23e2b590d867dbde21e82036142b7c9f5b8893f7f62d6020",
+    "bytes": 4068,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_wearing_core_raw_ring_final_20260916",
+    "artifact": "error_complementarity.csv",
+    "sha256": "48feec429dbe61e67d2ffeb1843209975ad59cdfd94b12d3c777d06a347eb491",
+    "bytes": 3952,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
   },
   {
     "run_id": "feature_bank_wearing_session_validation_20260916",
