@@ -1,0 +1,20 @@
+{
+  "status": "ok",
+  "profiles": 24,
+  "class_matched_rows": 144,
+  "sources": [
+    {
+      "phase": "validation",
+      "split_sha256": "f185bb4c212dc106819fecbde362df81c51f30d025c35b59a95885876ae55c77"
+    },
+    {
+      "phase": "final",
+      "split_sha256": "53e2430f59b863956a6f85d2457504551d699b9c8c77245d80093afeb6f864c0"
+    }
+  ],
+  "long_term_state_sha256": "5d24be6bdaa3631d1cbceba3855ed20f7e6b7f57af262ed8b2a84336176d39c5",
+  "evaluation_samples_used": false,
+  "classifier_fit": false,
+  "rest_noise": "N/A: subset has six active finger classes",
+  "scope": "family-specific diagnostic session signatures; not new fitted fusion predictions"
+}

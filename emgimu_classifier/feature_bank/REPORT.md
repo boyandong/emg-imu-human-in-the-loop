@@ -1147,6 +1147,44 @@ of mixed-label/rest-only trials and separation of within/between-gesture variati
 Full tests pass 122 cases with one skip. Remaining complete-document evidence and
 historical baseline reuse remain open.
 
+### Family-specific session shift summaries
+
+`FamilySessionShiftSummary` extends the generic residual/cosine/geometry descriptors
+with explicit class-matched changes in log global activation, scale-pattern vectors,
+mean absolute log-band energy, ring vectors, trace-normalized covariance and channel
+variance/quality scores. Covariance change uses the affine-invariant SPD distance
+`||log(C_long^(-1/2) C_cal C_long^(-1/2))||_F`, with positive-definiteness checks.
+Source class profiles use equal trial mass; calibration transforms never mutate them.
+Native ring summaries require verified eight-channel topology. New pattern/ring views
+do not establish historical X1-H/RLCS formula equivalence.
+
+`export_session_shift_summaries.py` reuses exact cal1/2 trial IDs from the selected
+MANUS full-bank runs. Source session 1 builds each known user's long-term profile;
+session 2/3 calibration portions supply current profiles. No evaluation samples are
+used for the signatures and no classifiers are fitted. The six-active-class subset
+has no rest data, so rest-noise changes remain unavailable. Quality differences are
+relative rule scores; absent ADC limits prevent physical clipping interpretation.
+
+`family_specific_session_shifts.{csv,json}` retains 24 signatures and 144 class-matched
+rows, source/split hashes and sensor contracts. Each class exports six scalar shifts
+plus eight channel variance changes (14 numeric values); generic F8 residual norms,
+cosine agreements and class geometry remain separate existing descriptors.
+
+| Mean across class/user signatures | Validation cal1 | Validation cal2 | Final cal1 | Final cal2 |
+|---|---:|---:|---:|---:|
+| Log global activation shift | -0.2368 | -0.2334 | -0.3119 | -0.3307 |
+| Mean absolute log-band residual | 0.9850 | 0.8727 | 0.9956 | 0.9050 |
+| Affine-invariant covariance distance | 2.2237 | 2.0804 | 2.5719 | 2.5188 |
+| Ring-vector residual norm | 0.1957 | 0.1614 | 0.2008 | 0.1495 |
+| Mean quality-score shift | -0.0161 | -0.0117 | -0.0235 | -0.0180 |
+
+These are diagnostic context descriptors, not newly evaluated gating policies or
+fatigue/force estimates. Two tests check known SPD geometry and show that uniform
+gain changes log amplitude and log power while leaving pattern/covariance shape
+unchanged; source state remains immutable. The full suite passes 124 tests with one
+skip. Integration/performance evidence for these additional descriptors and the
+remaining complete-document audit remain unfinished.
+
 ### Per-subject variation and class summaries
 
 `benchmarks/per_subject_analysis.py` derives 3342 subject/condition summaries from
