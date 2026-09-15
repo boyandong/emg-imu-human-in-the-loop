@@ -1,0 +1,54 @@
+{
+  "metric": "candidate minus matched F0 validation macro-F1; no cross-dataset average",
+  "sources": [
+    [
+      "force",
+      "feature_bank_force_audited_validation_20260915",
+      "ALL",
+      "ALL",
+      null
+    ],
+    [
+      "wearing",
+      "feature_bank_electrode_shift_validation_20260915",
+      "ALL",
+      "ALL",
+      null
+    ],
+    [
+      "day",
+      "feature_bank_unibo_validation_20260915",
+      "ALL",
+      "ALL",
+      null
+    ],
+    [
+      "user",
+      "feature_bank_epn612_trial_validation_20260915",
+      "ALL",
+      "cross_user",
+      null
+    ],
+    [
+      "posture",
+      "feature_bank_emg_fmg_validation_20260915",
+      "ALL",
+      "ALL",
+      "position_shift"
+    ],
+    [
+      "speed",
+      "feature_bank_manus_validation_20260915",
+      "SAME_USERS",
+      "ALL",
+      null
+    ]
+  ],
+  "quality": "N/A: no matched additive-family quality screen",
+  "confounds": {
+    "day": "UniBo day includes reapplication",
+    "speed": "MANUS session 1\u21922 with speed cells; not isolated speed intervention",
+    "posture": "EMG-FMG limb positions; external load mixed in source/target"
+  },
+  "topology": "family names retained; four-channel UniBo excludes ring family"
+}

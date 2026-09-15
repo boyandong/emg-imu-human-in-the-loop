@@ -183,3 +183,15 @@ only; corrected result tables replace the original runs. A regression test verif
 adding extreme evaluation rows cannot change an existing query probability. Original run
 manifests remain historical artifacts and are not the source of current consolidated scores.
 Current integrity checks pass 37 source artifacts, 2592 rows and 135 explicit split checks.
+
+## Family robustness vectors
+
+`results/robustness_vectors.csv` reports ten family-specific validation vectors and
+`robustness_cells.csv` preserves 293 matched condition deltas for F1, log-loss and Brier.
+Each vector coordinate is candidate-minus-F0 on its own benchmark; no cross-dataset average
+is taken. Quality remains N/A because the synthetic quality-weighting study does not provide
+matched additive-family screening. MANUS speed is confounded with target session, UniBo day
+with reapplication, and EMG-FMG position with mixed loads; these limits are recorded in the
+definition JSON. X1H's force delta is +0.0425 but day delta is −0.0246. Trace covariance's
+wearing delta is +0.1617 but force delta is −0.1010. The vector therefore supports specialists,
+not a universally invariant family. These development deltas do not replace independent tests.
