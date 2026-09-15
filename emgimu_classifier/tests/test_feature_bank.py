@@ -97,6 +97,22 @@ class FeatureFamilyTests(unittest.TestCase):
 
 
 class CalibrationTests(unittest.TestCase):
+    def test_anchor_features_do_not_depend_on_other_evaluation_rows(self) -> None:
+        import pickle
+        rng = np.random.default_rng(91)
+        calibration = rng.normal(size=(20, 6)); labels = np.repeat(np.arange(4), 5)
+        query = rng.normal(size=(1, 6))
+        for metric in ('standardized_euclidean', 'euclidean', 'cosine'):
+            anchor = PersonalAnchor(metric=metric).fit(calibration, labels)
+            for legacy in (False, True):
+                if legacy:
+                    del anchor.similarity_scale_
+                before = pickle.dumps(anchor)
+                alone = anchor.transform(query)
+                batched = anchor.transform(np.vstack((query, rng.normal(size=(100, 6))*1e6)))[:1]
+                np.testing.assert_allclose(alone, batched, atol=1e-6, rtol=1e-6)
+                self.assertEqual(before, pickle.dumps(anchor))
+
     def test_personal_normalizer_uses_only_explicit_calibration(self) -> None:
         batch = make_batch(windows=16)
         labels = np.arange(16) % 4

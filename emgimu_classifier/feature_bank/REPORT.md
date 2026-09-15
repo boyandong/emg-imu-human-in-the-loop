@@ -456,3 +456,23 @@ verifies calibration temperatures, identifiers, disjoint partitions and state im
 Current integrity audit covers 70 source artifacts, 7499 copied rows and 264 explicit
 split checks. The full unit suite runs 102 tests, passing with one skip. These checks
 support this bounded experiment, not completion of every original research requirement.
+
+## Anchor similarity batch-independence correction
+
+The F7 distance and margin coordinates were already row-wise, but its auxiliary
+similarity columns used the median distance of the current transform batch. This made
+one query's similarity depend on unrelated evaluation rows and violated the fixed
+calibration-state requirement. New anchors now freeze that scale from calibration
+distances during fit. Legacy pickles lacking the scale derive a fixed fallback from
+their calibration prototypes without state mutation; that fallback is not asserted to
+reconstruct the original calibration-distance median.
+
+A regression test compares a query alone versus with 100 extreme unrelated rows for
+Euclidean, standardized Euclidean and cosine metrics, including legacy states. All
+output coordinates remain consistent and fitted states unchanged. Current full-fusion
+experiments consume only distance columns: replay after this change checks 264 EPN,
+900 MANUS and 66 final-force probability arrays, unchanged within 2.23e-16. Existing
+distance-based performance and diagnostics therefore remain valid; historical auxiliary
+similarity outputs should not be treated as valid fixed-state features. Full tests now
+run 103 cases, passing with one skip. Source-only probability calibration and strict
+OOF evidence remain separate open requirements; this fix does not satisfy them.

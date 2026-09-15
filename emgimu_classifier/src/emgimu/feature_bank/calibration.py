@@ -53,6 +53,7 @@ class PersonalAnchor:
         self.classes_: np.ndarray | None = None
         self.prototypes_: np.ndarray | None = None
         self.scale_: np.ndarray | None = None
+        self.similarity_scale_: float | None = None
 
     def fit(self, features: np.ndarray, labels: np.ndarray) -> "PersonalAnchor":
         x, y = np.asarray(features, dtype=np.float64), np.asarray(labels)
@@ -66,9 +67,10 @@ class PersonalAnchor:
         self.prototypes_ = np.stack([estimator(x[y == label], axis=0) for label in classes])
         median = np.median(x, axis=0)
         self.scale_ = np.maximum(1.4826 * np.median(np.abs(x - median), axis=0), EPS)
+        self.similarity_scale_ = max(float(np.median(self._distances(x))), EPS)
         return self
 
-    def transform(self, features: np.ndarray) -> np.ndarray:
+    def _distances(self, features: np.ndarray) -> np.ndarray:
         if self.prototypes_ is None:
             raise RuntimeError("anchor must be fit from calibration first")
         x = np.asarray(features, dtype=np.float64)
@@ -83,10 +85,18 @@ class PersonalAnchor:
             if self.metric == "standardized_euclidean":
                 delta = delta / self.scale_[None, None, :]
             distances = np.linalg.norm(delta, axis=2)
+        return distances
+
+    def transform(self, features: np.ndarray) -> np.ndarray:
+        distances = self._distances(features)
         ordered = np.sort(distances, axis=1)
         margin = ordered[:, 1] - ordered[:, 0]
         normalized_margin = margin / np.maximum(distances.mean(axis=1), EPS)
-        similarity_scale = np.maximum(np.median(distances), EPS)
+        similarity_scale = getattr(self, 'similarity_scale_', None)
+        if similarity_scale is None:
+            # Legacy fitted artifacts contain only calibration prototypes and scales.
+            # Derive a fixed scale from those prototypes without changing fitted state.
+            similarity_scale = max(float(np.median(self._distances(self.prototypes_))), EPS)
         similarity = np.exp(-distances / similarity_scale)
         return np.nan_to_num(np.column_stack((distances, similarity, margin, normalized_margin))).astype(np.float32)
 
