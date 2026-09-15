@@ -1050,3 +1050,37 @@ policy. Cal5 is unsupported. This six-active-class subset has no rest class, so 
 rest-center channel normalization branch cannot be formally tested here. Full tests
 pass 115 cases with one skip. Historical reuse and further complete-document audit
 remain open.
+
+### Per-subject variation and class summaries
+
+`benchmarks/per_subject_analysis.py` derives 3342 subject/condition summaries from
+unchanged family, calibration and full-bank tables. Each retains run, method, budget,
+native condition, scenario, protocol and hyperparameter identity; conflicting duplicate
+subject metrics are rejected. It reports mean/population-standard-deviation/min/max
+user F1, mean user log loss, user IDs and actual mean per-class F1 JSON where every
+underlying subject supplies compatible numeric class values. Missing class summaries
+remain N/A. This supplies interpretable class summaries without overwriting historical
+ALL rows that contain textual aggregation placeholders. Source CSV hashes are retained
+in `results/per_subject_analysis_audit.json`.
+
+The direct answer to question E for current EPN anchor fusion is negative:
+`results/anchor_cross_user_variation.csv` compares full and no-anchor branches on the
+same observed users and remaining evaluation trials within each budget. Reliability,
+source classifier probabilities and calibration budget are held fixed.
+
+| Selected-policy final EPN | No-anchor mean/std F1 | Anchor mean/std F1 | No-anchor/anchor minimum F1 |
+|---|---:|---:|---:|
+| cal0 | 0.4725 / 0.0303 | 0.4725 / 0.0303 | 0.4307 / 0.4307 |
+| cal1 | 0.4708 / 0.0290 | 0.4053 / 0.0994 | 0.4329 / 0.2697 |
+| cal2 | 0.4670 / 0.0290 | 0.4346 / 0.1429 | 0.4433 / 0.2376 |
+| cal5 | 0.4952 / 0.0658 | 0.4115 / 0.1008 | 0.4194 / 0.2701 |
+
+All nonzero budgets increase observed cross-user variation and lower both average
+and minimum F1. The earlier fixed policy shows the same pattern, with std increases
+of 0.0934/0.1001/0.0474 at cal1/2/5. These are descriptive results on three final
+users, not statistically significant population claims or proof that all personal
+anchor methods fail. They specifically identify the current distance-to-prototype
+probability mixing branch as harmful relative to its otherwise identical no-anchor
+control. Different budgets exclude different calibration trials and cannot be treated
+as repeated measurements on one identical test set. No target-score tuning or model
+fitting is performed for this analysis. Complete-document audit remains unfinished.
