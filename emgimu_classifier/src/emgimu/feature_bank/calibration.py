@@ -111,8 +111,14 @@ class ReliabilityWeights:
         scores = []
         sample_counts = []
         for family in self.family_ids:
+            if family not in calibration:
+                scores.append(-np.inf)
+                sample_counts.append(0)
+                continue
             features, labels = calibration[family]
             x, y = np.asarray(features, dtype=np.float64), np.asarray(labels)
+            if x.ndim != 2 or len(x) != len(y) or not np.all(np.isfinite(x)):
+                raise ValueError('calibration features must be finite aligned matrices')
             prototypes = {label: x[y == label].mean(axis=0) for label in self.classes if np.any(y == label)}
             if len(prototypes) != len(self.classes):
                 scores.append(-np.inf)
@@ -128,7 +134,9 @@ class ReliabilityWeights:
         if np.any(usable):
             shifted = (score[usable] - np.max(score[usable])) / max(self.temperature, EPS)
             personal[usable] = np.exp(shifted) / np.exp(shifted).sum()
-        count = min(sample_counts) if sample_counts else 0
+        if not np.any(usable):
+            raise ValueError('no family has complete calibration coverage')
+        count = min(np.asarray(sample_counts)[usable])
         alpha = self.n0 / (self.n0 + count)
         combined = alpha * np.asarray(self.population, dtype=np.float64) + (1.0 - alpha) * personal
         combined[~usable] = 0.0
@@ -141,16 +149,21 @@ def late_fusion(
     weights: np.ndarray,
     quality: Mapping[str, np.ndarray] | None = None,
 ) -> np.ndarray:
-    arrays = [np.asarray(probabilities[item], dtype=np.float64) for item in family_ids]
+    available = tuple(item for item in family_ids if item in probabilities)
+    arrays = [np.asarray(probabilities[item], dtype=np.float64) for item in available]
     if not arrays or any(array.shape != arrays[0].shape for array in arrays):
         raise ValueError("family probabilities must be non-empty and aligned")
     base = np.asarray(weights, dtype=np.float64)
     if base.shape != (len(family_ids),) or not np.all(np.isfinite(base)) or np.any(base < 0) or base.sum() <= 0:
         raise ValueError("fusion weights must be non-negative and match families")
+    base = base[[family_ids.index(item) for item in available]]
+    if base.sum() <= EPS:
+        base = np.ones(len(available), dtype=np.float64)
     per_row = np.broadcast_to(base[None, :], (arrays[0].shape[0], len(base))).copy()
     if quality is not None:
-        for index, family in enumerate(family_ids):
-            per_row[:, index] *= np.clip(np.asarray(quality[family], dtype=np.float64), 0.0, 1.0)
+        for index, family in enumerate(available):
+            if family in quality:
+                per_row[:, index] *= np.clip(np.asarray(quality[family], dtype=np.float64), 0.0, 1.0)
     # A fully rejected window still needs a valid probability distribution.
     rejected = per_row.sum(axis=1) <= EPS
     per_row[rejected] = base

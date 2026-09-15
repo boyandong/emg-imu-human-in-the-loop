@@ -148,6 +148,16 @@ class CalibrationTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 late_fusion(probabilities, ("a", "b"), weights)
 
+    def test_unavailable_family_is_skipped_and_weights_renormalized(self) -> None:
+        p = np.asarray([[0.8, 0.2], [0.3, 0.7]])
+        np.testing.assert_allclose(late_fusion({'a': p}, ('a', 'b'), np.asarray([0.4, 0.6])), p)
+        np.testing.assert_allclose(late_fusion({'a': p}, ('a', 'b'), np.asarray([0., 1.])), p)
+        reliability = ReliabilityWeights((0, 1), ('a', 'b'), np.asarray([0.4, 0.6]))
+        weights = reliability.personal({'a': (np.asarray([[0., 0.], [1., 1.]]), np.asarray([0, 1]))})
+        np.testing.assert_allclose(weights, [1., 0.])
+        with self.assertRaisesRegex(ValueError, 'no family'):
+            reliability.personal({})
+
     def test_dtw_templates_use_calibration_only(self) -> None:
         batch = make_batch(windows=8, samples=20, channels=4)
         labels = np.repeat(np.arange(4), 2)

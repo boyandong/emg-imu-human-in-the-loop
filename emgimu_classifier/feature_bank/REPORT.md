@@ -195,3 +195,12 @@ with reapplication, and EMG-FMG position with mixed loads; these limits are reco
 definition JSON. X1H's force delta is +0.0425 but day delta is −0.0246. Trace covariance's
 wearing delta is +0.1617 but force delta is −0.1010. The vector therefore supports specialists,
 not a universally invariant family. These development deltas do not replace independent tests.
+
+## Unavailable family handling
+
+Late fusion now skips absent probability providers and renormalizes remaining weights. If
+all remaining providers had zero configured weights, it falls back to equal weights among
+available providers. Missing personal calibration families receive zero reliability weight;
+if none has complete class coverage, an explicit error requests a population-mode fallback.
+No unavailable family is imputed. Tests cover missing providers, zero surviving weights,
+partial calibration coverage and the all-unavailable calibration case.
