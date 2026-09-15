@@ -1,0 +1,9 @@
+{
+  "phase": "final",
+  "source_run": "feature_bank_full_fusion_final_20260915",
+  "dataset": "epn612",
+  "state_sha256": "e85a1a8d84e4e0bbf1a433aade662630c959f9e3253079171238a1b74ea3e16f",
+  "fit_performed": false,
+  "evaluation_label_use": "offline diagnostics only; no parameter selection",
+  "transform_state_immutable": true
+}

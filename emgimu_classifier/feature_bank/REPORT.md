@@ -271,3 +271,13 @@ change fitted states. State serialization is checked unchanged after source/targ
 Selected X1H/frequency, X1H/CSP, ring/anchor, raw/ring and temporal/anchor error comparisons
 are appended to the complementarity table. Current integrity checks cover 51 source
 artifacts and 5914 copied rows. Equivalent diagnostics for other failures remain incomplete.
+
+## Cross-user family diagnosis
+
+EPN adds 192 same-evaluation-trial calibration cells and 48 source-population-to-target-user
+class displacement cells across validation/final phases. Unlike same-user MANUS, the source
+reference is the training population's class centroid; no nonexistent source profile is
+constructed for a held-out user. All distances use frozen source-fit coordinates. Selected
+raw/robust and ring/anchor complementarity cells are appended to the common table. Model
+state is asserted unchanged after transforms; evaluation labels are only diagnostic inputs.
+These results diagnose the existing fixed anchor rule, not a newly optimized personal model.
