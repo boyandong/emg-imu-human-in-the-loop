@@ -1,0 +1,12 @@
+{
+  "source_run": "feature_bank_unibo_full_fusion_final_20260915",
+  "phase": "final",
+  "dataset": "unibo",
+  "source_state_sha256": "04292831c460ca80c84d5a5b05d5009bb962d1d8420b03abb131aa40ba06d51e",
+  "source_predictions_sha256": "c00b499fc916e9eeca95cab9682c8a194ecad1f226dbd32d3145be58e8589e5f",
+  "classifier_or_family_fit": false,
+  "target_calibration_trials": 0,
+  "full_units_replayed": 7,
+  "max_full_probability_error": 0.0,
+  "scope": "zero-target-calibration joint quality-role removal; other calibrated budgets excluded"
+}

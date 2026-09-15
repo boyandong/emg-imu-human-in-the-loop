@@ -1,0 +1,12 @@
+{
+  "source_run": "feature_bank_wearing_full_fusion_validation_20260915",
+  "phase": "validation",
+  "dataset": "wearing",
+  "source_state_sha256": "5625e923d0d6691c557c8aac90e7225b435abc36d72ce4d0b5df949a449983f0",
+  "source_predictions_sha256": "3c6698664a4872638892a6614797d09f4ca57ff2f603ae504729974dad03bdfa",
+  "classifier_or_family_fit": false,
+  "target_calibration_trials": 0,
+  "full_units_replayed": 3,
+  "max_full_probability_error": 0.0,
+  "scope": "zero-target-calibration joint quality-role removal; other calibrated budgets excluded"
+}

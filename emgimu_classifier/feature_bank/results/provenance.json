@@ -342,6 +342,54 @@
     "bytes": 193061
   },
   {
+    "run_id": "feature_bank_wearing_quality_roles_validation_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "8309c1ead6d820cf0dc7447b4d7dc38ac3f416ce4ea5c1d5467375077b4d7154",
+    "bytes": 27771
+  },
+  {
+    "run_id": "feature_bank_wearing_quality_roles_final_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "e3b8943cb6c2c3b825c93bab2ba536c5220b9e5eef38829d4d101e11bbe69d4e",
+    "bytes": 26943
+  },
+  {
+    "run_id": "feature_bank_load_position_quality_roles_validation_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "9a8d259709a4dedc5e8cc00cee318a8e44dc0d2e5a70e2f161dc5d47acaa11d3",
+    "bytes": 66985
+  },
+  {
+    "run_id": "feature_bank_load_position_quality_roles_final_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "02c27fe96a70ec0b4da54641e891da3b9079d7fd9e9dbde47d176b4ae2a59e49",
+    "bytes": 66563
+  },
+  {
+    "run_id": "feature_bank_unibo_quality_roles_validation_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "0e46bddaf3f3697f84f52ee1b40bc61eac8f8ccc0a98c67a79090da544357ae7",
+    "bytes": 55474
+  },
+  {
+    "run_id": "feature_bank_unibo_quality_roles_final_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "b49105759e123ec5e2f2eaceaf8d8e9452cddb9ac274c9f56451ffdf33bc6c7a",
+    "bytes": 55406
+  },
+  {
+    "run_id": "feature_bank_manus_quality_roles_validation_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "3854fe8b7518079624f41513082c44b3f51bb21d24a66aa5f4f67949d20506d4",
+    "bytes": 43105
+  },
+  {
+    "run_id": "feature_bank_manus_quality_roles_final_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "7842828bc4d68e2336c19fcae2f014b183734463400c41523086f396bff34499",
+    "bytes": 42589
+  },
+  {
     "run_id": "feature_bank_load_position_full_validation_20260915",
     "artifact": "ablation_full_bank.csv",
     "sha256": "2b44fd4f556b3afac4dce525a0e539eba36968b16b9d76a289a3f3d2d117677b",

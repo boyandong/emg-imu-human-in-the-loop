@@ -1,0 +1,12 @@
+{
+  "source_run": "feature_bank_load_position_full_final_20260915",
+  "phase": "final",
+  "dataset": "load_position",
+  "source_state_sha256": "e4786ab61c94347579a086be52d786e539e1e9de7ef49dbb4a55cf3d5a7e7431",
+  "source_predictions_sha256": "d0e97aaf6970cb193da986ada291dd525ecc406e00740c0275c2eaf608996deb",
+  "classifier_or_family_fit": false,
+  "target_calibration_trials": 0,
+  "full_units_replayed": 6,
+  "max_full_probability_error": 0.0,
+  "scope": "zero-target-calibration joint quality-role removal; other calibrated budgets excluded"
+}

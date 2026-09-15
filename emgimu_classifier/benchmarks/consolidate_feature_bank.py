@@ -7,6 +7,14 @@ import json
 
 
 RUNS = (
+    'feature_bank_wearing_quality_roles_validation_20260915',
+    'feature_bank_wearing_quality_roles_final_20260915',
+    'feature_bank_load_position_quality_roles_validation_20260915',
+    'feature_bank_load_position_quality_roles_final_20260915',
+    'feature_bank_unibo_quality_roles_validation_20260915',
+    'feature_bank_unibo_quality_roles_final_20260915',
+    'feature_bank_manus_quality_roles_validation_20260915',
+    'feature_bank_manus_quality_roles_final_20260915',
     'feature_bank_load_position_full_validation_20260915',
     'feature_bank_load_position_full_final_20260915',
     'feature_bank_unibo_full_source_20260915',

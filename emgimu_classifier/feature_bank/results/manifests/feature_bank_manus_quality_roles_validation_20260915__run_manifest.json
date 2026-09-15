@@ -1,0 +1,12 @@
+{
+  "source_run": "feature_bank_manus_probability_validation_20260915",
+  "phase": "validation",
+  "dataset": "manus",
+  "source_state_sha256": "ce87f10934e506853332bd79ec9b3b7207ac6c3105408df160be11839354d911",
+  "source_predictions_sha256": "451b72807e8cdfbca04ead05ce844c0e6a8d0f4d20342298fca7930d3e577eb4",
+  "classifier_or_family_fit": false,
+  "target_calibration_trials": 0,
+  "full_units_replayed": 6,
+  "max_full_probability_error": 0.0,
+  "scope": "zero-target-calibration joint quality-role removal; other calibrated budgets excluded"
+}

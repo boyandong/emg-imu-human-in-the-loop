@@ -810,3 +810,41 @@ with one skip. Disk usage has been remeasured in `benchmarks/discovery/DISK_USAG
 raw 17169777002 bytes, processed 347367384, external manifests 6838214 (timestamped
 snapshot, excluding this repository's own small files). Joint quality-role removal,
 remaining full-system evidence and historical DS2 still require work.
+
+## Joint F9 routing/provider removal
+
+`feature_bank_{wearing,load_position,unibo,manus}_quality_roles_{validation,final}_20260915`
+separates four controls: full system, routing off, provider off, and both roles off.
+Earlier `without_F9_Quality` rows removed its classifier provider while retaining
+quality routing and must be read as provider ablations, not removal of the entire F9
+module. The new joint control fixes that evidence gap for zero target-calibration
+budgets. MANUS uses its original zero-shot combined system, where personal anchors
+and session-context weight updates are inactive; calibrated nonzero budgets are outside
+this new ablation's scope. Real IMU providers retain unit quality weight when EMG quality
+is rejected. Regression tests verify both IMU preservation and joint prediction invariance
+to changes in the removed F9 provider and routing inputs.
+
+| Final native task | Full F1 | Joint F9 removal F1 | Full worst condition | Joint worst condition |
+|---|---:|---:|---:|---:|
+| Wearing | 0.5917 | 0.5827 | 0.4477 | 0.4829 |
+| External load | 0.7400 | 0.7755 | 0.6128 | 0.7045 |
+| Limb position | 0.6622 | 0.6329 | 0.2800 | 0.2404 |
+| UniBo day/posture | 0.6992 | 0.6925 | 0.6594 | 0.6532 |
+| MANUS session/speed | 0.4582 | 0.4439 | 0.3552 | 0.3690 |
+
+Condition minima use the reported native wearing/load/position/posture/speed factors;
+they are not minima across failure dimensions. UniBo/wearing metrics pool users with
+their original weights; load/position/MANUS use mean per-user metrics. Joint removal
+helps the external-load benchmark and wearing/speed condition minima, but hurts limb-
+position and posture performance. F9 therefore cannot be categorized as universally
+helpful or universally harmful. These controls remain diagnostic and are not selected
+as deployment policies using the final scores.
+
+The eight runs export 1120 metric rows and 176 role-variant probability arrays. All 44
+full-system subject/scenario probability blocks match their original saved predictions
+exactly; model state is unchanged, with source-state/prediction hashes retained. No
+classifier, family or source probability fitting is repeated. These sample-level quality
+controls do not constitute a labelled real-hardware noise benchmark. Current result
+integrity checks 106 sources, 17611 rows and 467 explicit trial partitions. Full tests
+run 109 cases, passing with one skip. Nonzero-budget joint F9 controls, remaining
+research evidence and historical DS2 are still open.
