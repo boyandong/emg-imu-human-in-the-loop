@@ -1,0 +1,42 @@
+{
+  "feature_bank_full_fusion_validation_20260915": {
+    "F0": 48,
+    "F1_X1H": 8,
+    "F2b_CSP": 12,
+    "F3_Ring": 40,
+    "F4_Spectral": 72,
+    "F5_Temporal": 57,
+    "F6_IMU": 13,
+    "F9_Quality": 53
+  },
+  "feature_bank_full_fusion_final_20260915": {
+    "F0": 48,
+    "F1_X1H": 8,
+    "F2b_CSP": 12,
+    "F3_Ring": 40,
+    "F4_Spectral": 72,
+    "F5_Temporal": 57,
+    "F6_IMU": 13,
+    "F9_Quality": 53
+  },
+  "feature_bank_manus_full_fusion_validation_20260915": {
+    "F0": 48,
+    "F1_X1H": 8,
+    "F2b_CSP": 12,
+    "F3_Ring": 40,
+    "F4_Spectral": 72,
+    "F5_Temporal": 57,
+    "F6_IMU": 13,
+    "F9_Quality": 53
+  },
+  "feature_bank_manus_full_fusion_final_20260915": {
+    "F0": 48,
+    "F1_X1H": 8,
+    "F2b_CSP": 12,
+    "F3_Ring": 40,
+    "F4_Spectral": 72,
+    "F5_Temporal": 57,
+    "F6_IMU": 13,
+    "F9_Quality": 53
+  }
+}

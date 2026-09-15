@@ -222,3 +222,21 @@ fusion also has better log-loss (1.4394 versus full 1.5723). Personal anchors in
 mixing rule hurt; reliability alone shows a small five-trial benefit. This does not justify
 default deployment of the full system. The current integrity audit passes 41 source
 artifacts, 3264 rows and 159 explicit trial split checks.
+
+## Multi-session full fusion follow-up
+
+The same eight-family fusion is now evaluated on MANUS session 1→2 development and
+1→3 independent sessions, users 3–8. F8 uses source-user class profiles and calibration-only
+class cosine agreement. F9 uses source-fit signal quality: F0/CSP receive minimum channel
+quality, other signal providers mean quality, and IMU/context providers retain unit quality.
+Provider removals are for the anchor/reliability bank; the additional F8 and F8+F9 variants
+separately assess context and quality weighting. This does not yet constitute removal of
+every component from the combined F8+F9 system.
+
+Final one-shot F1 is 0.4609 for anchor/reliability fusion, 0.4055 without anchors, 0.4509
+with F8 and 0.4972 with F8+F9. The F8+F9 log-loss is 1.2687 versus 1.2613 before context,
+so F1 and probability quality disagree. Two-shot F8+F9 F1 is 0.4231, leaving only one
+trial/class/user. Five-shot is unavailable and recorded in the manifest. Session vectors,
+trial IDs and fitted states are saved. Per-family dimensions extracted from actual fitted
+states are in `results/full_fusion_dimensions.json`. Current integrity checks pass 45
+source artifacts, 4314 rows and 195 explicit split checks.
