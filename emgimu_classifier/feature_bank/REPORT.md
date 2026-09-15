@@ -425,3 +425,34 @@ means are 0.5447/0.5701 and minimum aggregate dimensions 0.4370/0.4718. Individu
 worst-condition cells remain separate and expose the regressions above. Real quality is N/A;
 the original universal-system comparison remains open. Current result integrity covers
 66 sources, 7091 rows and 252 explicit split checks.
+
+## Full specialist fusion under source-force-only calibration
+
+`feature_bank_force_full_fusion_{validation,final}_20260915` evaluates seven
+independent providers (F0, X1-H, CSP, ring, spectral, temporal, quality) on trial means.
+Providers fit only Ramp subjects 1–6. Validation uses subjects 7–8; final uses 9–10.
+Target-user calibration uses only separate Ramp trials; all 11 target intensity
+conditions remain evaluation-only. F6/F8 are unavailable without real IMU/session keys.
+This trial-classifier experiment is distinct from the earlier window-classifier bank;
+its scores must not be silently substituted into that earlier benchmark.
+
+| Final mean per-user macro-F1 | 0/class | 1/class | 2/class |
+|---|---:|---:|---:|
+| Independent F0 trial classifier | 0.4929 | 0.4929 | 0.4929 |
+| Uniform population bank | 0.4665 | 0.4665 | 0.4665 |
+| Personal reliability without anchors | 0.4665 | 0.4636 | 0.4748 |
+| Full reliability plus anchors | 0.4665 | 0.4688 | 0.5051 |
+
+Validation full-bank F1 is 0.5935/0.6041/0.6116; the final zero-shot bank regresses
+against F0. Two-shot calibration improves final F1 by 0.0386 over the population bank
+and 0.0122 over F0. Full-bank final log loss is 1.4691/1.3380/1.3238 versus F0 2.1005.
+All seven provider removals are exported, alongside explicit unsupported five-shot
+rows (only four Ramp trials/class exist). Temperatures use calibration distances only.
+These fixed-provider parameters were not selected on the final users.
+
+Both phases replay all 66 saved probability arrays with zero absolute error using
+persisted family/classifier/anchor states; replay performs no family/classifier fit and
+verifies calibration temperatures, identifiers, disjoint partitions and state immutability.
+Current integrity audit covers 70 source artifacts, 7499 copied rows and 264 explicit
+split checks. The full unit suite runs 102 tests, passing with one skip. These checks
+support this bounded experiment, not completion of every original research requirement.
