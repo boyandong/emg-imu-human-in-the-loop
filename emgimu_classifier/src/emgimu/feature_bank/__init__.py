@@ -14,9 +14,11 @@ from .families import (
 )
 from .calibration import PersonalAnchor, PersonalNormalizer, ReliabilityWeights, SessionSignature, late_fusion
 from .temporal import PathSignatureFamily, TemporalTemplateFamily, CompleteSequenceBatch, dtw_distance
+from .body_frame import CalibratedBodyContextFamily
 
 __all__ = [
     "BodyContextFamily",
+    "CalibratedBodyContextFamily",
     "CspSpatialFamily",
     "FeatureBatch",
     "FeatureFamily",

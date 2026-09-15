@@ -1,5 +1,12 @@
 # Feature Bank experiment capabilities
 
+Calibrated body-frame context now has an explicit API requiring >=1 second of
+neutral IMU, a measured/guided forward-axis vector, real IMU rate/units and named
+calibration trials. Missing calibration metadata is N/A for native body-frame
+evaluation. Current EPN/MANUS reference IMU results are not re-labelled as calibrated
+body-frame results. EMG and IMU window durations must match at their separate rates;
+frame calibration trials cannot become held-out evaluation. No absolute yaw claim.
+
 DTW now requires explicit complete contiguous sequences with native duration
 >=1 second and full-coverage metadata. Compressed-path sample rate and sparse
 window count cannot establish eligibility. UniBo complete oracle-labelled bouts

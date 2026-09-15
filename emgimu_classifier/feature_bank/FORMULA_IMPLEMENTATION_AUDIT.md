@@ -5,6 +5,7 @@ Synthetic dimensions check interface shape only; they do not establish native to
 
 | Item | Reviewed status | Dimension | Boundary |
 |---|---|---|---|
+| F6_calibrated_candidate | candidate_api_native_unavailable | 15 | Explicit neutral gravity and guided/measured forward axis establish fixed calibration-relative frame; real IMU rate/units and trial provenance required. Causal gravity EMA and linear acceleration RMS present. Calibration trials rejected in held-out evaluation. Public native calibrated frame evaluation unavailable; no absolute yaw. |
 | F0_noise_candidate | candidate_formula | 6C | Six metrics with thresholds frozen exclusively from native Rest adjacent-difference noise; active contraction magnitude cannot set thresholds. Historical extra R0 features still unavailable. |
 | F2b_document_candidate | candidate_formula | 2 H min(2,floor(C/2)) | Uncentered XX transpose/(trace+epsilon), source-only one-vs-rest generalized eigenproblem, source-fixed gamma and top2/bottom2, log variance normalized plus epsilon. Native held-out wearing Core experiment available. |
 | F0 | partial | 6C | Six requested metrics present; thresholds fit pooled source differences rather than explicit calibration noise; old R0 retention cannot be proven without old artifacts. |

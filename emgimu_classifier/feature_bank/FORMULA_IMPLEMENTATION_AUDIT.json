@@ -1,6 +1,6 @@
 {
   "completion_proven": false,
-  "reviewed_rows": 29,
+  "reviewed_rows": 30,
   "scope": "reviewed selected formula/API boundaries with exact source hashes and symbol spans; not exhaustive document acceptance",
   "fixture": "synthetic16 windows,40 samples,8channels,200Hz,4classes; IMU10samples and2 oracle postures only for dimension checks",
   "warning": "whole-class fixture dimensions are not subblock dimensions; synthetic dimension/immutability checks do not prove native topology or scientific validity",
@@ -787,6 +787,29 @@
         "G5.activation_slope.FCU"
       ],
       "fixture_override": "native four-channel processed200Hz G5"
+    },
+    "CalibratedBodyContextFamily": {
+      "fixture_dimension": 15,
+      "names": [
+        "F6cal.accel.mean_norm",
+        "F6cal.accel.std_norm",
+        "F6cal.accel.rms_norm",
+        "F6cal.accel.max_norm",
+        "F6cal.accel.range_norm",
+        "F6cal.gyro.mean_norm",
+        "F6cal.gyro.std_norm",
+        "F6cal.gyro.rms_norm",
+        "F6cal.gyro.max_norm",
+        "F6cal.gyro.range_norm",
+        "F6cal.gravity.relative_x",
+        "F6cal.gravity.relative_y",
+        "F6cal.gravity.relative_z",
+        "F6cal.linear_accel.rms",
+        "F6cal.gyro.rms"
+      ],
+      "fixture_override": "explicit synthetic50Hz IMU with synthetic neutral/guided-axis source; not native anatomical validation",
+      "source_immutable": true,
+      "native_evaluation": "N/A"
     }
   }
 }

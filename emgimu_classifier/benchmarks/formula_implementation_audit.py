@@ -20,10 +20,13 @@ from emgimu.feature_bank.temporal import PathSignatureFamily
 from emgimu.feature_bank.relative_spectrum import LogBandEnergyFamily
 from emgimu.feature_bank.validated_unibo import ValidatedUniBoFamily
 from emgimu.feature_bank.document_signal import RestNoiseLocalDetailFamily,DocumentCspFamily
+from emgimu.feature_bank.body_frame import CalibratedBodyContextFamily
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
 # Exact historical mandatory reuse cannot be replaced by a conceptual candidate.
 REVIEWS = (
+ ('F6_calibrated_candidate','F6a. IMU body-frame context','body_frame.py','CalibratedBodyContextFamily','candidate_api_native_unavailable',
+  'Explicit neutral gravity and guided/measured forward axis establish fixed calibration-relative frame; real IMU rate/units and trial provenance required. Causal gravity EMA and linear acceleration RMS present. Calibration trials rejected in held-out evaluation. Public native calibrated frame evaluation unavailable; no absolute yaw.','15'),
  ('F0_noise_candidate','F0. Local / Traditional Signal Detail','document_signal.py','RestNoiseLocalDetailFamily','candidate_formula',
   'Six metrics with thresholds frozen exclusively from native Rest adjacent-difference noise; active contraction magnitude cannot set thresholds. Historical extra R0 features still unavailable.','6C'),
  ('F2b_document_candidate','F2b. CSP-like spatial feature','document_signal.py','DocumentCspFamily','candidate_formula',
@@ -110,6 +113,16 @@ def build(document, output):
     values = family.transform(native)
     measured['ValidatedUniBoFamily'] = {'fixture_dimension':values.shape[1], 'names':list(family.feature_names),
                                       'fixture_override':'native four-channel processed200Hz G5'}
+    neutral=np.zeros((50,6));neutral[:,2]=9.81
+    body=CalibratedBodyContextFamily(imu_sample_rate_hz=50,acceleration_unit='synthetic acceleration units',
+        angular_velocity_unit='synthetic angular velocity units').fit(batch,neutral_calibration_imu=neutral,
+        forward_axis_device=np.array([1.,0.,0.]),calibration_trial_ids=['synthetic-neutral-source','synthetic-guided-axis-source'])
+    before=pickle.dumps(body)
+    values=body.transform(batch,trial_ids=[f'synthetic-target-{i}' for i in range(batch.windows)])
+    if before!=pickle.dumps(body) or not np.isfinite(values).all():raise AssertionError('Calibrated body fixture failed')
+    measured['CalibratedBodyContextFamily']={'fixture_dimension':values.shape[1],'names':list(body.feature_names),
+        'fixture_override':'explicit synthetic50Hz IMU with synthetic neutral/guided-axis source; not native anatomical validation',
+        'source_immutable':True,'native_evaluation':'N/A'}
     rows = []
     for item_id,heading,filename,symbol,status,boundary,dimension in REVIEWS:
         matches = [i+1 for i,text in enumerate(lines) if i+1>=1120 and text.strip()==heading]

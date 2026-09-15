@@ -43,5 +43,11 @@
       "feature_bank_wearing_document_core_final_20260916"
     ],
     "boundary": "Rest-noise thresholds and exact uncentered source CSP; native held-out Core plus raw ring conditional comparison; no historical R0/X1-H equivalence or full acceptance claim"
+  },
+  "calibrated_body_frame": {
+    "implementation": "src/emgimu/feature_bank/body_frame.py",
+    "dimension": 15,
+    "native_evaluation": "N/A",
+    "boundary": "Explicit neutral and guided forward-axis calibration, separate real IMU rate, source-fixed causal gravity filter and held-out trial exclusion; synthetic oracles only, native calibration records missing"
   }
 }

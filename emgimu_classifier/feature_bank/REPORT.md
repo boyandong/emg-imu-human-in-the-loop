@@ -16,16 +16,41 @@ unverified until contextual requirements and authoritative evidence are inspecte
 formulas, examples and separators are included and are not independent requirements.
 `DOCUMENT_SCOPE_AUDIT.json` proves index coverage only, not scientific completion.
 
-`FORMULA_IMPLEMENTATION_AUDIT.md` and CSV now record 29 reviewed formula/API
+`FORMULA_IMPLEMENTATION_AUDIT.md` and CSV now record 30 reviewed formula/API
 boundaries in the precise-definition appendix, each with exact heading line,
-source AST symbol span and SHA-256. Seventeen runtime classes have measured named
+source AST symbol span and SHA-256. Eighteen runtime classes have measured named
 dimensions on explicit synthetic fixtures (original G5 only on its native four
 channels). These fixtures prove interface dimensions, not dataset validity or
 scientific completion. Candidate formula status is distinct from validated reuse.
 Noise-only F0 thresholds and document uncentered CSP now have independent candidate
-implementations and native held-out evidence, detailed below. Body-frame IMU
-calibration remains incomplete; generic short-window DTW is guarded. Original source/result recovery remains necessary for historical
+implementations and native held-out evidence, detailed below. Calibrated body-frame
+IMU now has a tested explicit API; native calibration metadata/evaluation remain
+unavailable. Generic short-window DTW is guarded. Original source/result recovery remains necessary for historical
 X1-H/RLCS/CES/Frequency. No full requirement is automatically accepted by this audit.
+
+## Explicit calibrated IMU context API
+
+Calibrated IMU API evidence: `CalibratedBodyContextFamily` requires explicit >=1s
+neutral IMU, a guided/measured forearm-forward vector, separate IMU sampling rate,
+units and calibration trial identities. Neutral gravity plus projected forward
+axis establishes an orthonormal calibration-relative body basis. Transform outputs
+10 accel/gyro magnitude summaries, three mean lowpass gravity-direction coordinates
+and two movement RMS values: 15 dimensions. Causal EMA tau=.5s is source-fixed;
+each independent window initializes gravity from source neutral calibration.
+Linear acceleration is accel minus this lowpass gravity estimate. No stable
+absolute yaw or continuous world orientation is estimated. Short-window gravity
+transients can enter the movement estimate; this is not validated motion tracking.
+
+Explicit evaluation trial identities reject calibration/evaluation overlap;
+training transforms require explicitly selecting evaluation=False. Unit/rate/window
+checks prevent silently using EMG rate for IMU. Synthetic rigid device rotations
+preserve calibrated context; static gravity and acceleration-step lowpass residual
+oracles pass, with immutable source state. Suite now runs 169 tests, one skipped.
+Native EPN/MANUS loaders do not supply a verified neutral/guided-axis calibration
+record; their earlier 13-dimensional device IMU context is preserved as reference,
+not upgraded to calibrated body frame. Native calibrated-frame performance is N/A
+until real calibration records are available. No new classifier training or
+performance gain is claimed for this API addition.
 
 ## Document F0 noise thresholds and uncentered CSP candidates
 
