@@ -102,16 +102,16 @@
     "bytes": 66
   },
   {
-    "run_id": "feature_bank_force_calibration_validation_20260915_v2",
+    "run_id": "feature_bank_force_product_validation_20260915",
     "artifact": "calibration_curve.csv",
-    "sha256": "2b274907f2b0565d708afaef5157c5de3ca7e37b8dc765ed196b5ef0931c29a3",
-    "bytes": 26501
+    "sha256": "be8aed7f6dd223c260b6525894ac8c51380e3ba6d17d0f69c3aa50a69a013381",
+    "bytes": 26570
   },
   {
-    "run_id": "feature_bank_force_calibration_final_20260915",
+    "run_id": "feature_bank_force_product_final_20260915",
     "artifact": "calibration_curve.csv",
-    "sha256": "fae214b295e10666978cf5a1523d341966f799f1dd6e970bbfed9224d6d0f0f3",
-    "bytes": 25069
+    "sha256": "cbeb16f3bfbb1ce03fcb3f2872e5c39937b8c785b721855f4047a50aac9b15da",
+    "bytes": 25044
   },
   {
     "run_id": "feature_bank_epn612_trial_calibration_validation_20260915",
@@ -190,6 +190,18 @@
     "artifact": "calibration_curve.csv",
     "sha256": "95420cd4f86edce561b8d1e9303d9e9eb4fe890b2f939287cc2373d317d00fa7",
     "bytes": 18086
+  },
+  {
+    "run_id": "feature_bank_force_zero_validation_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "aa8880aa6f872333b97205558a2c0cd13f1a44734bcce1a7ed9806c5f075d8fa",
+    "bytes": 33648
+  },
+  {
+    "run_id": "feature_bank_force_zero_final_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "42d4e49c1f7bb221ff0aa0f4d02c0afcaa143775abbdf344b4fb287ecc4c1dbe",
+    "bytes": 32036
   },
   {
     "run_id": "feature_bank_force_audited_validation_20260915",

@@ -1,0 +1,34 @@
+{
+  "phase": "validation",
+  "seed": 20260915,
+  "protocol": "Force-ZeroShot",
+  "source_train_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "target_users": [
+    7,
+    8
+  ],
+  "calibration_force": "Ramp only",
+  "evaluation_force": [
+    "20P",
+    "30P",
+    "40P",
+    "50P",
+    "60P",
+    "70P",
+    "80P",
+    "MVC",
+    "Light",
+    "Medium",
+    "Hard"
+  ],
+  "temperature_fit": "calibration only",
+  "alpha": "shots/(shots+2)",
+  "unsupported_5": "only four Ramp trials/class"
+}

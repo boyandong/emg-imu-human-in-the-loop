@@ -25,7 +25,7 @@ so it cannot be called an unconditional improvement.
 
 | Final protocol | 0 trials/class | 1 | 2 | 5 |
 |---|---:|---:|---:|---:|
-| LibEMG force / F0+CSP+X1H with anchor fusion | 0.5860 | 0.5845 | 0.6038 | unsupported |
+| LibEMG force ProductMode / F0+CSP+X1H with anchor fusion | 0.5860 | 0.5856 | 0.6063 | unsupported |
 | EPN612 / F0+ring weighted fine-tune | 0.4386 | 0.4298 | 0.4419 | 0.4653 |
 | MANUS / F0+SPD session fine-tune, mean per-user F1 | 0.4161 | 0.6861 | 0.6065 | unsupported |
 
@@ -167,3 +167,19 @@ best two-specialist combination 0.4245. Removing F0/ring/CSP/IMU gives 0.3294/0.
 test claim. Twelve models and all subject cells are stored, together with conditional deltas,
 pairwise error complementarity, fitted classifier/family states and trial-aligned predictions.
 Result integrity now passes 35 source artifacts, 2376 rows and 123 explicit split checks.
+
+## Force protocol and probability-scale correction
+
+Force-ZeroShot now calibrates held-out users using Ramp trials only and evaluates exclusively
+at the other eleven intensity conditions. Its final mean per-user F1 is 0.5582/0.5630/0.5675
+for 0/1/2 trials; log-loss is 2.6319/1.2182/1.2066. Five trials are unsupported (four Ramp
+trials/class). Calibration IDs and target IDs are asserted disjoint and saved.
+Force-ProductMode uses target-intensity calibration and is reported separately. It must not
+be described as unseen-force calibration. Its corrected pooled final F1 is
+0.5860/0.5856/0.6063; the aggregation differs from the ZeroShot per-user mean.
+The original ProductMode temperature used median evaluation distances, creating dependence
+on other evaluation rows. The corrected runner fits this scale from calibration distances
+only; corrected result tables replace the original runs. A regression test verifies that
+adding extreme evaluation rows cannot change an existing query probability. Original run
+manifests remain historical artifacts and are not the source of current consolidated scores.
+Current integrity checks pass 37 source artifacts, 2592 rows and 135 explicit split checks.

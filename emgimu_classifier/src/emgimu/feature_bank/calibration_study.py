@@ -35,8 +35,9 @@ def _extract(train: ForceWindows, target: ForceWindows) -> tuple[np.ndarray, np.
 def _anchor_probability(calibration_x: np.ndarray, calibration_y: np.ndarray, evaluation_x: np.ndarray) -> np.ndarray:
     anchor = PersonalAnchor(metric="standardized_euclidean").fit(calibration_x, calibration_y)
     distances = anchor.transform(evaluation_x)[:, :len(CLASSES)]
-    scale = max(float(np.median(distances)), 1e-10)
-    logits = -distances / scale
+    calibration_distances = anchor.transform(calibration_x)[:, :len(CLASSES)]
+    scale = max(float(np.median(calibration_distances)), 1e-10)
+    logits = -distances.astype(np.float64) / scale
     logits -= logits.max(axis=1, keepdims=True)
     probability = np.exp(logits)
     return probability / probability.sum(axis=1, keepdims=True)
@@ -156,6 +157,7 @@ def run(root: Path, output: Path, subjects: tuple[int, ...], phase: str) -> None
         "population_train_condition": "Ramp", "target_subjects": list(subjects),
         "target_conditions": list(CONDITIONS), "families": list(FROZEN_FAMILIES), "dimensions": dimensions,
         "personal_anchor_shrinkage": "shots/(2+shots)", "test_trials_exclude_all_calibration_trial_ids": True,
+        "protocol": "Force-ProductMode", "temperature_fit": "explicit calibration distances only",
     }, indent=2), encoding="utf-8")
     print(json.dumps({"status": "ok", "phase": phase, "rows": len(rows), "output": str(output)}), flush=True)
 
