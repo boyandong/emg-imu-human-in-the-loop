@@ -1738,3 +1738,30 @@ The suite ran 143 tests with one skip. Integrity checks cover 162 artifacts,
 37,747 rows and 735 explicit partitions; canonical verification covers 36,264 rows.
 Exact historical data/algorithms, remaining named pairs, other eligible Core tasks
 and exhaustive scientific requirement audit are still incomplete. New work stays local.
+
+### Calibration burden updated for actual force and MANUS Core studies
+
+The cost table and standalone performance/budget SVG now include nine protocols,
+including force Core and Core+Spectral anchors, and MANUS Core/Temporal/IMU anchors.
+Model and method filters identify the exact matching curve, avoiding accidental use
+of a no-anchor or different-Core row from the same run. All sixteen original cost
+rows retain their previously recorded values and approximate timing assumptions.
+
+New Core signal-time estimates use actual selected whole-trial sample counts divided
+by the native nominal sampling rate (force 1000 Hz; MANUS 200 Hz). Mean user durations
+for force Core at 0/1/2 shots are 0/21.12/42.272 seconds for 0/7/14 Ramp trials;
+MANUS Core requires 0/6/12 trials and 0/60.45/120.9367 seconds. Minimum/maximum user
+durations and split hashes are retained. Model variants use the same calibration
+trials at each budget. Five-shot remains unsupported without points or invented costs.
+
+`results/calibration_burden_audit.json` retains each selected raw recording/member's
+sample count, hash, nominal rate and signal duration, plus each exact source curve's
+hash. These are recording-time estimates, not measured human/device calibration wall
+time. Preparation, transitions and hardware delays remain outside the estimate.
+The SVG explicitly warns that tasks, aggregation and evaluation trials differ;
+curves cannot establish universal budget recovery or live-device accuracy.
+
+Validation confirms 36 cost rows, unchanged sixteen legacy rows, nine SVG curves,
+matching supported point counts and valid user-duration ranges. This report-only
+change requires no new model training or classifier tests. Historical reproduction,
+remaining named pairs/Core tasks and exhaustive final scientific audit remain open.

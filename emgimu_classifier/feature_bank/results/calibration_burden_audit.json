@@ -1,0 +1,815 @@
+{
+  "status": "ok",
+  "cost_rows": 36,
+  "curve_sources_sha256": {
+    "feature_bank_epn612_trial_finetune_final_20260915": "da4ac3d70bc98616e2cb1172395d84da27286b94592aceee6f97481688024a88",
+    "feature_bank_manus_calibration_final_20260915": "f2d138e3b5aa39f3115951e23c0da54d5aa45c1f2aaf0a0f201385724a19b737",
+    "feature_bank_force_product_final_20260915": "cbeb16f3bfbb1ce03fcb3f2872e5c39937b8c785b721855f4047a50aac9b15da",
+    "feature_bank_force_zero_final_20260915": "42d4e49c1f7bb221ff0aa0f4d02c0afcaa143775abbdf344b4fb287ecc4c1dbe",
+    "feature_bank_force_concat_core_calibration_final_20260915": "505ba1134db331042ba74116325a2ce4c3d5b9abe97a6f10672c860d99ae40c5",
+    "feature_bank_manus_concat_core_calibration_final_20260916": "e5be5f2e913506c26b49d455f42072b0b84393920a5b9845e6056a2bd9a7ae8a"
+  },
+  "native_calibration_trials": {
+    "S9_Ramp_C1_R2": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C1_R2.csv",
+      "zip_member": null,
+      "sha256": "2da47a07dcdce458939637e72ffe09932c61b2da3f7ed52f03cbb14df6d9151e",
+      "samples": 3072,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.072
+    },
+    "S9_Ramp_C2_R3": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C2_R3.csv",
+      "zip_member": null,
+      "sha256": "4c0d9485277ec271c07bb7571c5c155556a95e761a9896b64f86e4a96a1640a4",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S9_Ramp_C3_R2": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C3_R2.csv",
+      "zip_member": null,
+      "sha256": "625fb7c5153ae6de0a12c61a492c9b410b91db4f9bea1de641e8f2e8f9dddc2e",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S9_Ramp_C4_R1": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C4_R1.csv",
+      "zip_member": null,
+      "sha256": "af1223c2dbd3eaa54f02357c3be27366c80d1594796b26f3684692618a2f4007",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S9_Ramp_C5_R4": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C5_R4.csv",
+      "zip_member": null,
+      "sha256": "095bfcc139d159578abc64d4128926b648aee7d19a601d875b25eb9174cfb492",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S9_Ramp_C6_R2": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C6_R2.csv",
+      "zip_member": null,
+      "sha256": "daf61d0543d5938d8d2dab3af336284c1cb1c6401d010d26d922712ab3f4a4bd",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S9_Ramp_C7_R3": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C7_R3.csv",
+      "zip_member": null,
+      "sha256": "8d4f9bbbc0908aff2d196aa7177c344dbae4a8a6e0ae1276b10da50313587dd6",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S10_Ramp_C1_R4": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S10\\S10_Ramp_C1_R4.csv",
+      "zip_member": null,
+      "sha256": "06ba5c95a548eddc78e61c52a8c2fecb1b4745aeef74ac44699af6d7cc7b0105",
+      "samples": 3072,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.072
+    },
+    "S10_Ramp_C2_R2": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S10\\S10_Ramp_C2_R2.csv",
+      "zip_member": null,
+      "sha256": "748f6ed0843a45240346f3981680c3bb196b98714030dca6425a0ae1d32b661a",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S10_Ramp_C3_R3": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S10\\S10_Ramp_C3_R3.csv",
+      "zip_member": null,
+      "sha256": "cef0f7b80d60cb0a4f223c46f5bdda972fd0cb9d81e95d5c1765f0a05a184e79",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S10_Ramp_C4_R2": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S10\\S10_Ramp_C4_R2.csv",
+      "zip_member": null,
+      "sha256": "b71bc98cc70f0b8aeddcfeb625dc531af6714264ed7e73a4181ae4f6ab2368c7",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S10_Ramp_C5_R1": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S10\\S10_Ramp_C5_R1.csv",
+      "zip_member": null,
+      "sha256": "8497bf0d5e1cf8c02a6beaaf6c1861663a50ce1e2baf6b5fa67576a845a4cbb7",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S10_Ramp_C6_R1": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S10\\S10_Ramp_C6_R1.csv",
+      "zip_member": null,
+      "sha256": "37e5188761d35631115871682a7d10c44b17ce26220d51619584ef57c973e584",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S10_Ramp_C7_R3": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S10\\S10_Ramp_C7_R3.csv",
+      "zip_member": null,
+      "sha256": "776683069fb16a2edf03070976c6cf16040c8ec0e865fb78b64bcdb3fe6f989f",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S9_Ramp_C1_R3": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C1_R3.csv",
+      "zip_member": null,
+      "sha256": "8e1406bed7c942eec67cb1010b1b602e5be6c031d91e8d4573f31e6c97f0f0f1",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S9_Ramp_C2_R2": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C2_R2.csv",
+      "zip_member": null,
+      "sha256": "30551bbf1ead20fe74e9e1bc114a1675b3a72a2741d8f5f9f54da1ecd957d457",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S9_Ramp_C3_R3": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C3_R3.csv",
+      "zip_member": null,
+      "sha256": "49471ef4b9c32defc1d7f55742302864a884d6d072eb964873c052675f2f8485",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S9_Ramp_C4_R2": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C4_R2.csv",
+      "zip_member": null,
+      "sha256": "4b00415c9545d299c478b08629b65c85f37d5a850b3117f838da3fc540695aa6",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S9_Ramp_C5_R2": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C5_R2.csv",
+      "zip_member": null,
+      "sha256": "f7d9273b35a9af8def62ff4052308e1357cc2b669eaf25fa96baadc089583bc0",
+      "samples": 3072,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.072
+    },
+    "S9_Ramp_C6_R4": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C6_R4.csv",
+      "zip_member": null,
+      "sha256": "6e61ee5f034061eda9e45b4cbb60cfc2e0b2df9a5eb21bbd08cb1ac654dd315a",
+      "samples": 3072,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.072
+    },
+    "S9_Ramp_C7_R2": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S9\\S9_Ramp_C7_R2.csv",
+      "zip_member": null,
+      "sha256": "ac371f9aa7c23b871943aeeb35e3caa28f745afcac3d808bd4f1ca4c6a80ddc9",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S10_Ramp_C1_R3": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S10\\S10_Ramp_C1_R3.csv",
+      "zip_member": null,
+      "sha256": "8ac195722f30985fa4e16be360c0e704304721f34f1bce96621660b01d96ef8c",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S10_Ramp_C2_R3": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S10\\S10_Ramp_C2_R3.csv",
+      "zip_member": null,
+      "sha256": "09f3bead1b42b50065ebae7b5a3f7f1706844dc55123c2b3fe25e1b476fb37c8",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S10_Ramp_C3_R4": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S10\\S10_Ramp_C3_R4.csv",
+      "zip_member": null,
+      "sha256": "f9488befe52457289fa20b0e56038632b4f7067726fd32b86d480c0c79646377",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S10_Ramp_C4_R3": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S10\\S10_Ramp_C4_R3.csv",
+      "zip_member": null,
+      "sha256": "edfecc7dc1603c83489677b99f9ad5829c7516080e7682d4dcec6ed416c0f7c4",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S10_Ramp_C5_R3": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S10\\S10_Ramp_C5_R3.csv",
+      "zip_member": null,
+      "sha256": "18a2433aa80cba67a7d5af8dc008df4e18d01c8e7e6b5e276b9b710fa0bfa426",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "S10_Ramp_C6_R2": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S10\\S10_Ramp_C6_R2.csv",
+      "zip_member": null,
+      "sha256": "6a5698e19fe2ee484c3e644fd0181abb1ff72aa171c199d3caea97e56c460bf5",
+      "samples": 3072,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.072
+    },
+    "S10_Ramp_C7_R2": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\official\\ContractionIntensity-main\\S10\\S10_Ramp_C7_R2.csv",
+      "zip_member": null,
+      "sha256": "69b75e3aa6c08b9dab74effb4995607b6b7767fdba7d01f6c1baedd06e63c850",
+      "samples": 3008,
+      "nominal_rate_hz": 1000.0,
+      "signal_seconds": 3.008
+    },
+    "data/u_3/s_3/g_flexext_fist/recording_slow_16_05_2024_16_09_26.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_3/s_3/g_flexext_fist/recording_slow_16_05_2024_16_09_26.csv",
+      "sha256": "a92cde31696a87330cf016eb600de92c742757ceee76ee342b2ce514c8c63ae1",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_3/s_3/g_flexext_thumb/recording_slow_16_05_2024_16_11_11.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_3/s_3/g_flexext_thumb/recording_slow_16_05_2024_16_11_11.csv",
+      "sha256": "fb010ab22504d00ae372b81735ce18006d2651c7bfc3d187b6c125707553b4dc",
+      "samples": 2004,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.02
+    },
+    "data/u_3/s_3/g_flexext_index/recording_fast_16_05_2024_16_13_25.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_3/s_3/g_flexext_index/recording_fast_16_05_2024_16_13_25.csv",
+      "sha256": "416858fb438f1a69dd12be26683424471df98032ebb4d37c42966c3c5f748217",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_3/s_3/g_flexext_middle/recording_fast_16_05_2024_16_14_32.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_3/s_3/g_flexext_middle/recording_fast_16_05_2024_16_14_32.csv",
+      "sha256": "ced4d6fd4ccaaa89718212e9c044b91c67b1f7fb0cb04ca8c658e05224279357",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_3/s_3/g_flexext_ring/recording_slow_16_05_2024_16_15_00.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_3/s_3/g_flexext_ring/recording_slow_16_05_2024_16_15_00.csv",
+      "sha256": "963607c2e48c4241bf214a1c53d835b0d82116857ed303ad56a9e704cce2f37d",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_3/s_3/g_flexext_pinky/recording_fast_16_05_2024_16_16_54.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_3/s_3/g_flexext_pinky/recording_fast_16_05_2024_16_16_54.csv",
+      "sha256": "d23c768a7e18f7301ea94a41b1aa40d623d0a4a4f8d5970e6819526a9f51e7e9",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_4/s_3/g_flexext_fist/recording_medium_13_06_2024_17_29_20.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_4/s_3/g_flexext_fist/recording_medium_13_06_2024_17_29_20.csv",
+      "sha256": "ac1b637f935b05747aeda34f475cfa9add7ddf59011b08dab00d3fb452449bb6",
+      "samples": 2012,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.06
+    },
+    "data/u_4/s_3/g_flexext_thumb/recording_fast_13_06_2024_17_30_42.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_4/s_3/g_flexext_thumb/recording_fast_13_06_2024_17_30_42.csv",
+      "sha256": "e9897d9211e24ca19799e0dd8b5363da529a9e6b8cf14f9c8c89718677186717",
+      "samples": 2014,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.07
+    },
+    "data/u_4/s_3/g_flexext_index/recording_medium_13_06_2024_17_31_29.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_4/s_3/g_flexext_index/recording_medium_13_06_2024_17_31_29.csv",
+      "sha256": "0c1fb22deff512afa9de5fe08767dd3203697f9a64cfd38c89dc9da7f64c736d",
+      "samples": 2010,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.05
+    },
+    "data/u_4/s_3/g_flexext_middle/recording_fast_13_06_2024_17_32_49.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_4/s_3/g_flexext_middle/recording_fast_13_06_2024_17_32_49.csv",
+      "sha256": "08ea87cb7c3c4ad8fbdb45872f948782f970cc015d1ec9201e0e648a0776b1f9",
+      "samples": 2012,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.06
+    },
+    "data/u_4/s_3/g_flexext_ring/recording_medium_13_06_2024_17_33_30.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_4/s_3/g_flexext_ring/recording_medium_13_06_2024_17_33_30.csv",
+      "sha256": "105f839d00e4cafb5b2aa6b8ef21a698faf18b41750a3ffbfe46a85a3e097448",
+      "samples": 2014,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.07
+    },
+    "data/u_4/s_3/g_flexext_pinky/recording_medium_13_06_2024_17_34_38.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_4/s_3/g_flexext_pinky/recording_medium_13_06_2024_17_34_38.csv",
+      "sha256": "db47b39f378c557d30c6091439629c3e13b7d0366d5f05b04e37b8b57d76b848",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_5/s_3/g_flexext_fist/recording_fast_29_05_2024_14_23_07.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_5/s_3/g_flexext_fist/recording_fast_29_05_2024_14_23_07.csv",
+      "sha256": "488b393cbd1bbdd722181456e99dcf893513dd914232cae41dd0c676043772c1",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_5/s_3/g_flexext_thumb/recording_fast_29_05_2024_14_24_44.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_5/s_3/g_flexext_thumb/recording_fast_29_05_2024_14_24_44.csv",
+      "sha256": "69294ac71407df9c8c2253909a7dbe3f99649f847b20da71d7005c493a11c340",
+      "samples": 2002,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.01
+    },
+    "data/u_5/s_3/g_flexext_index/recording_slow_29_05_2024_14_25_10.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_5/s_3/g_flexext_index/recording_slow_29_05_2024_14_25_10.csv",
+      "sha256": "3a03020d6198270aeed4c335cbab0c69d33eba0229a26d67d4a114d3e6b3f8d9",
+      "samples": 2012,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.06
+    },
+    "data/u_5/s_3/g_flexext_middle/recording_slow_29_05_2024_14_26_17.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_5/s_3/g_flexext_middle/recording_slow_29_05_2024_14_26_17.csv",
+      "sha256": "a2b40db4f37aaac311c1df24bd78c04b88beed682d94dfb5eaf52fe9325a3948",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_5/s_3/g_flexext_ring/recording_fast_29_05_2024_14_28_14.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_5/s_3/g_flexext_ring/recording_fast_29_05_2024_14_28_14.csv",
+      "sha256": "2ea385bbd5efff567df5bbccbb7b56e677b863290223b39a290136ce7b53ce49",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_5/s_3/g_flexext_pinky/recording_slow_29_05_2024_14_28_37.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_5/s_3/g_flexext_pinky/recording_slow_29_05_2024_14_28_37.csv",
+      "sha256": "3e7cc6ef2b36b525e46af407ae07c088a9eb99b1f22881524b2c0a8b29be2664",
+      "samples": 2018,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.09
+    },
+    "data/u_6/s_3/g_flexext_fist/recording_medium_14_06_2024_14_34_52.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_6/s_3/g_flexext_fist/recording_medium_14_06_2024_14_34_52.csv",
+      "sha256": "734a6e7696cf291fae6c91be05c1202bef6665d794c9e2477ef366f966ee4545",
+      "samples": 2024,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.12
+    },
+    "data/u_6/s_3/g_flexext_thumb/recording_slow_14_06_2024_14_36_10.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_6/s_3/g_flexext_thumb/recording_slow_14_06_2024_14_36_10.csv",
+      "sha256": "3c4d51309d69f16acdc3bc4792d3553e86de210095592a4729804f4242f3a768",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_6/s_3/g_flexext_index/recording_medium_14_06_2024_14_37_39.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_6/s_3/g_flexext_index/recording_medium_14_06_2024_14_37_39.csv",
+      "sha256": "a17e006c157ce5010633381e4fe5eddcd161ba36257a9de3386f99af48e5ac7a",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_6/s_3/g_flexext_middle/recording_fast_14_06_2024_14_39_05.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_6/s_3/g_flexext_middle/recording_fast_14_06_2024_14_39_05.csv",
+      "sha256": "69c29d3602f3f349542d815f3606f3bc19c1cf59dca420b1100fbd6b3a316005",
+      "samples": 2004,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.02
+    },
+    "data/u_6/s_3/g_flexext_ring/recording_fast_14_06_2024_14_40_10.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_6/s_3/g_flexext_ring/recording_fast_14_06_2024_14_40_10.csv",
+      "sha256": "746ff375c9278511df2e5a2a3515cce1133a02d473776c850d0df1623dfd3860",
+      "samples": 2002,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.01
+    },
+    "data/u_6/s_3/g_flexext_pinky/recording_slow_14_06_2024_14_40_33.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_6/s_3/g_flexext_pinky/recording_slow_14_06_2024_14_40_33.csv",
+      "sha256": "475fa5c73a80d64339d29fa12f34a19e15ee4b2b51f44cdd8e1bd04fc70aae1b",
+      "samples": 2018,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.09
+    },
+    "data/u_7/s_3/g_flexext_fist/recording_fast_03_05_2024_13_17_55.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_7/s_3/g_flexext_fist/recording_fast_03_05_2024_13_17_55.csv",
+      "sha256": "de573e9feaa636650bb334b2f3ca84759ed2ac1ffe7b9af27839852909cdfe20",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_7/s_3/g_flexext_thumb/recording_medium_03_05_2024_13_18_38.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_7/s_3/g_flexext_thumb/recording_medium_03_05_2024_13_18_38.csv",
+      "sha256": "872bbf5482821ce681cca88f85c0d42c94f5598c6336e074b1e8410169158687",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_7/s_3/g_flexext_index/recording_fast_03_05_2024_13_20_03.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_7/s_3/g_flexext_index/recording_fast_03_05_2024_13_20_03.csv",
+      "sha256": "226f39fb0cf0b6dde95319e8b36d3e5e7805e82d614e240ccfd93f24a89b0332",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_7/s_3/g_flexext_middle/recording_medium_03_05_2024_13_20_48.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_7/s_3/g_flexext_middle/recording_medium_03_05_2024_13_20_48.csv",
+      "sha256": "eae13b48c591be0fc21865f218df1f91cb22013b2cee572d4f6a06df31a7ba64",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_7/s_3/g_flexext_ring/recording_fast_03_05_2024_13_22_14.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_7/s_3/g_flexext_ring/recording_fast_03_05_2024_13_22_14.csv",
+      "sha256": "bbcd0ff911b1edecd82f2ee691995b90a6ff7f8f0d46517a1eaae8298d71e20c",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_7/s_3/g_flexext_pinky/recording_slow_03_05_2024_13_22_34.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_7/s_3/g_flexext_pinky/recording_slow_03_05_2024_13_22_34.csv",
+      "sha256": "d0da7c3c63e6b544ea21c7928bd4fcfbfcb00c2c11961172b60e4fcebd7a45fc",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_8/s_3/g_flexext_fist/recording_medium_19_07_2024_14_51_08.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_8/s_3/g_flexext_fist/recording_medium_19_07_2024_14_51_08.csv",
+      "sha256": "dbba036c588b4a0b76238da64a0ae40508f7b771a1e57f74acd97278ab0eb044",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_8/s_3/g_flexext_thumb/recording_slow_19_07_2024_14_51_55.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_8/s_3/g_flexext_thumb/recording_slow_19_07_2024_14_51_55.csv",
+      "sha256": "51ecc0fc8abdd1778432eb57c3fe574dbcf6f9b15aed88486274615eb1904a09",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_8/s_3/g_flexext_index/recording_medium_19_07_2024_14_54_01.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_8/s_3/g_flexext_index/recording_medium_19_07_2024_14_54_01.csv",
+      "sha256": "7b70a48f7b6e856cbc72cd5fffabe5a24e8c6d0aa6a818f91ea4b59e68eeeae2",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_8/s_3/g_flexext_middle/recording_slow_19_07_2024_14_54_43.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_8/s_3/g_flexext_middle/recording_slow_19_07_2024_14_54_43.csv",
+      "sha256": "28f644fd7ea3e564025e40814ade38ce071f2559257eec8a18cc39a8574f37fa",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_8/s_3/g_flexext_ring/recording_medium_19_07_2024_14_56_05.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_8/s_3/g_flexext_ring/recording_medium_19_07_2024_14_56_05.csv",
+      "sha256": "a6054c7ad77e65515a95354d65f5e2abed9c4a80e36b6c667f2f5f532528cb8b",
+      "samples": 2012,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.06
+    },
+    "data/u_8/s_3/g_flexext_pinky/recording_fast_19_07_2024_14_57_27.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_8/s_3/g_flexext_pinky/recording_fast_19_07_2024_14_57_27.csv",
+      "sha256": "16a7d64bc77b8f92f52562fad856a2ddde4690f372a24404a20980358516d0d1",
+      "samples": 2014,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.07
+    },
+    "data/u_3/s_3/g_flexext_fist/recording_fast_16_05_2024_16_10_47.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_3/s_3/g_flexext_fist/recording_fast_16_05_2024_16_10_47.csv",
+      "sha256": "121046f8db9e96d942a86df2c583fccd5bde7e5bdacdb5505e72791d875ceceb",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_3/s_3/g_flexext_thumb/recording_fast_16_05_2024_16_11_53.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_3/s_3/g_flexext_thumb/recording_fast_16_05_2024_16_11_53.csv",
+      "sha256": "7a3dc29bb7b6bfc7f2afa61f0ef78333d8322e6af533f1b675bf774be866b7f0",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_3/s_3/g_flexext_index/recording_medium_16_05_2024_16_13_00.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_3/s_3/g_flexext_index/recording_medium_16_05_2024_16_13_00.csv",
+      "sha256": "36749e1412e70c21902c0267d45410232a98c65bd1875bf15678f3b1479910bc",
+      "samples": 2018,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.09
+    },
+    "data/u_3/s_3/g_flexext_middle/recording_medium_16_05_2024_16_14_11.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_3/s_3/g_flexext_middle/recording_medium_16_05_2024_16_14_11.csv",
+      "sha256": "cb070cf325d58da0e90d39afd04189e3ce8ac5a7d117a47bd82c271ad7ff9e77",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_3/s_3/g_flexext_ring/recording_medium_16_05_2024_16_15_22.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_3/s_3/g_flexext_ring/recording_medium_16_05_2024_16_15_22.csv",
+      "sha256": "9c961f0fdb321a2a78df2031cfd03b8786c826310c6c8d6e9ed2cd0208e65398",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_3/s_3/g_flexext_pinky/recording_slow_16_05_2024_16_16_10.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_3/s_3/g_flexext_pinky/recording_slow_16_05_2024_16_16_10.csv",
+      "sha256": "87e35ee4977d8524caa67014f01893c06782980ba6d30721152d3b1ae9f41e41",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_4/s_3/g_flexext_fist/recording_fast_13_06_2024_17_29_40.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_4/s_3/g_flexext_fist/recording_fast_13_06_2024_17_29_40.csv",
+      "sha256": "9536c02db2b02fc3e58978138d0564285b1e2b7eb2cd79689559a8d8342843be",
+      "samples": 2012,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.06
+    },
+    "data/u_4/s_3/g_flexext_thumb/recording_slow_13_06_2024_17_30_02.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_4/s_3/g_flexext_thumb/recording_slow_13_06_2024_17_30_02.csv",
+      "sha256": "76e21caf08e20e0e3e9b2bf8787cc1be36aa1b213b6fbc6269e059cc95be83d5",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_4/s_3/g_flexext_index/recording_fast_13_06_2024_17_31_49.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_4/s_3/g_flexext_index/recording_fast_13_06_2024_17_31_49.csv",
+      "sha256": "3f7ebc0bead67a82755ea2b1495c8362e6c8ec807eb004b9af5510ddc20d4a22",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_4/s_3/g_flexext_middle/recording_slow_13_06_2024_17_32_08.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_4/s_3/g_flexext_middle/recording_slow_13_06_2024_17_32_08.csv",
+      "sha256": "b733630902fdb5a15ba24ca6f76c5e4d886f8e15bc1a40ffa4d60faaa461db92",
+      "samples": 2010,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.05
+    },
+    "data/u_4/s_3/g_flexext_ring/recording_slow_13_06_2024_17_33_10.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_4/s_3/g_flexext_ring/recording_slow_13_06_2024_17_33_10.csv",
+      "sha256": "d60b1f855eca065f1c6079495b1bf1692299ba58836c1f4b07b5374dcb2b055e",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_4/s_3/g_flexext_pinky/recording_fast_13_06_2024_17_34_58.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_4/s_3/g_flexext_pinky/recording_fast_13_06_2024_17_34_58.csv",
+      "sha256": "1f34b0a490ce5a1d493f95b032872a5d34cda8b227218475cdd19fabc4726cd7",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_5/s_3/g_flexext_fist/recording_slow_29_05_2024_14_22_26.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_5/s_3/g_flexext_fist/recording_slow_29_05_2024_14_22_26.csv",
+      "sha256": "00d5005082612986a3ef58941c76d5463da575e32e16367785cc405fbccadde4",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_5/s_3/g_flexext_thumb/recording_medium_29_05_2024_14_24_23.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_5/s_3/g_flexext_thumb/recording_medium_29_05_2024_14_24_23.csv",
+      "sha256": "e27c08c69838597bb715ca2779d495912f9eb2ec55b35b2477114306fe2a73a4",
+      "samples": 2002,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.01
+    },
+    "data/u_5/s_3/g_flexext_index/recording_fast_29_05_2024_14_25_53.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_5/s_3/g_flexext_index/recording_fast_29_05_2024_14_25_53.csv",
+      "sha256": "219dd16afbc6438d27a4f92241178467ed5dbe9e0a68481a0358105ae8e7d921",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_5/s_3/g_flexext_middle/recording_fast_29_05_2024_14_27_00.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_5/s_3/g_flexext_middle/recording_fast_29_05_2024_14_27_00.csv",
+      "sha256": "0865096cd8f99453dce241fa1061d7db24a97a39ab1f57420baecf073171bf90",
+      "samples": 2012,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.06
+    },
+    "data/u_5/s_3/g_flexext_ring/recording_medium_29_05_2024_14_27_50.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_5/s_3/g_flexext_ring/recording_medium_29_05_2024_14_27_50.csv",
+      "sha256": "32763366b573a7b0f66f8948ad6ad52194522c713de22eb813133636aa690d2c",
+      "samples": 2018,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.09
+    },
+    "data/u_5/s_3/g_flexext_pinky/recording_fast_29_05_2024_14_29_19.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_5/s_3/g_flexext_pinky/recording_fast_29_05_2024_14_29_19.csv",
+      "sha256": "b259de0b612ddfd067e58500a8dc830b864cf0c3050a5709435e1f3d11415060",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_6/s_3/g_flexext_fist/recording_slow_14_06_2024_14_34_30.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_6/s_3/g_flexext_fist/recording_slow_14_06_2024_14_34_30.csv",
+      "sha256": "044dbe43ff860ce4a4daad942c914d6c20010392eced388cd7853d567dd0505f",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_6/s_3/g_flexext_thumb/recording_medium_14_06_2024_14_36_35.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_6/s_3/g_flexext_thumb/recording_medium_14_06_2024_14_36_35.csv",
+      "sha256": "fa9e23dadf04110650c3ce647e815b64cda0f10b6a8f1fbd0abd144267bed370",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_6/s_3/g_flexext_index/recording_fast_14_06_2024_14_38_00.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_6/s_3/g_flexext_index/recording_fast_14_06_2024_14_38_00.csv",
+      "sha256": "e2c4fbac9fad836926eda360a3028d3a1cd943ae3bcee67f57419a78fb055e91",
+      "samples": 2004,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.02
+    },
+    "data/u_6/s_3/g_flexext_middle/recording_medium_14_06_2024_14_38_47.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_6/s_3/g_flexext_middle/recording_medium_14_06_2024_14_38_47.csv",
+      "sha256": "212f3ddf1811615202db226c62f2323d03d9209e9e22c59c2d35e38b76941c56",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_6/s_3/g_flexext_ring/recording_medium_14_06_2024_14_39_49.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_6/s_3/g_flexext_ring/recording_medium_14_06_2024_14_39_49.csv",
+      "sha256": "690601c74cec01a814b282151abeabf58d517f091c3fdeeb4cf9344187f72c14",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_6/s_3/g_flexext_pinky/recording_fast_14_06_2024_14_41_18.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_6/s_3/g_flexext_pinky/recording_fast_14_06_2024_14_41_18.csv",
+      "sha256": "a463452bf2fec67c0169e2dd3d4f8a08c51ac12f5b57e669fc485c7a3dd2eede",
+      "samples": 2024,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.12
+    },
+    "data/u_7/s_3/g_flexext_fist/recording_medium_03_05_2024_13_17_35.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_7/s_3/g_flexext_fist/recording_medium_03_05_2024_13_17_35.csv",
+      "sha256": "b4ce6edbb773ce8aa0f283404aaf836bfcf168027ae313a770b3236ed7aec2f5",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_7/s_3/g_flexext_thumb/recording_fast_03_05_2024_13_18_59.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_7/s_3/g_flexext_thumb/recording_fast_03_05_2024_13_18_59.csv",
+      "sha256": "341ee4f856377552c0bbd3a4f3135ad1dc972464c2f575a2c6915f2530f5aca2",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_7/s_3/g_flexext_index/recording_slow_03_05_2024_13_19_23.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_7/s_3/g_flexext_index/recording_slow_03_05_2024_13_19_23.csv",
+      "sha256": "c042a02684a816ff8d9a61e184ad1016c0e7eee7cbd099cc84ada189d24bebb8",
+      "samples": 2024,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.12
+    },
+    "data/u_7/s_3/g_flexext_middle/recording_slow_03_05_2024_13_20_24.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_7/s_3/g_flexext_middle/recording_slow_03_05_2024_13_20_24.csv",
+      "sha256": "b3c4896203b31a5f00c3be70d38bce6e9c2d54ba198b6779cbaa9c732dacdfff",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_7/s_3/g_flexext_ring/recording_medium_03_05_2024_13_21_53.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_7/s_3/g_flexext_ring/recording_medium_03_05_2024_13_21_53.csv",
+      "sha256": "c55e74c2bde43624f73436cfed133a4ccc61d113c17cac338cd157c83dfe41c0",
+      "samples": 2014,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.07
+    },
+    "data/u_7/s_3/g_flexext_pinky/recording_fast_03_05_2024_13_23_18.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_7/s_3/g_flexext_pinky/recording_fast_03_05_2024_13_23_18.csv",
+      "sha256": "f92ecdaba3a9c96da535c4e658f0b341503f7fc8da2bdbebe1fb8bc988de7f6b",
+      "samples": 2012,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.06
+    },
+    "data/u_8/s_3/g_flexext_fist/recording_slow_19_07_2024_14_50_48.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_8/s_3/g_flexext_fist/recording_slow_19_07_2024_14_50_48.csv",
+      "sha256": "147624f9c8cf0c8d4577a0dc530f5178f3a1714d82e55176631068481e61731f",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_8/s_3/g_flexext_thumb/recording_medium_19_07_2024_14_52_16.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_8/s_3/g_flexext_thumb/recording_medium_19_07_2024_14_52_16.csv",
+      "sha256": "4d5974a959c88f30faf2deaed92e7b15e835129202dec037262a36a67cbe876a",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_8/s_3/g_flexext_index/recording_slow_19_07_2024_14_53_07.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_8/s_3/g_flexext_index/recording_slow_19_07_2024_14_53_07.csv",
+      "sha256": "effb06c33c97fd38a80eb3e3ed78897f2ea5ec84aaac523943664e727fd3d325",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_8/s_3/g_flexext_middle/recording_medium_19_07_2024_14_55_03.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_8/s_3/g_flexext_middle/recording_medium_19_07_2024_14_55_03.csv",
+      "sha256": "dfd4aa33fc5395c0dc3fc0d28489aec1467ab4e287f22416d5dc23e18fd8e127",
+      "samples": 2016,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.08
+    },
+    "data/u_8/s_3/g_flexext_ring/recording_fast_19_07_2024_14_56_26.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_8/s_3/g_flexext_ring/recording_fast_19_07_2024_14_56_26.csv",
+      "sha256": "25b71b62bb5bf6c31803628c24cb8a4bc51902da0828db8364496375d735c238",
+      "samples": 2020,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.1
+    },
+    "data/u_8/s_3/g_flexext_pinky/recording_slow_19_07_2024_14_56_46.csv": {
+      "native_path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "zip_member": "data/u_8/s_3/g_flexext_pinky/recording_slow_19_07_2024_14_56_46.csv",
+      "sha256": "73229368c6d58ee4670abef5cdc275ead6abc32279d9d82acbfa6b9c1240d314",
+      "samples": 2018,
+      "nominal_rate_hz": 200.0,
+      "signal_seconds": 10.09
+    }
+  },
+  "limits": "sample/rate estimates measure recorded signal, not observed human calibration flow or hardware wall time; legacy protocol durations remain approximate; unlike tasks and budget-specific evaluation trials"
+}
