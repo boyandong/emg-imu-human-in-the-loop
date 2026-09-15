@@ -1,0 +1,41 @@
+{
+  "dataset": "unibo_inail",
+  "phase": "validation",
+  "source_run": "feature_bank_unibo_validated_reuse_validation_20260915",
+  "pairs": [
+    [
+      "reference_F0_plus_validated_G5",
+      "reference_F0_plus_reference_F5"
+    ],
+    [
+      "validated_G0_plus_validated_G5",
+      "validated_G0_plus_reference_F5"
+    ],
+    [
+      "reference_F0",
+      "reference_F0_plus_validated_G5"
+    ],
+    [
+      "reference_F0",
+      "reference_F0_plus_reference_F5"
+    ]
+  ],
+  "classifier_or_family_fit": false,
+  "target_days": [
+    6
+  ],
+  "train_days": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "source_artifact_sha256": {
+    "heldout_predictions.npz": "6c5081e16d7474a790ef9e18ae21fcaa1f64a2ac3186ddeb94f120a8caf4211a",
+    "feature_family_results.csv": "7a69fedd954aeadd2a0007329f5dd140b7e29feb4d647436e55aa5b71f7b1c94",
+    "run_manifest.json": "f185a0117948d1a843b2e33dd9196537157aad0c35a818a638bafc9d12f092bd",
+    "split_trial_ids.json": "79021f889f3dd76c5c58962bff33b042266a44dc9e5a0a21ab049884033bbcf6"
+  },
+  "limits": "window errors with hierarchical trial weighting; windows correlated, no independent-window significance claim; no standalone-family or DTW comparison; final days not opened"
+}

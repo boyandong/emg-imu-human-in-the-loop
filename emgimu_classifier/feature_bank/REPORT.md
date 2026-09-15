@@ -1433,3 +1433,38 @@ is 0.3875 with the quality classifier, 0.4209 when that provider is removed,
 classifier provider. Removing the provider improves this particular fusion while
 remaining below F0 0.4473. These fixed controls are diagnostic, not final-selected
 replacement algorithms.
+
+### Original UniBo G5 versus reference temporal model complementarity
+
+Four prespecified model pairs use the existing independent Day-6 predictions:
+reference F0+validated G5 versus reference F0+reference F5; the same temporal
+comparison around validated G0; and reference F0 versus each temporal augmentation.
+The same concatenated-feature classifier protocol is retained. This compares
+common-baseline models, not standalone temporal providers or DTW specialists.
+
+Established hierarchical subject/day -> trial -> truth segment -> window weights
+are reconstructed from saved metadata. Thirty original metrics across all six
+models reproduce before new analyses are emitted. Sixty-four complementarity rows
+cover pooled windows, seven users, four postures and four native gesture classes.
+Source Days 1–5 and held-out Day 6 trial lists are disjoint and reproduced; final
+Days 7/8 are not opened. No classifier fit or prediction changes occur.
+
+For the reference F0 temporal pair, error correlation is 0.9045 and prediction
+disagreement 0.0387. Validated-G5 model correct/reference-F5 model wrong mass is
+0.0121; validated-G5 wrong/reference-F5 correct mass is 0.0203. In the OPEN class,
+these masses are 0.0285 and 0.0478, with correlation 0.7436 and disagreement 0.0804.
+Around validated G0, overall correlation is 0.9231 and recovery/loss masses are
+0.0174/0.0100. The two models share most errors; the reference temporal branch
+recovers more errors than it introduces in these comparisons, including OPEN.
+This does not prove that adding both feature families improves a joint classifier,
+that either standalone family is redundant, or that current eight-channel hardware
+will recover the same errors. Native four named muscles and processed 200 Hz remain
+distinct from the product eight-channel ring.
+
+Run `feature_bank_unibo_temporal_complementarity_validation_20260915` records
+per-class/per-user evidence and source artifact hashes. Weighted asymmetric-error
+and undefined constant-error-correlation tests pass. The suite ran 135 tests with
+one skip; integrity checks cover 138 artifacts, 25,299 rows and 683 explicit trial
+partitions. Canonical verification covers 23,816 rows. Standalone G5/temporal/DTW
+comparisons, exact historical RLCS/anchor comparisons and other remaining document
+requirements are still incomplete.

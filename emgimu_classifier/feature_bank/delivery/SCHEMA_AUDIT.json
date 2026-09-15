@@ -78,7 +78,7 @@
       "canonical_csv_sha256": "17df0856236d70bc34706a1a9374467b5d66cc354ef79eddfa7be7b8f1950302"
     },
     "error_complementarity.csv": {
-      "rows": 575,
+      "rows": 639,
       "required_fields": [
         "dataset",
         "subject",
@@ -125,8 +125,8 @@
           "session/domain": 60
         }
       },
-      "source_csv_sha256": "11b3bd3dd34978daf7e62c1b89a80a618e5f53c25f6d3897303f7ee75cb9bea9",
-      "canonical_csv_sha256": "2e9966f9fd45bad96c2690ebd6a99c523ebde3cb844000b573d337ced78233b2"
+      "source_csv_sha256": "d80167195aacbf096b0003f63b72cbb2ab44571bf0c3af5631adb8e402e7ae56",
+      "canonical_csv_sha256": "01ed3194ff6e0bbace4157d6342325bc0d560ec2f9289674413def9b17899146"
     },
     "calibration_curve.csv": {
       "rows": 5982,

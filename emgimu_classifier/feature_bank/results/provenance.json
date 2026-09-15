@@ -180,6 +180,12 @@
     "bytes": 5617
   },
   {
+    "run_id": "feature_bank_unibo_temporal_complementarity_validation_20260915",
+    "artifact": "error_complementarity.csv",
+    "sha256": "2167a8304431b080c341017f0e68f09d23e36ffa4912116ec0f9549f62fdd4d6",
+    "bytes": 23831
+  },
+  {
     "run_id": "feature_bank_epn_core_incremental_validation_20260915",
     "artifact": "error_complementarity.csv",
     "sha256": "017b9f8861b5889b0695366e0028a02b948783f8833e65bd533ca729881fab3e",
