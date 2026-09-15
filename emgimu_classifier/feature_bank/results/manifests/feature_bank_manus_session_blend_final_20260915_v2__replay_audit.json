@@ -1,0 +1,7 @@
+{
+  "status": "ok",
+  "prediction_arrays_checked": 288,
+  "max_absolute_probability_error": 0.0,
+  "classifier_or_family_fit": false,
+  "scope": "all fused variant arrays rebuilt from retained provider probabilities and fixed weights/quality"
+}

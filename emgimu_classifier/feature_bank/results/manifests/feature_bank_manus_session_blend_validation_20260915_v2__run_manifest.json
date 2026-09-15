@@ -1,0 +1,25 @@
+{
+  "dataset": "semg_manus",
+  "phase": "validation",
+  "source_run": "feature_bank_manus_selected_validation_20260915",
+  "families": [
+    "F0",
+    "F1_X1H",
+    "F2b_CSP",
+    "F3_Ring",
+    "F4_Spectral",
+    "F5_Temporal",
+    "F6_IMU",
+    "F9_Quality"
+  ],
+  "source_state_sha256": "ce87f10934e506853332bd79ec9b3b7207ac6c3105408df160be11839354d911",
+  "source_predictions_sha256": "96fb33c5e32eb03c042873446ad9ca09ac46c92d46c5c7e886058a874cab3062",
+  "beta_rule": "N_long_class/(N_long_class+N_cal_class); source counts and calibration budget only",
+  "alpha_rule": "(min source class trial count+shots)/(min source class trial count+shots+2)",
+  "classifier_or_family_fit": false,
+  "source_anchor_temperature": "median source prototype distances only",
+  "original_units_replayed": 18,
+  "max_original_probability_error": 0.0,
+  "rows": 1328,
+  "limitations": "source coordinate scale fixed; no raw channel normalization branch; cal5 unsupported; source session1 and target speed/session confounded"
+}

@@ -1001,3 +1001,52 @@ family/classifier state. The four runs add 1416 calibration metric rows plus the
 leave-family tables. Full tests pass 113 cases with one skip. This completes application
 of these source-selected reliability policies; long-term/session-local prototype
 blending, remaining historical reuse and document-level evidence remain unfinished.
+
+### Explicit long-term/session prototype fusion
+
+`SessionPrototypeAnchor` preserves the source-session long-term prototypes and returns
+a new adapted anchor. For each class, `β=N_long/(N_long+N_cal)` and
+`μ_adapt=β μ_long+(1-β) μ_cal`. Source session 1 supplies three whole trials/class,
+so β is 1/0.75/0.6 for cal0/1/2. This rule depends only on source counts and budget,
+not target performance. Long-term, local and blended controls keep the same source
+distance scale and source-only median-distance temperature. Their source/classifier
+mixture uses `α=(N_long_min+shots)/(N_long_min+shots+2)`, or 0.6/0.667/0.714.
+The local-only control has no available local prototype at cal0 and uses the source
+classifier then. Long-term and blended controls can use the known user's long-term
+profile at cal0. This is session protocol B, not new-user protocol A.
+
+Each anchor outputs 14 coordinates (six distances, six similarities and two margins)
+per family. Prototype storage is six times each original family dimension; the
+adapted version keeps a separate copy, preserving the long-term profile. Source scale
+is deliberately held fixed to isolate prototype displacement; this is distinct from
+the older cal-MAD/local-scale anchor. Two tests prove the blend equation, missing-class
+rejection, zero-budget behavior, preserved source profile and query-batch independence.
+
+`feature_bank_manus_session_blend_{validation,final}_20260915_v2` reuses the selected
+full-bank source models and source OOF temperatures. It compares all prototype modes,
+no-anchor, all eight provider removals, F8 removal and F9 routing/provider controls.
+All 36 original full-system user/budget blocks match exactly. The 576 newly exported
+fused variant arrays also replay exactly from retained provider probabilities and
+fixed weights/quality. No classifier/family fitting occurs. Explicit trial partitions,
+prototype coefficients, source hashes, separate adapted anchors and 2656 metric rows
+are retained. The initial validation export without fusion inputs is superseded by
+v2 and excluded from consolidated evidence; its metrics are unchanged.
+
+| Final mean-user macro-F1 | cal0 | cal1 | cal2 |
+|---|---:|---:|---:|
+| Long-term prototypes, source scale | 0.4582 | 0.5213 | 0.4139 |
+| Local prototypes, source scale and matched α | 0.4631 | 0.6633 | 0.8241 |
+| Blended prototypes, source scale | 0.4582 | 0.5398 | 0.6176 |
+| Original local cal-MAD anchor and α | 0.4631 | 0.5126 | 0.5926 |
+| No anchor | 0.4631 | 0.4538 | 0.3815 |
+
+Blending helps over long-term-only at cal1/2 but underperforms the matched local-only
+control. Its final log losses are 1.5241/1.4848/1.4324, versus local-only
+1.4186/1.4222/1.3218. The fixed count-based rule may retain too much outdated session
+information; final scores are not used to change β. Cal2 leaves only six evaluation
+trials per user (36 total), and speed/session confounds remain. The strong local
+result is a frozen control, not an independently selected and confirmed deployment
+policy. Cal5 is unsupported. This six-active-class subset has no rest class, so a
+rest-center channel normalization branch cannot be formally tested here. Full tests
+pass 115 cases with one skip. Historical reuse and further complete-document audit
+remain open.
