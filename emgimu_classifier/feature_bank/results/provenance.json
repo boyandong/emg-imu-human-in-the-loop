@@ -96,6 +96,18 @@
     "bytes": 7246
   },
   {
+    "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+    "artifact": "error_complementarity.csv",
+    "sha256": "a62aea7b6544fc0e303268a693c9eea4bcd16a7d981721b6dd6775d6b8549b21",
+    "bytes": 9928
+  },
+  {
+    "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+    "artifact": "error_complementarity.csv",
+    "sha256": "fcbcb0d8845ef45cb3ebbe611baa0e24273a4a80bb67db0458fbe7a383071cc2",
+    "bytes": 9483
+  },
+  {
     "run_id": "feature_bank_force_audited_validation_20260915",
     "artifact": "calibration_curve.csv",
     "sha256": "84004d46c8c4976828b4c2d288a03e54eee13872c79c88ba239ab2f744e18e6f",
@@ -268,5 +280,29 @@
     "artifact": "ablation_full_bank.csv",
     "sha256": "9b6b5decb45f2d7fb0db42672babdd86def9c17d53fb049fc6dda2f13cc42bf2",
     "bytes": 185324
+  },
+  {
+    "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+    "artifact": "per_family_calibration_gain.csv",
+    "sha256": "7c908a910d499c9601f86372e5d69ffc99e6cf7d3f75b34f81b3aee9231c5d15",
+    "bytes": 14157
+  },
+  {
+    "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+    "artifact": "per_family_calibration_gain.csv",
+    "sha256": "44c4a914b7daf6580862948dc3f2b3318dc56ef4147708a9fd809f117a76aed8",
+    "bytes": 13393
+  },
+  {
+    "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+    "artifact": "cross_session_family_diagnostics.csv",
+    "sha256": "35ef9b12b9676d3df279c8e794dc8802e4f5e62f48666fd6d35d2902d3cea3ed",
+    "bytes": 9427
+  },
+  {
+    "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+    "artifact": "cross_session_family_diagnostics.csv",
+    "sha256": "bc7f3716280a17101b986c0371deb9199397e4ba854fa026ac5d0acad2bef72d",
+    "bytes": 9176
   }
 ]

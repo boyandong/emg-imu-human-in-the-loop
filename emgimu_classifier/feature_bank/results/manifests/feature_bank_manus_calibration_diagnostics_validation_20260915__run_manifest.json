@@ -1,0 +1,8 @@
+{
+  "phase": "validation",
+  "source_run": "feature_bank_manus_full_fusion_validation_20260915_v2",
+  "state_sha256": "dd83530a7c1a8f4e0d311b15202d7ba36f3b7bec220423bb8f6389c43c692899",
+  "fit_performed": false,
+  "evaluation_label_use": "offline diagnostics only; no parameter selection",
+  "transform_state_immutable": true
+}

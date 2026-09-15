@@ -253,3 +253,21 @@ on the test set. This completes component removal for this bounded MANUS system 
 Current copied-result integrity checks cover 45 source artifacts, 5350 rows and 231 explicit
 trial split checks. Cross-failure family diagnostics and broader reproducibility coverage
 still remain open.
+
+## Per-family calibration and session-drift diagnosis
+
+The trusted saved MANUS states now produce validation and final diagnosis without fitting
+new parameters. Across both phases, 288 calibration cells and 96 same-user class-matched
+session-displacement cells are saved. Calibration gain compares anchored and unanchored
+provider predictions on identical evaluation trials; it does not subtract unmatched budgets.
+Final mean one-shot F1 gains are +0.0309 F0, +0.0198 X1H, +0.0126 CSP, +0.0120 ring,
+0.0000 spectral, −0.0019 temporal, −0.0078 IMU and −0.0065 quality. Anchors therefore
+help some spaces and harm others under the fixed mixing rule.
+
+`cross_session_family_diagnostics.csv` reports D_nuisance (source-to-target class centroid
+displacement), D_gesture (target within-user class separation) and their ratio J in source
+standardized coordinates. Evaluation labels are used only for offline diagnosis and cannot
+change fitted states. State serialization is checked unchanged after source/target transforms.
+Selected X1H/frequency, X1H/CSP, ring/anchor, raw/ring and temporal/anchor error comparisons
+are appended to the complementarity table. Current integrity checks cover 51 source
+artifacts and 5914 copied rows. Equivalent diagnostics for other failures remain incomplete.

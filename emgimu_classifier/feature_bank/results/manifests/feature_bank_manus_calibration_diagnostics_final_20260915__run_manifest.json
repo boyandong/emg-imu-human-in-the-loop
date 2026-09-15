@@ -1,0 +1,8 @@
+{
+  "phase": "final",
+  "source_run": "feature_bank_manus_full_fusion_final_20260915_v2",
+  "state_sha256": "573c1f913b20bd0af29f2d3d26c5e23d091151153b1d50722c148bf1194d5ff6",
+  "fit_performed": false,
+  "evaluation_label_use": "offline diagnostics only; no parameter selection",
+  "transform_state_immutable": true
+}
