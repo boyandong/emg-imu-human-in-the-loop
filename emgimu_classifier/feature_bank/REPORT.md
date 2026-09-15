@@ -608,3 +608,31 @@ Both phases replay 132 saved probability arrays, with maximum error 2.23e-16, ex
 trial/user/label alignment and unchanged fitted source state. All 105 tests pass with
 one skip. The full-system seven-failure evaluation and remaining dataset-specific OOF
 evidence still require further work.
+
+## Full-force condition envelope and individual failure cells
+
+`feature_bank_force_condition_{validation,final}_20260915` analyzes saved calibrated
+force-bank predictions without training, calibration refitting or raw-signal processing.
+Each phase exports 1089 subject/pooled-condition cells across all eleven intensity
+conditions, three supported calibration budgets and all eleven model/removal variants,
+plus 33 robustness summaries. Native trial identifiers are checked against saved subject
+and gesture labels before conditions are recovered. Prediction SHA-256 and original
+evaluation trial IDs are recorded. Label/user tampering is covered by a regression test.
+
+| Final method | Mean condition F1 | Minimum pooled-condition F1 | Minimum subject-condition F1 |
+|---|---:|---:|---:|
+| F0 | 0.5103 | 0.4102 (MVC) | 0.0830 |
+| Uniform bank | 0.4767 | 0.3778 (Hard) | 0.1211 |
+| Full bank, 1/class | 0.4960 | 0.4100 (Hard) | 0.1465 |
+| Full bank, 2/class | 0.5673 | 0.5007 (Hard) | 0.0873 |
+
+The condition mean here averages pooled-user per-condition F1. It differs from the
+earlier average of per-user ALL-intensity F1 and must not be substituted for it.
+Two-shot calibration raises the pooled worst-condition F1 by 0.0904 over F0 and 0.1229
+over uniform fusion, but the worst individual user-condition score declines 0.1211→0.0873
+against uniform fusion. One-shot calibration's worst individual cell is better at 0.1465.
+Thus neither aggregate condition improvements nor larger budgets ensure protection of
+the hardest individual cells. These supplementary diagnostics preserve all negative
+results and do not select a new policy using final-user scores. The minimum condition
+is not the requested minimum across seven failure dimensions. Full tests run 106 cases,
+passing with one skip; remaining failure-system coverage is still incomplete.

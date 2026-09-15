@@ -318,6 +318,18 @@
     "bytes": 193061
   },
   {
+    "run_id": "feature_bank_force_condition_validation_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "c77f70c571f24c538420bdaedf340b1dbb0d20e62aec7093d1306e345a1a3c55",
+    "bytes": 350980
+  },
+  {
+    "run_id": "feature_bank_force_condition_final_20260915",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "4934951035afaf316f53a8a7e2a55155c51c16def94af6c0eaee90ad3698fa2d",
+    "bytes": 353409
+  },
+  {
     "run_id": "feature_bank_epn_probability_validation_20260915",
     "artifact": "ablation_full_bank.csv",
     "sha256": "1d0f4a37e61935f0ac977ddcd746f80a4e054c21a60b44ed53ed7fe2debea8c9",
@@ -490,5 +502,17 @@
     "artifact": "anchor_variation_diagnostics.csv",
     "sha256": "eacc0a7351b00d3ddf9a8592ffe559b23f06e63e393e90d60299c792a3427326",
     "bytes": 9626
+  },
+  {
+    "run_id": "feature_bank_force_condition_validation_20260915",
+    "artifact": "force_worst_condition.csv",
+    "sha256": "65e345fe026c762c30b9c4ed706b6e6ef20ba9ffc26730f6175a7c1c93865bc4",
+    "bytes": 4512
+  },
+  {
+    "run_id": "feature_bank_force_condition_final_20260915",
+    "artifact": "force_worst_condition.csv",
+    "sha256": "bdf7dcd3dacb50e6c12c71ddd8023c01fbebd3d582c17f700c552884a586752b",
+    "bytes": 4433
   }
 ]

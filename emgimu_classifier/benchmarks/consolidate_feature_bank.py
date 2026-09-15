@@ -7,6 +7,8 @@ import json
 
 
 RUNS = (
+    'feature_bank_force_condition_validation_20260915',
+    'feature_bank_force_condition_final_20260915',
     'feature_bank_epn_probability_validation_20260915',
     'feature_bank_epn_probability_final_20260915',
     'feature_bank_epn_nested_oof_20260915',
@@ -60,7 +62,7 @@ ARTIFACTS = ('feature_family_results.csv', 'conditional_incremental.csv',
              'per_family_calibration_gain.csv', 'cross_session_family_diagnostics.csv',
              'cross_user_family_diagnostics.csv', 'cross_day_posture_diagnostics.csv',
              'wearing_family_diagnostics.csv', 'load_position_family_diagnostics.csv',
-             'anchor_variation_diagnostics.csv')
+             'anchor_variation_diagnostics.csv', 'force_worst_condition.csv')
 
 
 def consolidate(root: Path, output: Path) -> None:
