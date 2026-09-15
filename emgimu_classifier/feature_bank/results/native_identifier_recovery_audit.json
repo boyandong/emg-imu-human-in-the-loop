@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "prior_commit": "8f8bf88",
+  "prior_summary_rows_unchanged": 7343,
+  "native_identifier_groups_recovered": 241,
+  "new_experiment_groups": 4,
+  "current_summary_rows": 7588,
+  "current_csv_sha256": "007206b3508671f59a03d81c0775ced781e8985c334d705bb4025f1abd1def86",
+  "scope": "Exact original summary record preservation and named-subject recovery; no scientific completion claim"
+}

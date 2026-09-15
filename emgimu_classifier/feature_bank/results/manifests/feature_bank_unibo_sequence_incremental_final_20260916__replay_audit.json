@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "final_prediction_arrays_replayed": 14,
+  "maximum_absolute_probability_error": 0.0,
+  "source_hashes_verified": true,
+  "classifier_or_family_fit": false,
+  "source_states_immutable": true,
+  "scope": "Both baseline and added-model final predictions replayed from saved inputs and immutable source states; complete-bout offline protocol"
+}

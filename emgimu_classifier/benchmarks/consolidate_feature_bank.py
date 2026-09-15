@@ -7,6 +7,8 @@ import json
 
 
 RUNS = (
+    'feature_bank_unibo_sequence_incremental_validation_20260916',
+    'feature_bank_unibo_sequence_incremental_final_20260916',
     'feature_bank_unibo_sequence_temporal_validation_20260916',
     'feature_bank_force_core_temperature_validation_20260916',
     'feature_bank_force_core_temperature_final_20260916',

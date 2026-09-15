@@ -88,9 +88,9 @@ The current temporal comparison shares most errors (G5/reference-F5 model correl
 
 Six new benchmark archives are complete. Five canonical CSVs, schema/provenance audits,
 source run manifests, trial lists, dimensions, per-user/per-class diagnostics, calibration
-burden estimates and SVG curves are available. The latest suite ran 151 tests with one
-skip; consolidated integrity covers 178 artifacts, 48,611 rows and 796 explicit
-partitions, while canonical record verification covers 47,128 rows. These are narrow
+burden estimates and SVG curves are available. The latest suite ran 155 tests with one
+skip; consolidated integrity covers 184 artifacts, 48,747 rows and 810 explicit
+partitions, while canonical record verification covers 47,264 rows. These are narrow
 integrity/implementation checks, not proof that every scientific requirement is complete.
 
 The highest-priority remaining work is the exact historical dataset/algorithm audit,
@@ -1895,3 +1895,53 @@ whole-bout sample coverage and hierarchical user/label weights. The full suite r
 151 tests with one skip; compile checks passed. Current integrity checks cover
 178 artifacts, 48,611 rows and 796 explicit partitions; canonical checks cover
 47,128 records. Completion remains unproven and new work remains local only.
+
+
+## DTW conditional value given G5: validation and frozen final (2026-09-16)
+
+Runs `feature_bank_unibo_sequence_incremental_validation_20260916` and
+`feature_bank_unibo_sequence_incremental_final_20260916` reuse the full-bout G5 and
+DTW families. Only new source-only StandardScaler/balanced logistic classifiers
+are fit for concatenated G5 (20 dimensions) plus DTW distances (4 dimensions).
+Inner source Days1-4 predict Day5 to fit temperature; final source classifiers
+fit Days1-5. Source parameters are frozen before opening final Days7-8. Both
+baseline and added model receive identical personal historical source data and
+complete oracle-labelled bouts. There is no new target-day calibration.
+This is a one-family specialist conditional control, not the multi-family Core.
+
+| Held-out phase | Bouts | G5 F1 | G5+DTW F1 | Delta LogLoss | Delta Brier | Users with LL / F1 gain |
+|---|---:|---:|---:|---:|---:|---|
+| Day6 validation | 1700 | 0.771275 | 0.797154 | +0.050734 | +0.001213 | 3/7 / 5/7 |
+| Days7-8 frozen final | 3391 | 0.753845 | 0.735807 | +0.056390 | +0.000040 | 6/7 / 1/7 |
+
+Positive final Delta LogLoss provides held-day conditional predictive-loss evidence
+for DTW given G5 even though standalone DTW is weak. It does not establish better
+classification or global robustness. Final minimum-user F1 drops 0.523621 ->
+0.516288 (validation minimum drops 0.552994 -> 0.496490). Final OPEN F1 drops
+0.663969 -> 0.645234, FIST 0.624028 -> 0.588226 and PINCH 0.728825 -> 0.718358.
+The appropriate current role is an auxiliary conditional probability candidate;
+it is not selected to replace G5. The previous standalone result is not rewritten
+as proof that DTW is useless, and the validation F1 gain is not promoted into a
+final or streaming gain.
+
+Source/validation replay reproduces 14 probability arrays and seven source
+temperatures, bound to parent artifact hashes. Independent saved-state final
+replay reproduces both baseline and added-model predictions for all seven users
+(14 arrays, maximum absolute probability error 0). No source family/classifier
+is fit or mutated during final evaluation. Oracle bout boundaries, phase-normalized
+full trajectories, correlated bouts within trials, native four-muscle data and
+known-user historical profiles remain explicit limits. These results do not prove
+recovery on the current eight-channel streaming device or improve the earlier
+short-window seven-axis robustness vector by substitution.
+
+The per-subject exporter previously accepted only integer identifiers and omitted
+native `u01`-style subjects. It now preserves native identifiers and excludes
+aggregate/missing subjects. All 7,343 prior summary records were checked unchanged;
+241 existing native-ID groups were recovered, plus four new conditional experiment
+groups, for 7,588 summaries. The source metric CSVs are unchanged by this exporter.
+Four tests cover identifier preservation, aggregate exclusion, rejection of a
+final-day parent and source/calibration/evaluation trial overlap. The full suite
+ran 155 tests (one skip); current compile checks and replay pass. Integrity covers
+184 source artifacts, 48,747 rows and 810 explicit partitions; canonical record
+verification covers 47,264 rows. All new work remains local; full completion is
+still unproven against the two complete specifications.

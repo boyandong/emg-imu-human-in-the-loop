@@ -1,0 +1,7 @@
+{
+  "status": "ok",
+  "source_and_target_prediction_arrays": 14,
+  "source_temperatures_recomputed": 7,
+  "parent_artifact_hashes_verified": true,
+  "scope": "Saved source classifiers, source temperatures and target predictions; native parent bout replay is separate"
+}

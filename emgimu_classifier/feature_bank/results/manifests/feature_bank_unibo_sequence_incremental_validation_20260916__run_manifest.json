@@ -1,0 +1,46 @@
+{
+  "dataset": "unibo_inail",
+  "phase": "validation",
+  "parent_run": "feature_bank_unibo_sequence_temporal_validation_20260916",
+  "parent_artifacts_sha256": {
+    "fitted_states.pkl": "8d26130260b26802a06aa2e7593c73b879e08d37bf65f52a922c9d1667d9a658",
+    "run_manifest.json": "eaf5466dccfdcb5b5bf06983aaba80a968b7b5d3044f3a36571e28123153932c",
+    "bout_metadata.json": "6d0d7a1792bdd2e92631a6f39aa4092a6e4ace14d91a28185fb360acc3e45b4b",
+    "heldout_predictions.npz": "06b6a76f9d2529b9eb28b01f7ff6f03998299d4706e65e88e4f3b2e04a04de93",
+    "source_calibration_predictions.npz": "e9dae5f69188e8dbaf3849c1621b6f80f2100c1f2571d7d2f52ca841ccdbb7d5",
+    "split_trial_ids.json": "b5a671f1c35dc9e2c9e4af8b9e93a566a14f05dd0d366512670bc53d58de3310"
+  },
+  "train_days": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "target_days": [
+    6
+  ],
+  "final_days_opened": false,
+  "source_temperatures": {
+    "u01": 1.1604196193443739,
+    "u02": 0.7241601757635824,
+    "u03": 1.7479543939147237,
+    "u04": 0.5403336622830794,
+    "u05": 1.2613953498191226,
+    "u06": 3.999980964177185,
+    "u07": 1.458148860325173
+  },
+  "source_feature_dimensions": {
+    "u01": 24,
+    "u02": 24,
+    "u03": 24,
+    "u04": 24,
+    "u05": 24,
+    "u06": 24,
+    "u07": 24
+  },
+  "baseline_prediction_max_error": 0.0,
+  "parent_families_refit": false,
+  "model": "source-weighted StandardScaler and balanced LogisticRegression C1, max_iter1000",
+  "scope": "Conditional predictive control given standalone G5, not multi-family Core; oracle full-bout boundaries, not streaming. No target-day tuning or calibration."
+}

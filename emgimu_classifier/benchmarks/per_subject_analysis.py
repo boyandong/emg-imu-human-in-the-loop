@@ -7,13 +7,34 @@ import json
 import statistics
 
 
+def subject_id(value):
+    """Preserve native identifiers while excluding aggregate/missing rows."""
+    if value is None:
+        return None
+    text=str(value).strip()
+    if text.upper() in ('', 'ALL', 'SAME_USERS', 'N/A', 'NA', 'NONE', 'POOLED', 'MEAN', 'AVERAGE'):
+        return None
+    try:
+        return int(text)
+    except ValueError:
+        return text
+
+
+def subject_ids_json(rows):
+    identifiers=[subject_id(r['subject']) for r in rows]
+    if all(isinstance(value,int) for value in identifiers):
+        return json.dumps(sorted(identifiers))
+    return json.dumps(sorted(identifiers,key=str))
+
+
 def build(results):
     groups={};hashes={};seen={}
     for filename in ('calibration_curve.csv','ablation_full_bank.csv','feature_family_results.csv'):
         path=results/filename;hashes[filename]=hashlib.sha256(path.read_bytes()).hexdigest()
         with path.open(encoding='utf-8-sig',newline='') as h:
             for row in csv.DictReader(h):
-                try:int(row['subject']);float(row['macro_f1']);float(row['log_loss'])
+                if subject_id(row.get('subject')) is None:continue
+                try:float(row['macro_f1']);float(row['log_loss'])
                 except (ValueError,KeyError,TypeError):continue
                 method=row.get('method') or row.get('model') or row.get('feature_family') or row.get('family')
                 budget=row.get('shots_per_class') or row.get('calibration_budget') or 'N/A'
@@ -39,7 +60,7 @@ def build(results):
             class_summary=json.dumps({h:statistics.mean(c[h] for c in classes) for h in classes[0]},sort_keys=True)
         output.append(dict(zip(('run_id','dataset','method','calibration_budget','condition','scenario','protocol','feature_family',
                                 'n0','reliability_temperature','feature_bank'),key))|
-                      {'subjects':len(rows),'subject_ids_json':json.dumps(sorted(int(r['subject']) for r in rows)),
+                      {'subjects':len(rows),'subject_ids_json':subject_ids_json(rows),
                        'mean_user_macro_f1':statistics.mean(f1),'std_user_macro_f1':statistics.pstdev(f1),
                        'min_user_macro_f1':min(f1),'max_user_macro_f1':max(f1),'mean_user_log_loss':statistics.mean(loss),
                        'per_class_mean_user_f1_json':class_summary})

@@ -42,11 +42,14 @@ def envelope_path(signal, frames=32):
     return np.stack([np.sqrt(np.mean(part**2, axis=0)) for part in np.array_split(signal, frames)])
 
 
-def load_bouts(root):
+def load_bouts(root, days=range(1,7)):
+    requested={int(day) for day in days}
+    if not requested or requested-set(range(1,9)):
+        raise ValueError('Explicit days must be a nonempty subset of 1..8')
     bouts = []
     for path in sorted((root/'trials').rglob('*.npz')):
         relative = path.relative_to(root/'trials').parts
-        if len(relative) < 2 or relative[1].lower() not in {f'd{day:02}' for day in range(1, 7)}:
+        if len(relative) < 2 or relative[1].lower() not in {f'd{day:02}' for day in requested}:
             continue
         trial = load_benchmark_trial(path, expected_channels=4, expected_rate_hz=200.)
         if not trial.benchmark_eligible:

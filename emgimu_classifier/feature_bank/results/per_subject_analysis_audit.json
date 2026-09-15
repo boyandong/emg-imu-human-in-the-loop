@@ -1,11 +1,11 @@
 {
   "status": "ok",
-  "subject_condition_summaries": 7343,
+  "subject_condition_summaries": 7588,
   "anchor_comparisons": 8,
   "source_csv_sha256": {
     "calibration_curve.csv": "bcba0e2c41d335116e071cf79ba5cde5024208905b01a3aea8838360a2734616",
     "ablation_full_bank.csv": "49cd371d40e57a1ad610cf9df8589b00c111a933df227de1cb6dff76d47a036a",
-    "feature_family_results.csv": "0b3485b52318aead24b06477357b0ba54759d81c8e9ee61e0f4f657354436d1e"
+    "feature_family_results.csv": "64208484799063fcb7e16dbdc0e00f813c1e9f1bceb204c5f04e5061981d408e"
   },
   "scope": "descriptive population standard deviation over observed users; no confidence/significance claim; unchanged source metric rows",
   "limitations": "three final EPN users; budgets change evaluation trial sets; class summaries N/A when source class values unavailable"
