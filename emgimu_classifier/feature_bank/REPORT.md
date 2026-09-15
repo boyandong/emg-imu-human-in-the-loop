@@ -1185,6 +1185,42 @@ unchanged; source state remains immutable. The full suite passes 124 tests with 
 skip. Integration/performance evidence for these additional descriptors and the
 remaining complete-document audit remain unfinished.
 
+### Active-only force mechanism audit
+
+The force task's native seven-way classification keeps No Movement, but the documents
+exclude rest from force-level physiology/mechanism comparisons.
+`benchmarks/active_force_diagnostics.py` now separately computes these diagnostics
+for active native labels 1–6, reusing the seven full-bank source family/scaler/classifier
+states without fitting or changing historical results. Original `Info.txt` and source
+state hashes are retained. `active_force_family_diagnostics.csv` contains 336 rows
+for validation/final users, seven providers and eleven force conditions plus ALL.
+
+Within each user, D_nuisance is mean same-active-class centroid distance across
+force-condition pairs; D_gesture is mean active-class centroid separation per
+condition. Both use source-standardized coordinates. J is their ratio, not mutual
+information. Target labels appear only in offline class-matched diagnosis, never in
+transforms or model fitting. Active-only F1 evaluates six active classes, while log
+loss keeps original seven-way probabilities so mistaken rest mass is penalized.
+
+| Final mean-user active diagnostic | D_nuisance | D_gesture | J | Active-six macro-F1 |
+|---|---:|---:|---:|---:|
+| F0 | 8.0294 | 9.1959 | 1.1314 | 0.4482 |
+| New reference X1H view | 1.6681 | 3.1495 | 1.8839 | 0.3853 |
+| CSP | 2.0679 | 4.3287 | 2.0851 | 0.4123 |
+| Ring candidate | 4.8407 | 5.6328 | 1.1641 | 0.2229 |
+| Spectral state | 7.3773 | 9.5281 | 1.2882 | 0.3836 |
+| Temporal form | 7.8406 | 8.3478 | 1.0613 | 0.3275 |
+| Quality provider | 7.7737 | 7.8040 | 0.9946 | 0.3429 |
+
+This explicitly demonstrates why lower nuisance sensitivity alone is insufficient:
+the scale-pattern view has much smaller drift and higher J than F0, yet worse active
+standalone F1. These are new-reference LibEMG results, not a reversal or reproduction
+of historical DS2 X1-H evidence. Force-condition/session confounds and source-coordinate
+scaling remain limitations. Historical seven-class scores are preserved and must not
+be compared directly with the six-class macro-F1 above. This audit covers the seven
+retained providers; it does not certify every internal candidate or all document-level
+requirements.
+
 ### Per-subject variation and class summaries
 
 `benchmarks/per_subject_analysis.py` derives 3342 subject/condition summaries from

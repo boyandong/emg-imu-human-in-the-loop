@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "rows": 336,
+  "source_state_sha256": "ca2e12ed7180432e895677506c1e2660567561c19859ddc58541c1c546178b45",
+  "original_info_sha256": "305d2ce587a8212c5900190e4048bb416e34272349d38c31f2590e4b7f05ec8a",
+  "classifier_or_family_fit": false,
+  "scope": "offline class-matched active-force sensitivity/separation; target labels used for descriptive diagnosis only, never transforms or models",
+  "D_nuisance": "mean Euclidean same-active-class centroid distance across target force-condition pairs",
+  "D_gesture": "mean pairwise active-class centroid separation averaged over force conditions",
+  "limitations": "source-standardized native feature coordinates; J is not mutual information; source trained7way classification remains unchanged"
+}
