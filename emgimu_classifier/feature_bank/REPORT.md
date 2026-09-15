@@ -81,8 +81,9 @@ files as trusted local artifacts only. Raw archives remain outside Git.
 Historical DS2 is blocked: no exact historical artifacts were found and the original Kaggle
 release returned 404. NinaPro requires access; secondary datasets remain explicitly deferred.
 EMG-FMG and UniBo now each have six-trial QC and six raw/envelope/PSD plots.
-F8 session signature, DTW templates and personal normalization are implemented and unit-tested
-but their full comparative experiments are not complete. Required prediction/state persistence
+F8 session signature now has a bounded MANUS reliability-fusion comparison, while full-bank
+session-context integration remains incomplete. DTW templates and personal normalization are
+implemented and unit-tested but their comparative experiments are not complete. Required prediction/state persistence
 is currently strongest for audited force screening; other runners need the same coverage.
 Per-family calibration gain, diagnostics across all failures, complete shortlist/full-bank
 ablation across datasets, and an integrated robustness vector remain to be completed.
@@ -102,3 +103,18 @@ Final mean per-user F1 for uniform/personal fusion is 0.4690/0.4711 at two trial
 while lowering F1. This is a limited specialist-fusion experiment, not the full-bank solution.
 Uniform scores change with calibration budget because the same calibration trials are removed
 from both methods; those changes alone must not be interpreted as calibration gains.
+
+## Session context follow-up
+
+MANUS session signatures are computed per family from each user's session-1 class profile and
+explicit session-2/session-3 calibration trials. Cosine agreement modifies personal reliability
+weights; no evaluation labels, evaluation variance or unlabelled evaluation stream updates enter
+the signature. All calibration/evaluation trial intersections are asserted empty. Validation
+one-shot F1 is 0.3622 for uniform fusion, 0.3474 for personal weights, and 0.3593 with session
+context. Two-shot methods are equal at 0.3537. These results do not justify enabling this rule
+by default. Full result cells, vectors and split IDs are preserved with the result manifests.
+Final one-shot F1 is 0.4518/0.4212/0.4527 for uniform/personal/context fusion; two-shot
+methods are equal at 0.3444. Context recovers the personal weighting loss but barely exceeds
+uniform fusion, reinforcing the limited value of this particular rule. Future runner outputs
+also include source trial IDs and aligned target labels in their prediction artifacts;
+the existing runs preserve evaluation IDs and probability arrays separately.
