@@ -5,7 +5,7 @@
 | Force | DS2 subjective three-level effort | LibEMG Contraction Intensity | EMG-FMG external load; future Hyser force subset | External load, subjective effort and measured force are separate constructs |
 | Wearing and electrode shift | none located | LibEMG Electrode Shift | Three-position replacement; FORS-EMG placement regions; own controlled re-donning | Cross-day drift cannot by itself identify electrode displacement |
 | Cross-user | none | EMG-EPN612 | GRABMyo; NinaPro DB5 | User-independent accuracy does not prove session robustness |
-| Cross-day and session | UniBo-INAIL | UniBo-INAIL and NinaPro DB6 | GRABMyo and GREAT | UniBo posture labels are oracle context and contain no IMU |
+| Cross-day and session | UniBo-INAIL | UniBo-INAIL | NinaPro DB6 (deferred); GRABMyo and GREAT | UniBo posture labels are oracle context and contain no IMU; deferred datasets have no available benchmark measurements |
 | Posture and limb position | UniBo-INAIL | UniBo-INAIL | GREAT; EMG-FMG interaction | Orientation labels are not interchangeable with direction of motion |
 | Execution speed | none | sEMG-MANUS | none selected | Speed is separate from force and signal duration must use actual rows |
 | Quality | clean source data | synthetic corruption on every supported benchmark | real acquisition quality flags where available | Synthetic dropout, clipping and noise are labelled simulations |

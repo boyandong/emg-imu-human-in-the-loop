@@ -49,5 +49,14 @@
     "dimension": 15,
     "native_evaluation": "N/A",
     "boundary": "Explicit neutral and guided forward-axis calibration, separate real IMU rate, source-fixed causal gravity filter and held-out trial exclusion; synthetic oracles only, native calibration records missing"
+  },
+  "discovery_delivery_review": {
+    "evidence": "benchmarks/discovery/DISCOVERY_DELIVERY_AUDIT.json",
+    "archive_bytes": 15935850342,
+    "scorecards": 14,
+    "reports_rehashed": 6,
+    "plots_rehashed": 36,
+    "selection_checks": "original three native subjects/two prespecified conditions per dataset reproduced",
+    "boundary": "retrospective scores not original timing proof; exact old DS2 and secondary source provenance remain incomplete"
   }
 }

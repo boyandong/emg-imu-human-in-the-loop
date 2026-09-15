@@ -1,0 +1,148 @@
+{
+  "status": "checked_evidence_partial",
+  "completion_proven": false,
+  "required_artifacts": {
+    "DATASET_INVENTORY.md": "b60d4a53283a2a4960dc2c04bbd53a841437a85b2d469186197f49651b7fdd9e",
+    "DATASET_CANDIDATES.csv": "19de0754051397d9829f342a494b94dabd1340944590bc9cfa9388ad690da439",
+    "FAILURE_BENCHMARK_MATRIX.md": "4eb02fad7461536943013646d97e1f8b952e0f58a13232a2b0cc65d7dddfc1c5",
+    "BENCHMARK_SELECTION_REPORT.md": "d34912ea582cfb72e4cb25cf91f28ef2b3533a3e78fe8c8984e17150aadbefb1",
+    "GESTURE_ONTOLOGY.md": "d159c04e1f41f65db97bd82e8fa0bac3279087a3240042db1877cccd1d2a93ee",
+    "SENSOR_LAYOUTS.md": "1597650c761f7e324b8088ec1ce9774c2df5eb1cfcbe35b81572f61ef723de39",
+    "DATASET_MANIFEST.json": "6e4f2929f337a1ba852de6ef1deeae9a2c320b72652952f433d42e0e5dd5cbbc"
+  },
+  "candidate_rows": 14,
+  "score_vectors_checked": 14,
+  "archives": [
+    {
+      "id": "libemg_force",
+      "current_file_size": 207707607,
+      "recorded_sha256": "237212D87F50C9B621E572BC780D99FAC3A9AF60B99EC8B455FB3D3DBB2D15E7",
+      "fresh_archive_digest_computed": false
+    },
+    {
+      "id": "libemg_electrode_shift",
+      "current_file_size": 11563732,
+      "recorded_sha256": "4CFA9A4861193F230179FA87D53EDA7503E66B5CFEDEAE81C81E476F53F6B2B6",
+      "fresh_archive_digest_computed": false
+    },
+    {
+      "id": "unibo_inail",
+      "current_file_size": 513385791,
+      "recorded_sha256": "E32F1649B7B9B775A6B03328FB862EBF21A18C7CA6B4D9ABB50B7281CAEFBCE3",
+      "fresh_archive_digest_computed": false
+    },
+    {
+      "id": "epn612",
+      "current_file_size": 5483385161,
+      "recorded_sha256": "4EE8DB037385E7BEE1E6AC6F9E9EEA4F0869E25F7825F5EB7E5BE0DFF4F93C21",
+      "fresh_archive_digest_computed": false
+    },
+    {
+      "id": "semg_manus",
+      "current_file_size": 594438686,
+      "recorded_sha256": "2D9E1DF613485B9A4AFE9A5A71010CA84E75A521B596F836A195B5EAF3DC1F29",
+      "fresh_archive_digest_computed": false
+    },
+    {
+      "id": "emg_fmg",
+      "current_file_size": 9125369365,
+      "recorded_sha256": "3021E8B5FF31FD5AABA5E11F5F1C4D370D07407C0F1451F36C64A3A03B42C677",
+      "fresh_archive_digest_computed": false
+    }
+  ],
+  "archive_bytes": 15935850342,
+  "archive_GB_decimal": 15.935850342,
+  "archive_GiB_binary": 14.841417169198394,
+  "source_sanity_reports_rehashed": 6,
+  "captioned_plot_files_rehashed": 36,
+  "sampled_native_recordings": 36,
+  "random_subject_condition_checks": [
+    {
+      "dataset": "libemg_force",
+      "subjects": [
+        5,
+        7,
+        10
+      ],
+      "conditions": [
+        "20P",
+        "80P"
+      ],
+      "scope": "same native population/seed as original sanity producer; not a full-cohort draw"
+    },
+    {
+      "dataset": "epn612",
+      "subjects": [
+        169,
+        227,
+        281
+      ],
+      "conditions": [
+        "fist",
+        "open"
+      ],
+      "scope": "same native population/seed as original sanity producer; not a full-cohort draw"
+    },
+    {
+      "dataset": "semg_manus",
+      "subjects": [
+        10,
+        13,
+        16
+      ],
+      "conditions": [
+        "fast",
+        "slow"
+      ],
+      "scope": "same native population/seed as original sanity producer; not a full-cohort draw"
+    },
+    {
+      "dataset": "electrode_shift",
+      "subjects": [
+        10,
+        14,
+        19
+      ],
+      "conditions": [
+        "training",
+        "trial_1"
+      ],
+      "scope": "same native population/seed as original sanity producer; not a full-cohort draw"
+    },
+    {
+      "dataset": "unibo_inail",
+      "subjects": [
+        3,
+        5,
+        7
+      ],
+      "conditions": [
+        "1",
+        "2"
+      ],
+      "scope": "same native population/seed as original sanity producer; not a full-cohort draw"
+    },
+    {
+      "dataset": "emg_fmg",
+      "subjects": [
+        14,
+        20,
+        25
+      ],
+      "conditions": [
+        "0",
+        "1000"
+      ],
+      "scope": "same native population/seed as original sanity producer; not a full-cohort draw"
+    }
+  ],
+  "limitations": [
+    "fresh multi-GB archive digests not recomputed; recorded digests and current sizes only",
+    "hash/caption verification does not establish visual or full-population signal quality",
+    "reported durations agree with native rates; no independent hardware clock check",
+    "historical DS2 identity/raw/old results remain missing; no substitute",
+    "retrospective scorecards do not prove original scoring/phase ordering",
+    "secondary candidate paper/licensing/layout verification remains incomplete",
+    "current total disk usage not scanned; DISK_USAGE.json remains explicitly dated historical snapshot"
+  ]
+}

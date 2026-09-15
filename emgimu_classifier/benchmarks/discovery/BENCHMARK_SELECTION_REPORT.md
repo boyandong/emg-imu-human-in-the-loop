@@ -53,7 +53,7 @@ Processing, label mapping, resampling and windowing are written to `data/process
 
 ## Acquisition evidence, 2026-09-15
 
-Six Tier-1 archives are complete (approximately 16.06 GB combined). Exact sizes and
+Six Tier-1 archives are complete (15,935,850,342 bytes; approximately 15.94 decimal GB combined). Exact sizes and
 SHA-256 hashes are in DATASET_MANIFEST.json; official MD5 checks match for the Zenodo releases.
 Large EMG-FMG raw CSV expansion would require approximately 52.35 GB, so the adapter streams
 the archive. MANUS also streams its archive; UniBo and LibEMG force have immutable extracted
@@ -81,3 +81,32 @@ clipping. These heuristics are retained for inspection rather than silently labe
 Acquisition rate comes from verified dataset metadata, not a new hardware clock test.
 UniBo source files contain many labelled intervals; its five-second plot is not an isolated
 gesture trial. This is sample-level QC, not a full-population quality or accuracy guarantee.
+
+## Discovery delivery review, 2026-09-16
+
+Fourteen candidate rows now have transparent A–H scorecards and unweighted reviewed
+totals, with rationale and uncertainty in DATASET_CANDIDATES.csv/SCORE_REVIEW.md.
+They are retrospective metadata judgements. Original total scores, decisions, reasons
+and frozen experiments remain unchanged; the review does not prove scoring preceded
+training. Native repetition limitations lower wearing/MANUS calibration scores;
+metadata-only secondary datasets are not assigned sampled-QC evidence.
+
+DISCOVERY_DELIVERY_AUDIT.json rechecks all seven required files, candidate fields,
+eight-point score vectors, current six-archive sizes, six source sanity-report hashes
+and36 captioned plot hashes. Exact complete-archive total is15,935,850,342 bytes,
+The original seed/population draw also reproduces three distinct subjects and two
+specified conditions for every dataset, including the restricted complete MANUS
+cohort used by the native sanity producer. This verifies sample selection evidence,
+not a fresh reread of the entire raw population.
+not total raw/extracted/processed disk usage. Multi-GB raw digests are the recorded
+acquisition digests, not freshly recomputed. DISK_USAGE.json retains its dated
+2026-09-15 snapshot and must not be presented as current total disk usage.
+
+The candidate DS2 publication explicitly lists CC-BY4.0, now corrected in the
+candidate license field. Its protocol match does not establish the identity of old
+DS2 experiments. A fresh primary-source search found the same publisher/Kaggle
+reference, but direct publisher fetch was rate-limited and the browser did not open
+the dataset URL. This does not establish a new HTTP404 or recover the archive.
+The prior404 evidence and missing old artifacts remain separate facts.
+Secondary paper/license/layout provenance and exact historical baseline recovery
+remain incomplete. File/hash/field checks do not prove full Phase-1 acceptance.

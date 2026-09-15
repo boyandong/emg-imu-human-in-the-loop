@@ -6,7 +6,7 @@ data and manifests use sibling directories. Raw archives and extracted data are 
 
 | Dataset | Status | Existing adapter | Existing results | Expected local path | Download status |
 |---|---|---|---|---|---|
-| Historical DS2 force | historical | no | referenced by the supplied research brief, absent from this repository and Git history | `data/raw/ds2_force` | source identified; Kaggle access pending |
+| Historical DS2 force | historical | no | referenced by the supplied research brief, absent from this repository and Git history | `data/raw/ds2_force` | likely publication identified; exact old archive identity/raw remains missing; original access previously failed |
 | LibEMG Contraction Intensity | new | native CSV adapter | Feature Bank, calibration, ablation | `data/raw/libemg_force` | verified complete |
 | LibEMG Electrode Shift | new | native ZIP adapter | held-out before/after | `data/raw/libemg_electrode_shift` | verified complete |
 | UniBo-INAIL | historical | yes | prior 33-run ablation; Feature Bank chronological | `data/raw/unibo_inail` | verified complete |

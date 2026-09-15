@@ -16,6 +16,15 @@ unverified until contextual requirements and authoritative evidence are inspecte
 formulas, examples and separators are included and are not independent requirements.
 `DOCUMENT_SCOPE_AUDIT.json` proves index coverage only, not scientific completion.
 
+Discovery delivery review now supplies14 retrospective A–H scorecards while
+preserving original selection totals/decisions and frozen experiments. Fresh
+small-file evidence verifies six source sanity reports and36 captioned plot hashes.
+Complete archive size is15,935,850,342 bytes (15.94 decimal GB), distinct from
+raw expansion and the dated old disk snapshot. Historical DS2 publication match
+does not establish archive identity; secondary source provenance remains incomplete.
+`benchmarks/discovery/DISCOVERY_DELIVERY_AUDIT.json` records these boundaries;
+it does not prove complete prerequisite acceptance or original phase ordering.
+
 `FORMULA_IMPLEMENTATION_AUDIT.md` and CSV now record 30 reviewed formula/API
 boundaries in the precise-definition appendix, each with exact heading line,
 source AST symbol span and SHA-256. Eighteen runtime classes have measured named
