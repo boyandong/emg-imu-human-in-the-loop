@@ -2,7 +2,7 @@
   "status": "schema_complete_evidence_partial",
   "artifacts": {
     "feature_family_results.csv": {
-      "rows": 3659,
+      "rows": 3691,
       "required_fields": [
         "dataset",
         "subject",
@@ -40,8 +40,8 @@
           "session/domain": 6
         }
       },
-      "source_csv_sha256": "30f4da53ac0dff39a1cab49ab607d4e6e4f1e40c67ee1b8d3f7ef450c7ea0d60",
-      "canonical_csv_sha256": "155d6bf18b051c06cb5e899c746d18280e074ec5580906b29ed541a09a07abce"
+      "source_csv_sha256": "0b3485b52318aead24b06477357b0ba54759d81c8e9ee61e0f4f657354436d1e",
+      "canonical_csv_sha256": "56696a3563757c2e0371abef5f4157481588920da90e643bf881687b26ca1058"
     },
     "conditional_incremental.csv": {
       "rows": 5397,
@@ -78,7 +78,7 @@
       "canonical_csv_sha256": "e338d38b5b1aea4bdb88e90a0f655706474ae2b699ad86b2246cb31876a62f4b"
     },
     "error_complementarity.csv": {
-      "rows": 4479,
+      "rows": 4495,
       "required_fields": [
         "dataset",
         "subject",
@@ -125,8 +125,8 @@
           "session/domain": 60
         }
       },
-      "source_csv_sha256": "499f5336061112bc0ed3d567fb2410a4190d0f4c74bbf80ffa29cdf79c7d7f1b",
-      "canonical_csv_sha256": "50d97b0deb4644fb6f1a87532e96d051974944581fef0b720608946063603906"
+      "source_csv_sha256": "23a4e83ac4e7ac6606ec0c03e2059867c38edef7f2594f334b9dcf83f51c203d",
+      "canonical_csv_sha256": "edf0bf45da3bf84f4a1f94a200ab421a4639aef81a8aa86ceed6b47c143adda2"
     },
     "calibration_curve.csv": {
       "rows": 18942,

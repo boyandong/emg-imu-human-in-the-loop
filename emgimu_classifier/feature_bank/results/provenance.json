@@ -1,5 +1,11 @@
 [
   {
+    "run_id": "feature_bank_unibo_sequence_temporal_validation_20260916",
+    "artifact": "feature_family_results.csv",
+    "sha256": "1f793c071d8ca744140f2d478bf47b0077ae5523ea6a1235a5ef584793032c95",
+    "bytes": 10415
+  },
+  {
     "run_id": "feature_bank_force_core_probability_source_20260916",
     "artifact": "feature_family_results.csv",
     "sha256": "a417caa99fb481543ac3804a5dad5cf7a8515fdc611bf5df1558aca5dae3d28e",
@@ -286,6 +292,12 @@
     "artifact": "interaction_results.csv",
     "sha256": "1874c20bb5fd043d97e31d56a1627174007c7b7484911de62c99de2a08703bb0",
     "bytes": 5617
+  },
+  {
+    "run_id": "feature_bank_unibo_sequence_temporal_validation_20260916",
+    "artifact": "error_complementarity.csv",
+    "sha256": "cc36724f81ef16069afdf24a5eb03b746da7b6e18feb4149cd8983397ef2ba5a",
+    "bytes": 4338
   },
   {
     "run_id": "feature_bank_force_core_temperature_validation_20260916",

@@ -88,9 +88,9 @@ The current temporal comparison shares most errors (G5/reference-F5 model correl
 
 Six new benchmark archives are complete. Five canonical CSVs, schema/provenance audits,
 source run manifests, trial lists, dimensions, per-user/per-class diagnostics, calibration
-burden estimates and SVG curves are available. The latest suite ran 147 tests with one
-skip; consolidated integrity covers 176 artifacts, 48,563 rows and 789 explicit
-partitions, while canonical record verification covers 47,080 rows. These are narrow
+burden estimates and SVG curves are available. The latest suite ran 151 tests with one
+skip; consolidated integrity covers 178 artifacts, 48,611 rows and 796 explicit
+partitions, while canonical record verification covers 47,128 rows. These are narrow
 integrity/implementation checks, not proof that every scientific requirement is complete.
 
 The highest-priority remaining work is the exact historical dataset/algorithm audit,
@@ -1858,3 +1858,40 @@ All 36 earlier cost rows preserve their recorded values. The full-system vector 
 unchanged: supplemental final gains do not replace frozen full-bank algorithms.
 Historical data/formulas, remaining named comparisons and exhaustive scientific
 requirement audit still remain incomplete; no new GitHub push is performed.
+
+
+## Matched personal-source G5 versus complete-bout DTW (2026-09-16)
+
+Run `feature_bank_unibo_sequence_temporal_validation_20260916` compares standalone
+validated G5 and DTW using identical own-user historical source Days 1-5. Inner
+models fit Days 1-4; Day 5 calibrates temperature; final source models fit Days 1-5;
+only Day 6 is evaluated. No Day 7/8 data is opened or parameter tuned on Day 6.
+
+DTW uses complete contiguous canonical hand-labelled bouts of at least one second,
+32 RMS bins covering every sample, per-timepoint L2 normalization, Euclidean local
+cost, 0.1 Sakoe-Chiba band and path-length normalization. Each class medoid uses
+at most five deterministic source-only candidate bouts; this is explicitly a
+subset medoid. G5 uses the unchanged validated implementation on all complete
+contiguous 200-ms windows within the same bouts, then averages window features.
+Both predictors have the same personal historical source information. Cal0 means
+no new target-day calibration; it does not mean no historical personal data.
+
+On seven users and 1,700 Day-6 bouts, hierarchically weighted macro-F1 is 0.771275
+for G5 and 0.373172 for DTW; log loss is 0.401166 versus 1.240488. Error correlation
+is 0.116144 and prediction disagreement 0.552544. G5-correct/DTW-wrong mass is
+0.488650; G5-wrong/DTW-correct mass is 0.039851. Low error correlation therefore
+coexists with a weak standalone predictor and asymmetric potential corrections;
+this evidence alone neither selects DTW nor proves its conditional uselessness.
+A matched G5-plus-DTW classifier increment has not yet been tested in this run.
+
+Oracle ground-truth bout boundaries and phase-normalized complete trajectories
+are offline information. Scores are not directly comparable to earlier short-window
+F1, do not measure unsegmented streaming recognition, and do not prove recovery on
+the current eight-channel device. The run exports 32 scores and 16 named-pair rows.
+Native data were reloaded and all 14 target arrays, 14 inner-source arrays and 14
+source temperatures reproduced from saved states without classifier retraining.
+Four regression tests enforce bout separation, rejection of short-window DTW,
+whole-bout sample coverage and hierarchical user/label weights. The full suite ran
+151 tests with one skip; compile checks passed. Current integrity checks cover
+178 artifacts, 48,611 rows and 796 explicit partitions; canonical checks cover
+47,128 records. Completion remains unproven and new work remains local only.
