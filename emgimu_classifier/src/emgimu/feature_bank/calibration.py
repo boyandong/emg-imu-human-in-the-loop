@@ -57,8 +57,10 @@ class PersonalAnchor:
 
     def fit(self, features: np.ndarray, labels: np.ndarray) -> "PersonalAnchor":
         x, y = np.asarray(features, dtype=np.float64), np.asarray(labels)
-        if x.ndim != 2 or len(x) != len(y):
-            raise ValueError("features and labels must be aligned matrices")
+        if x.ndim != 2 or y.ndim != 1 or len(x) != len(y) or not x.shape[1] or not np.all(np.isfinite(x)):
+            raise ValueError("features and labels must be finite aligned matrices")
+        if np.issubdtype(y.dtype, np.number) and not np.all(np.isfinite(y)):
+            raise ValueError("anchor labels must be finite")
         classes = np.unique(y)
         if len(classes) < 2:
             raise ValueError("anchors require at least two gesture classes")
@@ -74,7 +76,7 @@ class PersonalAnchor:
         if self.prototypes_ is None:
             raise RuntimeError("anchor must be fit from calibration first")
         x = np.asarray(features, dtype=np.float64)
-        if x.ndim != 2 or x.shape[1] != self.prototypes_.shape[1]:
+        if x.ndim != 2 or x.shape[1] != self.prototypes_.shape[1] or not np.all(np.isfinite(x)):
             raise ValueError("anchor feature dimension mismatch")
         if self.metric == "cosine":
             dot = x @ self.prototypes_.T
@@ -189,6 +191,10 @@ class SessionSignature:
 
     def fit_long_term(self, features: np.ndarray, labels: np.ndarray) -> "SessionSignature":
         x, y = np.asarray(features, dtype=np.float64), np.asarray(labels)
+        if x.ndim != 2 or y.ndim != 1 or not len(x) or not x.shape[1] or len(x) != len(y) or not np.all(np.isfinite(x)):
+            raise ValueError("long-term profile requires finite aligned features and labels")
+        if np.issubdtype(y.dtype, np.number) and not np.all(np.isfinite(y)):
+            raise ValueError("profile labels must be finite")
         self.classes_ = np.unique(y)
         self.long_term_ = np.stack([x[y == label].mean(axis=0) for label in self.classes_])
         return self
@@ -197,8 +203,10 @@ class SessionSignature:
         if self.long_term_ is None:
             raise RuntimeError("long-term profile must be fit first")
         x, y = np.asarray(features, dtype=np.float64), np.asarray(labels)
-        if any(not np.any(y == label) for label in self.classes_):
-            raise ValueError("session calibration must cover every long-term class")
+        if x.ndim != 2 or y.ndim != 1 or len(x) != len(y) or x.shape[1] != self.long_term_.shape[1] or not np.all(np.isfinite(x)):
+            raise ValueError("session calibration requires finite aligned profile coordinates")
+        if set(y) != set(self.classes_):
+            raise ValueError("session calibration must cover every long-term class and no additional classes")
         local = np.stack([x[y == label].mean(axis=0) for label in self.classes_])
         residual = local - self.long_term_
         norms = np.linalg.norm(residual, axis=1)

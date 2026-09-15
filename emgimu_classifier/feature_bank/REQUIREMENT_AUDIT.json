@@ -74,7 +74,7 @@
     "repetition_boundaries": null,
     "not_historical_DS2": true
   },
-  "test_count": 173,
+  "test_count": 177,
   "wearing_configuration_boundary": "New executions explicitly persist preprocessing/model/seed fields and reject invalid phases before loading final users. Existing saved experiments remain historical manifests; no retraining or retroactive configuration claim.",
   "reproducibility_metadata_inventory": {
     "artifact": "feature_bank/REPRODUCIBILITY_METADATA_AUDIT.json",
@@ -90,5 +90,12 @@
     "configuration_records": 432,
     "source_states_immutable": true,
     "boundary": "Read actual saved model/scaler/family values only; no refit, no reconstructed historical environment, no modified manifests."
+  },
+  "personal_profile_input_guards": {
+    "artifact": "tests/test_profile_invalid_data.py",
+    "invalid_query_rejected": true,
+    "invalid_fit_preserves_profile": true,
+    "session_class_set_exact": true,
+    "boundary": "Input validity checks do not prove correct trial selection or native calibration performance. Existing finite-input formulas unchanged."
   }
 }
