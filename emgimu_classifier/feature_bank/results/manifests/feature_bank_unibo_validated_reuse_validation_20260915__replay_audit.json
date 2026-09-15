@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_unibo_validated_reuse_validation_20260915",
+  "models_checked": 6,
+  "windows_checked": 24338,
+  "max_absolute_probability_error": 0.0,
+  "fit_performed": false,
+  "target_days": [
+    6
+  ]
+}

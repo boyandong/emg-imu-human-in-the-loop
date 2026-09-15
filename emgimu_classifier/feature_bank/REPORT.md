@@ -848,3 +848,35 @@ controls do not constitute a labelled real-hardware noise benchmark. Current res
 integrity checks 106 sources, 17611 rows and 467 explicit trial partitions. Full tests
 run 109 cases, passing with one skip. Nonzero-budget joint F9 controls, remaining
 research evidence and historical DS2 are still open.
+
+### Validated UniBo implementation reuse audit
+
+The authoritative documents prioritize existing validated implementations. A new
+adapter calls the existing `PhysiologyFeatureTransformer` G0 and G5 directly, preserving
+their feature names, weighted source fitting and numerical outputs. Both remain native
+four-channel implementations at the established processed 200 Hz; neither implies
+validation on the current eight-channel hardware. Two compatibility tests compare
+both groups exactly with the original implementation and reject eight-channel input.
+
+The reference F0 and F5 are distinct implementations. In particular, original G5 has
+20 dimensions and uses early-minus-late RMS and raw-waveform slope; reference F5 has
+29 dimensions, late-minus-early RMS, envelope slope and additional temporal summaries.
+Equal dimensions for G0 and F0 do not establish formula equivalence. Historical DS2
+X1H/RLCS/CES/Frequency source equivalence remains unverified without its original files.
+
+`feature_bank_unibo_validated_reuse_validation_20260915` fits only days 1–5 and evaluates
+day 6, without opening days 7–8. All six predictors replay exactly on 24338 windows,
+with unchanged fitted state and no fitting during replay.
+
+| Source implementation | Dimensions | Day-6 macro-F1 | Log loss |
+|---|---:|---:|---:|
+| Reference F0 | 24 | 0.6554 | 0.5032 |
+| Validated G0 | 24 | 0.6323 | 0.5054 |
+| Reference F0 + reference F5 | 53 | 0.6733 | 0.4904 |
+| Reference F0 + validated G5 | 44 | 0.6599 | 0.5020 |
+| Validated G0 + validated G5 | 44 | 0.6374 | 0.5050 |
+| Validated G0 + reference F5 | 53 | 0.6504 | 0.4964 |
+
+These 72 validation rows document reuse and its measured differences; they do not
+replace historical results or establish final-day improvement. The full test suite
+now passes 111 tests with one skip. The complete document-level objective remains open.

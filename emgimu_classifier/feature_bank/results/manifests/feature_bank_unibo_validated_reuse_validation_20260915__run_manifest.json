@@ -1,0 +1,47 @@
+{
+  "target_days": [
+    6
+  ],
+  "train_days": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "dimensions": {
+    "F0_reference": 24,
+    "F0_validated_G0": 24,
+    "F5_reference": 29,
+    "F5_validated_G5": 20
+  },
+  "specs": {
+    "reference_F0": [
+      "F0_reference"
+    ],
+    "validated_G0": [
+      "F0_validated_G0"
+    ],
+    "reference_F0_plus_reference_F5": [
+      "F0_reference",
+      "F5_reference"
+    ],
+    "reference_F0_plus_validated_G5": [
+      "F0_reference",
+      "F5_validated_G5"
+    ],
+    "validated_G0_plus_validated_G5": [
+      "F0_validated_G0",
+      "F5_validated_G5"
+    ],
+    "validated_G0_plus_reference_F5": [
+      "F0_validated_G0",
+      "F5_reference"
+    ]
+  },
+  "legacy_source": "emgimu.datasets.unibo_physiology.PhysiologyFeatureTransformer",
+  "native_channels": 4,
+  "sample_rate_hz": 200,
+  "final_days_opened": false,
+  "scope": "validated native UniBo reuse; historical DS2 formula equivalence remains unavailable"
+}

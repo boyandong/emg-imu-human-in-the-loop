@@ -1,5 +1,11 @@
 [
   {
+    "run_id": "feature_bank_unibo_validated_reuse_validation_20260915",
+    "artifact": "feature_family_results.csv",
+    "sha256": "7a69fedd954aeadd2a0007329f5dd140b7e29feb4d647436e55aa5b71f7b1c94",
+    "bytes": 21904
+  },
+  {
     "run_id": "feature_bank_manus_nested_oof_20260915",
     "artifact": "feature_family_results.csv",
     "sha256": "ac5d87a9b0be2066206fbef52e4e456964d3c0c17958e23d0ac03696ed251439",
