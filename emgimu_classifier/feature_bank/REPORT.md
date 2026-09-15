@@ -512,3 +512,38 @@ Inner calibration fitting is evidenced by executable run code and explicit inner
 partitions; inner fitted states/probabilities are not retained in this run. Current result
 integrity checks 72 source artifacts, 7534 rows and 273 explicit partitions. Full tests
 run 105 cases, passing with one skip.
+
+## Source-only probability calibration applied to target force
+
+`feature_bank_force_probability_{validation,final}_20260915` reuses the exact source-fit
+providers from the earlier full-force validation run. No family, scaler or classifier is
+refit. Each provider's temperature is fit once to its raw source-user OOF predictions
+(subjects 1–6, Ramp only). Source trial identifiers and labels are checked against the
+raw adapter output; source OOF SHA-256, fitted temperatures and all fitting identifiers
+are retained in `probability_calibration.json`. Both target phases use byte-equivalent
+calibration metadata. Target-user Ramp trials still supply only the permitted personal
+anchors/reliability; target-force trials remain evaluation-only.
+
+| Final mean per-user macro-F1 | 0/class | 1/class | 2/class |
+|---|---:|---:|---:|
+| Source-calibrated F0 | 0.4929 | 0.4929 | 0.4929 |
+| Source-calibrated uniform bank | 0.4516 | 0.4516 | 0.4516 |
+| Source-calibrated full personal bank | 0.4516 | 0.4802 | 0.5563 |
+| Earlier uncalibrated full bank | 0.4665 | 0.4688 | 0.5051 |
+
+Calibrated full-bank validation F1 is 0.5994/0.6277/0.6793. Final two-shot F1 gains
+0.0512 over the earlier full-bank result, but zero-shot F1 declines 0.0149. Calibrated
+F0 final log loss improves 2.1005→1.2853 without changing its classification. Full-bank
+final log loss is 1.4021/1.4264/1.4250: better at zero shot than the earlier 1.4691,
+but worse at two shots than the earlier 1.3238. Thus calibrated classification benefits
+and probability-quality benefits do not move uniformly together. Some source-fitted
+temperatures approach the prespecified upper bound 4; the bound is retained rather
+than retuned after seeing target results.
+
+These are prespecified supplemental comparisons on previously opened final subjects,
+not a newly untouched final test. Both phases replay all 66 saved probability arrays
+with zero error; reused source state remains unchanged. All provider removals and
+unsupported five-shot rows are retained. Current table integrity covers 76 source
+artifacts, 7942 rows and 285 explicit partitions. The 105-test suite passes with one skip.
+Other native benchmarks still require comparable grouped OOF probability calibration;
+the original DS2 release and universal-system completion remain unresolved.

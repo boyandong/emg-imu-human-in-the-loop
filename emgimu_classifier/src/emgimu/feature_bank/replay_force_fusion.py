@@ -14,6 +14,8 @@ def replay(root: Path, run_root: Path) -> dict:
     before = pickle.dumps((states, anchors))
     manifest = json.loads((run_root/'run_manifest.json').read_text())
     splits = json.loads((run_root/'split_trial_ids.json').read_text())
+    probability_calibration=run_root/'probability_calibration.json'
+    temperatures=json.loads(probability_calibration.read_text())['temperatures'] if probability_calibration.exists() else {}
     users = sorted({s['user'] for s in splits})
     calibration = load_libemg_force_windows(root, subjects=users, conditions=('Ramp',))
     target = load_libemg_force_windows(root, subjects=users, conditions=manifest['evaluation_force'])
@@ -25,6 +27,9 @@ def replay(root: Path, run_root: Path) -> dict:
         cal_features[name] = scaler.transform(c)
         features[name] = scaler.transform(b)
         raw[name] = model.predict_proba(features[name])
+        if temperatures:
+            from .force_nested_oof import temperature_probability
+            raw[name]=temperature_probability(raw[name],temperatures[name])
     population = np.ones(len(IDS))/len(IDS)
     reliability = ReliabilityWeights(tuple(range(7)), IDS, population, n0=manifest['n0'])
     checked = set(); error = 0.
@@ -66,7 +71,7 @@ def replay(root: Path, run_root: Path) -> dict:
         raise AssertionError('replay mutated fitted states')
     result = {'status':'ok', 'run_id':run_root.name, 'prediction_arrays_checked':len(checked),
         'max_absolute_probability_error':error, 'classifier_or_family_fit':False,
-        'temperature_verified_calibration_only':True}
+        'temperature_verified_calibration_only':True,'source_oof_probability_calibration':bool(temperatures)}
     (run_root/'replay_audit.json').write_text(json.dumps(result, indent=2))
     return result
 

@@ -4,6 +4,7 @@ import argparse
 import csv
 import json
 import pickle
+import hashlib
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
@@ -23,23 +24,45 @@ def aggregate(x,data):
     return np.stack(rows),np.asarray(labels),np.asarray(users),trials
 
 
-def run(root:Path,output:Path,phase:str)->None:
+def run(root:Path,output:Path,phase:str,source_run:Path|None=None,probability_oof:Path|None=None)->None:
     if output.exists():raise FileExistsError(output)
     users=(7,8) if phase=='validation' else (9,10)
     train=load_libemg_force_windows(root,subjects=range(1,7),conditions=('Ramp',))
     calibration=load_libemg_force_windows(root,subjects=users,conditions=('Ramp',))
     target=load_libemg_force_windows(root,subjects=users,conditions=CONDITIONS)
-    print('[1/3] fitting independent providers on source-force trials',flush=True)
+    print('[1/3] loading source-force providers' if source_run else '[1/3] fitting source-force providers',flush=True)
+    previous=None;previous_before=None
+    if source_run:
+        previous,_=pickle.loads((source_run/'fitted_states.pkl').read_bytes())
+        previous_before=pickle.dumps(previous)
+        source_manifest=json.loads((source_run/'run_manifest.json').read_text())
+        if set(source_manifest['source_trials'])!=set(train.trials):raise AssertionError('different source trial set')
+    temperatures={};probability_audit=None
+    if probability_oof:
+        from .force_nested_oof import fit_temperature, temperature_probability
+        with np.load(probability_oof/'oof_predictions.npz',allow_pickle=False) as oof:
+            if set(oof['trials'])!=set(train.trials) or set(oof['users'])!=set(range(1,7)):
+                raise AssertionError('probability fitting requires source-only OOF trials')
+            for trial,label in zip(oof['trials'],oof['labels']):
+                if np.unique(train.labels[train.trials==trial]).item()!=label:raise AssertionError('OOF label mismatch')
+            temperatures={n:fit_temperature(oof[f'raw_{n}'],oof['labels']) for n in IDS}
+        probability_audit={'source_run':probability_oof.name,'source_oof_sha256':hashlib.sha256((probability_oof/'oof_predictions.npz').read_bytes()).hexdigest(),
+            'fit_users':list(range(1,7)),'fit_trials':sorted(set(train.trials)),'temperatures':temperatures,
+            'fit_scope':'raw source-subject OOF probabilities only; no target-user probabilities or labels'}
     cal_features={};target_prob={};target_features={};states={}
     for name in IDS:
-        family=FAMILY_FACTORIES[name]()
-        a,ay,_,source_trials=aggregate(family.fit_transform(train.batch,train.labels),train)
+        family=previous[name][0] if previous else FAMILY_FACTORIES[name]()
+        a,ay,_,source_trials=aggregate(family.transform(train.batch) if previous else family.fit_transform(train.batch,train.labels),train)
         c,cy,cu,cal_trials=aggregate(family.transform(calibration.batch),calibration)
         b,y,u,trials=aggregate(family.transform(target.batch),target)
-        scaler=StandardScaler().fit(a)
-        model=LogisticRegression(C=1,class_weight='balanced',max_iter=2000,random_state=SEED).fit(scaler.transform(a),ay)
+        if previous:_,scaler,model=previous[name]
+        else:
+            scaler=StandardScaler().fit(a)
+            model=LogisticRegression(C=1,class_weight='balanced',max_iter=2000,random_state=SEED).fit(scaler.transform(a),ay)
         cal_features[name]=scaler.transform(c);target_features[name]=scaler.transform(b)
         target_prob[name]=model.predict_proba(target_features[name]);states[name]=(family,scaler,model)
+        if probability_oof:target_prob[name]=temperature_probability(target_prob[name],temperatures[name])
+    if previous and pickle.dumps(previous)!=previous_before:raise AssertionError('reused fitted state changed')
     population=np.ones(len(IDS))/len(IDS)
     reliability=ReliabilityWeights(tuple(range(7)),IDS,population,n0=8)
     rows=[];splits=[];anchors={};saved={}
@@ -84,10 +107,14 @@ def run(root:Path,output:Path,phase:str)->None:
         with (output/f'{name}.csv').open('w',newline='',encoding='utf-8') as handle:
             writer=csv.DictWriter(handle,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
     (output/'split_trial_ids.json').write_text(json.dumps(splits,indent=2),encoding='utf-8')
+    if probability_audit:
+        (output/'probability_calibration.json').write_text(json.dumps(probability_audit,indent=2),encoding='utf-8')
     (output/'run_manifest.json').write_text(json.dumps({'phase':phase,'seed':SEED,'source_trials':source_trials.tolist(),
         'families':IDS,'source_force_only':'Ramp','evaluation_force':CONDITIONS,'evaluation_unit':'trial means',
         'n0':8,'anchor_alpha':'shots/(shots+2)','temperature_fit':'calibration only','unsupported_5':'four Ramp trials/class',
-        'F6_F8':'unavailable: no real IMU or repeated-session key'},indent=2),encoding='utf-8')
+        'F6_F8':'unavailable: no real IMU or repeated-session key',
+        'classifier_or_family_fit':source_run is None,'reused_source_run':source_run.name if source_run else None,
+        'probability_calibration':'source-only OOF temperature' if probability_oof else 'native logistic probability'},indent=2),encoding='utf-8')
     with (output/'fitted_states.pkl').open('wb') as handle:pickle.dump((states,anchors),handle)
     np.savez_compressed(output/'heldout_predictions.npz',**saved,labels=y,trials=trials,users=u)
     print(json.dumps({'status':'ok','rows':len(rows)}))
@@ -95,4 +122,6 @@ def run(root:Path,output:Path,phase:str)->None:
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('root',type=Path);p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--phase',choices=('validation','final'),required=True);a=p.parse_args();run(a.root,a.output,a.phase)
+    p.add_argument('--phase',choices=('validation','final'),required=True)
+    p.add_argument('--source-run',type=Path);p.add_argument('--probability-oof',type=Path)
+    a=p.parse_args();run(a.root,a.output,a.phase,a.source_run,a.probability_oof)
