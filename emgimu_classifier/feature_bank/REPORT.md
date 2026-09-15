@@ -16,6 +16,17 @@ unverified until contextual requirements and authoritative evidence are inspecte
 formulas, examples and separators are included and are not independent requirements.
 `DOCUMENT_SCOPE_AUDIT.json` proves index coverage only, not scientific completion.
 
+`FORMULA_IMPLEMENTATION_AUDIT.md` and CSV now record 27 reviewed formula/API
+boundaries in the precise-definition appendix, each with exact heading line,
+source AST symbol span and SHA-256. Fifteen runtime classes have measured named
+dimensions on explicit synthetic fixtures (original G5 only on its native four
+channels). These fixtures prove interface dimensions, not dataset validity or
+scientific completion. Candidate formula status is distinct from validated reuse.
+Remaining specific gaps include F0 noise-derived thresholds, CSP uncentered
+covariance equivalence, body-frame IMU calibration and generic short-window DTW
+eligibility. Original source/result recovery remains necessary for historical
+X1-H/RLCS/CES/Frequency. No full requirement is automatically accepted by this audit.
+
 ## Raw ring covariance formula correction and wearing conditional increment
 
 Goal text lines 1480–1533 define F3c from F2a raw-signal covariance.
