@@ -303,4 +303,14 @@ within-posture gesture separation. Coordinates are standardized on source window
 centroids are window-pooled and this analysis does not control reapplication within day.
 The dedicated `cross_day_posture_diagnostics.csv` contains these diagnostic cells. Test-split
 intersection verification now checks every available train/validation/test partition pair.
-Independent UniBo final-state persistence and replay remain incomplete.
+The final-state persistence and replay follow-up below now covers independent UniBo outputs.
+
+## UniBo independent-state replay
+
+The audited Day 7–8 run uses the original frozen F0+temporal choice and exactly reproduces
+the original final F1 cells. Both predictors and all family/scaler states are persisted.
+`python -m emgimu.feature_bank.replay_unibo` loads target days only, verifies sample labels,
+trial IDs, users, days and postures, and replays every saved predictor without fitting.
+Independent replay covers 48818 windows with zero probability difference; validation replay
+covers all nine saved predictors. State serialization is asserted unchanged. No model
+selection uses the replay results.

@@ -1,0 +1,12 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_unibo_audited_final_20260915",
+  "models_checked": 2,
+  "windows_checked": 48818,
+  "max_absolute_probability_error": 0.0,
+  "fit_performed": false,
+  "target_days": [
+    7,
+    8
+  ]
+}

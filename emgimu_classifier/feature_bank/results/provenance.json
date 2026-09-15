@@ -42,7 +42,7 @@
     "bytes": 31137
   },
   {
-    "run_id": "feature_bank_unibo_final_20260915",
+    "run_id": "feature_bank_unibo_audited_final_20260915",
     "artifact": "feature_family_results.csv",
     "sha256": "9e48a36099ed6229c3fee1f44769fe2a29f106a6444299aa1e3ca89f8b22ba83",
     "bytes": 7391
@@ -346,5 +346,11 @@
     "artifact": "cross_day_posture_diagnostics.csv",
     "sha256": "b9b21f259cd99902b64ac1ca8352744bb9223ca641297a4374a35c22abe7e186",
     "bytes": 24582
+  },
+  {
+    "run_id": "feature_bank_unibo_audited_final_20260915",
+    "artifact": "cross_day_posture_diagnostics.csv",
+    "sha256": "b32fa56f765cec8da9642e11936c2db3214586425c11a3196b1f51f60054ee2a",
+    "bytes": 5340
   }
 ]
