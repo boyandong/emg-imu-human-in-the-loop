@@ -906,3 +906,39 @@ worse than joint removal at each budget (1.4287/1.4256/1.4342 versus
 1.4191/1.4205/1.4276). These final results describe frozen controls, without selecting
 new policies on final data. Supported nonzero MANUS budgets now have joint controls;
 historical DS2 and further document-level evidence remain open.
+
+### Frozen full-bank robustness vector (cal0)
+
+The previous expert-package envelope uses different selected feature combinations.
+`benchmarks/full_system_robustness.py` now separately reports the frozen full-bank
+algorithms, preserving native family availability, tasks, source-only probability
+calibration and source/evaluation partitions. It does not select the best method in
+each final cell. Source CSV hashes and explicit run references are retained in
+`results/full_system_robustness_vector.{csv,json}`.
+
+| Failure axis | F0 reference | Full bank | Difference |
+|---|---:|---:|---:|
+| Force (LibEMG unseen-force) | 0.4929 | 0.4516 | -0.0414 |
+| Wearing (same-user before/after) | 0.4912 | 0.5917 | +0.1005 |
+| Day (UniBo days 7/8) | 0.7044 | 0.6992 | -0.0052 |
+| User (EPN held-out users) | 0.4370 | 0.4792 | +0.0422 |
+| Posture (UniBo posture strata) | 0.7044 | 0.6992 | -0.0052 |
+| Speed/session (MANUS session 3) | 0.4152 | 0.4582 | +0.0430 |
+| Real labelled quality | N/A | N/A | N/A |
+
+The requested descriptive mean over six available axes is 0.5409 → 0.5632 and
+minimum axis performance is 0.4152 → 0.4516. Day/posture share the same observations,
+so their overall values coincide and are not independent measurements. The vector
+mixes native tasks and documented aggregation rules; these means are not pooled
+accuracy or evidence for a universal classifier. F7/F8 are inactive at zero target
+calibration, and quality routing is absent in force/EPN full-bank runs. Current-device
+validation still requires controlled local trials.
+
+Worst observed conditions are recorded separately from the minimum axis: wearing
+0.3938 → 0.4477, day 0.6927 → 0.6905 and posture 0.6638 → 0.6594. Speed's full-bank
+minimum is 0.3552; its paired F0 speed-stratum minimum is unverified and remains N/A.
+Force's eleven-condition minima come from the matching frozen probability run's
+condition report. This evidence establishes a mixed outcome: average and minimum-axis
+improvement coexist with declining force/day/posture coordinates. It does not prove
+that the entire robustness envelope has improved. Remaining source reuse, scientific
+diagnostics and document-level deliverables must still be audited.
