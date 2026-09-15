@@ -1,0 +1,104 @@
+{
+  "dataset": "epn612",
+  "phase": "validation",
+  "families": [
+    "F0",
+    "F3_Ring",
+    "F2b_CSP",
+    "F6_IMU"
+  ],
+  "specs": {
+    "Core": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU"
+    ],
+    "Core+F1_X1H": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU",
+      "F1_X1H"
+    ],
+    "Core+F4_Spectral": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU",
+      "F4_Spectral"
+    ],
+    "Core+F5_Temporal": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU",
+      "F5_Temporal"
+    ],
+    "Core+F9_Quality": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU",
+      "F9_Quality"
+    ],
+    "B0": [
+      "F0"
+    ],
+    "B0+X1": [
+      "F0",
+      "F1_X1H"
+    ],
+    "B0+Frequency": [
+      "F0",
+      "F4_Spectral"
+    ],
+    "B0+CSP": [
+      "F0",
+      "F2b_CSP"
+    ],
+    "B0+X1+Frequency": [
+      "F0",
+      "F1_X1H",
+      "F4_Spectral"
+    ],
+    "B0+X1+CSP": [
+      "F0",
+      "F1_X1H",
+      "F2b_CSP"
+    ]
+  },
+  "source_run": "feature_bank_epn_selected_validation_20260915",
+  "source_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "target_users": [
+    16,
+    17,
+    18
+  ],
+  "classifier_or_family_fit": false,
+  "target_calibration": false,
+  "combination_weights": "fixed uniform",
+  "source_artifact_sha256": {
+    "fitted_states.pkl": "392980932cc5c48c4107f89d563432d1b7b4270deaf6c0600ca1511602d8e802",
+    "run_manifest.json": "59fcfb71b396e91f5e53a999d1e271465d4b4355bab71ac7ff850ab9dec81c6f",
+    "probability_calibration.json": "96dd9a958b62e4511c8a23e0e77ee3ba6d30e91dd8dfc44b9aeb45bcff9fdc8b",
+    "heldout_predictions.npz": "7df3ceaaceed94682902718c4dd8d7d7030ae53f64d480829a7f3f6313c527af"
+  },
+  "scope": "late-fusion predictive conditional proxy; no concatenated-feature retraining; ALL pooled, individual users also recorded"
+}

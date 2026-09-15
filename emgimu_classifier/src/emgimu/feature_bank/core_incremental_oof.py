@@ -1,5 +1,4 @@
 """Fixed multiview Core additions and two prespecified interactions from nested source OOF."""
-from itertools import combinations
 from pathlib import Path
 import argparse
 import csv
@@ -19,6 +18,34 @@ SPECS={'Core':CORE,**{f'Core+{n}':CORE+(n,) for n in ADDED},
 def write(path,rows):
     with path.open('w',newline='',encoding='utf-8') as h:
         w=csv.DictWriter(h,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
+
+
+def evaluate(y,u,probabilities,individual,phase="source_nested_oof",evaluation="source-user nested OOF; fixed uniform late fusion"):
+    rows=[];increments=[];interactions=[];pairs=[]
+    for user in ('ALL',*sorted(set(u))):
+        mask=np.ones(len(y),bool) if user=='ALL' else u==user
+        scores={n:_metrics(y[mask],p[mask],np.ones(mask.sum())) for n,p in probabilities.items()}
+        shared={'dataset':'epn612','phase':phase,'subject':int(user) if user!='ALL' else user,
+            'condition':'cross_user','calibration_budget':0,'evaluation':evaluation}
+        for name,score in scores.items():rows.append({**shared,'feature_family':'|'.join(SPECS[name]),'model':name,**score})
+        for n in ADDED:
+            base=scores['Core'];added=scores[f'Core+{n}']
+            increments.append({**shared,'core_bank':'|'.join(CORE),'added_family':n,
+                'delta_logloss':base['log_loss']-added['log_loss'],'delta_macro_f1':added['macro_f1']-base['macro_f1'],
+                'delta_brier':base['brier']-added['brier']})
+            a=probabilities['Core'][mask].argmax(1);b=individual[n][mask].argmax(1)
+            ca=a==y[mask];cb=b==y[mask]
+            pairs.append({**shared,'family_a':'Core','family_b':n,
+                'error_correlation':float(np.corrcoef(~ca,~cb)[0,1]) if np.std(ca) and np.std(cb) else '',
+                'disagreement_rate':float(np.mean(a!=b)),'a_correct_b_wrong':float(np.mean(ca&~cb)),
+                'a_wrong_b_correct':float(np.mean(~ca&cb))})
+        for family,single,pair in (('F4_Spectral','B0+Frequency','B0+X1+Frequency'),('F2b_CSP','B0+CSP','B0+X1+CSP')):
+            base=scores['B0'];first=scores['B0+X1'];second=scores[single];joint=scores[pair]
+            interactions.append({**shared,'family_a':'F1_X1H','family_b':family,
+                'S_negative_logloss':-joint['log_loss']+first['log_loss']+second['log_loss']-base['log_loss'],
+                'S_macro_f1':joint['macro_f1']-first['macro_f1']-second['macro_f1']+base['macro_f1'],
+                'S_negative_brier':-joint['brier']+first['brier']+second['brier']-base['brier']})
+    return rows,increments,pairs,interactions
 
 
 def run(source,output):
@@ -43,30 +70,7 @@ def run(source,output):
             np.testing.assert_array_equal(saved['folds'][index],np.full(index.sum(),split['fold']))
         probabilities={name:np.mean([saved[f'calibrated_{n}'] for n in members],axis=0) for name,members in SPECS.items()}
         individual={n:saved[f'calibrated_{n}'].copy() for n in ADDED}
-    rows=[];increments=[];interactions=[];pairs=[]
-    for user in ('ALL',*sorted(set(u))):
-        mask=np.ones(len(y),bool) if user=='ALL' else u==user
-        scores={n:_metrics(y[mask],p[mask],np.ones(mask.sum())) for n,p in probabilities.items()}
-        shared={'dataset':'epn612','phase':'source_nested_oof','subject':int(user) if user!='ALL' else user,
-            'condition':'cross_user','calibration_budget':0,'evaluation':'source-user nested OOF; fixed uniform late fusion'}
-        for name,score in scores.items():rows.append({**shared,'feature_family':'|'.join(SPECS[name]),'model':name,**score})
-        for n in ADDED:
-            base=scores['Core'];added=scores[f'Core+{n}']
-            increments.append({**shared,'core_bank':'|'.join(CORE),'added_family':n,
-                'delta_logloss':base['log_loss']-added['log_loss'],'delta_macro_f1':added['macro_f1']-base['macro_f1'],
-                'delta_brier':base['brier']-added['brier']})
-            a=probabilities['Core'][mask].argmax(1);b=individual[n][mask].argmax(1)
-            ca=a==y[mask];cb=b==y[mask]
-            pairs.append({**shared,'family_a':'Core','family_b':n,
-                'error_correlation':float(np.corrcoef(~ca,~cb)[0,1]) if np.std(ca) and np.std(cb) else '',
-                'disagreement_rate':float(np.mean(a!=b)),'a_correct_b_wrong':float(np.mean(ca&~cb)),
-                'a_wrong_b_correct':float(np.mean(~ca&cb))})
-        for family,single,pair in (('F4_Spectral','B0+Frequency','B0+X1+Frequency'),('F2b_CSP','B0+CSP','B0+X1+CSP')):
-            base=scores['B0'];first=scores['B0+X1'];second=scores[single];joint=scores[pair]
-            interactions.append({**shared,'family_a':'F1_X1H','family_b':family,
-                'S_negative_logloss':-joint['log_loss']+first['log_loss']+second['log_loss']-base['log_loss'],
-                'S_macro_f1':joint['macro_f1']-first['macro_f1']-second['macro_f1']+base['macro_f1'],
-                'S_negative_brier':-joint['brier']+first['brier']+second['brier']-base['brier']})
+    rows,increments,pairs,interactions=evaluate(y,u,probabilities,individual)
     output.mkdir(parents=True)
     for name,values in (('feature_family_results',rows),('conditional_incremental',increments),('error_complementarity',pairs),('interaction_results',interactions)):
         write(output/f'{name}.csv',values)

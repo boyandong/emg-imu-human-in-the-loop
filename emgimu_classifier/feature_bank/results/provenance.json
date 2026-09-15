@@ -1,5 +1,17 @@
 [
   {
+    "run_id": "feature_bank_epn_core_incremental_validation_20260915",
+    "artifact": "feature_family_results.csv",
+    "sha256": "da9ba5bb8e4c4f56c6464a8d5f97f70a55444b8d53d92a068381f7eb0565ffa8",
+    "bytes": 18382
+  },
+  {
+    "run_id": "feature_bank_epn_core_incremental_final_20260915",
+    "artifact": "feature_family_results.csv",
+    "sha256": "599d4b29f6180a84dff347c9940d7b6305cf456df0db3ffc239c9ef197267fca",
+    "bytes": 18166
+  },
+  {
     "run_id": "feature_bank_epn_core_incremental_20260915",
     "artifact": "feature_family_results.csv",
     "sha256": "c1708c34859e6437dd628d4f1a63f7e378c8a26fdd7d85e9344c0676be88302d",
@@ -102,6 +114,18 @@
     "bytes": 21786
   },
   {
+    "run_id": "feature_bank_epn_core_incremental_validation_20260915",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "1f8631ff7e0f821b46ffa778a698a9638fdae9d27da36e9faddbf71deb8054d7",
+    "bytes": 3527
+  },
+  {
+    "run_id": "feature_bank_epn_core_incremental_final_20260915",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "97179014e0599d3c5923f24473feca9ff19b36dd511ccbcfaf261cd5af364e34",
+    "bytes": 3461
+  },
+  {
     "run_id": "feature_bank_epn_core_incremental_20260915",
     "artifact": "conditional_incremental.csv",
     "sha256": "37bed807e1c5f49e8e76655b4cca000f399906c845e37b4af8dea9b6cc290e36",
@@ -126,10 +150,34 @@
     "bytes": 1286
   },
   {
+    "run_id": "feature_bank_epn_core_incremental_validation_20260915",
+    "artifact": "interaction_results.csv",
+    "sha256": "2306d65ad5cfca40e693db49df1fbbcfcfaa064e086bec6ece529ad5d45aede7",
+    "bytes": 1669
+  },
+  {
+    "run_id": "feature_bank_epn_core_incremental_final_20260915",
+    "artifact": "interaction_results.csv",
+    "sha256": "75e7936b35e3039bf6a134383a610a5a0e345fbccd3db05a26528c861fc56180",
+    "bytes": 1628
+  },
+  {
     "run_id": "feature_bank_epn_core_incremental_20260915",
     "artifact": "interaction_results.csv",
     "sha256": "1874c20bb5fd043d97e31d56a1627174007c7b7484911de62c99de2a08703bb0",
     "bytes": 5617
+  },
+  {
+    "run_id": "feature_bank_epn_core_incremental_validation_20260915",
+    "artifact": "error_complementarity.csv",
+    "sha256": "017b9f8861b5889b0695366e0028a02b948783f8833e65bd533ca729881fab3e",
+    "bytes": 3275
+  },
+  {
+    "run_id": "feature_bank_epn_core_incremental_final_20260915",
+    "artifact": "error_complementarity.csv",
+    "sha256": "a64d1e69158d8b26a28801ad2091975a6e0a281655258f83ed1356f74f594248",
+    "bytes": 3134
   },
   {
     "run_id": "feature_bank_epn_core_incremental_20260915",

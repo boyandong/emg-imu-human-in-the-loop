@@ -1,0 +1,104 @@
+{
+  "dataset": "epn612",
+  "phase": "final",
+  "families": [
+    "F0",
+    "F3_Ring",
+    "F2b_CSP",
+    "F6_IMU"
+  ],
+  "specs": {
+    "Core": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU"
+    ],
+    "Core+F1_X1H": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU",
+      "F1_X1H"
+    ],
+    "Core+F4_Spectral": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU",
+      "F4_Spectral"
+    ],
+    "Core+F5_Temporal": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU",
+      "F5_Temporal"
+    ],
+    "Core+F9_Quality": [
+      "F0",
+      "F3_Ring",
+      "F2b_CSP",
+      "F6_IMU",
+      "F9_Quality"
+    ],
+    "B0": [
+      "F0"
+    ],
+    "B0+X1": [
+      "F0",
+      "F1_X1H"
+    ],
+    "B0+Frequency": [
+      "F0",
+      "F4_Spectral"
+    ],
+    "B0+CSP": [
+      "F0",
+      "F2b_CSP"
+    ],
+    "B0+X1+Frequency": [
+      "F0",
+      "F1_X1H",
+      "F4_Spectral"
+    ],
+    "B0+X1+CSP": [
+      "F0",
+      "F1_X1H",
+      "F2b_CSP"
+    ]
+  },
+  "source_run": "feature_bank_epn_selected_final_20260915",
+  "source_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "target_users": [
+    19,
+    20,
+    21
+  ],
+  "classifier_or_family_fit": false,
+  "target_calibration": false,
+  "combination_weights": "fixed uniform",
+  "source_artifact_sha256": {
+    "fitted_states.pkl": "cfcc9079a3ce8834895c1d2770a82b2a03b1967dd9588e6f914500e7cb2cb244",
+    "run_manifest.json": "902db7f97ebf22c4b8b072854f88163be153f70a2a1f38b0cc58d9a745ca7be5",
+    "probability_calibration.json": "96dd9a958b62e4511c8a23e0e77ee3ba6d30e91dd8dfc44b9aeb45bcff9fdc8b",
+    "heldout_predictions.npz": "d151d8674237805a321f52ab6384c840625b1692518dfc059e7a1db069add543"
+  },
+  "scope": "late-fusion predictive conditional proxy; no concatenated-feature retraining; ALL pooled, individual users also recorded"
+}

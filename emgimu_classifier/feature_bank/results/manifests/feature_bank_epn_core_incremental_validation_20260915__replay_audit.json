@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "source_population_replays": 3,
+  "frozen_state_unchanged": true,
+  "target_trials": 450,
+  "models": 11,
+  "composition_arrays_checked": 11,
+  "max_absolute_probability_error": 0.0
+}

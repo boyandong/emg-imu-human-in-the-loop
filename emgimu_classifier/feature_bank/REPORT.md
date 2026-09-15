@@ -1327,3 +1327,37 @@ The suite ran 129 tests with one skip. Consolidated integrity verification cover
 127 source artifacts, 24,539 rows and 678 explicit partition checks; canonical
 record verification covers 23,072 rows. These checks establish recorded integrity,
 not full-document scientific completion or live-device accuracy. New work stays local.
+
+### Independent-user confirmation of the fixed multiview Core
+
+The exact source-prespecified eleven compositions were evaluated on EPN validation
+users 16–18 and final users 19–21, each 450 trials at cal0. Providers reuse frozen
+family/scaler/classifier states and original source-user OOF temperatures. Target
+labels are used only for scoring; no target calibration or weight selection occurs.
+ALL rows pool trials, while all three individual-user results are also recorded.
+They must not be confused with earlier mean-per-user full-system summaries.
+
+| Added provider | Validation delta LL / F1 | Final delta LL / F1 |
+|---|---:|---:|
+| X1 reference | -0.027571 / -0.003192 | -0.027002 / -0.002668 |
+| Spectral | 0.032392 / 0.023522 | 0.013504 / -0.004316 |
+| Temporal | 0.010141 / -0.011169 | 0.019364 / 0.000872 |
+| Quality | 0.033513 / 0.016462 | 0.040057 / -0.009444 |
+
+The X1 addition remains harmful in both phases. Spectral, temporal and quality
+providers improve log loss in both phases, but their macro-F1 gains do not transfer
+consistently. In particular, the source/validation quality-provider F1 gain reverses
+on final users. A better probabilistic score does not imply more correct gestures.
+No provider or composition is promoted based on these final results.
+
+Runs `feature_bank_epn_core_incremental_validation_20260915` and
+`feature_bank_epn_core_incremental_final_20260915` record identical fixed interaction
+pairs, per-user complementarity and explicit source/evaluation trial partitions.
+Each phase reproduces three original population fusion arrays; all eleven new
+composition arrays replay exactly from retained individual-provider probabilities.
+The suite ran 131 tests with one skip; integrity checks cover 135 artifacts,
+24,707 rows and 680 explicit split checks. Canonical verification covers 23,224 rows.
+Multi-family Core evidence now includes source OOF and independent EPN users;
+other datasets, calibrated Core comparisons and original historical algorithms
+remain incomplete. This is still a late-fusion proxy, not a concatenated-feature
+classifier experiment or an end-to-end live-device improvement claim.

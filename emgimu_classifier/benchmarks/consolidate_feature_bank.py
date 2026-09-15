@@ -7,6 +7,8 @@ import json
 
 
 RUNS = (
+    'feature_bank_epn_core_incremental_validation_20260915',
+    'feature_bank_epn_core_incremental_final_20260915',
     'feature_bank_epn_core_incremental_20260915',
     'feature_bank_epn_relative_spectrum_source_20260915',
     'feature_bank_epn_relative_spectrum_validation_20260915',
