@@ -83,7 +83,7 @@ release returned 404. NinaPro requires access; secondary datasets remain explici
 EMG-FMG and UniBo now each have six-trial QC and six raw/envelope/PSD plots.
 F8 session signature now has a bounded MANUS reliability-fusion comparison, while full-bank
 session-context integration remains incomplete. Personal normalization now has an EPN comparison;
-DTW templates are implemented and unit-tested but their comparative experiments are not complete. Required prediction/state persistence
+DTW templates now have a bounded ordered-RMS trial comparison. Required prediction/state persistence
 is currently strongest for audited force screening; other runners need the same coverage.
 Per-family calibration gain, diagnostics across all failures, complete shortlist/full-bank
 ablation across datasets, and an integrated robustness vector remain to be completed.
@@ -131,3 +131,16 @@ users confirm degradation: raw/normalized F1 is 0.4389/0.3205 at one trial, 0.44
 at two and 0.4509/0.4355 at five. This normalization rule is not suitable as a default repair.
 The experiment changes source normalization as well as target normalization, so it measures
 the complete normalization protocol rather than isolating a single target-side transformation.
+
+## Ordered-RMS DTW follow-up
+
+Each trial becomes an ordered sequence of channel RMS values from its eight sampled windows.
+This is a sparse summary, not a continuous full-trial trajectory. Source-user templates use
+session 1; personal templates use only selected target calibration trials. Temperature is
+the median source-template distance and fusion weight is fixed at shots/(shots+2).
+Independent session-3 mean per-user F1 for baseline/DTW/fusion is 0.4040/0.5739/0.4040
+at one trial and 0.3102/0.4769/0.3565 at two trials. Personal DTW is promising in this small
+cohort, while the fixed fusion fails to capture most of its gain. Different remaining trials
+across budgets prevent interpreting raw cross-budget changes as pure calibration gains.
+Templates, probability arrays and all calibration/evaluation IDs are preserved. Two new
+tests verify trial/window order and reject unequal path lengths without implicit alignment.

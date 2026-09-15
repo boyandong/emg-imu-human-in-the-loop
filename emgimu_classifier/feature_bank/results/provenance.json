@@ -162,6 +162,18 @@
     "bytes": 9088
   },
   {
+    "run_id": "feature_bank_template_validation_20260915_v2",
+    "artifact": "calibration_curve.csv",
+    "sha256": "c0cfa3ce85ee02541bc3870c04322e8e39bf53c1164ce807dd70e4b73a691036",
+    "bytes": 18144
+  },
+  {
+    "run_id": "feature_bank_template_final_20260915",
+    "artifact": "calibration_curve.csv",
+    "sha256": "95420cd4f86edce561b8d1e9303d9e9eb4fe890b2f939287cc2373d317d00fa7",
+    "bytes": 18086
+  },
+  {
     "run_id": "feature_bank_force_audited_validation_20260915",
     "artifact": "ablation_full_bank.csv",
     "sha256": "b50235c0e6fc469b628f3cce128e454d91dc17d8cc325cbdced4c68e4b8331d0",

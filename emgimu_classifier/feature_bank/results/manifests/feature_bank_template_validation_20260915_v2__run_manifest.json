@@ -1,0 +1,10 @@
+{
+  "phase": "validation",
+  "seed": 20260915,
+  "target_session": 2,
+  "path": "ordered RMS of eight evenly spaced 200-ms windows; not continuous full-trial trajectory",
+  "DTW_band_fraction": 0.1,
+  "temperature": "median source-user template distance",
+  "fusion_alpha": "shots/(shots+2)",
+  "unsupported_5": "only three speed trials/class/session"
+}
