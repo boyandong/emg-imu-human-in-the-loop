@@ -1,0 +1,352 @@
+{
+  "status": "schema_complete_evidence_partial",
+  "artifacts": {
+    "feature_family_results.csv": {
+      "rows": 1587,
+      "required_fields": [
+        "dataset",
+        "subject",
+        "session/domain",
+        "feature_family",
+        "calibration_budget",
+        "condition",
+        "macro_f1",
+        "accuracy",
+        "log_loss",
+        "brier",
+        "ece"
+      ],
+      "missing_field_counts": {
+        "subject": 46,
+        "session/domain": 94
+      },
+      "missing_by_run": {
+        "feature_bank_manus_nested_oof_20260915": {
+          "subject": 16
+        },
+        "feature_bank_epn_nested_oof_20260915": {
+          "subject": 16
+        },
+        "feature_bank_force_nested_oof_20260915": {
+          "subject": 14
+        },
+        "feature_bank_emg_fmg_audited_validation_20260915": {
+          "session/domain": 72
+        },
+        "feature_bank_emg_fmg_audited_final_20260915": {
+          "session/domain": 16
+        },
+        "feature_bank_force_final_reference_20260915": {
+          "session/domain": 6
+        }
+      },
+      "source_csv_sha256": "41212bba2b68e1edfd251550ce3d0d71dbf407985ef0c22c04d2951688c813d2",
+      "canonical_csv_sha256": "1dbfbc5f7fdfa4ee2830bd57af71ff2358bf3ec63380bf21ab9f8fdcc0e23e03"
+    },
+    "conditional_incremental.csv": {
+      "rows": 117,
+      "required_fields": [
+        "dataset",
+        "subject",
+        "session/domain",
+        "core_bank",
+        "added_family",
+        "condition",
+        "delta_logloss",
+        "delta_macro_f1",
+        "delta_brier"
+      ],
+      "missing_field_counts": {
+        "subject": 105,
+        "session/domain": 20,
+        "condition": 12
+      },
+      "missing_by_run": {
+        "feature_bank_force_audited_validation_20260915": {
+          "subject": 96,
+          "session/domain": 8
+        },
+        "feature_bank_epn612_trial_validation_20260915": {
+          "subject": 9
+        },
+        "feature_bank_epn_selection_20260915": {
+          "session/domain": 12,
+          "condition": 12
+        }
+      },
+      "source_csv_sha256": "ee190c73f220a961c3932f2dd8326219ac732fdf94f63522959f46ea04929b4b",
+      "canonical_csv_sha256": "a698708ba61cf1d75333e3e22f9fc9b8962ec84650d09da47742c98e6a61a7eb"
+    },
+    "error_complementarity.csv": {
+      "rows": 479,
+      "required_fields": [
+        "dataset",
+        "subject",
+        "session/domain",
+        "family_a",
+        "family_b",
+        "error_correlation",
+        "disagreement_rate",
+        "a_correct_b_wrong",
+        "a_wrong_b_correct"
+      ],
+      "missing_field_counts": {
+        "subject": 179,
+        "session/domain": 402
+      },
+      "missing_by_run": {
+        "feature_bank_manus_nested_oof_20260915": {
+          "subject": 28
+        },
+        "feature_bank_epn_nested_oof_20260915": {
+          "subject": 28
+        },
+        "feature_bank_force_nested_oof_20260915": {
+          "subject": 21
+        },
+        "feature_bank_force_audited_validation_20260915": {
+          "subject": 36,
+          "session/domain": 36
+        },
+        "feature_bank_epn_selection_20260915": {
+          "subject": 66,
+          "session/domain": 66
+        },
+        "feature_bank_manus_calibration_diagnostics_validation_20260915": {
+          "session/domain": 90
+        },
+        "feature_bank_manus_calibration_diagnostics_final_20260915": {
+          "session/domain": 90
+        },
+        "feature_bank_epn_calibration_diagnostics_validation_20260915_v2": {
+          "session/domain": 60
+        },
+        "feature_bank_epn_calibration_diagnostics_final_20260915_v2": {
+          "session/domain": 60
+        }
+      },
+      "source_csv_sha256": "832f09922ba7c4fd43d75c29704414e62a6b964f3bbdfd89ad7fcd351c3f13e7",
+      "canonical_csv_sha256": "c8cf06f46baf080f635ce4b061204ec3c66592e6c54da2698acc032749593651"
+    },
+    "calibration_curve.csv": {
+      "rows": 5918,
+      "required_fields": [
+        "dataset",
+        "subject",
+        "session/domain",
+        "condition",
+        "shots_per_class",
+        "feature_bank",
+        "method",
+        "macro_f1",
+        "log_loss"
+      ],
+      "missing_field_counts": {
+        "macro_f1": 118,
+        "log_loss": 118,
+        "method": 504
+      },
+      "missing_by_run": {
+        "feature_bank_manus_selected_validation_20260915": {
+          "macro_f1": 7,
+          "log_loss": 7
+        },
+        "feature_bank_manus_selected_final_20260915": {
+          "macro_f1": 7,
+          "log_loss": 7
+        },
+        "feature_bank_manus_probability_validation_20260915": {
+          "macro_f1": 7,
+          "log_loss": 7
+        },
+        "feature_bank_manus_probability_final_20260915": {
+          "macro_f1": 7,
+          "log_loss": 7
+        },
+        "feature_bank_force_probability_validation_20260915": {
+          "macro_f1": 3,
+          "log_loss": 3
+        },
+        "feature_bank_force_probability_final_20260915": {
+          "macro_f1": 3,
+          "log_loss": 3
+        },
+        "feature_bank_force_full_fusion_validation_20260915": {
+          "macro_f1": 3,
+          "log_loss": 3
+        },
+        "feature_bank_force_full_fusion_final_20260915": {
+          "macro_f1": 3,
+          "log_loss": 3
+        },
+        "feature_bank_force_product_validation_20260915": {
+          "method": 92,
+          "macro_f1": 25,
+          "log_loss": 25
+        },
+        "feature_bank_force_product_final_20260915": {
+          "method": 92,
+          "macro_f1": 25,
+          "log_loss": 25
+        },
+        "feature_bank_epn612_trial_calibration_validation_20260915": {
+          "method": 16
+        },
+        "feature_bank_epn612_trial_finetune_validation_20260915": {
+          "method": 16
+        },
+        "feature_bank_epn612_trial_finetune_final_20260915": {
+          "method": 16
+        },
+        "feature_bank_manus_calibration_validation_20260915": {
+          "method": 28,
+          "macro_f1": 7,
+          "log_loss": 7
+        },
+        "feature_bank_manus_calibration_final_20260915": {
+          "method": 28,
+          "macro_f1": 7,
+          "log_loss": 7
+        },
+        "feature_bank_force_zero_validation_20260915": {
+          "method": 108
+        },
+        "feature_bank_force_zero_final_20260915": {
+          "method": 108
+        },
+        "feature_bank_manus_full_fusion_validation_20260915_v2": {
+          "macro_f1": 7,
+          "log_loss": 7
+        },
+        "feature_bank_manus_full_fusion_final_20260915_v2": {
+          "macro_f1": 7,
+          "log_loss": 7
+        }
+      },
+      "source_csv_sha256": "477fdbc99a17ef466ff1640eb21415eeea63af6d359398c99bf3fbb071d145f4",
+      "canonical_csv_sha256": "10000bd1d9a2cdceb25647e184d8578a602133fecbf3a74a2243ffaeeed4f532"
+    },
+    "ablation_full_bank.csv": {
+      "rows": 14603,
+      "required_fields": [
+        "dataset",
+        "subject",
+        "session/domain",
+        "condition",
+        "shots_per_class",
+        "feature_bank",
+        "method",
+        "macro_f1",
+        "log_loss"
+      ],
+      "missing_field_counts": {
+        "session/domain": 1334,
+        "macro_f1": 54,
+        "log_loss": 54,
+        "subject": 72,
+        "shots_per_class": 92,
+        "feature_bank": 72,
+        "method": 92
+      },
+      "missing_by_run": {
+        "feature_bank_manus_session_blend_validation_20260915_v2": {
+          "session/domain": 336
+        },
+        "feature_bank_manus_session_blend_final_20260915_v2": {
+          "session/domain": 336
+        },
+        "feature_bank_manus_selected_validation_20260915": {
+          "macro_f1": 7,
+          "log_loss": 7
+        },
+        "feature_bank_manus_selected_final_20260915": {
+          "macro_f1": 7,
+          "log_loss": 7
+        },
+        "feature_bank_manus_calibrated_quality_validation_20260915": {
+          "session/domain": 84
+        },
+        "feature_bank_manus_calibrated_quality_final_20260915": {
+          "session/domain": 84
+        },
+        "feature_bank_wearing_quality_roles_validation_20260915": {
+          "session/domain": 16
+        },
+        "feature_bank_wearing_quality_roles_final_20260915": {
+          "session/domain": 16
+        },
+        "feature_bank_load_position_quality_roles_validation_20260915": {
+          "session/domain": 32
+        },
+        "feature_bank_load_position_quality_roles_final_20260915": {
+          "session/domain": 32
+        },
+        "feature_bank_manus_quality_roles_validation_20260915": {
+          "session/domain": 28
+        },
+        "feature_bank_manus_quality_roles_final_20260915": {
+          "session/domain": 28
+        },
+        "feature_bank_load_position_full_validation_20260915": {
+          "session/domain": 112
+        },
+        "feature_bank_load_position_full_final_20260915": {
+          "session/domain": 112
+        },
+        "feature_bank_wearing_full_fusion_validation_20260915": {
+          "session/domain": 56
+        },
+        "feature_bank_wearing_full_fusion_final_20260915": {
+          "session/domain": 56
+        },
+        "feature_bank_manus_probability_validation_20260915": {
+          "macro_f1": 7,
+          "log_loss": 7
+        },
+        "feature_bank_manus_probability_final_20260915": {
+          "macro_f1": 7,
+          "log_loss": 7
+        },
+        "feature_bank_force_probability_validation_20260915": {
+          "macro_f1": 3,
+          "log_loss": 3
+        },
+        "feature_bank_force_probability_final_20260915": {
+          "macro_f1": 3,
+          "log_loss": 3
+        },
+        "feature_bank_force_full_fusion_validation_20260915": {
+          "macro_f1": 3,
+          "log_loss": 3
+        },
+        "feature_bank_force_full_fusion_final_20260915": {
+          "macro_f1": 3,
+          "log_loss": 3
+        },
+        "feature_bank_force_selection_audited_20260915": {
+          "subject": 72,
+          "session/domain": 6,
+          "shots_per_class": 72,
+          "feature_bank": 72,
+          "method": 72
+        },
+        "feature_bank_epn_selection_20260915": {
+          "shots_per_class": 20,
+          "method": 20
+        },
+        "feature_bank_manus_full_fusion_validation_20260915_v2": {
+          "macro_f1": 7,
+          "log_loss": 7
+        },
+        "feature_bank_manus_full_fusion_final_20260915_v2": {
+          "macro_f1": 7,
+          "log_loss": 7
+        }
+      },
+      "source_csv_sha256": "49cd371d40e57a1ad610cf9df8589b00c111a933df227de1cb6dff76d47a036a",
+      "canonical_csv_sha256": "714d5208f39f1e8082bef822a1dcb469c078752b33274b82a18d9170ae1489a1"
+    }
+  },
+  "scope": "five required schemas; exact source record identities; no invented metrics/session IDs; N/A requires source repair or capability boundary",
+  "warning": "presence of required columns does not establish scientific requirement completion"
+}

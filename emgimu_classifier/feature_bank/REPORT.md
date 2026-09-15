@@ -1051,6 +1051,26 @@ rest-center channel normalization branch cannot be formally tested here. Full te
 pass 115 cases with one skip. Historical reuse and further complete-document audit
 remain open.
 
+### Required delivery schemas and missing evidence
+
+`feature_bank/delivery` now contains all five required CSV filenames with explicit
+required fields and provenance for every one of 22704 rows. The original source
+tables remain unchanged. Recorded values take precedence; aliases and same-run
+dataset identities are mapped only when supported. Manifest family lists can describe
+the available bank, while method/removal fields specify the actual ablation. Domain
+metadata inherited through source reuse is restricted to matching phases so a final
+run cannot acquire a validation target session. Metadata notes identify every derived
+field; unrecoverable values remain N/A.
+
+`delivery/SCHEMA_AUDIT.json` audits missing fields by artifact/run, including old
+unrecorded pooled-subject/domain metadata and unavailable unsupported-budget metrics.
+`PROVENANCE_AUDIT.json` verifies exact source record coverage, hashes and all recorded
+required values. This is explicitly `schema_complete_evidence_partial`: it does not
+certify scientific completion. Two regression tests reject changed canonical values
+and prevent inheritance of another phase's target session. The full suite now passes
+117 tests with one skip. Source repairs, historical DS2 reuse, remaining diagnostics
+and the complete requirements audit remain open.
+
 ### Per-subject variation and class summaries
 
 `benchmarks/per_subject_analysis.py` derives 3342 subject/condition summaries from
