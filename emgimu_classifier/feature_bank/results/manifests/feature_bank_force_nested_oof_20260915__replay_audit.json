@@ -1,0 +1,8 @@
+{
+  "status": "ok",
+  "probability_blocks_checked": 42,
+  "max_absolute_probability_error": 0.0,
+  "classifier_or_family_fit": false,
+  "nested_partitions_verified": true,
+  "scope": "all outer source OOF probabilities and stored temperatures; inner fitting is recorded by run code and partitions"
+}

@@ -1,0 +1,277 @@
+{
+  "seed": 20260915,
+  "families": [
+    "F0",
+    "F1_X1H",
+    "F2b_CSP",
+    "F3_Ring",
+    "F4_Spectral",
+    "F5_Temporal",
+    "F9_Quality"
+  ],
+  "outer_users": [
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      5,
+      6
+    ]
+  ],
+  "source_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "source_condition": "Ramp",
+  "target_users_opened": false,
+  "temperature_bounds": [
+    0.25,
+    4
+  ],
+  "temperatures": [
+    {
+      "fold": 0,
+      "family": "F0",
+      "temperature": 2.9991361926233155,
+      "fit_users": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "fold": 0,
+      "family": "F1_X1H",
+      "temperature": 2.262125875134038,
+      "fit_users": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "fold": 0,
+      "family": "F2b_CSP",
+      "temperature": 3.151824445060271,
+      "fit_users": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "fold": 0,
+      "family": "F3_Ring",
+      "temperature": 2.6355208820129588,
+      "fit_users": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "fold": 0,
+      "family": "F4_Spectral",
+      "temperature": 3.869986746542403,
+      "fit_users": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "fold": 0,
+      "family": "F5_Temporal",
+      "temperature": 3.9999740415681995,
+      "fit_users": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "fold": 0,
+      "family": "F9_Quality",
+      "temperature": 3.9999765057328482,
+      "fit_users": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "fold": 1,
+      "family": "F0",
+      "temperature": 3.839190578674472,
+      "fit_users": [
+        1,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "fold": 1,
+      "family": "F1_X1H",
+      "temperature": 3.309863293218712,
+      "fit_users": [
+        1,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "fold": 1,
+      "family": "F2b_CSP",
+      "temperature": 3.9999749263774067,
+      "fit_users": [
+        1,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "fold": 1,
+      "family": "F3_Ring",
+      "temperature": 3.999975135304586,
+      "fit_users": [
+        1,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "fold": 1,
+      "family": "F4_Spectral",
+      "temperature": 3.999977433242047,
+      "fit_users": [
+        1,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "fold": 1,
+      "family": "F5_Temporal",
+      "temperature": 3.9999813487862035,
+      "fit_users": [
+        1,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "fold": 1,
+      "family": "F9_Quality",
+      "temperature": 3.9999747490462667,
+      "fit_users": [
+        1,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "fold": 2,
+      "family": "F0",
+      "temperature": 3.9999747490462667,
+      "fit_users": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "fold": 2,
+      "family": "F1_X1H",
+      "temperature": 3.2014573214973083,
+      "fit_users": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "fold": 2,
+      "family": "F2b_CSP",
+      "temperature": 3.9999831523877507,
+      "fit_users": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "fold": 2,
+      "family": "F3_Ring",
+      "temperature": 3.99997586731925,
+      "fit_users": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "fold": 2,
+      "family": "F4_Spectral",
+      "temperature": 3.9999747490462667,
+      "fit_users": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "fold": 2,
+      "family": "F5_Temporal",
+      "temperature": 3.999983502383071,
+      "fit_users": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "fold": 2,
+      "family": "F9_Quality",
+      "temperature": 3.9999747490462667,
+      "fit_users": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "probability_calibration": "two inner subject folds per outer fold",
+  "fit_scope": "every family, scaler and classifier refit inside its subject fold",
+  "evaluation_unit": "trial mean",
+  "scope": "source Ramp nested OOF only; does not replace target-force evaluations"
+}

@@ -476,3 +476,39 @@ distance-based performance and diagnostics therefore remain valid; historical au
 similarity outputs should not be treated as valid fixed-state features. Full tests now
 run 103 cases, passing with one skip. Source-only probability calibration and strict
 OOF evidence remain separate open requirements; this fix does not satisfy them.
+
+## Nested source-subject OOF probability calibration
+
+`feature_bank_force_nested_oof_20260915` supplies strict grouped OOF evidence for all
+seven force-bank providers. Outer held-user pairs are (1,2), (3,4), (5,6). Every outer
+training partition is split into two inner subject folds. Families (including supervised
+CSP), feature scalers and trial-mean logistic classifiers are refit inside each inner
+and outer training fold. A scalar probability temperature, constrained to [0.25,4], is
+fit only to inner OOF probabilities and labels, then applied to the outer held users.
+Target users 7–10 are not opened. All 168 source Ramp trials have exactly one outer
+prediction. Persisted predictions contain raw and calibrated probabilities, original
+trial identifiers, users, labels and fold IDs. The complete 21-pair error-complementarity
+matrix uses these calibrated outer OOF predictions.
+
+| Family | Raw OOF log loss | Calibrated OOF log loss |
+|---|---:|---:|
+| F0 | 2.2446 | 1.3471 |
+| X1-H | 1.7950 | 1.4408 |
+| CSP | 2.1794 | 1.5289 |
+| Ring | 2.9042 | 1.8616 |
+| Spectral | 2.2009 | 1.3126 |
+| Temporal | 3.3012 | 1.6810 |
+| Quality | 3.0045 | 1.6042 |
+
+Temperatures preserve class order, so family F1 is unchanged. Better log loss here
+demonstrates correction of source-domain overconfidence, not improved target-force
+discrimination. This does not retroactively calibrate previously published full-fusion
+target probabilities. Applying a source-only calibrated bank to the frozen target
+protocols and obtaining OOF evidence on the other native benchmarks remain open.
+
+Replay verifies all 42 outer probability blocks with zero error, exact label/user/fold
+alignment, nested trial partition coverage and state immutability without refitting.
+Inner calibration fitting is evidenced by executable run code and explicit inner
+partitions; inner fitted states/probabilities are not retained in this run. Current result
+integrity checks 72 source artifacts, 7534 rows and 273 explicit partitions. Full tests
+run 105 cases, passing with one skip.
