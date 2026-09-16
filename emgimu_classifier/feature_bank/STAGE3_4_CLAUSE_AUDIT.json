@@ -1,0 +1,107 @@
+{
+  "completion_proven": false,
+  "stage3_document_lines": [
+    658,
+    678
+  ],
+  "error_table_sha256": "b9385c81df2f9d85f401a54ea7a67965a5920f5cfe3a105685db5eae8911f391",
+  "stage3": [
+    {
+      "requirement": "X1 vs Frequency",
+      "family_a": "F1_X1H",
+      "family_b": "F4_Spectral",
+      "rows": 3,
+      "run_ids": [
+        "feature_bank_epn_nested_oof_20260915",
+        "feature_bank_force_nested_oof_20260915",
+        "feature_bank_manus_nested_oof_20260915"
+      ],
+      "status": "verified_reference_pair",
+      "boundary": "Native held-out/source-OOF predictions, but current reference families are not missing historical validated implementations."
+    },
+    {
+      "requirement": "X1 vs F2 Spatial Coordination",
+      "family_a": "F1_X1H",
+      "family_b": "F2b_CSP",
+      "rows": 3,
+      "run_ids": [
+        "feature_bank_epn_nested_oof_20260915",
+        "feature_bank_force_nested_oof_20260915",
+        "feature_bank_manus_nested_oof_20260915"
+      ],
+      "status": "verified_reference_pair",
+      "boundary": "Native held-out/source-OOF predictions, but current reference families are not missing historical validated implementations."
+    },
+    {
+      "requirement": "G5 vs Temporal/DTW",
+      "rows": 34,
+      "run_ids": [
+        "feature_bank_unibo_sequence_incremental_final_20260916",
+        "feature_bank_unibo_sequence_incremental_validation_20260916"
+      ],
+      "status": "verified_conditional_increment_not_standalone_DTW",
+      "boundary": "Exact validated G5 baseline versus G5+complete-bout DTW increment; not a standalone DTW model and uses oracle bout boundaries."
+    },
+    {
+      "requirement": "RLCS vs Personal Anchor",
+      "rows": 0,
+      "run_ids": [],
+      "status": "missing_exact_historical_RLCS",
+      "reference_proxy_rows": 48,
+      "boundary": "Reference envelope-ring population/local-anchor rows cannot substitute for missing historical validated RLCS."
+    },
+    {
+      "requirement": "Raw vs robust features",
+      "rows": 360,
+      "run_ids": [
+        "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+        "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+        "feature_bank_manus_calibration_diagnostics_final_20260915",
+        "feature_bank_manus_calibration_diagnostics_validation_20260915",
+        "feature_bank_wearing_core_raw_ring_final_20260916",
+        "feature_bank_wearing_core_raw_ring_validation_20260916",
+        "feature_bank_wearing_document_core_final_20260916",
+        "feature_bank_wearing_document_core_validation_20260916"
+      ],
+      "status": "verified_reference_pairs",
+      "boundary": "Current reference raw/robust families; historical equivalence remains unproven."
+    }
+  ],
+  "stage4_document_lines": [
+    685,
+    712
+  ],
+  "interaction_table_sha256": "c1b59fb23f024a1b84c987828bfcfb2bef936c62365ca88f20d2f1ae530b2f87",
+  "stage4_reviewed_priority_pairs": [
+    {
+      "requirement": "X1 x Frequency",
+      "rows": 24,
+      "run_ids": [
+        "feature_bank_epn_core_incremental_20260915",
+        "feature_bank_epn_core_incremental_final_20260915",
+        "feature_bank_epn_core_incremental_validation_20260915"
+      ],
+      "status": "verified_reference_pair",
+      "boundary": "Source-prespecified current reference implementations; exact historical equivalence unavailable."
+    },
+    {
+      "requirement": "X1 x SpatialCoordination",
+      "rows": 24,
+      "run_ids": [
+        "feature_bank_epn_core_incremental_20260915",
+        "feature_bank_epn_core_incremental_final_20260915",
+        "feature_bank_epn_core_incremental_validation_20260915"
+      ],
+      "status": "verified_reference_pair",
+      "boundary": "Source-prespecified current reference implementations; exact historical equivalence unavailable."
+    }
+  ],
+  "remaining_stage4_exact_pairs": [
+    "RLCS x PersonalAnchor",
+    "RLCS x SessionSignature",
+    "G5 x TemporalShape",
+    "PersonalAnchor x SpatialCoordination",
+    "Quality x robust families"
+  ],
+  "boundary": "Recorded pair metrics and source hashes verified; full named-pair and historical-family coverage remains incomplete."
+}

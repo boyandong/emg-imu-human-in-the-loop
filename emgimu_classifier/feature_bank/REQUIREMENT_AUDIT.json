@@ -109,5 +109,12 @@
     "metric_rows_replayed": 32,
     "explicit_split_checks": 24,
     "source_state_file_unchanged": true
+  },
+  "stage3_4_clause_audit": {
+    "artifact": "feature_bank/STAGE3_4_CLAUSE_AUDIT.json",
+    "stage3_recorded_rows_reviewed": 400,
+    "stage4_recorded_rows_reviewed": 48,
+    "completion_proven": false,
+    "boundary": "Two priority reference interactions and several complementarity pairs covered; exact historical RLCS and remaining specified interactions are missing."
   }
 }
