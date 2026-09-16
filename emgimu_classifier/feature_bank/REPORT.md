@@ -2242,3 +2242,30 @@ has 8,004 summaries. These are integrity/coverage observations, not completion.
 Historical DS2 and exact old X1-H/RLCS/CES/Frequency remain unavailable. The
 remaining exact family/formula and complete document-clause audits are still
 required. New output stays under `work/benchmark_runs`; no new push is performed.
+
+
+## EPN legacy Anchor temperature correction (2026-09-16)
+
+The old `feature_bank_epn612_trial_calibration_validation_20260915` helper scaled
+anchor logits by the median of evaluation-batch distances. Its twelve nonzero-shot
+result rows are retained for history but excluded from leakage-compliant scientific
+acceptance. Zero-shot population predictions do not use the faulty helper.
+
+The corrected helper uses calibration-only prototype-distance scale. A new frozen
+validation run uses exactly the same calibration trial CSV (byte-identical), seed,
+source users1–15, target users16–18 and F0/reference-envelope-ring composition.
+Pooled macro-F1 at budgets0/1/2/5 is now0.416870/0.406874/0.351224/0.336868;
+log loss1.483118/1.499481/1.546646/1.650541. Previous nonzero-budget F1 values
+0.414149/0.399633/0.370582 must not be cited as compliant Anchor performance.
+The correction establishes evaluation-row independence, not recovery: negative
+transfer persists and becomes stronger. This branch is not the later EPN selected
+source-OOF probability pipeline, so its results cannot replace that separate branch.
+Native labels remain six EPN classes; this is not own-device four-class validation.
+See `results/epn_anchor_temperature_correction.json` for boundaries and hashes.
+
+The frozen corrected protocol was then evaluated once on final users19–21. Pooled
+macro-F1 at0/1/2/5 shots is0.438608/0.440676/0.422205/0.446555 and log loss is
+1.556775/1.530031/1.513385/1.555759. The final-set pattern differs from validation:
+1 and5 shots slightly exceed zero-shot F1, while2 shots declines; no monotonic or
+universal calibration benefit follows. These final results were not used to change
+the calibration rule, family composition, shrinkage, trials, or model settings.

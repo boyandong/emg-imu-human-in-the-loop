@@ -1,0 +1,15 @@
+{
+  "rules": [
+    {
+      "run_id": "feature_bank_epn612_trial_calibration_validation_20260915",
+      "source_artifact": "calibration_curve.csv",
+      "field": "shots_per_class",
+      "excluded_values": [
+        "1",
+        "2",
+        "5"
+      ],
+      "reason": "Legacy Anchor temperature estimated from evaluation-batch distances; retained for traceability, excluded from leakage-compliant acceptance."
+    }
+  ]
+}

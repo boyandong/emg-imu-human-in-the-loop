@@ -612,6 +612,20 @@
     "bytes": 6824
   },
   {
+    "run_id": "feature_bank_epn612_anchor_temperature_validation_20260916_v2",
+    "artifact": "calibration_curve.csv",
+    "sha256": "ca8ada66335b4cbffbbfc7ce592195a7b82155ed347c3bd9309bd0999080f126",
+    "bytes": 5717,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_epn612_anchor_temperature_final_20260916_v2",
+    "artifact": "calibration_curve.csv",
+    "sha256": "f37d15a7892519a4f5c4aedfa3b0d724bca248d8a9a5c664ab93a23c2e0b4bb9",
+    "bytes": 5602,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
     "run_id": "feature_bank_wearing_session_normalization_validation_20260916",
     "artifact": "calibration_curve.csv",
     "sha256": "663777a8e3a8029e3b6038cf42469a223cb318af19914b64130dcdc793cafd79",

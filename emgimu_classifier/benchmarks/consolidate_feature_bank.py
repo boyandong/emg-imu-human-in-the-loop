@@ -7,6 +7,8 @@ import json
 
 
 RUNS = (
+    'feature_bank_epn612_anchor_temperature_validation_20260916_v2',
+    'feature_bank_epn612_anchor_temperature_final_20260916_v2',
     'feature_bank_wearing_document_core_validation_20260916',
     'feature_bank_wearing_document_core_final_20260916',
     'feature_bank_wearing_core_raw_ring_validation_20260916',
@@ -162,6 +164,10 @@ def consolidate(root: Path, output: Path, local_root=None) -> None:
             writer.writerows(rows)
     manifests = output / 'manifests'
     manifests.mkdir(exist_ok=True)
+    # This directory is entirely derived. Remove stale JSON copies from runs
+    # that were superseded so audits cannot count evidence outside RUNS.
+    for stale in manifests.glob('*.json'):
+        stale.unlink()
     for run in RUNS:
         for source in run_directory(root,run,local_root).glob('*.json'):
             (manifests / f'{run}__{source.name}').write_bytes(source.read_bytes())

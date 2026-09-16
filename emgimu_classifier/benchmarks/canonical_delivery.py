@@ -22,8 +22,21 @@ def record_hash(row):
     return hashlib.sha256(json.dumps(row,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()).hexdigest()
 
 
+def load_exclusions(results):
+    path=results/'scientific_exclusions.json'
+    if not path.exists():return []
+    return json.loads(path.read_text(encoding='utf-8'))['rules']
+
+
+def exclusion_notes(rules, name, row):
+    return [rule['reason'] for rule in rules
+            if rule['run_id']==row['run_id'] and rule['source_artifact']==name
+            and row.get(rule['field']) in rule['excluded_values']]
+
+
 def build(results,output):
     output.mkdir(parents=True,exist_ok=True);sources={};datasets=defaultdict(set);audits={}
+    exclusion_rules=load_exclusions(results)
     for name in SCHEMAS:
         with (results/name).open(encoding='utf-8-sig',newline='') as h:sources[name]=list(csv.DictReader(h))
         for row in sources[name]:
@@ -47,6 +60,8 @@ def build(results,output):
         canonical=[];missing=Counter();by_run=defaultdict(Counter)
         for index,row in enumerate(sources[name],1):
             run=row['run_id'];meta=manifest(run);notes={};values={}
+            exclusions=exclusion_notes(exclusion_rules,name,row)
+            if exclusions:notes['scientific_acceptance_excluded']=exclusions
             for field in required:
                 value=row.get(field,'')
                 if not value:
@@ -90,6 +105,7 @@ def build(results,output):
 
 def verify(results,output):
     audit=json.loads((output/'SCHEMA_AUDIT.json').read_text(encoding='utf-8'));count=0
+    exclusion_rules=load_exclusions(results)
     for name,meta in audit['artifacts'].items():
         if hashlib.sha256((results/name).read_bytes()).hexdigest()!=meta['source_csv_sha256']:raise ValueError('Changed source table')
         if hashlib.sha256((output/name).read_bytes()).hexdigest()!=meta['canonical_csv_sha256']:raise ValueError('Changed canonical table')
@@ -97,6 +113,8 @@ def verify(results,output):
         with (output/name).open(encoding='utf-8',newline='') as h:canonical=list(csv.DictReader(h))
         if len(source)!=len(canonical):raise ValueError('Canonical row coverage changed')
         for index,(a,b) in enumerate(zip(source,canonical),1):
+            if json.loads(b['metadata_notes_json']).get('scientific_acceptance_excluded',[])!=exclusion_notes(exclusion_rules,name,a):
+                raise ValueError('Scientific exclusion annotation mismatch')
             if b['source_record_sha256']!=record_hash(a) or int(b['source_row_1based'])!=index or b['run_id']!=a['run_id']:
                 raise ValueError('Canonical provenance mismatch')
             for field in SCHEMAS[name]:

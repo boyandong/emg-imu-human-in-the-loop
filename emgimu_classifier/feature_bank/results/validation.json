@@ -1,10 +1,10 @@
 {
   "date": "2026-09-16",
   "command": "$env:PYTHONPATH='src'; python -m unittest discover -s tests",
-  "tests_run": 177,
+  "tests_run": 178,
   "skipped": 1,
   "result": "OK",
-  "compileall": "calibration module passed; full source compile passed preceding unchanged revision",
+  "compileall": "src and benchmarks passed",
   "scope": "unit and synthetic integration checks; no live-device accuracy claim",
-  "test_log_sha256": "1b896fc071ffa8bb4bbedc84c5da8d43d49dd9b1d67c0e51410feaea17faa893"
+  "test_log_sha256": "bb71f939c7d4a24e2989d1771b0e0412e5df3d4ea2f762ac1eeaafb98b783b7a"
 }

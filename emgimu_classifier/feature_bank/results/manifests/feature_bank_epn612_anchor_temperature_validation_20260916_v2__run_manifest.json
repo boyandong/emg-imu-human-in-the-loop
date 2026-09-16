@@ -1,0 +1,62 @@
+{
+  "phase": "validation",
+  "seed": 20260915,
+  "train_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "target_users": [
+    16,
+    17,
+    18
+  ],
+  "families": [
+    "F0",
+    "F3_Ring"
+  ],
+  "dimensions": {
+    "F0": 48,
+    "F3_Ring": 40
+  },
+  "post_onset_windows_per_trial": 4,
+  "calibration_method": "anchor",
+  "native_sample_rate_hz": 200,
+  "native_emg_channels": 8,
+  "native_imu_channels": 6,
+  "native_classes": [
+    "noGesture",
+    "fist",
+    "waveIn",
+    "waveOut",
+    "open",
+    "pinch"
+  ],
+  "source_trial_ids_artifact": "split_trial_ids.json",
+  "prediction_artifact": "heldout_predictions.npz",
+  "source_state_artifact": "fitted_source_state.pkl",
+  "classifier": {
+    "type": "LogisticRegression",
+    "C": 1.0,
+    "class_weight": "balanced",
+    "max_iter": 1000,
+    "random_state": 20260915
+  },
+  "scaler": "StandardScaler fit on source users1-15 only",
+  "personal_anchor_shrinkage": "shots/(2+shots)",
+  "anchor_temperature_fit": "calibration-only median prototype distance",
+  "finetune": null,
+  "evaluation_excludes_complete_calibration_trials": true
+}

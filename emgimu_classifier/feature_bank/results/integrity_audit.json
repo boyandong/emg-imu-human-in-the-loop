@@ -1,7 +1,7 @@
 {
   "status": "ok",
-  "source_artifacts_checked": 208,
-  "rows_checked": 51251,
-  "explicit_split_checks": 1218,
+  "source_artifacts_checked": 210,
+  "rows_checked": 51283,
+  "explicit_split_checks": 1206,
   "scope": "copied values/hash integrity and available explicit trial lists; not a complete scientific requirement audit"
 }

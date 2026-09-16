@@ -195,7 +195,7 @@
       "canonical_csv_sha256": "ff849eb1b7376fb9e7bcd6678425ed6993322f40fbddc9d8bd55095acf6bb1d9"
     },
     "calibration_curve.csv": {
-      "rows": 19994,
+      "rows": 20026,
       "required_fields": [
         "dataset",
         "subject",
@@ -208,12 +208,18 @@
         "log_loss"
       ],
       "missing_field_counts": {
+        "method": 536,
         "macro_f1": 554,
         "log_loss": 554,
-        "session/domain": 60,
-        "method": 504
+        "session/domain": 60
       },
       "missing_by_run": {
+        "feature_bank_epn612_anchor_temperature_validation_20260916_v2": {
+          "method": 16
+        },
+        "feature_bank_epn612_anchor_temperature_final_20260916_v2": {
+          "method": 16
+        },
         "feature_bank_wearing_session_normalization_validation_20260916": {
           "macro_f1": 24,
           "log_loss": 24,
@@ -342,8 +348,8 @@
           "log_loss": 7
         }
       },
-      "source_csv_sha256": "69a46aefae255cc51c711333223d6e5d1fae6cdbd449ccf1449165228781f0ee",
-      "canonical_csv_sha256": "d5d32c03c7c79fc13ca0ddcdf05b52c3f2f48c183be5f4d716b06ee9f6ac04c6"
+      "source_csv_sha256": "eafcd386b5b22699456de10c28ad0f01e6de9174351702c99dd7feaf7738d57e",
+      "canonical_csv_sha256": "dfc09c3a72457b6c394830a73f69f0329ed8feb8f8e5e2b6cfcd1f1aea01b1d3"
     },
     "ablation_full_bank.csv": {
       "rows": 14603,

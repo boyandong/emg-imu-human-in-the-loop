@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "phase": "validation",
+  "metric_rows_replayed": 16,
+  "probability_arrays_checked": 12,
+  "source_state_file_unchanged": true,
+  "source_state_sha256": "cf45e42b6a27de15fc809965f542a8c243ba88e39fb7688f296fafe06406a84e",
+  "scope": "saved probabilities, labels, weights and split identities; no refit and no raw-data formula replay"
+}
