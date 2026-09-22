@@ -2278,3 +2278,15 @@ calibration-only Anchor application without refitting a model. The 5.48-GB ZIP
 was not freshly hashed in full; relevant members were read with ZIP CRC checks.
 `native_replay_audit.json` for each corrected run and the regenerated correction
 audit record the narrower verification scope.
+
+## F7 SPD tangent Anchor candidate (2026-09-22)
+
+An explicit `SpdTangentPersonalAnchor` now snapshots a source-fitted F2c SPD
+reference, fits gesture prototypes using only labeled personal calibration
+windows, and transforms evaluation windows without refitting. Its Euclidean
+distance on the sqrt(2)-weighted upper triangle equals Frobenius distance in
+the fixed log-tangent space; an independent two-channel matrix oracle checks
+the formula. Output dimensions are 2H+2, as for other personal anchors.
+This is a candidate tangent approximation, not the exact affine-invariant
+geodesic, and it has no native held-out or own-device performance result yet.
+It does not replace missing historical X1-H/RLCS/CES/Frequency implementations.

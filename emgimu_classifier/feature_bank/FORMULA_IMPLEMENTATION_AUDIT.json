@@ -1,6 +1,6 @@
 {
   "completion_proven": false,
-  "reviewed_rows": 30,
+  "reviewed_rows": 31,
   "scope": "reviewed selected formula/API boundaries with exact source hashes and symbol spans; not exhaustive document acceptance",
   "fixture": "synthetic16 windows,40 samples,8channels,200Hz,4classes; IMU10samples and2 oracle postures only for dimension checks",
   "warning": "whole-class fixture dimensions are not subblock dimensions; synthetic dimension/immutability checks do not prove native topology or scientific validity",
@@ -809,6 +809,24 @@
       ],
       "fixture_override": "explicit synthetic50Hz IMU with synthetic neutral/guided-axis source; not native anatomical validation",
       "source_immutable": true,
+      "native_evaluation": "N/A"
+    },
+    "SpdTangentPersonalAnchor": {
+      "fixture_dimension": 10,
+      "names": [
+        "F7.spd_tangent.distance.0",
+        "F7.spd_tangent.distance.1",
+        "F7.spd_tangent.distance.2",
+        "F7.spd_tangent.distance.3",
+        "F7.spd_tangent.similarity.0",
+        "F7.spd_tangent.similarity.1",
+        "F7.spd_tangent.similarity.2",
+        "F7.spd_tangent.similarity.3",
+        "F7.spd_tangent.margin",
+        "F7.spd_tangent.normalized_margin"
+      ],
+      "source_immutable": true,
+      "fixture_override": "synthetic source8, disjoint calibration4 and evaluation4 for API shape only; no native performance claim",
       "native_evaluation": "N/A"
     }
   }

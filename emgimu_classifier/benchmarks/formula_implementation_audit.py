@@ -21,6 +21,7 @@ from emgimu.feature_bank.relative_spectrum import LogBandEnergyFamily
 from emgimu.feature_bank.validated_unibo import ValidatedUniBoFamily
 from emgimu.feature_bank.document_signal import RestNoiseLocalDetailFamily,DocumentCspFamily
 from emgimu.feature_bank.body_frame import CalibratedBodyContextFamily
+from emgimu.feature_bank.spd_anchor import SpdTangentPersonalAnchor
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
 # Exact historical mandatory reuse cannot be replaced by a conceptual candidate.
@@ -68,7 +69,9 @@ REVIEWS = (
  ('F6b','F6b. Public dataset posture context','families.py','BodyContextFamily','candidate_formula',
   'Training-fixed posture one-hot, unseen category rejection; explicit oracle context, never fabricated IMU.','P posture block'),
  ('F7','F7. Personal Anchor Coordinates','calibration.py','PersonalAnchor','partial',
-  'Mean/median prototypes, Euclidean/source-or-cal standardized/cosine distances, fixed-cal similarity and margins; optional shrinkage Mahalanobis and native SPD distance not present.','2H+2'),
+  'Mean/median prototypes, Euclidean/source-or-cal standardized/cosine distances, fixed-cal similarity and margins; optional shrinkage Mahalanobis absent. Separate frozen-source SPD tangent candidate below is not an affine-invariant geodesic.','2H+2'),
+ ('F7_SPD_tangent_candidate','F7. Personal Anchor Coordinates','spd_anchor.py','SpdTangentPersonalAnchor','candidate_api_native_unavailable',
+  'Frozen source-fitted F2c log-tangent reference; calibration-only class prototypes and Frobenius-equivalent tangent Euclidean distances. Synthetic matrix oracle passes; native held-out incremental value, affine-invariant geodesic, historical family equivalence and own-device validity remain unproven.','2H+2'),
  ('F8','F8. Session Signature','calibration.py','SessionSignature','partial',
   'Residual norms, cosines and pair geometry exact generic block; family-specific scale/RLCS/spectral/SPD/quality summaries are separate partial study evidence, not complete in this API.','2H+H(H-1)/2'),
  ('F9_legacy','F9. Quality / Observability','families.py','QualityFamily','reference_only',
@@ -123,6 +126,16 @@ def build(document, output):
     measured['CalibratedBodyContextFamily']={'fixture_dimension':values.shape[1],'names':list(body.feature_names),
         'fixture_override':'explicit synthetic50Hz IMU with synthetic neutral/guided-axis source; not native anatomical validation',
         'source_immutable':True,'native_evaluation':'N/A'}
+    spd_anchor = SpdTangentPersonalAnchor(SpdTangentFamily().fit(batch.take(np.arange(8))))
+    spd_anchor.fit(batch.take(np.arange(8,12)),labels[8:12])
+    before=pickle.dumps(spd_anchor)
+    spd_values=spd_anchor.transform(batch.take(np.arange(12,16)))
+    if before!=pickle.dumps(spd_anchor) or spd_values.shape!=(4,len(spd_anchor.feature_names)) or not np.isfinite(spd_values).all():
+        raise AssertionError('Frozen-source SPD tangent Anchor fixture failed')
+    measured['SpdTangentPersonalAnchor']={'fixture_dimension':spd_values.shape[1],
+        'names':list(spd_anchor.feature_names),'source_immutable':True,
+        'fixture_override':'synthetic source8, disjoint calibration4 and evaluation4 for API shape only; no native performance claim',
+        'native_evaluation':'N/A'}
     rows = []
     for item_id,heading,filename,symbol,status,boundary,dimension in REVIEWS:
         matches = [i+1 for i,text in enumerate(lines) if i+1>=1120 and text.strip()==heading]

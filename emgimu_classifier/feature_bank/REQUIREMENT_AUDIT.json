@@ -74,7 +74,7 @@
     "repetition_boundaries": null,
     "not_historical_DS2": true
   },
-  "test_count": 179,
+  "test_count": 181,
   "wearing_configuration_boundary": "New executions explicitly persist preprocessing/model/seed fields and reject invalid phases before loading final users. Existing saved experiments remain historical manifests; no retraining or retroactive configuration claim.",
   "reproducibility_metadata_inventory": {
     "artifact": "feature_bank/REPRODUCIBILITY_METADATA_AUDIT.json",
@@ -118,5 +118,14 @@
     "stage4_recorded_rows_reviewed": 48,
     "completion_proven": false,
     "boundary": "Two priority reference interactions and several complementarity pairs covered; exact historical RLCS and remaining specified interactions are missing."
+  },
+  "f7_spd_tangent_anchor_candidate": {
+    "implementation": "src/emgimu/feature_bank/spd_anchor.py",
+    "formula_audit_item": "F7_SPD_tangent_candidate",
+    "output_dimension": "2H+2",
+    "synthetic_matrix_oracle": true,
+    "source_reference_frozen": true,
+    "native_heldout_result": "not_run",
+    "boundary": "Tangent-space Frobenius-equivalent candidate only; exact affine-invariant geodesic and historical family equivalence unproven."
   }
 }

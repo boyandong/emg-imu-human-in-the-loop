@@ -1,10 +1,10 @@
 {
   "date": "2026-09-22",
   "command": "$env:PYTHONPATH='src'; python -m unittest discover -s tests",
-  "tests_run": 179,
+  "tests_run": 181,
   "skipped": 1,
   "result": "OK",
-  "compileall": "EPN module and correction verifier passed; full source compile passed preceding unchanged revision",
+  "compileall": "SPD Anchor and formula audit modules passed",
   "scope": "unit and synthetic integration checks; no live-device accuracy claim",
-  "test_log_sha256": "e6f0343a77929ab36bc59e638c1d97d5365d05c268777cf52cca948c6e9e326e"
+  "test_log_sha256": "30e372635a719ce87d04ce62af1026f6ad0124c6ee604595e0400851a3912fc8"
 }

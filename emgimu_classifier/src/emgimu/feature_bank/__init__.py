@@ -15,6 +15,7 @@ from .families import (
 from .calibration import PersonalAnchor, PersonalNormalizer, ReliabilityWeights, SessionSignature, late_fusion
 from .temporal import PathSignatureFamily, TemporalTemplateFamily, CompleteSequenceBatch, dtw_distance
 from .body_frame import CalibratedBodyContextFamily
+from .spd_anchor import SpdTangentPersonalAnchor
 
 __all__ = [
     "BodyContextFamily",
@@ -33,6 +34,7 @@ __all__ = [
     "ScalePatternFamily",
     "SpectralStateFamily",
     "SpdTangentFamily",
+    "SpdTangentPersonalAnchor",
     "SessionSignature",
     "TemporalFormFamily",
     "TemporalTemplateFamily",
