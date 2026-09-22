@@ -74,7 +74,7 @@
     "repetition_boundaries": null,
     "not_historical_DS2": true
   },
-  "test_count": 178,
+  "test_count": 179,
   "wearing_configuration_boundary": "New executions explicitly persist preprocessing/model/seed fields and reject invalid phases before loading final users. Existing saved experiments remain historical manifests; no retraining or retroactive configuration claim.",
   "reproducibility_metadata_inventory": {
     "artifact": "feature_bank/REPRODUCIBILITY_METADATA_AUDIT.json",
@@ -102,13 +102,11 @@
     "artifact": "feature_bank/results/epn_anchor_temperature_correction.json",
     "legacy_nonzero_rows_excluded": 12,
     "corrected_validation_rows": 16,
-    "calibration_selection_byte_identical": true,
-    "boundary": "Negative transfer persists after fixing evaluation-batch-dependent temperature; distinct from later source-OOF selected EPN branch.",
     "corrected_final_rows": 16,
-    "prediction_arrays_replayed": 24,
-    "metric_rows_replayed": 32,
-    "explicit_split_checks": 24,
-    "source_state_file_unchanged": true
+    "saved_metric_rows_replayed": 32,
+    "calibration_selection_byte_identical": true,
+    "phase_guard_before_data_load": true,
+    "boundary": "Correction audit regenerated from current artifacts; saved-probability replay is distinct from raw-signal refitting. Full goal acceptance remains unproven."
   },
   "stage3_4_clause_audit": {
     "artifact": "feature_bank/STAGE3_4_CLAUSE_AUDIT.json",

@@ -1,36 +1,91 @@
 {
   "completion_proven": false,
-  "affected_legacy_run": "feature_bank_epn612_trial_calibration_validation_20260915",
-  "issue": "Nonzero-shot anchor temperature estimated from evaluation-batch distances; query predictions depend on other evaluation rows.",
-  "affected_nonzero_budget_rows": 12,
-  "source_sha256": "4b865d6cdc7fa77d63d9a77555bd94bc52da4bc24ef17a64b1ea3ed7cc714f3e",
-  "scientific_acceptance": "Exclude legacy nonzero-shot rows from leakage-compliant conclusions; retain raw historical values for traceability.",
-  "corrected_run": "feature_bank_epn612_anchor_temperature_validation_20260916",
-  "trial_selection_byte_identical": true,
-  "trial_selection_sha256": "a714c6c6bc8431564746e1134598347e82dccf4206039a4f383cff170e5dffe9",
-  "corrected_validation_only": true,
+  "issue": "Legacy Anchor scale depended on the evaluation batch",
+  "legacy_run": "feature_bank_epn612_trial_calibration_validation_20260915",
+  "legacy_curve_sha256": "4b865d6cdc7fa77d63d9a77555bd94bc52da4bc24ef17a64b1ea3ed7cc714f3e",
+  "legacy_nonzero_shot_rows_excluded": 12,
+  "legacy_zero_shot_rows_unaffected": 4,
+  "validation_calibration_selection_byte_identical": true,
+  "corrected_runs": {
+    "validation": {
+      "run_id": "feature_bank_epn612_anchor_temperature_validation_20260916_v2",
+      "users": [
+        16,
+        17,
+        18
+      ],
+      "metric_rows_replayed": 16,
+      "files_sha256": {
+        "calibration_curve.csv": "ca8ada66335b4cbffbbfc7ce592195a7b82155ed347c3bd9309bd0999080f126",
+        "calibration_trial_ids.csv": "a714c6c6bc8431564746e1134598347e82dccf4206039a4f383cff170e5dffe9",
+        "run_manifest.json": "f83962d80ca4c9d46d614a4bfda71b974faa8dd3a464ecb06af58e6c454ae677",
+        "split_trial_ids.json": "3e8b210d851124289be78fb88f3bf7cb5912837c6f1ac1e2e6a4a9bab9910e0d",
+        "heldout_predictions.npz": "ede45fd17c3f55156dc4926f8428f2698966ae9f783ea645714de25af2f176ed",
+        "fitted_source_state.pkl": "cf45e42b6a27de15fc809965f542a8c243ba88e39fb7688f296fafe06406a84e",
+        "replay_audit.json": "3b5c8dfd0ebfa217aa20958b93d823fa56ba6650fef6588e1fd31093e029ad54"
+      },
+      "pooled_results": {
+        "0": {
+          "macro_f1": 0.41687044805928813,
+          "log_loss": 1.4831184845970693
+        },
+        "1": {
+          "macro_f1": 0.4068740529131813,
+          "log_loss": 1.4994806324870955
+        },
+        "2": {
+          "macro_f1": 0.3512240992384048,
+          "log_loss": 1.5466462301270356
+        },
+        "5": {
+          "macro_f1": 0.33686773313343044,
+          "log_loss": 1.650541344439463
+        }
+      }
+    },
+    "final": {
+      "run_id": "feature_bank_epn612_anchor_temperature_final_20260916_v2",
+      "users": [
+        19,
+        20,
+        21
+      ],
+      "metric_rows_replayed": 16,
+      "files_sha256": {
+        "calibration_curve.csv": "f37d15a7892519a4f5c4aedfa3b0d724bca248d8a9a5c664ab93a23c2e0b4bb9",
+        "calibration_trial_ids.csv": "2b5f99e39c123ab2fb8454e5c40081487d2aa4d72ce5767303780ac91b4defa7",
+        "run_manifest.json": "c17cf96e14ac382ce33e623d00185c296aa91668cb58c02997cd068da53e7ee9",
+        "split_trial_ids.json": "c5ee14e6a9b10168dbe7f66d3f906c4d6e350e267b8dbe5183610d39be294e89",
+        "heldout_predictions.npz": "2324aa60d27a68ba472f2021f0a803bda5930089fdb0d49bac71f277a327e73f",
+        "fitted_source_state.pkl": "cf45e42b6a27de15fc809965f542a8c243ba88e39fb7688f296fafe06406a84e",
+        "replay_audit.json": "bb843dcd000c70db483a0815776171ec25920095289b1831a8d679b681b81f99"
+      },
+      "pooled_results": {
+        "0": {
+          "macro_f1": 0.43860753737612007,
+          "log_loss": 1.5567753529038764
+        },
+        "1": {
+          "macro_f1": 0.4406756755105033,
+          "log_loss": 1.530031490249868
+        },
+        "2": {
+          "macro_f1": 0.4222050511245868,
+          "log_loss": 1.513384522084397
+        },
+        "5": {
+          "macro_f1": 0.4465550137226579,
+          "log_loss": 1.5557594319790096
+        }
+      }
+    }
+  },
+  "total_saved_metric_rows_replayed": 32,
+  "scientific_acceptance": "Keep legacy metrics for provenance; exclude its nonzero-shot rows from leakage-compliant claims.",
   "limitations": [
-    "Corrected model is F0 plus reference envelope-ring, not historical RLCS",
-    "Population probabilities are raw LogisticRegression probabilities; no claim of fully calibrated late fusion",
-    "No saved-state prediction replay for this simple legacy-protocol rerun",
-    "Other older calibration runs using this module need separate provenance review"
-  ],
-  "corrected_final_run": "feature_bank_epn612_anchor_temperature_final_20260916_v2",
-  "corrected_final_rows": 16,
-  "final_manifest_sha256": "f726d0fe811ce8945bfdfa5c2f11d47ca6bbcebd423853551070c556f9487dfc",
-  "final_trial_ids_sha256": "2b5f99e39c123ab2fb8454e5c40081487d2aa4d72ce5767303780ac91b4defa7",
-  "corrected_validation_run": "feature_bank_epn612_anchor_temperature_validation_20260916_v2",
-  "validation_run_manifest_json_sha256": "f83962d80ca4c9d46d614a4bfda71b974faa8dd3a464ecb06af58e6c454ae677",
-  "validation_split_trial_ids_json_sha256": "3e8b210d851124289be78fb88f3bf7cb5912837c6f1ac1e2e6a4a9bab9910e0d",
-  "validation_heldout_predictions_npz_sha256": "ede45fd17c3f55156dc4926f8428f2698966ae9f783ea645714de25af2f176ed",
-  "validation_fitted_source_state_pkl_sha256": "cf45e42b6a27de15fc809965f542a8c243ba88e39fb7688f296fafe06406a84e",
-  "validation_replay_audit_json_sha256": "3b5c8dfd0ebfa217aa20958b93d823fa56ba6650fef6588e1fd31093e029ad54",
-  "final_run_manifest_json_sha256": "c17cf96e14ac382ce33e623d00185c296aa91668cb58c02997cd068da53e7ee9",
-  "final_split_trial_ids_json_sha256": "c5ee14e6a9b10168dbe7f66d3f906c4d6e350e267b8dbe5183610d39be294e89",
-  "final_heldout_predictions_npz_sha256": "2324aa60d27a68ba472f2021f0a803bda5930089fdb0d49bac71f277a327e73f",
-  "final_fitted_source_state_pkl_sha256": "cf45e42b6a27de15fc809965f542a8c243ba88e39fb7688f296fafe06406a84e",
-  "final_replay_audit_json_sha256": "bb843dcd000c70db483a0815776171ec25920095289b1831a8d679b681b81f99",
-  "prediction_arrays_replayed": 24,
-  "metric_rows_replayed": 32,
-  "corrected_runs_have_explicit_source_calibration_evaluation_trial_ids": true
+    "Corrected family is F0 plus current reference envelope-ring, not historical RLCS",
+    "Saved probability replay does not independently refit from raw signals",
+    "Population probabilities are raw logistic outputs, not a fully calibrated late-fusion pipeline",
+    "Validation and final users do not validate own-device four-class performance"
+  ]
 }

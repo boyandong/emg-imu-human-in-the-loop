@@ -33,6 +33,10 @@ def _anchor_probability(calibration_x: np.ndarray, calibration_y: np.ndarray, ev
 
 
 def run(archive: Path, output: Path, subjects: tuple[int, ...], phase: str, method: str = "anchor") -> None:
+    if phase not in ("validation", "final"):
+        raise ValueError("phase must be validation or final")
+    if method not in ("anchor", "finetune"):
+        raise ValueError("method must be anchor or finetune")
     expected = {16, 17, 18} if phase == "validation" else {19, 20, 21}
     if set(subjects) != expected:
         raise ValueError(f"{phase} subjects are frozen to {sorted(expected)}")
