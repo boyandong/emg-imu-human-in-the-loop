@@ -29,10 +29,12 @@ class SpdTangentPersonalAnchor:
         self.source_reference_sha256_ = hashlib.sha256(
             np.ascontiguousarray(reference).tobytes()).hexdigest()
         self.anchor_ = PersonalAnchor(metric="euclidean")
+        self.calibration_trial_ids_: frozenset | None = None
 
     def fit(self, calibration: FeatureBatch, labels) -> "SpdTangentPersonalAnchor":
         candidate = PersonalAnchor(metric="euclidean").fit(self.family_.transform(calibration), labels)
         self.anchor_ = candidate
+        self.calibration_trial_ids_ = None
         return self
 
     def transform(self, evaluation: FeatureBatch) -> np.ndarray:
@@ -64,15 +66,23 @@ class SpdTangentPersonalAnchor:
 
     def fit_trials(self, calibration: FeatureBatch, labels, trial_ids) -> "SpdTangentPersonalAnchor":
         """Fit one prototype observation per complete, labeled native trial."""
-        features, _, trial_labels = self._trial_tangents(calibration, trial_ids, labels)
+        features, trials, trial_labels = self._trial_tangents(calibration, trial_ids, labels)
         candidate = PersonalAnchor(metric="euclidean").fit(features, trial_labels)
         self.anchor_ = candidate
+        self.calibration_trial_ids_ = frozenset(trials.tolist())
         return self
 
     def transform_trials(self, evaluation: FeatureBatch, trial_ids) -> tuple[np.ndarray, np.ndarray]:
         """Return ordered trial IDs and coordinates without updating fitted state."""
         if self.anchor_.classes_ is None:
             raise RuntimeError("Personal SPD anchor requires labeled calibration first")
+        if self.calibration_trial_ids_ is None:
+            raise RuntimeError("Trial evaluation requires trial-aware calibration")
+        ids = np.asarray(trial_ids)
+        if ids.ndim != 1 or len(ids) != evaluation.windows:
+            raise ValueError("trial IDs must match evaluation windows")
+        if self.calibration_trial_ids_.intersection(ids.tolist()):
+            raise ValueError("calibration trials cannot enter evaluation")
         features, trials, _ = self._trial_tangents(evaluation, trial_ids)
         return trials, self.anchor_.transform(features)
 

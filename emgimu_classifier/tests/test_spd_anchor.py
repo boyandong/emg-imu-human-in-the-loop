@@ -44,6 +44,8 @@ class SpdAnchorTests(unittest.TestCase):
         np.testing.assert_allclose(anchor.transform(evaluation.take([0]))[0], observed[0], rtol=0, atol=0)
         family.reference_[:] = np.eye(2) * 10  # external source object cannot alter the frozen anchor
         np.testing.assert_array_equal(anchor.transform(evaluation), observed)
+        with self.assertRaisesRegex(RuntimeError, "trial-aware calibration"):
+            anchor.transform_trials(evaluation, ["heldout-1", "heldout-2"])
 
     def test_failed_calibration_preserves_previous_prototypes(self):
         rng = np.random.default_rng(41)
@@ -75,6 +77,9 @@ class SpdAnchorTests(unittest.TestCase):
             anchor.family_.transform(evaluation.take([2]))[0],
             anchor.family_.transform(evaluation.take([0, 1])).mean(axis=0))))
         np.testing.assert_allclose(coordinates, expected)
+        self.assertEqual(before, pickle.dumps(anchor))
+        with self.assertRaisesRegex(ValueError, "calibration trials cannot enter evaluation"):
+            anchor.transform_trials(evaluation.take([0]), ["a"])
         self.assertEqual(before, pickle.dumps(anchor))
         with self.assertRaisesRegex(ValueError, "inconsistent labels"):
             anchor.fit_trials(calibration.take([0, 1]), [0, 1], ["mixed", "mixed"])

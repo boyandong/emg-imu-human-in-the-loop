@@ -11,7 +11,7 @@
     "validation": {
       "source_reference_sha256": "89b38ae0f9359e8a4b9e7269a07236df3e6f8ca6a7f0a8846fed72bde70d5b24",
       "selection_file_sha256": "a714c6c6bc8431564746e1134598347e82dccf4206039a4f383cff170e5dffe9",
-      "manifest_sha256": "e58ee213d841cacdd27ee2cc46bbe8882469ae32005b950659f4c5458a7036d1",
+      "manifest_sha256": "79df064f71a2e16054cae063faf6f7c0ae047548527c25b5dd23e5be27f6b0f5",
       "output_sha256": {
         "subject_scores.csv": "3e2a6aa2432c74b76e4f657e672c451f0253bae1747e879b4233b051e548638c",
         "pooled_scores.csv": "320d8edffb3069e3677ade5ed9f385f45bfa25c61ed488c95719fcef4e92b8b4",
@@ -80,7 +80,7 @@
     "final": {
       "source_reference_sha256": "89b38ae0f9359e8a4b9e7269a07236df3e6f8ca6a7f0a8846fed72bde70d5b24",
       "selection_file_sha256": "2b5f99e39c123ab2fb8454e5c40081487d2aa4d72ce5767303780ac91b4defa7",
-      "manifest_sha256": "88f788a160ba90996b92de77d4522de7c7358608c93e75a51814bde3590fc899",
+      "manifest_sha256": "a0e97fbcbe765b50731576af1c021a5832fb3f70ac97979c5cfc652730eb25a5",
       "output_sha256": {
         "subject_scores.csv": "d643855971d217af99ce5c4475ed7a5550177fe78219b9aa73e9dd6c7a1b4ace",
         "pooled_scores.csv": "8804dcc86137c08ace6d1ed8e2a763fb78d324a3c892da8e2ae4e915e8810aff",

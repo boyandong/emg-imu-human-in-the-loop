@@ -6,5 +6,5 @@
   "result": "OK",
   "compileall": "prior SPD Anchor and formula audit modules passed; new benchmark executed successfully",
   "scope": "unit and synthetic integration checks; no live-device accuracy claim",
-  "test_log_sha256": null
+  "test_log_sha256": "437b5f3c988336b3de9f13cfadf066669016f20b67344cf293d8bee2a87eaf9c"
 }

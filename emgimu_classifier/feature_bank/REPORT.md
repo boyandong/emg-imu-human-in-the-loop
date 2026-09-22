@@ -2298,6 +2298,8 @@ fitting class prototypes, so each calibration trial has one vote. It reuses
 the corrected Anchor study's exact selected calibration IDs (six native
 classes, one/two/five trials per class) for validation users16–18 and final
 users19–21; all remaining trials of the corresponding user are evaluated.
+The trial-aware API stores calibration trial IDs and rejects overlap at
+evaluation, including when a caller tries to use a window-only fit.
 Selection and source-code hashes, per-user scores, pooled scores and every
 trial prediction are saved under
 `work/benchmark_runs/feature_bank_epn_spd_anchor_validation_20260922` and
