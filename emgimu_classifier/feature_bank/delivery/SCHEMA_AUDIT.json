@@ -128,37 +128,22 @@
       ],
       "missing_field_counts": {
         "session/domain": 414,
-        "disagreement_rate": 60,
-        "a_correct_b_wrong": 60,
-        "a_wrong_b_correct": 60,
         "error_correlation": 4,
         "subject": 179
       },
       "missing_by_run": {
         "feature_bank_wearing_document_core_validation_20260916": {
-          "session/domain": 3,
-          "disagreement_rate": 15,
-          "a_correct_b_wrong": 15,
-          "a_wrong_b_correct": 15
+          "session/domain": 3
         },
         "feature_bank_wearing_document_core_final_20260916": {
           "session/domain": 3,
-          "disagreement_rate": 15,
-          "a_correct_b_wrong": 15,
-          "a_wrong_b_correct": 15,
           "error_correlation": 1
         },
         "feature_bank_wearing_core_raw_ring_validation_20260916": {
-          "session/domain": 3,
-          "disagreement_rate": 15,
-          "a_correct_b_wrong": 15,
-          "a_wrong_b_correct": 15
+          "session/domain": 3
         },
         "feature_bank_wearing_core_raw_ring_final_20260916": {
           "session/domain": 3,
-          "disagreement_rate": 15,
-          "a_correct_b_wrong": 15,
-          "a_wrong_b_correct": 15,
           "error_correlation": 3
         },
         "feature_bank_manus_nested_oof_20260915": {
@@ -192,7 +177,7 @@
         }
       },
       "source_csv_sha256": "b9385c81df2f9d85f401a54ea7a67965a5920f5cfe3a105685db5eae8911f391",
-      "canonical_csv_sha256": "ff849eb1b7376fb9e7bcd6678425ed6993322f40fbddc9d8bd55095acf6bb1d9"
+      "canonical_csv_sha256": "6340b1350ebc574ba14ecaaeeaa78d70a0db059ca5dde9008b4a54ce5e6541e3"
     },
     "calibration_curve.csv": {
       "rows": 20026,

@@ -13,7 +13,7 @@ SCHEMAS={
     'calibration_curve.csv':('dataset','subject','session/domain','condition','shots_per_class','feature_bank','method','macro_f1','log_loss'),
     'ablation_full_bank.csv':('dataset','subject','session/domain','condition','shots_per_class','feature_bank','method','macro_f1','log_loss'),
 }
-ALIASES={'disagreement_rate':('disagreement',),'calibration_budget':('shots_per_class',),
+ALIASES={'disagreement_rate':('disagreement','disagreement_fraction'),'calibration_budget':('shots_per_class',),
          'feature_family':('family',),'delta_logloss':('delta_log_loss',),'core_bank':('core',),
          'added_family':('added',),'family_a':('A',),'family_b':('B',)}
 
@@ -69,6 +69,15 @@ def build(results,output):
                         if row.get(alias):value=row[alias];notes[field]=f'source alias: {alias}';break
                 if not value and field=='dataset' and len(datasets[run])==1:
                     value=next(iter(datasets[run]));notes[field]='same-run recorded dataset'
+                if not value and field in ('a_correct_b_wrong','a_wrong_b_correct') and row.get('evaluation_unit')=='whole_native_trial_mean':
+                    numerator_key=('core_correct_increment_wrong' if field=='a_correct_b_wrong'
+                                   else 'core_wrong_increment_correct')
+                    if row.get(numerator_key) and row.get('evaluation_trials'):
+                        numerator=int(row[numerator_key]);denominator=int(row['evaluation_trials'])
+                        if denominator<=0 or numerator<0 or numerator>denominator:
+                            raise ValueError(f'Invalid native trial complementarity counts: {run}')
+                        value=str(numerator/denominator)
+                        notes[field]=f'exact native trial count ratio: {numerator_key}/evaluation_trials'
                 if not value and field=='session/domain':
                     if row.get('condition') and row['condition']!='ALL':
                         value=row['condition'];notes[field]='recorded condition/domain; not an inferred session ID'

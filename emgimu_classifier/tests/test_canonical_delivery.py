@@ -35,3 +35,31 @@ class CanonicalDeliveryTests(unittest.TestCase):
         path=self.output/'feature_family_results.csv'
         path.write_text(path.read_text().replace('0.5','0.9'))
         with self.assertRaises(ValueError):verify(self.root,self.output)
+
+    def test_native_trial_complementarity_uses_recorded_count_denominator(self):
+        source=self.root/'error_complementarity.csv'
+        row={'run_id':'feature_bank_fixture_final','dataset':'fixture','subject':'1',
+             'evaluation_unit':'whole_native_trial_mean','evaluation_trials':'20',
+             'disagreement_fraction':'0.35','core_correct_increment_wrong':'3',
+             'core_wrong_increment_correct':'0'}
+        with source.open('w',newline='') as h:
+            writer=csv.DictWriter(h,fieldnames=list(row));writer.writeheader();writer.writerow(row)
+        with contextlib.redirect_stdout(io.StringIO()):build(self.root,self.output)
+        with (self.output/'error_complementarity.csv').open() as h:
+            derived=next(csv.DictReader(h))
+        self.assertEqual(derived['disagreement_rate'],'0.35')
+        self.assertEqual(float(derived['a_correct_b_wrong']),0.15)
+        self.assertEqual(float(derived['a_wrong_b_correct']),0.0)
+        notes=json.loads(derived['metadata_notes_json'])
+        self.assertIn('core_correct_increment_wrong/evaluation_trials',notes['a_correct_b_wrong'])
+        self.assertIn('core_wrong_increment_correct/evaluation_trials',notes['a_wrong_b_correct'])
+
+    def test_native_trial_complementarity_rejects_invalid_counts(self):
+        source=self.root/'error_complementarity.csv'
+        row={'run_id':'feature_bank_fixture_final','dataset':'fixture',
+             'evaluation_unit':'whole_native_trial_mean','evaluation_trials':'2',
+             'core_correct_increment_wrong':'3'}
+        with source.open('w',newline='') as h:
+            writer=csv.DictWriter(h,fieldnames=list(row));writer.writeheader();writer.writerow(row)
+        with self.assertRaisesRegex(ValueError,'Invalid native trial complementarity counts'):
+            build(self.root,self.output)

@@ -2382,3 +2382,19 @@ probabilities, split trial IDs, per-subject and per-posture cells are under
 `work/benchmark_runs/feature_bank_unibo_g5_temporal_*_20260922`.
 Windows from the same trial are correlated; this is an offline representation
 comparison, not complete-bout DTW, streaming recognition or own-device evidence.
+
+## Canonical complementarity delivery repair (2026-09-22)
+
+The 60 recorded wearing Core-versus-increment native-trial rows contained the
+two asymmetric correctness counts and their exact trial denominator, but the
+required delivery columns were empty. The canonical builder now divides each
+count by `evaluation_trials` only when `evaluation_unit` is
+`whole_native_trial_mean`, records the derivation in row metadata, and rejects
+invalid count/denominator combinations. It also maps the recorded
+`disagreement_fraction` to `disagreement_rate`; that disagreement need not equal
+the sum of asymmetric correctness rates because both predictions may be wrong.
+All 60 rows now have the three required rates without retraining or inventing
+observations. The regenerated provenance audit verifies 49,704 source records.
+The delivery remains `schema_complete_evidence_partial`: some source runs still
+lack subject, session/domain, or error-correlation evidence. This repair does
+not establish a physiological complementarity claim or complete Section 15.
