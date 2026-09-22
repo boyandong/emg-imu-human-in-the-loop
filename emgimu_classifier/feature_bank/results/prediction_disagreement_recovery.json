@@ -5,6 +5,28 @@
     "feature_bank_epn_selection_20260915": "8c2a9f8c616e7c836d788ba9b3dcbd5cff92d706741aed576efc33a8445f6b31",
     "feature_bank_force_audited_validation_20260915": "ac613595b377c5b8b43e65f1861e53763d50329ba39c6662e3d50c5e944593ce"
   },
+  "diagnostic_input_sha256": {
+    "feature_bank_epn_calibration_diagnostics_validation_20260915_v2": {
+      "fitted_states.pkl": "69bb0fcb0eb01e5338b7764a70ccb3ddd40df7987cbf26d5dbbc0149a6a639e5",
+      "split_trial_ids.json": "bbfe4ef8f7ec37849772c53fcfbb69d4a54d8a8bb25d5da24182829fe4ccc357",
+      "raw_archive": "4ee8db037385e7bee1e6ac6f9e9eea4f0869e25f7825f5eb7e5be0dff4f93c21"
+    },
+    "feature_bank_epn_calibration_diagnostics_final_20260915_v2": {
+      "fitted_states.pkl": "e85a1a8d84e4e0bbf1a433aade662630c959f9e3253079171238a1b74ea3e16f",
+      "split_trial_ids.json": "785fe79a93938c25870556986e346476ae23fb3a6ef94aa59cc9ef5bf182f82f",
+      "raw_archive": "4ee8db037385e7bee1e6ac6f9e9eea4f0869e25f7825f5eb7e5be0dff4f93c21"
+    },
+    "feature_bank_manus_calibration_diagnostics_validation_20260915": {
+      "fitted_states.pkl": "dd83530a7c1a8f4e0d311b15202d7ba36f3b7bec220423bb8f6389c43c692899",
+      "split_trial_ids.json": "f185bb4c212dc106819fecbde362df81c51f30d025c35b59a95885876ae55c77",
+      "raw_archive": "2d9e1df613485b9a4afe9a5a71010ca84e75a521b596f836a195b5eaf3dc1f29"
+    },
+    "feature_bank_manus_calibration_diagnostics_final_20260915": {
+      "fitted_states.pkl": "573c1f913b20bd0af29f2d3d26c5e23d091151153b1d50722c148bf1194d5ff6",
+      "split_trial_ids.json": "53e2430f59b863956a6f85d2457504551d699b9c8c77245d80093afeb6f864c0",
+      "raw_archive": "2d9e1df613485b9a4afe9a5a71010ca84e75a521b596f836a195b5eaf3dc1f29"
+    }
+  },
   "correctness_and_asymmetric_rates_replayed": true,
   "rows": [
     {
@@ -618,6 +640,1806 @@
       "source_row_1based": 4319,
       "source_record_sha256": "6e3ea1517a7507dfeece683992d5c48d41832011bc6514b5d7a781102cc0c231",
       "prediction_disagreement_rate": 0.24149659863945577
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4566,
+      "source_record_sha256": "0916e43fff9dd671ece8d4d47087a23bee22bbc3298b9bebc45c0e1065741f3b",
+      "prediction_disagreement_rate": 0.6733333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4567,
+      "source_record_sha256": "370ee3c19955a09f8a938551e749db8ee15c92c4ffee0eec2bfcec8503093e08",
+      "prediction_disagreement_rate": 0.44666666666666666
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4568,
+      "source_record_sha256": "dd5262a90bf5047c8fa986c49a4e5e7e160174461e1b120de427d898b9204190",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4569,
+      "source_record_sha256": "a7a3497a4e70a0acaf4c2d2bd6a2e0be57f71a8a00eab55278de2dfe01f25753",
+      "prediction_disagreement_rate": 0.4533333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4570,
+      "source_record_sha256": "350640d8f3bf4e4b870d71c1e4502cc6cc8aeae3dbd6e3b463aac4b747750c41",
+      "prediction_disagreement_rate": 0.41333333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4571,
+      "source_record_sha256": "a7045d49551904b9e7ff7e4efac76262f3fc8536059c159a72ae214ea50c8d3f",
+      "prediction_disagreement_rate": 0.6805555555555556
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4572,
+      "source_record_sha256": "bc58d4773d3cd5e41fc9544c4275c512582b477de56bb442af5459be32354d09",
+      "prediction_disagreement_rate": 0.4375
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4573,
+      "source_record_sha256": "f30829dd904083687725245d8995d28bcf30f99e2d6642562bab143125d28d4a",
+      "prediction_disagreement_rate": 0.05555555555555555
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4574,
+      "source_record_sha256": "6576590c917a1b9d7eb1824a6c74f834115339643b72aca91bd33d3b0803586b",
+      "prediction_disagreement_rate": 0.4513888888888889
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4575,
+      "source_record_sha256": "f12199878933dcf78d2cca79125160260a40dff98172b4fefed91b75644d2658",
+      "prediction_disagreement_rate": 0.3958333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4576,
+      "source_record_sha256": "cab9335620c53360c2d63fbfc2e9e47cda896208574cc6571e4eb073c685821c",
+      "prediction_disagreement_rate": 0.6811594202898551
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4577,
+      "source_record_sha256": "6610dd8f67bea85456f1d13748c3d04715ddeac15ef6368c975093c2e9e78300",
+      "prediction_disagreement_rate": 0.4492753623188406
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4578,
+      "source_record_sha256": "032d71f66b37fcb312466a2b6b8c55b9e2d57a8c8d9b3088d9304720153a233f",
+      "prediction_disagreement_rate": 0.10869565217391304
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4579,
+      "source_record_sha256": "cae8d07a20ed1f1ffc7f545c4a7977c703bac19687559124a5f317bb6e746880",
+      "prediction_disagreement_rate": 0.45652173913043476
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4580,
+      "source_record_sha256": "7a90dc3c2e93a845f7b8f4f32f35a1f0f1cb86eb44ec657c67c17781b6b2ee0e",
+      "prediction_disagreement_rate": 0.42028985507246375
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4581,
+      "source_record_sha256": "95212139a11756f23f4a2a5e849ff969f496c5a14fb4226fb8983e238466b886",
+      "prediction_disagreement_rate": 0.6916666666666667
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4582,
+      "source_record_sha256": "f5ec8c4afe179856a6a13673d75e68fa9414840cd49b5371b9e4d1b9ac9f8611",
+      "prediction_disagreement_rate": 0.45
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4583,
+      "source_record_sha256": "485224d4e41572338ab2b7e0df139e3e043b1db065c4d7c315a3ca3d0c18d48b",
+      "prediction_disagreement_rate": 0.26666666666666666
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4584,
+      "source_record_sha256": "0a1a3b022c9d625d1ea11b6e484115c8e4cadc9e4667107b37836956e35515f5",
+      "prediction_disagreement_rate": 0.4583333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4585,
+      "source_record_sha256": "3d3c65b10cfd91a547fc680b782e7150da1d151431d5c345aa6ea7f346f26917",
+      "prediction_disagreement_rate": 0.475
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4586,
+      "source_record_sha256": "3fd6fe253834914f013bbc387949fc99b05b3534d1c4c1fc553450cd05048665",
+      "prediction_disagreement_rate": 0.7
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4587,
+      "source_record_sha256": "151a9211a8b4c42f8fc68500c6069dfa708d195db8804f9fc70fdf1d48080e1b",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4588,
+      "source_record_sha256": "ed2dbcce7130734b477c08fdc45fbe881dfcce8c4d62fb3c061fba1ed71e3e67",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4589,
+      "source_record_sha256": "bd0f9680155f17987e30ca16be3812310711721b09baad7e9cb8e6cd12be5251",
+      "prediction_disagreement_rate": 0.6133333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4590,
+      "source_record_sha256": "67bed366a0474820e3b8c996edc10ae2e42539725ed3cd03ccfeb54383e9e8ac",
+      "prediction_disagreement_rate": 0.5133333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4591,
+      "source_record_sha256": "1396e244a0ecd493b88407ef7dbd54bcb803452208d0d8b663e5c16ecb8e97cd",
+      "prediction_disagreement_rate": 0.6875
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4592,
+      "source_record_sha256": "b3dc0447f60bc84baf833c65bdaafe5a468bcf27b8e8303d36aab87bc5296aab",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4593,
+      "source_record_sha256": "f9c0474cd886255e7102e8b520c21686809327930da00f425b2f7c18bf544bb4",
+      "prediction_disagreement_rate": 0.041666666666666664
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4594,
+      "source_record_sha256": "1801d056bc0ff0e874b34f28834010d56f9f893dba4f3b27ecd25fb29e3c7059",
+      "prediction_disagreement_rate": 0.6111111111111112
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4595,
+      "source_record_sha256": "fd4a4aa1c4a96b3ee550316b7ea84bd909e16961ee898015b725103f5f362bcc",
+      "prediction_disagreement_rate": 0.5416666666666666
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4596,
+      "source_record_sha256": "99abf0a832e61ddcfa5d77bceae169dbe87aa3ed9c2e7278bda217ea362a044a",
+      "prediction_disagreement_rate": 0.6811594202898551
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4597,
+      "source_record_sha256": "a29f418e909f177625ce6380b0589c782228faaf1265340de47d4a6e790da2e9",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4598,
+      "source_record_sha256": "ba080c96893bb39fcf49888e8e4907ab647dfd909a325c7c4c5e89185f00cef0",
+      "prediction_disagreement_rate": 0.12318840579710146
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4599,
+      "source_record_sha256": "9a4d9087cca884dc38451da2c9b482cd7b16fa2820fe65a23dd0bd8b6f7b9dc6",
+      "prediction_disagreement_rate": 0.6304347826086957
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4600,
+      "source_record_sha256": "b66fa8243f49c7f063a33e0f84a70099bf32c5b08872390a00a7e4d93c6ac87e",
+      "prediction_disagreement_rate": 0.5797101449275363
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4601,
+      "source_record_sha256": "3330f6ae75c0be3e02e2ecc93f38542c814746519173852470f8f15f9b7c5e51",
+      "prediction_disagreement_rate": 0.6583333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4602,
+      "source_record_sha256": "d656be9c24b41d5dfd66f3f819a922927cda753584a7e2f6cada3f10e1a766bc",
+      "prediction_disagreement_rate": 0.5083333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4603,
+      "source_record_sha256": "d7905b63b014d975282a9c5ed2fb8df6535f683c095d83513bf4b235dcc03fac",
+      "prediction_disagreement_rate": 0.13333333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4604,
+      "source_record_sha256": "67777ed91b56711f59fe0cd9c10604d7cba5db432f0883801f7cae0389f48c72",
+      "prediction_disagreement_rate": 0.6333333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4605,
+      "source_record_sha256": "4988ce0f36a07e2e10ab005e6652236075552a567ee24bfaa0e515ede20fe8a9",
+      "prediction_disagreement_rate": 0.5916666666666667
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4606,
+      "source_record_sha256": "356240e71ae5bb167632cdb74d2d563ae5ffb12b45f7eef77d7c0e63a1c57bc8",
+      "prediction_disagreement_rate": 0.5066666666666667
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4607,
+      "source_record_sha256": "f29d06f9b3ff94ffc2a1d1c556f96191fd807b606034db654a01cdb1efa45aa7",
+      "prediction_disagreement_rate": 0.3
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4608,
+      "source_record_sha256": "bd0b49237c45ececf08606ed1df1e548de01cd82343892feac93ae2d45017a02",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4609,
+      "source_record_sha256": "9c6107abceabf68f358f3666058df77df85d7883cfe48fa204a217db6ee8e628",
+      "prediction_disagreement_rate": 0.44666666666666666
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4610,
+      "source_record_sha256": "e9c563e397fc3175db0c6284db6db7c5568f0795dac45265df749d8f0df6e041",
+      "prediction_disagreement_rate": 0.43333333333333335
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4611,
+      "source_record_sha256": "b1c589ee3b17c4a5d74b3497ba227d24d3e3a1be8e77976bf5e49821b7c15787",
+      "prediction_disagreement_rate": 0.5069444444444444
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4612,
+      "source_record_sha256": "72690b9fb1ba68fc8cdf825feea175b7e9fd0bad4b0e406160cfe74842223d44",
+      "prediction_disagreement_rate": 0.3055555555555556
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4613,
+      "source_record_sha256": "1d15a5d52e032aace463fe008a5413fe3e41319b67bdbe83eccee337683ae581",
+      "prediction_disagreement_rate": 0.0625
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4614,
+      "source_record_sha256": "918288752179e326dfc5cb50baa17d10ba8ef0ee10e40a1d7485d188290719f7",
+      "prediction_disagreement_rate": 0.4375
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4615,
+      "source_record_sha256": "a16af4c4661dafb57b1e3e3ca2551d4d2ef0698bbe6032a7d5fde44ae848981f",
+      "prediction_disagreement_rate": 0.4375
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4616,
+      "source_record_sha256": "d1894f7d2eff57f4e61efa4f42b29972d4c4b2544503048b9d6f36b2b863abcc",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4617,
+      "source_record_sha256": "fac3eeff9f54bd79cf14e84289e640d3d37d79e3d8889aa94878cf30cfe0f0da",
+      "prediction_disagreement_rate": 0.30434782608695654
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4618,
+      "source_record_sha256": "beec04581d12c2ba40e0cae8820f9edf908c7ee5be085d9bdd14ab349a54e1aa",
+      "prediction_disagreement_rate": 0.09420289855072464
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4619,
+      "source_record_sha256": "f3a005928b19f4c24276343a1093fc30770666b6bcd02ad7915a2990bde9d15f",
+      "prediction_disagreement_rate": 0.43478260869565216
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4620,
+      "source_record_sha256": "5e8a2fdb3c1c7c7c486cba906b8e3cf181de916569045f6a1092e7e54899639b",
+      "prediction_disagreement_rate": 0.43478260869565216
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4621,
+      "source_record_sha256": "7df5f3d0ee15f052c266f4df8729c4a25d913a8ccbe2f0da11223c75535cf4b2",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4622,
+      "source_record_sha256": "e917cb14da760d09a6e6f84c633dbf81fffc3aee07af75baf931b1888e20a59e",
+      "prediction_disagreement_rate": 0.30833333333333335
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4623,
+      "source_record_sha256": "48331a88c40ab4b20ab654d97865d53c0e3876828508d299ec8e1516d572c375",
+      "prediction_disagreement_rate": 0.15
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4624,
+      "source_record_sha256": "04453604263d4f04763fc2ed87f4dc5fea393dd49f22c98f27affaf11280cbee",
+      "prediction_disagreement_rate": 0.45
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_validation_20260915_v2",
+      "source_row_1based": 4625,
+      "source_record_sha256": "66829572004f2825bd6324e3b9e589ec3d275ae8e08588e013e9db22e3d533e2",
+      "prediction_disagreement_rate": 0.43333333333333335
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4626,
+      "source_record_sha256": "2f29c8072530ed55ccb905a9a07971ee2f35f2716554cea4f67b3bafa77bcb4d",
+      "prediction_disagreement_rate": 0.34
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4627,
+      "source_record_sha256": "a7a5b3803f00e2419284e1b9fd826d9f4bb3044d8d43bd4cf998fa57ebdd06af",
+      "prediction_disagreement_rate": 0.22
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4628,
+      "source_record_sha256": "b31067f4a6ce9a5c66eec656f003bd572e1240785d67c297409faa20ac511bd2",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4629,
+      "source_record_sha256": "f7bb5a109c5982f927c6aa60864fb9bd212490b864d2b8bda612c89a2468419c",
+      "prediction_disagreement_rate": 0.3933333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4630,
+      "source_record_sha256": "26ccc7b067d97f50473120e262b9478c12fd75c6b54825e36cc99999d7874c9a",
+      "prediction_disagreement_rate": 0.38666666666666666
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4631,
+      "source_record_sha256": "c99dc3bfc36d33509c185ef3d3099256879dfe8cc49eb03c58e46b497c2122d8",
+      "prediction_disagreement_rate": 0.3402777777777778
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4632,
+      "source_record_sha256": "f8133b5fde8123c04f1939220a488601eabb9fda5ece0cb45925af1685197af3",
+      "prediction_disagreement_rate": 0.2152777777777778
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4633,
+      "source_record_sha256": "b65ac3c7cb96dd5118d310506f78ac03b80acdfdc5300d2eefee804b977a9a9a",
+      "prediction_disagreement_rate": 0.020833333333333332
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4634,
+      "source_record_sha256": "3690feba7970c95770ddce159e03c3f6575bd116d9e51f369152503a9b7168c0",
+      "prediction_disagreement_rate": 0.3958333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4635,
+      "source_record_sha256": "6bedc061c47bf09337b0930db18cedca0913903c59d629b891455ba0ab775f4f",
+      "prediction_disagreement_rate": 0.3680555555555556
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4636,
+      "source_record_sha256": "0fd1a6d14e37e3f71faf75edb835e532c563a069231ae6e1bc27b88f47c35ce3",
+      "prediction_disagreement_rate": 0.34782608695652173
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4637,
+      "source_record_sha256": "1b09ddd934307c54f24f4abe6ddd9c951c6dc77e45809ecc04e824dc6d8f461d",
+      "prediction_disagreement_rate": 0.2246376811594203
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4638,
+      "source_record_sha256": "c77455991b4be9ee5ce8a85dd0d891b55881f6effc69402c15b8d2adc647e93e",
+      "prediction_disagreement_rate": 0.10144927536231885
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4639,
+      "source_record_sha256": "524e94820b0e76bd2888ab4a65a045dc06bfea49c9a44ecd00527b9c78b8839d",
+      "prediction_disagreement_rate": 0.391304347826087
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4640,
+      "source_record_sha256": "26e7149e9e31829073cfa6469b7a545575bb8e6702a72abeeea9f035cd58200f",
+      "prediction_disagreement_rate": 0.3333333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4641,
+      "source_record_sha256": "eb7f45bba8c8c7aaa53b098327866182eb91853836101825a7eb87c21795f8b0",
+      "prediction_disagreement_rate": 0.36666666666666664
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4642,
+      "source_record_sha256": "b483ed1428aa12644571fa404ddfe825ac85740c6e6b43269375bb6d62beb6a3",
+      "prediction_disagreement_rate": 0.21666666666666667
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4643,
+      "source_record_sha256": "35722b41aa8bbb4610f82ab3637ec9d6cda69e5844a2120caaa2b5ec84893372",
+      "prediction_disagreement_rate": 0.11666666666666667
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4644,
+      "source_record_sha256": "8cc00d76f5c0370e44bf89ef86f80bfcc298801fa167e902ac5fbf5d2288efa8",
+      "prediction_disagreement_rate": 0.4083333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4645,
+      "source_record_sha256": "6a18a8cf3741c6ef9029ccb54a75c40edb9485f60de0be8d9c6fee2c710383ff",
+      "prediction_disagreement_rate": 0.375
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4646,
+      "source_record_sha256": "b41e1362c93c1ef028754d074a0414b9dc356d8a643c00afa0fefb9290c2643f",
+      "prediction_disagreement_rate": 0.6866666666666666
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4647,
+      "source_record_sha256": "48145365e1fb73dfbcccf03eac12b47a2014eabedc5d5f2dfd16789eb920b1e2",
+      "prediction_disagreement_rate": 0.7866666666666666
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4648,
+      "source_record_sha256": "3849fcad0fadea07cb1e95cb796cbbe2520b017cd5eb6d36411356ca538f5ab9",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4649,
+      "source_record_sha256": "5e047b2e28859244888160b6ac3158f386b8584183253323426c269b35b2fd7b",
+      "prediction_disagreement_rate": 0.6866666666666666
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4650,
+      "source_record_sha256": "acab3d5ff0f76aa53fb9a8886ee4cb6d141943614b3e1c98d860a8479daf4a5e",
+      "prediction_disagreement_rate": 0.6733333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4651,
+      "source_record_sha256": "870ee77ef57d8bc90be8d1107220963bd5ce3cb7f0dbb274cba045b6c9bdbe63",
+      "prediction_disagreement_rate": 0.6805555555555556
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4652,
+      "source_record_sha256": "6415efa15d80e2126622ecce1e87125cd00579ca601b737a20e50f821c191244",
+      "prediction_disagreement_rate": 0.7986111111111112
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4653,
+      "source_record_sha256": "9a0bedea4397202c033b88452db36fee655a4bbaf31440cc8045428cd44a7e3f",
+      "prediction_disagreement_rate": 0.16666666666666666
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4654,
+      "source_record_sha256": "ed616e8dc4f215af70f798acee2f84a0550427da0ff0f671bdfb66d2b8428d16",
+      "prediction_disagreement_rate": 0.6875
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4655,
+      "source_record_sha256": "4810baa46d2ced26e012c662565664a32de55d1dd4425e0da6592967fa98827a",
+      "prediction_disagreement_rate": 0.7083333333333334
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4656,
+      "source_record_sha256": "b727a3384ec92d20bf26f9e8d6e3a8fc52a324b77f7ffae75051a4a098b29b47",
+      "prediction_disagreement_rate": 0.6811594202898551
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4657,
+      "source_record_sha256": "c86c8bba6d23ec05d031c7fa896376452e1f16cff8af7b29f8fa43e614d9be87",
+      "prediction_disagreement_rate": 0.8043478260869565
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4658,
+      "source_record_sha256": "515ec35303ed710043f2545a27982185711c14215246f1392acd6329a6bbd61b",
+      "prediction_disagreement_rate": 0.21014492753623187
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4659,
+      "source_record_sha256": "3bf622e1b4f1c4ad14ee94e0a43187bc4e88edf751ca7b90b674808549cfc7c6",
+      "prediction_disagreement_rate": 0.7028985507246377
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4660,
+      "source_record_sha256": "ffb04353f2b99a35130979be4fc34f13d128d72dcf9e99107ad48a661d78dd58",
+      "prediction_disagreement_rate": 0.6956521739130435
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4661,
+      "source_record_sha256": "7038fbe14be19750e89462d50609e1f16eb91b9465d70250e6407d7aae37ae4d",
+      "prediction_disagreement_rate": 0.675
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4662,
+      "source_record_sha256": "1a7f98da276347b8864750e5487b8b904b28059c29ea73efa00bb9080a07bee8",
+      "prediction_disagreement_rate": 0.7916666666666666
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4663,
+      "source_record_sha256": "1a7199dedcf92d5ffad44031754c012ff8ed5f40a2ffad0f3d9d88d455b28996",
+      "prediction_disagreement_rate": 0.325
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4664,
+      "source_record_sha256": "c01938918bf0e0c8f1f0037e876c37980df2d845a1fb2ac3c62e59ae38d23f92",
+      "prediction_disagreement_rate": 0.7
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4665,
+      "source_record_sha256": "dae0a3b34273d35a1f9ce69a7984cf75e10ba8e6435634fcfade7233d4992cdc",
+      "prediction_disagreement_rate": 0.675
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4666,
+      "source_record_sha256": "4ca29c0cf3e35001e7006f57372208d0ae4c1ea89c1ce00da3f26e73421d3216",
+      "prediction_disagreement_rate": 0.4533333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4667,
+      "source_record_sha256": "03960a96c7255a63ec164e7d7e6da88c96f762a26bd32b17b8093658bb7d3ea0",
+      "prediction_disagreement_rate": 0.2733333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4668,
+      "source_record_sha256": "da4f76c20655d37af491bc359994e8a71eb53d28da4e5f5697aa3fa09b7dfe5e",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4669,
+      "source_record_sha256": "de793e876690fc0db6b8d276c6fb12fa93f288b7864073ed21a2693f45b1a8ce",
+      "prediction_disagreement_rate": 0.56
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4670,
+      "source_record_sha256": "77dec6540c38eb964930d4c155eae3bc228980293fb0cf1f3ddc91306c639a7f",
+      "prediction_disagreement_rate": 0.5866666666666667
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4671,
+      "source_record_sha256": "07667a4db9b2cf9a25fbfb3a5a9f5ff37ad9b99d54898a7e018f8d7e66593a49",
+      "prediction_disagreement_rate": 0.4513888888888889
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4672,
+      "source_record_sha256": "757e3ef91d4d5adc70ac852f761be57258435169566c2804dc8db978b4861e57",
+      "prediction_disagreement_rate": 0.2708333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4673,
+      "source_record_sha256": "dfd0ec1eddbb0a8e4cff6656bf613aa944ae7615677088dfd6bb46709a0f0f96",
+      "prediction_disagreement_rate": 0.0763888888888889
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4674,
+      "source_record_sha256": "87887d910bd8dbbb9df96331ee5a6dc406bb5aad275d5defb2b7be058c3a8294",
+      "prediction_disagreement_rate": 0.5625
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4675,
+      "source_record_sha256": "687efb305a1121d2e25470498732a12499ddf9f377f40bef24edec1398b140c8",
+      "prediction_disagreement_rate": 0.5972222222222222
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4676,
+      "source_record_sha256": "01c21bb93c9794cff9140f54c6f01481cc2166a3208a9573a1463388bdbfde4a",
+      "prediction_disagreement_rate": 0.4420289855072464
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4677,
+      "source_record_sha256": "0636ea2774bb755ca7f3dd828465835075503161be1dc0e120e9d9263ae067ad",
+      "prediction_disagreement_rate": 0.26811594202898553
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4678,
+      "source_record_sha256": "8db0951aac03d185bad6f6b970bd0d5265b2f00f1e7eb81fde42ffe13f9da211",
+      "prediction_disagreement_rate": 0.08695652173913043
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4679,
+      "source_record_sha256": "93242009fe7b8348be4601be28251593542e1491ad9a0222d46ee30f10a3f024",
+      "prediction_disagreement_rate": 0.5579710144927537
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4680,
+      "source_record_sha256": "106db062b0e43b04d5a1fa4af9323cedea545d908051fe13b7c2ff91ab0273f4",
+      "prediction_disagreement_rate": 0.5507246376811594
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4681,
+      "source_record_sha256": "a697c3b20c0c4c3612c99b32d3bb6e1d1dabc49d3ade0258be37d4b2136e0e84",
+      "prediction_disagreement_rate": 0.4
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4682,
+      "source_record_sha256": "c0741c9a21f93c54dd8cb1c7a5346e0859bf6e148a454263ac83c64ddc2aae22",
+      "prediction_disagreement_rate": 0.25833333333333336
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4683,
+      "source_record_sha256": "d90744f7fd946e1721c9e24ecc31c282072861a45360967d3032a69e2ca85a40",
+      "prediction_disagreement_rate": 0.25
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4684,
+      "source_record_sha256": "9997a611b9a3092721d1137c15201e5a15b6107e5fe9de1e7d84bb4f5f6b0a72",
+      "prediction_disagreement_rate": 0.525
+    },
+    {
+      "run_id": "feature_bank_epn_calibration_diagnostics_final_20260915_v2",
+      "source_row_1based": 4685,
+      "source_record_sha256": "92e666b5c4c56da48ae66e8ef7b762e81d2005322b6f4c76e776d76188e903ea",
+      "prediction_disagreement_rate": 0.5166666666666667
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4386,
+      "source_record_sha256": "08bc8cae3430d1d032510842bfa6174a0bffccce075461239a8e8c24e88cbab0",
+      "prediction_disagreement_rate": 0.7222222222222222
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4387,
+      "source_record_sha256": "db03850fe4152d314f2e7877317451aa0a88e8ec3490d51d7c8cf545fc8c0f8d",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4388,
+      "source_record_sha256": "38b5adbebbac39964faf5c53c5f9845897cc955483679e1abf0507bec0d06b60",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4389,
+      "source_record_sha256": "d6edd27c3460ba23c8012f10536dce2c5c16ca1ad3e80429d69d3de7c586519f",
+      "prediction_disagreement_rate": 0.7222222222222222
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4390,
+      "source_record_sha256": "90ff9c488d85951fc42caa0f1fb1e53ad5985fd1a45af241612ad74e156800ed",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4391,
+      "source_record_sha256": "61ba1c5fb16de9a1b885c6e9cbc68c74da2d0780e529eb7a88aeab8f7cb9deb9",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4392,
+      "source_record_sha256": "de71b389a2fb3fe67f2a6833891126d01f44e458ae7cd2ca1d1046ba3a94e467",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4393,
+      "source_record_sha256": "722cc492a2342270c4e8f1fe278c0ba401d60d7febff814fe9c435e7c004d6f0",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4394,
+      "source_record_sha256": "f5b5a3e22be687b04aa70b5dae0feb584d4a93af74bde5dc824f47ad295d6948",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4395,
+      "source_record_sha256": "1eb3e5380bfa2b7b9f4cac0f891b6437e586750553e9b8158c323dfdd39fa208",
+      "prediction_disagreement_rate": 0.75
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4396,
+      "source_record_sha256": "aeb69b3852b9d0b7e674ad33f9311d1d236366ed5a678d636bcb521be17a2b8b",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4397,
+      "source_record_sha256": "779aa1296ce2468805f32894e63c2cb4d3755b820b34b509a8af8248005909bb",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4398,
+      "source_record_sha256": "c16d30cebbf8cffa03d17a48149f0f7423a9579d26b46c33e0ad0ffe7eb47aa8",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4399,
+      "source_record_sha256": "deead65837f5b879a81009eca1d78727f3e73ab2ffb5b45bfb4a7c256561a3b8",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4400,
+      "source_record_sha256": "2b59ccacabd960b027f00261168bc2ceedbbb1c37bcb40fa4e542a1679758d66",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4401,
+      "source_record_sha256": "463ce5f1b6945548cf17c7280136c9443b9ccf9f9f12e2fa77ebae6fa55b2c5a",
+      "prediction_disagreement_rate": 0.7777777777777778
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4402,
+      "source_record_sha256": "d5722650aec12d8b2ae5339088005b7e64cb700c72f1ef690f93682bdee1bb88",
+      "prediction_disagreement_rate": 0.6111111111111112
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4403,
+      "source_record_sha256": "e6c8ea6ce76f77f2c291105ac8b20e2bb92fe4c0d76d4d16c62ba5a917c267df",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4404,
+      "source_record_sha256": "f680077de6adeede88d231c0237ee65d456f30805e611654ac9dc98fbc018e9d",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4405,
+      "source_record_sha256": "a2d65d357e84336c0355c2627edfb3427fd50a2375079cc747fbf3511567c685",
+      "prediction_disagreement_rate": 0.6111111111111112
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4406,
+      "source_record_sha256": "6d66fb5d189a53ad6d9bcdaaeec8782a563fdb4f80edd49130b21533225340a9",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4407,
+      "source_record_sha256": "96d9b3953484eb3b40df51d47982a1009d8a8392ba791c5a73f0f0302fde30b8",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4408,
+      "source_record_sha256": "48b127ca3484793738b53054fcbdeb7d6415e15d319108a5e1e1b19c82470c6c",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4409,
+      "source_record_sha256": "6f39f9d2488d0a3ac6ab9e079f8080c26c0e8354a0b41b212b916ffd68929df9",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4410,
+      "source_record_sha256": "ce329a59fb3b30e351290b9701301c19fcf6ad4e6adc89abe4504ae3be34eb7d",
+      "prediction_disagreement_rate": 0.5833333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4411,
+      "source_record_sha256": "a6f9c8ea3a23b26985db7b3c6dd6db276b404dfa3aca2b62c7e7f3f99a06f1e0",
+      "prediction_disagreement_rate": 1.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4412,
+      "source_record_sha256": "3a1b7664ce014bc3bb6104b576cca150c7c42cdab1ea69b1d86117278b86350a",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4413,
+      "source_record_sha256": "1f9f1586940a0160391d1217d9515b97c8b8acee1dc34829ac09cc4ed7c3a73d",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4414,
+      "source_record_sha256": "dc4691425d8453649021938f790a302ed98652749d3f211f3f29d8273a7cecf5",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4415,
+      "source_record_sha256": "7b4dd7946d55637ba47f41928fab527a13a86304bcd7fc68d859ed0915760df5",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4416,
+      "source_record_sha256": "83c637b2a327545e3047801a96a07ee921b035b9a2e95d43a564048a831c7e87",
+      "prediction_disagreement_rate": 0.3888888888888889
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4417,
+      "source_record_sha256": "4f99f621a4539ecc20d65db4a01c4b7f71d81e8cca415d03cded402543527924",
+      "prediction_disagreement_rate": 0.3333333333333333
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4418,
+      "source_record_sha256": "f2bb66873e14156b2b93cd2fc235629a2b8808dab712f0c708c2a0ccd2176b1d",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4419,
+      "source_record_sha256": "dacdf3dd7439f9022beb9d56e292f7055f0b8f19f11e8e3a30d8c1ebf73e2007",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4420,
+      "source_record_sha256": "152f8f5095f81e58dc7f9a9d28d3a143986015190168f0120f31be2ccdcf9568",
+      "prediction_disagreement_rate": 0.5555555555555556
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4421,
+      "source_record_sha256": "22745b6b5c93cb6824ca1f2daf7fc775f27fb8e6b205eaaba51135359860dfee",
+      "prediction_disagreement_rate": 0.4166666666666667
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4422,
+      "source_record_sha256": "ded022b97a0d581482f44bb86d4110f5744fe00475f58fa668986422089a8a02",
+      "prediction_disagreement_rate": 0.3333333333333333
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4423,
+      "source_record_sha256": "9a3ad5505b488af62048ab42919436c21e1dd59f5b47cbdd88b57a6baefa3c56",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4424,
+      "source_record_sha256": "3cc994909edc41758176b6949d492e4bf2ed1b6e010fa5ab4712795d48bc775f",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4425,
+      "source_record_sha256": "00e12dce252b83d9136d18280f0b0c9c078da32a76d27158c58a36bcfd16a385",
+      "prediction_disagreement_rate": 0.5833333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4426,
+      "source_record_sha256": "d6f872939a7ebd34f92785dd7f8a0b819af9cdd1baedec0898f53e70c351a774",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4427,
+      "source_record_sha256": "9c84b4cf36ccf5413a14cb715fbaeb41e945b5cbce5caf1ff11e3e49b63316c3",
+      "prediction_disagreement_rate": 0.3333333333333333
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4428,
+      "source_record_sha256": "928fc18463d80c2833b7e1d9968e3753d33caa183a40397318c90dd13ff1ee14",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4429,
+      "source_record_sha256": "f35d065ba48bfb6e98a1452419bd7460505ac4e345d93c7b4e5529ecd6496972",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4430,
+      "source_record_sha256": "3ffb63e1a5b1a82f5e6237a5fee722cff8ca2dfc0cf8ca9513f14c43b58693a4",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4431,
+      "source_record_sha256": "a5f929a0fa7856dedde4416ad6f3a767aad483a1bd154abf364850178cb80398",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4432,
+      "source_record_sha256": "1459119c296d8a11114e8b3490116ced0fa2e59112244168f49e21634cba7126",
+      "prediction_disagreement_rate": 0.2777777777777778
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4433,
+      "source_record_sha256": "85b2b0cfcf6e5c7bbc483abb6cb98fa4d5bc67d57ad3814dba7d9a55a4b7d6aa",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4434,
+      "source_record_sha256": "2fa51b82a976db95cbbd9986dbd90d32b8fb21ee734144551c1394a8d890b830",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4435,
+      "source_record_sha256": "c2508b5d5ac9ba4c47e3f4b60adba30b34dd75c308ce9c3bc0906501ba96ec25",
+      "prediction_disagreement_rate": 0.7777777777777778
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4436,
+      "source_record_sha256": "4259c8ef74c60de85ea5275201f1e7770d5f4976281c29464f53b4bc9e3c3020",
+      "prediction_disagreement_rate": 0.75
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4437,
+      "source_record_sha256": "afa2fbfa07157071a375d25be9d294b95492a065293e83ada3221598a568cde3",
+      "prediction_disagreement_rate": 0.25
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4438,
+      "source_record_sha256": "155805e8d4352f946824ffde884397927d90261359ff34f26caa2bd3fd8ad353",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4439,
+      "source_record_sha256": "c95bdf2c8a4cad3c77772b38e299c9d2ea43cd9945b2fb31e1c23694ba07e6ce",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4440,
+      "source_record_sha256": "e89ae0500c952f17dd4855e174098891226dc357913a21640cf61731c5c9a757",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4441,
+      "source_record_sha256": "fec70d450cc0575b9110177a141de845d9c7fe9ae2799ec95d61790229c0bbf2",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4442,
+      "source_record_sha256": "13bc4d9329f8469818ddc2eb654b40ba72c2143051d239784dd607823687517b",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4443,
+      "source_record_sha256": "de467c454ca8808fd1c93b2e6e72965472ee9d4c2c5fa471149c6e6be8379b9c",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4444,
+      "source_record_sha256": "3d53976e1878e8b4808a441b0685410d0c59c6e4067d49016938f8a5fc92d483",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4445,
+      "source_record_sha256": "78e1bddcbf690de8e967b3db5a8f0c9a78bc73b6116d17e9810e8d8375c461b2",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4446,
+      "source_record_sha256": "1d645b5050c08ee576369b2db597b7f8862fb24063ac3b27b392f7060c3b7fcc",
+      "prediction_disagreement_rate": 0.5555555555555556
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4447,
+      "source_record_sha256": "1446654d32a80569510bb556aac3079c8544c62c9f529dec30d50195766919b9",
+      "prediction_disagreement_rate": 0.6111111111111112
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4448,
+      "source_record_sha256": "86a77beb3a5b55aaf0a5a202aa80ae3c2d1b901205d6864650d9b953a929802c",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4449,
+      "source_record_sha256": "b83910086bfa7f25a9a50415565754e2954d68bbe2a4655d64a3336563b61f87",
+      "prediction_disagreement_rate": 0.6111111111111112
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4450,
+      "source_record_sha256": "687d0e2a50c468fe41099339ab683428835cae3d920ed6fb01fbd40f3bbb0df4",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4451,
+      "source_record_sha256": "d3281d54cdce09d0a1eb570ea51446ceadd4e8c03070c72a27405ad33219cbe0",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4452,
+      "source_record_sha256": "d3af11742eed73bbbe20960c709d6608c3d08daf1ecc2149bde8a173d54c88cd",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4453,
+      "source_record_sha256": "d6d4d466f9e4c27bce2e787f07bc536613f7f414538c752a97fe44fd9b352b98",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4454,
+      "source_record_sha256": "39d31ea595161d4f7acfa0228ff5864b96933df6b546a125c9a47b224774b0ea",
+      "prediction_disagreement_rate": 0.75
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4455,
+      "source_record_sha256": "8d694012494625cce6669c7669af7d29d852b88d4c0e534f0226e8e8b201b872",
+      "prediction_disagreement_rate": 1.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4456,
+      "source_record_sha256": "3521fb3509aac70edc8804eee741b6d3db36c600a588cf2c6c46edfaff398c0c",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4457,
+      "source_record_sha256": "4da507f8ead84eaa264fccdf8449f920b1afd33b91f6cf0cb2958f2b7d8cc3b9",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4458,
+      "source_record_sha256": "97fb84fff48479b156f75d42da02501b6dca23cfd12fc13b89795850b8805862",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4459,
+      "source_record_sha256": "bb8c8ccbd4946c867fbf6fa87c1705c94c056dddb576982286c465c98746a1d4",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4460,
+      "source_record_sha256": "28d18efe22527fc1da38e76250274f485d9479d01f09777b5bef436f67827361",
+      "prediction_disagreement_rate": 1.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4461,
+      "source_record_sha256": "b4984bae8ae108c0aca081a11d813696ba6f88c8ad01ba3bd82c5b3045429dc7",
+      "prediction_disagreement_rate": 0.5555555555555556
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4462,
+      "source_record_sha256": "c9f63fa98658fb75b862f3361507e220f22648973fb7d8ca630d856751aafbf8",
+      "prediction_disagreement_rate": 0.3888888888888889
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4463,
+      "source_record_sha256": "7e2b1981bd32b2c976a13c2a856bc2ecb49a840e79375ca34ac751bb5075faac",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4464,
+      "source_record_sha256": "371eeef426bef390f75cb50bf53f4f4d5bba98596c69c1f030976d9194d1c28a",
+      "prediction_disagreement_rate": 0.6111111111111112
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4465,
+      "source_record_sha256": "c033146f02654062578ff8322f740f947c0d6df8148ac62ea6838023a32e355c",
+      "prediction_disagreement_rate": 0.7222222222222222
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4466,
+      "source_record_sha256": "8dbe6c8ade187be141afc439787b8bf516a144fd5af54560fc7cbec8854a6e5c",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4467,
+      "source_record_sha256": "385cfcf1c4ad07790763f7e5d5ec9113b433ff69c9df53c6ed358ec58e6fbdea",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4468,
+      "source_record_sha256": "b4a49e346f997cf810efd8c7b283138cca11172b724e014c404550c032b19ec9",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4469,
+      "source_record_sha256": "8b4bfda3274e37fcf18111296ff3e7eab1e0cbaa368d309f87b41b767bf5b9f9",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4470,
+      "source_record_sha256": "f3a098428ff4e25e0e5fe992327e21882ee4a346b6a0fe0106d12a11bfe82098",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4471,
+      "source_record_sha256": "5994dfe89bc2e3f2934464c197a8bee683ef993df596dc34ce8a145504050ec0",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4472,
+      "source_record_sha256": "9939342195e231ce789ed2f034f2aadeba46fea8a25ea824b9420795f671203e",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4473,
+      "source_record_sha256": "a9a92ef96b95c77e9e5ad63998910ff89f1afaab6d3ae3ddd01dfa83f5d549c2",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4474,
+      "source_record_sha256": "596b859b5d702df992dc167cab909ee50d440dbb531afb5a5889d0a719124aed",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
+      "source_row_1based": 4475,
+      "source_record_sha256": "a989b3a8d9fdb28a7f06248c5441a436197e68babfecf10800c0c7525154bbf3",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4476,
+      "source_record_sha256": "8f39b3c59723d3388edc5de2dbc5f68a71da6f55a7b7affbea246272696535d6",
+      "prediction_disagreement_rate": 0.6111111111111112
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4477,
+      "source_record_sha256": "77dc8900bac4275d84305ec78ed07edaaaa647bdcb4082fbf7b3bb8f952a471a",
+      "prediction_disagreement_rate": 0.3888888888888889
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4478,
+      "source_record_sha256": "8a28dc339121791baf4b3ad9500130a57a9a989878449d714d2b7bc3bd7735e8",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4479,
+      "source_record_sha256": "a1ae17edac84e19eada15de68eedc34055e348adccee5297cd1cae3c8600a324",
+      "prediction_disagreement_rate": 0.8888888888888888
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4480,
+      "source_record_sha256": "febd48563b7b29d3d024db8f4dd35adbace5d228843a002e1f0e7611b5591ed9",
+      "prediction_disagreement_rate": 0.7777777777777778
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4481,
+      "source_record_sha256": "785251e888ba0f95c640bc36143a6d8a4a93f0d184f02bca653b1afe70c523fb",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4482,
+      "source_record_sha256": "da2c3613ebbe35f568f402f0e5f1af4913ccfbd31d2291b6cd712052f6d4d42d",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4483,
+      "source_record_sha256": "dc1b6a369e3cb5d3ab04f1a88809b102caa3565d375e57fe224ad962f5d9b111",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4484,
+      "source_record_sha256": "b2cb2ebc39e880f6f0af95bf17ddcc70e5df17f0aec23d72eee8782320cfd2c3",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4485,
+      "source_record_sha256": "57cea0f860b9dc56593cf71bde2ede0b45d6a972229432bdc7a815af60468233",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4486,
+      "source_record_sha256": "41b474a90f50d59646cb4b0f9c823e9c377bae92900104f24db22610245dc824",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4487,
+      "source_record_sha256": "d57a990848db93f848a60892938226cd5c95ca7f9ae6f58a219a56a2c9f7c35c",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4488,
+      "source_record_sha256": "9603696991d93fa4e35bfaf97d5a5811fe8d01758bda6492d21a100eae12b41a",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4489,
+      "source_record_sha256": "b9a3ed5322aefa39b5316b7dd6531cd093979e189efdee329b8cccefa4b86715",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4490,
+      "source_record_sha256": "42161ebb80ae1ecc6cdcc3dbb7e9f1399c603277e97b853751125006be3e1d7e",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4491,
+      "source_record_sha256": "70efef4b6d1859fe560e521b7d24bcd2263a35149761175fcd3fba2535baac70",
+      "prediction_disagreement_rate": 0.3888888888888889
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4492,
+      "source_record_sha256": "a087c4697758422ff6eef50fd6b737a663d53f8f32f24117353ab4e526cc9d57",
+      "prediction_disagreement_rate": 0.3888888888888889
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4493,
+      "source_record_sha256": "c3a906067fabe4791a175efae85c430273557683e85f6e1e3b846d45ec43bb9c",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4494,
+      "source_record_sha256": "334d0d65ae0ee0eaf4d218100d1ae964158a06108b449bd39ef7303c0b188dbf",
+      "prediction_disagreement_rate": 0.8888888888888888
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4495,
+      "source_record_sha256": "974f4162de828f92c2dc24d694064fc33ebec89f17c5d5c9249e134b672aae3e",
+      "prediction_disagreement_rate": 0.8888888888888888
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4496,
+      "source_record_sha256": "bd123419983f6208d38bc2d330db8e0b94226899cc236293f679d36c63cd764b",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4497,
+      "source_record_sha256": "53b6625807ec5dc03da7347e398639c4edd8f324b26e43c211e791886b785a2d",
+      "prediction_disagreement_rate": 0.4166666666666667
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4498,
+      "source_record_sha256": "a95a4cba6b0d05f283b4380a076cc1338e9c98e0d177288ebdecfaf4ed0e2e63",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4499,
+      "source_record_sha256": "8b67ff08402506c25a80038f32ffe21e713075b0fc566f1dfd3c4c926dec49e9",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4500,
+      "source_record_sha256": "ab0c8bfac51da30d47113ae16280344bc5efdc6d5b9615dcf371250626563a31",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4501,
+      "source_record_sha256": "b0265069c1e62ae4718fe636a0293a62336db4cafe1e69bb56dd7b74a6344957",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4502,
+      "source_record_sha256": "def07fba3c0d029015c2d961da9ee8c5731b2fa7045ac32d8c103c930dcd5f3b",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4503,
+      "source_record_sha256": "8c7066383751a8be9aab63ffe51327ad34c155129d935cb0056fb377ed3b2e44",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4504,
+      "source_record_sha256": "05ab838e61bef4c54e3a513b7db91d821ae63fd8027b4e0636cd13ffdf8cb6ce",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4505,
+      "source_record_sha256": "6d1e2b4c4df0f93c3ba2532e5545e5a9158450ea8a74e40fd0a1a257f6468e7f",
+      "prediction_disagreement_rate": 1.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4506,
+      "source_record_sha256": "6be78c322da83b8579fb0b1535a66b0df3a45c514848a26de52554de045a3a79",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4507,
+      "source_record_sha256": "1c58757fec957dbbcaba02befbb2cf84a69f3500581e8aaa8715764c0edc8c5e",
+      "prediction_disagreement_rate": 0.3888888888888889
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4508,
+      "source_record_sha256": "4cd5975f17cd90a59d8faf663df402360a279ed635140d88f54a5fba32444781",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4509,
+      "source_record_sha256": "011bca06a1a4d85e9a94f59d088775098b5b80ced392c728f230d278d6160670",
+      "prediction_disagreement_rate": 0.7222222222222222
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4510,
+      "source_record_sha256": "07914269e648f4094fbe6a3cb9aad255ca5d2845d68e6a5ad49c53daa97417d1",
+      "prediction_disagreement_rate": 0.7222222222222222
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4511,
+      "source_record_sha256": "9342b056f61fd277324813691b7bbdc3ee6692f43e7792b30f2410fd07d83f81",
+      "prediction_disagreement_rate": 0.4166666666666667
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4512,
+      "source_record_sha256": "dfd4a65f45a4a638db44c38591525481cdcf704bae1331094b82870b1adb00b8",
+      "prediction_disagreement_rate": 0.4166666666666667
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4513,
+      "source_record_sha256": "11b19c86f1493c70102782d0c6f0b0f411ce3018f59ae970a97f87382bc9e993",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4514,
+      "source_record_sha256": "6d8824b2d3da499481be8d5b5c494ff826bc169bea17119526a2313f372a5656",
+      "prediction_disagreement_rate": 0.75
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4515,
+      "source_record_sha256": "5730e1de6c9bb525a50f455e3174d818c2587aae7385027c8aa0b1f672efab30",
+      "prediction_disagreement_rate": 0.75
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4516,
+      "source_record_sha256": "92efef11c90484e2da09348b5fa566686839a3f2e7b4f24d7a57b651e468da5f",
+      "prediction_disagreement_rate": 0.3333333333333333
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4517,
+      "source_record_sha256": "72bb7fb92fdd8d7744165867ebd81b8a552f026b037d39930837ce1bcc211347",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4518,
+      "source_record_sha256": "ee88684fb7eb0a0963886a24069d6e92f71fcfa9c4bd3c8b2be9647255ed1482",
+      "prediction_disagreement_rate": 0.16666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4519,
+      "source_record_sha256": "25d7ec9b8d907e49150ca1c00aff542e961108af8256e36df5d4767e933b4123",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4520,
+      "source_record_sha256": "27ad3618d6930ea55e3fd166481cfcaffbd3fbf5f0abfd381fae3244c60fcf76",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4521,
+      "source_record_sha256": "9b04dd48c2d802dbca38fa1ec46e05d34f1f2ee95fa051b0d8c7427a59e7f4f8",
+      "prediction_disagreement_rate": 0.3333333333333333
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4522,
+      "source_record_sha256": "af8a5cb4a5e4f60632a804cbbb36800445dda0d4ec0b4bcf17a6ee997ce3f6d0",
+      "prediction_disagreement_rate": 0.1111111111111111
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4523,
+      "source_record_sha256": "a3c1299c3c980a7b2e11883bab3dcf83ce5aa8b993e2b209e447a728989ca023",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4524,
+      "source_record_sha256": "475c86a81cfa06eb81fbd1f220bf9d74fc0313ffb09fd8581603db47c25b6089",
+      "prediction_disagreement_rate": 0.7777777777777778
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4525,
+      "source_record_sha256": "f7e2e06160100792f517565d5e2518703ae9acea920bac1b18ab29815e74306e",
+      "prediction_disagreement_rate": 0.7777777777777778
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4526,
+      "source_record_sha256": "ce19b2b732ca4288fd3f8e48dede24c75fe15ab4dc18d7d12d2a0f0a075ac2e1",
+      "prediction_disagreement_rate": 0.4166666666666667
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4527,
+      "source_record_sha256": "2bfdc7c19c408b24d4af7bf283c1e4e7313500fcaf1d4fb5378948d885e09d98",
+      "prediction_disagreement_rate": 0.08333333333333333
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4528,
+      "source_record_sha256": "a6ddbdd86112fda9f3de7d5e24ad287aa4fdd9f5e6c38528f8dc3fe686e72ca7",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4529,
+      "source_record_sha256": "b3e15cfc0974fcea4a455dd26b35a2d8789d1507464045a5c64a7cd61178d09d",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4530,
+      "source_record_sha256": "d63b1f32a26c13f65880d26c6a6ee7f19fefdfca1b871c199bc80f2bf51638f9",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4531,
+      "source_record_sha256": "bd435f7e197f19ba1ba0e06d5367fca9b2fa13988bdc1871779f4ae13e09f53a",
+      "prediction_disagreement_rate": 0.3333333333333333
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4532,
+      "source_record_sha256": "468be71cf0c665f7e3c582b71cf7499ec14a5b90138bd476ac69cc4d955b19a7",
+      "prediction_disagreement_rate": 0.16666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4533,
+      "source_record_sha256": "144e3d982a340b8cdd93e3041097bf2145407218f49e6b4263d24a544083e797",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4534,
+      "source_record_sha256": "465904dc7ca11c27e91b0179a2136cd61cab8dc54e13bba62456535669613f4a",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4535,
+      "source_record_sha256": "200661058e438f33db787e20036d875c8763375bab0781a3f07f066600068a2b",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4536,
+      "source_record_sha256": "289c0e6697fec474af1b3678fd46b0ac4054f026455a1fa2ec14c07e27e41ffb",
+      "prediction_disagreement_rate": 0.3333333333333333
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4537,
+      "source_record_sha256": "5fc54c6a6270321994e0c58683f6b3f907e488704f5d4d7da12f4c19d63f76fa",
+      "prediction_disagreement_rate": 0.3333333333333333
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4538,
+      "source_record_sha256": "d733a4e709a9ea3446555bf6f31b85a1380b39417d52eba364cb75fe748cb76b",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4539,
+      "source_record_sha256": "3c6ebe1f8e42aa8de046ead55728b0d1641d0ab100d62163dbb265bdcc3b398b",
+      "prediction_disagreement_rate": 0.5555555555555556
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4540,
+      "source_record_sha256": "9e6fb915db28d38874541a414057d77c631a598ad279f948b61cae68f5da6011",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4541,
+      "source_record_sha256": "8e3ba40e7c0562a6dac430fc2dcd97fdce2202152a7fac45a6a738b7a8aa08cb",
+      "prediction_disagreement_rate": 0.4166666666666667
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4542,
+      "source_record_sha256": "96021a30b97e0673ebca9353cb425c815168ca4c59f5f146e80c1b850c66c6af",
+      "prediction_disagreement_rate": 0.4166666666666667
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4543,
+      "source_record_sha256": "4d15f2e72ae4966126f2fdf75fe3b83b11137df8ec5ccb33c2612b039a9edeb6",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4544,
+      "source_record_sha256": "1527c6bffa5e80bdef26917cbe8bfcca67013fcd3b401eed97db8bec7cc45f44",
+      "prediction_disagreement_rate": 0.5833333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4545,
+      "source_record_sha256": "9226857176b0c3275a989328b9e223c1e77c60061643be588885d31386b7f3b5",
+      "prediction_disagreement_rate": 0.75
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4546,
+      "source_record_sha256": "a533cf0fab23a17ae82908d311808cc1ed8ee6272c8fc077def18d35a51f2b66",
+      "prediction_disagreement_rate": 0.3333333333333333
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4547,
+      "source_record_sha256": "6a1864097ccd7a11e4eb1987cd3b7fafa78f705896fd49f10e370b0e702f5654",
+      "prediction_disagreement_rate": 0.3333333333333333
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4548,
+      "source_record_sha256": "755890ab610a0a9142540248138c6677e6202577a87b85a7fad55f2c6440374e",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4549,
+      "source_record_sha256": "ec58e4f51833f1abe0c7ebdd7a1ca042c1daae940197ba7454561989409c6214",
+      "prediction_disagreement_rate": 0.6666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4550,
+      "source_record_sha256": "4790b50098ab61082524347cb239800a9704fd9e7ed7e1431f869703a6f9a058",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4551,
+      "source_record_sha256": "0584ab4c0e16f3c6b5b70f22858f391ae0e933c27a2083300c882237d4e95412",
+      "prediction_disagreement_rate": 0.4444444444444444
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4552,
+      "source_record_sha256": "aa224e6a0dbabea5a7dc79da34de4b4f6983463f39925acd43e6e7ca1fef5051",
+      "prediction_disagreement_rate": 0.3888888888888889
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4553,
+      "source_record_sha256": "21695c169a3035100e609f1e48290132d4f63f99f6713d9cb7161315fc57bc66",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4554,
+      "source_record_sha256": "47741538db53aa16e2b887bf6357abfa91ddad0df4832f3617c16bb1069545a9",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4555,
+      "source_record_sha256": "6dbfcc660a84284752f719b417d01649a9416c6c4de2169fd7ebecab0f3eb00c",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4556,
+      "source_record_sha256": "6452c510ae9f06e3f6c56b771827ceeaf8daac08ba371248ea1287a59c16f3f6",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4557,
+      "source_record_sha256": "d2d98d33895d694fd288c9f0faa2df7a054b13abe1c7aeb62a73e0c66c2e54ba",
+      "prediction_disagreement_rate": 0.4166666666666667
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4558,
+      "source_record_sha256": "528d9e945f3e16d8fa5688e23c2006da3e8428d5c57f9dc3d0b6fae3df2c1d09",
+      "prediction_disagreement_rate": 0.08333333333333333
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4559,
+      "source_record_sha256": "21ddb2488440c9c96c070c21033c5cf79f08584cc659cf435d71bfe2e4282164",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4560,
+      "source_record_sha256": "09e8b3380d1367613df5f03f1e2c68f30fac4ede12943c863b0be261d0f1e03f",
+      "prediction_disagreement_rate": 0.75
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4561,
+      "source_record_sha256": "ff2f6c87836e8cf06f2cad8c2e79068cc89450670df821bf8e4aae5402f38206",
+      "prediction_disagreement_rate": 0.5
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4562,
+      "source_record_sha256": "a34db3b5972f0ca7042bb326fe395b9d0aab4ca540cba81516d488ba4468a666",
+      "prediction_disagreement_rate": 0.3333333333333333
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4563,
+      "source_record_sha256": "db794bb6e885507df8b2c04f69956235380f82927264f4bebf3e30e09ed32648",
+      "prediction_disagreement_rate": 0.16666666666666666
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4564,
+      "source_record_sha256": "a5aedb914a975d77152a3f506d8d02dd6d29e60b6b0548e9bfe93c3747530a00",
+      "prediction_disagreement_rate": 0.8333333333333334
+    },
+    {
+      "run_id": "feature_bank_manus_calibration_diagnostics_final_20260915",
+      "source_row_1based": 4565,
+      "source_record_sha256": "3725de0cb417763f4855ff2bb81801ccf9d66062b095fb4689e88721936b993b",
+      "prediction_disagreement_rate": 0.8333333333333334
     }
   ]
 }

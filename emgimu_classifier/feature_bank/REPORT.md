@@ -2430,10 +2430,12 @@ The same semantic check found 402 older delivery rows where the source field
 `disagreement` also means binary correctness disagreement. The canonical
 builder no longer maps that field to prediction disagreement. For 102 EPN
 selection and force screening rows, preserved held-out probability arrays
-recover the actual class-prediction disagreement. Recovery verifies every
-original correctness-disagreement and asymmetric-correctness rate to 1e-12,
-binds each recovered rate to its original row hash and archived probability
-file hash, and changes no source row. The other 300 rows retain `N/A` for
-prediction disagreement pending an equally direct replay. All 49,704
-canonical records still pass provenance checks; the broader schema remains
-evidence-partial.
+recover the actual class-prediction disagreement. The remaining 300 EPN and
+MANUS diagnostic rows were replayed from frozen fitted states, original trial
+splits and freshly SHA-256-verified raw archives, without fitting. Recovery
+verifies every original correctness-disagreement and asymmetric-correctness
+rate to 1e-12, binds each recovered rate to its original row hash and input
+hashes, and changes no source row. All 402 legacy rows now have true
+prediction disagreement; all 49,704 canonical records pass provenance checks.
+The broader schema remains evidence-partial because other fields still lack
+source support.

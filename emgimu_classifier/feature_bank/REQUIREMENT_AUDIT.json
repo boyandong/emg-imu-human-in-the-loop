@@ -74,7 +74,7 @@
     "repetition_boundaries": null,
     "not_historical_DS2": true
   },
-  "test_count": 190,
+  "test_count": 192,
   "wearing_configuration_boundary": "New executions explicitly persist preprocessing/model/seed fields and reject invalid phases before loading final users. Existing saved experiments remain historical manifests; no retraining or retroactive configuration claim.",
   "reproducibility_metadata_inventory": {
     "artifact": "feature_bank/REPRODUCIBILITY_METADATA_AUDIT.json",
@@ -123,10 +123,10 @@
   },
   "prediction_disagreement_recovery": {
     "artifact": "feature_bank/results/prediction_disagreement_recovery.json",
-    "recovered_rows": 102,
-    "unresolved_legacy_rows": 300,
+    "recovered_rows": 402,
+    "unresolved_legacy_rows": 0,
     "source_record_identity_checked": true,
-    "boundary": "Two frozen held-out prediction matrices replayed exactly against source correctness and asymmetric rates; other old disagreement fields are correctness disagreement, not class-prediction disagreement."
+    "boundary": "Two frozen held-out prediction matrices and four frozen-state native diagnostic runs replayed exactly against all source correctness and asymmetric rates; no source rows changed. Remaining delivery missingness concerns other fields."
   },
   "f7_spd_tangent_anchor_candidate": {
     "implementation": "src/emgimu/feature_bank/spd_anchor.py",

@@ -1,6 +1,6 @@
 {
   "status": "schema_complete_evidence_partial",
-  "prediction_disagreement_recovery_sha256": "007034cc3538a7995f7ec81fd63dea29343c86a70c8bad1f3c76fc36acbaa250",
+  "prediction_disagreement_recovery_sha256": "9b0bd1414285082a62ab8d771894940a9c41b395a58f3797c9576dc96f18293f",
   "artifacts": {
     "feature_family_results.csv": {
       "rows": 4695,
@@ -130,8 +130,7 @@
       "missing_field_counts": {
         "session/domain": 414,
         "error_correlation": 4,
-        "subject": 179,
-        "disagreement_rate": 300
+        "subject": 179
       },
       "missing_by_run": {
         "feature_bank_wearing_document_core_validation_20260916": {
@@ -166,24 +165,20 @@
           "session/domain": 66
         },
         "feature_bank_manus_calibration_diagnostics_validation_20260915": {
-          "session/domain": 90,
-          "disagreement_rate": 90
+          "session/domain": 90
         },
         "feature_bank_manus_calibration_diagnostics_final_20260915": {
-          "session/domain": 90,
-          "disagreement_rate": 90
+          "session/domain": 90
         },
         "feature_bank_epn_calibration_diagnostics_validation_20260915_v2": {
-          "session/domain": 60,
-          "disagreement_rate": 60
+          "session/domain": 60
         },
         "feature_bank_epn_calibration_diagnostics_final_20260915_v2": {
-          "session/domain": 60,
-          "disagreement_rate": 60
+          "session/domain": 60
         }
       },
       "source_csv_sha256": "b9385c81df2f9d85f401a54ea7a67965a5920f5cfe3a105685db5eae8911f391",
-      "canonical_csv_sha256": "56b4f548a9d7dd8690dc731d0498103fe3f964fc631c7158a1eab93afb052530"
+      "canonical_csv_sha256": "9e93ae41a76614927594e73698a48dfba7349dac6a87b5086515dd1f999a0d3e"
     },
     "calibration_curve.csv": {
       "rows": 20026,
