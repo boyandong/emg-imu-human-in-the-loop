@@ -2319,3 +2319,30 @@ trial IDs and evaluation budgets but use a different source representation
 and population classifier; any descriptive numerical difference is not an
 incremental F7 contribution to a fixed multi-family Core. The candidate
 also has no live-device result or historical RLCS identity.
+
+## Frozen Quality × reference-family interaction replay (2026-09-22)
+
+The saved LibEMG force quality-stress runs contain separate source-fitted,
+source-OOF-calibrated provider probabilities for F0, reference F1, reference
+Ring and F9 Quality. `quality_family_interactions.py` replays four fixed
+equal-provider arms on identical native trial IDs: F0; F0+family; F0+Quality;
+F0+family+Quality. No classifier, family, fusion weight or target calibration
+is fitted. Validation uses users7/8, final uses users9/10; each has clean and
+seven prespecified synthetic perturbations. The script verifies saved replay
+audits, phase users and probability alignment; raw arm/interaction/
+complementarity tables remain in `work/benchmark_runs`, and
+`results/quality_family_interactions.json` carries source/output hashes.
+
+On clean validation trials, reference F1 versus Quality has 28.2% binary
+correctness disagreement and reference Ring versus Quality has 33.2%; both
+directions of asymmetric correctness occur. Clean negative-log-loss interaction
+S is +0.0361/+0.0709 on validation and +0.0466/+0.0572 on final for
+F1/Ring respectively. Across the seven synthetic scenarios, mean final S is
++0.1031/+0.1145. These positive second differences do not imply a useful
+bank: final clean macro-F1 of the F0 baseline is 0.5118, while the
+F0+F1+Quality and F0+Ring+Quality arms score 0.4361 and 0.4724. Across the
+synthetic scenarios, their mean pooled F1 is 0.3382/0.3298 versus baseline
+0.4639. Neither full arm merits promotion. This is probability-composition
+behavior under synthetic quality changes, not physiological synergy or
+measured device noise; neither reference F1 nor Ring establishes historical
+X1-H/RLCS equivalence.

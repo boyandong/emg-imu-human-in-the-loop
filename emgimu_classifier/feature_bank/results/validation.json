@@ -1,10 +1,10 @@
 {
   "date": "2026-09-22",
   "command": "$env:PYTHONPATH='src'; python -m unittest discover -s tests",
-  "tests_run": 182,
+  "tests_run": 183,
   "skipped": 1,
   "result": "OK",
   "compileall": "prior SPD Anchor and formula audit modules passed; new benchmark executed successfully",
   "scope": "unit and synthetic integration checks; no live-device accuracy claim",
-  "test_log_sha256": "437b5f3c988336b3de9f13cfadf066669016f20b67344cf293d8bee2a87eaf9c"
+  "test_log_sha256": "7a6479fa4cd95972e5327dbc919ac689936cf9008ba8669e8cb4cc3f4ad63bcd"
 }

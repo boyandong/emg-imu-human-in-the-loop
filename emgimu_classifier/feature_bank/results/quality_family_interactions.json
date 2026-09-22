@@ -1,0 +1,162 @@
+{
+  "completion_proven": false,
+  "protocol": "Frozen source provider probabilities; fixed equal-weight B/F/Q/FQ compositions; no refit or target calibration",
+  "analysis_source_sha256": "6c50b8efc3048b7e2be6794f0d9bb0ccb6de45dd3df0ca2ad0ad27c0aa1285e2",
+  "source_runs": {
+    "validation": {
+      "corruption_predictions.npz": "5a6f582382dfe9efc3bd71992c85ac7a2da0313d70272e67cd5c3cabab0fb556",
+      "run_manifest.json": "cbac6d1f6f74234d922fae599e7efb16645ea8d2ef686da7eff561140240b8c2",
+      "replay_audit.json": "1c9f6e3d530b6781f77b75a3f16cc05906b4c32b3c4a185685204f51536f3565"
+    },
+    "final": {
+      "corruption_predictions.npz": "5b3a2216448087e78679778e5fa324cdaaafd75ac7ce7b46e27aa1e1951b9a7b",
+      "run_manifest.json": "fa82666fad559d8fd78b3a580c7b5b293f681c40d8215c8ba752c0421fe24aef",
+      "replay_audit.json": "54ca0aeb7034343a0f51b2a6b21181de00f5def2be9bcfbeb8368b442d25ed54"
+    }
+  },
+  "output_sha256": {
+    "interaction_results.csv": "3256b5702d81b2613d65b792b57bc2f76cfa3f0f055fcb62c96c5dd920efdd18",
+    "arm_scores.csv": "ce626e4e649097ee941cfe05149a49708b9e253af6d25271d9495aa9ef58ffd5",
+    "error_complementarity.csv": "acfea1e55ef922569367acb4aec0995495cd569c75690953ae2528d4bcadffe6"
+  },
+  "rows": {
+    "interaction_results.csv": 96,
+    "arm_scores.csv": 384,
+    "error_complementarity.csv": 96
+  },
+  "pooled_clean": [
+    {
+      "phase": "validation",
+      "scenario": "clean",
+      "subject": "ALL",
+      "base": "F0",
+      "family_a": "F1_X1H",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "S_negative_logloss": 0.036078852547080986,
+      "S_macro_f1": -0.030683516386958487,
+      "S_negative_brier": 0.0007192991481956429
+    },
+    {
+      "phase": "validation",
+      "scenario": "clean",
+      "subject": "ALL",
+      "base": "F0",
+      "family_a": "F3_Ring",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "S_negative_logloss": 0.07090557167729816,
+      "S_macro_f1": -0.03520057691481587,
+      "S_negative_brier": 0.002414790044782733
+    },
+    {
+      "phase": "final",
+      "scenario": "clean",
+      "subject": "ALL",
+      "base": "F0",
+      "family_a": "F1_X1H",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "S_negative_logloss": 0.04662827372625178,
+      "S_macro_f1": 0.011179837359741374,
+      "S_negative_brier": 0.0031157896946172603
+    },
+    {
+      "phase": "final",
+      "scenario": "clean",
+      "subject": "ALL",
+      "base": "F0",
+      "family_a": "F3_Ring",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "S_negative_logloss": 0.05720834571437883,
+      "S_macro_f1": 0.007927913454808255,
+      "S_negative_brier": 0.004349353718559865
+    }
+  ],
+  "pooled_clean_complementarity": [
+    {
+      "phase": "validation",
+      "scenario": "clean",
+      "subject": "ALL",
+      "family_a": "F1_X1H",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "disagreement_rate": 0.282312925170068,
+      "a_correct_b_wrong": 0.17517006802721088,
+      "a_wrong_b_correct": 0.10714285714285714
+    },
+    {
+      "phase": "validation",
+      "scenario": "clean",
+      "subject": "ALL",
+      "family_a": "F3_Ring",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "disagreement_rate": 0.33163265306122447,
+      "a_correct_b_wrong": 0.07993197278911565,
+      "a_wrong_b_correct": 0.25170068027210885
+    },
+    {
+      "phase": "final",
+      "scenario": "clean",
+      "subject": "ALL",
+      "family_a": "F1_X1H",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "disagreement_rate": 0.304421768707483,
+      "a_correct_b_wrong": 0.141156462585034,
+      "a_wrong_b_correct": 0.16326530612244897
+    },
+    {
+      "phase": "final",
+      "scenario": "clean",
+      "subject": "ALL",
+      "family_a": "F3_Ring",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "disagreement_rate": 0.37755102040816324,
+      "a_correct_b_wrong": 0.11394557823129252,
+      "a_wrong_b_correct": 0.26360544217687076
+    }
+  ],
+  "pooled_synthetic_summary": [
+    {
+      "phase": "validation",
+      "family": "F1_X1H",
+      "scenarios": 7,
+      "mean_S_negative_logloss": 0.10438867975800904,
+      "positive_S_negative_logloss_scenarios": 7,
+      "mean_baseline_macro_f1": 0.4676301895295418,
+      "mean_full_arm_macro_f1": 0.4064629828113967
+    },
+    {
+      "phase": "validation",
+      "family": "F3_Ring",
+      "scenarios": 7,
+      "mean_S_negative_logloss": 0.1348292070498425,
+      "positive_S_negative_logloss_scenarios": 7,
+      "mean_baseline_macro_f1": 0.4676301895295418,
+      "mean_full_arm_macro_f1": 0.38344379540157114
+    },
+    {
+      "phase": "final",
+      "family": "F1_X1H",
+      "scenarios": 7,
+      "mean_S_negative_logloss": 0.10314444353154571,
+      "positive_S_negative_logloss_scenarios": 7,
+      "mean_baseline_macro_f1": 0.4638564296363025,
+      "mean_full_arm_macro_f1": 0.338236316179172
+    },
+    {
+      "phase": "final",
+      "family": "F3_Ring",
+      "scenarios": 7,
+      "mean_S_negative_logloss": 0.11446211743385604,
+      "positive_S_negative_logloss_scenarios": 7,
+      "mean_baseline_macro_f1": 0.4638564296363025,
+      "mean_full_arm_macro_f1": 0.32977895260011814
+    }
+  ],
+  "boundary": "Quality \u00d7 reference F1/Ring probability-composition interactions under synthetic perturbations, not historical X1-H/RLCS, physiological synergy, real-device noise, or complete Stage 4 coverage."
+}

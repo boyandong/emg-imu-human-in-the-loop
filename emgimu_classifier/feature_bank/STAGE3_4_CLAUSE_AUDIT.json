@@ -96,6 +96,16 @@
       "boundary": "Source-prespecified current reference implementations; exact historical equivalence unavailable."
     }
   ],
+  "stage4_quality_reference_replay": {
+    "artifact": "feature_bank/results/quality_family_interactions.json",
+    "native_dataset": "LibEMG Contraction Intensity, frozen source users1-6; validation7-8, final9-10",
+    "candidate_pairs": ["F1_X1H_reference x F9_Quality", "F3_Ring_reference x F9_Quality"],
+    "interaction_rows": 96,
+    "four_arm_score_rows": 384,
+    "error_complementarity_rows": 96,
+    "status": "verified_frozen_probability_replay_only",
+    "boundary": "Positive log-loss interaction does not recover absolute F0 baseline F1; synthetic noise, reference families and probability averaging only. Exact historical algorithms and full Stage 4 quality claim remain missing."
+  },
   "remaining_stage4_exact_pairs": [
     "RLCS x PersonalAnchor",
     "RLCS x SessionSignature",
