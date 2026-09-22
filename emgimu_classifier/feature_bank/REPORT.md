@@ -11,6 +11,10 @@ the exact log hash. Older section-local test counts below are dated snapshots,
 not the current total. At this review, the collection application's documented
 default `collection/emg_meta/emg_meta/data` directory does not exist, so no
 own-eight-channel labelled session can support a live-accuracy claim.
+The collection app's nine targeted UI simulator, formal-protocol and UniBo
+adapter tests pass in the existing `emgforce` Python environment with Qt
+offscreen. This checks software readiness only; simulator data cannot establish
+real-device classification performance.
 
 The previous 28-row `REQUIREMENT_AUDIT.csv` is a triage summary, not an exhaustive
 acceptance checklist; its broad locators must not be treated as exact source references.
@@ -21,10 +25,10 @@ unverified until contextual requirements and authoritative evidence are inspecte
 formulas, examples and separators are included and are not independent requirements.
 `DOCUMENT_SCOPE_AUDIT.json` proves index coverage only, not scientific completion.
 
-Discovery delivery review now supplies14 retrospective A–H scorecards while
+Discovery delivery review now supplies 14 retrospective A–H scorecards while
 preserving original selection totals/decisions and frozen experiments. Fresh
-small-file evidence verifies six source sanity reports and36 captioned plot hashes.
-Complete archive size is15,935,850,342 bytes (15.94 decimal GB), distinct from
+small-file evidence verifies six source sanity reports and 36 captioned plot hashes.
+Complete archive size is 15,935,850,342 bytes (15.94 decimal GB), distinct from
 raw expansion and the dated old disk snapshot. Historical DS2 publication match
 does not establish archive identity; secondary source provenance remains incomplete.
 `benchmarks/discovery/DISCOVERY_DELIVERY_AUDIT.json` records these boundaries;
