@@ -106,7 +106,11 @@
     "saved_metric_rows_replayed": 32,
     "calibration_selection_byte_identical": true,
     "phase_guard_before_data_load": true,
-    "boundary": "Correction audit regenerated from current artifacts; saved-probability replay is distinct from raw-signal refitting. Full goal acceptance remains unproven."
+    "boundary": "Saved source models replayed on native target recordings with exact probability equality; no source refit, historical RLCS identity or own-device accuracy claim.",
+    "native_probability_arrays_recomputed": 24,
+    "native_evaluation_trial_predictions_recomputed": 3312,
+    "native_maximum_absolute_probability_error": 0.0,
+    "raw_archive_full_digest_fresh": false
   },
   "stage3_4_clause_audit": {
     "artifact": "feature_bank/STAGE3_4_CLAUSE_AUDIT.json",

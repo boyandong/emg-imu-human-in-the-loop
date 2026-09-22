@@ -31,6 +31,7 @@ def verify(legacy, corrected_root, results, output):
         run = corrected_root / f"feature_bank_epn612_anchor_temperature_{phase}_20260916_v2"
         manifest = json.loads((run / "run_manifest.json").read_text(encoding="utf-8"))
         replay = json.loads((run / "replay_audit.json").read_text(encoding="utf-8"))
+        native_replay = json.loads((run / "native_replay_audit.json").read_text(encoding="utf-8"))
         split = json.loads((run / "split_trial_ids.json").read_text(encoding="utf-8"))
         current_rows = rows(run / "calibration_curve.csv")
         if manifest["phase"] != phase or manifest["target_users"] != users or manifest["calibration_method"] != "anchor":
@@ -39,6 +40,11 @@ def verify(legacy, corrected_root, results, output):
             raise ValueError("Corrected Anchor temperature changed")
         if len(current_rows) != 16 or replay["status"] != "ok" or replay["metric_rows_replayed"] != 16:
             raise ValueError("Corrected output replay missing")
+        if (native_replay["status"] != "ok" or native_replay["phase"] != phase
+                or native_replay["probability_arrays_recomputed"] != 12
+                or native_replay["maximum_absolute_probability_error"] > 1e-12
+                or not native_replay["source_state_file_unchanged"]):
+            raise ValueError("Native-data replay missing or divergent")
         if set(split["target_cases"]) != {f"user{user}_shots{shots}" for user in users for shots in (0, 1, 2, 5)}:
             raise ValueError("Corrected trial cases missing")
         for key, partition in split["target_cases"].items():
@@ -47,8 +53,11 @@ def verify(legacy, corrected_root, results, output):
             if set(split["source"]) & (set(partition["calibration"]) | set(partition["evaluation"])):
                 raise ValueError(f"Source/target overlap: {key}")
         files = ("calibration_curve.csv", "calibration_trial_ids.csv", "run_manifest.json",
-                 "split_trial_ids.json", "heldout_predictions.npz", "fitted_source_state.pkl", "replay_audit.json")
+                 "split_trial_ids.json", "heldout_predictions.npz", "fitted_source_state.pkl",
+                 "replay_audit.json", "native_replay_audit.json")
         runs[phase] = {"run_id": run.name, "users": users, "metric_rows_replayed": 16,
+                       "native_probability_arrays_recomputed": 12,
+                       "native_maximum_absolute_probability_error": native_replay["maximum_absolute_probability_error"],
                        "files_sha256": {name: digest(run / name) for name in files},
                        "pooled_results": {row["shots_per_class"]: {"macro_f1": float(row["macro_f1"]),
                            "log_loss": float(row["log_loss"])} for row in current_rows if row["subject"] == "ALL"}}
@@ -61,10 +70,12 @@ def verify(legacy, corrected_root, results, output):
              "legacy_run": legacy.name, "legacy_curve_sha256": digest(legacy / "calibration_curve.csv"),
              "legacy_nonzero_shot_rows_excluded": len(excluded), "legacy_zero_shot_rows_unaffected": 4,
              "validation_calibration_selection_byte_identical": True, "corrected_runs": runs,
-             "total_saved_metric_rows_replayed": 32, "scientific_acceptance":
+             "total_saved_metric_rows_replayed": 32, "total_native_probability_arrays_recomputed": 24,
+             "scientific_acceptance":
              "Keep legacy metrics for provenance; exclude its nonzero-shot rows from leakage-compliant claims.",
              "limitations": ["Corrected family is F0 plus current reference envelope-ring, not historical RLCS",
-                             "Saved probability replay does not independently refit from raw signals",
+                             "Native replay reuses frozen source feature/scaler/classifier state; it does not refit source models",
+                             "Full 5.48-GB raw archive digest not recomputed; relevant members are checked by ZIP CRC and prediction equality",
                              "Population probabilities are raw logistic outputs, not a fully calibrated late-fusion pipeline",
                              "Validation and final users do not validate own-device four-class performance"]}
     output.write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")

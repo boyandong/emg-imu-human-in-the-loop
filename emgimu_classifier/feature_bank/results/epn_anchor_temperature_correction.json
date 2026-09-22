@@ -15,6 +15,8 @@
         18
       ],
       "metric_rows_replayed": 16,
+      "native_probability_arrays_recomputed": 12,
+      "native_maximum_absolute_probability_error": 0.0,
       "files_sha256": {
         "calibration_curve.csv": "ca8ada66335b4cbffbbfc7ce592195a7b82155ed347c3bd9309bd0999080f126",
         "calibration_trial_ids.csv": "a714c6c6bc8431564746e1134598347e82dccf4206039a4f383cff170e5dffe9",
@@ -22,7 +24,8 @@
         "split_trial_ids.json": "3e8b210d851124289be78fb88f3bf7cb5912837c6f1ac1e2e6a4a9bab9910e0d",
         "heldout_predictions.npz": "ede45fd17c3f55156dc4926f8428f2698966ae9f783ea645714de25af2f176ed",
         "fitted_source_state.pkl": "cf45e42b6a27de15fc809965f542a8c243ba88e39fb7688f296fafe06406a84e",
-        "replay_audit.json": "3b5c8dfd0ebfa217aa20958b93d823fa56ba6650fef6588e1fd31093e029ad54"
+        "replay_audit.json": "3b5c8dfd0ebfa217aa20958b93d823fa56ba6650fef6588e1fd31093e029ad54",
+        "native_replay_audit.json": "3d79c37f3d30c9ab23699b8b00839467ba2b12067e9c8a9770c90ca24847f8b6"
       },
       "pooled_results": {
         "0": {
@@ -51,6 +54,8 @@
         21
       ],
       "metric_rows_replayed": 16,
+      "native_probability_arrays_recomputed": 12,
+      "native_maximum_absolute_probability_error": 0.0,
       "files_sha256": {
         "calibration_curve.csv": "f37d15a7892519a4f5c4aedfa3b0d724bca248d8a9a5c664ab93a23c2e0b4bb9",
         "calibration_trial_ids.csv": "2b5f99e39c123ab2fb8454e5c40081487d2aa4d72ce5767303780ac91b4defa7",
@@ -58,7 +63,8 @@
         "split_trial_ids.json": "c5ee14e6a9b10168dbe7f66d3f906c4d6e350e267b8dbe5183610d39be294e89",
         "heldout_predictions.npz": "2324aa60d27a68ba472f2021f0a803bda5930089fdb0d49bac71f277a327e73f",
         "fitted_source_state.pkl": "cf45e42b6a27de15fc809965f542a8c243ba88e39fb7688f296fafe06406a84e",
-        "replay_audit.json": "bb843dcd000c70db483a0815776171ec25920095289b1831a8d679b681b81f99"
+        "replay_audit.json": "bb843dcd000c70db483a0815776171ec25920095289b1831a8d679b681b81f99",
+        "native_replay_audit.json": "e7a73653588c5c0a4a9ad3203f4d8b8956c959874cc61e18f2b677e99e6194ef"
       },
       "pooled_results": {
         "0": {
@@ -81,10 +87,12 @@
     }
   },
   "total_saved_metric_rows_replayed": 32,
+  "total_native_probability_arrays_recomputed": 24,
   "scientific_acceptance": "Keep legacy metrics for provenance; exclude its nonzero-shot rows from leakage-compliant claims.",
   "limitations": [
     "Corrected family is F0 plus current reference envelope-ring, not historical RLCS",
-    "Saved probability replay does not independently refit from raw signals",
+    "Native replay reuses frozen source feature/scaler/classifier state; it does not refit source models",
+    "Full 5.48-GB raw archive digest not recomputed; relevant members are checked by ZIP CRC and prediction equality",
     "Population probabilities are raw logistic outputs, not a fully calibrated late-fusion pipeline",
     "Validation and final users do not validate own-device four-class performance"
   ]

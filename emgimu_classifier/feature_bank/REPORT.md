@@ -2269,3 +2269,12 @@ macro-F1 at0/1/2/5 shots is0.438608/0.440676/0.422205/0.446555 and log loss is
 1 and5 shots slightly exceed zero-shot F1, while2 shots declines; no monotonic or
 universal calibration benefit follows. These final results were not used to change
 the calibration rule, family composition, shrinkage, trials, or model settings.
+
+The saved source family objects, scaler and classifier were also replayed directly
+against native EPN target recordings. All 12 validation and 12 final user-budget
+probability arrays match the saved predictions exactly (maximum absolute error 0).
+This checks target preprocessing, trial aggregation, frozen source inference and
+calibration-only Anchor application without refitting a model. The 5.48-GB ZIP
+was not freshly hashed in full; relevant members were read with ZIP CRC checks.
+`native_replay_audit.json` for each corrected run and the regenerated correction
+audit record the narrower verification scope.
