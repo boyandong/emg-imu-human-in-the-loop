@@ -6,6 +6,11 @@ diagnostics are explicitly labelled. Model compositions and calibration rules ar
 from source evidence, validation evidence or prespecified controls; final scores do not tune them.
 Seed: 20260915. Classical logistic regression runs use CPU; no neural training is needed
 for these representation comparisons.
+The current suite has 195 tests (one skipped); `results/validation.json` carries
+the exact log hash. Older section-local test counts below are dated snapshots,
+not the current total. At this review, the collection application's documented
+default `collection/emg_meta/emg_meta/data` directory does not exist, so no
+own-eight-channel labelled session can support a live-accuracy claim.
 
 The previous 28-row `REQUIREMENT_AUDIT.csv` is a triage summary, not an exhaustive
 acceptance checklist; its broad locators must not be treated as exact source references.
@@ -161,6 +166,8 @@ canonical provenance: 49,552 rows. These checks do not prove full document accep
 The full bank has local gains and failures. It does not improve every task or the minimum
 of the complete available robustness vector. The following seven-axis table describes
 fixed full-bank algorithms at cal0; it does not substitute the best observed specialist.
+The separately frozen EPN F0+Ring+CSP+IMU shortlist also failed to raise its
+independent final-user minimum (full .3965 versus F0 .4263), as detailed below.
 Different tasks have different classes, users and aggregation. The values are descriptive
 and cannot be read as accuracy of one universally fitted classifier.
 
@@ -186,11 +193,11 @@ quality and cannot support a claim that the complete available minimum improved.
 |---|---|---|
 | A: Missing information or poor organization? | Both remain plausible. Feature organization and calibration alter performance substantially; extra dimensions and stronger nuisance deletion can hurt. | No experiment isolates the physical cause of current eight-channel hardware failure. |
 | B: Which families add conditional information? | EPN fixed late-fusion Core receives log-loss gains from spectral/temporal/quality providers, but final F1 gains are inconsistent. Actual concatenated force Core receives spectral final F1 gains with worse log loss; other additions reverse validation gains or reduce minima. | Force Core has 0/1/2-shot controls; Core coverage on other eligible tasks remains incomplete. This is predictive information, not estimated mutual information. |
-| C: Which families are specialists? | Ring helps average wearing/force performance in some compositions; spectral helps some load/force cells; temporal helps the native UniBo shortlist. | All force Core additions reduce Core's condition minimum. Some FMG position minima also fall. Historical RLCS/CES/Frequency equivalence is unverified. |
+| C: Which families are specialists? | Ring helps average wearing/force performance in some compositions; spectral helps some load/force cells; temporal helps the native UniBo shortlist. | The EPN development Ring gain does not survive its independent shortlist final-user ablation: removing Ring improves pooled F1 and log loss. All force Core additions reduce Core's condition minimum. Historical RLCS/CES/Frequency equivalence is unverified. |
 | D: Which need personal calibration? | MANUS session models can recover strongly with a small own-session budget; current EPN anchors can harm performance. Ramp-only force Core anchors recover only a small amount. | No universal anchor benefit or device calibration prescription follows. |
 | E: Does Personal Anchor reduce cross-user variation? | No for the tested EPN branch: all nonzero budgets lower observed mean/minimum F1 and raise standard deviation relative to matched no-anchor controls. | Three final users, descriptive variation; this does not reject every anchor design. |
 | F: Does Session Signature help cross-day/re-donning? | MANUS session profiles measure shifts. Matched current-session prototypes outperform the fixed long/current blend in the tested controls. | Targeted before/after wearing-domain controls now exist: local prototypes improve F1 with worse LL; cosine context weighting has no final F1 gain. Calendar-session, broader cross-day and own-device verification remain open. |
-| G: Does the bank improve R_min? | Not for the complete seven-axis vector. Frozen concatenated force Core improves its own force-condition minimum; adding families can raise average F1 while lowering that minimum. | No global robustness recovery; unlike/correlated tasks and synthetic-quality scope remain explicit. |
+| G: Does the bank improve R_min? | Not for the complete seven-axis vector. Frozen concatenated force Core improves its own force-condition minimum; adding families can raise average F1 while lowering that minimum. The independent EPN shortlist also lowers its worst-user F1 from .4263 to .3965. | No global robustness recovery; unlike/correlated tasks and synthetic-quality scope remain explicit. |
 | H: How much product calibration is needed? | Offline budgets range from limited Ramp-only recovery to large MANUS own-session recovery; EPN can fail even at five-shot. | Trial duration estimates exclude preparation/transitions. No measured device-level latency, accuracy or calibration duration claim. |
 
 ### Calibration recovery and model-composition limits
@@ -228,9 +235,9 @@ The current temporal comparison shares most errors (G5/reference-F5 model correl
 
 Six new benchmark archives are complete. Five canonical CSVs, schema/provenance audits,
 source run manifests, trial lists, dimensions, per-user/per-class diagnostics, calibration
-burden estimates and SVG curves are available. The latest suite ran 161 tests with one
-skip; consolidated integrity covers 194 artifacts, 50,915 rows and 1,146 explicit
-partitions, while canonical record verification covers 49,432 rows. These are narrow
+burden estimates and SVG curves are available. The latest suite ran 195 tests with one
+skip; consolidated integrity covers 210 artifacts, 51,283 rows and 1,206 explicit
+partitions, while canonical record verification covers 49,704 rows. These are narrow
 integrity/implementation checks, not proof that every scientific requirement is complete.
 
 The highest-priority remaining work is the exact historical dataset/algorithm audit,
