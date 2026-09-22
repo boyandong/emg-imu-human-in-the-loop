@@ -74,7 +74,7 @@
     "repetition_boundaries": null,
     "not_historical_DS2": true
   },
-  "test_count": 183,
+  "test_count": 184,
   "wearing_configuration_boundary": "New executions explicitly persist preprocessing/model/seed fields and reject invalid phases before loading final users. Existing saved experiments remain historical manifests; no retraining or retroactive configuration claim.",
   "reproducibility_metadata_inventory": {
     "artifact": "feature_bank/REPRODUCIBILITY_METADATA_AUDIT.json",
@@ -115,6 +115,7 @@
   "stage3_4_clause_audit": {
     "artifact": "feature_bank/STAGE3_4_CLAUSE_AUDIT.json",
     "quality_reference_pair_replay": "feature_bank/results/quality_family_interactions.json; fixed frozen-provider four-arm comparison on clean and seven synthetic force conditions, no model refit",
+    "g5_reference_temporal_four_arm": "feature_bank/results/unibo_g5_temporal_interaction.json; source-day-calibrated native UniBo G0/G5/reference Temporal four arms, validation Day6 and frozen final Days7-8, prior three-arm Day6 replay exact",
     "stage3_recorded_rows_reviewed": 400,
     "stage4_recorded_rows_reviewed": 48,
     "completion_proven": false,

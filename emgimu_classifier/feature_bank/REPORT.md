@@ -2346,3 +2346,39 @@ synthetic scenarios, their mean pooled F1 is 0.3382/0.3298 versus baseline
 behavior under synthetic quality changes, not physiological synergy or
 measured device noise; neither reference F1 nor Ring establishes historical
 X1-H/RLCS equivalence.
+
+## UniBo validated G5 × reference Temporal interaction (2026-09-22)
+
+The named Stage 4 G5×TemporalShape question now has a four-arm *candidate*
+comparison on identical native UniBo windows. B is the existing validated G0;
+the other arms add validated G5, current reference TemporalForm, or both.
+Source Days1–4 fit family/classifier states for probability calibration, held-out
+source Day5 fits each arm's temperature, and source Days1–5 fit the frozen
+evaluation states. Day6 validation and Days7–8 final evaluations never fit a
+family, scaler, classifier or temperature. Native four-channel trials are
+disjoint by day, and hierarchical segment weights enter source fitting and
+evaluation. This is not a 0/1/2/5-shot personal-calibration curve.
+
+| Pooled macro-F1 | G0 | G0+G5 | G0+Temporal | G0+G5+Temporal |
+|---|---:|---:|---:|---:|
+| Day6 validation | 0.6323 | 0.6374 | 0.6504 | 0.6502 |
+| Days7–8 final | 0.6634 | 0.6662 | 0.6772 | 0.6773 |
+
+The negative-log-loss interaction S is -0.00448 on validation and -0.00119
+on final; macro-F1 interaction S is -0.00540/-0.00275. Positive user-level
+log-loss interactions occur in only 2/7 validation and 4/7 final subjects.
+Adding G5 to G0+Temporal changes final pooled F1 by less than 0.0001 and
+slightly worsens log loss. These data do not establish that the two temporal
+families are synergistic in a common bank. All four arms are source-day
+calibrated; the validated G5 formula is reused, while the current TemporalForm
+remains a reference candidate rather than proven historical TemporalShape.
+
+The first three Day6 arms, after applying the recorded source temperatures,
+exactly replay the prior validated-reuse probabilities on all 24,338 matched
+windows (maximum absolute difference zero); the fourth arm is the new matched
+combination. `results/unibo_g5_temporal_interaction.json` records the frozen
+source/output hashes, Day6 replay and independent final scores. Full
+probabilities, split trial IDs, per-subject and per-posture cells are under
+`work/benchmark_runs/feature_bank_unibo_g5_temporal_*_20260922`.
+Windows from the same trial are correlated; this is an offline representation
+comparison, not complete-bout DTW, streaming recognition or own-device evidence.

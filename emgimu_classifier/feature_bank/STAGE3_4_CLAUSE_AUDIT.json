@@ -97,14 +97,30 @@
     }
   ],
   "stage4_quality_reference_replay": {
-    "artifact": "feature_bank/results/quality_family_interactions.json",
+    "artifact": "results/quality_family_interactions.json",
+    "artifact_sha256": "69f185503b3f40ce065d5a42b9ecd525652a4e5de50890f47cb79b6e4d5f5ace",
     "native_dataset": "LibEMG Contraction Intensity, frozen source users1-6; validation7-8, final9-10",
-    "candidate_pairs": ["F1_X1H_reference x F9_Quality", "F3_Ring_reference x F9_Quality"],
+    "candidate_pairs": [
+      "F1_X1H_reference x F9_Quality",
+      "F3_Ring_reference x F9_Quality"
+    ],
     "interaction_rows": 96,
     "four_arm_score_rows": 384,
     "error_complementarity_rows": 96,
     "status": "verified_frozen_probability_replay_only",
     "boundary": "Positive log-loss interaction does not recover absolute F0 baseline F1; synthetic noise, reference families and probability averaging only. Exact historical algorithms and full Stage 4 quality claim remain missing."
+  },
+  "stage4_g5_reference_temporal": {
+    "artifact": "results/unibo_g5_temporal_interaction.json",
+    "artifact_sha256": "0517f97e00ea073220375d6548bd68376d634e8dab73c7641442ec9242e0ee6a",
+    "native_dataset": "UniBo-INAIL native four-channel; source Days1-5, validation Day6, final Days7-8",
+    "pair": "validated_G5 x reference_TemporalForm",
+    "validation_cells": 13,
+    "final_cells": 14,
+    "saved_day6_replay_windows": 24338,
+    "saved_day6_maximum_probability_error": 0.0,
+    "status": "verified_reference_temporal_pair_not_historical_exact",
+    "boundary": "Four matched source-calibrated concatenated classifiers, correlated native windows. Reference TemporalForm is not proven to equal exact historical TemporalShape; negative pooled log-loss interactions and no consistent user gains."
   },
   "remaining_stage4_exact_pairs": [
     "RLCS x PersonalAnchor",

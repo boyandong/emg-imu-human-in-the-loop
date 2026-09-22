@@ -1,0 +1,140 @@
+{
+  "completion_proven": false,
+  "source_manifest_sha256": "aedd0ed571c1b5a3cb702f9fb2e565fc6f6cc1c73561e1efef090bcc9d3fa162",
+  "source_artifacts_sha256": {
+    "fitted_states.pkl": "b8da2c5bf5a9240e4bc360ea96a14978bf0bea9797f1870154c33c7dd1a8d2ee",
+    "source_calibration_predictions.npz": "aeab7e3553be14c90033acc07aac95a905190452d664c37fc33bd08a2c297813",
+    "source_split_trial_ids.json": "57762fe6489e9e6f033ecf07b94da50e777aa26c1aad253519a13e26dbe00c74"
+  },
+  "source_days": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "source_calibration_day": 5,
+  "source_temperature_fit_disjoint": true,
+  "validation_historical_replay": {
+    "old_predictions_sha256": "6c5081e16d7474a790ef9e18ae21fcaa1f64a2ac3186ddeb94f120a8caf4211a",
+    "matched_windows": 24338,
+    "matched_arms": [
+      "B",
+      "B_plus_G5",
+      "B_plus_Temporal"
+    ],
+    "maximum_absolute_probability_error": 0.0
+  },
+  "phases": {
+    "validation": {
+      "target_days": [
+        6
+      ],
+      "target_trials": 851,
+      "manifest_sha256": "92ba9edc4d7d3dda4f6e801e8f7754dd2925c7c2919c50180aa4ed19e28d2fb6",
+      "output_sha256": {
+        "arm_scores.csv": "6881aa0962afcdbc2e1ea4f0a3d8c2039344780b12094c66cb6181a7a148ae4a",
+        "interaction_results.csv": "ebfea23bb1bbb0e523bb64fb3cf43c1cbb5c6b918627fffd119de67f5d253e78",
+        "heldout_predictions.npz": "06daff7fec9185b83009cd71e82435b7bda142baa80e7cd04a443c35763dd5bc",
+        "split_trial_ids.json": "a71f75e0d7b208b2e5176a4174694098a87a83e85583b4507d5b3c3610e5132b"
+      },
+      "pooled_arm_scores": [
+        {
+          "arm": "B",
+          "macro_f1": 0.6322559082666508,
+          "accuracy": 0.7626550687861477,
+          "log_loss": 0.5067103831945371,
+          "brier": 0.07591148360968408,
+          "ece": 0.0633968296883175
+        },
+        {
+          "arm": "B_plus_G5",
+          "macro_f1": 0.6374227549650218,
+          "accuracy": 0.7649190004309799,
+          "log_loss": 0.5026404088975683,
+          "brier": 0.07497344268528178,
+          "ece": 0.05938430136550662
+        },
+        {
+          "arm": "B_plus_Temporal",
+          "macro_f1": 0.6504291995782526,
+          "accuracy": 0.7723838931973092,
+          "log_loss": 0.4968386095775092,
+          "brier": 0.07390637243472159,
+          "ece": 0.05831386346162152
+        },
+        {
+          "arm": "B_plus_G5_plus_Temporal",
+          "macro_f1": 0.6501973976248746,
+          "accuracy": 0.7722006181024,
+          "log_loss": 0.4972477377331921,
+          "brier": 0.07395499036163258,
+          "ece": 0.058257074656343374
+        }
+      ],
+      "pooled_interaction": {
+        "S_negative_logloss": -0.0044791024526517065,
+        "S_macro_f1": -0.005398648651748994,
+        "S_negative_brier": -0.000986658851313299
+      },
+      "positive_user_S_negative_logloss": 2,
+      "user_count": 7
+    },
+    "final": {
+      "target_days": [
+        7,
+        8
+      ],
+      "target_trials": 1696,
+      "manifest_sha256": "1c8b1a116b373527bd7650fd692260baf5c0d3fde459244e9618dbdf6b728079",
+      "output_sha256": {
+        "arm_scores.csv": "6a6ee5d05c95dbf8cd7acb032fe4839c2253d252be7b3795a1c1fe4f89edf089",
+        "interaction_results.csv": "01fc5d8261cea3959835c5ca710ded661bc6c3dc929f938e77df9f45c7dc0a82",
+        "heldout_predictions.npz": "3901125a97468e498ae3a94f03747243429544dca2caa1ce6f8cdfcb0fc7fe37",
+        "split_trial_ids.json": "584eb83f4faa076a244dc45dac53fba25b34647c026a1bca1fc20aef5dd58458"
+      },
+      "pooled_arm_scores": [
+        {
+          "arm": "B",
+          "macro_f1": 0.6633583079845444,
+          "accuracy": 0.7775427541788038,
+          "log_loss": 0.46779815267007957,
+          "brier": 0.06940444709109785,
+          "ece": 0.03823680802518981
+        },
+        {
+          "arm": "B_plus_G5",
+          "macro_f1": 0.6661944009370885,
+          "accuracy": 0.7792341500835516,
+          "log_loss": 0.4666272315395975,
+          "brier": 0.06901869900462806,
+          "ece": 0.03576683681366282
+        },
+        {
+          "arm": "B_plus_Temporal",
+          "macro_f1": 0.6772103493443419,
+          "accuracy": 0.7865667199238529,
+          "log_loss": 0.45810972030069136,
+          "brier": 0.06773979277232323,
+          "ece": 0.03447461116373128
+        },
+        {
+          "arm": "B_plus_G5_plus_Temporal",
+          "macro_f1": 0.6772949334191765,
+          "accuracy": 0.7865974884279937,
+          "log_loss": 0.4581301107704327,
+          "brier": 0.06773698863347888,
+          "ece": 0.034226651226122215
+        }
+      ],
+      "pooled_interaction": {
+        "S_negative_logloss": -0.0011913116002233992,
+        "S_macro_f1": -0.0027515088777094743,
+        "S_negative_brier": -0.00038294394762543316
+      },
+      "positive_user_S_negative_logloss": 4,
+      "user_count": 7
+    }
+  },
+  "boundary": "Validated UniBo G0/G5 with current reference TemporalForm on native but correlated windows, source-day probability calibration, oracle historical comparison on Day6 only; not exact historical TemporalShape or streaming recognition."
+}
