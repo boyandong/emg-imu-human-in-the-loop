@@ -40,6 +40,42 @@ class SpdTangentPersonalAnchor:
             raise RuntimeError("Personal SPD anchor requires labeled calibration first")
         return self.anchor_.transform(self.family_.transform(evaluation))
 
+    def _trial_tangents(self, batch: FeatureBatch, trial_ids, labels=None):
+        ids = np.asarray(trial_ids)
+        if ids.ndim != 1 or len(ids) != batch.windows or not len(ids):
+            raise ValueError("trial IDs must match nonempty complete window batches")
+        if any(not str(value).strip() for value in ids):
+            raise ValueError("trial IDs must be nonempty")
+        y = None if labels is None else np.asarray(labels)
+        if y is not None and (y.ndim != 1 or len(y) != len(ids)):
+            raise ValueError("labels must match calibration windows")
+        tangent = self.family_.transform(batch)
+        trials = np.unique(ids)
+        means, trial_labels = [], []
+        for trial in trials:
+            selected = ids == trial
+            means.append(tangent[selected].mean(axis=0))
+            if y is not None:
+                values = np.unique(y[selected])
+                if len(values) != 1:
+                    raise ValueError(f"inconsistent labels within trial {trial}")
+                trial_labels.append(values[0])
+        return np.stack(means), trials, None if y is None else np.asarray(trial_labels)
+
+    def fit_trials(self, calibration: FeatureBatch, labels, trial_ids) -> "SpdTangentPersonalAnchor":
+        """Fit one prototype observation per complete, labeled native trial."""
+        features, _, trial_labels = self._trial_tangents(calibration, trial_ids, labels)
+        candidate = PersonalAnchor(metric="euclidean").fit(features, trial_labels)
+        self.anchor_ = candidate
+        return self
+
+    def transform_trials(self, evaluation: FeatureBatch, trial_ids) -> tuple[np.ndarray, np.ndarray]:
+        """Return ordered trial IDs and coordinates without updating fitted state."""
+        if self.anchor_.classes_ is None:
+            raise RuntimeError("Personal SPD anchor requires labeled calibration first")
+        features, trials, _ = self._trial_tangents(evaluation, trial_ids)
+        return trials, self.anchor_.transform(features)
+
     @property
     def feature_names(self) -> tuple[str, ...]:
         return tuple(name.replace("F7.", "F7.spd_tangent.", 1) for name in self.anchor_.feature_names)

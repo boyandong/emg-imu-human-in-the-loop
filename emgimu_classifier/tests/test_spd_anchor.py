@@ -54,3 +54,28 @@ class SpdAnchorTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             anchor.fit(batch.take([0, 1]), [0, 0])
         self.assertEqual(before, pickle.dumps(anchor))
+
+    def test_native_trials_have_equal_weight_and_no_evaluation_refit(self):
+        rng = np.random.default_rng(20260923)
+        source = FeatureBatch(rng.normal(size=(8, 64, 2)), 200)
+        calibration = FeatureBatch(rng.normal(size=(7, 64, 2)), 200)
+        evaluation = FeatureBatch(rng.normal(size=(3, 64, 2)), 200)
+        labels = [0, 0, 0, 1, 1, 1, 1]
+        trial_ids = ["a", "a", "a", "b", "c", "c", "c"]
+        anchor = SpdTangentPersonalAnchor(SpdTangentFamily().fit(source))
+        anchor.fit_trials(calibration, labels, trial_ids)
+        tangents = anchor.family_.transform(calibration)
+        np.testing.assert_allclose(anchor.anchor_.prototypes_[0], tangents[:3].mean(axis=0))
+        np.testing.assert_allclose(anchor.anchor_.prototypes_[1],
+                                   (tangents[3] + tangents[4:].mean(axis=0)) / 2)
+        before = pickle.dumps(anchor)
+        ids, coordinates = anchor.transform_trials(evaluation, ["z", "z", "y"])
+        self.assertEqual(ids.tolist(), ["y", "z"])
+        expected = anchor.anchor_.transform(np.stack((
+            anchor.family_.transform(evaluation.take([2]))[0],
+            anchor.family_.transform(evaluation.take([0, 1])).mean(axis=0))))
+        np.testing.assert_allclose(coordinates, expected)
+        self.assertEqual(before, pickle.dumps(anchor))
+        with self.assertRaisesRegex(ValueError, "inconsistent labels"):
+            anchor.fit_trials(calibration.take([0, 1]), [0, 1], ["mixed", "mixed"])
+        self.assertEqual(before, pickle.dumps(anchor))

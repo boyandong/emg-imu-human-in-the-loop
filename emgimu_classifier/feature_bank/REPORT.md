@@ -2288,5 +2288,32 @@ distance on the sqrt(2)-weighted upper triangle equals Frobenius distance in
 the fixed log-tangent space; an independent two-channel matrix oracle checks
 the formula. Output dimensions are 2H+2, as for other personal anchors.
 This is a candidate tangent approximation, not the exact affine-invariant
-geodesic, and it has no native held-out or own-device performance result yet.
+geodesic. The initial implementation had no native held-out result;
+the subsequent trial-level study below supplies limited EPN evidence.
 It does not replace missing historical X1-H/RLCS/CES/Frequency implementations.
+
+The native trial extension preserves the source reference fitted only on EPN
+users1–15. It averages the four available windows of each native trial before
+fitting class prototypes, so each calibration trial has one vote. It reuses
+the corrected Anchor study's exact selected calibration IDs (six native
+classes, one/two/five trials per class) for validation users16–18 and final
+users19–21; all remaining trials of the corresponding user are evaluated.
+Selection and source-code hashes, per-user scores, pooled scores and every
+trial prediction are saved under
+`work/benchmark_runs/feature_bank_epn_spd_anchor_validation_20260922` and
+`work/benchmark_runs/feature_bank_epn_spd_anchor_final_20260922`.
+The compact Git-delivered score and hash record is
+`feature_bank/results/epn_spd_anchor_trial_study.json`.
+Zero-shot personal prototypes are undefined, so no zero-shot
+SPD Anchor result is asserted.
+
+Pooled validation macro-F1 for one/two/five shots is 0.4464/0.4550/0.4853;
+accuracy is 0.4583/0.4662/0.4972. Final macro-F1 falls to
+0.2907/0.3573/0.4433 and accuracy to 0.2940/0.3502/0.4472. Final log loss
+is 1.7284/1.6722/1.6455. This substantial validation-to-final drop and
+uneven subject results do not justify an accuracy or calibration gain claim.
+The corrected F0+reference-ring Anchor scores above share the calibration
+trial IDs and evaluation budgets but use a different source representation
+and population classifier; any descriptive numerical difference is not an
+incremental F7 contribution to a fixed multi-family Core. The candidate
+also has no live-device result or historical RLCS identity.

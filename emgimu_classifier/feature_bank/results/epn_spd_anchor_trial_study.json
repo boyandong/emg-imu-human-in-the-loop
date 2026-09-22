@@ -1,0 +1,151 @@
+{
+  "completion_proven": false,
+  "study": "EPN frozen-source SPD tangent personal trial prototypes",
+  "source_users": "1-15",
+  "target_users": {
+    "validation": "16-18",
+    "final": "19-21"
+  },
+  "zero_shot": "N/A: no personal class prototypes",
+  "phases": {
+    "validation": {
+      "source_reference_sha256": "89b38ae0f9359e8a4b9e7269a07236df3e6f8ca6a7f0a8846fed72bde70d5b24",
+      "selection_file_sha256": "a714c6c6bc8431564746e1134598347e82dccf4206039a4f383cff170e5dffe9",
+      "manifest_sha256": "e58ee213d841cacdd27ee2cc46bbe8882469ae32005b950659f4c5458a7036d1",
+      "output_sha256": {
+        "subject_scores.csv": "3e2a6aa2432c74b76e4f657e672c451f0253bae1747e879b4233b051e548638c",
+        "pooled_scores.csv": "320d8edffb3069e3677ade5ed9f385f45bfa25c61ed488c95719fcef4e92b8b4",
+        "trial_predictions.csv": "cf04191a8a32ec9e18a321e291883e702ebf40cbdd659216d9e234eb23583bf8"
+      },
+      "pooled": [
+        {
+          "phase": "validation",
+          "shots_per_class": 1,
+          "subjects": 3,
+          "evaluation_trials": 432,
+          "macro_f1": 0.44644396431248223,
+          "accuracy": 0.4583333333333333,
+          "log_loss": 1.653588226195841,
+          "brier": 0.12993814950110585,
+          "ece": 0.2152413426879456,
+          "per_class_f1_json": {
+            "noGesture": 0.6524064171122995,
+            "fist": 0.21739130434782608,
+            "waveIn": 0.42105263157894735,
+            "waveOut": 0.288,
+            "open": 0.5625,
+            "pinch": 0.5373134328358209
+          }
+        },
+        {
+          "phase": "validation",
+          "shots_per_class": 2,
+          "subjects": 3,
+          "evaluation_trials": 414,
+          "macro_f1": 0.454956231904267,
+          "accuracy": 0.46618357487922707,
+          "log_loss": 1.6100877903595041,
+          "brier": 0.1278639370666265,
+          "ece": 0.2350087666887108,
+          "per_class_f1_json": {
+            "noGesture": 0.6666666666666666,
+            "fist": 0.2733812949640288,
+            "waveIn": 0.3793103448275862,
+            "waveOut": 0.35555555555555557,
+            "open": 0.5588235294117647,
+            "pinch": 0.496
+          }
+        },
+        {
+          "phase": "validation",
+          "shots_per_class": 5,
+          "subjects": 3,
+          "evaluation_trials": 360,
+          "macro_f1": 0.4853424755451785,
+          "accuracy": 0.49722222222222223,
+          "log_loss": 1.6054277467610905,
+          "brier": 0.12753819732563487,
+          "ece": 0.2654692196021845,
+          "per_class_f1_json": {
+            "noGesture": 0.7702702702702703,
+            "fist": 0.391304347826087,
+            "waveIn": 0.4122137404580153,
+            "waveOut": 0.35294117647058826,
+            "open": 0.5892857142857143,
+            "pinch": 0.39603960396039606
+          }
+        }
+      ]
+    },
+    "final": {
+      "source_reference_sha256": "89b38ae0f9359e8a4b9e7269a07236df3e6f8ca6a7f0a8846fed72bde70d5b24",
+      "selection_file_sha256": "2b5f99e39c123ab2fb8454e5c40081487d2aa4d72ce5767303780ac91b4defa7",
+      "manifest_sha256": "88f788a160ba90996b92de77d4522de7c7358608c93e75a51814bde3590fc899",
+      "output_sha256": {
+        "subject_scores.csv": "d643855971d217af99ce5c4475ed7a5550177fe78219b9aa73e9dd6c7a1b4ace",
+        "pooled_scores.csv": "8804dcc86137c08ace6d1ed8e2a763fb78d324a3c892da8e2ae4e915e8810aff",
+        "trial_predictions.csv": "c903abb586d7f3fcd29a9bfb63959d4a40e4b509ec438880b35127f8cbfd9320"
+      },
+      "pooled": [
+        {
+          "phase": "final",
+          "shots_per_class": 1,
+          "subjects": 3,
+          "evaluation_trials": 432,
+          "macro_f1": 0.29074518886012973,
+          "accuracy": 0.29398148148148145,
+          "log_loss": 1.7284081505786208,
+          "brier": 0.13456024056513968,
+          "ece": 0.05590343382275947,
+          "per_class_f1_json": {
+            "noGesture": 0.22950819672131148,
+            "fist": 0.28,
+            "waveIn": 0.2589928057553957,
+            "waveOut": 0.4025974025974026,
+            "open": 0.32679738562091504,
+            "pinch": 0.2465753424657534
+          }
+        },
+        {
+          "phase": "final",
+          "shots_per_class": 2,
+          "subjects": 3,
+          "evaluation_trials": 414,
+          "macro_f1": 0.3573396054073348,
+          "accuracy": 0.3502415458937198,
+          "log_loss": 1.6722326883645613,
+          "brier": 0.13174931516521568,
+          "ece": 0.12541544725270343,
+          "per_class_f1_json": {
+            "noGesture": 0.37606837606837606,
+            "fist": 0.2774566473988439,
+            "waveIn": 0.21476510067114093,
+            "waveOut": 0.45714285714285713,
+            "open": 0.4,
+            "pinch": 0.4186046511627907
+          }
+        },
+        {
+          "phase": "final",
+          "shots_per_class": 5,
+          "subjects": 3,
+          "evaluation_trials": 360,
+          "macro_f1": 0.44333373986233077,
+          "accuracy": 0.44722222222222224,
+          "log_loss": 1.6455049739733079,
+          "brier": 0.13027186592511625,
+          "ece": 0.22459978676439746,
+          "per_class_f1_json": {
+            "noGesture": 0.4888888888888889,
+            "fist": 0.37623762376237624,
+            "waveIn": 0.3275862068965517,
+            "waveOut": 0.5925925925925926,
+            "open": 0.4672897196261682,
+            "pinch": 0.4074074074074074
+          }
+        }
+      ]
+    }
+  },
+  "boundary": "Offline six-class EPN candidate; not historical RLCS, fixed multi-family Core incremental value, own-device accuracy or deployed recognition."
+}
