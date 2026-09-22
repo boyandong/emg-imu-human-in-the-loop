@@ -32,6 +32,12 @@ largest 200 ms arm/hand onset offset for formal prompts. The synthetic HDF5
 fixture now spans those durations; shortened prompt and calibration intervals
 fail regression checks. This proves recorded timing consistency only, not
 physiological compliance with cues.
+Formal readiness additionally checks IMU coverage for every valid formal and
+calibration stable interval using the recorder's approximate EMG-index mapping.
+It requires an IMU window, coverage near both interval edges, matched stream
+lengths and finite gyro/accel values. Missing-window and NaN regressions fail;
+the full collection suite passes. This does not prove precise EMG–IMU clock
+synchronization or task-specific motion quality.
 
 The previous 28-row `REQUIREMENT_AUDIT.csv` is a triage summary, not an exhaustive
 acceptance checklist; its broad locators must not be treated as exact source references.

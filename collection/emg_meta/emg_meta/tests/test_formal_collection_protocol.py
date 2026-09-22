@@ -85,14 +85,18 @@ def test_complete_formal_hdf5_passes_collection_readiness(tmp_path: Path) -> Non
     emg_samples = sum(spans)
     emg = np.random.default_rng(7).integers(
         -1000, 1000, size=(emg_samples, 8), dtype=np.int32)
+    emg_time_ns = np.rint(np.arange(emg_samples) * 1_000_000_000 / 250).astype(np.int64)
     recorder.enqueue_emg(emg, np.arange(emg_samples),
-                         np.arange(emg_samples, dtype=np.uint8))
+                         np.arange(emg_samples, dtype=np.uint8),
+                         emg_time_ns, emg_time_ns)
     imu_samples = round(emg_samples * 112 / 250)
+    imu_time_ns = np.rint(np.arange(imu_samples) * 1_000_000_000 / 112).astype(np.int64)
+    imu_emg_indices = np.rint(np.arange(imu_samples) * 250 / 112).astype(np.int64)
     recorder.enqueue_imu(np.ones((imu_samples, 3), np.float32),
                          np.ones((imu_samples, 3), np.float32),
-                         np.arange(imu_samples, dtype=np.int64),
+                         imu_time_ns,
                          np.arange(imu_samples, dtype=np.uint8),
-                         np.arange(imu_samples, dtype=np.int64))
+                         imu_emg_indices, imu_time_ns)
     for trial_id, (label, kind, block, offset, base_sample, span) in enumerate(zip(
             sequence, engine.trial_kinds, engine.block_indices,
             engine.onset_offsets, bases, spans), 1):
@@ -191,6 +195,7 @@ def test_complete_formal_hdf5_passes_collection_readiness(tmp_path: Path) -> Non
         trials[first] = original_first
         calibration_index = next(index for index, row in enumerate(trials[:])
                                  if row["trial_kind"] == b"calibration")
+        original_calibration = trials[calibration_index]
         shortened_calibration = trials[calibration_index]
         calibration_trial_id = int(shortened_calibration["trial_id"])
         shortened_calibration["stable_end_sample"] = (
@@ -200,3 +205,20 @@ def test_complete_formal_hdf5_passes_collection_readiness(tmp_path: Path) -> Non
     assert invalid_calibration["status"] == "failed"
     assert calibration_trial_id in invalid_calibration["checks"]["protocol_duration"][
         "short_stable_trial_ids"]
+    with h5py.File(path, "r+") as handle:
+        handle["trials"][calibration_index] = original_calibration
+        imu_mapping = handle["streams/imu/emg_sample_index"]
+        mapped = imu_mapping[:]
+        mapped[(mapped >= stable_start) & (mapped < stable_end)] = stable_end
+        imu_mapping[:] = mapped
+    invalid_imu = generate_session_readiness(path)
+    assert invalid_imu["status"] == "failed"
+    assert first_trial_id in invalid_imu["checks"]["imu_coverage"]["missing_trial_ids"]
+    with h5py.File(path, "r+") as handle:
+        handle["streams/imu/emg_sample_index"][:] = imu_emg_indices
+        first_imu = int(np.searchsorted(imu_emg_indices, stable_start))
+        handle["streams/imu/gyro"][first_imu, 0] = np.nan
+    invalid_imu_value = generate_session_readiness(path)
+    assert invalid_imu_value["status"] == "failed"
+    assert first_trial_id in invalid_imu_value["checks"]["imu_coverage"][
+        "nonfinite_trial_ids"]

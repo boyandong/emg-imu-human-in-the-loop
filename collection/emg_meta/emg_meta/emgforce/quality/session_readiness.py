@@ -356,6 +356,51 @@ def generate_session_readiness(
             if unrecorded_calibration_trials:
                 problems.append("Session 校准块稳定区间缺少实际录制 EMG")
 
+            imu_indices = np.asarray(handle["streams/imu/emg_sample_index"][:],
+                                     dtype=np.int64)
+            gyro_stream = handle["streams/imu/gyro"]
+            accel_stream = handle["streams/imu/accel"]
+            imu_counts_match = (len(imu_indices) == len(gyro_stream) == len(accel_stream))
+            imu_ordered = bool(len(imu_indices)
+                               and np.all(np.diff(imu_indices) >= 0))
+            edge_margin = round(0.2 * SAMPLING_RATE)
+            minimum_imu_samples = round(0.2 * IMU_SAMPLING_RATE)
+            missing_imu_trials: list[int] = []
+            invalid_imu_trials: list[int] = []
+            for row in trials:
+                if not bool(row["valid"]) or _text(row["trial_kind"]) not in {
+                        "formal", "calibration"}:
+                    continue
+                trial_id = int(row["trial_id"])
+                start = int(row["stable_start_sample"])
+                end = int(row["stable_end_sample"])
+                if not imu_counts_match or not imu_ordered or start < 0 or end <= start:
+                    missing_imu_trials.append(trial_id)
+                    continue
+                first = int(np.searchsorted(imu_indices, start, side="left"))
+                last = int(np.searchsorted(imu_indices, end, side="left"))
+                covered = (last - first >= minimum_imu_samples
+                           and int(imu_indices[first]) <= start + edge_margin
+                           and int(imu_indices[last - 1]) >= end - edge_margin)
+                if not covered:
+                    missing_imu_trials.append(trial_id)
+                elif (not np.isfinite(gyro_stream[first:last]).all()
+                      or not np.isfinite(accel_stream[first:last]).all()):
+                    invalid_imu_trials.append(trial_id)
+            checks["imu_coverage"] = {
+                "samples": len(imu_indices),
+                "stream_lengths_match": imu_counts_match,
+                "mapped_indices_nondecreasing": imu_ordered,
+                "minimum_window_samples": minimum_imu_samples,
+                "edge_tolerance_emg_samples": edge_margin,
+                "missing_trial_ids": missing_imu_trials,
+                "nonfinite_trial_ids": invalid_imu_trials,
+            }
+            if not imu_counts_match or not imu_ordered or missing_imu_trials:
+                problems.append("有效 trial 的稳定区间缺少同步的 IMU 采样")
+            if invalid_imu_trials:
+                problems.append("有效 trial 的 IMU 采样包含非有限值")
+
             try:
                 quality = json.loads(_text(meta.get("quality_report_json", "{}")))
             except json.JSONDecodeError:
