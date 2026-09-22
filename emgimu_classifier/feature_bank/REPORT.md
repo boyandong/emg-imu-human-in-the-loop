@@ -25,6 +25,13 @@ The gate also reapplies the existing continuous signal-quality rule to each
 valid formal interval and rejects a flat or clipped channel even when the
 saved pre-session quality report says `passed`. A flat-channel regression and
 the full collection test suite pass.
+The same gate now checks valid formal prompts and all 26 calibration blocks
+against their recorded protocol durations with 200 ms scheduling tolerance.
+Stable-interval minimums subtract the two 300 ms transition guards and the
+largest 200 ms arm/hand onset offset for formal prompts. The synthetic HDF5
+fixture now spans those durations; shortened prompt and calibration intervals
+fail regression checks. This proves recorded timing consistency only, not
+physiological compliance with cues.
 
 The previous 28-row `REQUIREMENT_AUDIT.csv` is a triage summary, not an exhaustive
 acceptance checklist; its broad locators must not be treated as exact source references.

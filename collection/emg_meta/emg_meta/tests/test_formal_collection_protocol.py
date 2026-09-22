@@ -78,32 +78,43 @@ def test_complete_formal_hdf5_passes_collection_readiness(tmp_path: Path) -> Non
     }
     recorder = Hdf5Recorder(batch_samples=100)
     recorder.start(path, metadata)
-    emg_samples = len(sequence) * 256
+    spans = [max(round((protocol.prompt_duration(label) + 0.5) * 250),
+                 512 if kind == "formal" else 0)
+             for label, kind in zip(sequence, engine.trial_kinds)]
+    bases = np.cumsum([0, *spans[:-1]])
+    emg_samples = sum(spans)
     emg = np.random.default_rng(7).integers(
         -1000, 1000, size=(emg_samples, 8), dtype=np.int32)
     recorder.enqueue_emg(emg, np.arange(emg_samples),
                          np.arange(emg_samples, dtype=np.uint8))
-    recorder.enqueue_imu(np.ones((224, 3), np.float32), np.ones((224, 3), np.float32),
-                         np.arange(224, dtype=np.int64), np.arange(224, dtype=np.uint8),
-                         np.arange(224, dtype=np.int64))
-    for trial_id, (label, kind, block, offset) in enumerate(zip(
-            sequence, engine.trial_kinds, engine.block_indices, engine.onset_offsets), 1):
+    imu_samples = round(emg_samples * 112 / 250)
+    recorder.enqueue_imu(np.ones((imu_samples, 3), np.float32),
+                         np.ones((imu_samples, 3), np.float32),
+                         np.arange(imu_samples, dtype=np.int64),
+                         np.arange(imu_samples, dtype=np.uint8),
+                         np.arange(imu_samples, dtype=np.int64))
+    for trial_id, (label, kind, block, offset, base_sample, span) in enumerate(zip(
+            sequence, engine.trial_kinds, engine.block_indices,
+            engine.onset_offsets, bases, spans), 1):
         event_uid = f"P001:S01:trial:{trial_id}:attempt:1"
-        base_sample = (trial_id - 1) * 256
+        prompt_start = int(base_sample) + 25
+        prompt_end = prompt_start + round(protocol.prompt_duration(label) * 250)
+        stable_start = prompt_start + 75 + (50 if kind == "formal" else 0)
+        stable_end = prompt_end - 75
         recorder.enqueue_trial(TrialInfo(
-            trial_id, label, 1, 1, base_sample, base_sample + 10,
-            base_sample + 60, base_sample + 180, base_sample + 255, True,
+            trial_id, label, 1, 1, int(base_sample), int(base_sample) + 10,
+            prompt_start, prompt_end, int(base_sample) + span - 1, True,
             relative_onset_offset_ms=offset, trial_kind=kind, block_index=block,
             event_uid=event_uid,
-            stable_start_sample=base_sample + 110,
-            stable_end_sample=base_sample + 170,
+            stable_start_sample=stable_start,
+            stable_end_sample=stable_end,
             completion_status="completed"))
         if kind == "formal":
             arm, hand = label.split("_", 1)
-            base_sample += 100
-            base_ns = 1_000_000_000 + trial_id * 10_000_000
-            arm_sample = base_sample + (50 if offset < 0 else 0)
-            hand_sample = base_sample + (50 if offset > 0 else 0)
+            cue_sample = prompt_start + 25
+            base_ns = 1_000_000_000 + round(int(base_sample) * 1_000_000_000 / 250)
+            arm_sample = cue_sample + (50 if offset < 0 else 0)
+            hand_sample = cue_sample + (50 if offset > 0 else 0)
             arm_ns = base_ns + (200_000_000 if offset < 0 else 0)
             hand_ns = base_ns + (200_000_000 if offset > 0 else 0)
             recorder.enqueue_cue_event(CueEvent(
@@ -114,7 +125,7 @@ def test_complete_formal_hdf5_passes_collection_readiness(tmp_path: Path) -> Non
                 hand_ns, hand_ns, event_uid))
             if label.endswith("_open_hand"):
                 recorder.enqueue_cue_event(CueEvent(
-                    "hand:release", 200, 0.8, trial_id, 1,
+                    "hand:release", prompt_end, prompt_end / 250, trial_id, 1,
                     base_ns + 500_000_000, base_ns + 500_000_000, event_uid))
     event_id = 0
     for block in range(1, 12):
@@ -163,3 +174,29 @@ def test_complete_formal_hdf5_passes_collection_readiness(tmp_path: Path) -> Non
     assert invalid_signal["status"] == "failed"
     assert str(first_trial_id) in invalid_signal["checks"][
         "stable_interval_data"]["signal_quality_failures"]
+    with h5py.File(path, "r+") as handle:
+        handle["streams/emg/raw"][stable_start:stable_end, 0] = emg[
+            stable_start:stable_end, 0]
+        trials = handle["trials"]
+        original_first = trials[first]
+        shortened = trials[first]
+        shortened["prompt_end_sample"] = shortened["prompt_start_sample"] + 20
+        trials[first] = shortened
+    invalid_duration = generate_session_readiness(path)
+    assert invalid_duration["status"] == "failed"
+    assert first_trial_id in invalid_duration["checks"]["protocol_duration"][
+        "short_prompt_trial_ids"]
+    with h5py.File(path, "r+") as handle:
+        trials = handle["trials"]
+        trials[first] = original_first
+        calibration_index = next(index for index, row in enumerate(trials[:])
+                                 if row["trial_kind"] == b"calibration")
+        shortened_calibration = trials[calibration_index]
+        calibration_trial_id = int(shortened_calibration["trial_id"])
+        shortened_calibration["stable_end_sample"] = (
+            shortened_calibration["stable_start_sample"] + 20)
+        trials[calibration_index] = shortened_calibration
+    invalid_calibration = generate_session_readiness(path)
+    assert invalid_calibration["status"] == "failed"
+    assert calibration_trial_id in invalid_calibration["checks"]["protocol_duration"][
+        "short_stable_trial_ids"]

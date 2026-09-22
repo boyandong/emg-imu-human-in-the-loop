@@ -303,6 +303,59 @@ def generate_session_readiness(
             if not calibration_expected or missing_calibration:
                 problems.append("Session 校准块不完整")
 
+            calibration_durations = {
+                str(block.get("name")): float(block.get("duration_sec", 0))
+                for block in protocol.get("calibration_blocks", [])
+            }
+            guard_samples = round(float(protocol.get("transition_guard_ms", 0))
+                                  * SAMPLING_RATE / 1000)
+            maximum_offset_samples = round(max(
+                (abs(int(offset)) for offset in protocol.get("onset_offsets_ms", [])),
+                default=0) * SAMPLING_RATE / 1000)
+            timing_tolerance_samples = round(0.2 * SAMPLING_RATE)
+            short_prompt_trials: list[int] = []
+            short_stable_trials: list[int] = []
+            unrecorded_calibration_trials: list[int] = []
+            for row in trials:
+                if not bool(row["valid"]):
+                    continue
+                kind = _text(row["trial_kind"])
+                if kind not in {"formal", "calibration"}:
+                    continue
+                duration = (calibration_durations.get(_text(row["label"]), 0)
+                            if kind == "calibration"
+                            else float(protocol.get("prompt_duration_sec", 0)))
+                expected_samples = round(duration * SAMPLING_RATE)
+                trial_id = int(row["trial_id"])
+                prompt_samples = int(row["prompt_end_sample"]) - int(row["prompt_start_sample"])
+                if prompt_samples < max(1, expected_samples - timing_tolerance_samples):
+                    short_prompt_trials.append(trial_id)
+                offset_samples = maximum_offset_samples if kind == "formal" else 0
+                minimum_stable = max(
+                    MIN_STABLE_EMG_SAMPLES,
+                    expected_samples - 2 * guard_samples - offset_samples
+                    - timing_tolerance_samples)
+                stable_start = int(row["stable_start_sample"])
+                stable_end = int(row["stable_end_sample"])
+                if stable_end - stable_start < minimum_stable:
+                    short_stable_trials.append(trial_id)
+                if kind == "calibration" and (
+                        not indices_ordered or stable_start < int(emg_indices[0])
+                        or stable_end > int(emg_indices[-1]) + 1):
+                    unrecorded_calibration_trials.append(trial_id)
+            checks["protocol_duration"] = {
+                "tolerance_ms": 200,
+                "short_prompt_trial_ids": short_prompt_trials,
+                "short_stable_trial_ids": short_stable_trials,
+                "unrecorded_calibration_trial_ids": unrecorded_calibration_trials,
+            }
+            if short_prompt_trials:
+                problems.append("有效 trial 的实际提示时长短于正式协议")
+            if short_stable_trials:
+                problems.append("有效 trial 的稳定标签区间短于正式协议")
+            if unrecorded_calibration_trials:
+                problems.append("Session 校准块稳定区间缺少实际录制 EMG")
+
             try:
                 quality = json.loads(_text(meta.get("quality_report_json", "{}")))
             except json.JSONDecodeError:
