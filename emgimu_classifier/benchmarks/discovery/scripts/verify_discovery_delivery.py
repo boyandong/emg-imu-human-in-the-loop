@@ -10,7 +10,8 @@ import numpy as np
 
 def verify(root):
     required=('DATASET_INVENTORY.md','DATASET_CANDIDATES.csv','FAILURE_BENCHMARK_MATRIX.md',
-      'BENCHMARK_SELECTION_REPORT.md','GESTURE_ONTOLOGY.md','SENSOR_LAYOUTS.md','DATASET_MANIFEST.json')
+      'BENCHMARK_SELECTION_REPORT.md','GESTURE_ONTOLOGY.md','SENSOR_LAYOUTS.md',
+      'DATASET_MANIFEST.json','DS2_ACCESS_AUDIT.json')
     hashes={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in required}
     candidates=list(csv.DictReader((root/'DATASET_CANDIDATES.csv').open(encoding='utf-8-sig',newline='')))
     fields=('dataset','failure_targets','subjects','sessions','gestures','channels','sampling_rate',
@@ -22,6 +23,11 @@ def verify(root):
         points=[int(row[k]) for k in row if k.startswith('score_review_') and k not in ('score_review_total','score_review_basis','score_review_status')]
         if len(points)!=8 or any(v<0 or v>5 for v in points) or sum(points)!=int(row['score_review_total']):raise ValueError('Invalid reviewed vector')
     manifest=json.loads((root/'DATASET_MANIFEST.json').read_text(encoding='utf-8'))
+    ds2_access=json.loads((root/'DS2_ACCESS_AUDIT.json').read_text(encoding='utf-8'))
+    if (ds2_access['page_status']!='accessible_without_sign_in'
+            or ds2_access['download_attempt']['archive_downloaded']
+            or ds2_access['historical_identity']!='unproven'):
+        raise ValueError('DS2 access boundary changed')
     archives=[]
     for dataset in manifest['datasets']:
         if dataset['status']!='downloaded_verified':continue
@@ -83,7 +89,8 @@ def verify(root):
        'limitations':['fresh multi-GB archive digests not recomputed; recorded digests and current sizes only',
           'hash/caption verification does not establish visual or full-population signal quality',
           'reported durations agree with native rates; no independent hardware clock check',
-          'historical DS2 identity/raw/old results remain missing; no substitute',
+          'publisher-linked DS2 metadata is accessible; ZIP requires Kaggle sign-in and historical identity/raw/old results remain missing',
+          'DS2 publication and Kaggle page expose conflicting license labels; redistribution is not cleared',
           'retrospective scorecards do not prove original scoring/phase ordering',
           'secondary candidate paper/licensing/layout verification remains incomplete',
           'current total disk usage not scanned; DISK_USAGE.json remains explicitly dated historical snapshot']}

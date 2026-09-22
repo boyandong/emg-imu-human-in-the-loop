@@ -1,15 +1,19 @@
 {
   "schema_version": 1,
   "generated_at": "2026-09-15",
+  "updated_at": "2026-09-23",
   "raw_root": "D:/emg-imu-benchmarks/data/raw",
   "immutability": "archives and extracted raw files are never modified",
   "datasets": [
     {
       "id": "ds2_force",
-      "status": "blocked_original_release_404",
+      "status": "metadata_verified_download_requires_kaggle_sign_in",
       "source": "https://www.mdpi.com/2306-5729/10/12/194",
+      "dataset_url": "https://www.kaggle.com/datasets/d4d7612f90e026339cb1eba7ba2bcb68295fd5cbb11944eadd489d8fe0399584",
       "expected": "20 subjects; 3 channels; 1500 Hz; 5 gestures; low/medium/high",
-      "note": "Historical artifacts absent; original Kaggle page and download API returned 404. No substitute is represented as historical DS2."
+      "license": "conflict: publication CC-BY-4.0; Kaggle page CC0",
+      "access_audit": "benchmarks/discovery/DS2_ACCESS_AUDIT.json",
+      "note": "Version 8 Kaggle metadata is accessible and matches the publisher-linked protocol; ZIP download redirects to sign-in. Historical artifacts and archive identity remain absent. No substitute is represented as historical DS2."
     },
     {
       "id": "libemg_force",

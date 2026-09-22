@@ -6,7 +6,7 @@ data and manifests use sibling directories. Raw archives and extracted data are 
 
 | Dataset | Status | Existing adapter | Existing results | Expected local path | Download status |
 |---|---|---|---|---|---|
-| Historical DS2 force | historical | no | referenced by the supplied research brief, absent from this repository and Git history | `data/raw/ds2_force` | likely publication identified; exact old archive identity/raw remains missing; original access previously failed |
+| Historical DS2 force | historical | no | referenced by the supplied research brief, absent from this repository and Git history | `data/raw/ds2_force` | publisher-linked Kaggle v8 metadata verified; ZIP requires sign-in; exact old archive identity/raw remains missing |
 | LibEMG Contraction Intensity | new | native CSV adapter | Feature Bank, calibration, ablation | `data/raw/libemg_force` | verified complete |
 | LibEMG Electrode Shift | new | native ZIP adapter | held-out before/after | `data/raw/libemg_electrode_shift` | verified complete |
 | UniBo-INAIL | historical | yes | prior 33-run ablation; Feature Bank chronological | `data/raw/unibo_inail` | verified complete |
@@ -26,3 +26,9 @@ historical DS2 source. The supplied brief matches the 2025 DS2 publication exact
 subjects, 3 channels at 1500 Hz, five gestures, and subjective low/medium/high effort.
 It is therefore recorded as the likely source, but old-result reproduction remains blocked
 until its archive identity is matched to the historical experiment artifacts.
+On 2026-09-23 the publisher-linked Kaggle page loaded successfully and exposed version 8,
+1.31 GB, 102 files, 20 subjects, three channels at 1500 Hz and the expected three effort
+levels. Downloading the ZIP redirects to Kaggle sign-in, so no bytes or local hash were
+obtained. `DS2_ACCESS_AUDIT.json` preserves the observed metadata and the CC-BY-4.0
+publication versus CC0 Kaggle-page license conflict. Page access does not prove that this
+version produced the historical B0/X1-H/X2 results.

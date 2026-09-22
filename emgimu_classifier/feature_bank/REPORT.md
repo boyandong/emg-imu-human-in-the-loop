@@ -356,8 +356,10 @@ files as trusted local artifacts only. Raw archives remain outside Git.
 
 ## Remaining specification work
 
-Historical DS2 is blocked: no exact historical artifacts were found and the original Kaggle
-release returned 404. NinaPro requires access; secondary datasets remain explicitly deferred.
+Historical DS2 remains blocked for reproduction: no exact historical artifacts were found.
+The publisher-linked Kaggle version 8 metadata is now accessible and protocol-matched, but
+the ZIP redirects to sign-in, no archive/hash was obtained, and current-version identity with
+the old B0/X1-H/X2 input is unproven. NinaPro requires access; secondary datasets remain explicitly deferred.
 EMG-FMG and UniBo now each have six-trial QC and six raw/envelope/PSD plots.
 F8 session signature now has a bounded MANUS reliability-fusion comparison, while full-bank
 session-context integration remains incomplete. Personal normalization now has an EPN comparison;

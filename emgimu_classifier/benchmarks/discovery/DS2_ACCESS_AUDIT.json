@@ -1,0 +1,40 @@
+{
+  "checked_at": "2026-09-23T01:35:00+08:00",
+  "dataset_url": "https://www.kaggle.com/datasets/d4d7612f90e026339cb1eba7ba2bcb68295fd5cbb11944eadd489d8fe0399584",
+  "page_status": "accessible_without_sign_in",
+  "page_title": "DS2_EMG_SIGNALS_THREE_FORCE_TYPE",
+  "page_subtitle": "DS2 sEMG signals with three force type",
+  "authors_visible": [
+    "Cinthya Zuniga",
+    "Marcos Romo Aviles"
+  ],
+  "version": 8,
+  "displayed_archive_size": "1.31 GB",
+  "displayed_file_count": 102,
+  "displayed_license": "CC0: Public Domain",
+  "publication_license": "CC-BY-4.0",
+  "license_status": "conflict_requires_resolution_before_redistribution",
+  "native_summary": {
+    "subjects": 20,
+    "gestures": 5,
+    "channels": 3,
+    "sample_rate_hz": 1500,
+    "force_levels": [
+      "low",
+      "normal",
+      "high"
+    ],
+    "valid_repetitions": 2863,
+    "mat_files": 5,
+    "tdms_files": 97,
+    "raw_mat_displayed_size": "360.32 MB"
+  },
+  "download_attempt": {
+    "entry": "Download dataset as zip (1 GB)",
+    "result": "redirected_to_sign_in",
+    "archive_downloaded": false,
+    "local_hash": null
+  },
+  "historical_identity": "unproven",
+  "boundary": "The current publisher-linked Kaggle release is accessible and protocol-matched. No archive bytes were obtained because download requires an authenticated Kaggle session. Repository/Git history still contains no old DS2 archive, source code, run manifest or hash that can prove this version is the exact input to the historical B0/X1-H/X2 results."
+}

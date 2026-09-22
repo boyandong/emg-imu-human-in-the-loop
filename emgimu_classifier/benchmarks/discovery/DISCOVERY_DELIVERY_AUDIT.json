@@ -2,13 +2,14 @@
   "status": "checked_evidence_partial",
   "completion_proven": false,
   "required_artifacts": {
-    "DATASET_INVENTORY.md": "b60d4a53283a2a4960dc2c04bbd53a841437a85b2d469186197f49651b7fdd9e",
+    "DATASET_INVENTORY.md": "b6ba1218f3323282559b3a4102359d1cccab8bba5430c197c758f4e4ef4468dc",
     "DATASET_CANDIDATES.csv": "19de0754051397d9829f342a494b94dabd1340944590bc9cfa9388ad690da439",
     "FAILURE_BENCHMARK_MATRIX.md": "4eb02fad7461536943013646d97e1f8b952e0f58a13232a2b0cc65d7dddfc1c5",
-    "BENCHMARK_SELECTION_REPORT.md": "d5cf239013e0a85604be743fd8b255ea58a068ed517e0ded310ed0e01afd981c",
+    "BENCHMARK_SELECTION_REPORT.md": "6de725cd3fadea10079c6325bbd5b5b0abf09d08ab2e0f8cc2074e759cb83867",
     "GESTURE_ONTOLOGY.md": "d159c04e1f41f65db97bd82e8fa0bac3279087a3240042db1877cccd1d2a93ee",
     "SENSOR_LAYOUTS.md": "1597650c761f7e324b8088ec1ce9774c2df5eb1cfcbe35b81572f61ef723de39",
-    "DATASET_MANIFEST.json": "e86ebe88572b40f21ff52fc898b801556e98c4b9fa3459f91ea19709cb493a3b"
+    "DATASET_MANIFEST.json": "667eb0dd8f6b7a8c1e97c40b859e7c2a20bbab1c829d5ee77929b3453f8b3891",
+    "DS2_ACCESS_AUDIT.json": "4e586e4615b71e871f34f5684694b526acfab001e75f38149a25943fde2493d2"
   },
   "candidate_rows": 14,
   "score_vectors_checked": 14,
@@ -140,7 +141,8 @@
     "fresh multi-GB archive digests not recomputed; recorded digests and current sizes only",
     "hash/caption verification does not establish visual or full-population signal quality",
     "reported durations agree with native rates; no independent hardware clock check",
-    "historical DS2 identity/raw/old results remain missing; no substitute",
+    "publisher-linked DS2 metadata is accessible; ZIP requires Kaggle sign-in and historical identity/raw/old results remain missing",
+    "DS2 publication and Kaggle page expose conflicting license labels; redistribution is not cleared",
     "retrospective scorecards do not prove original scoring/phase ordering",
     "secondary candidate paper/licensing/layout verification remains incomplete",
     "current total disk usage not scanned; DISK_USAGE.json remains explicitly dated historical snapshot"

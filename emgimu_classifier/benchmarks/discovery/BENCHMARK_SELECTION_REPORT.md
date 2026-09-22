@@ -58,8 +58,9 @@ SHA-256 hashes are in DATASET_MANIFEST.json; official MD5 checks match for the Z
 Large EMG-FMG raw CSV expansion would require approximately 52.35 GB, so the adapter streams
 the archive. MANUS also streams its archive; UniBo and LibEMG force have immutable extracted
 trees. Sanity reports are under `D:/emg-imu-benchmarks/data/manifests/sanity`.
-Historical DS2 remains blocked by an unavailable original release (Kaggle page/API 404) and
-missing historical experiment artifacts. Public force data is supplementary evidence and
+Historical DS2 metadata is now accessible on the publisher-linked Kaggle version 8 page;
+the 1.31-GB ZIP download redirects to sign-in and no archive/hash has been acquired. Missing
+historical experiment artifacts still prevent identity and result reproduction. Public force data is supplementary evidence and
 is not silently substituted as historical DS2. Secondary downloads remain deferred rather
 than represented as complete. A 14-byte failed UniBo master-branch download is ignored;
 the verified main-branch archive is the only source used.
@@ -91,7 +92,7 @@ and frozen experiments remain unchanged; the review does not prove scoring prece
 training. Native repetition limitations lower wearing/MANUS calibration scores;
 metadata-only secondary datasets are not assigned sampled-QC evidence.
 
-DISCOVERY_DELIVERY_AUDIT.json rechecks all seven required files, candidate fields,
+DISCOVERY_DELIVERY_AUDIT.json rechecks all eight required files, candidate fields,
 eight-point score vectors, current six-archive sizes, six source sanity-report hashes
 and 36 captioned plot hashes. The six-core archive total is 15,935,850,342 bytes.
 The original seed/population draw also reproduces three distinct subjects and two
@@ -102,12 +103,12 @@ total raw/extracted/processed disk usage. Multi-GB raw digests are the recorded
 acquisition digests, not freshly recomputed. DISK_USAGE.json retains its dated
 2026-09-15 snapshot and must not be presented as current total disk usage.
 
-The candidate DS2 publication explicitly lists CC-BY4.0, now corrected in the
-candidate license field. Its protocol match does not establish the identity of old
-DS2 experiments. A fresh primary-source search found the same publisher/Kaggle
-reference, but direct publisher fetch was rate-limited and the browser did not open
-the dataset URL. This does not establish a new HTTP404 or recover the archive.
-The prior404 evidence and missing old artifacts remain separate facts.
+The candidate DS2 publication explicitly lists CC-BY4.0, while the current Kaggle
+page displays CC0; redistribution must remain paused until that conflict is resolved.
+Its protocol match does not establish the identity of old DS2 experiments. A fresh
+browser check opened the exact publisher-linked dataset URL and recorded version,
+size, file count and structure in `DS2_ACCESS_AUDIT.json`. Download still requires
+Kaggle authentication, and missing old artifacts remain a separate blocker.
 Secondary paper/license/layout provenance and exact historical baseline recovery
 remain incomplete. File/hash/field checks do not prove full Phase-1 acceptance.
 
