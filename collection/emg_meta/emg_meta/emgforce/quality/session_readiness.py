@@ -24,6 +24,7 @@ REQUIRED_METADATA = (
     "fatigue_after", "reference_photo_name", "reference_photo_sha256",
     "operator_id", "protocol_version", "protocol_file_sha256",
 )
+MIN_STABLE_EMG_SAMPLES = round(SAMPLING_RATE * 0.2)
 
 
 def _text(value: Any) -> str:
@@ -164,6 +165,51 @@ def generate_session_readiness(
                 problems.append("存在未确认按要求完成的有效 trial")
             if unstable_intervals:
                 problems.append("存在没有保守稳定标签区间的有效 trial")
+
+            emg_indices = np.asarray(handle["streams/emg/sample_index"][:], dtype=np.int64)
+            indices_ordered = bool(len(emg_indices) and np.all(np.diff(emg_indices) > 0))
+            invalid_recorded_intervals: list[int] = []
+            overlapping_intervals: list[int] = []
+            previous_end = -1
+            for row in sorted((row for row in formal_rows if bool(row["valid"])),
+                              key=lambda item: int(item["stable_start_sample"])):
+                trial_id = int(row["trial_id"])
+                start = int(row["stable_start_sample"])
+                end = int(row["stable_end_sample"])
+                if start < 0 or end <= start:
+                    continue
+                if start < previous_end:
+                    overlapping_intervals.append(trial_id)
+                previous_end = max(previous_end, end)
+                within_trial = (int(row["trial_start_sample"]) <= start < end
+                                <= int(row["trial_end_sample"]))
+                if indices_ordered:
+                    first = int(np.searchsorted(emg_indices, start, side="left"))
+                    last = int(np.searchsorted(emg_indices, end, side="left"))
+                    recorded = emg_indices[first:last]
+                    gaps = np.flatnonzero(np.diff(recorded) != 1)
+                    longest_run = int(max(np.diff(np.r_[-1, gaps, len(recorded) - 1]),
+                                          default=0))
+                    within_recording = (start >= int(emg_indices[0])
+                                        and end <= int(emg_indices[-1]) + 1)
+                else:
+                    longest_run = 0
+                    within_recording = False
+                if (not within_trial or not within_recording
+                        or longest_run < MIN_STABLE_EMG_SAMPLES):
+                    invalid_recorded_intervals.append(trial_id)
+            checks["stable_interval_data"] = {
+                "emg_samples": len(emg_indices),
+                "sample_indices_strictly_increasing": indices_ordered,
+                "outside_trial_or_recording_or_under_200ms": invalid_recorded_intervals,
+                "overlapping_trial_ids": overlapping_intervals,
+            }
+            if not indices_ordered:
+                problems.append("EMG 样本序号为空或不严格递增")
+            if invalid_recorded_intervals:
+                problems.append("有效 trial 的稳定区间没有至少 200 ms 的独立录制 EMG 数据")
+            if overlapping_intervals:
+                problems.append("有效 trial 的稳定区间相互重叠")
 
             offset_counts: dict[str, Counter[int]] = defaultdict(Counter)
             for row in formal_rows:

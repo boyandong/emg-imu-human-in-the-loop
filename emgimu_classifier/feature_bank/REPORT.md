@@ -15,6 +15,12 @@ The collection app's nine targeted UI simulator, formal-protocol and UniBo
 adapter tests pass in the existing `emgforce` Python environment with Qt
 offscreen. This checks software readiness only; simulator data cannot establish
 real-device classification performance.
+The formal collection readiness gate now rejects valid trials whose stable
+intervals overlap, lie outside their own trial or recorded EMG, or lack a
+contiguous 200 ms EMG window. The previous synthetic fixture had allowed 144
+trials to share a tiny interval; its repaired fixture uses separate recorded
+intervals, and an overlap regression is rejected. The collection test suite
+passes in `emgforce`; this remains a software integrity check, not device data.
 
 The previous 28-row `REQUIREMENT_AUDIT.csv` is a triage summary, not an exhaustive
 acceptance checklist; its broad locators must not be treated as exact source references.

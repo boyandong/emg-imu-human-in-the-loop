@@ -78,23 +78,27 @@ def test_complete_formal_hdf5_passes_collection_readiness(tmp_path: Path) -> Non
     }
     recorder = Hdf5Recorder(batch_samples=100)
     recorder.start(path, metadata)
-    recorder.enqueue_emg(np.ones((500, 8), np.int32), np.arange(500),
-                         np.arange(500, dtype=np.uint8))
+    emg_samples = len(sequence) * 256
+    recorder.enqueue_emg(np.ones((emg_samples, 8), np.int32), np.arange(emg_samples),
+                         np.arange(emg_samples, dtype=np.uint8))
     recorder.enqueue_imu(np.ones((224, 3), np.float32), np.ones((224, 3), np.float32),
                          np.arange(224, dtype=np.int64), np.arange(224, dtype=np.uint8),
                          np.arange(224, dtype=np.int64))
     for trial_id, (label, kind, block, offset) in enumerate(zip(
             sequence, engine.trial_kinds, engine.block_indices, engine.onset_offsets), 1):
         event_uid = f"P001:S01:trial:{trial_id}:attempt:1"
+        base_sample = (trial_id - 1) * 256
         recorder.enqueue_trial(TrialInfo(
-            trial_id, label, 1, 1, 0, 0, 10, 20, 30, True,
+            trial_id, label, 1, 1, base_sample, base_sample + 10,
+            base_sample + 60, base_sample + 180, base_sample + 255, True,
             relative_onset_offset_ms=offset, trial_kind=kind, block_index=block,
             event_uid=event_uid,
-            stable_start_sample=12, stable_end_sample=18,
+            stable_start_sample=base_sample + 110,
+            stable_end_sample=base_sample + 170,
             completion_status="completed"))
         if kind == "formal":
             arm, hand = label.split("_", 1)
-            base_sample = 100
+            base_sample += 100
             base_ns = 1_000_000_000 + trial_id * 10_000_000
             arm_sample = base_sample + (50 if offset < 0 else 0)
             hand_sample = base_sample + (50 if offset > 0 else 0)
@@ -133,3 +137,15 @@ def test_complete_formal_hdf5_passes_collection_readiness(tmp_path: Path) -> Non
         "session.h5", "SESSION_COLLECTION_READINESS.json",
         "formal_collection_manifest.json",
     }
+    with h5py.File(path, "r+") as handle:
+        trials = handle["trials"]
+        formal_indices = [index for index, row in enumerate(trials[:])
+                          if row["trial_kind"] == b"formal"]
+        first, second = formal_indices[:2]
+        duplicated = trials[second]
+        duplicated["stable_start_sample"] = trials[first]["stable_start_sample"]
+        duplicated["stable_end_sample"] = trials[first]["stable_end_sample"]
+        trials[second] = duplicated
+    invalid = generate_session_readiness(path)
+    assert invalid["status"] == "failed"
+    assert invalid["checks"]["stable_interval_data"]["overlapping_trial_ids"]
