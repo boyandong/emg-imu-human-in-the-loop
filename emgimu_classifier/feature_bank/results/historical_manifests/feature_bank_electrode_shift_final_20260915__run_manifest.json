@@ -1,0 +1,21 @@
+{
+  "phase": "final",
+  "seed": 20260915,
+  "subjects": [
+    18,
+    19,
+    20
+  ],
+  "training_domain": "training",
+  "target_domains": [
+    "trial_1",
+    "trial_2",
+    "trial_3",
+    "trial_4"
+  ],
+  "evaluation_unit": "trial",
+  "feature_candidates": [
+    "F0",
+    "F3_Ring"
+  ]
+}

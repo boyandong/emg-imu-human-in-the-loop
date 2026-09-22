@@ -1,0 +1,135 @@
+{
+  "status": "historical_evidence_preserved_separately",
+  "completion_proven": false,
+  "source_revision": "ffb3999",
+  "files": [
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_electrode_shift_final_20260915__run_manifest.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_electrode_shift_final_20260915__run_manifest.json",
+      "bytes": 290,
+      "sha256": "76e88fe77942d28f3c5362d8fa87ee388b773b91df5c87d5ffd217e4d1022c15",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_electrode_shift_validation_20260915__run_manifest.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_electrode_shift_validation_20260915__run_manifest.json",
+      "bytes": 410,
+      "sha256": "ec615d2ea73cd16ab0f787e45d0743c74622ab4031abda1be4c1b459136a55c4",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_emg_fmg_final_20260915__run_manifest.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_emg_fmg_final_20260915__run_manifest.json",
+      "bytes": 511,
+      "sha256": "842e00a5dcad61e833c0e81349b665561d87b6d36de774e48610d93f3af59fdb",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_emg_fmg_validation_20260915__run_manifest.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_emg_fmg_validation_20260915__run_manifest.json",
+      "bytes": 502,
+      "sha256": "3e6ef2babb9a74bdfb434ee3c4821aa0f2e8f383fd6da159e45402f81adb82c4",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_epn_calibration_diagnostics_final_20260915__run_manifest.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_epn_calibration_diagnostics_final_20260915__run_manifest.json",
+      "bytes": 331,
+      "sha256": "0db920babd8728283842d60c7418cabec416126c6f7d996dcf18aa0f8eb73c48",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_epn_calibration_diagnostics_validation_20260915__run_manifest.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_epn_calibration_diagnostics_validation_20260915__run_manifest.json",
+      "bytes": 341,
+      "sha256": "391fe4e8e0d18f23731bfc2524ad5caf505609d192ab694aff717139eb428ebd",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_force_calibration_final_20260915__run_manifest.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_force_calibration_final_20260915__run_manifest.json",
+      "bytes": 597,
+      "sha256": "b5cf44b73036844c7b642dde57dddf97b0aedead52fbb1933c59a9982e8d0676",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_force_calibration_validation_20260915_v2__run_manifest.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_force_calibration_validation_20260915_v2__run_manifest.json",
+      "bytes": 601,
+      "sha256": "c011ce3c30547031dfb76ec102b6d31edeae26f1bfdcc5bcd14d9c652d5d6715",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_force_selection_20260915__shortlist.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_force_selection_20260915__shortlist.json",
+      "bytes": 354,
+      "sha256": "5bcd37b0dc256e4a2d0a05cf32e46937fb11011796a766c19d40b1580d26bf6e",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_force_validation_20260915_v2__run_manifest.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_force_validation_20260915_v2__run_manifest.json",
+      "bytes": 1961,
+      "sha256": "94d06c5d5acc13c24e8d12783a5be34608cd37071c483a13c0d1930176ad3e5c",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_manus_full_fusion_final_20260915__run_manifest.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_manus_full_fusion_final_20260915__run_manifest.json",
+      "bytes": 8867,
+      "sha256": "08fbbd48e144fb8f9ed4d44288f935d90ea31acfa4266b1611a0ca00f5af150c",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_manus_full_fusion_final_20260915__session_signatures.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_manus_full_fusion_final_20260915__session_signatures.json",
+      "bytes": 75575,
+      "sha256": "2e5b70250121fc7ebd87e45777949556af9c80ce74a47dbdf9c624572e66f68f",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_manus_full_fusion_final_20260915__split_trial_ids.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_manus_full_fusion_final_20260915__split_trial_ids.json",
+      "bytes": 26744,
+      "sha256": "26ffa2cb9b13c216460f53587eb433deba258a3a150e813e576e246ce7906a48",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_manus_full_fusion_validation_20260915__run_manifest.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_manus_full_fusion_validation_20260915__run_manifest.json",
+      "bytes": 8872,
+      "sha256": "90ea711d45b1d1fd7f15faf444007d7a947730a12eed5d347060d4ba283f21f9",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_manus_full_fusion_validation_20260915__session_signatures.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_manus_full_fusion_validation_20260915__session_signatures.json",
+      "bytes": 75773,
+      "sha256": "781c7b79befcebf32c9699969f215d9679d5f33453a21e8740f9b717ad40fc61",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_manus_full_fusion_validation_20260915__split_trial_ids.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_manus_full_fusion_validation_20260915__split_trial_ids.json",
+      "bytes": 26744,
+      "sha256": "de5c81dfba7732c8f43d57709d4b024c459cd0d2004f2c38176c3a56497cae0c",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_unibo_final_20260915__run_manifest.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_unibo_final_20260915__run_manifest.json",
+      "bytes": 417,
+      "sha256": "c6b9ab68f4e6c8a534700af093b9775eb5b69af5c64dd9422201475511ead1f1",
+      "source_revision": "ffb3999"
+    },
+    {
+      "historical_path": "emgimu_classifier/feature_bank/results/manifests/feature_bank_unibo_validation_20260915__run_manifest.json",
+      "archive_path": "emgimu_classifier/feature_bank/results/historical_manifests/feature_bank_unibo_validation_20260915__run_manifest.json",
+      "bytes": 659,
+      "sha256": "a81b6e6b1946710173b348a3db42a3d0358d8721f9300c5114d5ad7cd3c8476d",
+      "source_revision": "ffb3999"
+    }
+  ],
+  "count": 18,
+  "boundary": "These superseded manifests are not part of the active consolidated result registry. Their preservation does not validate superseded metrics or restore missing historical DS2 artifacts."
+}

@@ -1,0 +1,42 @@
+{
+  "phase": "validation",
+  "seed": 20260915,
+  "population_train_subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "population_train_condition": "Ramp",
+  "target_subjects": [
+    7,
+    8
+  ],
+  "target_conditions": [
+    "20P",
+    "30P",
+    "40P",
+    "50P",
+    "60P",
+    "70P",
+    "80P",
+    "MVC",
+    "Light",
+    "Medium",
+    "Hard"
+  ],
+  "families": [
+    "F0",
+    "F2b_CSP",
+    "F1_X1H"
+  ],
+  "dimensions": {
+    "F0": 48,
+    "F2b_CSP": 14,
+    "F1_X1H": 8
+  },
+  "personal_anchor_shrinkage": "shots/(2+shots)",
+  "test_trials_exclude_all_calibration_trial_ids": true
+}
