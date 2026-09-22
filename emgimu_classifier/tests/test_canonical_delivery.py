@@ -1,11 +1,12 @@
 import contextlib
 import csv
+import hashlib
 import io
 import json
 from pathlib import Path
 import tempfile
 import unittest
-from benchmarks.canonical_delivery import SCHEMAS, build, verify
+from benchmarks.canonical_delivery import SCHEMAS, build, record_hash, verify
 
 
 class CanonicalDeliveryTests(unittest.TestCase):
@@ -62,4 +63,41 @@ class CanonicalDeliveryTests(unittest.TestCase):
         with source.open('w',newline='') as h:
             writer=csv.DictWriter(h,fieldnames=list(row));writer.writeheader();writer.writerow(row)
         with self.assertRaisesRegex(ValueError,'Invalid native trial complementarity counts'):
+            build(self.root,self.output)
+
+    def test_correctness_disagreement_is_not_prediction_disagreement(self):
+        source=self.root/'error_complementarity.csv'
+        row={'run_id':'feature_bank_fixture_final','dataset':'fixture',
+             'disagreement':'0.25','a_correct_b_wrong':'0.1',
+             'a_wrong_b_correct':'0.15'}
+        with source.open('w',newline='') as h:
+            writer=csv.DictWriter(h,fieldnames=list(row));writer.writeheader();writer.writerow(row)
+        with contextlib.redirect_stdout(io.StringIO()):build(self.root,self.output)
+        with (self.output/'error_complementarity.csv').open() as h:
+            derived=next(csv.DictReader(h))
+        self.assertEqual(derived['disagreement_rate'],'N/A')
+        self.assertEqual(derived['a_correct_b_wrong'],'0.1')
+        notes=json.loads(derived['metadata_notes_json'])
+        self.assertIn('not recoverable',notes['disagreement_rate'])
+
+    def test_frozen_prediction_recovery_requires_exact_source_identity(self):
+        source=self.root/'error_complementarity.csv'
+        row={'run_id':'feature_bank_fixture_final','dataset':'fixture',
+             'disagreement':'0.25','a_correct_b_wrong':'0.1',
+             'a_wrong_b_correct':'0.15'}
+        with source.open('w',newline='') as h:
+            writer=csv.DictWriter(h,fieldnames=list(row));writer.writeheader();writer.writerow(row)
+        recovery=self.root/'prediction_disagreement_recovery.json'
+        artifact={'source_csv_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
+                  'rows':[{'run_id':row['run_id'],'source_row_1based':1,
+                           'source_record_sha256':record_hash(row),
+                           'prediction_disagreement_rate':0.5}]}
+        recovery.write_text(json.dumps(artifact))
+        with contextlib.redirect_stdout(io.StringIO()):build(self.root,self.output)
+        with (self.output/'error_complementarity.csv').open() as h:
+            derived=next(csv.DictReader(h))
+        self.assertEqual(derived['disagreement_rate'],'0.5')
+        artifact['rows'][0]['source_record_sha256']='stale'
+        recovery.write_text(json.dumps(artifact))
+        with self.assertRaisesRegex(ValueError,'unmatched source rows'):
             build(self.root,self.output)

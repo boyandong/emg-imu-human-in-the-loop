@@ -1,7 +1,14 @@
 {
   "completion_proven": false,
+  "pairs": [
+    "F1_X1H",
+    "F3_Ring",
+    "F2b_CSP",
+    "F4_Spectral",
+    "F5_Temporal"
+  ],
   "protocol": "Frozen source provider probabilities; fixed equal-weight B/F/Q/FQ compositions; no refit or target calibration",
-  "analysis_source_sha256": "6c50b8efc3048b7e2be6794f0d9bb0ccb6de45dd3df0ca2ad0ad27c0aa1285e2",
+  "analysis_source_sha256": "5c56c5c3ed52bf591c08b18b00c7c12daa35085d266b5d2dd1547ded3e86da18",
   "source_runs": {
     "validation": {
       "corruption_predictions.npz": "5a6f582382dfe9efc3bd71992c85ac7a2da0313d70272e67cd5c3cabab0fb556",
@@ -15,14 +22,14 @@
     }
   },
   "output_sha256": {
-    "interaction_results.csv": "3256b5702d81b2613d65b792b57bc2f76cfa3f0f055fcb62c96c5dd920efdd18",
-    "arm_scores.csv": "ce626e4e649097ee941cfe05149a49708b9e253af6d25271d9495aa9ef58ffd5",
-    "error_complementarity.csv": "acfea1e55ef922569367acb4aec0995495cd569c75690953ae2528d4bcadffe6"
+    "interaction_results.csv": "795e236f5805248013fc9a4b86aff6ae632eb70de11c02333e4b37cb81313af3",
+    "arm_scores.csv": "3733fd2800c8d882af0c51cc4eb654f5f2f0ecb196aabe22d8e4e30f84d97206",
+    "error_complementarity.csv": "45041cd23854b0f36f86c196da48140fb1c83da92cb29ae111f8e2a1644ee7e7"
   },
   "rows": {
-    "interaction_results.csv": 96,
-    "arm_scores.csv": 384,
-    "error_complementarity.csv": 96
+    "interaction_results.csv": 240,
+    "arm_scores.csv": 960,
+    "error_complementarity.csv": 240
   },
   "pooled_clean": [
     {
@@ -50,6 +57,42 @@
       "S_negative_brier": 0.002414790044782733
     },
     {
+      "phase": "validation",
+      "scenario": "clean",
+      "subject": "ALL",
+      "base": "F0",
+      "family_a": "F2b_CSP",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "S_negative_logloss": 0.039635297282946125,
+      "S_macro_f1": -0.037956420578200645,
+      "S_negative_brier": 0.0007391895822363992
+    },
+    {
+      "phase": "validation",
+      "scenario": "clean",
+      "subject": "ALL",
+      "base": "F0",
+      "family_a": "F4_Spectral",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "S_negative_logloss": -0.0030348319998700912,
+      "S_macro_f1": -0.06588052672393402,
+      "S_negative_brier": -0.0019372755974206568
+    },
+    {
+      "phase": "validation",
+      "scenario": "clean",
+      "subject": "ALL",
+      "base": "F0",
+      "family_a": "F5_Temporal",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "S_negative_logloss": 0.02121971687199542,
+      "S_macro_f1": -0.03993184837912106,
+      "S_negative_brier": -0.00020840563910794196
+    },
+    {
       "phase": "final",
       "scenario": "clean",
       "subject": "ALL",
@@ -72,6 +115,42 @@
       "S_negative_logloss": 0.05720834571437883,
       "S_macro_f1": 0.007927913454808255,
       "S_negative_brier": 0.004349353718559865
+    },
+    {
+      "phase": "final",
+      "scenario": "clean",
+      "subject": "ALL",
+      "base": "F0",
+      "family_a": "F2b_CSP",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "S_negative_logloss": 0.03783477900130272,
+      "S_macro_f1": 0.006429631423628068,
+      "S_negative_brier": 0.0027531320143135835
+    },
+    {
+      "phase": "final",
+      "scenario": "clean",
+      "subject": "ALL",
+      "base": "F0",
+      "family_a": "F4_Spectral",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "S_negative_logloss": 0.03669030018651798,
+      "S_macro_f1": 0.014088753368171225,
+      "S_negative_brier": 0.002547773252675606
+    },
+    {
+      "phase": "final",
+      "scenario": "clean",
+      "subject": "ALL",
+      "base": "F0",
+      "family_a": "F5_Temporal",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "S_negative_logloss": 0.04865301258387866,
+      "S_macro_f1": 0.03432943459302812,
+      "S_negative_brier": 0.003912021328248902
     }
   ],
   "pooled_clean_complementarity": [
@@ -82,7 +161,9 @@
       "family_a": "F1_X1H",
       "family_b": "F9_Quality",
       "evaluation_trials": 588,
-      "disagreement_rate": 0.282312925170068,
+      "error_correlation": 0.44111898246484527,
+      "disagreement_rate": 0.43537414965986393,
+      "correctness_disagreement_rate": 0.282312925170068,
       "a_correct_b_wrong": 0.17517006802721088,
       "a_wrong_b_correct": 0.10714285714285714
     },
@@ -93,9 +174,50 @@
       "family_a": "F3_Ring",
       "family_b": "F9_Quality",
       "evaluation_trials": 588,
-      "disagreement_rate": 0.33163265306122447,
+      "error_correlation": 0.351841882000699,
+      "disagreement_rate": 0.6394557823129252,
+      "correctness_disagreement_rate": 0.33163265306122447,
       "a_correct_b_wrong": 0.07993197278911565,
       "a_wrong_b_correct": 0.25170068027210885
+    },
+    {
+      "phase": "validation",
+      "scenario": "clean",
+      "subject": "ALL",
+      "family_a": "F2b_CSP",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "error_correlation": 0.4328333540830679,
+      "disagreement_rate": 0.467687074829932,
+      "correctness_disagreement_rate": 0.2857142857142857,
+      "a_correct_b_wrong": 0.1717687074829932,
+      "a_wrong_b_correct": 0.11394557823129252
+    },
+    {
+      "phase": "validation",
+      "scenario": "clean",
+      "subject": "ALL",
+      "family_a": "F4_Spectral",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "error_correlation": 0.4179544739364755,
+      "disagreement_rate": 0.41836734693877553,
+      "correctness_disagreement_rate": 0.3010204081632653,
+      "a_correct_b_wrong": 0.2193877551020408,
+      "a_wrong_b_correct": 0.08163265306122448
+    },
+    {
+      "phase": "validation",
+      "scenario": "clean",
+      "subject": "ALL",
+      "family_a": "F5_Temporal",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "error_correlation": 0.5431128256332381,
+      "disagreement_rate": 0.4013605442176871,
+      "correctness_disagreement_rate": 0.22959183673469388,
+      "a_correct_b_wrong": 0.13435374149659865,
+      "a_wrong_b_correct": 0.09523809523809523
     },
     {
       "phase": "final",
@@ -104,7 +226,9 @@
       "family_a": "F1_X1H",
       "family_b": "F9_Quality",
       "evaluation_trials": 588,
-      "disagreement_rate": 0.304421768707483,
+      "error_correlation": 0.3782266077478772,
+      "disagreement_rate": 0.4710884353741497,
+      "correctness_disagreement_rate": 0.304421768707483,
       "a_correct_b_wrong": 0.141156462585034,
       "a_wrong_b_correct": 0.16326530612244897
     },
@@ -115,9 +239,50 @@
       "family_a": "F3_Ring",
       "family_b": "F9_Quality",
       "evaluation_trials": 588,
-      "disagreement_rate": 0.37755102040816324,
+      "error_correlation": 0.2131490235235464,
+      "disagreement_rate": 0.7125850340136054,
+      "correctness_disagreement_rate": 0.37755102040816324,
       "a_correct_b_wrong": 0.11394557823129252,
       "a_wrong_b_correct": 0.26360544217687076
+    },
+    {
+      "phase": "final",
+      "scenario": "clean",
+      "subject": "ALL",
+      "family_a": "F2b_CSP",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "error_correlation": 0.2842539199132263,
+      "disagreement_rate": 0.5493197278911565,
+      "correctness_disagreement_rate": 0.35714285714285715,
+      "a_correct_b_wrong": 0.20238095238095238,
+      "a_wrong_b_correct": 0.15476190476190477
+    },
+    {
+      "phase": "final",
+      "scenario": "clean",
+      "subject": "ALL",
+      "family_a": "F4_Spectral",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "error_correlation": 0.5009386285347174,
+      "disagreement_rate": 0.4217687074829932,
+      "correctness_disagreement_rate": 0.24829931972789115,
+      "a_correct_b_wrong": 0.141156462585034,
+      "a_wrong_b_correct": 0.10714285714285714
+    },
+    {
+      "phase": "final",
+      "scenario": "clean",
+      "subject": "ALL",
+      "family_a": "F5_Temporal",
+      "family_b": "F9_Quality",
+      "evaluation_trials": 588,
+      "error_correlation": 0.5970275350133334,
+      "disagreement_rate": 0.4200680272108844,
+      "correctness_disagreement_rate": 0.19727891156462585,
+      "a_correct_b_wrong": 0.08163265306122448,
+      "a_wrong_b_correct": 0.11564625850340136
     }
   ],
   "pooled_synthetic_summary": [
@@ -140,6 +305,33 @@
       "mean_full_arm_macro_f1": 0.38344379540157114
     },
     {
+      "phase": "validation",
+      "family": "F2b_CSP",
+      "scenarios": 7,
+      "mean_S_negative_logloss": 0.10953284564587452,
+      "positive_S_negative_logloss_scenarios": 7,
+      "mean_baseline_macro_f1": 0.4676301895295418,
+      "mean_full_arm_macro_f1": 0.4101949062377682
+    },
+    {
+      "phase": "validation",
+      "family": "F4_Spectral",
+      "scenarios": 7,
+      "mean_S_negative_logloss": 0.09673538281974205,
+      "positive_S_negative_logloss_scenarios": 7,
+      "mean_baseline_macro_f1": 0.4676301895295418,
+      "mean_full_arm_macro_f1": 0.4497932411205524
+    },
+    {
+      "phase": "validation",
+      "family": "F5_Temporal",
+      "scenarios": 7,
+      "mean_S_negative_logloss": 0.11018977143222045,
+      "positive_S_negative_logloss_scenarios": 7,
+      "mean_baseline_macro_f1": 0.4676301895295418,
+      "mean_full_arm_macro_f1": 0.42478292938861373
+    },
+    {
       "phase": "final",
       "family": "F1_X1H",
       "scenarios": 7,
@@ -156,7 +348,34 @@
       "positive_S_negative_logloss_scenarios": 7,
       "mean_baseline_macro_f1": 0.4638564296363025,
       "mean_full_arm_macro_f1": 0.32977895260011814
+    },
+    {
+      "phase": "final",
+      "family": "F2b_CSP",
+      "scenarios": 7,
+      "mean_S_negative_logloss": 0.09528869750453128,
+      "positive_S_negative_logloss_scenarios": 7,
+      "mean_baseline_macro_f1": 0.4638564296363025,
+      "mean_full_arm_macro_f1": 0.3481730371846848
+    },
+    {
+      "phase": "final",
+      "family": "F4_Spectral",
+      "scenarios": 7,
+      "mean_S_negative_logloss": 0.09595936752180305,
+      "positive_S_negative_logloss_scenarios": 7,
+      "mean_baseline_macro_f1": 0.4638564296363025,
+      "mean_full_arm_macro_f1": 0.35956796681521996
+    },
+    {
+      "phase": "final",
+      "family": "F5_Temporal",
+      "scenarios": 7,
+      "mean_S_negative_logloss": 0.11979764239444154,
+      "positive_S_negative_logloss_scenarios": 7,
+      "mean_baseline_macro_f1": 0.4638564296363025,
+      "mean_full_arm_macro_f1": 0.3418688144343829
     }
   ],
-  "boundary": "Quality \u00d7 reference F1/Ring probability-composition interactions under synthetic perturbations, not historical X1-H/RLCS, physiological synergy, real-device noise, or complete Stage 4 coverage."
+  "boundary": "Quality \u00d7 current reference F1/Ring/CSP/Spectral/Temporal probability-composition interactions under synthetic perturbations, not historical-family equivalence, physiological synergy, real-device noise, or complete Stage 4 coverage."
 }

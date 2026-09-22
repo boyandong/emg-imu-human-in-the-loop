@@ -2,7 +2,7 @@ import unittest
 
 import numpy as np
 
-from benchmarks.quality_family_interactions import compositions, interaction
+from benchmarks.quality_family_interactions import compositions, interaction, pair_complementarity
 
 
 class QualityFamilyInteractionTests(unittest.TestCase):
@@ -32,3 +32,20 @@ class QualityFamilyInteractionTests(unittest.TestCase):
         self.assertAlmostEqual(effect["S_negative_brier"], .05)
         with self.assertRaises(ValueError):
             compositions(probabilities, "unregistered_family")
+
+    def test_prediction_disagreement_includes_distinct_joint_errors(self):
+        truth = np.array([0, 0, 0, 0])
+        a = np.eye(3)[[0, 1, 1, 2]]
+        b = np.eye(3)[[0, 0, 2, 1]]
+        result = pair_complementarity(truth, a, b)
+        self.assertEqual(result["disagreement_rate"], .75)
+        self.assertEqual(result["correctness_disagreement_rate"], .25)
+        self.assertEqual(result["a_correct_b_wrong"], 0.)
+        self.assertEqual(result["a_wrong_b_correct"], .25)
+        self.assertAlmostEqual(result["error_correlation"], 1 / np.sqrt(3))
+
+    def test_error_correlation_is_undefined_for_constant_errors(self):
+        truth = np.array([0, 1])
+        a = np.eye(2)[[0, 1]]
+        b = np.eye(2)[[1, 0]]
+        self.assertIsNone(pair_complementarity(truth, a, b)["error_correlation"])

@@ -1,7 +1,7 @@
-"""Replay a fixed Quality × reference-family interaction without fitting models.
+"""Replay fixed Quality × reference-family interactions without fitting models.
 
 The four probability compositions use the same frozen force trial predictions.
-F1 and Ring here are current references, not recovered historical algorithms.
+All families here are current references, not recovered historical algorithms.
 """
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ from emgimu.feature_bank.quality_corruption_study import SCENARIOS
 from emgimu.feature_bank.screening import metrics
 
 
-PAIRS = ("F1_X1H", "F3_Ring")
+PAIRS = ("F1_X1H", "F3_Ring", "F2b_CSP", "F4_Spectral", "F5_Temporal")
 BASE, QUALITY = "F0", "F9_Quality"
 PHASE_USERS = {"validation": (7, 8), "final": (9, 10)}
 
@@ -52,6 +52,21 @@ def interaction(arm_metrics: dict[str, dict]) -> dict[str, float]:
         "S_macro_f1": fq["macro_f1"] - f["macro_f1"] - q["macro_f1"] + b["macro_f1"],
         "S_negative_brier": -fq["brier"] + f["brier"] + q["brier"] - b["brier"],
     }
+
+
+def pair_complementarity(truth: np.ndarray, a_prob: np.ndarray,
+                         b_prob: np.ndarray) -> dict[str, float | None]:
+    """Distinguish prediction disagreement from correctness disagreement."""
+    a_pred, b_pred = a_prob.argmax(axis=1), b_prob.argmax(axis=1)
+    a_wrong, b_wrong = a_pred != truth, b_pred != truth
+    correlation = (float(np.corrcoef(a_wrong, b_wrong)[0, 1])
+                   if np.any(a_wrong) and not np.all(a_wrong)
+                   and np.any(b_wrong) and not np.all(b_wrong) else None)
+    return {"error_correlation": correlation,
+            "disagreement_rate": float(np.mean(a_pred != b_pred)),
+            "correctness_disagreement_rate": float(np.mean(a_wrong != b_wrong)),
+            "a_correct_b_wrong": float(np.mean(~a_wrong & b_wrong)),
+            "a_wrong_b_correct": float(np.mean(a_wrong & ~b_wrong))}
 
 
 def run(source_root: Path, output_root: Path, compact_output: Path) -> None:
@@ -108,15 +123,12 @@ def run(source_root: Path, output_root: Path, compact_output: Path) -> None:
                                                  "base": BASE, "family_a": family, "family_b": QUALITY,
                                                  "evaluation_trials": int(mask.sum()),
                                                  **interaction(scored)})
-                        a = providers[family][mask].argmax(axis=1) == truth[mask]
-                        q = providers[QUALITY][mask].argmax(axis=1) == truth[mask]
                         complementarity_rows.append({
                             "phase": phase, "scenario": scenario, "subject": user,
                             "family_a": family, "family_b": QUALITY,
                             "evaluation_trials": int(mask.sum()),
-                            "disagreement_rate": float(np.mean(a != q)),
-                            "a_correct_b_wrong": float(np.mean(a & ~q)),
-                            "a_wrong_b_correct": float(np.mean(~a & q)),
+                            **pair_complementarity(truth[mask], providers[family][mask],
+                                                   providers[QUALITY][mask]),
                         })
         print(f"{phase}: replayed {len(SCENARIOS)} fixed scenarios, {len(PAIRS)} pairs", flush=True)
     outputs = {"interaction_results.csv": interaction_rows,
@@ -147,6 +159,7 @@ def run(source_root: Path, output_root: Path, compact_output: Path) -> None:
                                       "mean_full_arm_macro_f1": float(np.mean(full_scores))})
     compact = {
         "completion_proven": False,
+        "pairs": list(PAIRS),
         "protocol": "Frozen source provider probabilities; fixed equal-weight B/F/Q/FQ compositions; no refit or target calibration",
         "analysis_source_sha256": sha(Path(__file__)),
         "source_runs": sources,
@@ -155,7 +168,7 @@ def run(source_root: Path, output_root: Path, compact_output: Path) -> None:
         "pooled_clean": [row for row in interaction_rows if row["subject"] == "ALL" and row["scenario"] == "clean"],
         "pooled_clean_complementarity": [row for row in complementarity_rows if row["subject"] == "ALL" and row["scenario"] == "clean"],
         "pooled_synthetic_summary": synthetic_summary,
-        "boundary": "Quality × reference F1/Ring probability-composition interactions under synthetic perturbations, not historical X1-H/RLCS, physiological synergy, real-device noise, or complete Stage 4 coverage.",
+        "boundary": "Quality × current reference F1/Ring/CSP/Spectral/Temporal probability-composition interactions under synthetic perturbations, not historical-family equivalence, physiological synergy, real-device noise, or complete Stage 4 coverage.",
     }
     compact_output.parent.mkdir(parents=True, exist_ok=True)
     compact_output.write_text(json.dumps(compact, indent=2) + "\n", encoding="utf-8")

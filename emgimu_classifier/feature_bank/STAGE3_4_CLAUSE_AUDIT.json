@@ -98,17 +98,20 @@
   ],
   "stage4_quality_reference_replay": {
     "artifact": "results/quality_family_interactions.json",
-    "artifact_sha256": "69f185503b3f40ce065d5a42b9ecd525652a4e5de50890f47cb79b6e4d5f5ace",
+    "artifact_sha256": "b19f51009d2c67fdd725ab7ecac8b31e01fcf62377c2b53d06ba3674a3d56c65",
     "native_dataset": "LibEMG Contraction Intensity, frozen source users1-6; validation7-8, final9-10",
     "candidate_pairs": [
       "F1_X1H_reference x F9_Quality",
-      "F3_Ring_reference x F9_Quality"
+      "F3_Ring_reference x F9_Quality",
+      "F2b_CSP_reference x F9_Quality",
+      "F4_Spectral_reference x F9_Quality",
+      "F5_Temporal_reference x F9_Quality"
     ],
-    "interaction_rows": 96,
-    "four_arm_score_rows": 384,
-    "error_complementarity_rows": 96,
+    "interaction_rows": 240,
+    "four_arm_score_rows": 960,
+    "error_complementarity_rows": 240,
     "status": "verified_frozen_probability_replay_only",
-    "boundary": "Positive log-loss interaction does not recover absolute F0 baseline F1; synthetic noise, reference families and probability averaging only. Exact historical algorithms and full Stage 4 quality claim remain missing."
+    "boundary": "True prediction disagreement and error correlation are reported separately from asymmetric correctness. Positive log-loss interaction does not recover absolute F0 baseline F1; synthetic noise, reference families and probability averaging only. Exact historical algorithms and full Stage 4 quality claim remain missing."
   },
   "stage4_g5_reference_temporal": {
     "artifact": "results/unibo_g5_temporal_interaction.json",
@@ -127,7 +130,7 @@
     "RLCS x SessionSignature",
     "G5 x TemporalShape",
     "PersonalAnchor x SpatialCoordination",
-    "Quality x robust families"
+    "Quality x historically validated robust families"
   ],
   "boundary": "Recorded pair metrics and source hashes verified; full named-pair and historical-family coverage remains incomplete."
 }

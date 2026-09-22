@@ -2398,3 +2398,42 @@ observations. The regenerated provenance audit verifies 49,704 source records.
 The delivery remains `schema_complete_evidence_partial`: some source runs still
 lack subject, session/domain, or error-correlation evidence. This repair does
 not establish a physiological complementarity claim or complete Section 15.
+
+## Corrected Quality complementarity and robust-family replay (2026-09-22)
+
+The earlier Quality-pair table labelled correctness disagreement as
+`disagreement_rate`. Those are different quantities: two models can predict
+different wrong classes on the same trial. The replay now reports actual class
+prediction disagreement, keeps correctness disagreement separately, and adds
+Pearson correlation of the two binary error indicators (undefined when either
+indicator is constant). The F1/Quality and Ring/Quality clean validation
+prediction-disagreement rates are 0.4354 and 0.6395, versus the previously
+reported correctness-disagreement rates 0.2823 and 0.3316. The earlier
+four-arm interaction scores replay exactly; only the mislabelled diagnostic
+changed.
+
+The same frozen source providers also permit Stage 4 reference comparisons
+with CSP, Spectral and Temporal against Quality. All three have both directions
+of asymmetric correctness on clean validation trials, so each was carried to
+the untouched final users using the same four equal-provider arms. On final
+clean trials their negative-log-loss interactions are positive, but across the
+seven synthetic perturbations their full-arm mean macro-F1 values are about
+0.35, 0.36 and 0.34, respectively, below the common F0 baseline of 0.46.
+Thus this probability-composition replay does not support promotion of these
+banks. The 240-row pair table and 960-row arm table remain under
+`work/benchmark_runs`; `results/quality_family_interactions.json` records
+source hashes and pooled scores. These are current reference families under
+synthetic perturbations, not historically validated robust families or real
+device-noise evidence.
+
+The same semantic check found 402 older delivery rows where the source field
+`disagreement` also means binary correctness disagreement. The canonical
+builder no longer maps that field to prediction disagreement. For 102 EPN
+selection and force screening rows, preserved held-out probability arrays
+recover the actual class-prediction disagreement. Recovery verifies every
+original correctness-disagreement and asymmetric-correctness rate to 1e-12,
+binds each recovered rate to its original row hash and archived probability
+file hash, and changes no source row. The other 300 rows retain `N/A` for
+prediction disagreement pending an equally direct replay. All 49,704
+canonical records still pass provenance checks; the broader schema remains
+evidence-partial.

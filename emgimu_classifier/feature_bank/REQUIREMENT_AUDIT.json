@@ -74,7 +74,7 @@
     "repetition_boundaries": null,
     "not_historical_DS2": true
   },
-  "test_count": 184,
+  "test_count": 190,
   "wearing_configuration_boundary": "New executions explicitly persist preprocessing/model/seed fields and reject invalid phases before loading final users. Existing saved experiments remain historical manifests; no retraining or retroactive configuration claim.",
   "reproducibility_metadata_inventory": {
     "artifact": "feature_bank/REPRODUCIBILITY_METADATA_AUDIT.json",
@@ -114,12 +114,19 @@
   },
   "stage3_4_clause_audit": {
     "artifact": "feature_bank/STAGE3_4_CLAUSE_AUDIT.json",
-    "quality_reference_pair_replay": "feature_bank/results/quality_family_interactions.json; fixed frozen-provider four-arm comparison on clean and seven synthetic force conditions, no model refit",
+    "quality_reference_pair_replay": "feature_bank/results/quality_family_interactions.json; frozen-provider four-arm comparison for F1/Ring/CSP/Spectral/Temporal versus Quality on clean and seven synthetic force conditions; true prediction disagreement, separate correctness disagreement and binary-error correlation; no model refit",
     "g5_reference_temporal_four_arm": "feature_bank/results/unibo_g5_temporal_interaction.json; source-day-calibrated native UniBo G0/G5/reference Temporal four arms, validation Day6 and frozen final Days7-8, prior three-arm Day6 replay exact",
     "stage3_recorded_rows_reviewed": 400,
     "stage4_recorded_rows_reviewed": 48,
     "completion_proven": false,
     "boundary": "Two priority reference interactions and several complementarity pairs covered; exact historical RLCS and remaining specified interactions are missing."
+  },
+  "prediction_disagreement_recovery": {
+    "artifact": "feature_bank/results/prediction_disagreement_recovery.json",
+    "recovered_rows": 102,
+    "unresolved_legacy_rows": 300,
+    "source_record_identity_checked": true,
+    "boundary": "Two frozen held-out prediction matrices replayed exactly against source correctness and asymmetric rates; other old disagreement fields are correctness disagreement, not class-prediction disagreement."
   },
   "f7_spd_tangent_anchor_candidate": {
     "implementation": "src/emgimu/feature_bank/spd_anchor.py",

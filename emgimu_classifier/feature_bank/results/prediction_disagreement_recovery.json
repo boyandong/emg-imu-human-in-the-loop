@@ -1,0 +1,623 @@
+{
+  "scope": "frozen native held-out predictions; no refit",
+  "source_csv_sha256": "b9385c81df2f9d85f401a54ea7a67965a5920f5cfe3a105685db5eae8911f391",
+  "source_npz_sha256": {
+    "feature_bank_epn_selection_20260915": "8c2a9f8c616e7c836d788ba9b3dcbd5cff92d706741aed576efc33a8445f6b31",
+    "feature_bank_force_audited_validation_20260915": "ac613595b377c5b8b43e65f1861e53763d50329ba39c6662e3d50c5e944593ce"
+  },
+  "correctness_and_asymmetric_rates_replayed": true,
+  "rows": [
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4320,
+      "source_record_sha256": "27fd06ff88a65a7e7c978fe4659d5dc31560341a6ab670cd0bd166c086d18dff",
+      "prediction_disagreement_rate": 0.4711111111111111
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4321,
+      "source_record_sha256": "2dec38b98ef9db4f57667c3c320e62faa718fa8f437616037318f6f2a2d31ba5",
+      "prediction_disagreement_rate": 0.2577777777777778
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4322,
+      "source_record_sha256": "482abbc07996e4bc4b9e7ff4bb7d6ae65730a85518a081a31479e594233732da",
+      "prediction_disagreement_rate": 0.2911111111111111
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4323,
+      "source_record_sha256": "365f0819e410683f2386358c9038acb9580c4b709f34e3b85f488c74ead3205c",
+      "prediction_disagreement_rate": 0.31777777777777777
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4324,
+      "source_record_sha256": "3bd1046e5b21e27ff4b482b3530b95757950863d71adf3915d252b1143204baa",
+      "prediction_disagreement_rate": 0.38
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4325,
+      "source_record_sha256": "c137bc693c0171aa97cc08480d45222b75c979ce88a6af357e6b9e61efc1d588",
+      "prediction_disagreement_rate": 0.4222222222222222
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4326,
+      "source_record_sha256": "7d75bc24601ec34e30a8bfb1c48da8a0b6711180121a60105894464a06843d3a",
+      "prediction_disagreement_rate": 0.4222222222222222
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4327,
+      "source_record_sha256": "3aad39becee8923f62f6584801c090ea28cfa52d22477f685ae06ba0f3357da1",
+      "prediction_disagreement_rate": 0.5844444444444444
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4328,
+      "source_record_sha256": "5f9634a1e2be0ba4d23bb74ec97dc8e6b3697738821585a700043cc1af4096f4",
+      "prediction_disagreement_rate": 0.4222222222222222
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4329,
+      "source_record_sha256": "9018b8301dd7800fafa8345d4ca89eef32d02d590c7cf777b00893afeb0f2ec8",
+      "prediction_disagreement_rate": 0.4222222222222222
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4330,
+      "source_record_sha256": "657b60efb66d30d134299a5be7c28f121a4e4d7b03aa6fd53dac7ecf46405c2f",
+      "prediction_disagreement_rate": 0.38
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4331,
+      "source_record_sha256": "52125353dafc12e658bba14f2cbd81385c80b2d24f29faa25a192c2d7b9f5298",
+      "prediction_disagreement_rate": 0.36444444444444446
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4332,
+      "source_record_sha256": "f33a09bd1018783069e05efeeb3fa4d3b48bea8f49cf4b71390074d1229be321",
+      "prediction_disagreement_rate": 0.43777777777777777
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4333,
+      "source_record_sha256": "96105ed60d230a684069e7f061e0786b12eeab482084ed909d3d3cc9641be19b",
+      "prediction_disagreement_rate": 0.35333333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4334,
+      "source_record_sha256": "7ba9d5068e524cac011a120edba90e1c54e999bf86902e449b4fb59b8bc4d734",
+      "prediction_disagreement_rate": 0.28444444444444444
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4335,
+      "source_record_sha256": "b11f47b36b401d3988fa69c127e8291f244293dab3539a1c07fa099b98f852c7",
+      "prediction_disagreement_rate": 0.2288888888888889
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4336,
+      "source_record_sha256": "565f2131bdcd3eea091fd0c608bd4f3591a416730370c291feffddc3e3b63373",
+      "prediction_disagreement_rate": 0.24666666666666667
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4337,
+      "source_record_sha256": "0f58f2e4bd88fdb963630008bc977cf16b7ee2520570fb456349e04624b4e2cf",
+      "prediction_disagreement_rate": 0.39111111111111113
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4338,
+      "source_record_sha256": "0fc1ebd25021dfeac38e5474039193025e5275af72bb5ce7dc8a5f2e03fca000",
+      "prediction_disagreement_rate": 0.24666666666666667
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4339,
+      "source_record_sha256": "e8cf3e8741636fc01b1dce12fd895950af4143d907a0d0f2a7bc11ac3b6ab264",
+      "prediction_disagreement_rate": 0.2288888888888889
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4340,
+      "source_record_sha256": "c8440f95881b5278168eb95cf6fdbe8c1f8b326445e0dae8af39f52701dd43c2",
+      "prediction_disagreement_rate": 0.28444444444444444
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4341,
+      "source_record_sha256": "b50cd5af86c430e5b3d589f05d7b824d53cc21b65a4ec3cf2368d41678abc78c",
+      "prediction_disagreement_rate": 0.3377777777777778
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4342,
+      "source_record_sha256": "6557e7cf1fb62f796e3f7b7672e4b38b1b79a67efc61d5f67e5e7fd7873d53c0",
+      "prediction_disagreement_rate": 0.37777777777777777
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4343,
+      "source_record_sha256": "07cbbd9a55754c9735b87ed6661bc3f532358f1707660e174087c34fe24cc1ed",
+      "prediction_disagreement_rate": 0.26666666666666666
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4344,
+      "source_record_sha256": "7e1c41e45ba96a1fa50a8ba44c202b16a68310f1b04ab32dbc8ec901b2b3f7c9",
+      "prediction_disagreement_rate": 0.3111111111111111
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4345,
+      "source_record_sha256": "d2421bfdda1a6d7f94d9468ad7851f1d73f979b7084b3a53c7c87b3b689cb913",
+      "prediction_disagreement_rate": 0.3933333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4346,
+      "source_record_sha256": "1af3057ca99e0b5a4d17ea119899f5594b7a5f6351cc1f8efdbc7d240266ddcc",
+      "prediction_disagreement_rate": 0.4866666666666667
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4347,
+      "source_record_sha256": "f999669d0408db315e95349da7faee99aeb4a2c37604452b225a95094a3333f4",
+      "prediction_disagreement_rate": 0.3933333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4348,
+      "source_record_sha256": "d41c7c55a28e16d508852a5db0a3d22e3530164f2f7feb5aeeae85844122aac3",
+      "prediction_disagreement_rate": 0.3111111111111111
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4349,
+      "source_record_sha256": "c5ca6b6cbb8e893fa7aebc79ea029a5313a6fbbab8718464d5ba565eac927ca9",
+      "prediction_disagreement_rate": 0.26666666666666666
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4350,
+      "source_record_sha256": "91cdcabe6b002536e7bb8a18f7216a50bae23daedf792475c6cbd2de30ee21b6",
+      "prediction_disagreement_rate": 0.44
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4351,
+      "source_record_sha256": "4cf17712cb46ebaecbcea01d8ebce65200b636f71c5843d3a5578f9f5ef708de",
+      "prediction_disagreement_rate": 0.25555555555555554
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4352,
+      "source_record_sha256": "ab846b426773ca84d4a4c1068d82731224f22218f41877bbdcb0898ba021d0f4",
+      "prediction_disagreement_rate": 0.4911111111111111
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4353,
+      "source_record_sha256": "cec479a53116e525d52e080373b764d796375851b13dab4bba724c30b6f48804",
+      "prediction_disagreement_rate": 0.35333333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4354,
+      "source_record_sha256": "a79aae60de933d1cf23c3a019e487eff99368359606e60d08bc6d08e96adaae0",
+      "prediction_disagreement_rate": 0.5577777777777778
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4355,
+      "source_record_sha256": "25f4d445b8deadead41820c9a0ba78af0313cbf70df01ae53663aedceaabc7c2",
+      "prediction_disagreement_rate": 0.35333333333333333
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4356,
+      "source_record_sha256": "46d5be1fa4ccd83b659ab021a91f5e8f119ab78cb324e0b0a3a25ab3db93f2d6",
+      "prediction_disagreement_rate": 0.4911111111111111
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4357,
+      "source_record_sha256": "3e390526cd771d826995ab001381df9168e70927587fd6f9c255a343207a9fc1",
+      "prediction_disagreement_rate": 0.25555555555555554
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4358,
+      "source_record_sha256": "fb22fe28845fb03fe797e59655dac38e2d3f429dc25b61154c001c45d37251d9",
+      "prediction_disagreement_rate": 0.46
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4359,
+      "source_record_sha256": "5f5cfb0fddc9d2897ffa899e2554ead94dd8c5dadd708df6fa0af8c94d13ba4f",
+      "prediction_disagreement_rate": 0.24222222222222223
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4360,
+      "source_record_sha256": "6403df570d481e4c3a63729b531923a36d51686bc113f774a7c921c31d8e8966",
+      "prediction_disagreement_rate": 0.24888888888888888
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4361,
+      "source_record_sha256": "64d03efa6c5e96dafa33e64ddcffc45668539c154621593a62e70c9848461e5c",
+      "prediction_disagreement_rate": 0.48444444444444446
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4362,
+      "source_record_sha256": "5846996d88f9ad529aade8c73b2adb228b36f292fe2217a45a8a969f80013a16",
+      "prediction_disagreement_rate": 0.24888888888888888
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4363,
+      "source_record_sha256": "9f2e8ed2e0c2a6af174a6401a09210ae09830ef1405cc087665aaa4ec54f8b71",
+      "prediction_disagreement_rate": 0.24222222222222223
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4364,
+      "source_record_sha256": "299302a04e00157918f5db4695002a7a098cc4cb5a83f46422fc35711cc3d53f",
+      "prediction_disagreement_rate": 0.46
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4365,
+      "source_record_sha256": "c6a389d3f7c52959a3e8291edba8996955d728ee855bb0986eb404bbd29cccdf",
+      "prediction_disagreement_rate": 0.4088888888888889
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4366,
+      "source_record_sha256": "d9557687c6a1834ddb57491169d9a692bfcba7f48a7ca0b122a1c196a8ebcf8e",
+      "prediction_disagreement_rate": 0.3844444444444444
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4367,
+      "source_record_sha256": "b7ead6725bbcdacadd7793d3e7da11e9d1a921f8f362d9eead9661ea1f9bfad2",
+      "prediction_disagreement_rate": 0.4688888888888889
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4368,
+      "source_record_sha256": "06e1868b578dfa7ba52ed1510dd67c0f923ab730e4ec064d0462e990dab89348",
+      "prediction_disagreement_rate": 0.3844444444444444
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4369,
+      "source_record_sha256": "fb74972e3b21699eaa28c96075dae856b816fb4c09cc20860db8f15bbbe520c8",
+      "prediction_disagreement_rate": 0.4088888888888889
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4370,
+      "source_record_sha256": "e03554bb2a50025757d2734fde728380b7060a855f1e1972d79492931b7dec0d",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4371,
+      "source_record_sha256": "53d08d6146facf57adaaa29831ad2ca3d6ae34a9d2ba040c922148a73a9beb13",
+      "prediction_disagreement_rate": 0.30666666666666664
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4372,
+      "source_record_sha256": "3eb8d5c21d4cfb13553a16cc5ba814456062cf4df09314e51ea149df92b83d4a",
+      "prediction_disagreement_rate": 0.3844444444444444
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4373,
+      "source_record_sha256": "d7791915dab2b5027f09cda975b277cfa313aedd7875d6388eba156f05f598df",
+      "prediction_disagreement_rate": 0.30666666666666664
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4374,
+      "source_record_sha256": "5d6010519fbb221667181a8a06d208edfeea0d0cba5b6e0943c33f25832dbb33",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4375,
+      "source_record_sha256": "7581f26334fc19fcaa43065052317a3d1f85ff46db18302cd6e7ea9ba2eeb462",
+      "prediction_disagreement_rate": 0.4088888888888889
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4376,
+      "source_record_sha256": "678396c15a5164eb9d1517b6fdac584e3cd1cc8839af1b8aa23d349a9890eaf1",
+      "prediction_disagreement_rate": 0.4311111111111111
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4377,
+      "source_record_sha256": "759f09bc1640c7ff8c9aee2d19178c8d112b50879abe08e49e573d4621cc921c",
+      "prediction_disagreement_rate": 0.0
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4378,
+      "source_record_sha256": "20b559e71b9e5f84ff0aac788716e2f46a4ec4ab564e7dc5f4ebcf86a838dc1b",
+      "prediction_disagreement_rate": 0.30666666666666664
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4379,
+      "source_record_sha256": "10ac2766d8a282242528bfcbf4f9548b7d8eff9bf268d3e9b4a152373db678a1",
+      "prediction_disagreement_rate": 0.3844444444444444
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4380,
+      "source_record_sha256": "6ffbd7d8c81905c222b5ff111566e852acaaad2e14753ee25e720e7fab6b9db4",
+      "prediction_disagreement_rate": 0.4311111111111111
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4381,
+      "source_record_sha256": "5aec32e7ecd512d5538b029e9f772d665a2f89c774f64258e909df1b04df5620",
+      "prediction_disagreement_rate": 0.3844444444444444
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4382,
+      "source_record_sha256": "e34e2721ff21f7669549b6f26b8edcc4e8116390f7aa1046f7f6fd56c5703795",
+      "prediction_disagreement_rate": 0.4688888888888889
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4383,
+      "source_record_sha256": "ea4a81fa621536a32caf3b73c659432cce2dc61ccfd662e216ca9215aead6116",
+      "prediction_disagreement_rate": 0.30666666666666664
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4384,
+      "source_record_sha256": "b922d955c1fc3c33ffff00273b3cbe89feb46ef3100aee4f5a5fffb2313c1823",
+      "prediction_disagreement_rate": 0.3844444444444444
+    },
+    {
+      "run_id": "feature_bank_epn_selection_20260915",
+      "source_row_1based": 4385,
+      "source_record_sha256": "ee04405a4e7feadb67c1c50cb037257ee29a7645ace4b8ea57d90c9c792cabec",
+      "prediction_disagreement_rate": 0.4088888888888889
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4284,
+      "source_record_sha256": "8c7ed40a0f218579e539d4c1a6f9bf8dd2487351136ef9855f3547438cc41b83",
+      "prediction_disagreement_rate": 0.18154761904761904
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4285,
+      "source_record_sha256": "96d642d72db9cb7378fe9b0d9862ca6341a9e8c98b18e6602ecc357ea48a9737",
+      "prediction_disagreement_rate": 0.4953231292517007
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4286,
+      "source_record_sha256": "c326a21d6fcea9446a816c5897c06deb539b51cd379fc2f9f09bc8d77af97410",
+      "prediction_disagreement_rate": 0.24043367346938777
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4287,
+      "source_record_sha256": "e8b7d18b594799725bf9e70809f77afd33bae71cde61f55accd145a4d5196337",
+      "prediction_disagreement_rate": 0.39200680272108845
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4288,
+      "source_record_sha256": "9a98672cf274585c09a8768a9512cb576eecc9832ffb017cfce0f7ec0d43d133",
+      "prediction_disagreement_rate": 0.18112244897959184
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4289,
+      "source_record_sha256": "6b08a44d80cb567c3d62c0fe23a92eb1bd1e16d4a1540019e89cf3bafb1faccb",
+      "prediction_disagreement_rate": 0.4268707482993197
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4290,
+      "source_record_sha256": "a0c14d27f987794702d7d71b8b65e62c5b7ab23a84a27a23dde322618103d43f",
+      "prediction_disagreement_rate": 0.20004251700680273
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4291,
+      "source_record_sha256": "4c72e3f6d3b306b244006e4cfe9da86b7123f7392107473510370d2e350142fa",
+      "prediction_disagreement_rate": 0.14647108843537415
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4292,
+      "source_record_sha256": "604aea4fd4fe50611b9e9f1026da1280a1967e5ea62e292396fc0e57f03bf7dd",
+      "prediction_disagreement_rate": 0.4260204081632653
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4293,
+      "source_record_sha256": "810eddf9b9a40a596fe8e70eebbaf0066d6bbe9ece894574dc1b367c2b5d4dad",
+      "prediction_disagreement_rate": 0.15008503401360543
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4294,
+      "source_record_sha256": "63ca2fa0c9f9645c272f41573b9ea1f4a4b9ef2cc3c1a62b804b9bdfbe207cb5",
+      "prediction_disagreement_rate": 0.37648809523809523
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4295,
+      "source_record_sha256": "08bb6bf1ac401088c9ec05298edf144b4992ebb55993f58c29f5cf091cb0bc31",
+      "prediction_disagreement_rate": 0.2457482993197279
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4296,
+      "source_record_sha256": "4b38a02d5f8f0bae7281b265b88d8fe83c2cfe34f891b882edeff260371bdbcf",
+      "prediction_disagreement_rate": 0.34651360544217685
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4297,
+      "source_record_sha256": "48a4a0c9bb04a9e1f617ebadcf8097b949b10e9cc69a3457aa6446b4361a4b26",
+      "prediction_disagreement_rate": 0.2659438775510204
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4298,
+      "source_record_sha256": "87c38f3fdc3ffe364113375ad263d1fed235558b0744c0df6da19ec04120b30b",
+      "prediction_disagreement_rate": 0.16645408163265307
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4299,
+      "source_record_sha256": "5cff23e3558301ac5c5319f3e50330edd04d8ce4ff2392efe19798589ba5bb18",
+      "prediction_disagreement_rate": 0.42431972789115646
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4300,
+      "source_record_sha256": "370a413d130c1fd3e9c93ce02d3e51f13a7f41e54fe0d77707e9f6b4de932796",
+      "prediction_disagreement_rate": 0.2997448979591837
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4301,
+      "source_record_sha256": "a2033998f3bd441e31682a67c72a129bcf49e481d7b813d63c5e3b57b48a6c90",
+      "prediction_disagreement_rate": 0.4921343537414966
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4302,
+      "source_record_sha256": "6c7a468cfa11e64b0cd624d367fde667ce6d6215616dea3236799f7fa7bbd9d1",
+      "prediction_disagreement_rate": 0.4343112244897959
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4303,
+      "source_record_sha256": "03d752dc2257fd3634e27457bc7e727df351b4efc5039535fe4ffffb0fed07f7",
+      "prediction_disagreement_rate": 0.5042517006802721
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4304,
+      "source_record_sha256": "2f600ba3c2134745b3601d80009ab583b9e2894e2f34365c66d0536ad6cb59d9",
+      "prediction_disagreement_rate": 0.43452380952380953
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4305,
+      "source_record_sha256": "7691f8cd074b085ca79c753fa2048a18ac7c447eee6241a2782a658aaa5ae99d",
+      "prediction_disagreement_rate": 0.36628401360544216
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4306,
+      "source_record_sha256": "ecb7a01abe8d138812be331daab9467b82d99949d56bfdee0369e52bf9746b55",
+      "prediction_disagreement_rate": 0.27232142857142855
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4307,
+      "source_record_sha256": "144d92af18340227f2f261eec3aabc205ca856ffeedd626a710dc688b5937988",
+      "prediction_disagreement_rate": 0.3231292517006803
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4308,
+      "source_record_sha256": "6381358502a7a9ac02817b0e90546fc90360973e87754376173a625fee1b31c6",
+      "prediction_disagreement_rate": 0.28125
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4309,
+      "source_record_sha256": "2276804d2d3817eacf8b22e7f2b0ab682526e9e4b6b1313133c5b6a514cb1166",
+      "prediction_disagreement_rate": 0.21768707482993196
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4310,
+      "source_record_sha256": "b7f20974a4acc53204ec9e1e498efd2a03a16e821330d08da9d1b75f30207837",
+      "prediction_disagreement_rate": 0.40454931972789115
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4311,
+      "source_record_sha256": "4c74f69a3a91dc51b055c28c9017267bb17ad37b7830fb3fc3786d5e7ba25dd8",
+      "prediction_disagreement_rate": 0.4528061224489796
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4312,
+      "source_record_sha256": "e20b7e25c8098986d4f7c174a91065069355f6b17aa44fd6063dd5bc8eac514c",
+      "prediction_disagreement_rate": 0.4094387755102041
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4313,
+      "source_record_sha256": "ece2e608f61e70419a448f1959c6ef6867dc875147c3404d7b1de1dcf15e66a5",
+      "prediction_disagreement_rate": 0.3877551020408163
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4314,
+      "source_record_sha256": "fe1c662b61d9c16f22bb14757cc8286eb533dbe6203a8fdc87988b19a9bb9ce5",
+      "prediction_disagreement_rate": 0.3934948979591837
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4315,
+      "source_record_sha256": "53743fa7c8b4856ecaa047810751c6975dda3bd04154d4a328cb76257621a24e",
+      "prediction_disagreement_rate": 0.2457482993197279
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4316,
+      "source_record_sha256": "b4c0dcb9b00035182f794a7adc22d9d4de2d3ed403ba216b93a0b412e71c1308",
+      "prediction_disagreement_rate": 0.22045068027210885
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4317,
+      "source_record_sha256": "94a91da94fe1c36954afa119925b0bd04d0b15f71f94dfcfc7f23feeffe1f231",
+      "prediction_disagreement_rate": 0.3956207482993197
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4318,
+      "source_record_sha256": "6ddb92f0e0a5ad718737706152dda66d1e525bd50fd912dbb663497bfbe40b64",
+      "prediction_disagreement_rate": 0.358843537414966
+    },
+    {
+      "run_id": "feature_bank_force_audited_validation_20260915",
+      "source_row_1based": 4319,
+      "source_record_sha256": "6e3ea1517a7507dfeece683992d5c48d41832011bc6514b5d7a781102cc0c231",
+      "prediction_disagreement_rate": 0.24149659863945577
+    }
+  ]
+}

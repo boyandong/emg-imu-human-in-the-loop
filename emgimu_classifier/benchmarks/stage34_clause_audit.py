@@ -33,12 +33,12 @@ def run(results,output):
     quality_candidate={'artifact':str(quality_path.relative_to(results.parent)).replace('\\','/'),
         'artifact_sha256':hashlib.sha256(quality_path.read_bytes()).hexdigest(),
         'native_dataset':'LibEMG Contraction Intensity, frozen source users1-6; validation7-8, final9-10',
-        'candidate_pairs':['F1_X1H_reference x F9_Quality','F3_Ring_reference x F9_Quality'],
+        'candidate_pairs':[f'{family}_reference x F9_Quality' for family in quality['pairs']],
         'interaction_rows':quality['rows']['interaction_results.csv'],
         'four_arm_score_rows':quality['rows']['arm_scores.csv'],
         'error_complementarity_rows':quality['rows']['error_complementarity.csv'],
         'status':'verified_frozen_probability_replay_only',
-        'boundary':'Positive log-loss interaction does not recover absolute F0 baseline F1; synthetic noise, reference families and probability averaging only. Exact historical algorithms and full Stage 4 quality claim remain missing.'}
+        'boundary':'True prediction disagreement and error correlation are reported separately from asymmetric correctness. Positive log-loss interaction does not recover absolute F0 baseline F1; synthetic noise, reference families and probability averaging only. Exact historical algorithms and full Stage 4 quality claim remain missing.'}
     g5_candidate={'artifact':str(g5_path.relative_to(results.parent)).replace('\\','/'),
         'artifact_sha256':hashlib.sha256(g5_path.read_bytes()).hexdigest(),
         'native_dataset':'UniBo-INAIL native four-channel; source Days1-5, validation Day6, final Days7-8',
@@ -52,7 +52,7 @@ def run(results,output):
         'stage3':stage3,'stage4_document_lines':[685,712],'interaction_table_sha256':hashlib.sha256(ip.read_bytes()).hexdigest(),
         'stage4_reviewed_priority_pairs':stage4,'stage4_quality_reference_replay':quality_candidate,
         'stage4_g5_reference_temporal':g5_candidate,
-        'remaining_stage4_exact_pairs':['RLCS x PersonalAnchor','RLCS x SessionSignature','G5 x TemporalShape','PersonalAnchor x SpatialCoordination','Quality x robust families'],
+        'remaining_stage4_exact_pairs':['RLCS x PersonalAnchor','RLCS x SessionSignature','G5 x TemporalShape','PersonalAnchor x SpatialCoordination','Quality x historically validated robust families'],
         'boundary':'Recorded pair metrics and source hashes verified; full named-pair and historical-family coverage remains incomplete.'}
     output.write_text(json.dumps(audit,indent=2)+'\n',encoding='utf-8');print(json.dumps({'stage3_rows':sum(x['rows'] for x in stage3),'stage4_rows':sum(x['rows'] for x in stage4),'completion_proven':False}))
 

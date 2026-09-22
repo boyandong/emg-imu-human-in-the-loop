@@ -13,7 +13,7 @@ SCHEMAS={
     'calibration_curve.csv':('dataset','subject','session/domain','condition','shots_per_class','feature_bank','method','macro_f1','log_loss'),
     'ablation_full_bank.csv':('dataset','subject','session/domain','condition','shots_per_class','feature_bank','method','macro_f1','log_loss'),
 }
-ALIASES={'disagreement_rate':('disagreement','disagreement_fraction'),'calibration_budget':('shots_per_class',),
+ALIASES={'disagreement_rate':('disagreement_fraction',),'calibration_budget':('shots_per_class',),
          'feature_family':('family',),'delta_logloss':('delta_log_loss',),'core_bank':('core',),
          'added_family':('added',),'family_a':('A',),'family_b':('B',)}
 
@@ -34,9 +34,28 @@ def exclusion_notes(rules, name, row):
             and row.get(rule['field']) in rule['excluded_values']]
 
 
+def load_prediction_disagreement_recovery(results):
+    path=results/'prediction_disagreement_recovery.json'
+    if not path.exists():return {},None
+    artifact=json.loads(path.read_text(encoding='utf-8'))
+    source=results/'error_complementarity.csv'
+    if artifact['source_csv_sha256']!=hashlib.sha256(source.read_bytes()).hexdigest():
+        raise ValueError('Prediction disagreement recovery has stale source table')
+    recovered={}
+    for item in artifact['rows']:
+        key=(item['run_id'],int(item['source_row_1based']),item['source_record_sha256'])
+        value=float(item['prediction_disagreement_rate'])
+        if key in recovered or not 0<=value<=1:
+            raise ValueError('Invalid prediction disagreement recovery record')
+        recovered[key]=value
+    return recovered,hashlib.sha256(path.read_bytes()).hexdigest()
+
+
 def build(results,output):
     output.mkdir(parents=True,exist_ok=True);sources={};datasets=defaultdict(set);audits={}
     exclusion_rules=load_exclusions(results)
+    recovered_disagreement,recovery_sha=load_prediction_disagreement_recovery(results)
+    used_recovery=set()
     for name in SCHEMAS:
         with (results/name).open(encoding='utf-8-sig',newline='') as h:sources[name]=list(csv.DictReader(h))
         for row in sources[name]:
@@ -67,6 +86,16 @@ def build(results,output):
                 if not value:
                     for alias in ALIASES.get(field,()):
                         if row.get(alias):value=row[alias];notes[field]=f'source alias: {alias}';break
+                if not value and field=='disagreement_rate':
+                    key=(run,index,record_hash(row))
+                    if key in recovered_disagreement:
+                        minimum=sum(float(row[name]) for name in
+                                    ('a_correct_b_wrong','a_wrong_b_correct'))
+                        if recovered_disagreement[key]+1e-12<minimum:
+                            raise ValueError('Prediction disagreement below asymmetric correctness')
+                        value=str(recovered_disagreement[key])
+                        notes[field]='frozen held-out prediction replay; see prediction_disagreement_recovery.json'
+                        used_recovery.add(key)
                 if not value and field=='dataset' and len(datasets[run])==1:
                     value=next(iter(datasets[run]));notes[field]='same-run recorded dataset'
                 if not value and field in ('a_correct_b_wrong','a_wrong_b_correct') and row.get('evaluation_unit')=='whole_native_trial_mean':
@@ -105,7 +134,10 @@ def build(results,output):
                       'missing_by_run':{run:dict(counts) for run,counts in by_run.items()},
                       'source_csv_sha256':hashlib.sha256((results/name).read_bytes()).hexdigest(),
                       'canonical_csv_sha256':hashlib.sha256((output/name).read_bytes()).hexdigest()}
+    if used_recovery!=set(recovered_disagreement):
+        raise ValueError('Prediction disagreement recovery has unmatched source rows')
     audit={'status':'schema_complete_evidence_partial' if any(a['missing_field_counts'] for a in audits.values()) else 'ok',
+           'prediction_disagreement_recovery_sha256':recovery_sha,
            'artifacts':audits,'scope':'five required schemas; exact source record identities; no invented metrics/session IDs; N/A requires source repair or capability boundary',
            'warning':'presence of required columns does not establish scientific requirement completion'}
     (output/'SCHEMA_AUDIT.json').write_text(json.dumps(audit,indent=2,ensure_ascii=False),encoding='utf-8')
@@ -115,6 +147,9 @@ def build(results,output):
 def verify(results,output):
     audit=json.loads((output/'SCHEMA_AUDIT.json').read_text(encoding='utf-8'));count=0
     exclusion_rules=load_exclusions(results)
+    _,recovery_sha=load_prediction_disagreement_recovery(results)
+    if recovery_sha!=audit.get('prediction_disagreement_recovery_sha256'):
+        raise ValueError('Prediction disagreement recovery changed')
     for name,meta in audit['artifacts'].items():
         if hashlib.sha256((results/name).read_bytes()).hexdigest()!=meta['source_csv_sha256']:raise ValueError('Changed source table')
         if hashlib.sha256((output/name).read_bytes()).hexdigest()!=meta['canonical_csv_sha256']:raise ValueError('Changed canonical table')
