@@ -74,7 +74,7 @@
     "repetition_boundaries": null,
     "not_historical_DS2": true
   },
-  "test_count": 195,
+  "test_count": 197,
   "wearing_configuration_boundary": "New executions explicitly persist preprocessing/model/seed fields and reject invalid phases before loading final users. Existing saved experiments remain historical manifests; no retraining or retroactive configuration claim.",
   "reproducibility_metadata_inventory": {
     "artifact": "feature_bank/REPRODUCIBILITY_METADATA_AUDIT.json",
@@ -116,10 +116,12 @@
     "artifact": "feature_bank/STAGE3_4_CLAUSE_AUDIT.json",
     "quality_reference_pair_replay": "feature_bank/results/quality_family_interactions.json; frozen-provider four-arm comparison for F1/Ring/CSP/Spectral/Temporal versus Quality on clean and seven synthetic force conditions; true prediction disagreement, separate correctness disagreement and binary-error correlation; no model refit",
     "g5_reference_temporal_four_arm": "feature_bank/results/unibo_g5_temporal_interaction.json; source-day-calibrated native UniBo G0/G5/reference Temporal four arms, validation Day6 and frozen final Days7-8, prior three-arm Day6 replay exact",
+    "personal_anchor_reference_spatial_four_arm": "feature_bank/results/epn_anchor_spatial_interaction.json; frozen source-user OOF-temperature F0/reference-CSP providers with saved exact 1/2/5-shot PersonalAnchor states and splits on EPN validation16-18 and final19-21",
     "stage3_recorded_rows_reviewed": 400,
     "stage4_recorded_rows_reviewed": 48,
+    "stage4_reference_pooled_interaction_rows_reviewed": 6,
     "completion_proven": false,
-    "boundary": "Two priority reference interactions and several complementarity pairs covered; exact historical RLCS and remaining specified interactions are missing."
+    "boundary": "X1/reference-Frequency, X1/reference-CSP, validated-G5/reference-Temporal, PersonalAnchor/reference-CSP and several Quality interactions are covered; exact historical RLCS, TemporalShape, Spatial Coordination and other historical-family equivalence remain missing."
   },
   "epn_shortlist_independent_final": {
     "artifact": "feature_bank/results/epn_shortlist_final_replay.json",

@@ -1,0 +1,107 @@
+{
+  "completion_proven": false,
+  "pair": "PersonalAnchor x reference_SpatialCoordination_CSP",
+  "protocol": "Frozen source-user OOF-temperature F0/CSP providers; saved exact target calibration anchors and splits; fixed equal-provider four-arm replay",
+  "analysis_source_sha256": "1e11b6c9878f05e373d8669e5e8e3f10d3c97f97cd335e89d9a3e53c24830cd2",
+  "phases": {
+    "validation": {
+      "run_manifest_sha256": "3746f81f0672a7b35cfc2d8600f0ab353a02b0b3dce945aa764b55f9e815dfde",
+      "output_sha256": {
+        "arm_scores.csv": "b0e86b77c57e7d691b3b03b33676b7af9a0ade642f4735c7112b8d957dae26a7",
+        "interaction_results.csv": "423b901bde4464f1af51691053d7bde9abc01f0a6b6dffe93063cdbcf961abed",
+        "heldout_predictions.npz": "1e0f125f4d990fa2ef93c2885971f0e35fd56dbda30bc5751d7fddbcb3ca032e",
+        "split_trial_ids.json": "2f364c764450c88d1fdebc535ffaf4e64cc3b508ea257fc6dad5c00a819d576a"
+      }
+    },
+    "final": {
+      "run_manifest_sha256": "15e1c2b0717471db18832a03707060bc99c062f75ded1c38af4e85d26965ac3b",
+      "output_sha256": {
+        "arm_scores.csv": "d23ef43e0d93c01d2ec925b609970153651172ddf6c941e99aa5a6069bc5ea70",
+        "interaction_results.csv": "3422dffaf58bccc9077a225bebe1f06477b27a79497df1421d0b66f085e73402",
+        "heldout_predictions.npz": "948f55ab5613b295c817fbe13b87e4d059b0eb5e46a2c55dada8874d9bac59a2",
+        "split_trial_ids.json": "1be35af331a9ad6a0e1cabefba067e19d99c34a344c4b6eeb3782fb549c6a000"
+      }
+    }
+  },
+  "pooled_interactions": [
+    {
+      "phase": "validation",
+      "subject": "ALL",
+      "shots_per_class": 1,
+      "calibration_trials": 18,
+      "evaluation_trials": 432,
+      "base": "F0",
+      "spatial_family": "F2b_CSP_reference",
+      "anchor": "calibration_only_PersonalAnchor",
+      "S_negative_logloss": 0.06505954189582797,
+      "S_macro_f1": 0.011831549633110172,
+      "S_negative_brier": 0.0034469847773487133
+    },
+    {
+      "phase": "validation",
+      "subject": "ALL",
+      "shots_per_class": 2,
+      "calibration_trials": 36,
+      "evaluation_trials": 414,
+      "base": "F0",
+      "spatial_family": "F2b_CSP_reference",
+      "anchor": "calibration_only_PersonalAnchor",
+      "S_negative_logloss": 0.08969831453647115,
+      "S_macro_f1": 0.046585185117113515,
+      "S_negative_brier": 0.0054775421503851646
+    },
+    {
+      "phase": "validation",
+      "subject": "ALL",
+      "shots_per_class": 5,
+      "calibration_trials": 90,
+      "evaluation_trials": 360,
+      "base": "F0",
+      "spatial_family": "F2b_CSP_reference",
+      "anchor": "calibration_only_PersonalAnchor",
+      "S_negative_logloss": 0.11172611301533775,
+      "S_macro_f1": 0.018800584869383463,
+      "S_negative_brier": 0.006864782405115025
+    },
+    {
+      "phase": "final",
+      "subject": "ALL",
+      "shots_per_class": 1,
+      "calibration_trials": 18,
+      "evaluation_trials": 432,
+      "base": "F0",
+      "spatial_family": "F2b_CSP_reference",
+      "anchor": "calibration_only_PersonalAnchor",
+      "S_negative_logloss": 0.037145904867911694,
+      "S_macro_f1": 0.03904546851255669,
+      "S_negative_brier": 0.00256252765770254
+    },
+    {
+      "phase": "final",
+      "subject": "ALL",
+      "shots_per_class": 2,
+      "calibration_trials": 36,
+      "evaluation_trials": 414,
+      "base": "F0",
+      "spatial_family": "F2b_CSP_reference",
+      "anchor": "calibration_only_PersonalAnchor",
+      "S_negative_logloss": 0.038484983680940665,
+      "S_macro_f1": 0.0020816074772897486,
+      "S_negative_brier": 0.002067359870677507
+    },
+    {
+      "phase": "final",
+      "subject": "ALL",
+      "shots_per_class": 5,
+      "calibration_trials": 90,
+      "evaluation_trials": 360,
+      "base": "F0",
+      "spatial_family": "F2b_CSP_reference",
+      "anchor": "calibration_only_PersonalAnchor",
+      "S_negative_logloss": 0.07315202989365899,
+      "S_macro_f1": 0.029748897262115992,
+      "S_negative_brier": 0.003973626091319571
+    }
+  ],
+  "boundary": "The four matched arms test current PersonalAnchor by reference CSP probability composition on native EPN users. They do not recover historical Spatial Coordination/RLCS, prove causal physiology, or establish own-device performance."
+}

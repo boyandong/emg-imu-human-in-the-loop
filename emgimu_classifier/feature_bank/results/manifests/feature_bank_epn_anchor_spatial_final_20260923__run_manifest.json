@@ -1,0 +1,62 @@
+{
+  "phase": "final",
+  "source_run": "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_epn_probability_final_20260915",
+  "source_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "target_users": [
+    19,
+    20,
+    21
+  ],
+  "budgets": [
+    1,
+    2,
+    5
+  ],
+  "families": [
+    "F0",
+    "F2b_CSP"
+  ],
+  "arms": [
+    "B",
+    "B_plus_CSP",
+    "B_plus_Anchor",
+    "B_plus_CSP_plus_Anchor"
+  ],
+  "fusion": "fixed equal-provider mean",
+  "classifier_or_family_fit": false,
+  "temperature_fit": false,
+  "anchor_fit": false,
+  "target_rule_selection": false,
+  "source_state_immutable": true,
+  "source_sha256": {
+    "fitted_states.pkl": "cfcc9079a3ce8834895c1d2770a82b2a03b1967dd9588e6f914500e7cb2cb244",
+    "run_manifest.json": "f221194de0e2518656bb6a7ae5d6f3f313aea51661b6708fafbc2ce18adce407",
+    "probability_calibration.json": "18ab51194795d204a736847f4dd9db9ff1d1dbea2daaab09494501b75e669cbb",
+    "split_trial_ids.json": "785fe79a93938c25870556986e346476ae23fb3a6ef94aa59cc9ef5bf182f82f",
+    "heldout_predictions.npz": "ea0838b79a23169710e631f9ea35fe857382c011fa9b13cb9ef34a16d448e797"
+  },
+  "output_sha256": {
+    "arm_scores.csv": "d23ef43e0d93c01d2ec925b609970153651172ddf6c941e99aa5a6069bc5ea70",
+    "interaction_results.csv": "3422dffaf58bccc9077a225bebe1f06477b27a79497df1421d0b66f085e73402",
+    "heldout_predictions.npz": "948f55ab5613b295c817fbe13b87e4d059b0eb5e46a2c55dada8874d9bac59a2",
+    "split_trial_ids.json": "1be35af331a9ad6a0e1cabefba067e19d99c34a344c4b6eeb3782fb549c6a000"
+  },
+  "analysis_source_sha256": "1e11b6c9878f05e373d8669e5e8e3f10d3c97f97cd335e89d9a3e53c24830cd2",
+  "boundary": "Native EPN trial-level frozen F0/reference-CSP probability composition; saved calibration-only anchors and source-user OOF temperatures; not historical Spatial Coordination equivalence, feature concatenation, or own-device evidence."
+}

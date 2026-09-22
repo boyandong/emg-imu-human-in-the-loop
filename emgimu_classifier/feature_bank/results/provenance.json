@@ -384,6 +384,20 @@
     "bytes": 1286
   },
   {
+    "run_id": "feature_bank_epn_anchor_spatial_validation_20260923",
+    "artifact": "interaction_results.csv",
+    "sha256": "423b901bde4464f1af51691053d7bde9abc01f0a6b6dffe93063cdbcf961abed",
+    "bytes": 1814,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_epn_anchor_spatial_final_20260923",
+    "artifact": "interaction_results.csv",
+    "sha256": "3422dffaf58bccc9077a225bebe1f06477b27a79497df1421d0b66f085e73402",
+    "bytes": 1756,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
     "run_id": "feature_bank_epn_core_incremental_validation_20260915",
     "artifact": "interaction_results.csv",
     "sha256": "2306d65ad5cfca40e693db49df1fbbcfcfaa064e086bec6ece529ad5d45aede7",

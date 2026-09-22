@@ -7,6 +7,8 @@ import json
 
 
 RUNS = (
+    'feature_bank_epn_anchor_spatial_validation_20260923',
+    'feature_bank_epn_anchor_spatial_final_20260923',
     'feature_bank_epn612_anchor_temperature_validation_20260916_v2',
     'feature_bank_epn612_anchor_temperature_final_20260916_v2',
     'feature_bank_wearing_document_core_validation_20260916',

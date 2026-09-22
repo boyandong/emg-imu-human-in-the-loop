@@ -6,7 +6,7 @@ diagnostics are explicitly labelled. Model compositions and calibration rules ar
 from source evidence, validation evidence or prespecified controls; final scores do not tune them.
 Seed: 20260915. Classical logistic regression runs use CPU; no neural training is needed
 for these representation comparisons.
-The current suite has 196 tests (195 passed, one skipped); `results/validation.json` carries
+The current suite has 198 tests (197 passed, one skipped); `results/validation.json` carries
 the exact log hash. Older section-local test counts below are dated snapshots,
 not the current total. At this review, the collection application's documented
 default `collection/emg_meta/emg_meta/data` directory does not exist, so no
@@ -2518,3 +2518,39 @@ Only three final users are available. The final cohort is held out from this
 shortlist fit/selection, although it has been used by other project studies;
 this is not a pristine project-wide blind test. Reference Ring is not proven
 historical RLCS, and no cross-failure or own-device generalization follows.
+
+## Frozen EPN Personal Anchor × reference Spatial Coordination (2026-09-23)
+
+The remaining named Personal Anchor × Spatial Coordination question now has a
+matched four-arm reference comparison on native EPN trials. The arms are source
+population F0; source population F0+CSP; personally anchored F0; and personally
+anchored F0+CSP. Both population providers reuse source-user OOF temperatures.
+The personalized providers reuse the saved calibration-only `PersonalAnchor`
+objects, their saved distance temperatures, the fixed `shots/(shots+2)` blend,
+and exactly the same 1/2/5-shot calibration and evaluation trial IDs as the
+existing EPN probability study. No state or trial selection is refit. Validation
+uses users16–18; the unchanged code then evaluates final users19–21.
+
+| Pooled macro-F1 | F0 | F0+CSP | F0+Anchor | F0+CSP+Anchor |
+|---|---:|---:|---:|---:|
+| Validation 1-shot | .3946 | .3691 | .3676 | .3540 |
+| Validation 2-shot | .3981 | .3734 | .3638 | .3857 |
+| Validation 5-shot | .4104 | .3829 | .3730 | .3642 |
+| Final 1-shot | .4455 | .4454 | .3516 | .3905 |
+| Final 2-shot | .4462 | .4460 | .4213 | .4231 |
+| Final 5-shot | .4518 | .4465 | .3841 | .4087 |
+
+The negative-log-loss second difference is positive for every pooled cell
+(.0651/.0897/.1117 on validation and .0371/.0385/.0732 on final), as is the
+macro-F1 second difference. This only says that the joint degradation is less
+than the sum of the two individual degradations. Every full arm is below its
+matched F0 macro-F1, and every full arm has worse log loss, so the interaction
+does not support promotion. Different budgets remove different calibration
+trials; comparisons are only within a budget. The saved probability arrays,
+split IDs and per-user/pooled scores are under
+`work/benchmark_runs/feature_bank_epn_anchor_spatial_{validation,final}_20260923`;
+the compact hash record is `results/epn_anchor_spatial_interaction.json`.
+Current CSP is a document/reference candidate and is not proven identical to a
+missing historical Spatial Coordination implementation. This is offline EPN
+probability composition, not causal physiology, feature concatenation, streaming
+recognition or current-device performance.

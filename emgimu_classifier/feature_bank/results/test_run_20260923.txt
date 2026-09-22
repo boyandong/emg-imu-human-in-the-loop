@@ -1,0 +1,10 @@
+..................................................................... [ 34%]
+........................................................................ [ 71%]
+..............................s..........................     [100%]
+============================== warnings summary ===============================
+D:\miniconda\Lib\site-packages\_pytest\cacheprovider.py:469
+  D:\miniconda\Lib\site-packages\_pytest\cacheprovider.py:469: PytestCacheWarning: could not create cache path C:\Users\SCQ666\Documents\Codex\2026-09-13\files-pasted-by-the-user-emg\emg-imu-human-in-the-loop\emgimu_classifier\.pytest_cache\v\cache\nodeids: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\.pytest_cache\\v\\cache'
+    config.cache.set("cache/nodeids", sorted(self.cached_nodeids))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+197 passed, 1 skipped, 1 warning, 14 subtests passed in 14.71s

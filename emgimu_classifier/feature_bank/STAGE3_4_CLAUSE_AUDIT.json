@@ -71,7 +71,7 @@
     685,
     712
   ],
-  "interaction_table_sha256": "c1b59fb23f024a1b84c987828bfcfb2bef936c62365ca88f20d2f1ae530b2f87",
+  "interaction_table_sha256": "296de9630668d21501cdecb4326b98b4edc356f485fd22b1fdf16c1d596b3fac",
   "stage4_reviewed_priority_pairs": [
     {
       "requirement": "X1 x Frequency",
@@ -125,11 +125,25 @@
     "status": "verified_reference_temporal_pair_not_historical_exact",
     "boundary": "Four matched source-calibrated concatenated classifiers, correlated native windows. Reference TemporalForm is not proven to equal exact historical TemporalShape; negative pooled log-loss interactions and no consistent user gains."
   },
+  "stage4_personal_anchor_reference_spatial": {
+    "artifact": "results/epn_anchor_spatial_interaction.json",
+    "artifact_sha256": "39364a266c8b8de91d680ad77777827957927a89867728529f48cc551241fe41",
+    "native_dataset": "EPN native eight-channel; frozen source users1-15; validation16-18, final19-21",
+    "pair": "PersonalAnchor x reference_SpatialCoordination_CSP",
+    "budgets": [
+      1,
+      2,
+      5
+    ],
+    "pooled_interaction_rows": 6,
+    "status": "verified_reference_spatial_pair_not_historical_exact",
+    "boundary": "Four matched trial-level probability arms reuse saved calibration-only anchors, exact splits and source-user OOF temperatures. Reference CSP is not proven to equal a missing historical Spatial Coordination implementation; every full arm remains below F0 macro-F1."
+  },
   "remaining_stage4_exact_pairs": [
     "RLCS x PersonalAnchor",
     "RLCS x SessionSignature",
     "G5 x TemporalShape",
-    "PersonalAnchor x SpatialCoordination",
+    "PersonalAnchor x exact historical SpatialCoordination",
     "Quality x historically validated robust families"
   ],
   "boundary": "Recorded pair metrics and source hashes verified; full named-pair and historical-family coverage remains incomplete."
