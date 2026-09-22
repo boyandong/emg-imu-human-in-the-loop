@@ -163,7 +163,9 @@ def late_fusion(
 ) -> np.ndarray:
     available = tuple(item for item in family_ids if item in probabilities)
     arrays = [np.asarray(probabilities[item], dtype=np.float64) for item in available]
-    if not arrays or any(array.shape != arrays[0].shape for array in arrays):
+    if (not arrays or arrays[0].ndim != 2
+            or any(array.shape != arrays[0].shape or not np.isfinite(array).all()
+                   for array in arrays)):
         raise ValueError("family probabilities must be non-empty and aligned")
     base = np.asarray(weights, dtype=np.float64)
     if base.shape != (len(family_ids),) or not np.all(np.isfinite(base)) or np.any(base < 0) or base.sum() <= 0:
@@ -175,13 +177,71 @@ def late_fusion(
     if quality is not None:
         for index, family in enumerate(available):
             if family in quality:
-                per_row[:, index] *= np.clip(np.asarray(quality[family], dtype=np.float64), 0.0, 1.0)
+                values = np.asarray(quality[family], dtype=np.float64)
+                if values.shape != (len(per_row),) or not np.isfinite(values).all():
+                    raise ValueError("quality must be finite and aligned with family probabilities")
+                per_row[:, index] *= np.clip(values, 0.0, 1.0)
     # A fully rejected window still needs a valid probability distribution.
     rejected = per_row.sum(axis=1) <= EPS
     per_row[rejected] = base
     per_row /= np.maximum(per_row.sum(axis=1, keepdims=True), EPS)
     fused = sum(per_row[:, index, None] * array for index, array in enumerate(arrays))
     return (fused / np.maximum(fused.sum(axis=1, keepdims=True), EPS)).astype(np.float64)
+
+
+@dataclass(frozen=True, slots=True)
+class FusionDecision:
+    probabilities: np.ndarray
+    labels: tuple[str, ...]
+    rejected: np.ndarray
+    rejection_reason: tuple[str, ...]
+
+
+def late_fusion_decision(
+    probabilities: Mapping[str, np.ndarray],
+    family_ids: tuple[str, ...],
+    weights: np.ndarray,
+    class_labels: tuple[str, ...],
+    quality: Mapping[str, np.ndarray] | None = None,
+    *,
+    minimum_confidence: float = 0.0,
+    unknown_label: str = "Unknown",
+) -> FusionDecision:
+    """Return an explicit Unknown decision while retaining scoreable probabilities.
+
+    A confidence cutoff must be chosen from source/validation data before this
+    function is applied to a held-out set. The default only rejects windows
+    with no effective provider after quality routing.
+    """
+    if (not np.isfinite(minimum_confidence)
+            or not 0.0 <= minimum_confidence <= 1.0):
+        raise ValueError("minimum_confidence must be between zero and one")
+    fused = late_fusion(probabilities, family_ids, weights, quality)
+    if (len(class_labels) != fused.shape[1] or len(set(class_labels)) != len(class_labels)
+            or unknown_label in class_labels):
+        raise ValueError("class labels must be unique, aligned and exclude Unknown")
+    available = tuple(family for family in family_ids if family in probabilities)
+    base = np.asarray(weights, dtype=np.float64)[
+        [family_ids.index(family) for family in available]]
+    effective = np.broadcast_to(base[None, :], (len(fused), len(base))).copy()
+    if quality is not None:
+        for index, family in enumerate(available):
+            if family in quality:
+                effective[:, index] *= np.clip(
+                    np.asarray(quality[family], dtype=np.float64), 0.0, 1.0)
+    no_provider = base.sum() <= EPS
+    no_quality = effective.sum(axis=1) <= EPS
+    low_confidence = np.max(fused, axis=1) < minimum_confidence
+    reasons = tuple(
+        "no_weighted_provider" if no_provider else
+        "all_quality_rejected" if no_quality[row] else
+        "low_confidence" if low_confidence[row] else ""
+        for row in range(len(fused))
+    )
+    labels = np.asarray(class_labels, dtype=object)[np.argmax(fused, axis=1)]
+    rejected = np.asarray([bool(reason) for reason in reasons], dtype=bool)
+    labels[rejected] = unknown_label
+    return FusionDecision(fused, tuple(map(str, labels)), rejected, reasons)
 
 
 class SessionSignature:

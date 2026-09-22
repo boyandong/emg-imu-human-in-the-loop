@@ -1,10 +1,10 @@
 {
-  "date": "2026-09-22",
-  "command": "$env:PYTHONPATH='src'; python -m unittest discover -s tests",
-  "tests_run": 195,
+  "date": "2026-09-23",
+  "command": "$env:PYTHONPATH='src'; D:\\miniconda\\envs\\emgforce\\python.exe -m pytest tests -q --disable-warnings",
+  "tests_run": 196,
+  "passed": 195,
   "skipped": 1,
   "result": "OK",
-  "compileall": "new EPN frozen-shortlist final replay module and split-guard test passed",
   "scope": "unit and synthetic integration checks; no live-device accuracy claim",
-  "test_log_sha256": "1d7aba8f3f7f74b8a311c2344636357d3e5f4560c8baf72c59fbb6cd8f1495e8"
+  "test_log_sha256": "c0376959b206463161f54695158452f61349bbf061c9182c7974518ae3c03d7d"
 }

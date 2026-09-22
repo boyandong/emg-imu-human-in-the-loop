@@ -6,7 +6,7 @@ diagnostics are explicitly labelled. Model compositions and calibration rules ar
 from source evidence, validation evidence or prespecified controls; final scores do not tune them.
 Seed: 20260915. Classical logistic regression runs use CPU; no neural training is needed
 for these representation comparisons.
-The current suite has 195 tests (one skipped); `results/validation.json` carries
+The current suite has 196 tests (195 passed, one skipped); `results/validation.json` carries
 the exact log hash. Older section-local test counts below are dated snapshots,
 not the current total. At this review, the collection application's documented
 default `collection/emg_meta/emg_meta/data` directory does not exist, so no
@@ -38,6 +38,16 @@ It requires an IMU window, coverage near both interval edges, matched stream
 lengths and finite gyro/accel values. Missing-window and NaN regressions fail;
 the full collection suite passes. This does not prove precise EMG–IMU clock
 synchronization or task-specific motion quality.
+Fusion now has a separate `late_fusion_decision` API: scoreable probabilities
+remain unchanged, while an all-zero effective quality weight or a prespecified
+confidence cutoff returns explicit `Unknown`. Invalid quality values are
+rejected. A fixed zero-cutoff replay of saved force quality probabilities
+(`results/quality_unknown_replay.json`) covers 16 phase/scenario cells and
+matches every saved fused probability array. No validation window is rejected;
+one of 588 final trials is rejected in seven scenarios, including clean, and
+none in synthetic saturation. The same trial drives all seven cells, so this
+rule does not establish useful corruption detection or higher selective
+accuracy. No threshold was tuned on final data or deployed to the live app.
 
 The previous 28-row `REQUIREMENT_AUDIT.csv` is a triage summary, not an exhaustive
 acceptance checklist; its broad locators must not be treated as exact source references.

@@ -12,7 +12,10 @@ from .families import (
     TraceCovarianceFamily,
     default_registry,
 )
-from .calibration import PersonalAnchor, PersonalNormalizer, ReliabilityWeights, SessionSignature, late_fusion
+from .calibration import (
+    FusionDecision, PersonalAnchor, PersonalNormalizer, ReliabilityWeights,
+    SessionSignature, late_fusion, late_fusion_decision,
+)
 from .temporal import PathSignatureFamily, TemporalTemplateFamily, CompleteSequenceBatch, dtw_distance
 from .body_frame import CalibratedBodyContextFamily
 from .spd_anchor import SpdTangentPersonalAnchor
@@ -24,6 +27,7 @@ __all__ = [
     "FeatureBatch",
     "FeatureFamily",
     "FeatureRegistry",
+    "FusionDecision",
     "LocalDetailFamily",
     "PathSignatureFamily",
     "PersonalAnchor",
@@ -43,4 +47,5 @@ __all__ = [
     "default_registry",
     "dtw_distance",
     "late_fusion",
+    "late_fusion_decision",
 ]

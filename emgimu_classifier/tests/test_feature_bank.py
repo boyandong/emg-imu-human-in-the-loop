@@ -24,6 +24,7 @@ from emgimu.feature_bank import (
     TraceCovarianceFamily,
     default_registry,
     late_fusion,
+    late_fusion_decision,
 )
 
 
@@ -163,6 +164,35 @@ class CalibrationTests(unittest.TestCase):
         for weights in (np.zeros(2), np.asarray([np.nan, 1.0])):
             with self.assertRaises(ValueError):
                 late_fusion(probabilities, ("a", "b"), weights)
+
+    def test_quality_rejection_returns_unknown_without_changing_probabilities(self) -> None:
+        probabilities = {
+            "a": np.asarray([[0.8, 0.2], [0.8, 0.2], [0.6, 0.4]]),
+            "b": np.asarray([[0.2, 0.8], [0.2, 0.8], [0.4, 0.6]]),
+        }
+        quality = {"a": np.asarray([1.0, 0.0, 1.0]),
+                   "b": np.asarray([0.0, 0.0, 1.0])}
+        weights = np.asarray([0.75, 0.25])
+        decision = late_fusion_decision(
+            probabilities, ("a", "b"), weights, ("rest", "fist"), quality,
+            minimum_confidence=0.7)
+        np.testing.assert_allclose(decision.probabilities,
+                                   late_fusion(probabilities, ("a", "b"), weights, quality))
+        self.assertEqual(decision.labels, ("rest", "Unknown", "Unknown"))
+        self.assertEqual(decision.rejection_reason,
+                         ("", "all_quality_rejected", "low_confidence"))
+        np.testing.assert_array_equal(decision.rejected, [False, True, True])
+        unavailable = late_fusion_decision(
+            {"a": probabilities["a"][:1]}, ("a", "b"), np.asarray([0.0, 1.0]),
+            ("rest", "fist"))
+        self.assertEqual(unavailable.labels, ("Unknown",))
+        self.assertEqual(unavailable.rejection_reason, ("no_weighted_provider",))
+        with self.assertRaisesRegex(ValueError, "quality must be finite"):
+            late_fusion(probabilities, ("a", "b"), weights,
+                        {"a": np.asarray([1.0, np.nan, 0.0])})
+        with self.assertRaisesRegex(ValueError, "minimum_confidence"):
+            late_fusion_decision(probabilities, ("a", "b"), weights,
+                                 ("rest", "fist"), minimum_confidence=1.1)
 
     def test_unavailable_family_is_skipped_and_weights_renormalized(self) -> None:
         p = np.asarray([[0.8, 0.2], [0.3, 0.7]])

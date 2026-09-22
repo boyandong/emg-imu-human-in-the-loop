@@ -1,0 +1,207 @@
+{
+  "status": "frozen_probability_replay",
+  "rule": "Unknown only when all available quality-weighted providers have zero weight; confidence threshold 0",
+  "sources": {
+    "validation": {
+      "run_id": "feature_bank_force_quality_validation_20260915",
+      "predictions_sha256": "5a6f582382dfe9efc3bd71992c85ac7a2da0313d70272e67cd5c3cabab0fb556",
+      "manifest_sha256": "cbac6d1f6f74234d922fae599e7efb16645ea8d2ef686da7eff561140240b8c2"
+    },
+    "final": {
+      "run_id": "feature_bank_force_quality_final_20260915",
+      "predictions_sha256": "5b3a2216448087e78679778e5fa324cdaaafd75ac7ce7b46e27aa1e1951b9a7b",
+      "manifest_sha256": "fa82666fad559d8fd78b3a580c7b5b293f681c40d8215c8ba752c0421fe24aef"
+    }
+  },
+  "rows": [
+    {
+      "phase": "validation",
+      "scenario": "clean",
+      "windows": 588,
+      "unknown_count": 0,
+      "unknown_rate": 0.0,
+      "unknown_users": [],
+      "unknown_trial_ids": [],
+      "fallback_correct_count": 0
+    },
+    {
+      "phase": "validation",
+      "scenario": "gaussian_0.25_source_rms",
+      "windows": 588,
+      "unknown_count": 0,
+      "unknown_rate": 0.0,
+      "unknown_users": [],
+      "unknown_trial_ids": [],
+      "fallback_correct_count": 0
+    },
+    {
+      "phase": "validation",
+      "scenario": "gaussian_0.5_source_rms",
+      "windows": 588,
+      "unknown_count": 0,
+      "unknown_rate": 0.0,
+      "unknown_users": [],
+      "unknown_trial_ids": [],
+      "fallback_correct_count": 0
+    },
+    {
+      "phase": "validation",
+      "scenario": "line_50Hz_source_rms",
+      "windows": 588,
+      "unknown_count": 0,
+      "unknown_rate": 0.0,
+      "unknown_users": [],
+      "unknown_trial_ids": [],
+      "fallback_correct_count": 0
+    },
+    {
+      "phase": "validation",
+      "scenario": "synthetic_source_q99_saturation",
+      "windows": 588,
+      "unknown_count": 0,
+      "unknown_rate": 0.0,
+      "unknown_users": [],
+      "unknown_trial_ids": [],
+      "fallback_correct_count": 0
+    },
+    {
+      "phase": "validation",
+      "scenario": "dropout_ch3",
+      "windows": 588,
+      "unknown_count": 0,
+      "unknown_rate": 0.0,
+      "unknown_users": [],
+      "unknown_trial_ids": [],
+      "fallback_correct_count": 0
+    },
+    {
+      "phase": "validation",
+      "scenario": "contiguous_half_flatline_ch3",
+      "windows": 588,
+      "unknown_count": 0,
+      "unknown_rate": 0.0,
+      "unknown_users": [],
+      "unknown_trial_ids": [],
+      "fallback_correct_count": 0
+    },
+    {
+      "phase": "validation",
+      "scenario": "gain2_ch3",
+      "windows": 588,
+      "unknown_count": 0,
+      "unknown_rate": 0.0,
+      "unknown_users": [],
+      "unknown_trial_ids": [],
+      "fallback_correct_count": 0
+    },
+    {
+      "phase": "final",
+      "scenario": "clean",
+      "windows": 588,
+      "unknown_count": 1,
+      "unknown_rate": 0.0017006802721088435,
+      "unknown_users": [
+        "9"
+      ],
+      "unknown_trial_ids": [
+        "S9_MVC_C7_R1"
+      ],
+      "fallback_correct_count": 1
+    },
+    {
+      "phase": "final",
+      "scenario": "gaussian_0.25_source_rms",
+      "windows": 588,
+      "unknown_count": 1,
+      "unknown_rate": 0.0017006802721088435,
+      "unknown_users": [
+        "9"
+      ],
+      "unknown_trial_ids": [
+        "S9_MVC_C7_R1"
+      ],
+      "fallback_correct_count": 1
+    },
+    {
+      "phase": "final",
+      "scenario": "gaussian_0.5_source_rms",
+      "windows": 588,
+      "unknown_count": 1,
+      "unknown_rate": 0.0017006802721088435,
+      "unknown_users": [
+        "9"
+      ],
+      "unknown_trial_ids": [
+        "S9_MVC_C7_R1"
+      ],
+      "fallback_correct_count": 1
+    },
+    {
+      "phase": "final",
+      "scenario": "line_50Hz_source_rms",
+      "windows": 588,
+      "unknown_count": 1,
+      "unknown_rate": 0.0017006802721088435,
+      "unknown_users": [
+        "9"
+      ],
+      "unknown_trial_ids": [
+        "S9_MVC_C7_R1"
+      ],
+      "fallback_correct_count": 1
+    },
+    {
+      "phase": "final",
+      "scenario": "synthetic_source_q99_saturation",
+      "windows": 588,
+      "unknown_count": 0,
+      "unknown_rate": 0.0,
+      "unknown_users": [],
+      "unknown_trial_ids": [],
+      "fallback_correct_count": 0
+    },
+    {
+      "phase": "final",
+      "scenario": "dropout_ch3",
+      "windows": 588,
+      "unknown_count": 1,
+      "unknown_rate": 0.0017006802721088435,
+      "unknown_users": [
+        "9"
+      ],
+      "unknown_trial_ids": [
+        "S9_MVC_C7_R1"
+      ],
+      "fallback_correct_count": 0
+    },
+    {
+      "phase": "final",
+      "scenario": "contiguous_half_flatline_ch3",
+      "windows": 588,
+      "unknown_count": 1,
+      "unknown_rate": 0.0017006802721088435,
+      "unknown_users": [
+        "9"
+      ],
+      "unknown_trial_ids": [
+        "S9_MVC_C7_R1"
+      ],
+      "fallback_correct_count": 0
+    },
+    {
+      "phase": "final",
+      "scenario": "gain2_ch3",
+      "windows": 588,
+      "unknown_count": 1,
+      "unknown_rate": 0.0017006802721088435,
+      "unknown_users": [
+        "9"
+      ],
+      "unknown_trial_ids": [
+        "S9_MVC_C7_R1"
+      ],
+      "fallback_correct_count": 1
+    }
+  ],
+  "boundary": "Synthetic force corruptions and saved model probabilities only; no source refit, threshold selection, live-device accuracy, or precise quality calibration claim."
+}
