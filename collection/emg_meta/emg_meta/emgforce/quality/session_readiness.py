@@ -15,6 +15,7 @@ from emgforce.collection_protocol import (
     SESSION_MANIFEST_FILENAME, TIMESTAMP_SOURCE,
 )
 from emgforce.config import EMG_CHANNELS, IMU_SAMPLING_RATE, SAMPLING_RATE
+from emgforce.quality.monitor import SignalQualityMonitor
 
 
 REQUIRED_METADATA = (
@@ -167,9 +168,13 @@ def generate_session_readiness(
                 problems.append("存在没有保守稳定标签区间的有效 trial")
 
             emg_indices = np.asarray(handle["streams/emg/sample_index"][:], dtype=np.int64)
+            emg_raw = handle["streams/emg/raw"]
+            sample_counts_match = len(emg_indices) == len(emg_raw)
             indices_ordered = bool(len(emg_indices) and np.all(np.diff(emg_indices) > 0))
             invalid_recorded_intervals: list[int] = []
             overlapping_intervals: list[int] = []
+            signal_quality_failures: dict[str, list[str]] = {}
+            quality_monitor = SignalQualityMonitor()
             previous_end = -1
             for row in sorted((row for row in formal_rows if bool(row["valid"])),
                               key=lambda item: int(item["stable_start_sample"])):
@@ -195,21 +200,31 @@ def generate_session_readiness(
                 else:
                     longest_run = 0
                     within_recording = False
-                if (not within_trial or not within_recording
+                if (not sample_counts_match or not within_trial or not within_recording
                         or longest_run < MIN_STABLE_EMG_SAMPLES):
                     invalid_recorded_intervals.append(trial_id)
+                else:
+                    signal_reasons = quality_monitor.continuous_reasons(emg_raw[first:last])
+                    if signal_reasons:
+                        signal_quality_failures[str(trial_id)] = signal_reasons
             checks["stable_interval_data"] = {
                 "emg_samples": len(emg_indices),
+                "raw_and_index_counts_match": sample_counts_match,
                 "sample_indices_strictly_increasing": indices_ordered,
                 "outside_trial_or_recording_or_under_200ms": invalid_recorded_intervals,
                 "overlapping_trial_ids": overlapping_intervals,
+                "signal_quality_failures": signal_quality_failures,
             }
+            if not sample_counts_match:
+                problems.append("EMG 原始数据与样本序号长度不一致")
             if not indices_ordered:
                 problems.append("EMG 样本序号为空或不严格递增")
             if invalid_recorded_intervals:
                 problems.append("有效 trial 的稳定区间没有至少 200 ms 的独立录制 EMG 数据")
             if overlapping_intervals:
                 problems.append("有效 trial 的稳定区间相互重叠")
+            if signal_quality_failures:
+                problems.append("有效 trial 的稳定区间存在平直通道或削顶")
 
             offset_counts: dict[str, Counter[int]] = defaultdict(Counter)
             for row in formal_rows:

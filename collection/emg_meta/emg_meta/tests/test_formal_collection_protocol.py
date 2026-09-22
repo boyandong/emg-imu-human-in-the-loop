@@ -79,7 +79,9 @@ def test_complete_formal_hdf5_passes_collection_readiness(tmp_path: Path) -> Non
     recorder = Hdf5Recorder(batch_samples=100)
     recorder.start(path, metadata)
     emg_samples = len(sequence) * 256
-    recorder.enqueue_emg(np.ones((emg_samples, 8), np.int32), np.arange(emg_samples),
+    emg = np.random.default_rng(7).integers(
+        -1000, 1000, size=(emg_samples, 8), dtype=np.int32)
+    recorder.enqueue_emg(emg, np.arange(emg_samples),
                          np.arange(emg_samples, dtype=np.uint8))
     recorder.enqueue_imu(np.ones((224, 3), np.float32), np.ones((224, 3), np.float32),
                          np.arange(224, dtype=np.int64), np.arange(224, dtype=np.uint8),
@@ -142,6 +144,7 @@ def test_complete_formal_hdf5_passes_collection_readiness(tmp_path: Path) -> Non
         formal_indices = [index for index, row in enumerate(trials[:])
                           if row["trial_kind"] == b"formal"]
         first, second = formal_indices[:2]
+        original_second = trials[second]
         duplicated = trials[second]
         duplicated["stable_start_sample"] = trials[first]["stable_start_sample"]
         duplicated["stable_end_sample"] = trials[first]["stable_end_sample"]
@@ -149,3 +152,14 @@ def test_complete_formal_hdf5_passes_collection_readiness(tmp_path: Path) -> Non
     invalid = generate_session_readiness(path)
     assert invalid["status"] == "failed"
     assert invalid["checks"]["stable_interval_data"]["overlapping_trial_ids"]
+    with h5py.File(path, "r+") as handle:
+        trials = handle["trials"]
+        trials[second] = original_second
+        stable_start = int(trials[first]["stable_start_sample"])
+        stable_end = int(trials[first]["stable_end_sample"])
+        first_trial_id = int(trials[first]["trial_id"])
+        handle["streams/emg/raw"][stable_start:stable_end, 0] = 0
+    invalid_signal = generate_session_readiness(path)
+    assert invalid_signal["status"] == "failed"
+    assert str(first_trial_id) in invalid_signal["checks"][
+        "stable_interval_data"]["signal_quality_failures"]

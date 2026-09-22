@@ -21,6 +21,10 @@ contiguous 200 ms EMG window. The previous synthetic fixture had allowed 144
 trials to share a tiny interval; its repaired fixture uses separate recorded
 intervals, and an overlap regression is rejected. The collection test suite
 passes in `emgforce`; this remains a software integrity check, not device data.
+The gate also reapplies the existing continuous signal-quality rule to each
+valid formal interval and rejects a flat or clipped channel even when the
+saved pre-session quality report says `passed`. A flat-channel regression and
+the full collection test suite pass.
 
 The previous 28-row `REQUIREMENT_AUDIT.csv` is a triage summary, not an exhaustive
 acceptance checklist; its broad locators must not be treated as exact source references.
