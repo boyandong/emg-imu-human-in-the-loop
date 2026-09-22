@@ -2439,3 +2439,36 @@ hashes, and changes no source row. All 402 legacy rows now have true
 prediction disagreement; all 49,704 canonical records pass provenance checks.
 The broader schema remains evidence-partial because other fields still lack
 source support.
+
+## Frozen EPN shortlist on independent final users (2026-09-22)
+
+The four-family F0+Ring+CSP+real-IMU shortlist was selected on EPN development
+users 16–18. `epn_shortlist_final_replay.py` loads its existing family and
+classifier states fitted on source users 1–15, first reproduces all 12 saved
+development-model probability arrays exactly (maximum error zero), then applies
+those unchanged states to final users 19–21. Source, development and final
+native trial identities are disjoint. There is no new feature/model fitting,
+target calibration, weight selection or final-score-driven arm choice. The
+450 final trials and 12 model probabilities, full/removal scores and split IDs
+are under `work/benchmark_runs/feature_bank_epn_shortlist_final_replay_20260922`;
+`results/epn_shortlist_final_replay.json` records input/output SHA-256 hashes.
+The 48 final subject/model score rows and 20 full/removal rows are also copied
+to `results/epn_shortlist_final_results.csv` and
+`results/epn_shortlist_final_ablation.csv`; their bytes match the replay hashes.
+
+| Final pooled macro-F1 / log loss | F0 | Full | Minus F0 | Minus Ring | Minus CSP | Minus IMU |
+|---|---:|---:|---:|---:|---:|---:|
+| Macro-F1 | .4407 | .4458 | .3783 | .4721 | .4736 | .4237 |
+| Log loss | 1.4556 | 1.5391 | 1.6342 | 1.4152 | 1.4796 | 1.6126 |
+
+The development full-bank gain does not generalize clearly: final pooled F1
+barely exceeds F0 while log loss worsens. Removing Ring or CSP improves final
+F1; removing F0 or real IMU harms it. The prespecified F0+IMU single-addition
+arm reaches .4978 F1 and 1.3998 log loss, but these final outcomes cannot be
+used to retroactively select a new bank and call its performance independent.
+The minimum of the three final user F1 scores is .3965 for the full bank versus
+.4263 for F0, so even this narrow user-robustness floor is not raised.
+Only three final users are available. The final cohort is held out from this
+shortlist fit/selection, although it has been used by other project studies;
+this is not a pristine project-wide blind test. Reference Ring is not proven
+historical RLCS, and no cross-failure or own-device generalization follows.

@@ -1,10 +1,10 @@
 {
   "date": "2026-09-22",
   "command": "$env:PYTHONPATH='src'; python -m unittest discover -s tests",
-  "tests_run": 192,
+  "tests_run": 195,
   "skipped": 1,
   "result": "OK",
-  "compileall": "modified frozen-state recovery, canonical delivery and new recovery test passed",
+  "compileall": "new EPN frozen-shortlist final replay module and split-guard test passed",
   "scope": "unit and synthetic integration checks; no live-device accuracy claim",
-  "test_log_sha256": "1d385fc13c4f4c1dab51dbc77232ee852b45270e9ea7bd75dc8e1f2b55701346"
+  "test_log_sha256": "1d7aba8f3f7f74b8a311c2344636357d3e5f4560c8baf72c59fbb6cd8f1495e8"
 }
