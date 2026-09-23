@@ -96,8 +96,8 @@
   "wearing_configuration_boundary": "New executions explicitly persist preprocessing/model/seed fields and reject invalid phases before loading final users. Existing saved experiments remain historical manifests; no retraining or retroactive configuration claim.",
   "reproducibility_metadata_inventory": {
     "artifact": "feature_bank/REPRODUCIBILITY_METADATA_AUDIT.json",
-    "saved_run_manifests": 115,
-    "required_field_rows": 1035,
+    "saved_run_manifests": 121,
+    "required_field_rows": 1089,
     "completion_proven": false,
     "boundary": "Explicit metadata key inventory; not_located means no candidate alias located, not proof the information is absent from all artifacts."
   },
@@ -170,7 +170,7 @@
     "native_heldout_result": "EPN users16-18 validation and19-21 final; 1/2/5 full-trial calibration per class, frozen source users1-15; trial predictions and pooled scores in work/benchmark_runs/feature_bank_epn_spd_anchor_{validation,final}_20260922",
     "compact_evidence": "feature_bank/results/epn_spd_anchor_trial_study.json",
     "final_pooled_macro_f1_1_2_5": [0.29074518886012973, 0.3573396054073348, 0.44333373986233077],
-    "matched_core_late_fusion_evidence": "feature_bank/results/epn_spd_anchor_core_increment_{validation,final}.json; frozen four-family Core and SPD personal trial predictions aligned on validation users16-18 and final users19-21 for 1/2/5-shot budgets, fixed equal probability mixture",
+    "matched_core_late_fusion_evidence": "feature_bank/results/epn_spd_anchor_core_increment_{validation,final}.json plus canonical family/increment/calibration rows; frozen four-family Core and SPD personal trial predictions aligned on validation users16-18 and final users19-21 for 1/2/5-shot budgets, fixed equal probability mixture",
     "boundary": "Tangent-space Frobenius-equivalent EPN candidate with mixed validation/final behavior. A matched fixed late-fusion increment exists, but final users were previously examined and the result is exploratory; no zero-shot personal anchor, newly fitted concatenated Core increment, exact affine-invariant geodesic, historical family equivalence or own-device validation."
   }
 }

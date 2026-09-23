@@ -1,0 +1,68 @@
+{
+  "phase": "final",
+  "dataset": "epn612",
+  "source_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "target_users": [
+    19,
+    20,
+    21
+  ],
+  "calibration_budgets": [
+    1,
+    2,
+    5
+  ],
+  "families": [
+    "F0",
+    "F3_Ring",
+    "F2b_CSP",
+    "F6_IMU",
+    "F7_SPD_tangent_personal_anchor"
+  ],
+  "methods": [
+    "F0",
+    "Core",
+    "SPD_Anchor",
+    "Core_plus_SPD_Anchor"
+  ],
+  "model_hyperparameters": {
+    "fixed_mixture_core_weight": 0.5
+  },
+  "preprocessing_config": "frozen native-trial prediction inputs; see source manifests",
+  "split_ids": "exact source calibration/evaluation trial IDs verified by replay; source hashes below",
+  "random_seeds": {
+    "reused_calibration_selection": 20260915
+  },
+  "source_result": "feature_bank\\results\\epn_spd_anchor_core_increment_final.json",
+  "source_result_sha256": "f1617521f2c95b2841471970f6bf13be95cf9b15dcf0fdadd156d86f0c497c29",
+  "source_inputs_sha256": {
+    "core_predictions": "c8d9dd03297e7b268dce7a67ef845f377a7f1117ad4dd40691e46c4641a11d04",
+    "core_audit": "b8d7b1af08a78cfe8645313cd185cb47b4687e6981a6c1c80ac4b69c6a28ec98",
+    "spd_anchor_predictions": "c903abb586d7f3fcd29a9bfb63959d4a40e4b509ec438880b35127f8cbfd9320",
+    "spd_anchor_audit": "230b54806f9c5cef83be0aa96d2d997ed7528a5cc90b6f0597a10fa4278d6e4a",
+    "selection": "2b5f99e39c123ab2fb8454e5c40081487d2aa4d72ce5767303780ac91b4defa7"
+  },
+  "export_script_sha256": "57392b96260e1ad307a863232c2556cf5077da5a8397300262c1753a5aa95495",
+  "output_sha256": {
+    "feature_family_results.csv": "68fdb1df8853e72559ef4a58418f6ba2389d259bb01a22bd4527204be1310d11",
+    "conditional_incremental.csv": "4b778c37598215841de71cd7f75e4801ab5fe872c82caecc9fe0515b4febdf5b",
+    "calibration_curve.csv": "312ec3f8d0a371e483d0a17cc73dea2ebff8e42c226e675ab80a6c77a945c0ee"
+  },
+  "boundary": "Matched native EPN trial replay of a fixed late-fusion increment. Validation users selected the Core and final users were already examined in other project analyses, so this is exploratory rather than a pristine confirmatory test. It is not a newly fitted concatenated-feature Core, calibrated fusion weight, historical RLCS, or own-device accuracy."
+}

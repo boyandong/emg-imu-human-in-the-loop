@@ -1,8 +1,8 @@
 {
   "status": "metadata_inventory_scientific_acceptance_unproven",
   "completion_proven": false,
-  "saved_run_manifests": 115,
-  "required_field_inventory_rows": 1035,
+  "saved_run_manifests": 121,
+  "required_field_inventory_rows": 1089,
   "sources_sha256": {
     "feature_bank_electrode_shift_audited_final_20260915__run_manifest.json": "6c6983e38687bc49fadc39fa6a72a73d3c057fc611e4d3d8d87b748fea439004",
     "feature_bank_electrode_shift_audited_final_20260915__subject_split_trial_ids.json": "9400705ab68734a6c68b8c1d6713a8e885a8be79e66419c15806b963c73813d3",
@@ -20,6 +20,10 @@
     "feature_bank_epn612_trial_finetune_final_20260915__run_manifest.json": "7c527b464a1d6ce475c359abc929e9f924a2945939b4d67d158860896a20f50d",
     "feature_bank_epn612_trial_finetune_validation_20260915__run_manifest.json": "709ae01fca0a587247c3860336b0d25ac1554090fd5d351df7fd92f17452ecd1",
     "feature_bank_epn612_trial_validation_20260915__run_manifest.json": "fabd4a3edb4c40d19dd001addc16107446b72c5a2865f47bf2b39c83b3feac45",
+    "feature_bank_epn_anchor_spatial_final_20260923__run_manifest.json": "15e1c2b0717471db18832a03707060bc99c062f75ded1c38af4e85d26965ac3b",
+    "feature_bank_epn_anchor_spatial_final_20260923__split_trial_ids.json": "1be35af331a9ad6a0e1cabefba067e19d99c34a344c4b6eeb3782fb549c6a000",
+    "feature_bank_epn_anchor_spatial_validation_20260923__run_manifest.json": "3746f81f0672a7b35cfc2d8600f0ab353a02b0b3dce945aa764b55f9e815dfde",
+    "feature_bank_epn_anchor_spatial_validation_20260923__split_trial_ids.json": "2f364c764450c88d1fdebc535ffaf4e64cc3b508ea257fc6dad5c00a819d576a",
     "feature_bank_epn_calibration_diagnostics_final_20260915_v2__run_manifest.json": "f3bbcbea0f4a913be7925298175e8388c635f1aa4b8b6bf2fa772db86f72f6f7",
     "feature_bank_epn_calibration_diagnostics_validation_20260915_v2__run_manifest.json": "ac4616d652a52c37652522d8e72c176a9435250fe70c61e7b550283d7d2ce296",
     "feature_bank_epn_core_incremental_20260915__run_manifest.json": "9689e2d0bb9de763abe9a2821feda70c677ab008648219af4f7e8f78c5720bcc",
@@ -48,6 +52,8 @@
     "feature_bank_epn_selected_validation_20260915__split_trial_ids.json": "bbfe4ef8f7ec37849772c53fcfbb69d4a54d8a8bb25d5da24182829fe4ccc357",
     "feature_bank_epn_selection_20260915__run_manifest.json": "36d86cdb65d03936073b21295bb6db0d4d196c8f271dc82ffe45e01e098663db",
     "feature_bank_epn_selection_20260915__split_trial_ids.json": "0e31b7957b2dabd9e480704858b05ea313d995c6955b41081c21c2080143ae57",
+    "feature_bank_epn_spd_anchor_core_increment_final_20260923__run_manifest.json": "225b030e8588c47f10ffd65365c716879d1c7f7773c45517877635a2ba7dc84a",
+    "feature_bank_epn_spd_anchor_core_increment_validation_20260923__run_manifest.json": "f4649a32b60e6f3954b655f3556df7529109d213d173ee254b03dc1b3a93ad63",
     "feature_bank_force_audited_validation_20260915__run_manifest.json": "a084db40a10d1d173bf0356597cd60477faf355a27bba5c47a0e5aed8ed7271c",
     "feature_bank_force_audited_validation_20260915__split_trial_ids.json": "8f816dde1856c67a3f9c5b498994eded2cadbdd07cb08dc9eafd9e63cfd7cb26",
     "feature_bank_force_concat_core_calibration_final_20260915__run_manifest.json": "ae2af43e4b17c40f41fff59ac52ba326bc707ed5a50158ae1846db443fbc8e70",
@@ -199,6 +205,10 @@
     "feature_bank_wearing_full_fusion_validation_20260915__split_trial_ids.json": "4e88c776968e53b81a3d1d1e32ec035f643137c4099ace3007580e6df855c1c8",
     "feature_bank_wearing_quality_roles_final_20260915__run_manifest.json": "cf76e4531798ce1c2be6fae35dfde7889607bf207a923427f4d1914e46802aaa",
     "feature_bank_wearing_quality_roles_validation_20260915__run_manifest.json": "30413595e3e896b497ef7f756810528a0143cb7cc6c4af6d5a3dc8eae3cd1699",
+    "feature_bank_wearing_ring_session_interaction_final_20260923_v2__run_manifest.json": "3215d8bbead8a9b4c8a33c1c0a02fef2764f29f762d5bfd30469d53e3505e690",
+    "feature_bank_wearing_ring_session_interaction_final_20260923_v2__split_trial_ids.json": "9fbf306eedecc924ec4e204c98fff4a5bb9cda7ead475d105e2284bd8b658c69",
+    "feature_bank_wearing_ring_session_interaction_validation_20260923_v2__run_manifest.json": "87ea268a596b2225d93b8311f064a07f2e4d21e69d9d12c78a64bbd5fc70d5dc",
+    "feature_bank_wearing_ring_session_interaction_validation_20260923_v2__split_trial_ids.json": "a42385d70b275ac381e204560eeb87447b585b2403fc8b0822dd2e7c9fd34c2b",
     "feature_bank_wearing_session_final_20260916__run_manifest.json": "f1f43bc9cdf998ae5017fa21f837d24abb1c2d124610d6264334b656113dfb1a",
     "feature_bank_wearing_session_final_20260916__split_trial_ids.json": "3f8bce8cabf957ca326799a4ea9e430690631ccfaa5338e0d390efdf43e2ecb4",
     "feature_bank_wearing_session_normalization_final_20260916__run_manifest.json": "f689f657c029263547bbe45746d7ff5411cb5066f72ac1734c8fa0d23e60a828",
@@ -208,42 +218,42 @@
     "feature_bank_wearing_session_validation_20260916__run_manifest.json": "d7f36a7ce195d1df8f8d2877d1da7a8576a2eed3f9becf40034f1d9660d32ca4",
     "feature_bank_wearing_session_validation_20260916__split_trial_ids.json": "2b2eb7201f9ecc50eabeb924ecbe2307008e6f377fd45283ded7053a0aa1bab2"
   },
-  "inventory_sha256": "97c61d93862369fa342904d3ed8523849607d1023be37896ffe5d821bbc0f772",
+  "inventory_sha256": "cd521e28ef0a54245c97033cb423944f2a92d3d08cf86b80ea85dfbcc5d3b033",
   "by_requirement": {
     "split_ids": {
-      "candidate_metadata_present": 43,
-      "not_located": 72
+      "candidate_metadata_present": 47,
+      "not_located": 74
     },
     "subject_ids": {
-      "candidate_metadata_present": 52,
+      "candidate_metadata_present": 58,
       "not_located": 63
     },
     "session_ids": {
-      "not_located": 105,
+      "not_located": 111,
       "candidate_metadata_present": 10
     },
     "force_labels": {
-      "not_located": 105,
+      "not_located": 111,
       "candidate_metadata_present": 10
     },
     "trial_ids": {
-      "candidate_metadata_present": 88,
-      "not_located": 27
+      "candidate_metadata_present": 92,
+      "not_located": 29
     },
     "preprocessing_config": {
-      "not_located": 106,
-      "candidate_metadata_present": 9
+      "not_located": 110,
+      "candidate_metadata_present": 11
     },
     "random_seeds": {
       "candidate_metadata_present": 70,
-      "not_located": 45
+      "not_located": 51
     },
     "feature_config": {
       "not_located": 41,
-      "candidate_metadata_present": 74
+      "candidate_metadata_present": 80
     },
     "model_hyperparameters": {
-      "not_located": 95,
+      "not_located": 101,
       "candidate_metadata_present": 20
     }
   },

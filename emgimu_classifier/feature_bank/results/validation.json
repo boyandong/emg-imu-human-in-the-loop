@@ -6,6 +6,6 @@
   "skipped": 1,
   "result": "OK",
   "scope": "unit and synthetic integration checks; no live-device accuracy claim",
-  "test_log": "results/test_run_20260923_spd_core.txt",
-  "test_log_sha256": "ed19e4ccc760932d02bd7016194ef538493385af0d1900e942b4ca55a0481e4c"
+  "test_log": "results/test_run_20260923_delivery.txt",
+  "test_log_sha256": "9c4a56f4c76c1cbeeb8626128071282f44537cd67ab05c321d23fb436fdebc1b"
 }

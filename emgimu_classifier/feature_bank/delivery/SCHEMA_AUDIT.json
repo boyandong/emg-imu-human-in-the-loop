@@ -3,7 +3,7 @@
   "prediction_disagreement_recovery_sha256": "9b0bd1414285082a62ab8d771894940a9c41b395a58f3797c9576dc96f18293f",
   "artifacts": {
     "feature_family_results.csv": {
-      "rows": 4695,
+      "rows": 4791,
       "required_fields": [
         "dataset",
         "subject",
@@ -59,11 +59,11 @@
           "session/domain": 6
         }
       },
-      "source_csv_sha256": "98510db7e422bdb20c6a9426ac92215226b930fa46ffc6dbceb19d9e1c96cdb3",
-      "canonical_csv_sha256": "81693012313e8841c0320fedb7e9006b4e604fc94c5da9e1446cce70cc2fcf51"
+      "source_csv_sha256": "f457c5e5f24e16f664e04b45a16ded4f8d4bbb3f693f22887b0536ce64041882",
+      "canonical_csv_sha256": "641d6a0cc30a8490900ca67a475bf2cf8665075e21a8b6a0fae5d5765fd240dc"
     },
     "conditional_incremental.csv": {
-      "rows": 5695,
+      "rows": 5719,
       "required_fields": [
         "dataset",
         "subject",
@@ -111,8 +111,8 @@
           "condition": 12
         }
       },
-      "source_csv_sha256": "df827fd0093c1af57b646f6e65b358118340cee7f2e732a98bade473cc0c99a4",
-      "canonical_csv_sha256": "0382c563099ada03595aa15b0af80d8fc28599c08fd214d02ea26e1bbaa9f3eb"
+      "source_csv_sha256": "959753154a29377ea9104a37517b4022c996a4ad09a83c125d9d6530dc23932e",
+      "canonical_csv_sha256": "f6676e506461fc7d625e4a8b953a0ddebe77d55945f960cc0448afa3cb0da97d"
     },
     "error_complementarity.csv": {
       "rows": 4685,
@@ -181,7 +181,7 @@
       "canonical_csv_sha256": "9e93ae41a76614927594e73698a48dfba7349dac6a87b5086515dd1f999a0d3e"
     },
     "calibration_curve.csv": {
-      "rows": 20026,
+      "rows": 20122,
       "required_fields": [
         "dataset",
         "subject",
@@ -334,8 +334,8 @@
           "log_loss": 7
         }
       },
-      "source_csv_sha256": "eafcd386b5b22699456de10c28ad0f01e6de9174351702c99dd7feaf7738d57e",
-      "canonical_csv_sha256": "dfc09c3a72457b6c394830a73f69f0329ed8feb8f8e5e2b6cfcd1f1aea01b1d3"
+      "source_csv_sha256": "9d2184422fc0203088102818dce140e97bc1e4ffcde882921764eac277301d3f",
+      "canonical_csv_sha256": "335881b317eb481e9c730913df6cdebe8b1d30bbea45c61f919eeb890d75c4f6"
     },
     "ablation_full_bank.csv": {
       "rows": 14603,

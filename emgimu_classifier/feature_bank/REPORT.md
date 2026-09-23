@@ -278,9 +278,10 @@ The current temporal comparison shares most errors (G5/reference-F5 model correl
 
 Six new benchmark archives are complete. Five canonical CSVs, schema/provenance audits,
 source run manifests, trial lists, dimensions, per-user/per-class diagnostics, calibration
-burden estimates and SVG curves are available. The latest suite ran 195 tests with one
-skip; consolidated integrity covers 210 artifacts, 51,283 rows and 1,206 explicit
-partitions, while canonical record verification covers 49,704 rows. These are narrow
+burden estimates and SVG curves are available. The latest suite ran 203 tests (202
+passed, one skipped); consolidated integrity covers 220 artifacts, 51,549 rows
+and 1,248 explicit partitions, while canonical record verification covers
+49,920 rows. These are narrow
 integrity/implementation checks, not proof that every scientific requirement is complete.
 
 The highest-priority remaining work is the exact historical dataset/algorithm audit,
@@ -2384,6 +2385,10 @@ no classifier or SPD reference is refitted. The additional arm is a fixed
 equal-probability mixture, chosen without using these scores. Compact per-user
 and pooled results plus input hashes are in
 `results/epn_spd_anchor_core_increment_{validation,final}.json`.
+The same 48 score rows, 12 paired increments and 48 calibration-curve rows
+per phase are exported through the two dated local run manifests into the
+required consolidated CSVs. The canonical delivery checks all required fields
+for these new rows and preserves their source-record hashes.
 
 | Phase | Shots/class | Core F1 | Core+SPD F1 | Core LL | Core+SPD LL | Core Brier | Core+SPD Brier |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -2480,7 +2485,7 @@ invalid count/denominator combinations. It also maps the recorded
 `disagreement_fraction` to `disagreement_rate`; that disagreement need not equal
 the sum of asymmetric correctness rates because both predictions may be wrong.
 All 60 rows now have the three required rates without retraining or inventing
-observations. The regenerated provenance audit verifies 49,704 source records.
+observations. The regenerated provenance audit verifies 49,920 source records.
 The delivery remains `schema_complete_evidence_partial`: some source runs still
 lack subject, session/domain, or error-correlation evidence. This repair does
 not establish a physiological complementarity claim or complete Section 15.
@@ -2522,7 +2527,7 @@ splits and freshly SHA-256-verified raw archives, without fitting. Recovery
 verifies every original correctness-disagreement and asymmetric-correctness
 rate to 1e-12, binds each recovered rate to its original row hash and input
 hashes, and changes no source row. All 402 legacy rows now have true
-prediction disagreement; all 49,704 canonical records pass provenance checks.
+prediction disagreement; all 49,920 canonical records pass provenance checks.
 The broader schema remains evidence-partial because other fields still lack
 source support.
 
