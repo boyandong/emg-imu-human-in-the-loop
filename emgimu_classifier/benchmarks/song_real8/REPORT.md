@@ -206,3 +206,14 @@ accuracy rises from 81.9% to 97.2%, while backward falls from 41.7% to
 accuracy can improve while condition-balanced macro-F1 worsens. The new SPD
 arm is not promoted for 28-state recognition. These are same-person/day
 cue-labelled trials, with sparse per-condition counts and no live validation.
+
+The actual project collection page also passed an [offscreen real-bundle UI
+replay](SPD_UI_OFFSCREEN_AUDIT.json). It discovered and loaded the local
+F0+SPD bundle from the same `models/` directory used by `main.py`, then
+accepted 1,000 contiguous raw S04 EMG samples and emitted a prediction whose
+probabilities matched direct runtime execution exactly. The desktop project
+shortcut is now named `EMG-IMU 项目版（Song 8通道）`; it points to this repository's
+collection `main.py`. A separate older `EMG 数据采集` shortcut still points to
+`E:/qxy/emg_meta/emg_meta/main.py`, whose models directory has no Song bundle.
+This check does not use the physical USB device or measure actual screen
+latency or recognition accuracy while a person performs gestures.

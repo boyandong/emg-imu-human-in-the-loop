@@ -2733,3 +2733,11 @@ conditions lose joint accuracy, so this is not a robust multi-condition Core
 increment. The run replays and matches the saved causal F0+IMU baseline only
 under its original Python/NumPy/SciPy environment and records those versions.
 See [the 28-state result](../benchmarks/song_real8/SPD_28_STATE_RESULTS.json).
+
+The project collection page has additionally loaded the actual local Song
+F0+SPD bundle in a Qt offscreen replay and matched direct inference on saved
+S04 raw samples. The desktop project shortcut points to this repository's
+collection app and was renamed to distinguish it from an older external
+collection shortcut. This is software-path evidence only; USB/device behavior
+and human-facing recognition remain unmeasured. See
+[the UI replay audit](../benchmarks/song_real8/SPD_UI_OFFSCREEN_AUDIT.json).

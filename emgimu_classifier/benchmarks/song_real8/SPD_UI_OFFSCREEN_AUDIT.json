@@ -1,0 +1,15 @@
+{
+  "status": "offscreen_project_page_real_model_replay_verified",
+  "source_s04_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+  "bundle_sha256": "ecbab44df4340991d9b02038f9508d0b4767686064c6a26cceeecffd1900d821",
+  "bundle_dir": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\collection\\emg_meta\\emg_meta\\models\\song_real8_f0_spd",
+  "ui_model_id": "Song real8 causal F0+SPD · exploratory",
+  "runtime_backend": "song_real8_f0_spd",
+  "input_samples": 1000,
+  "direct_runtime_frames": 39,
+  "ui_prediction_frames_emitted": 1,
+  "latest_output_sample_index": 999,
+  "max_latest_probability_error": 0.0,
+  "physical_usb_tested": false,
+  "boundary": "Actual project model selector and Qt page loaded the local F0+SPD bundle and processed saved raw S04 samples. Offscreen replay does not validate USB acquisition, wall-clock pacing, screen visibility to a person, live gesture accuracy or end-to-end latency."
+}
