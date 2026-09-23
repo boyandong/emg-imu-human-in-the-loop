@@ -58,6 +58,7 @@ class MainWindow(QMainWindow):
         self.music_control.output_changed.connect(self.device_page.set_music_output)
         self.realtime_inference_page.music_gesture_ready.connect(self.music_control.set_gesture)
         self.acquisition.statistics_ready.connect(self.device_page.update_stats); self.acquisition.packet_loss.connect(self.session.packet_loss)
+        self.acquisition.packet_loss.connect(self.realtime_inference_page.notify_packet_loss)
         self.acquisition.recording_error.connect(self._recorder_error)
         self.acquisition.quality_alert.connect(self.session.quality_alert)
         page = self.experiment_page

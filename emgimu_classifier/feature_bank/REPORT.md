@@ -2682,3 +2682,13 @@ macro-F1 difference has a descriptive paired 95% bootstrap interval spanning
 zero. The larger zero-phase calibration gain therefore does not establish a
 real-time-compatible recovery effect. See
 [causal calibration results](../benchmarks/song_real8/CAUSAL_CALIBRATION_RESULTS.json).
+
+The causal zero-shot F0 model is now exportable to the collection app as a
+hash-checked local JSON bundle. An independent runtime replay compared 416
+S03 validation windows against the source sklearn classifier (maximum
+probability error `1.41e-7`) and 999 chunked S04 windows against the offline
+causal filter (zero observed probability difference). The app's offscreen
+model-load/probability test passes. This closes the model-format and
+preprocessing-transfer gap, while real USB streaming accuracy and end-to-end
+latency remain unmeasured. The learned model stays local under Git-ignored
+`models/`; see [the replay audit](../benchmarks/song_real8/LIVE_EXPORT_REPLAY_AUDIT.json).

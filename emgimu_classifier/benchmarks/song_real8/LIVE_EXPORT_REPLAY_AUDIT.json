@@ -1,0 +1,18 @@
+{
+  "status": "export_and_chunked_causal_replay_verified",
+  "artifact_sha256": "843a1230f8fbee5a839557e59edaf449ab250cbb125df8f77164a6255420eedc",
+  "source_hdf5_sha256": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+    "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e"
+  },
+  "S03_validation_windows": 416,
+  "max_probability_error_vs_source_sklearn": 1.4087034905241325e-07,
+  "S04_replayed_samples": 25000,
+  "S04_replayed_200ms_frames": 999,
+  "max_probability_error_chunked_vs_offline_filter": 0.0,
+  "local_chunk_processing_p95_ms": 0.583575001655845,
+  "local_chunk_processing_max_ms": 0.9729000012157485,
+  "nominal_37_sample_chunk_duration_ms": 148.0,
+  "boundary": "Exact same stable-window and first-100-second causal replay semantics. Chunk timings are local CPU processing only; no USB/UI age, continuous-event accuracy or end-to-end latency claim."
+}

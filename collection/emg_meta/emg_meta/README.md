@@ -254,3 +254,29 @@ posture selector.
 The ring electrodes do not reproduce the anatomical UniBo electrode geometry.
 The UI and runtime metadata therefore mark this path as an experimental domain
 adapter; its live output is not a reproduction of the reported Day 6 metrics.
+
+# Song real 8-channel local model (exploratory)
+
+The realtime page also discovers a locally trained `Song 8ch` model from
+`models/song_real8_f0/`. It uses all eight current electrodes at 250 Hz, a
+causal 40 Hz high-pass plus 50/100 Hz notch, 200 ms windows every 100 ms,
+source-fitted F0 features and a four-class logistic model. Its labels are
+Neutral, Index Pinch, Fist and Open Hand. Select **Song 8ch**, load it, connect
+the device and click **Start recognition**. This zero-shot model does not use
+the page's 24-second calibration step; the button is disabled for this model.
+Sample discontinuities and packet-loss reports reset its filter and window.
+
+On this machine the model was built from `E:/qxy/emg_meta/emg_meta/data/Song/`
+using S01/S02 for training and S03 for validation. To regenerate it from the
+classifier directory, set `PYTHONPATH=src;.` in PowerShell and run
+`python benchmarks/export_song_live_model.py --source E:/qxy/emg_meta/emg_meta/data/Song --output ../collection/emg_meta/emg_meta/models/song_real8_f0`.
+The local `models/` directory is Git-ignored; no participant HDF5 or learned
+weights are uploaded by the source-code commit. The model JSON is checked
+against its SHA-256 manifest before loading.
+
+S04 cue-labelled stable-trial evaluation with this causal preprocessing reached
+90.97% four-state accuracy; the 28-state study is separate and is not exposed
+as a live model. S01–S03 failed collection readiness, and all sessions are
+from one participant on one day. Continuous live-event accuracy, onset
+detection and end-to-end data age have **not** been measured. The UI marks
+this model as exploratory and displays data age as unmeasured.

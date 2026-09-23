@@ -18,6 +18,10 @@ from PySide6.QtWidgets import (
 from emgforce.algorithms import ALGORITHMS, META_CONV_LSTM, algorithm_display_name, get_algorithm
 from emgforce.inference.engine import PredictionFrame
 from emgforce.inference.model_bundle import ModelBundle, discover_model_bundles
+from emgforce.inference.song_local import (
+    SongLocalRuntime, SongModelInfo, discover_song_models, song_key_path,
+)
+from emgforce.inference.song_worker import SongRealtimeWorker
 from emgforce.inference.unibo_adapter import (
     DEFAULT_CHANNEL_MAP, MUSCLE_NAMES, POSTURE_NAMES, UniBoModelInfo,
     UniBoRealtimeWorker, discover_unibo_models, unibo_key_path,
@@ -225,7 +229,7 @@ class RealtimeInferencePage(QWidget):
     def __init__(self, models_root: Path) -> None:
         super().__init__()
         self.models_root = Path(models_root)
-        self.worker: RealtimeInferenceWorker | UniBoRealtimeWorker | None = None
+        self.worker: RealtimeInferenceWorker | UniBoRealtimeWorker | SongRealtimeWorker | None = None
         self.replay_worker: OfflineReplayWorker | None = None
         self.remote_model_worker: RemoteModelWorker | None = None
         self.bundle: ModelBundle | None = None
@@ -233,6 +237,7 @@ class RealtimeInferencePage(QWidget):
         self._probability_bars: dict[str, QProgressBar] = {}
         self._probability_values: dict[str, QLabel] = {}
         self._unibo_models: dict[str, UniBoModelInfo] = {}
+        self._song_models: dict[str, SongModelInfo] = {}
         self._gesture_reset_timer = QTimer(self)
         self._gesture_reset_timer.setSingleShot(True)
         self._gesture_reset_timer.timeout.connect(self._reset_current_gesture)
@@ -248,7 +253,7 @@ class RealtimeInferencePage(QWidget):
         page.setSpacing(16)
 
         model_card, model_layout = self._make_card(
-            "本地识别模型", "支持 Conv-LSTM、MPF+TDS 和 UniBo 四分类适配；每次只加载一个后端")
+            "本地识别模型", "支持 Conv-LSTM、MPF+TDS、UniBo 适配和 Song 真实 8 通道实验模型；每次只加载一个后端")
         model_row = QHBoxLayout()
         self.model_combo = QComboBox()
         self.model_combo.setMinimumHeight(40)
@@ -558,6 +563,11 @@ class RealtimeInferencePage(QWidget):
                 f"{macro_f1} · {active_f1}{context}",
                 info.combo_key,
             )
+        self._song_models = {info.combo_key: info for info in discover_song_models(self.models_root)}
+        for info in self._song_models.values():
+            self.model_combo.addItem(
+                f"[Song 8ch] {info.model_id} · S03 val ACC {info.validation_accuracy:.3f} · "
+                f"macro-F1 {info.validation_macro_f1:.3f} · 同人单日实验", info.combo_key)
         if previous:
             index = self.model_combo.findData(previous)
             if index >= 0:
@@ -572,6 +582,27 @@ class RealtimeInferencePage(QWidget):
             self.model_details.setText("--")
             self.model_status.setText(f"未在 {self.models_root} 找到完整模型包")
             self.load_model_button.setEnabled(False)
+            return
+        song_path = song_key_path(path_str)
+        if song_path is not None:
+            self.unibo_adapter_panel.setVisible(False)
+            info = self._song_models.get(str(path_str))
+            if info is None:
+                try:
+                    runtime = SongLocalRuntime(song_path)
+                    info = SongModelInfo(song_path, runtime.manifest["model_id"],
+                                         float(runtime.manifest["validation_trial_accuracy"]),
+                                         float(runtime.manifest["validation_trial_macro_f1"]))
+                except Exception as exc:
+                    self.model_details.setText("--")
+                    self.model_status.setText(f"Song 模型包无效：{exc}")
+                    self.load_model_button.setEnabled(False)
+                    return
+            self.model_details.setText(
+                f"Song 真实 8 通道 / 250 Hz / 200 ms / 四分类 · S03 试次 F1 {info.validation_macro_f1:.3f}\n"
+                "S01/S02 训练；因果滤波；同一人同一天的探索性模型，连续实时准确率未验证")
+            self.model_status.setText(f"已选择 Song 实验模型（点击「加载模型」）")
+            self.load_model_button.setEnabled(True)
             return
         unibo_path = unibo_key_path(path_str)
         if unibo_path is not None:
@@ -653,8 +684,19 @@ class RealtimeInferencePage(QWidget):
         if not selected:
             return
         manifest_path = Path(selected) / "manifest.json"
-        if not manifest_path.is_file():
-            self.model_status.setText(f"选择的目录缺少 manifest.json：{selected}")
+        song_manifest = Path(selected) / "song_manifest.json"
+        if not manifest_path.is_file() and not song_manifest.is_file():
+            self.model_status.setText(f"选择的目录缺少模型清单：{selected}")
+            return
+        if song_manifest.is_file():
+            self.refresh_models()
+            song_key = f"song::{Path(selected).resolve()}"
+            index = self.model_combo.findData(song_key)
+            if index < 0:
+                self.model_combo.addItem(f"[Song 8ch 外部] {Path(selected).name}", song_key)
+                index = self.model_combo.count() - 1
+            self.model_combo.setCurrentIndex(index)
+            self._on_model_combo_changed()
             return
         label = f"[外部] {Path(selected).name}"
         index = self.model_combo.findData(selected)
@@ -703,8 +745,11 @@ class RealtimeInferencePage(QWidget):
             return
         self.model_status.setText("正在校验并加载模型……")
         self.load_model_button.setEnabled(False)
+        song_path = song_key_path(path)
         unibo_path = unibo_key_path(path)
-        if unibo_path is not None:
+        if song_path is not None:
+            worker = SongRealtimeWorker(song_path, parent=self)
+        elif unibo_path is not None:
             channel_map = tuple(
                 int(combo.currentData()) for combo in self.unibo_channel_combos)
             if len(set(channel_map)) != 4:
@@ -735,9 +780,16 @@ class RealtimeInferencePage(QWidget):
         if self.worker is not None and self.worker.isRunning():
             self.worker.submit_emg(raw, indices)
 
+    def notify_packet_loss(self, lost: int, previous_sequence: int, sequence: int) -> None:
+        if isinstance(self.worker, SongRealtimeWorker) and self.worker.isRunning():
+            self.worker.notify_packet_loss(lost)
+
     def start_calibration(self) -> None:
         if self.worker is None or not self._connected:
             self.live_status.setText("请先连接设备并加载模型")
+            return
+        if self.bundle is not None and self.bundle.metadata.get("song_real8_local"):
+            self.live_status.setText("Song 模型当前使用零校准；可直接开始识别")
             return
         seconds = self.calibration_seconds.value()
         sample_rate = self.bundle.sample_rate if self.bundle is not None else 250
@@ -899,6 +951,17 @@ class RealtimeInferencePage(QWidget):
         self.calibration_seconds.setValue(8 if experimental else 24)
         self.run_replay_button.setEnabled(not experimental)
         if experimental:
+            if bundle.metadata.get("song_real8_local"):
+                self.model_status.setText("Song 8 通道实验模型已校验；连接设备后可直接开始识别")
+                self.model_details.setText(
+                    f"250 Hz / 8 通道 / 200 ms 因果滤波四分类 · S03 验证 ACC {float(val_acc):.1%}\n"
+                    "同人单日探索性模型；只验证过提示动作稳定区间，连续实时性能与延迟未验证")
+                self.replay_result.setText("Song 原始 HDF5 回放请使用 benchmarks/song_real8_study.py 的因果模式")
+                self.calibration_instruction.setText("零校准模型")
+                self.calibration_detail.setText("此模型当前不使用现场校准；连接设备后直接开始识别")
+                self._update_live_buttons()
+                self.load_model_button.setEnabled(True)
+                return
             mapping = bundle.metadata.get("channel_mapping", {})
             mapping_text = ", ".join(f"{key}={value}" for key, value in mapping.items())
             self.model_status.setText(
@@ -974,10 +1037,14 @@ class RealtimeInferencePage(QWidget):
             self.music_gesture_ready.emit(gesture, peak if gesture else 1.0)
         else:
             self.music_gesture_ready.emit(0, 1.0)
-        self.current_probability.setText(
-            f"最高概率 {peak:.3f} · 推理 {frame.inference_ms:.0f} ms"
-            f" · 输出数据龄 {frame.output_age_ms:.0f} ms"
-            f"（固定延迟 {frame.fixed_lag_ms:.0f} ms）")
+        if self.bundle is not None and self.bundle.metadata.get("song_real8_local"):
+            self.current_probability.setText(
+                f"最高概率 {peak:.3f} · 计算 {frame.inference_ms:.0f} ms · 200 ms 窗口 · 数据龄未测")
+        else:
+            self.current_probability.setText(
+                f"最高概率 {peak:.3f} · 推理 {frame.inference_ms:.0f} ms"
+                f" · 输出数据龄 {frame.output_age_ms:.0f} ms"
+                f"（固定延迟 {frame.fixed_lag_ms:.0f} ms）")
         is_left = (self.hand_combo.currentData() == "left")
         for event in frame.events:
             display_name = event.display_name
@@ -1002,7 +1069,7 @@ class RealtimeInferencePage(QWidget):
             self.current_gesture_status.setText(status_text)
             self.current_gesture_status.setStyleSheet(
                 f"font-size: 14px; font-weight: 600; padding: 4px 10px; border-radius: 6px; {badge_style}")
-            self.gesture_icon.set_action(event.name)
+            self.gesture_icon.set_action("rest" if event.name == "neutral" else event.name)
             self._gesture_reset_timer.start(2000)
             stamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
             hold = (f"  hold={event.hold_duration_seconds:.3f}s"
@@ -1092,9 +1159,12 @@ class RealtimeInferencePage(QWidget):
 
     def _update_live_buttons(self) -> None:
         enabled = self.bundle is not None and self._connected
-        self.calibrate_button.setEnabled(enabled)
+        is_song = enabled and bool(self.bundle.metadata.get("song_real8_local"))
+        self.calibrate_button.setEnabled(enabled and not is_song)
         self.pause_button.setEnabled(enabled)
-        if not enabled:
+        if is_song:
+            self.start_button.setEnabled(True)
+        elif not enabled:
             self.start_button.setEnabled(False)
 
     def _replay_progress(self, current: int, total: int) -> None:
