@@ -1,0 +1,102 @@
+{
+  "status": "continuous_cue_timeline_audited_not_physiological_onset_validated",
+  "source_s04_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+  "model_sha256": "ecbab44df4340991d9b02038f9508d0b4767686064c6a26cceeecffd1900d821",
+  "sample_count": 297942,
+  "duration_seconds_nominal": 1191.768,
+  "frame_count": 11916,
+  "all_frame_predicted_support": {
+    "fist": 1198,
+    "neutral": 7014,
+    "index_pinch": 1120,
+    "open_hand": 2584
+  },
+  "formal_trials_with_full_stable_windows": 144,
+  "stable_frames": 911,
+  "stable_frame_true_support": {
+    "index_pinch": 199,
+    "fist": 201,
+    "neutral": 203,
+    "open_hand": 308
+  },
+  "stable_frame_predicted_support": {
+    "index_pinch": 164,
+    "fist": 205,
+    "neutral": 228,
+    "open_hand": 314
+  },
+  "stable_frame_accuracy": 0.8803512623490669,
+  "stable_frame_macro_f1": 0.8784176823517487,
+  "online_decision_rule": {
+    "probability_threshold": 0.5,
+    "consecutive_frames": 3,
+    "hop_ms": 100,
+    "unresolved_label": "unknown"
+  },
+  "stable_decoded_frame_support": {
+    "neutral": 336,
+    "index_pinch": 127,
+    "fist": 162,
+    "open_hand": 286
+  },
+  "stable_decoded_frame_accuracy": 0.7991218441273326,
+  "stable_decoded_frame_macro_f1": 0.7979879896659435,
+  "stable_decoded_frame_recall": {
+    "fist": 0.7562189054726368,
+    "index_pinch": 0.6381909547738693,
+    "neutral": 0.9113300492610837,
+    "open_hand": 0.8571428571428571
+  },
+  "stable_trial_at_least_one_correct_decoded_frame_fraction": 0.9375,
+  "stable_trial_mean_probability_accuracy": 0.9236111111111112,
+  "stable_trial_mean_probability_macro_f1": 0.9235031647374122,
+  "stable_trial_recall": {
+    "fist": 0.9722222222222222,
+    "index_pinch": 0.8055555555555556,
+    "neutral": 0.9166666666666666,
+    "open_hand": 1.0
+  },
+  "stable_trial_confusion_matrix": [
+    [
+      35,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      29,
+      6,
+      1
+    ],
+    [
+      0,
+      0,
+      33,
+      3
+    ],
+    [
+      0,
+      0,
+      0,
+      36
+    ]
+  ],
+  "stable_trial_at_least_one_correct_frame_fraction": 0.9861111111111112,
+  "rest_cue_intervals_with_full_windows": 144,
+  "rest_cue_frames": 1175,
+  "rest_cue_predicted_support": {
+    "neutral": 927,
+    "index_pinch": 66,
+    "open_hand": 125,
+    "fist": 57
+  },
+  "rest_cue_neutral_fraction": 0.788936170212766,
+  "labels_order": [
+    "fist",
+    "index_pinch",
+    "neutral",
+    "open_hand"
+  ],
+  "boundary": "All-frame support includes calibration, rest, transitions and uncued time. Decoder metrics replay the fixed live threshold and three-frame rule on every frame; Qt displays the latest state per processed input batch, so these are decoder-state rather than measured screen metrics. Trial/stable metrics use recorded cue intervals, not physiological onset. Rest intervals may contain residual prior movement. No physical USB, event-onset or UI-latency validation."
+}

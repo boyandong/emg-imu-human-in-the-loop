@@ -91,6 +91,35 @@ def test_hash_mismatch_is_rejected(tmp_path):
         SongLocalRuntime(directory)
 
 
+def test_spd_bundle_validates_reference_and_outputs_four_probabilities(tmp_path):
+    directory = _bundle(tmp_path)
+    artifact = directory / "song_f0_model.json"
+    manifest_path = directory / "song_manifest.json"
+    model = json.loads(artifact.read_text(encoding="utf-8"))
+    model["model_kind"] = "song_real8_causal_f0_spd_logistic"
+    model["spd_shrinkage"] = 0.05
+    model["spd_reference"] = np.eye(8).tolist()
+    model["standard_scaler_mean"] += [0.0] * 36
+    model["standard_scaler_scale"] += [1.0] * 36
+    model["logistic_coef"] = np.random.default_rng(11).normal(0, 0.01, (4, 84)).tolist()
+
+    def save(updated):
+        artifact.write_text(json.dumps(updated), encoding="utf-8")
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest["sha256"] = hashlib.sha256(artifact.read_bytes()).hexdigest()
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    save(model)
+    runtime = SongLocalRuntime(directory)
+    assert runtime.with_spd and runtime.coef.shape == (4, 84)
+    probability = runtime.predict_filtered_window(np.random.default_rng(12).normal(size=(50, 8)))
+    assert probability.shape == (4,) and np.isclose(probability.sum(), 1.0)
+    model["spd_reference"][0][0] = -1.0
+    save(model)
+    with pytest.raises(ValueError, match="positive definite"):
+        SongLocalRuntime(directory)
+
+
 def test_realtime_page_loads_song_and_emits_probability_without_device(tmp_path):
     os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
     from PySide6.QtWidgets import QApplication

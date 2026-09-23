@@ -109,7 +109,8 @@ class SongLocalRuntime:
             raise ValueError("Song 模型 SHA-256 不匹配")
         model = _read_json(artifact)
         if (model.get("format_version") != 1 or
-                model.get("model_kind") != "song_real8_causal_f0_logistic" or
+                model.get("model_kind") not in {"song_real8_causal_f0_logistic",
+                                                "song_real8_causal_f0_spd_logistic"} or
                 model.get("sample_rate_hz") != 250 or model.get("channels") != 8 or
                 model.get("window_samples") != 50 or model.get("hop_samples") != 25 or
                 tuple(model.get("classes", ())) != LABELS):
@@ -121,10 +122,23 @@ class SongLocalRuntime:
         }:
             raise ValueError("Song 模型因果滤波契约不匹配")
         self.thresholds = self._array(model, "f0_thresholds", (8,), positive=True)
-        self.scaler_mean = self._array(model, "standard_scaler_mean", (48,))
-        self.scaler_scale = self._array(model, "standard_scaler_scale", (48,), positive=True)
-        self.coef = self._array(model, "logistic_coef", (4, 48))
+        self.with_spd = model["model_kind"] == "song_real8_causal_f0_spd_logistic"
+        feature_width = 84 if self.with_spd else 48
+        self.scaler_mean = self._array(model, "standard_scaler_mean", (feature_width,))
+        self.scaler_scale = self._array(model, "standard_scaler_scale", (feature_width,), positive=True)
+        self.coef = self._array(model, "logistic_coef", (4, feature_width))
         self.intercept = self._array(model, "logistic_intercept", (4,))
+        self.spd_inverse_root = None
+        if self.with_spd:
+            if model.get("spd_shrinkage") != 0.05:
+                raise ValueError("Song SPD shrinkage contract mismatch")
+            reference = self._array(model, "spd_reference", (8, 8))
+            if not np.allclose(reference, reference.T, rtol=0, atol=1e-10):
+                raise ValueError("Song SPD reference must be symmetric")
+            values, vectors = np.linalg.eigh(reference)
+            if np.min(values) <= 0:
+                raise ValueError("Song SPD reference must be positive definite")
+            self.spd_inverse_root = (vectors * values ** -0.5) @ vectors.T
         self.manifest = manifest
         self.artifact = artifact
         self.sha256 = actual_hash
@@ -146,7 +160,8 @@ class SongLocalRuntime:
                            artifact=self.artifact, sha256=self.sha256,
                            labels=LABELS, display_names=DISPLAY,
                            sample_rate=250, input_channels=8, output_channels=4,
-                           algorithm_id=SONG_REAL8_LOCAL, runtime_backend="song_real8_f0",
+                           algorithm_id=SONG_REAL8_LOCAL,
+                           runtime_backend="song_real8_f0_spd" if self.with_spd else "song_real8_f0",
                            preprocessing={"online_event_threshold": 0.5, "window_samples": 50,
                                           "hop_samples": 25},
                            metadata={"experimental_adapter": True,
@@ -183,6 +198,20 @@ class SongLocalRuntime:
         ssc = np.sum((left * right > 0) & (np.maximum(np.abs(left), np.abs(right)) > threshold), axis=0)
         wamp = np.sum(np.abs(differences) > threshold, axis=0)
         features = np.concatenate((rms, mav, wl, zc, ssc, wamp)).astype(np.float32)
+        if self.with_spd:
+            centered = x - x.mean(axis=0, keepdims=True)
+            covariance = centered.T @ centered / (len(x) - 1)
+            scale = np.trace(covariance) / 8
+            covariance = 0.95 * covariance + 0.05 * scale * np.eye(8)
+            covariance += 1e-10 * np.eye(8)
+            covariance /= max(float(np.trace(covariance)), 1e-10)
+            tangent = self.spd_inverse_root @ covariance @ self.spd_inverse_root
+            values, vectors = np.linalg.eigh((tangent + tangent.T) * 0.5)
+            tangent_log = (vectors * np.log(np.maximum(values, 1e-10))) @ vectors.T
+            rows, cols = np.triu_indices(8)
+            spd = tangent_log[rows, cols].copy()
+            spd[rows != cols] *= np.sqrt(2.0)
+            features = np.concatenate((features, spd.astype(np.float32)))
         standardized = ((features - self.scaler_mean) / self.scaler_scale)
         probabilities = softmax(self.coef @ standardized + self.intercept)
         if not np.isfinite(probabilities).all():

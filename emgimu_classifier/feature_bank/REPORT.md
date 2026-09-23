@@ -2701,3 +2701,18 @@ and Index Pinch 25/36. The interface now keeps a debounced Song label visible
 through a sustained action. These are cue-timeline findings, not verified
 physiological onsets or a physical-device accuracy test; see
 [continuous replay](../benchmarks/song_real8/CONTINUOUS_REPLAY_AUDIT.json).
+
+A source-frozen F2c SPD tangent increment has now been checked on the same
+Song 8-channel split. Causal S04 stable-trial macro-F1 rises from F0 90.68%
+to F0+SPD 95.08%, with six corrected trials and no new errors; source models
+and the SPD reference use S01/S02 only. A 1/2-block F7 personal SPD anchor
+mix selected on S03 gives lower S04 F1 than the zero-shot F0+SPD model.
+The F0+SPD model is available as a separate local experimental bundle and its
+S03-window/chunked-causal transfer agrees with the source classifier. Full
+S04 cue-timeline replay improves stable decoder-state accuracy from 73.1%
+to 79.9%, while raw neutral predictions in pre-prompt rest fall from 87.1%
+to 78.9%. It is not promoted as an unqualified default, and none of these
+same-person/day cues prove hardware live or cross-person/day performance.
+See [the SPD study](../benchmarks/song_real8/SPD_INCREMENT_RESULTS.json),
+[export replay](../benchmarks/song_real8/SPD_LIVE_EXPORT_REPLAY_AUDIT.json)
+and [continuous replay](../benchmarks/song_real8/SPD_CONTINUOUS_REPLAY_AUDIT.json).

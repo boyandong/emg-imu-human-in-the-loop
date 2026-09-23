@@ -120,3 +120,53 @@ unchanged. Selection was fixed before loading S04, although S04's earlier
 current-rule results had already motivated this exploratory study. This is a
 negative usability tradeoff result, not a confirmatory test or a reason to
 claim live recognition is solved.
+
+The [causal SPD increment study](SPD_INCREMENT_RESULTS.json) tests a missing
+native eight-channel feature family with exactly the same Song split and 200 ms
+stable formal-trial scoring. A log-tangent SPD reference and two logistic models
+were fit from S01/S02 only: source F0 and source F0+F2c SPD. Neither uses S03
+or S04 to fit its source feature state or classifier. S03/S04 trial macro-F1 is
+93.59%/90.68% for F0 and 97.14%/95.08% for F0+SPD. On S04, the latter
+corrects six F0 errors with no new errors; log loss falls from 0.4272 to
+0.2376 and Brier from 0.0533 to 0.0298. The exact paired accuracy
+discordance p-value is 0.03125, and a descriptive class-stratified paired
+bootstrap gives a macro-F1 difference interval of +1.45 to +7.81 points.
+These values concern cued stable trials from one person/day. S04 was already
+examined in earlier project work, so the interval and p-value are exploratory
+descriptions, not independent confirmation or a live-recognition claim.
+
+The same study fits F7 SPD personal prototypes from the pre-formal Song
+calibration blocks, one or two blocks per class, with S01/S02's SPD reference
+frozen. S03 selects fixed F0/SPD probability mixing weights of 0.75 and 0.25
+for the respective budgets before S04 is loaded. S04 mixture macro-F1 is
+92.25%/92.10%, above source F0 but below source-only F0+SPD at 95.08%; the
+anchor alone reaches 79.01%/88.83%. This does not justify adding a personal
+SPD calibration step to the product. F2c/F7 here are tangent-space candidates,
+not recovered historical RLCS or exact affine-invariant geodesics.
+
+The F0+SPD source model is exported as a separate hash-checked local bundle at
+`collection/emg_meta/emg_meta/models/song_real8_f0_spd/`; the original F0
+bundle remains available. The collection application's Song model selector
+discovers both. The [export replay](SPD_LIVE_EXPORT_REPLAY_AUDIT.json) checks
+all 416 S03 stable windows against a fresh source fit (maximum probability
+error `1.51e-7`) and 999 chunked S04 windows against offline causal filtering
+(zero probability error). In the local CPU replay, 37-sample chunks took
+0.41 ms at the 95th percentile and 0.87 ms maximum; this does not include USB
+or UI age.
+From `emgimu_classifier`, regenerate the local bundle with
+`PYTHONPATH=src;. python benchmarks/export_song_spd_live_model.py --source E:/qxy/emg_meta/emg_meta/data/Song --output ../collection/emg_meta/emg_meta/models/song_real8_f0_spd`
+(set `PYTHONPATH` as a PowerShell environment variable on Windows), then run
+`benchmarks/verify_song_live_export.py` against that bundle. The small learned
+JSON bundle is intentionally local and Git-ignored; the exporter and digest
+evidence are versioned.
+
+The [full S04 F0+SPD replay](SPD_CONTINUOUS_REPLAY_AUDIT.json) gives 88.0%
+raw stable-cue frame accuracy and 79.9% accuracy after the unchanged online
+three-frame decision rule, versus 80.1% and 73.1% for F0. Mean-probability
+stable-trial accuracy is 92.4% versus 89.6%, with Index Pinch correct in
+29/36 rather than 25/36 trials. The cost is more active predictions during
+pre-prompt rest: the raw neutral-prediction fraction falls from 87.1% to
+78.9% there. The bundle is
+therefore offered as a selectable experimental model, not promoted as a
+universally better default. These are cue-timeline replay values; neither
+physical USB recognition nor event-onset latency has been validated.

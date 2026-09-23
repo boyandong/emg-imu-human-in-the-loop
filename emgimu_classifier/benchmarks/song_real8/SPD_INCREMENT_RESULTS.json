@@ -1,0 +1,935 @@
+{
+  "status": "exploratory_one_person_one_day_native_spd_increment",
+  "filter_mode": "causal_continuous",
+  "source_sessions": [
+    "S01",
+    "S02"
+  ],
+  "selection_session": "S03",
+  "final_session": "S04",
+  "classes": [
+    "fist",
+    "index_pinch",
+    "neutral",
+    "open_hand"
+  ],
+  "source_hdf5_sha256": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+    "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+    "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+  },
+  "source_spd_reference_sha256": "0fb3b6f745bbf34de8f13bede5f3f4df7c76c072a6b677c8328f76c941a6b184",
+  "protocol": "Source-only logistic F0 versus concat F0+F2c SPD at zero shot; F7 SPD personal trial prototypes from 1/2 pre-formal blocks per class, fixed probability mixture with source F0; S03 alone chooses weight; each formal trial one vote.",
+  "source_zero_shot": {
+    "validation": {
+      "F0": {
+        "trials": 140,
+        "accuracy": 0.9357142857142857,
+        "macro_f1": 0.935935362695926,
+        "log_loss": 0.3108983605404138,
+        "brier": 0.0353961874046856,
+        "recall": {
+          "fist": 0.9375,
+          "index_pinch": 0.9166666666666666,
+          "neutral": 0.9166666666666666,
+          "open_hand": 0.9722222222222222
+        },
+        "confusion_matrix": [
+          [
+            30,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            33,
+            1,
+            0
+          ],
+          [
+            0,
+            3,
+            33,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            35
+          ]
+        ]
+      },
+      "F0_plus_SPD": {
+        "trials": 140,
+        "accuracy": 0.9714285714285714,
+        "macro_f1": 0.9713817713817714,
+        "log_loss": 0.18659971206755183,
+        "brier": 0.02243721599386143,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.9444444444444444,
+          "neutral": 0.9444444444444444,
+          "open_hand": 1.0
+        },
+        "confusion_matrix": [
+          [
+            32,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            34,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            34,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            36
+          ]
+        ]
+      }
+    },
+    "final": {
+      "F0": {
+        "trials": 144,
+        "accuracy": 0.9097222222222222,
+        "macro_f1": 0.9068393441879964,
+        "log_loss": 0.4271641965595015,
+        "brier": 0.05328503887704212,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7222222222222222,
+          "neutral": 0.9444444444444444,
+          "open_hand": 0.9722222222222222
+        },
+        "confusion_matrix": [
+          [
+            36,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            26,
+            5,
+            1
+          ],
+          [
+            1,
+            0,
+            34,
+            1
+          ],
+          [
+            1,
+            0,
+            0,
+            35
+          ]
+        ]
+      },
+      "F0_plus_SPD": {
+        "trials": 144,
+        "accuracy": 0.9513888888888888,
+        "macro_f1": 0.9507791284107074,
+        "log_loss": 0.23759344505102162,
+        "brier": 0.029821161987144327,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8333333333333334,
+          "neutral": 0.9722222222222222,
+          "open_hand": 1.0
+        },
+        "confusion_matrix": [
+          [
+            36,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            30,
+            5,
+            1
+          ],
+          [
+            0,
+            0,
+            35,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            36
+          ]
+        ]
+      }
+    }
+  },
+  "source_zero_shot_paired_vs_F0": {
+    "validation": {
+      "corrected_trials": 6,
+      "new_errors": 1,
+      "paired_accuracy_discordance_exact_p": 0.125,
+      "paired_macro_f1_delta_bootstrap_95pct": [
+        0.0002200874593346475,
+        0.07099522462530924
+      ],
+      "bootstrap": "4000 class-stratified paired trial resamples, seed 20260924; descriptive interval"
+    },
+    "final": {
+      "corrected_trials": 6,
+      "new_errors": 0,
+      "paired_accuracy_discordance_exact_p": 0.03125,
+      "paired_macro_f1_delta_bootstrap_95pct": [
+        0.014543907957275892,
+        0.07805040678100592
+      ],
+      "bootstrap": "4000 class-stratified paired trial resamples, seed 20260924; descriptive interval"
+    }
+  },
+  "personal_anchor": {
+    "validation": {
+      "1": {
+        "selected_weight": 0.75,
+        "anchor_alone": {
+          "trials": 140,
+          "accuracy": 0.85,
+          "macro_f1": 0.8499769860996041,
+          "log_loss": 1.0962623047845228,
+          "brier": 0.1476988254483218,
+          "recall": {
+            "fist": 0.84375,
+            "index_pinch": 0.75,
+            "neutral": 0.8055555555555556,
+            "open_hand": 1.0
+          },
+          "confusion_matrix": [
+            [
+              27,
+              0,
+              3,
+              2
+            ],
+            [
+              1,
+              27,
+              3,
+              5
+            ],
+            [
+              0,
+              5,
+              29,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              36
+            ]
+          ]
+        },
+        "candidates": {
+          "0.0": {
+            "trials": 140,
+            "accuracy": 0.9357142857142857,
+            "macro_f1": 0.935935362695926,
+            "log_loss": 0.3108983605404138,
+            "brier": 0.0353961874046856,
+            "recall": {
+              "fist": 0.9375,
+              "index_pinch": 0.9166666666666666,
+              "neutral": 0.9166666666666666,
+              "open_hand": 0.9722222222222222
+            },
+            "confusion_matrix": [
+              [
+                30,
+                2,
+                0,
+                0
+              ],
+              [
+                2,
+                33,
+                1,
+                0
+              ],
+              [
+                0,
+                3,
+                33,
+                0
+              ],
+              [
+                1,
+                0,
+                0,
+                35
+              ]
+            ]
+          },
+          "0.25": {
+            "trials": 140,
+            "accuracy": 0.9428571428571428,
+            "macro_f1": 0.9430690410624812,
+            "log_loss": 0.45151626798880057,
+            "brier": 0.0493518649055715,
+            "recall": {
+              "fist": 0.96875,
+              "index_pinch": 0.9166666666666666,
+              "neutral": 0.9166666666666666,
+              "open_hand": 0.9722222222222222
+            },
+            "confusion_matrix": [
+              [
+                31,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                33,
+                1,
+                0
+              ],
+              [
+                0,
+                3,
+                33,
+                0
+              ],
+              [
+                1,
+                0,
+                0,
+                35
+              ]
+            ]
+          },
+          "0.5": {
+            "trials": 140,
+            "accuracy": 0.9357142857142857,
+            "macro_f1": 0.935815495635329,
+            "log_loss": 0.6187251841097225,
+            "brier": 0.07272086374188907,
+            "recall": {
+              "fist": 0.96875,
+              "index_pinch": 0.9166666666666666,
+              "neutral": 0.8888888888888888,
+              "open_hand": 0.9722222222222222
+            },
+            "confusion_matrix": [
+              [
+                31,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                33,
+                1,
+                0
+              ],
+              [
+                0,
+                3,
+                32,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                35
+              ]
+            ]
+          },
+          "0.75": {
+            "trials": 140,
+            "accuracy": 0.95,
+            "macro_f1": 0.9502194756376094,
+            "log_loss": 0.8250992524281523,
+            "brier": 0.10550318400194897,
+            "recall": {
+              "fist": 0.96875,
+              "index_pinch": 0.9166666666666666,
+              "neutral": 0.9166666666666666,
+              "open_hand": 1.0
+            },
+            "confusion_matrix": [
+              [
+                31,
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                33,
+                2,
+                0
+              ],
+              [
+                0,
+                1,
+                33,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                36
+              ]
+            ]
+          },
+          "1.0": {
+            "trials": 140,
+            "accuracy": 0.85,
+            "macro_f1": 0.8499769860996041,
+            "log_loss": 1.0962623047845228,
+            "brier": 0.1476988254483218,
+            "recall": {
+              "fist": 0.84375,
+              "index_pinch": 0.75,
+              "neutral": 0.8055555555555556,
+              "open_hand": 1.0
+            },
+            "confusion_matrix": [
+              [
+                27,
+                0,
+                3,
+                2
+              ],
+              [
+                1,
+                27,
+                3,
+                5
+              ],
+              [
+                0,
+                5,
+                29,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                36
+              ]
+            ]
+          }
+        },
+        "audit": {
+          "calibration_blocks": 4,
+          "calibration_windows": 12,
+          "source_reference_sha256": "0fb3b6f745bbf34de8f13bede5f3f4df7c76c072a6b677c8328f76c941a6b184",
+          "calibration_trial_ids": [
+            "cal:fist:1",
+            "cal:index_pinch:1",
+            "cal:neutral:1",
+            "cal:open_hand:1"
+          ],
+          "formal_trial_overlap": false
+        }
+      },
+      "2": {
+        "selected_weight": 0.25,
+        "anchor_alone": {
+          "trials": 140,
+          "accuracy": 0.8642857142857143,
+          "macro_f1": 0.8636215776633234,
+          "log_loss": 1.0386139667745045,
+          "brier": 0.13905409906668023,
+          "recall": {
+            "fist": 0.875,
+            "index_pinch": 0.8333333333333334,
+            "neutral": 0.75,
+            "open_hand": 1.0
+          },
+          "confusion_matrix": [
+            [
+              28,
+              1,
+              2,
+              1
+            ],
+            [
+              2,
+              30,
+              3,
+              1
+            ],
+            [
+              0,
+              3,
+              27,
+              6
+            ],
+            [
+              0,
+              0,
+              0,
+              36
+            ]
+          ]
+        },
+        "candidates": {
+          "0.0": {
+            "trials": 140,
+            "accuracy": 0.9357142857142857,
+            "macro_f1": 0.935935362695926,
+            "log_loss": 0.3108983605404138,
+            "brier": 0.0353961874046856,
+            "recall": {
+              "fist": 0.9375,
+              "index_pinch": 0.9166666666666666,
+              "neutral": 0.9166666666666666,
+              "open_hand": 0.9722222222222222
+            },
+            "confusion_matrix": [
+              [
+                30,
+                2,
+                0,
+                0
+              ],
+              [
+                2,
+                33,
+                1,
+                0
+              ],
+              [
+                0,
+                3,
+                33,
+                0
+              ],
+              [
+                1,
+                0,
+                0,
+                35
+              ]
+            ]
+          },
+          "0.25": {
+            "trials": 140,
+            "accuracy": 0.9428571428571428,
+            "macro_f1": 0.9430690410624812,
+            "log_loss": 0.4441394429041641,
+            "brier": 0.048523068567548434,
+            "recall": {
+              "fist": 0.96875,
+              "index_pinch": 0.9166666666666666,
+              "neutral": 0.9166666666666666,
+              "open_hand": 0.9722222222222222
+            },
+            "confusion_matrix": [
+              [
+                31,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                33,
+                1,
+                0
+              ],
+              [
+                0,
+                3,
+                33,
+                0
+              ],
+              [
+                1,
+                0,
+                0,
+                35
+              ]
+            ]
+          },
+          "0.5": {
+            "trials": 140,
+            "accuracy": 0.9357142857142857,
+            "macro_f1": 0.935815495635329,
+            "log_loss": 0.6012270485453992,
+            "brier": 0.07017501427651307,
+            "recall": {
+              "fist": 0.96875,
+              "index_pinch": 0.9166666666666666,
+              "neutral": 0.8888888888888888,
+              "open_hand": 0.9722222222222222
+            },
+            "confusion_matrix": [
+              [
+                31,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                33,
+                1,
+                0
+              ],
+              [
+                0,
+                3,
+                32,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                35
+              ]
+            ]
+          },
+          "0.75": {
+            "trials": 140,
+            "accuracy": 0.9357142857142857,
+            "macro_f1": 0.9356283229522666,
+            "log_loss": 0.7925855212924836,
+            "brier": 0.1003520241313858,
+            "recall": {
+              "fist": 0.96875,
+              "index_pinch": 0.8888888888888888,
+              "neutral": 0.8888888888888888,
+              "open_hand": 1.0
+            },
+            "confusion_matrix": [
+              [
+                31,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                32,
+                2,
+                0
+              ],
+              [
+                0,
+                2,
+                32,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                36
+              ]
+            ]
+          },
+          "1.0": {
+            "trials": 140,
+            "accuracy": 0.8642857142857143,
+            "macro_f1": 0.8636215776633234,
+            "log_loss": 1.0386139667745045,
+            "brier": 0.13905409906668023,
+            "recall": {
+              "fist": 0.875,
+              "index_pinch": 0.8333333333333334,
+              "neutral": 0.75,
+              "open_hand": 1.0
+            },
+            "confusion_matrix": [
+              [
+                28,
+                1,
+                2,
+                1
+              ],
+              [
+                2,
+                30,
+                3,
+                1
+              ],
+              [
+                0,
+                3,
+                27,
+                6
+              ],
+              [
+                0,
+                0,
+                0,
+                36
+              ]
+            ]
+          }
+        },
+        "audit": {
+          "calibration_blocks": 8,
+          "calibration_windows": 24,
+          "source_reference_sha256": "0fb3b6f745bbf34de8f13bede5f3f4df7c76c072a6b677c8328f76c941a6b184",
+          "calibration_trial_ids": [
+            "cal:fist:1",
+            "cal:fist:2",
+            "cal:index_pinch:1",
+            "cal:index_pinch:2",
+            "cal:neutral:1",
+            "cal:neutral:2",
+            "cal:open_hand:1",
+            "cal:open_hand:2"
+          ],
+          "formal_trial_overlap": false
+        }
+      }
+    },
+    "selected_weights": {
+      "1": 0.75,
+      "2": 0.25
+    },
+    "final": {
+      "1": {
+        "weight_fixed_on_S03": 0.75,
+        "anchor_alone": {
+          "trials": 144,
+          "accuracy": 0.7986111111111112,
+          "macro_f1": 0.7900699461070979,
+          "log_loss": 1.0983554894037677,
+          "brier": 0.14836636596673505,
+          "recall": {
+            "fist": 0.8888888888888888,
+            "index_pinch": 0.8333333333333334,
+            "neutral": 0.4722222222222222,
+            "open_hand": 1.0
+          },
+          "confusion_matrix": [
+            [
+              32,
+              2,
+              1,
+              1
+            ],
+            [
+              0,
+              30,
+              0,
+              6
+            ],
+            [
+              0,
+              8,
+              17,
+              11
+            ],
+            [
+              0,
+              0,
+              0,
+              36
+            ]
+          ]
+        },
+        "F0_plus_SPD_anchor": {
+          "trials": 144,
+          "accuracy": 0.9236111111111112,
+          "macro_f1": 0.9224835919356467,
+          "log_loss": 0.8646717518040817,
+          "brier": 0.11235707681843109,
+          "recall": {
+            "fist": 0.9444444444444444,
+            "index_pinch": 0.8055555555555556,
+            "neutral": 0.9444444444444444,
+            "open_hand": 1.0
+          },
+          "confusion_matrix": [
+            [
+              34,
+              1,
+              1,
+              0
+            ],
+            [
+              2,
+              29,
+              4,
+              1
+            ],
+            [
+              1,
+              0,
+              34,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              36
+            ]
+          ]
+        },
+        "paired_vs_F0": {
+          "corrected_trials": 4,
+          "new_errors": 2,
+          "paired_accuracy_discordance_exact_p": 0.6875,
+          "paired_macro_f1_delta_bootstrap_95pct": [
+            -0.013861745877827495,
+            0.050336811162564006
+          ],
+          "bootstrap": "4000 class-stratified paired trial resamples, seed 20260924; descriptive interval"
+        },
+        "audit": {
+          "calibration_blocks": 4,
+          "calibration_windows": 12,
+          "source_reference_sha256": "0fb3b6f745bbf34de8f13bede5f3f4df7c76c072a6b677c8328f76c941a6b184",
+          "calibration_trial_ids": [
+            "cal:fist:1",
+            "cal:index_pinch:1",
+            "cal:neutral:1",
+            "cal:open_hand:1"
+          ],
+          "formal_trial_overlap": false
+        }
+      },
+      "2": {
+        "weight_fixed_on_S03": 0.25,
+        "anchor_alone": {
+          "trials": 144,
+          "accuracy": 0.8888888888888888,
+          "macro_f1": 0.8882669755909193,
+          "log_loss": 1.041875187439884,
+          "brier": 0.13955040898716053,
+          "recall": {
+            "fist": 0.8888888888888888,
+            "index_pinch": 0.8888888888888888,
+            "neutral": 0.7777777777777778,
+            "open_hand": 1.0
+          },
+          "confusion_matrix": [
+            [
+              32,
+              2,
+              1,
+              1
+            ],
+            [
+              0,
+              32,
+              1,
+              3
+            ],
+            [
+              3,
+              0,
+              28,
+              5
+            ],
+            [
+              0,
+              0,
+              0,
+              36
+            ]
+          ]
+        },
+        "F0_plus_SPD_anchor": {
+          "trials": 144,
+          "accuracy": 0.9236111111111112,
+          "macro_f1": 0.9210377294587822,
+          "log_loss": 0.5357488638207376,
+          "brier": 0.06383822212822052,
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.75,
+            "neutral": 0.9444444444444444,
+            "open_hand": 1.0
+          },
+          "confusion_matrix": [
+            [
+              36,
+              0,
+              0,
+              0
+            ],
+            [
+              3,
+              27,
+              5,
+              1
+            ],
+            [
+              1,
+              0,
+              34,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              36
+            ]
+          ]
+        },
+        "paired_vs_F0": {
+          "corrected_trials": 2,
+          "new_errors": 0,
+          "paired_accuracy_discordance_exact_p": 0.5,
+          "paired_macro_f1_delta_bootstrap_95pct": [
+            0.0,
+            0.035927489757954775
+          ],
+          "bootstrap": "4000 class-stratified paired trial resamples, seed 20260924; descriptive interval"
+        },
+        "audit": {
+          "calibration_blocks": 8,
+          "calibration_windows": 24,
+          "source_reference_sha256": "0fb3b6f745bbf34de8f13bede5f3f4df7c76c072a6b677c8328f76c941a6b184",
+          "calibration_trial_ids": [
+            "cal:fist:1",
+            "cal:fist:2",
+            "cal:index_pinch:1",
+            "cal:index_pinch:2",
+            "cal:neutral:1",
+            "cal:neutral:2",
+            "cal:open_hand:1",
+            "cal:open_hand:2"
+          ],
+          "formal_trial_overlap": false
+        }
+      }
+    }
+  },
+  "boundary": "S01-S03 failed formal collection readiness; S04 passed. All sessions are one participant/day, with cue labels rather than verified physiological onset. S04 has been inspected by earlier project studies, so this is not untouched confirmation; no physical device live or cross-person/day inference. F2c is a source-log tangent approximation and F7 anchor is not exact affine-invariant geodesic or historical RLCS."
+}

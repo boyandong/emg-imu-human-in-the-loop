@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 import time
@@ -14,7 +15,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 from benchmarks.song_real8_study import _filter_emg, _join_batches, load_session
-from emgimu.feature_bank.families import LocalDetailFamily
+from emgimu.feature_bank.families import LocalDetailFamily, SpdTangentFamily
 
 
 def verify(source: Path, bundle: Path, collection_root: Path, output: Path):
@@ -23,19 +24,36 @@ def verify(source: Path, bundle: Path, collection_root: Path, output: Path):
 
     data = {sid: load_session(source / f"2026-09-18_{sid}", sid, "causal")
             for sid in ("S01", "S02", "S03")}
-    family = LocalDetailFamily().fit(_join_batches([data["S01"], data["S02"]]))
-    train_x = np.concatenate([family.transform(data[sid]["batch"]) for sid in ("S01", "S02")])
+    source_batch = _join_batches([data["S01"], data["S02"]])
+    family = LocalDetailFamily().fit(source_batch)
+    runtime = SongLocalRuntime(bundle)
+    spd = SpdTangentFamily().fit(source_batch) if runtime.with_spd else None
+
+    def matrix(sid):
+        pieces = [family.transform(data[sid]["batch"])]
+        if spd is not None:
+            pieces.append(spd.transform(data[sid]["batch"]))
+        return np.concatenate(pieces, axis=1)
+
+    train_x = np.concatenate([matrix(sid) for sid in ("S01", "S02")])
     train_y = np.concatenate([data[sid]["hand"] for sid in ("S01", "S02")])
     source_model = make_pipeline(StandardScaler(), LogisticRegression(
         C=1.0, class_weight="balanced", max_iter=2000, random_state=0))
     source_model.fit(train_x, train_y)
-    runtime = SongLocalRuntime(bundle)
     if runtime.manifest["source_hdf5_sha256"] != {sid: data[sid]["audit"]["sha256"] for sid in data}:
         raise ValueError("exported Song model source hashes differ from recordings")
     if not np.allclose(runtime.thresholds, family.thresholds_, rtol=0, atol=1e-12):
         raise ValueError("exported F0 thresholds differ from source fit")
+    if spd is not None:
+        reference = np.ascontiguousarray(spd.reference_)
+        digest = hashlib.sha256(reference.tobytes()).hexdigest()
+        if runtime.manifest.get("source_spd_reference_sha256") != digest:
+            raise ValueError("exported SPD source-reference digest differs from source fit")
+        exported = json.loads(runtime.artifact.read_text(encoding="utf-8"))["spd_reference"]
+        if not np.allclose(exported, reference, rtol=0, atol=1e-12):
+            raise ValueError("exported SPD source reference differs from source fit")
     validation = data["S03"]["batch"].emg
-    expected = source_model.predict_proba(family.transform(data["S03"]["batch"]))
+    expected = source_model.predict_proba(matrix("S03"))
     actual = np.stack([runtime.predict_filtered_window(window) for window in validation])
     probability_error = float(np.max(np.abs(expected - actual)))
     if probability_error > 2e-5 or not np.array_equal(np.argmax(expected, axis=1), np.argmax(actual, axis=1)):
@@ -60,6 +78,7 @@ def verify(source: Path, bundle: Path, collection_root: Path, output: Path):
     if replay_error > 2e-5 or len(frames) != 999:
         raise ValueError(f"chunked Song replay differs from offline causal filtering: {replay_error}")
     result = {"status": "export_and_chunked_causal_replay_verified",
+              "model_kind": "F0_plus_SPD" if runtime.with_spd else "F0",
               "artifact_sha256": runtime.sha256, "source_hdf5_sha256": runtime.manifest["source_hdf5_sha256"],
               "S03_validation_windows": len(validation),
               "max_probability_error_vs_source_sklearn": probability_error,
