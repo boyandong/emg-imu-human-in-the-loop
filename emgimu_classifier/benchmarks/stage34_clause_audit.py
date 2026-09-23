@@ -32,6 +32,8 @@ def run(results,output):
     g5_path=results/'unibo_g5_temporal_interaction.json';g5=json.loads(g5_path.read_text(encoding='utf-8'))
     anchor_spatial_path=results/'epn_anchor_spatial_interaction.json'
     anchor_spatial=json.loads(anchor_spatial_path.read_text(encoding='utf-8'))
+    ring_session_path=results/'wearing_ring_session_interaction.json'
+    ring_session=json.loads(ring_session_path.read_text(encoding='utf-8'))
     quality_candidate={'artifact':str(quality_path.relative_to(results.parent)).replace('\\','/'),
         'artifact_sha256':hashlib.sha256(quality_path.read_bytes()).hexdigest(),
         'native_dataset':'LibEMG Contraction Intensity, frozen source users1-6; validation7-8, final9-10',
@@ -58,11 +60,20 @@ def run(results,output):
         'pooled_interaction_rows':len(anchor_spatial['pooled_interactions']),
         'status':'verified_reference_spatial_pair_not_historical_exact',
         'boundary':'Four matched trial-level probability arms reuse saved calibration-only anchors, exact splits and source-user OOF temperatures. Reference CSP is not proven to equal a missing historical Spatial Coordination implementation; every full arm remains below F0 macro-F1.'}
+    ring_session_candidate={
+        'artifact':str(ring_session_path.relative_to(results.parent)).replace('\\','/'),
+        'artifact_sha256':hashlib.sha256(ring_session_path.read_bytes()).hexdigest(),
+        'native_dataset':'LibEMG electrode shift, same-user before-wearing source; validation15-17, final18-20',
+        'pair':ring_session['pair'],'budget':1,
+        'pooled_interaction_rows':len(ring_session['pooled_interactions']),
+        'status':'verified_reference_ring_pair_not_historical_RLCS',
+        'boundary':'Four matched F0+CSP base arms reuse frozen provider states, source OOF temperatures and exact one-shot wearing splits. Reference Ring is not historical RLCS; the pooled joint arm has no F1 gain beyond Ring alone.'}
     audit={'completion_proven':False,'stage3_document_lines':[658,678],'error_table_sha256':hashlib.sha256(ep.read_bytes()).hexdigest(),
         'stage3':stage3,'stage4_document_lines':[685,712],'interaction_table_sha256':hashlib.sha256(ip.read_bytes()).hexdigest(),
         'stage4_reviewed_priority_pairs':stage4,'stage4_quality_reference_replay':quality_candidate,
         'stage4_g5_reference_temporal':g5_candidate,
         'stage4_personal_anchor_reference_spatial':anchor_spatial_candidate,
+        'stage4_reference_ring_session_signature':ring_session_candidate,
         'remaining_stage4_exact_pairs':['RLCS x PersonalAnchor','RLCS x SessionSignature','G5 x TemporalShape','PersonalAnchor x exact historical SpatialCoordination','Quality x historically validated robust families'],
         'boundary':'Recorded pair metrics and source hashes verified; full named-pair and historical-family coverage remains incomplete.'}
     output.write_text(json.dumps(audit,indent=2)+'\n',encoding='utf-8');print(json.dumps({'stage3_rows':sum(x['rows'] for x in stage3),'stage4_rows':sum(x['rows'] for x in stage4),'completion_proven':False}))

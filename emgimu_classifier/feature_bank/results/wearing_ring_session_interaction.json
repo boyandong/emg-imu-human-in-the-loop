@@ -1,0 +1,57 @@
+{
+  "completion_proven": false,
+  "pair": "reference_Ring x SessionSignature",
+  "protocol": "Frozen F0+CSP base, fixed reference Ring addition and calibration-only Session Signature reweighting on exact saved one-shot wearing splits",
+  "analysis_source_sha256": "6c4e33840c466c7d5747773f911e2f3d721b4bb4d21d412a054dc81ca593234f",
+  "phases": {
+    "validation": {
+      "run_manifest_sha256": "87ea268a596b2225d93b8311f064a07f2e4d21e69d9d12c78a64bbd5fc70d5dc",
+      "output_sha256": {
+        "arm_scores.csv": "6d1685e0dfe2a8d25a5020922494e3e320b3f93b541aa50187afda1bc74620ba",
+        "interaction_results.csv": "2c5da9abedb662a3decb4585de5f61dbaf1d3984dade6fdda46b8a6857419129",
+        "heldout_predictions.npz": "9ef5f9979a9a09ead2b0c567b604d6cd5a4dd5965f28f5e3f0a5a930fe772510",
+        "split_trial_ids.json": "a42385d70b275ac381e204560eeb87447b585b2403fc8b0822dd2e7c9fd34c2b"
+      }
+    },
+    "final": {
+      "run_manifest_sha256": "3215d8bbead8a9b4c8a33c1c0a02fef2764f29f762d5bfd30469d53e3505e690",
+      "output_sha256": {
+        "arm_scores.csv": "da31371459a5cac939b256b7242fbb0fcf4a4a7508c1849f8554bbd4e1cb91e2",
+        "interaction_results.csv": "b131f8a8f1a7029d0372ec1c908c50fc5b9a570cbcb19c2139e587cb6f0e8e5c",
+        "heldout_predictions.npz": "c11e2ecaf51d9006e5a2a83293f6fbce614df35bc1dff8b51c9382e741e1329c",
+        "split_trial_ids.json": "9fbf306eedecc924ec4e204c98fff4a5bb9cda7ead475d105e2284bd8b658c69"
+      }
+    }
+  },
+  "pooled_interactions": [
+    {
+      "phase": "validation",
+      "subject": "ALL",
+      "condition": "ALL",
+      "shots_per_class": 1,
+      "calibration_trials": 60,
+      "evaluation_trials": 60,
+      "base": "F0|F2b_CSP_reference",
+      "family_a": "F3_Ring_reference",
+      "family_b": "F8_SessionSignature",
+      "S_negative_logloss": -0.002378473833284378,
+      "S_macro_f1": 0.0,
+      "S_negative_brier": 0.00024415714265144106
+    },
+    {
+      "phase": "final",
+      "subject": "ALL",
+      "condition": "ALL",
+      "shots_per_class": 1,
+      "calibration_trials": 60,
+      "evaluation_trials": 60,
+      "base": "F0|F2b_CSP_reference",
+      "family_a": "F3_Ring_reference",
+      "family_b": "F8_SessionSignature",
+      "S_negative_logloss": -0.0015508349204285121,
+      "S_macro_f1": -0.030307895003547136,
+      "S_negative_brier": -0.0009381490193991204
+    }
+  ],
+  "boundary": "Reference Ring is not historical RLCS; same-user wearing domains are not longitudinal sessions; fixed probability composition does not prove physiological synergy or own-device performance."
+}

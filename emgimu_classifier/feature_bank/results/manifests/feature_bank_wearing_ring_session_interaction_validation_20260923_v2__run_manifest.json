@@ -1,0 +1,54 @@
+{
+  "phase": "validation",
+  "source_users": [
+    15,
+    16,
+    17
+  ],
+  "target_users": [
+    15,
+    16,
+    17
+  ],
+  "source_domain": "before-wearing training",
+  "target_domains": [
+    "trial_1",
+    "trial_2",
+    "trial_3",
+    "trial_4"
+  ],
+  "families": [
+    "F0",
+    "F2b_CSP",
+    "F3_Ring"
+  ],
+  "arms": [
+    "B",
+    "B_plus_Ring",
+    "B_plus_Session",
+    "B_plus_Ring_plus_Session"
+  ],
+  "shots_per_class": 1,
+  "classifier_or_family_fit": false,
+  "source_signature_fit": true,
+  "target_fit": false,
+  "target_rule_selection": false,
+  "source_state_immutable": true,
+  "session_rule": "uniform provider weights times clipped (mean class cosine+1)/2",
+  "raw_archive_sha256": "4cfa9a4861193f230179fa87d53eda7503e66b5cfedeae81c81e476f53f6b2b6",
+  "source_sha256": {
+    "parent/fitted_states.pkl": "5625e923d0d6691c557c8aac90e7225b435abc36d72ce4d0b5df949a449983f0",
+    "parent/run_manifest.json": "feff0c041f7c69e4a61e56c3437eadf6ef3ec3fc331b266500a7133867ffd3a2",
+    "session/run_manifest.json": "d7f36a7ce195d1df8f8d2877d1da7a8576a2eed3f9becf40034f1d9660d32ca4",
+    "session/split_trial_ids.json": "2b2eb7201f9ecc50eabeb924ecbe2307008e6f377fd45283ded7053a0aa1bab2",
+    "session/replay_audit.json": "6c809b4f9ab805be122a711bd8242f50fbd93f6fcf37179258e7e7190f40f50f"
+  },
+  "output_sha256": {
+    "arm_scores.csv": "6d1685e0dfe2a8d25a5020922494e3e320b3f93b541aa50187afda1bc74620ba",
+    "interaction_results.csv": "2c5da9abedb662a3decb4585de5f61dbaf1d3984dade6fdda46b8a6857419129",
+    "heldout_predictions.npz": "9ef5f9979a9a09ead2b0c567b604d6cd5a4dd5965f28f5e3f0a5a930fe772510",
+    "split_trial_ids.json": "a42385d70b275ac381e204560eeb87447b585b2403fc8b0822dd2e7c9fd34c2b"
+  },
+  "analysis_source_sha256": "6c4e33840c466c7d5747773f911e2f3d721b4bb4d21d412a054dc81ca593234f",
+  "boundary": "Same-user native before/after wearing reference Ring and calibration-only Session Signature probability interaction; Ring is not historical RLCS, domains are not calendar sessions, and results are not own-device evidence."
+}

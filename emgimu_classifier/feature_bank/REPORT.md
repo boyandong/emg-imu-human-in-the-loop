@@ -6,7 +6,7 @@ diagnostics are explicitly labelled. Model compositions and calibration rules ar
 from source evidence, validation evidence or prespecified controls; final scores do not tune them.
 Seed: 20260915. Classical logistic regression runs use CPU; no neural training is needed
 for these representation comparisons.
-The current suite has 198 tests (197 passed, one skipped); `results/validation.json` carries
+The current suite has 200 tests (199 passed, one skipped); `results/validation.json` carries
 the exact log hash. Older section-local test counts below are dated snapshots,
 not the current total. At this review, the collection application's documented
 default `collection/emg_meta/emg_meta/data` directory does not exist, so no
@@ -2554,3 +2554,34 @@ Current CSP is a document/reference candidate and is not proven identical to a
 missing historical Spatial Coordination implementation. This is offline EPN
 probability composition, not causal physiology, feature concatenation, streaming
 recognition or current-device performance.
+
+## Frozen reference Ring × Session Signature wearing interaction (2026-09-23)
+
+The named RLCS × Session Signature question now has a matched reference-family
+four-arm study. To keep Session Signature identifiable after removing Ring, the
+fixed base contains F0 plus reference CSP. The arms add reference Ring, the
+prespecified calibration-only Session Signature provider reweighting, or both.
+All family/scaler/classifier states and source OOF temperatures come from the
+existing before-wearing packages. The experiment reuses the exact saved
+one-shot calibration and evaluation trials for each user and wearing domain.
+Validation users15–17 freeze the code before final users18–20 are evaluated.
+
+| Pooled one-shot result | F0+CSP | +Ring | +Session | +Ring+Session |
+|---|---:|---:|---:|---:|
+| Validation macro-F1 | .5856 | .6309 | .5856 | .6309 |
+| Validation log loss | 2.8503 | .7995 | 2.8251 | .7767 |
+| Final macro-F1 | .6682 | .6967 | .6985 | .6967 |
+| Final log loss | 1.3856 | .9101 | 1.3762 | .9023 |
+
+Ring supplies the large probability-loss recovery in both cohorts. Session
+Signature slightly improves log loss, but its pooled F1 gain is absent on
+validation and does not survive after Ring is present on final. The pooled
+negative-log-loss interaction is slightly negative (-.00238 validation,
+-.00155 final); final macro-F1 interaction is -.03031. Thus the two mechanisms
+do not show positive joint value for this fixed bank. Full prediction arrays,
+per-user/domain cells and split IDs are under
+`work/benchmark_runs/feature_bank_wearing_ring_session_interaction_{validation,final}_20260923_v2`;
+`results/wearing_ring_session_interaction.json` binds their hashes.
+Reference Ring is not the unavailable historical RLCS, and the four native
+wearing conditions are not calendar sessions. This result cannot establish
+longitudinal or current-device performance.

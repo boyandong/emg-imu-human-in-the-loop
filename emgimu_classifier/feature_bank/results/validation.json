@@ -1,11 +1,11 @@
 {
   "date": "2026-09-23",
   "command": "$env:PYTHONPATH='src'; python -m pytest -q",
-  "tests_run": 198,
-  "passed": 197,
+  "tests_run": 200,
+  "passed": 199,
   "skipped": 1,
   "result": "OK",
   "scope": "unit and synthetic integration checks; no live-device accuracy claim",
   "test_log": "results/test_run_20260923.txt",
-  "test_log_sha256": "7505b3a4f5b616772b57cf0ef888b9c9835f69c317ee08bec130d08eebcf1d2d"
+  "test_log_sha256": "bef018493d7bf4d2672cb988c82343a47cb23cc7306f7c46bdf00937da86ccce"
 }

@@ -71,7 +71,7 @@
     685,
     712
   ],
-  "interaction_table_sha256": "296de9630668d21501cdecb4326b98b4edc356f485fd22b1fdf16c1d596b3fac",
+  "interaction_table_sha256": "bc943c9ea7fdb55d0bb0a0bd9677b3a1b50e31748c2edec440ebc74fd57c5c29",
   "stage4_reviewed_priority_pairs": [
     {
       "requirement": "X1 x Frequency",
@@ -138,6 +138,16 @@
     "pooled_interaction_rows": 6,
     "status": "verified_reference_spatial_pair_not_historical_exact",
     "boundary": "Four matched trial-level probability arms reuse saved calibration-only anchors, exact splits and source-user OOF temperatures. Reference CSP is not proven to equal a missing historical Spatial Coordination implementation; every full arm remains below F0 macro-F1."
+  },
+  "stage4_reference_ring_session_signature": {
+    "artifact": "results/wearing_ring_session_interaction.json",
+    "artifact_sha256": "ac7ee924f180fbff01b594a7e59c46ab8948e78d96a852afd7644c03474dfad1",
+    "native_dataset": "LibEMG electrode shift, same-user before-wearing source; validation15-17, final18-20",
+    "pair": "reference_Ring x SessionSignature",
+    "budget": 1,
+    "pooled_interaction_rows": 2,
+    "status": "verified_reference_ring_pair_not_historical_RLCS",
+    "boundary": "Four matched F0+CSP base arms reuse frozen provider states, source OOF temperatures and exact one-shot wearing splits. Reference Ring is not historical RLCS; the pooled joint arm has no F1 gain beyond Ring alone."
   },
   "remaining_stage4_exact_pairs": [
     "RLCS x PersonalAnchor",

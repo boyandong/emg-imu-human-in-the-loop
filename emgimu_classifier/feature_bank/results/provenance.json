@@ -384,6 +384,20 @@
     "bytes": 1286
   },
   {
+    "run_id": "feature_bank_wearing_ring_session_interaction_validation_20260923_v2",
+    "artifact": "interaction_results.csv",
+    "sha256": "2c5da9abedb662a3decb4585de5f61dbaf1d3984dade6fdda46b8a6857419129",
+    "bytes": 1913,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_wearing_ring_session_interaction_final_20260923_v2",
+    "artifact": "interaction_results.csv",
+    "sha256": "b131f8a8f1a7029d0372ec1c908c50fc5b9a570cbcb19c2139e587cb6f0e8e5c",
+    "bytes": 1907,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
     "run_id": "feature_bank_epn_anchor_spatial_validation_20260923",
     "artifact": "interaction_results.csv",
     "sha256": "423b901bde4464f1af51691053d7bde9abc01f0a6b6dffe93063cdbcf961abed",
