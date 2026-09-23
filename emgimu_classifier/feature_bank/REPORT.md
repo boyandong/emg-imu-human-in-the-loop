@@ -77,7 +77,7 @@ it does not prove complete prerequisite acceptance or original phase ordering.
 
 `FORMULA_IMPLEMENTATION_AUDIT.md` and CSV now record 31 reviewed formula/API
 boundaries in the precise-definition appendix, each with exact heading line,
-source AST symbol span and SHA-256. Nineteen runtime classes have measured named
+source AST symbol span and SHA-256. Twenty runtime classes have measured named
 dimensions on explicit synthetic fixtures (original G5 only on its native four
 channels). These fixtures prove interface dimensions, not dataset validity or
 scientific completion. Candidate formula status is distinct from validated reuse.
@@ -1401,6 +1401,19 @@ not a replacement selected on final results, a fatigue estimate or a claimed exa
 CCA reproduction. Source temperature calibration simulates cal5 and may transfer
 imperfectly to other budgets. Full tests pass 119 cases with one skip. Historical
 reuse and remaining complete-document evidence remain unfinished.
+
+`PersonalSessionSpectralShift` now separately freezes an equal-trial-mass
+long-term log-band reference and a current-session calibration reference. It
+returns both F4d `window−long` and `session−long` coordinates, and rejects
+overlap among source, session calibration and evaluation trial identities.
+The [Song diagnostic](../benchmarks/song_real8/F4D_SESSION_SHIFT_AUDIT.json)
+uses S01/S02 initial-rest blocks for the long reference and disjoint S03/S04
+initial-rest blocks plus held-out still-neutral formal trials. Mean absolute
+session-minus-long log-band shift is 1.048 in S03 and 1.022 in S04 (32
+coordinates). These are one-person/day, unfiltered periodogram context values;
+they neither establish fatigue nor show a classification gain. S01–S03 whole
+sessions did not pass collection readiness, although the selected individual
+blocks were marked valid and source file hashes were checked.
 
 ### Calibration activation range and within-gesture pattern spread
 

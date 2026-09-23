@@ -2,6 +2,7 @@
 import numpy as np
 from .core import FeatureBatch, FeatureFamily
 from .families import SpectralStateFamily
+from .activation_profile import trial_weights
 
 
 class LogBandEnergyFamily(FeatureFamily):
@@ -42,3 +43,58 @@ class RelativeSpectrumCoordinates:
         x=np.asarray(log_band_energy,dtype=float)
         if x.ndim!=2 or x.shape[1]!=len(self.reference_) or not np.all(np.isfinite(x)):raise ValueError('Invalid log-band observation')
         return (x-self.reference_).astype(np.float32)
+
+
+class PersonalSessionSpectralShift:
+    """F4d long-term and current-session log-band references, kept separate.
+
+    Each calibration trial has equal mass regardless of how many windows it
+    contributes. Explicit trial identities prevent reference/evaluation reuse.
+    """
+
+    @staticmethod
+    def _observations(values, trial_ids, width=None):
+        x = np.asarray(values, dtype=np.float64)
+        original_ids = np.asarray(trial_ids, dtype=object)
+        if (x.ndim != 2 or not len(x) or x.shape[1] == 0 or not np.all(np.isfinite(x)) or
+                (width is not None and x.shape[1] != width) or
+                original_ids.ndim != 1 or len(original_ids) != len(x) or
+                any(item is None or not str(item).strip() or str(item).lower() == "nan"
+                    for item in original_ids)):
+            raise ValueError("Finite log-band rows and one nonempty trial ID per row required")
+        trials = original_ids.astype(str)
+        return x, trials
+
+    @staticmethod
+    def _equal_trial_mean(x, trials):
+        weights = trial_weights(trials)
+        return np.average(x, axis=0, weights=weights)
+
+    def fit_long_term(self, log_band_energy, trial_ids):
+        x, trials = self._observations(log_band_energy, trial_ids)
+        self.long_reference_ = self._equal_trial_mean(x, trials)
+        self.long_trial_ids_ = frozenset(trials.tolist())
+        self.session_reference_ = None
+        self.session_trial_ids_ = frozenset()
+        return self
+
+    def fit_session_calibration(self, log_band_energy, trial_ids):
+        if not hasattr(self, "long_reference_"):
+            raise RuntimeError("Long-term spectral baseline required")
+        x, trials = self._observations(log_band_energy, trial_ids, len(self.long_reference_))
+        if self.long_trial_ids_.intersection(trials.tolist()):
+            raise ValueError("Session calibration overlaps long-term trials")
+        self.session_reference_ = self._equal_trial_mean(x, trials)
+        self.session_trial_ids_ = frozenset(trials.tolist())
+        return self
+
+    def transform_evaluation(self, log_band_energy, trial_ids):
+        if not hasattr(self, "long_reference_") or self.session_reference_ is None:
+            raise RuntimeError("Long-term and session calibration references required")
+        x, trials = self._observations(log_band_energy, trial_ids, len(self.long_reference_))
+        if (self.long_trial_ids_ | self.session_trial_ids_).intersection(trials.tolist()):
+            raise ValueError("Evaluation overlaps spectral calibration trials")
+        return {
+            "window_minus_long": (x - self.long_reference_).astype(np.float32),
+            "session_minus_long": (self.session_reference_ - self.long_reference_).astype(np.float32),
+        }

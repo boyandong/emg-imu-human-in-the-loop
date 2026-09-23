@@ -2,7 +2,9 @@ import pickle
 import unittest
 import numpy as np
 from emgimu.feature_bank.core import FeatureBatch
-from emgimu.feature_bank.relative_spectrum import LogBandEnergyFamily, RelativeSpectrumCoordinates
+from emgimu.feature_bank.relative_spectrum import (
+    LogBandEnergyFamily, RelativeSpectrumCoordinates, PersonalSessionSpectralShift,
+)
 
 
 class RelativeSpectrumTests(unittest.TestCase):
@@ -21,3 +23,16 @@ class RelativeSpectrumTests(unittest.TestCase):
         family=LogBandEnergyFamily().fit(batch)
         with self.assertRaises(ValueError):family.transform(FeatureBatch(batch.emg,500.))
         with self.assertRaises(RuntimeError):RelativeSpectrumCoordinates().transform(np.zeros((2,16)))
+
+    def test_f4d_separates_long_session_and_evaluation_trials(self):
+        long=np.array([[1.,2.],[1.,2.],[3.,4.]])
+        profile=PersonalSessionSpectralShift().fit_long_term(long,['L1','L1','L2'])
+        np.testing.assert_array_equal(profile.long_reference_,[2.,3.])
+        before=pickle.dumps(profile)
+        with self.assertRaises(ValueError):profile.fit_session_calibration([[5.,6.]],['L1'])
+        profile.fit_session_calibration([[5.,6.],[5.,6.]],['S1','S1'])
+        with self.assertRaises(ValueError):profile.transform_evaluation([[7.,8.]],['S1'])
+        output=profile.transform_evaluation([[7.,8.]],['E1'])
+        np.testing.assert_array_equal(output['session_minus_long'],[3.,3.])
+        np.testing.assert_array_equal(output['window_minus_long'],[[5.,5.]])
+        self.assertNotEqual(before,pickle.dumps(profile))

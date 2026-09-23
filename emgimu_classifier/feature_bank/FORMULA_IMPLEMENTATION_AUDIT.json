@@ -828,6 +828,11 @@
       "source_immutable": true,
       "fixture_override": "synthetic source8, disjoint calibration4 and evaluation4 for API shape only; no native performance claim",
       "native_evaluation": "N/A"
+    },
+    "PersonalSessionSpectralShift": {
+      "fixture_dimension": 32,
+      "source_immutable": true,
+      "fixture_override": "synthetic disjoint long8/session4/evaluation4 trial identities; no native performance claim"
     }
   }
 }

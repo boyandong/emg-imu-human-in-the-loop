@@ -244,3 +244,14 @@ direct runtime probabilities exactly. S04's recorded mean EMG rate was 249.54
 Hz against a nominal 250 Hz. The original physical packet bytes were not
 saved, so this verifies reconstructed protocol software behavior, not the
 actual USB link, live timing, or electrode placement on another wearing.
+
+An [F4d native context diagnostic](F4D_SESSION_SHIFT_AUDIT.json) implements
+separate long-term and current-session spectral references without evaluation
+reuse. The long reference uses the two initial-rest calibration trials in
+S01/S02; S03 and S04 each use their own initial-rest trial for session
+calibration and 18 separate still-neutral formal trials for held-out
+description. All four source HDF5 digests match the saved readiness records.
+The mean absolute 32-coordinate `session−long` log-band shift is 1.048 for
+S03 and 1.022 for S04. These shifts are descriptive sensor/context evidence
+from one person on one day, not fatigue, cross-day drift, or a demonstrated
+recognition benefit. S01–S03 whole sessions failed collection readiness.

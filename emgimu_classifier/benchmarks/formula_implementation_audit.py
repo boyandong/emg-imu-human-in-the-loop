@@ -17,7 +17,7 @@ from emgimu.feature_bank.families import (
 from emgimu.feature_bank.ring_covariance import RawRingCovarianceFamily
 from emgimu.feature_bank.quality_observability import QualityObservabilityFamily
 from emgimu.feature_bank.temporal import PathSignatureFamily
-from emgimu.feature_bank.relative_spectrum import LogBandEnergyFamily
+from emgimu.feature_bank.relative_spectrum import LogBandEnergyFamily,PersonalSessionSpectralShift
 from emgimu.feature_bank.validated_unibo import ValidatedUniBoFamily
 from emgimu.feature_bank.document_signal import RestNoiseLocalDetailFamily,DocumentCspFamily
 from emgimu.feature_bank.body_frame import CalibratedBodyContextFamily
@@ -54,8 +54,8 @@ REVIEWS = (
   'Periodogram total power/centroid/MDF and optional entropy normalized by log(number of bins); FFT power units not calibrated physical PSD.','4C block'),
  ('F4c','F4c. Cepstral / CCA-like candidate','families.py','SpectralStateFamily','candidate_formula',
   'Non-DC low-order unnormalized DCT-II mean/std across channels, K=4 prespecified; cepstral summary not reproduction of paper CCA.','2K block'),
- ('F4d','F4d. Personal/session-relative spectral shift','relative_spectrum.py','RelativeSpectrumCoordinates','partial',
-  'Calibration-only mean log-band subtraction implemented; session-minus-long mean requires explicit separate references; context not fatigue.','BC'),
+ ('F4d','F4d. Personal/session-relative spectral shift','relative_spectrum.py','PersonalSessionSpectralShift','candidate_native_context_only',
+  'Separate equal-trial-mass long and current-session log-band references, disjoint trial IDs and both requested difference vectors implemented. Song one-person/day rest-calibration and held-out still-neutral diagnostic exists; no fatigue, cross-day or predictive-value claim.','BC'),
  ('F5a','F5a. Existing G5','validated_unibo.py','ValidatedUniBoFamily','validated_reuse_narrow',
   'Calls unchanged native UniBo G5 at 4ch/processed200Hz: early-minus-late and raw waveform slope; different from new TemporalFormFamily late-minus-early/envelope slope.','5C native G5'),
  ('F5_reference','F5. Temporal Form','families.py','TemporalFormFamily','reference_only',
@@ -136,6 +136,17 @@ def build(document, output):
         'names':list(spd_anchor.feature_names),'source_immutable':True,
         'fixture_override':'synthetic source8, disjoint calibration4 and evaluation4 for API shape only; no native performance claim',
         'native_evaluation':'N/A'}
+    spectrum=LogBandEnergyFamily().fit(batch).transform(batch)
+    shift=PersonalSessionSpectralShift().fit_long_term(spectrum[:8],[f'long-{i}' for i in range(8)])
+    shift.fit_session_calibration(spectrum[8:12],[f'cal-{i}' for i in range(4)])
+    before=pickle.dumps(shift)
+    shifted=shift.transform_evaluation(spectrum[12:],[f'eval-{i}' for i in range(4)])
+    if (before!=pickle.dumps(shift) or shifted['window_minus_long'].shape!=(4,spectrum.shape[1]) or
+            shifted['session_minus_long'].shape!=(spectrum.shape[1],)):
+        raise AssertionError('Separated F4d source/session/evaluation fixture failed')
+    measured['PersonalSessionSpectralShift']={'fixture_dimension':spectrum.shape[1],
+        'source_immutable':True,
+        'fixture_override':'synthetic disjoint long8/session4/evaluation4 trial identities; no native performance claim'}
     rows = []
     for item_id,heading,filename,symbol,status,boundary,dimension in REVIEWS:
         matches = [i+1 for i,text in enumerate(lines) if i+1>=1120 and text.strip()==heading]
