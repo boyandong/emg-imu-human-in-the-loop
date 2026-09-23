@@ -170,3 +170,22 @@ pre-prompt rest: the raw neutral-prediction fraction falls from 87.1% to
 therefore offered as a selectable experimental model, not promoted as a
 universally better default. These are cue-timeline replay values; neither
 physical USB recognition nor event-onset latency has been validated.
+
+The decoded display state confirms a smaller but real rest tradeoff: over all
+pre-prompt rest windows, the active-state fraction is 21.1% for F0 and 27.7%
+for F0+SPD. In the final 400 ms before each prompt, where residual motion from
+the preceding trial should matter less, it is 9.3% versus 17.2% (291 windows
+for either model). These are cue-defined intervals rather than verified
+physiological rest; the newly added counters are in the corresponding
+continuous replay JSONs.
+
+A separate [neutral-bias study](NEUTRAL_BIAS_STUDY.json) applied fixed neutral
+logit offsets 0 to 1.5 to F0+SPD probabilities, keeping the online threshold
+and three-frame rule. S03 alone selected +1.0 under constraints on late-rest
+active state, stable-cue macro-F1 and state-change rate. On S04, this reduces
+F0+SPD late-rest active display from 17.2% to 12.0% and changes stable-cue
+decoded macro-F1 from 79.8% to 80.9%; F0 remains lower at 9.3% late-rest
+active display and 72.3% stable-cue decoded macro-F1. The S04 baseline had
+already motivated this exploration, and the same-person/day result does not
+establish a calibrated deployment threshold. The +1.0 bias is not installed
+in the selectable bundle or made the application default.

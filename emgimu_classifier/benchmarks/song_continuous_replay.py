@@ -68,6 +68,8 @@ def run(source: Path, bundle: Path, collection_root: Path, output: Path) -> dict
     stable_decoded = []
     trial_decoded_has_correct = []
     rest_frame_pred = []
+    rest_decoded = []
+    late_rest_decoded = []
     stable_support = Counter()
     rest_intervals = 0
     for row in trials:
@@ -90,6 +92,11 @@ def run(source: Path, bundle: Path, collection_root: Path, output: Path) -> dict
         selected_rest = np.flatnonzero((frame_indices - 49 >= rest_start) & (frame_indices < prompt_start))
         if len(selected_rest):
             rest_frame_pred.extend(predicted[selected_rest].tolist())
+            rest_decoded.extend(decoded[selected_rest].tolist())
+            late_start = max(rest_start, prompt_start - 100)
+            selected_late = np.flatnonzero((frame_indices - 49 >= late_start) &
+                                           (frame_indices < prompt_start))
+            late_rest_decoded.extend(decoded[selected_late].tolist())
             rest_intervals += 1
 
     labels = list(LABELS)
@@ -126,6 +133,18 @@ def run(source: Path, bundle: Path, collection_root: Path, output: Path) -> dict
         "rest_cue_predicted_support": dict(Counter(rest_frame_pred)),
         "rest_cue_neutral_fraction": float(np.mean(np.asarray(rest_frame_pred) == "neutral"))
         if rest_frame_pred else None,
+        "rest_cue_decoded_support": dict(Counter(rest_decoded)),
+        "rest_cue_decoded_neutral_fraction": float(np.mean(np.asarray(rest_decoded) == "neutral"))
+        if rest_decoded else None,
+        "rest_cue_decoded_active_fraction": float(np.mean(np.isin(rest_decoded,
+            [label for label in labels if label != "neutral"]))) if rest_decoded else None,
+        "late_rest_definition": "200 ms windows wholly in the final 400 ms before each formal prompt",
+        "late_rest_decoded_frames": len(late_rest_decoded),
+        "late_rest_decoded_support": dict(Counter(late_rest_decoded)),
+        "late_rest_decoded_neutral_fraction": float(np.mean(np.asarray(late_rest_decoded) == "neutral"))
+        if late_rest_decoded else None,
+        "late_rest_decoded_active_fraction": float(np.mean(np.isin(late_rest_decoded,
+            [label for label in labels if label != "neutral"]))) if late_rest_decoded else None,
         "labels_order": labels,
         "boundary": "All-frame support includes calibration, rest, transitions and uncued time. Decoder metrics replay the fixed live threshold and three-frame rule on every frame; Qt displays the latest state per processed input batch, so these are decoder-state rather than measured screen metrics. Trial/stable metrics use recorded cue intervals, not physiological onset. Rest intervals may contain residual prior movement. No physical USB, event-onset or UI-latency validation."
     }

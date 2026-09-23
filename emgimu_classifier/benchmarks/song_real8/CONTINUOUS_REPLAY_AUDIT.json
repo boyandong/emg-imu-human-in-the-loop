@@ -93,6 +93,26 @@
     "open_hand": 32
   },
   "rest_cue_neutral_fraction": 0.8706382978723404,
+  "rest_cue_decoded_support": {
+    "neutral": 873,
+    "index_pinch": 93,
+    "fist": 136,
+    "unknown": 54,
+    "open_hand": 19
+  },
+  "rest_cue_decoded_neutral_fraction": 0.7429787234042553,
+  "rest_cue_decoded_active_fraction": 0.21106382978723404,
+  "late_rest_definition": "200 ms windows wholly in the final 400 ms before each formal prompt",
+  "late_rest_decoded_frames": 291,
+  "late_rest_decoded_support": {
+    "neutral": 254,
+    "unknown": 10,
+    "fist": 19,
+    "index_pinch": 7,
+    "open_hand": 1
+  },
+  "late_rest_decoded_neutral_fraction": 0.872852233676976,
+  "late_rest_decoded_active_fraction": 0.09278350515463918,
   "labels_order": [
     "fist",
     "index_pinch",

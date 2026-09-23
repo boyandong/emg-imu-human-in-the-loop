@@ -1,0 +1,197 @@
+{
+  "status": "exploratory_one_person_day_neutral_bias_tradeoff",
+  "fixed_candidates": "Add neutral logit bias 0/0.25/0.5/0.75/1/1.25/1.5 to F0+SPD probabilities; fixed 0.5 threshold and 3-frame online decision",
+  "selection": "Use S03 only: late-rest decoded active fraction <= F0 +2 percentage points, stable decoded macro-F1 >= F0 +2 points, and whole-stream state changes/minute <= F0 *1.2; maximize F1, then lower rest active, then lower bias. S04 loads after this decision.",
+  "selected_neutral_logit_bias": 1.0,
+  "validation": {
+    "source_sha256": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+    "f0_model_sha256": "843a1230f8fbee5a839557e59edaf449ab250cbb125df8f77164a6255420eedc",
+    "spd_model_sha256": "ecbab44df4340991d9b02038f9508d0b4767686064c6a26cceeecffd1900d821",
+    "formal_trials": 139,
+    "F0": {
+      "neutral_logit_bias": 0.0,
+      "stable_frames": 895,
+      "late_rest_frames": 285,
+      "stable_decoded_accuracy": 0.8100558659217877,
+      "stable_decoded_macro_f1": 0.8215727130877145,
+      "stable_decoded_recall": {
+        "fist": 0.7808988764044944,
+        "index_pinch": 0.6584158415841584,
+        "neutral": 0.8168316831683168,
+        "open_hand": 0.9201277955271565
+      },
+      "late_rest_decoded_active_fraction": 0.18596491228070175,
+      "late_rest_decoded_neutral_fraction": 0.7649122807017544,
+      "whole_stream_state_changes_per_minute": 38.20291579886938
+    },
+    "F0_plus_SPD_candidates": [
+      {
+        "neutral_logit_bias": 0.0,
+        "stable_frames": 895,
+        "late_rest_frames": 285,
+        "stable_decoded_accuracy": 0.8592178770949721,
+        "stable_decoded_macro_f1": 0.8576777482110112,
+        "stable_decoded_recall": {
+          "fist": 0.848314606741573,
+          "index_pinch": 0.7425742574257426,
+          "neutral": 0.8960396039603961,
+          "open_hand": 0.9169329073482428
+        },
+        "late_rest_decoded_active_fraction": 0.1649122807017544,
+        "late_rest_decoded_neutral_fraction": 0.8280701754385965,
+        "whole_stream_state_changes_per_minute": 34.186254091044326
+      },
+      {
+        "neutral_logit_bias": 0.25,
+        "stable_frames": 895,
+        "late_rest_frames": 285,
+        "stable_decoded_accuracy": 0.8603351955307262,
+        "stable_decoded_macro_f1": 0.8593828775733479,
+        "stable_decoded_recall": {
+          "fist": 0.8426966292134831,
+          "index_pinch": 0.7376237623762376,
+          "neutral": 0.9108910891089109,
+          "open_hand": 0.9169329073482428
+        },
+        "late_rest_decoded_active_fraction": 0.12982456140350876,
+        "late_rest_decoded_neutral_fraction": 0.8701754385964913,
+        "whole_stream_state_changes_per_minute": 34.14162451651294
+      },
+      {
+        "neutral_logit_bias": 0.5,
+        "stable_frames": 895,
+        "late_rest_frames": 285,
+        "stable_decoded_accuracy": 0.8625698324022346,
+        "stable_decoded_macro_f1": 0.861425210212964,
+        "stable_decoded_recall": {
+          "fist": 0.8426966292134831,
+          "index_pinch": 0.7326732673267327,
+          "neutral": 0.9306930693069307,
+          "open_hand": 0.9137380191693291
+        },
+        "late_rest_decoded_active_fraction": 0.11929824561403508,
+        "late_rest_decoded_neutral_fraction": 0.8771929824561403,
+        "whole_stream_state_changes_per_minute": 33.78458792026182
+      },
+      {
+        "neutral_logit_bias": 0.75,
+        "stable_frames": 895,
+        "late_rest_frames": 285,
+        "stable_decoded_accuracy": 0.864804469273743,
+        "stable_decoded_macro_f1": 0.8608997155459673,
+        "stable_decoded_recall": {
+          "fist": 0.8426966292134831,
+          "index_pinch": 0.7277227722772277,
+          "neutral": 0.9455445544554455,
+          "open_hand": 0.9137380191693291
+        },
+        "late_rest_decoded_active_fraction": 0.10877192982456141,
+        "late_rest_decoded_neutral_fraction": 0.8912280701754386,
+        "whole_stream_state_changes_per_minute": 33.070514727759594
+      },
+      {
+        "neutral_logit_bias": 1.0,
+        "stable_frames": 895,
+        "late_rest_frames": 285,
+        "stable_decoded_accuracy": 0.8659217877094972,
+        "stable_decoded_macro_f1": 0.861904207766133,
+        "stable_decoded_recall": {
+          "fist": 0.8426966292134831,
+          "index_pinch": 0.7277227722772277,
+          "neutral": 0.9504950495049505,
+          "open_hand": 0.9137380191693291
+        },
+        "late_rest_decoded_active_fraction": 0.08771929824561403,
+        "late_rest_decoded_neutral_fraction": 0.9122807017543859,
+        "whole_stream_state_changes_per_minute": 32.758107706039866
+      },
+      {
+        "neutral_logit_bias": 1.25,
+        "stable_frames": 895,
+        "late_rest_frames": 285,
+        "stable_decoded_accuracy": 0.8625698324022346,
+        "stable_decoded_macro_f1": 0.8585229365548004,
+        "stable_decoded_recall": {
+          "fist": 0.8314606741573034,
+          "index_pinch": 0.7227722772277227,
+          "neutral": 0.9504950495049505,
+          "open_hand": 0.9137380191693291
+        },
+        "late_rest_decoded_active_fraction": 0.08070175438596491,
+        "late_rest_decoded_neutral_fraction": 0.9157894736842105,
+        "whole_stream_state_changes_per_minute": 32.267182386194584
+      },
+      {
+        "neutral_logit_bias": 1.5,
+        "stable_frames": 895,
+        "late_rest_frames": 285,
+        "stable_decoded_accuracy": 0.864804469273743,
+        "stable_decoded_macro_f1": 0.8604932749535659,
+        "stable_decoded_recall": {
+          "fist": 0.8314606741573034,
+          "index_pinch": 0.7128712871287128,
+          "neutral": 0.9504950495049505,
+          "open_hand": 0.9265175718849841
+        },
+        "late_rest_decoded_active_fraction": 0.06315789473684211,
+        "late_rest_decoded_neutral_fraction": 0.9368421052631579,
+        "whole_stream_state_changes_per_minute": 31.151443022909845
+      }
+    ]
+  },
+  "final": {
+    "source_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+    "formal_trials": 144,
+    "scores": {
+      "F0": {
+        "neutral_logit_bias": 0.0,
+        "stable_frames": 911,
+        "late_rest_frames": 291,
+        "stable_decoded_accuracy": 0.7310647639956093,
+        "stable_decoded_macro_f1": 0.7234432181778024,
+        "stable_decoded_recall": {
+          "fist": 0.746268656716418,
+          "index_pinch": 0.4020100502512563,
+          "neutral": 0.9064039408866995,
+          "open_hand": 0.8181818181818182
+        },
+        "late_rest_decoded_active_fraction": 0.09278350515463918,
+        "late_rest_decoded_neutral_fraction": 0.872852233676976,
+        "whole_stream_state_changes_per_minute": 32.98086606243705
+      },
+      "F0_plus_SPD_unbiased": {
+        "neutral_logit_bias": 0.0,
+        "stable_frames": 911,
+        "late_rest_frames": 291,
+        "stable_decoded_accuracy": 0.7991218441273326,
+        "stable_decoded_macro_f1": 0.7979879896659435,
+        "stable_decoded_recall": {
+          "fist": 0.7562189054726368,
+          "index_pinch": 0.6381909547738693,
+          "neutral": 0.9113300492610837,
+          "open_hand": 0.8571428571428571
+        },
+        "late_rest_decoded_active_fraction": 0.1718213058419244,
+        "late_rest_decoded_neutral_fraction": 0.8247422680412371,
+        "whole_stream_state_changes_per_minute": 34.340382678751254
+      },
+      "F0_plus_SPD_S03_selected": {
+        "neutral_logit_bias": 1.0,
+        "stable_frames": 911,
+        "late_rest_frames": 291,
+        "stable_decoded_accuracy": 0.8079034028540066,
+        "stable_decoded_macro_f1": 0.8091926396898323,
+        "stable_decoded_recall": {
+          "fist": 0.7562189054726368,
+          "index_pinch": 0.6331658291457286,
+          "neutral": 0.9704433497536946,
+          "open_hand": 0.8474025974025974
+        },
+        "late_rest_decoded_active_fraction": 0.12027491408934708,
+        "late_rest_decoded_neutral_fraction": 0.8762886597938144,
+        "whole_stream_state_changes_per_minute": 32.88016112789526
+      }
+    }
+  },
+  "boundary": "S03 failed formal collection readiness; S04 same participant/day and previously inspected for other Song experiments. Cue rest can contain residual movement; late rest is only the final 400 ms before prompt and not physiological ground truth. This offline decoder-state replay does not measure physical USB/UI timing or cross-person/day transfer."
+}

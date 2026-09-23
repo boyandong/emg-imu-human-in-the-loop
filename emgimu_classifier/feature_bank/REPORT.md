@@ -2716,3 +2716,11 @@ same-person/day cues prove hardware live or cross-person/day performance.
 See [the SPD study](../benchmarks/song_real8/SPD_INCREMENT_RESULTS.json),
 [export replay](../benchmarks/song_real8/SPD_LIVE_EXPORT_REPLAY_AUDIT.json)
 and [continuous replay](../benchmarks/song_real8/SPD_CONTINUOUS_REPLAY_AUDIT.json).
+
+A separate validation-only neutral-logit offset study confirms that the SPD
+model's active/rest tradeoff is visible after online decoding. S03 selects
+an exploratory +1.0 offset; S04 late-rest active display then falls from
+17.2% to 12.0%, still above F0's 9.3%, while stable-cue decoded macro-F1 is
+80.9% versus F0's 72.3%. The offset is not deployed, because S04 had already
+been inspected and one person's cue-labelled rest cannot establish a safe
+live operating point. See [the bias audit](../benchmarks/song_real8/NEUTRAL_BIAS_STUDY.json).
