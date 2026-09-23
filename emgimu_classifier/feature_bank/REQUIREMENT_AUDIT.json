@@ -21,6 +21,7 @@
     "streaming_replay_evidence": "benchmarks/song_real8/{LIVE_EXPORT_REPLAY_AUDIT,CONTINUOUS_REPLAY_AUDIT}.json",
     "spd_candidate_evidence": "benchmarks/song_real8/{SPD_INCREMENT_RESULTS,SPD_LIVE_EXPORT_REPLAY_AUDIT,SPD_CONTINUOUS_REPLAY_AUDIT}.json; source F2c and F7 candidate evidence is exploratory and the active/rest tradeoff prevents default promotion",
     "neutral_bias_evidence": "benchmarks/song_real8/NEUTRAL_BIAS_STUDY.json; S03-selected offset reduces but does not eliminate S04 late-rest active display; not deployed",
+    "spd_28_state_evidence": "benchmarks/song_real8/SPD_28_STATE_RESULTS.json; source-only F0+IMU+SPD gains S04 accuracy/log loss but loses macro-F1 and backward/down condition accuracy; baseline exact-match guard requires original numerical environment",
     "boundary": "S01-S03 fail formal collection readiness; S04 passes. All same-person same-day cue-labelled results are exploratory and do not prove cross-person, cross-day, physical-device live accuracy or end-to-end latency. Additional participants/days are unavailable, so their acceptance cells stay unverified rather than being estimated from Song."
   },
   "historical_source_recovery": {

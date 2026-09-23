@@ -41,7 +41,7 @@ REVIEWS = (
  ('F2b','F2b. CSP-like spatial feature','families.py','CspSpatialFamily','partial',
   'Source-only one-vs-rest generalized eigensystem; uses centered/shrunk covariance instead of stated uncentered XX transpose. Default one tail component versus suggested two.','2 H min(tails,floor(C/2))'),
  ('F2c','F2c. SPD / Riemannian tangent feature','families.py','SpdTangentFamily','candidate_formula',
-  'Explicit permitted log-Euclidean training reference; whitened matrix log and sqrt(2) vech; not geometric-mean claim. Exploratory one-person Song source-only F0+F2c trial and causal-stream gains exist, with a pre-prompt-rest false-active tradeoff; formal own-device generalization remains unproven.','C(C+1)/2'),
+  'Explicit permitted log-Euclidean training reference; whitened matrix log and sqrt(2) vech; not geometric-mean claim. Exploratory one-person Song four-state trial and causal-stream gains coexist with pre-prompt-rest false-active cost; the 28-state F0+IMU+F2c final macro-F1 declines despite mean accuracy gain. Formal own-device generalization remains unproven.','C(C+1)/2'),
  ('F3a','F3a. RLCS','families.py','RingGeometryFamily','reference_only',
   '25ms smoothed rectification, lag mean/std correlations; validated old envelope/aggregation missing; circular topology assumed by legacy class.','2 floor(C/2) block'),
  ('F3b','F3b. CES','families.py','RingGeometryFamily','reference_only',

@@ -2724,3 +2724,12 @@ an exploratory +1.0 offset; S04 late-rest active display then falls from
 80.9% versus F0's 72.3%. The offset is not deployed, because S04 had already
 been inspected and one person's cue-labelled rest cannot establish a safe
 live operating point. See [the bias audit](../benchmarks/song_real8/NEUTRAL_BIAS_STUDY.json).
+
+The 28-state Song hand×arm endpoint gives a distinct condition-level result:
+adding source-fitted SPD to the fixed F0+real-IMU model improves S04 overall
+accuracy from 68.1% to 70.8% and log loss, but lowers joint macro-F1 from
+54.9% to 51.7%. Half the S04 trials are still-arm; the backward and down
+conditions lose joint accuracy, so this is not a robust multi-condition Core
+increment. The run replays and matches the saved causal F0+IMU baseline only
+under its original Python/NumPy/SciPy environment and records those versions.
+See [the 28-state result](../benchmarks/song_real8/SPD_28_STATE_RESULTS.json).

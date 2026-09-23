@@ -189,3 +189,20 @@ active display and 72.3% stable-cue decoded macro-F1. The S04 baseline had
 already motivated this exploration, and the same-person/day result does not
 establish a calibrated deployment threshold. The +1.0 bias is not installed
 in the selectable bundle or made the application default.
+
+The [28-state SPD increment study](SPD_28_STATE_RESULTS.json) separately adds
+source-fitted F2c SPD to the fixed F0+real-IMU classifier for hand×arm labels.
+It rejects execution unless its F0+IMU baseline exactly reproduces the saved
+causal S03/S04 accuracy and macro-F1. The reproducing environment was Python
+3.13.9, NumPy 2.4.3, SciPy 1.17.1 and scikit-learn 1.8.0; a second local
+environment with older NumPy/SciPy gave a one-trial S04 baseline difference
+and was rejected. On S03, joint macro-F1 rises from 59.58% to 60.81%. On
+S04, accuracy rises from 68.06% to 70.83% and log loss falls from 1.2966 to
+1.2150, but joint macro-F1 falls from 54.87% to 51.70%. There are 18
+corrected trials and 14 new errors (paired accuracy discordance p=0.597).
+S04 has 72 still-arm trials and just 12 for each other arm: still joint
+accuracy rises from 81.9% to 97.2%, while backward falls from 41.7% to
+8.3% and down from 83.3% to 58.3%. This distribution explains how aggregate
+accuracy can improve while condition-balanced macro-F1 worsens. The new SPD
+arm is not promoted for 28-state recognition. These are same-person/day
+cue-labelled trials, with sparse per-condition counts and no live validation.
