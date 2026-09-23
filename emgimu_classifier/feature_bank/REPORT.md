@@ -2779,13 +2779,21 @@ probability reliability curve and the requested canonical delivery schemas.
 The exported bundles exactly replay the previously saved 140 S03 and 144 S04
 trial scores before ECE is calculated. S04 10-bin top-label ECE is 0.1851
 for F0 and 0.1029 for F0+SPD (S03 0.1600 and 0.0913). Four family rows,
-two conditional increments, two paired error-complementarity rows and four
-zero-shot calibration-curve rows were appended to the five delivery tables;
+two conditional increments, two paired error-complementarity rows and ten
+calibration-curve rows were appended to the five delivery tables;
 all prior source records remain in order and unchanged, and the canonical
-verifier now checks 50,000 rows. The existing prediction-rate recovery was
+verifier now checks 50,006 rows. The existing prediction-rate recovery was
 rebound only after verifying an append-only source table with 4,685 unchanged
 prior pair rows; the two new Song rows carry directly computed disagreement
 rates. This remains a same-person/day cued-stable result, not live reliability
 or a full-bank ablation. See the [calibration audit](../benchmarks/song_real8/PROBABILITY_CALIBRATION_AUDIT.json),
 [Song source run](source_runs/feature_bank_song_real8_spd_delivery_20260924/run_manifest.json)
 and [delivery provenance](delivery/PROVENANCE_AUDIT.json).
+
+The six additional Song curve rows are a separately named source-F0 plus
+personal-SPD-anchor method at 0/1/2 shots per class. S03 selected the 1/2-shot
+mixture weights; S04 uses them unchanged and excludes calibration blocks from
+formal evaluation. S04 macro-F1 rises from 0.9068 to 0.9225/0.9210, while
+LogLoss worsens from 0.4272 to 0.8647/0.5357. Zero-shot source F0+SPD remains
+stronger at 0.9508 F1 and 0.2376 LogLoss. Only two pre-formal blocks/class
+exist, so 5-shot is N/A; this calibration method is not promoted to the app.

@@ -90,6 +90,44 @@ def export(calibration_audit: Path, spd_study: Path, output: Path) -> dict:
                             "a_correct_b_wrong": paired["F0_correct_SPD_wrong"] / count,
                             "a_wrong_b_correct": paired["F0_wrong_SPD_correct"] / count,
                             "evaluation_unit": "whole_native_trial_mean", "evaluation_trials": count})
+    # This is a separate curve: the zero-shot member is source F0, while
+    # 1/2-shot members mix source F0 with calibration-only F7 SPD anchors.
+    # It must not be presented as calibration of the source F0+SPD classifier.
+    selected = study["personal_anchor"]["selected_weights"]
+    for session, phase in (("S03", "validation"), ("S04", "final")):
+        zero = study["source_zero_shot"][phase]["F0"]
+        for budget in (0, 1, 2):
+            if budget == 0:
+                scored = zero
+                weight = 0.0
+                block_count = 0
+            else:
+                key = str(budget)
+                weight = float(selected[key])
+                block = study["personal_anchor"][phase][key]
+                if block["audit"]["formal_trial_overlap"]:
+                    raise ValueError("Personal SPD calibration overlaps formal evaluation")
+                block_count = int(block["audit"]["calibration_blocks"])
+                if block_count != budget * 4:
+                    raise ValueError("Personal SPD shot count differs from four hand classes")
+                if phase == "validation":
+                    if float(block["selected_weight"]) != weight:
+                        raise ValueError("S03 selected SPD weight changed")
+                    scored = block["candidates"][str(weight)]
+                else:
+                    if float(block["weight_fixed_on_S03"]) != weight:
+                        raise ValueError("S04 SPD weight differs from S03 selection")
+                    scored = block["F0_plus_SPD_anchor"]
+            if int(scored["trials"]) != int(study["source_zero_shot"][phase]["F0"]["trials"]):
+                raise ValueError("Personal SPD evaluation trial count changed")
+            curves.append({"dataset": DATASET, "phase": phase, "subject": "Song",
+                           "session/domain": session, "condition": CONDITION,
+                           "shots_per_class": budget,
+                           "evaluation_trials": scored["trials"],
+                           "feature_bank": "F0+F7_SPD_personal_anchor",
+                           "method": "source_F0_plus_calibration_only_SPD_anchor",
+                           "macro_f1": scored["macro_f1"],
+                           "log_loss": scored["log_loss"]})
     output.mkdir(parents=True, exist_ok=True)
     _write(output / "feature_family_results.csv", families)
     _write(output / "conditional_incremental.csv", increments)
@@ -104,9 +142,11 @@ def export(calibration_audit: Path, spd_study: Path, output: Path) -> dict:
         "source_hdf5_sha256": study["source_hdf5_sha256"],
         "model_sha256": {name: audit["sessions"]["S04"]["models"][name]["bundle_sha256"]
                          for name in ("F0", "F0+SPD")},
+        "personal_anchor_selected_weights_on_S03": selected,
+        "personal_anchor_max_blocks_per_class": 2,
         "reliability_audit_sha256": _sha(calibration_audit),
         "spd_increment_study_sha256": _sha(spd_study),
-        "boundary": "Only source-trained zero-shot 4-state Song candidate scores and paired F0/SPD comparisons. S01-S03 whole sessions failed collection readiness; S04 was previously inspected. No full F0-F9 bank, cross-person/day or physical live accuracy claim.",
+        "boundary": "Source-trained zero-shot 4-state F0/F0+SPD candidates, paired comparisons and a separate source-F0-plus-personal-SPD-anchor 0/1/2-shot curve. Only two calibration blocks per class exist; 5-shot is unsupported. S01-S03 whole sessions failed collection readiness; S04 was previously inspected. No full F0-F9 bank, cross-person/day or physical live accuracy claim.",
     }
     (output / "run_manifest.json").write_text(
         json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

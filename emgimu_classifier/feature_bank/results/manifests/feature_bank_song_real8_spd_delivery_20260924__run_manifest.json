@@ -21,7 +21,12 @@
     "F0": "843a1230f8fbee5a839557e59edaf449ab250cbb125df8f77164a6255420eedc",
     "F0+SPD": "ecbab44df4340991d9b02038f9508d0b4767686064c6a26cceeecffd1900d821"
   },
+  "personal_anchor_selected_weights_on_S03": {
+    "1": 0.75,
+    "2": 0.25
+  },
+  "personal_anchor_max_blocks_per_class": 2,
   "reliability_audit_sha256": "d1cea4501a26104bc3a1b1617f95848679ed8bb33f448928057eda6aca797189",
   "spd_increment_study_sha256": "dd40acfa6e0b1f54f8b218e7f9c2cf61e43dfbb33fabd9a25e41d456468118a1",
-  "boundary": "Only source-trained zero-shot 4-state Song candidate scores and paired F0/SPD comparisons. S01-S03 whole sessions failed collection readiness; S04 was previously inspected. No full F0-F9 bank, cross-person/day or physical live accuracy claim."
+  "boundary": "Source-trained zero-shot 4-state F0/F0+SPD candidates, paired comparisons and a separate source-F0-plus-personal-SPD-anchor 0/1/2-shot curve. Only two calibration blocks per class exist; 5-shot is unsupported. S01-S03 whole sessions failed collection readiness; S04 was previously inspected. No full F0-F9 bank, cross-person/day or physical live accuracy claim."
 }

@@ -1030,8 +1030,8 @@
   {
     "run_id": "feature_bank_song_real8_spd_delivery_20260924",
     "artifact": "calibration_curve.csv",
-    "sha256": "918c9c4082c1d086e34b9ca830fd44b23a3f44bd1c44273ee07daf6af72f46c1",
-    "bytes": 745,
+    "sha256": "992277d8063ed638af3a5489f2aacc6bd4916c474aed285f3864e8fd165dae75",
+    "bytes": 1923,
     "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\feature_bank\\source_runs"
   },
   {

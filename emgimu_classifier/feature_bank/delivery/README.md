@@ -31,7 +31,9 @@ metrics. Reused training states from another phase never supply its target domai
 
 The versioned Song source run under `../source_runs/feature_bank_song_real8_spd_delivery_20260924`
 adds four zero-shot family rows, two F0→F0+SPD increments, two paired error rows
-and four 0-shot calibration-curve rows. Its exporter reads the saved Song SPD
+and ten calibration-curve rows. Six curve rows separately describe the
+source-F0 plus personal-SPD-anchor method at 0/1/2 shots; 5-shot is unsupported.
+Its exporter reads the saved Song SPD
 study and trial-reliability audit; it does not retrain a model or copy raw EMG.
 It is one participant on one date with S03 validation and previously inspected
 S04 final data. Rebuild that run with `benchmarks/export_song_real8_delivery.py`

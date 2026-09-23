@@ -265,6 +265,12 @@ give support, mean confidence and observed accuracy, including empty bins.
 This is reliability of cued stable-trial mean probabilities for one person/day,
 not a claim that the live interface is calibrated. S04 was previously inspected.
 The four zero-shot family scores, two conditional increments, two paired error
-rows and four 0-shot calibration-curve rows are now included in the versioned
-Feature Bank delivery tables. No Song result is labelled a full F0–F9 bank or
-a cross-person/day robustness estimate.
+rows and ten calibration-curve rows are now included in the versioned Feature
+Bank delivery tables. Six curve rows are a **separate** 0/1/2-shot
+F0+personal-SPD-anchor method: 0-shot is source F0, while 1/2-shot mixtures
+use only distinct pre-formal calibration blocks. S03 selected the two mixture
+weights before S04. On S04, macro-F1 is 0.9068/0.9225/0.9210 at 0/1/2 shots,
+but LogLoss worsens from 0.4272 to 0.8647/0.5357; source-only F0+SPD remains
+better at 0.9508 F1 and 0.2376 LogLoss. Only two blocks per class exist, so
+5-shot is unsupported. No Song result is labelled a full F0–F9 bank or a
+cross-person/day robustness estimate.
