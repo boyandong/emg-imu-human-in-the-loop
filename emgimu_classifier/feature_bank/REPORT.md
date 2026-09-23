@@ -57,6 +57,12 @@ Read-back validation proves no nonblank source line was omitted. Every queue row
 unverified until contextual requirements and authoritative evidence are inspected;
 formulas, examples and separators are included and are not independent requirements.
 `DOCUMENT_SCOPE_AUDIT.json` proves index coverage only, not scientific completion.
+`DOCUMENT_SECTION_AUDIT.csv` groups the same source lines into 78 contextual
+sections, each with an exact line span, evidence hash, status and remaining
+boundary. The companion JSON verifies all 2,586 nonblank lines belong to one
+section: 15 sections have narrow verified evidence, 61 remain partial and two
+are context. These counts describe audit coverage, not a completion percentage;
+partial sections still require their named evidence and full acceptance checks.
 
 Discovery delivery review now supplies 14 retrospective A–H scorecards while
 preserving original selection totals/decisions and frozen experiments. Fresh
@@ -2585,3 +2591,20 @@ per-user/domain cells and split IDs are under
 Reference Ring is not the unavailable historical RLCS, and the four native
 wearing conditions are not calendar sessions. This result cannot establish
 longitudinal or current-device performance.
+
+## Historical implementation recovery audit (2026-09-23)
+
+The GitHub remote exposes four branches: `main`, `codex/hla-emg-testbed`,
+`codex/unibo-physiology-experiments`, and the current
+`codex/unibo-full-physiology-ablation`. Their remote tip commits were fetched
+without switching or modifying the working branch. Exact named searches for
+RLCS, X1-H, TemporalShape, DS2 and Spatial Coordination over source, config,
+CSV and report extensions found no match at any remote tip and no match in the
+diff history reachable from those refs. The HLA branch contributes GRABMyo/HLA
+code; the older UniBo branch contributes the baseline experiment, not the
+missing historical families. `results/historical_source_recovery_audit.json`
+records the remote URL, exact ref commits, path filters, terms and script hash.
+Therefore current reference families cannot be relabelled as recovered
+historical implementations. This audit cannot exclude code that existed only
+outside this repository, in inaccessible private history, or under unrelated
+names without preserved documentation.

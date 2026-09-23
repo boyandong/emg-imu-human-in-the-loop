@@ -1,0 +1,16 @@
+{
+  "completion_proven": false,
+  "sections": 78,
+  "indexed_nonblank_lines": 2586,
+  "status_counts": {
+    "context": 2,
+    "partial": 61,
+    "verified_narrow": 15
+  },
+  "csv_sha256": "584b6c38abe401ee10f612eaae0cbf23d39f6e2c50e5fafc9802095107c793a6",
+  "documents": {
+    "docx_pre.txt": "9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8",
+    "docx_goal.txt": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0"
+  },
+  "boundary": "Every nonblank source line belongs to exactly one reviewed section. Section status applies to the contextual clause group, not independently to each explanatory/formula line. Partial remains incomplete."
+}

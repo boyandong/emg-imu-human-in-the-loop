@@ -11,9 +11,27 @@
   "next_required_work": [
     "remaining named complementarity and interaction pairs",
     "multi-family Core coverage beyond EPN",
-    "exact historical DS2 and family reproduction",
+    "obtain exact historical DS2/family artifacts outside the four available GitHub branch histories, then reproduce them",
     "coherent final report and exhaustive requirement audit"
   ],
+  "historical_source_recovery": {
+    "artifact": "feature_bank/results/historical_source_recovery_audit.json",
+    "remote_refs_checked": 4,
+    "named_terms_checked": 5,
+    "tip_findings": 0,
+    "history_diff_matches": 0,
+    "boundary": "No exact named implementation in any GitHub branch tip or reachable diff history; unavailable external/private history and unrelated undocumented names remain possible."
+  },
+  "document_section_audit": {
+    "artifact": "feature_bank/DOCUMENT_SECTION_AUDIT.csv",
+    "summary": "feature_bank/DOCUMENT_SECTION_AUDIT.json",
+    "sections": 78,
+    "indexed_nonblank_lines": 2586,
+    "verified_narrow_sections": 15,
+    "partial_sections": 61,
+    "context_sections": 2,
+    "boundary": "Section status is a contextual evidence review, not individual-line acceptance or an overall completion percentage."
+  },
   "synthetic_quality_evidence": "feature_bank_force_quality_validation_20260915 and final; native classifiers frozen, seven fixed perturbations plus clean; current fusion/routing degrades quality robustness",
   "force_Core_evidence": "actual concatenated-feature source-only Core and four additions; independent validation/final users, no calibration; mean gains can lower minimum force condition",
   "force_Core_calibration_evidence": "source-frozen concat Core and additions at cal0/1/2; Ramp-only own-user anchors, identical unseen-force evaluation; explicit unsupported5; limited recovery",

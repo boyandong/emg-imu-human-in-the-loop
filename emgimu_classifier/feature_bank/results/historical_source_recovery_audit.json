@@ -1,0 +1,31 @@
+{
+  "status": "historical_implementations_not_found_in_available_remote_refs",
+  "remote_url": "https://github.com/boyandong/emg-imu-human-in-the-loop.git",
+  "refs": {
+    "origin/main": "bb08e41ae16cf32bcde9bcb54fc76bee04f8baaf",
+    "origin/codex/hla-emg-testbed": "90adccda362dc64d49cce1c373b87108e4583192",
+    "origin/codex/unibo-physiology-experiments": "131456445dbc28dd5167870670a8f536e4fb64fa",
+    "origin/codex/unibo-full-physiology-ablation": "6be69ed2b81087fc9df795f659bb11df1a93414a"
+  },
+  "terms": [
+    "RLCS",
+    "X1-H",
+    "TemporalShape",
+    "DS2",
+    "Spatial Coordination"
+  ],
+  "pathspecs": [
+    "*.py",
+    "*.md",
+    "*.txt",
+    "*.json",
+    "*.yaml",
+    "*.yml",
+    "*.csv"
+  ],
+  "tip_findings": [],
+  "history_diff_matches": [],
+  "historical_source_recovered": false,
+  "boundary": "Exact fixed-string tip search plus Git diff-history search over source/config/report extensions in every GitHub branch ref discovered on 2026-09-23. Absence in these refs does not prove the code never existed outside this repository or in unavailable private history.",
+  "script_sha256": "c6e0a4edd735e704279e9bd83ab87f0af5d1e9ac6a9cb52d6cfebdb8a305acdb"
+}
