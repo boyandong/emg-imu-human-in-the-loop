@@ -9,11 +9,18 @@
   },
   "locator_warning": "line ranges are search regions in extracted text; final audit must verify exact document clauses and formulas",
   "next_required_work": [
-    "remaining named complementarity and interaction pairs",
-    "multi-family Core coverage beyond EPN",
-    "obtain exact historical DS2/family artifacts outside the four available GitHub branch histories, then reproduce them",
-    "coherent final report and exhaustive requirement audit"
+    "remaining exact historical family equivalence and named interactions, if original implementations become available",
+    "identify the exact historical DS2 input and force/trial mapping before claiming old-result reproduction",
+    "continue single-participant Song real 8-channel software and offline evaluation within its one-day evidence boundary",
+    "physical-device live behavior and cross-person/cross-day generalization require recordings or device access not currently available",
+    "finish requirement-by-requirement acceptance audit and synchronize reviewed commits to GitHub"
   ],
+  "own_device_data_scope": {
+    "available": "Four Song sessions S01-S04 from one participant on 2026-09-18, nominal 8-channel EMG at 250 Hz; user confirmed this is currently the only real 8-channel dataset",
+    "offline_evidence": "benchmarks/song_real8/{RESULTS,CAUSAL_RESULTS,CALIBRATION_RESULTS,CAUSAL_CALIBRATION_RESULTS}.json",
+    "streaming_replay_evidence": "benchmarks/song_real8/{LIVE_EXPORT_REPLAY_AUDIT,CONTINUOUS_REPLAY_AUDIT}.json",
+    "boundary": "S01-S03 fail formal collection readiness; S04 passes. All same-person same-day cue-labelled results are exploratory and do not prove cross-person, cross-day, physical-device live accuracy or end-to-end latency. Additional participants/days are unavailable, so their acceptance cells stay unverified rather than being estimated from Song."
+  },
   "historical_source_recovery": {
     "artifact": "feature_bank/results/historical_source_recovery_audit.json",
     "remote_refs_checked": 4,
