@@ -2805,3 +2805,13 @@ probabilities. S03's best eligible value improved trial LogLoss by only
 remains 1.0. S04 continuous decoding and probability scores are unchanged;
 no app threshold or bundle was changed. This one-person/day result does not
 validate live recognition or cross-session generalization.
+
+The [own-device gain sensitivity audit](../benchmarks/song_real8/GAIN_SENSITIVITY.json)
+also subjects the unchanged source F0 and F0+SPD bundles to fixed synthetic
+common-channel gain factors on Song causal stable windows. On S04, reducing
+all channels to 0.25× changes F0 macro-F1 from 0.9068 to 0.3629 and
+active-to-neutral trial errors from 4.6% to 57.4%; F0+SPD retains 0.9157
+macro-F1 with 5.6% active-to-neutral errors. S04 recorded per-channel RMS
+remained near the source reference (0.98–1.28×), so this is a failure-mode
+probe rather than an explanation of a measured live amplitude drop. It cannot
+substitute for another wearing or the required multiuser/multiday evidence.

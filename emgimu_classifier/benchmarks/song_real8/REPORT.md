@@ -286,3 +286,20 @@ temperature is therefore 1.0. S04 retains 0.2376 LogLoss, 0.1029 ECE,
 negative result does not justify a UI probability or threshold change. It is
 exploratory because S03 failed collection readiness, S04 had already been
 inspected, and all sessions are from one person on one day.
+
+The [fixed-gain sensitivity audit](GAIN_SENSITIVITY.json) tests the existing
+source-only F0 and F0+SPD bundles on the same S03/S04 causal stable windows,
+with all eight filtered channels synthetically multiplied by 0.25–4.0. The
+gain-1.0 scores reproduce the frozen probability audit within 1e-5. On S04,
+F0 macro-F1 falls from 0.9068 at gain 1.0 to 0.3629 at 0.25, and its
+active-to-neutral trial error fraction rises from 4.6% to 57.4%; F0+SPD
+falls from 0.9508 to 0.9157, with 4.6% to 5.6% active-to-neutral errors.
+At gain 0.5, F0/F0+SPD macro-F1 is 0.7483/0.9293. This identifies
+common-amplitude sensitivity as one *possible* mechanism for a rest-heavy
+display, and the SPD candidate is less sensitive in this fixed simulation.
+It does not identify the cause of the user's later live experience. The
+observed S04 per-channel median stable-window RMS is 0.98–1.28 times the
+combined S01/S02 source reference, not a measured 0.25× collapse. A new
+wearing, electrode change, ADC saturation, class transitions and USB behavior
+are not represented by this perturbation; no automatic gain correction was
+introduced.
