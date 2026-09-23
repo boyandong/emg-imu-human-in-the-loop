@@ -212,8 +212,9 @@ replay](SPD_UI_OFFSCREEN_AUDIT.json). It discovered and loaded the local
 F0+SPD bundle from the same `models/` directory used by `main.py`, then
 accepted 1,000 contiguous raw S04 EMG samples and emitted a prediction whose
 probabilities matched direct runtime execution exactly. The desktop project
-shortcut is now named `EMG-IMU 项目版（Song 8通道）`; it points to this repository's
-collection `main.py`. A separate older `EMG 数据采集` shortcut still points to
-`E:/qxy/emg_meta/emg_meta/main.py`, whose models directory has no Song bundle.
+shortcuts `EMG 数据采集` and `EMG-IMU 项目版（Song 8通道）` now point to this
+repository's collection `main.py`. The former external shortcut has been
+preserved as `EMG 数据采集（旧版，无 Song 模型）`; its
+`E:/qxy/emg_meta/emg_meta/` models directory has no Song bundle.
 This check does not use the physical USB device or measure actual screen
 latency or recognition accuracy while a person performs gestures.

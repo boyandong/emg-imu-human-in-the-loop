@@ -2736,8 +2736,9 @@ See [the 28-state result](../benchmarks/song_real8/SPD_28_STATE_RESULTS.json).
 
 The project collection page has additionally loaded the actual local Song
 F0+SPD bundle in a Qt offscreen replay and matched direct inference on saved
-S04 raw samples. The desktop project shortcut points to this repository's
-collection app and was renamed to distinguish it from an older external
-collection shortcut. This is software-path evidence only; USB/device behavior
+S04 raw samples. Both desktop entries `EMG 数据采集` and
+`EMG-IMU 项目版（Song 8通道）` now point to this repository's collection app;
+the former external launcher remains under a name marked as old. This is
+software-path evidence only; USB/device behavior
 and human-facing recognition remain unmeasured. See
 [the UI replay audit](../benchmarks/song_real8/SPD_UI_OFFSCREEN_AUDIT.json).
