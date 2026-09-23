@@ -53,6 +53,16 @@ File-level names contain gesture clues such as `Puño`, `Tacita`, `Meñique`,
 per-trial force labels nor map the 2,863 aggregate MAT trials to subjects.
 No labelled DS2 force experiment has been reconstructed from this inventory.
 
+An independent [full TDMS metadata pass](DS2_TDMS_GROUP_AUDIT.json) with
+[npTDMS](https://nptdms.readthedocs.io/en/stable/reading.html) traversed all
+segments, finding 3,210 named groups with three sensor channels each. Every
+group has zero group-level properties; the channel properties describe sensors,
+units, scaling and timing rather than gesture/force labels. The waveform
+increment is about 0.667 ms, consistent with 1500 Hz. Group lengths range
+from 100 to 980,100 samples; only 1,284 have exactly 15,000 samples, while
+the aggregate MAT has 2,863 arrays of that length. A positional join of these
+different populations would invent subject, gesture and force labels.
+
 The six selected native benchmark archives were also reread byte for byte.
 All 15,935,850,342 bytes matched the recorded SHA-256 digests (and recorded
 MD5 digests where available); the [fresh digest audit](CORE_ARCHIVE_DIGEST_AUDIT.json)

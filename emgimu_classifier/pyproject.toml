@@ -19,6 +19,7 @@ dependencies = [
 neural = ["torch>=2.1,<3"]
 osc = []
 dev = ["pytest>=8,<9", "torch>=2.1,<3"]
+tdms = ["nptdms==1.11.0"]
 
 [project.scripts]
 emgimu = "emgimu.cli:main"

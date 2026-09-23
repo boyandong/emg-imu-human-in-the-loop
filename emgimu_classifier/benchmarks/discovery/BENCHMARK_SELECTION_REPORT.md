@@ -98,7 +98,9 @@ audits, candidate fields, eight-point score vectors, current six-archive sizes,
 six source sanity-report hashes and 36 captioned plot hashes. A separate full
 digest pass reread all 15,935,850,342 core-archive bytes and matched SHA-256;
 the public DS2 v8 TDMS first-segment inventory exposes file-level gesture clues
-but no per-trial force or aggregate-MAT label join.
+but no per-trial force or aggregate-MAT label join. Full TDMS metadata reads
+find 3,210 three-channel groups with no group-level properties, compared with
+2,863 aggregate MAT arrays; the counts cannot establish a positional join.
 The original seed/population draw also reproduces three distinct subjects and two
 specified conditions for every dataset, including the restricted complete MANUS
 cohort used by the native sanity producer. This verifies sample selection evidence,

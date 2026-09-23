@@ -13,7 +13,8 @@ def verify(root):
       'BENCHMARK_SELECTION_REPORT.md','GESTURE_ONTOLOGY.md','SENSOR_LAYOUTS.md',
       'DATASET_MANIFEST.json','DS2_ACCESS_AUDIT.json','DS2_ARCHIVE_AUDIT.json',
       'DS2_NATIVE_MAT_AUDIT.json','DS2_TDMS_FIRST_METADATA_AUDIT.json',
-      'DS2_TDMS_FIRST_METADATA.csv','CORE_ARCHIVE_DIGEST_AUDIT.json')
+      'DS2_TDMS_FIRST_METADATA.csv','DS2_TDMS_GROUP_AUDIT.json',
+      'DS2_TDMS_GROUPS.csv','CORE_ARCHIVE_DIGEST_AUDIT.json')
     hashes={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in required}
     candidates=list(csv.DictReader((root/'DATASET_CANDIDATES.csv').open(encoding='utf-8-sig',newline='')))
     fields=('dataset','failure_targets','subjects','sessions','gestures','channels','sampling_rate',
@@ -31,6 +32,8 @@ def verify(root):
     ds2_native=json.loads((root/'DS2_NATIVE_MAT_AUDIT.json').read_text(encoding='utf-8'))
     tdms=json.loads((root/'DS2_TDMS_FIRST_METADATA_AUDIT.json').read_text(encoding='utf-8'))
     tdms_rows=list(csv.DictReader((root/'DS2_TDMS_FIRST_METADATA.csv').open(encoding='utf-8',newline='')))
+    tdms_groups=json.loads((root/'DS2_TDMS_GROUP_AUDIT.json').read_text(encoding='utf-8'))
+    group_rows=list(csv.DictReader((root/'DS2_TDMS_GROUPS.csv').open(encoding='utf-8',newline='')))
     if (ds2_access['page_status']!='accessible_without_sign_in'
             or ds2_access['download_attempt']['archive_downloaded']
             or not ds2_access['public_api_check']['archive_downloaded']
@@ -77,6 +80,23 @@ def verify(root):
                    or int(row['member_uncompressed_bytes'])!=archived_tdms[row['member']]['bytes']
                    for row in tdms_rows)):
         raise ValueError('DS2 TDMS first-metadata inventory inconsistent with verified archive')
+    by_member={}
+    for row in group_rows:
+        by_member.setdefault(row['member'],[]).append(row)
+    if (ds2.get('tdms_group_audit')!='benchmarks/discovery/DS2_TDMS_GROUP_AUDIT.json'
+            or tdms_groups['status']!='all_tdms_group_metadata_parsed_no_aggregate_mat_or_force_join'
+            or tdms_groups['parser']!='npTDMS 1.11.0'
+            or tdms_groups['tdms_members']!=97 or tdms_groups['groups']!=3210
+            or len(group_rows)!=3210 or set(by_member)!=set(archived_tdms)
+            or tdms_groups['group_property_count_distribution']!={'0':3210}
+            or tdms_groups['groups_with_exactly_15000_samples']!=1284
+            or tdms_groups['groups_with_at_least_15000_samples']!=3085
+            or not 1/1501 < tdms_groups['wf_increment_seconds_median'] < 1/1499
+            or any(row['channel_count']!='3' or row['group_property_count']!='0'
+                   or int(row['samples_per_channel'])<=0 for row in group_rows)
+            or any([int(row['group_ordinal_zero_based']) for row in rows]!=list(range(len(rows)))
+                   for rows in by_member.values())):
+        raise ValueError('DS2 TDMS full group metadata audit inconsistent')
     if (manifest.get('core_archive_digest_audit')!='benchmarks/discovery/CORE_ARCHIVE_DIGEST_AUDIT.json'
             or archive_digest['status']!='all_six_core_archives_freshly_hashed_and_matched'
             or archive_digest['archive_count']!=6
@@ -155,6 +175,7 @@ def verify(root):
            'native_raw_mat_trials':ds2_native['raw_trials'],
            'native_gesture_window_labels':ds2_native['gesture_window_label_count'],
            'tdms_first_metadata_members':tdms['tdms_members'],
+           'tdms_full_metadata_groups':tdms_groups['groups'],
            'tdms_per_trial_force_mapping':'unproven',
            'historical_identity':'unproven'},
        'archive_bytes':total,'archive_GB_decimal':total/1e9,'archive_GiB_binary':total/(1024**3),
@@ -165,7 +186,7 @@ def verify(root):
           'hash/caption verification does not establish visual or full-population signal quality',
           'reported durations agree with native rates; no independent hardware clock check',
           'publisher-linked DS2 v8 archive is verified; historical input identity and old-result reproduction remain unproven',
-          'TDMS first-segment names give subject/movement provenance clues but no aggregate-MAT trial or force-level join',
+          'TDMS file names give subject/movement provenance clues; all 3210 groups lack group properties and do not join to 2863 aggregate MAT arrays or force levels',
           'DS2 publication and Kaggle page expose conflicting license labels; redistribution is not cleared',
           'retrospective scorecards do not prove original scoring/phase ordering',
           'secondary candidate paper/licensing/layout verification remains incomplete',

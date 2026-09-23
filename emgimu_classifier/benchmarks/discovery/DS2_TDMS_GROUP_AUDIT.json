@@ -1,0 +1,93 @@
+{
+  "status": "all_tdms_group_metadata_parsed_no_aggregate_mat_or_force_join",
+  "archive": "..\\..\\work\\datasets\\historical_ds2_candidate\\ds2_kaggle_v8.zip",
+  "parser": "npTDMS 1.11.0",
+  "reader_reference": "https://nptdms.readthedocs.io/en/stable/reading.html",
+  "tdms_members": 97,
+  "groups": 3210,
+  "channels_per_group": 3,
+  "channel_samples_min": 100,
+  "channel_samples_median": 15100.0,
+  "channel_samples_max": 980100,
+  "channel_sample_length_top_counts": [
+    {
+      "samples": 15100,
+      "groups": 1688
+    },
+    {
+      "samples": 15000,
+      "groups": 1284
+    },
+    {
+      "samples": 14900,
+      "groups": 33
+    },
+    {
+      "samples": 14300,
+      "groups": 25
+    },
+    {
+      "samples": 14700,
+      "groups": 7
+    },
+    {
+      "samples": 14800,
+      "groups": 6
+    },
+    {
+      "samples": 100,
+      "groups": 4
+    },
+    {
+      "samples": 46200,
+      "groups": 3
+    },
+    {
+      "samples": 12700,
+      "groups": 3
+    },
+    {
+      "samples": 2300,
+      "groups": 3
+    },
+    {
+      "samples": 52600,
+      "groups": 2
+    },
+    {
+      "samples": 10100,
+      "groups": 2
+    }
+  ],
+  "groups_with_under_15000_samples": 125,
+  "groups_with_at_least_15000_samples": 3085,
+  "groups_with_exactly_15000_samples": 1284,
+  "group_property_count_distribution": {
+    "0": 3210
+  },
+  "file_property_keys": {
+    "name": 97
+  },
+  "group_property_keys": {},
+  "channel_property_keys": {
+    "NI_ChannelName": 9630,
+    "NI_Number_Of_Scales": 9630,
+    "NI_Scale[1]_Linear_Input_Source": 9630,
+    "NI_Scale[1]_Linear_Slope": 9630,
+    "NI_Scale[1]_Linear_Y_Intercept": 9630,
+    "NI_Scale[1]_Scale_Type": 9630,
+    "NI_Scaling_Status": 9630,
+    "NI_UnitDescription": 9630,
+    "unit_string": 9630,
+    "wf_increment": 9630,
+    "wf_samples": 9630,
+    "wf_start_offset": 9630,
+    "wf_start_time": 9630
+  },
+  "channel_property_signature_count": 1,
+  "wf_increment_seconds_min": 0.0006666374999999999,
+  "wf_increment_seconds_median": 0.0006666374999999999,
+  "wf_increment_seconds_max": 0.0006666374999999999,
+  "csv": "DS2_TDMS_GROUPS.csv",
+  "boundary": "Full TDMS segment metadata and channel lengths, not waveform values, were read. Group properties may be empty while filenames/root names suggest movements; neither subjective force level nor inclusion/order in Data_all_Raw.mat is encoded as a verified join. A 3210-to-2863 group/trial count mismatch forbids positional labels. Historical input identity remains unproven."
+}

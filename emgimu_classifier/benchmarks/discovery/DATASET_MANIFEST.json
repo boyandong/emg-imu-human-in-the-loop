@@ -22,6 +22,7 @@
       "access_audit": "benchmarks/discovery/DS2_ACCESS_AUDIT.json",
       "archive_audit": "benchmarks/discovery/DS2_ARCHIVE_AUDIT.json",
       "tdms_first_metadata_audit": "benchmarks/discovery/DS2_TDMS_FIRST_METADATA_AUDIT.json",
+      "tdms_group_audit": "benchmarks/discovery/DS2_TDMS_GROUP_AUDIT.json",
       "note": "Version 8 Kaggle archive and 102 ZIP members are verified. No old artifact proves this version is the exact historical B0/X1-H/X2 input; current native analyses must be labelled candidate v8 rather than reproduced old results."
     },
     {
