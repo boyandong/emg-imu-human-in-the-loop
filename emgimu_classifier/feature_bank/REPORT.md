@@ -2752,3 +2752,11 @@ latency difference. S03 has 139/141 hits for both. This is descriptive
 cue-relative output timing, not measured gesture-onset or device/UI latency.
 See the [S03](../benchmarks/song_real8/CUE_RESPONSE_S03_AUDIT.json) and
 [S04](../benchmarks/song_real8/CUE_RESPONSE_S04_AUDIT.json) audits.
+
+The same S04 raw prefix has now also passed a reconstructed device-protocol
+replay through the actual parser, acquisition controller, project main window
+and Song worker. All 1,000 signed 24-bit 8-channel samples kept their saved
+order, and the latest UI probability vector exactly matched direct runtime
+inference. This narrows the software-path uncertainty; physical USB acquisition
+and new-donning electrode geometry remain unverified. See the
+[protocol audit](../benchmarks/song_real8/PROTOCOL_TO_UI_AUDIT.json).

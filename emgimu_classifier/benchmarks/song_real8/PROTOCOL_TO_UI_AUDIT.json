@@ -1,0 +1,17 @@
+{
+  "status": "reconstructed_protocol_to_project_ui_verified",
+  "source_s04_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+  "model_sha256": "ecbab44df4340991d9b02038f9508d0b4767686064c6a26cceeecffd1900d821",
+  "nominal_emg_rate_hz": 250,
+  "recorded_measured_emg_rate_hz": 249.53830459584796,
+  "channels": 8,
+  "reconstructed_emg_packets": 1000,
+  "decoded_channel_rows_equal_saved_raw": true,
+  "controller_samples": 1000,
+  "direct_runtime_frames": 39,
+  "ui_prediction_batches": 21,
+  "latest_output_sample_index": 999,
+  "max_latest_probability_error": 0.0,
+  "physical_usb_tested": false,
+  "boundary": "Saved EMG values were re-encoded as protocol packets, parsed and passed through the project's AcquisitionController and MainWindow signal wiring into the Song worker. This proves the software path and channel order for these values, not original packet-byte identity, a connected device, wall-clock pacing, channel placement on a new donning, gesture accuracy or measured screen latency."
+}

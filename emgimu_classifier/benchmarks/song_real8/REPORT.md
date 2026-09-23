@@ -234,3 +234,13 @@ already correct before prompting; a separate transition-needed subset is in
 the audit. The decoded state persists across trials, as in the application.
 One-person cue timing, not physiological onset or physical USB timing, limits
 the conclusion. No threshold or model default changed based on this replay.
+
+The [protocol-to-UI replay](PROTOCOL_TO_UI_AUDIT.json) additionally re-encodes
+the first 1,000 saved S04 8-channel samples as signed 24-bit device-protocol
+frames. The project's `FrameParser`, `AcquisitionController`, `MainWindow`
+signal wiring and Song worker then decode and classify them. All 1,000 rows
+retain their saved channel order; the final UI prediction at sample 999 matches
+direct runtime probabilities exactly. S04's recorded mean EMG rate was 249.54
+Hz against a nominal 250 Hz. The original physical packet bytes were not
+saved, so this verifies reconstructed protocol software behavior, not the
+actual USB link, live timing, or electrode placement on another wearing.
