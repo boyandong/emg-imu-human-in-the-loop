@@ -33,3 +33,10 @@ pass ZIP CRC. `DS2_ACCESS_AUDIT.json` and `DS2_ARCHIVE_AUDIT.json` preserve the
 source, hash, file inventory and CC-BY-4.0 publication versus CC0 Kaggle license
 conflict. This version is not yet proven to have produced the historical
 B0/X1-H/X2 results.
+The extracted public v8 `Data_all_Raw.mat` contains 2,863 finite raw trials of
+3 channels × 15,000 samples. A deterministic six-trial sample had no exact
+zeros and nonzero RMS on all channels. The separate gesture-window label MAT
+has 332,108 labels in five integer classes. [DS2_NATIVE_MAT_AUDIT.json](DS2_NATIVE_MAT_AUDIT.json)
+records the source hashes and sample values. It does not establish how raw
+trials map to subjects, gestures or force levels; those labels cannot be
+joined to the window-label file by row count alone.

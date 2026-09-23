@@ -1,0 +1,152 @@
+{
+  "status": "native_public_v8_mat_shape_and_samples_checked_historical_identity_unproven",
+  "raw_mat_sha256": "1ee1b28193a60fa5b03493bac153fcd32290605f7eac45b8b535d58c15d109a0",
+  "gesture_label_mat_sha256": "6e03a15a63af0deea925e5f1d0ccd7f64791f96eff58e36570c05ad93a26d51b",
+  "raw_trials": 2863,
+  "raw_channels": 3,
+  "samples_per_trial_per_channel": 15000,
+  "raw_all_finite": true,
+  "gesture_window_label_count": 332108,
+  "gesture_window_label_distribution": {
+    "0": 66932,
+    "1": 67976,
+    "2": 67279,
+    "3": 67861,
+    "4": 62060
+  },
+  "sampled_raw_trials": [
+    {
+      "raw_trial_index_zero_based": 188,
+      "channels": 3,
+      "samples_per_channel": 15000,
+      "finite": true,
+      "zero_fraction": 0.0,
+      "rms_per_channel": [
+        0.07477574691445356,
+        0.100877399113,
+        0.02913571257164065
+      ],
+      "min_per_channel": [
+        -0.6484201673883945,
+        -0.4270565842743963,
+        -0.14777811022941023
+      ],
+      "max_per_channel": [
+        0.41850082331802696,
+        0.8818199507659301,
+        0.11991738562937826
+      ]
+    },
+    {
+      "raw_trial_index_zero_based": 1533,
+      "channels": 3,
+      "samples_per_channel": 15000,
+      "finite": true,
+      "zero_fraction": 0.0,
+      "rms_per_channel": [
+        0.032952613831722,
+        0.05719134709325588,
+        0.044796790819460953
+      ],
+      "min_per_channel": [
+        -0.1645090787205845,
+        -0.2970698290737346,
+        -0.5892182788811624
+      ],
+      "max_per_channel": [
+        0.1649623007979244,
+        0.25762612628750503,
+        0.3387069735908881
+      ]
+    },
+    {
+      "raw_trial_index_zero_based": 1059,
+      "channels": 3,
+      "samples_per_channel": 15000,
+      "finite": true,
+      "zero_fraction": 0.0,
+      "rms_per_channel": [
+        0.029820827239233717,
+        0.05714428972256758,
+        0.03762953720013243
+      ],
+      "min_per_channel": [
+        -0.2533119114814326,
+        -0.3176617902936414,
+        -0.17995304963551462
+      ],
+      "max_per_channel": [
+        0.16367530322168022,
+        0.2859400729648769,
+        0.21515520627144724
+      ]
+    },
+    {
+      "raw_trial_index_zero_based": 1856,
+      "channels": 3,
+      "samples_per_channel": 15000,
+      "finite": true,
+      "zero_fraction": 0.0,
+      "rms_per_channel": [
+        0.022556186261195186,
+        0.029417926185264162,
+        0.022792890702314585
+      ],
+      "min_per_channel": [
+        -0.07313225080724806,
+        -0.10402019263710827,
+        -0.08728922414593399
+      ],
+      "max_per_channel": [
+        0.0967514292569831,
+        0.05685450439341366,
+        0.08388145349454135
+      ]
+    },
+    {
+      "raw_trial_index_zero_based": 199,
+      "channels": 3,
+      "samples_per_channel": 15000,
+      "finite": true,
+      "zero_fraction": 0.0,
+      "rms_per_channel": [
+        0.1100230681225946,
+        0.1083744138103349,
+        0.038535940700570044
+      ],
+      "min_per_channel": [
+        -0.7295010146917775,
+        -0.4527965357992798,
+        -0.1863880375167355
+      ],
+      "max_per_channel": [
+        0.5832365130772814,
+        0.8740979653084651,
+        0.12506537593435496
+      ]
+    },
+    {
+      "raw_trial_index_zero_based": 447,
+      "channels": 3,
+      "samples_per_channel": 15000,
+      "finite": true,
+      "zero_fraction": 0.0,
+      "rms_per_channel": [
+        0.10237627255948765,
+        0.09629758582948998,
+        0.09799206221814974
+      ],
+      "min_per_channel": [
+        -0.5094244291540235,
+        -0.9405686171958223,
+        -0.4965544533915818
+      ],
+      "max_per_channel": [
+        0.6475863918894902,
+        0.6475863918894902,
+        0.5227476269938052
+      ]
+    }
+  ],
+  "boundary": "Raw MAT lacks verified per-trial subject, gesture and force mapping. The separate window-label MAT cannot be joined to these raw trials by shape. Sample rate and physical units are not independently encoded or verified here. No old B0/X1-H/X2 input identity or reproduction claim."
+}

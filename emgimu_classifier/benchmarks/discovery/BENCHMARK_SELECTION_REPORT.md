@@ -108,10 +108,17 @@ The candidate DS2 publication explicitly lists CC-BY4.0, while the current Kaggl
 page displays CC0; redistribution must remain paused until that conflict is resolved.
 Its protocol match does not establish the identity of old DS2 experiments. A fresh
 browser check opened the exact publisher-linked dataset URL and recorded version,
-size, file count and structure in `DS2_ACCESS_AUDIT.json`. Download still requires
-Kaggle authentication, and missing old artifacts remain a separate blocker.
+size, file count and structure in `DS2_ACCESS_AUDIT.json`. A later public API
+download recovered v8 and native MAT samples were audited; exact historical
+input identity and old implementation artifacts remain unproven.
 Secondary paper/license/layout provenance and exact historical baseline recovery
 remain incomplete. File/hash/field checks do not prove full Phase-1 acceptance.
+
+The acquired public DS2 v8 candidate passed a native MAT audit: 2,863 finite raw
+trials (3 × 15,000 samples) and 332,108 separate five-class gesture-window
+labels. See [DS2_NATIVE_MAT_AUDIT.json](DS2_NATIVE_MAT_AUDIT.json). The raw-trial
+subject/gesture/force mapping and equivalence to the historical input remain
+unproven, so this does not reproduce the earlier DS2 result.
 
 
 ## Optional secondary acquisition (2026-09-16)

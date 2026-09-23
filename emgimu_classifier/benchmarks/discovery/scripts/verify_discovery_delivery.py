@@ -11,7 +11,8 @@ import numpy as np
 def verify(root):
     required=('DATASET_INVENTORY.md','DATASET_CANDIDATES.csv','FAILURE_BENCHMARK_MATRIX.md',
       'BENCHMARK_SELECTION_REPORT.md','GESTURE_ONTOLOGY.md','SENSOR_LAYOUTS.md',
-      'DATASET_MANIFEST.json','DS2_ACCESS_AUDIT.json','DS2_ARCHIVE_AUDIT.json')
+      'DATASET_MANIFEST.json','DS2_ACCESS_AUDIT.json','DS2_ARCHIVE_AUDIT.json',
+      'DS2_NATIVE_MAT_AUDIT.json')
     hashes={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in required}
     candidates=list(csv.DictReader((root/'DATASET_CANDIDATES.csv').open(encoding='utf-8-sig',newline='')))
     fields=('dataset','failure_targets','subjects','sessions','gestures','channels','sampling_rate',
@@ -25,6 +26,7 @@ def verify(root):
     manifest=json.loads((root/'DATASET_MANIFEST.json').read_text(encoding='utf-8'))
     ds2_access=json.loads((root/'DS2_ACCESS_AUDIT.json').read_text(encoding='utf-8'))
     ds2_archive=json.loads((root/'DS2_ARCHIVE_AUDIT.json').read_text(encoding='utf-8'))
+    ds2_native=json.loads((root/'DS2_NATIVE_MAT_AUDIT.json').read_text(encoding='utf-8'))
     if (ds2_access['page_status']!='accessible_without_sign_in'
             or ds2_access['download_attempt']['archive_downloaded']
             or not ds2_access['public_api_check']['archive_downloaded']
@@ -51,6 +53,13 @@ def verify(root):
             ds2_digest.update(chunk)
     if ds2_digest.hexdigest()!=ds2['sha256']:
         raise ValueError('DS2 candidate archive bytes changed')
+    if (ds2_native['raw_trials']!=2863 or ds2_native['raw_channels']!=3
+            or ds2_native['samples_per_trial_per_channel']!=15000
+            or ds2_native['gesture_window_label_count']!=332108
+            or sum(ds2_native['gesture_window_label_distribution'].values())!=332108
+            or len(ds2_native['sampled_raw_trials'])!=6
+            or not ds2_native['raw_all_finite']):
+        raise ValueError('DS2 native MAT audit changed')
     archives=[]
     for dataset in manifest['datasets']:
         if dataset['status']!='downloaded_verified':continue
@@ -108,6 +117,8 @@ def verify(root):
        'candidate_rows':len(candidates),'score_vectors_checked':len(candidates),'archives':archives,
        'ds2_candidate_archive':{'bytes':ds2['size'],'sha256':ds2['sha256'],
            'fresh_sha256_checked':True,'zip_members_crc_checked':ds2_archive['files'],
+           'native_raw_mat_trials':ds2_native['raw_trials'],
+           'native_gesture_window_labels':ds2_native['gesture_window_label_count'],
            'historical_identity':'unproven'},
        'archive_bytes':total,'archive_GB_decimal':total/1e9,'archive_GiB_binary':total/(1024**3),
        'source_sanity_reports_rehashed':reports,'captioned_plot_files_rehashed':plots,'sampled_native_recordings':36,
