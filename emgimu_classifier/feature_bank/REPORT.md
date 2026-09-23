@@ -2742,3 +2742,13 @@ the former external launcher remains under a name marked as old. This is
 software-path evidence only; USB/device behavior
 and human-facing recognition remain unmeasured. See
 [the UI replay audit](../benchmarks/song_real8/SPD_UI_OFFSCREEN_AUDIT.json).
+
+A further full-stream cue-response audit compares when the unchanged live
+decoder first displays the prompted class. On S04, F0+SPD has three additional
+within-cue hits (142/144 versus 139/144), including three additional Index
+Pinch cues; both models hit all 36 Open Hand cues. Among the 139 paired hits,
+SPD is earlier on 51, equal on 74 and later on 14, with 0 ms median paired
+latency difference. S03 has 139/141 hits for both. This is descriptive
+cue-relative output timing, not measured gesture-onset or device/UI latency.
+See the [S03](../benchmarks/song_real8/CUE_RESPONSE_S03_AUDIT.json) and
+[S04](../benchmarks/song_real8/CUE_RESPONSE_S04_AUDIT.json) audits.

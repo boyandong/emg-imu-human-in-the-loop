@@ -218,3 +218,19 @@ preserved as `EMG 数据采集（旧版，无 Song 模型）`; its
 `E:/qxy/emg_meta/emg_meta/` models directory has no Song bundle.
 This check does not use the physical USB device or measure actual screen
 latency or recognition accuracy while a person performs gestures.
+
+The [S03](CUE_RESPONSE_S03_AUDIT.json) and [S04](CUE_RESPONSE_S04_AUDIT.json)
+cue-response audits replay the two exported bundles on full continuous streams
+without refitting. They measure the first matching **decoded frame end** after
+each recorded prompt starts, within that prompt; this is not movement-onset or
+measured screen latency. On S04, F0 shows the prompted hand state at least once
+in 139/144 formal cues and F0+SPD in 142/144. The paired difference is three
+SPD-only hits, no F0-only hits, 139 both and two neither. For the 139 both-hit
+cues, SPD is earlier on 51, equal on 74 and later on 14; the paired latency
+median is 0 ms. In particular, S04 Index Pinch cue hits rise from 31/36 to
+34/36 while Open Hand is 36/36 for both. S03 has 139/141 hits with either
+model and no discordant hits. These counts include cues where the state was
+already correct before prompting; a separate transition-needed subset is in
+the audit. The decoded state persists across trials, as in the application.
+One-person cue timing, not physiological onset or physical USB timing, limits
+the conclusion. No threshold or model default changed based on this replay.
