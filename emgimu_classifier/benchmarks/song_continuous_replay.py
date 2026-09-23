@@ -1,4 +1,4 @@
-"""Audit continuous Song S04 predictions without treating cue time as EMG onset."""
+"""Audit continuous Song predictions without treating cue time as EMG onset."""
 from __future__ import annotations
 
 import argparse
@@ -14,42 +14,52 @@ from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, recall_s
 from benchmarks.song_real8_study import _hash, _text, parse_label
 
 
-def run(source: Path, bundle: Path, collection_root: Path, output: Path) -> dict:
+def replay_session(source: Path, bundle: Path, collection_root: Path, session_id: str):
+    if session_id not in ("S03", "S04"):
+        raise ValueError("continuous decoder audit supports validation S03 and final S04 only")
     sys.path.insert(0, str(collection_root.resolve()))
-    from emgforce.inference.song_local import LABELS, SongLocalRuntime, SongOnlineDecision
+    from emgforce.inference.song_local import SongLocalRuntime
 
-    session_dir = source / "2026-09-18_S04"
+    session_dir = source / f"2026-09-18_{session_id}"
     session_file = session_dir / "session.h5"
     readiness = json.loads((session_dir / "SESSION_COLLECTION_READINESS.json").read_text(encoding="utf-8"))
     source_sha = _hash(session_file)
     if source_sha != readiness["hdf5_sha256"]:
-        raise ValueError("S04 source hash differs from collection readiness audit")
+        raise ValueError(f"{session_id} source hash differs from collection readiness audit")
     with h5py.File(session_file) as handle:
         meta = handle["meta"].attrs
-        if (_text(meta["session_id"]) != "S04" or _text(meta["dataset_split"]) != "test" or
+        expected_split = "val" if session_id == "S03" else "test"
+        if (_text(meta["session_id"]) != session_id or _text(meta["dataset_split"]) != expected_split or
                 int(meta["emg_nominal_rate_hz"]) != 250 or int(meta["num_emg_channels"]) != 8):
-            raise ValueError("S04 metadata incompatible with this audit")
+            raise ValueError(f"{session_id} metadata incompatible with this audit")
         raw = handle["streams/emg/raw"][:]
         indices = handle["streams/emg/sample_index"][:]
         trials = handle["trials"][:]
     if not np.array_equal(indices, np.arange(len(raw))):
-        raise ValueError("S04 sample indices are not contiguous")
+        raise ValueError(f"{session_id} sample indices are not contiguous")
 
     runtime = SongLocalRuntime(bundle)
-    decision = SongOnlineDecision()
     frame_indices, frame_probabilities = [], []
-    decoded_labels = []
     for start in range(0, len(raw), 37):
         gap, frames = runtime.ingest(raw[start:start + 37], indices[start:start + 37])
         if gap:
-            raise ValueError("S04 continuous replay unexpectedly reset")
+            raise ValueError(f"{session_id} continuous replay unexpectedly reset")
         for index, probabilities in frames:
             frame_indices.append(index)
             frame_probabilities.append(probabilities)
-            active, _ = decision.step(probabilities, threshold=0.5)
-            decoded_labels.append(active if active is not None else "unknown")
-    frame_indices = np.asarray(frame_indices, dtype=np.int64)
-    probabilities = np.stack(frame_probabilities)
+    return (source_sha, runtime.sha256, len(raw), trials,
+            np.asarray(frame_indices, dtype=np.int64), np.stack(frame_probabilities))
+
+
+def run(source: Path, bundle: Path, collection_root: Path, output: Path) -> dict:
+    source_sha, model_sha, sample_count, trials, frame_indices, probabilities = replay_session(
+        source, bundle, collection_root, "S04")
+    from emgforce.inference.song_local import LABELS, SongOnlineDecision
+    decision = SongOnlineDecision()
+    decoded_labels = []
+    for probability in probabilities:
+        active, _ = decision.step(probability, threshold=0.5)
+        decoded_labels.append(active if active is not None else "unknown")
     predicted = np.asarray(LABELS)[np.argmax(probabilities, axis=1)]
     decoded = np.asarray(decoded_labels)
     whole_session_support = dict(Counter(predicted.tolist()))
@@ -86,8 +96,8 @@ def run(source: Path, bundle: Path, collection_root: Path, output: Path) -> dict
     result = {
         "status": "continuous_cue_timeline_audited_not_physiological_onset_validated",
         "source_s04_sha256": source_sha,
-        "model_sha256": runtime.sha256,
-        "sample_count": len(raw), "duration_seconds_nominal": len(raw) / 250,
+        "model_sha256": model_sha,
+        "sample_count": sample_count, "duration_seconds_nominal": sample_count / 250,
         "frame_count": len(frame_indices), "all_frame_predicted_support": whole_session_support,
         "formal_trials_with_full_stable_windows": len(trial_true),
         "stable_frames": len(stable_frame_true), "stable_frame_true_support": dict(stable_support),

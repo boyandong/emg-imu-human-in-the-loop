@@ -1,0 +1,632 @@
+{
+  "status": "exploratory_same_person_day_decoder_rule_selection",
+  "fixed_candidates": "0.5 probability threshold; causal probability EMA alpha 0.25/0.5/0.75/1.0 and one/two/three consecutive 100 ms frames",
+  "selection": "Exploratory second-stage S03 selection after unsmoothed 1-frame rule was found to chatter: require rest-cue neutral fraction no more than 2 percentage points below current unsmoothed 3-frame rule and whole-stream state-change rate no higher than that rule; choose largest stable macro-F1, then accuracy, then more frames and alpha. Switch only for at least 2 points macro-F1 gain. S04 never selects.",
+  "selected_rule": {
+    "ema_alpha": 1.0,
+    "consecutive_frames": 3
+  },
+  "validation_gain_macro_f1_vs_current": 0.0,
+  "final_gain_macro_f1_vs_current": 0.0,
+  "sessions": {
+    "S03": {
+      "source_sha256": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+      "model_sha256": "843a1230f8fbee5a839557e59edaf449ab250cbb125df8f77164a6255420eedc",
+      "sample_count": 336146,
+      "frame_count": 13444,
+      "valid_formal_trials_with_stable_frames": 139,
+      "rules": [
+        {
+          "consecutive_frames": 1,
+          "ema_alpha": 0.25,
+          "stable_frames": 895,
+          "rest_frames": 1108,
+          "whole_stream_state_changes": 1541,
+          "whole_stream_changes_per_minute": 68.77417435287116,
+          "stable_accuracy": 0.8100558659217877,
+          "stable_macro_f1": 0.8625717910260091,
+          "stable_recall": {
+            "fist": 0.797752808988764,
+            "index_pinch": 0.6732673267326733,
+            "neutral": 0.806930693069307,
+            "open_hand": 0.9073482428115016
+          },
+          "stable_display_support": {
+            "neutral": 188,
+            "unknown": 134,
+            "fist": 152,
+            "index_pinch": 137,
+            "open_hand": 284
+          },
+          "rest_neutral_fraction": 0.6236462093862816,
+          "rest_active_fraction": 0.11281588447653429
+        },
+        {
+          "consecutive_frames": 2,
+          "ema_alpha": 0.25,
+          "stable_frames": 895,
+          "rest_frames": 1108,
+          "whole_stream_state_changes": 1165,
+          "whole_stream_changes_per_minute": 51.99345432906872,
+          "stable_accuracy": 0.753072625698324,
+          "stable_macro_f1": 0.811388294659313,
+          "stable_recall": {
+            "fist": 0.7078651685393258,
+            "index_pinch": 0.5792079207920792,
+            "neutral": 0.7970297029702971,
+            "open_hand": 0.8626198083067093
+          },
+          "stable_display_support": {
+            "neutral": 211,
+            "unknown": 162,
+            "fist": 134,
+            "open_hand": 271,
+            "index_pinch": 117
+          },
+          "rest_neutral_fraction": 0.5956678700361011,
+          "rest_active_fraction": 0.15974729241877256
+        },
+        {
+          "consecutive_frames": 3,
+          "ema_alpha": 0.25,
+          "stable_frames": 895,
+          "rest_frames": 1108,
+          "whole_stream_state_changes": 913,
+          "whole_stream_changes_per_minute": 40.746801547158576,
+          "stable_accuracy": 0.6770949720670391,
+          "stable_macro_f1": 0.7227551952063336,
+          "stable_recall": {
+            "fist": 0.5842696629213483,
+            "index_pinch": 0.46534653465346537,
+            "neutral": 0.7871287128712872,
+            "open_hand": 0.7955271565495208
+          },
+          "stable_display_support": {
+            "neutral": 287,
+            "unknown": 153,
+            "fist": 109,
+            "open_hand": 251,
+            "index_pinch": 95
+          },
+          "rest_neutral_fraction": 0.5586642599277978,
+          "rest_active_fraction": 0.2463898916967509
+        },
+        {
+          "consecutive_frames": 1,
+          "ema_alpha": 0.5,
+          "stable_frames": 895,
+          "rest_frames": 1108,
+          "whole_stream_state_changes": 2243,
+          "whole_stream_changes_per_minute": 100.10413567390655,
+          "stable_accuracy": 0.841340782122905,
+          "stable_macro_f1": 0.8805675039099146,
+          "stable_recall": {
+            "fist": 0.8820224719101124,
+            "index_pinch": 0.7623762376237624,
+            "neutral": 0.7970297029702971,
+            "open_hand": 0.8977635782747604
+          },
+          "stable_display_support": {
+            "unknown": 96,
+            "index_pinch": 170,
+            "fist": 175,
+            "neutral": 173,
+            "open_hand": 281
+          },
+          "rest_neutral_fraction": 0.6994584837545126,
+          "rest_active_fraction": 0.10288808664259928
+        },
+        {
+          "consecutive_frames": 2,
+          "ema_alpha": 0.5,
+          "stable_frames": 895,
+          "rest_frames": 1108,
+          "whole_stream_state_changes": 1426,
+          "whole_stream_changes_per_minute": 63.641773281761374,
+          "stable_accuracy": 0.8245810055865922,
+          "stable_macro_f1": 0.8551686061888388,
+          "stable_recall": {
+            "fist": 0.8202247191011236,
+            "index_pinch": 0.7079207920792079,
+            "neutral": 0.806930693069307,
+            "open_hand": 0.9137380191693291
+          },
+          "stable_display_support": {
+            "neutral": 196,
+            "unknown": 90,
+            "fist": 164,
+            "index_pinch": 158,
+            "open_hand": 287
+          },
+          "rest_neutral_fraction": 0.6823104693140795,
+          "rest_active_fraction": 0.15613718411552346
+        },
+        {
+          "consecutive_frames": 3,
+          "ema_alpha": 0.5,
+          "stable_frames": 895,
+          "rest_frames": 1108,
+          "whole_stream_state_changes": 961,
+          "whole_stream_changes_per_minute": 42.88902112466527,
+          "stable_accuracy": 0.7955307262569833,
+          "stable_macro_f1": 0.8231619609406601,
+          "stable_recall": {
+            "fist": 0.7471910112359551,
+            "index_pinch": 0.6534653465346535,
+            "neutral": 0.8267326732673267,
+            "open_hand": 0.8945686900958466
+          },
+          "stable_display_support": {
+            "neutral": 249,
+            "unknown": 86,
+            "fist": 142,
+            "index_pinch": 138,
+            "open_hand": 280
+          },
+          "rest_neutral_fraction": 0.6507220216606499,
+          "rest_active_fraction": 0.20938628158844766
+        },
+        {
+          "consecutive_frames": 1,
+          "ema_alpha": 0.75,
+          "stable_frames": 895,
+          "rest_frames": 1108,
+          "whole_stream_state_changes": 2619,
+          "whole_stream_changes_per_minute": 116.884855697709,
+          "stable_accuracy": 0.8446927374301676,
+          "stable_macro_f1": 0.8698142691182432,
+          "stable_recall": {
+            "fist": 0.8820224719101124,
+            "index_pinch": 0.7920792079207921,
+            "neutral": 0.806930693069307,
+            "open_hand": 0.8817891373801917
+          },
+          "stable_display_support": {
+            "index_pinch": 190,
+            "unknown": 66,
+            "fist": 180,
+            "neutral": 180,
+            "open_hand": 279
+          },
+          "rest_neutral_fraction": 0.7256317689530686,
+          "rest_active_fraction": 0.11281588447653429
+        },
+        {
+          "consecutive_frames": 2,
+          "ema_alpha": 0.75,
+          "stable_frames": 895,
+          "rest_frames": 1108,
+          "whole_stream_state_changes": 1533,
+          "whole_stream_changes_per_minute": 68.41713775662005,
+          "stable_accuracy": 0.8357541899441341,
+          "stable_macro_f1": 0.8513119667106712,
+          "stable_recall": {
+            "fist": 0.8370786516853933,
+            "index_pinch": 0.7376237623762376,
+            "neutral": 0.801980198019802,
+            "open_hand": 0.9201277955271565
+          },
+          "stable_display_support": {
+            "neutral": 199,
+            "index_pinch": 175,
+            "fist": 170,
+            "open_hand": 293,
+            "unknown": 58
+          },
+          "rest_neutral_fraction": 0.7193140794223827,
+          "rest_active_fraction": 0.17057761732851986
+        },
+        {
+          "consecutive_frames": 3,
+          "ema_alpha": 0.75,
+          "stable_frames": 895,
+          "rest_frames": 1108,
+          "whole_stream_state_changes": 929,
+          "whole_stream_changes_per_minute": 41.46087473966081,
+          "stable_accuracy": 0.8100558659217877,
+          "stable_macro_f1": 0.8262988050849436,
+          "stable_recall": {
+            "fist": 0.7808988764044944,
+            "index_pinch": 0.6732673267326733,
+            "neutral": 0.8168316831683168,
+            "open_hand": 0.9105431309904153
+          },
+          "stable_display_support": {
+            "neutral": 243,
+            "fist": 151,
+            "unknown": 61,
+            "index_pinch": 149,
+            "open_hand": 291
+          },
+          "rest_neutral_fraction": 0.6669675090252708,
+          "rest_active_fraction": 0.26263537906137185
+        },
+        {
+          "consecutive_frames": 1,
+          "ema_alpha": 1.0,
+          "stable_frames": 895,
+          "rest_frames": 1108,
+          "whole_stream_state_changes": 2955,
+          "whole_stream_changes_per_minute": 131.88039274025587,
+          "stable_accuracy": 0.841340782122905,
+          "stable_macro_f1": 0.8598074405005983,
+          "stable_recall": {
+            "fist": 0.8820224719101124,
+            "index_pinch": 0.7821782178217822,
+            "neutral": 0.8118811881188119,
+            "open_hand": 0.8753993610223643
+          },
+          "stable_display_support": {
+            "index_pinch": 193,
+            "unknown": 53,
+            "fist": 187,
+            "neutral": 181,
+            "open_hand": 281
+          },
+          "rest_neutral_fraction": 0.7364620938628159,
+          "rest_active_fraction": 0.13537906137184116
+        },
+        {
+          "consecutive_frames": 2,
+          "ema_alpha": 1.0,
+          "stable_frames": 895,
+          "rest_frames": 1108,
+          "whole_stream_state_changes": 1549,
+          "whole_stream_changes_per_minute": 69.13121094912228,
+          "stable_accuracy": 0.8424581005586592,
+          "stable_macro_f1": 0.8519110230738393,
+          "stable_recall": {
+            "fist": 0.8370786516853933,
+            "index_pinch": 0.7425742574257426,
+            "neutral": 0.8118811881188119,
+            "open_hand": 0.9297124600638977
+          },
+          "stable_display_support": {
+            "neutral": 206,
+            "unknown": 46,
+            "fist": 171,
+            "index_pinch": 175,
+            "open_hand": 297
+          },
+          "rest_neutral_fraction": 0.740072202166065,
+          "rest_active_fraction": 0.17689530685920576
+        },
+        {
+          "consecutive_frames": 3,
+          "ema_alpha": 1.0,
+          "stable_frames": 895,
+          "rest_frames": 1108,
+          "whole_stream_state_changes": 856,
+          "whole_stream_changes_per_minute": 38.20291579886938,
+          "stable_accuracy": 0.8100558659217877,
+          "stable_macro_f1": 0.8215727130877145,
+          "stable_recall": {
+            "fist": 0.7808988764044944,
+            "index_pinch": 0.6584158415841584,
+            "neutral": 0.8168316831683168,
+            "open_hand": 0.9201277955271565
+          },
+          "stable_display_support": {
+            "neutral": 243,
+            "fist": 154,
+            "unknown": 55,
+            "index_pinch": 148,
+            "open_hand": 295
+          },
+          "rest_neutral_fraction": 0.677797833935018,
+          "rest_active_fraction": 0.2933212996389892
+        }
+      ]
+    },
+    "S04": {
+      "source_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+      "model_sha256": "843a1230f8fbee5a839557e59edaf449ab250cbb125df8f77164a6255420eedc",
+      "sample_count": 297942,
+      "frame_count": 11916,
+      "valid_formal_trials_with_stable_frames": 144,
+      "rules": [
+        {
+          "consecutive_frames": 1,
+          "ema_alpha": 0.25,
+          "stable_frames": 911,
+          "rest_frames": 1175,
+          "whole_stream_state_changes": 1246,
+          "whole_stream_changes_per_minute": 62.73917421953675,
+          "stable_accuracy": 0.7321624588364435,
+          "stable_macro_f1": 0.7714155866973571,
+          "stable_recall": {
+            "fist": 0.7611940298507462,
+            "index_pinch": 0.4120603015075377,
+            "neutral": 0.8817733990147784,
+            "open_hand": 0.8214285714285714
+          },
+          "stable_display_support": {
+            "unknown": 147,
+            "index_pinch": 82,
+            "fist": 170,
+            "neutral": 255,
+            "open_hand": 257
+          },
+          "rest_neutral_fraction": 0.7157446808510638,
+          "rest_active_fraction": 0.07829787234042553
+        },
+        {
+          "consecutive_frames": 2,
+          "ema_alpha": 0.25,
+          "stable_frames": 911,
+          "rest_frames": 1175,
+          "whole_stream_state_changes": 922,
+          "whole_stream_changes_per_minute": 46.424974823766355,
+          "stable_accuracy": 0.672886937431394,
+          "stable_macro_f1": 0.7017605080040079,
+          "stable_recall": {
+            "fist": 0.6517412935323383,
+            "index_pinch": 0.33668341708542715,
+            "neutral": 0.8916256157635468,
+            "open_hand": 0.7597402597402597
+          },
+          "stable_display_support": {
+            "neutral": 322,
+            "unknown": 139,
+            "index_pinch": 67,
+            "fist": 146,
+            "open_hand": 237
+          },
+          "rest_neutral_fraction": 0.6782978723404255,
+          "rest_active_fraction": 0.1097872340425532
+        },
+        {
+          "consecutive_frames": 3,
+          "ema_alpha": 0.25,
+          "stable_frames": 911,
+          "rest_frames": 1175,
+          "whole_stream_state_changes": 701,
+          "whole_stream_changes_per_minute": 35.29707955689828,
+          "stable_accuracy": 0.5982436882546652,
+          "stable_macro_f1": 0.6155953454492753,
+          "stable_recall": {
+            "fist": 0.5323383084577115,
+            "index_pinch": 0.25125628140703515,
+            "neutral": 0.9014778325123153,
+            "open_hand": 0.6655844155844156
+          },
+          "stable_display_support": {
+            "neutral": 427,
+            "unknown": 115,
+            "fist": 112,
+            "index_pinch": 50,
+            "open_hand": 207
+          },
+          "rest_neutral_fraction": 0.6374468085106383,
+          "rest_active_fraction": 0.15404255319148935
+        },
+        {
+          "consecutive_frames": 1,
+          "ema_alpha": 0.5,
+          "stable_frames": 911,
+          "rest_frames": 1175,
+          "whole_stream_state_changes": 1750,
+          "whole_stream_changes_per_minute": 88.11681772406847,
+          "stable_accuracy": 0.7903402854006586,
+          "stable_macro_f1": 0.8114964845470054,
+          "stable_recall": {
+            "fist": 0.8706467661691543,
+            "index_pinch": 0.5376884422110553,
+            "neutral": 0.8522167487684729,
+            "open_hand": 0.8603896103896104
+          },
+          "stable_display_support": {
+            "unknown": 83,
+            "open_hand": 278,
+            "index_pinch": 112,
+            "fist": 216,
+            "neutral": 222
+          },
+          "rest_neutral_fraction": 0.7829787234042553,
+          "rest_active_fraction": 0.06808510638297872
+        },
+        {
+          "consecutive_frames": 2,
+          "ema_alpha": 0.5,
+          "stable_frames": 911,
+          "rest_frames": 1175,
+          "whole_stream_state_changes": 1097,
+          "whole_stream_changes_per_minute": 55.236656596173205,
+          "stable_accuracy": 0.7530186608122942,
+          "stable_macro_f1": 0.7652330853357387,
+          "stable_recall": {
+            "fist": 0.8059701492537313,
+            "index_pinch": 0.46733668341708545,
+            "neutral": 0.8571428571428571,
+            "open_hand": 0.8344155844155844
+          },
+          "stable_display_support": {
+            "unknown": 74,
+            "open_hand": 268,
+            "index_pinch": 94,
+            "fist": 205,
+            "neutral": 270
+          },
+          "rest_neutral_fraction": 0.7412765957446809,
+          "rest_active_fraction": 0.1123404255319149
+        },
+        {
+          "consecutive_frames": 3,
+          "ema_alpha": 0.5,
+          "stable_frames": 911,
+          "rest_frames": 1175,
+          "whole_stream_state_changes": 749,
+          "whole_stream_changes_per_minute": 37.7139979859013,
+          "stable_accuracy": 0.6926454445664105,
+          "stable_macro_f1": 0.6929093293480832,
+          "stable_recall": {
+            "fist": 0.7014925373134329,
+            "index_pinch": 0.36180904522613067,
+            "neutral": 0.8768472906403941,
+            "open_hand": 0.7792207792207793
+          },
+          "stable_display_support": {
+            "neutral": 379,
+            "index_pinch": 72,
+            "fist": 169,
+            "open_hand": 246,
+            "unknown": 45
+          },
+          "rest_neutral_fraction": 0.6995744680851064,
+          "rest_active_fraction": 0.1778723404255319
+        },
+        {
+          "consecutive_frames": 1,
+          "ema_alpha": 0.75,
+          "stable_frames": 911,
+          "rest_frames": 1175,
+          "whole_stream_state_changes": 2112,
+          "whole_stream_changes_per_minute": 106.34441087613291,
+          "stable_accuracy": 0.7914379802414928,
+          "stable_macro_f1": 0.8042283119943178,
+          "stable_recall": {
+            "fist": 0.8606965174129353,
+            "index_pinch": 0.5778894472361809,
+            "neutral": 0.8472906403940886,
+            "open_hand": 0.8474025974025974
+          },
+          "stable_display_support": {
+            "unknown": 59,
+            "open_hand": 275,
+            "index_pinch": 127,
+            "fist": 230,
+            "neutral": 220
+          },
+          "rest_neutral_fraction": 0.8178723404255319,
+          "rest_active_fraction": 0.06978723404255319
+        },
+        {
+          "consecutive_frames": 2,
+          "ema_alpha": 0.75,
+          "stable_frames": 911,
+          "rest_frames": 1175,
+          "whole_stream_state_changes": 1206,
+          "whole_stream_changes_per_minute": 60.7250755287009,
+          "stable_accuracy": 0.7782656421514819,
+          "stable_macro_f1": 0.7760029385310672,
+          "stable_recall": {
+            "fist": 0.8258706467661692,
+            "index_pinch": 0.5125628140703518,
+            "neutral": 0.8620689655172413,
+            "open_hand": 0.8636363636363636
+          },
+          "stable_display_support": {
+            "neutral": 271,
+            "open_hand": 275,
+            "index_pinch": 108,
+            "fist": 220,
+            "unknown": 37
+          },
+          "rest_neutral_fraction": 0.7736170212765957,
+          "rest_active_fraction": 0.12680851063829787
+        },
+        {
+          "consecutive_frames": 3,
+          "ema_alpha": 0.75,
+          "stable_frames": 911,
+          "rest_frames": 1175,
+          "whole_stream_state_changes": 695,
+          "whole_stream_changes_per_minute": 34.9949647532729,
+          "stable_accuracy": 0.7178924259055982,
+          "stable_macro_f1": 0.7157014307074343,
+          "stable_recall": {
+            "fist": 0.736318407960199,
+            "index_pinch": 0.3969849246231156,
+            "neutral": 0.8866995073891626,
+            "open_hand": 0.801948051948052
+          },
+          "stable_display_support": {
+            "neutral": 372,
+            "index_pinch": 79,
+            "fist": 177,
+            "open_hand": 250,
+            "unknown": 33
+          },
+          "rest_neutral_fraction": 0.7285106382978723,
+          "rest_active_fraction": 0.20595744680851064
+        },
+        {
+          "consecutive_frames": 1,
+          "ema_alpha": 1.0,
+          "stable_frames": 911,
+          "rest_frames": 1175,
+          "whole_stream_state_changes": 2338,
+          "whole_stream_changes_per_minute": 117.72406847935547,
+          "stable_accuracy": 0.7771679473106476,
+          "stable_macro_f1": 0.789825518047997,
+          "stable_recall": {
+            "fist": 0.8507462686567164,
+            "index_pinch": 0.5678391959798995,
+            "neutral": 0.8374384236453202,
+            "open_hand": 0.8246753246753247
+          },
+          "stable_display_support": {
+            "open_hand": 273,
+            "index_pinch": 131,
+            "fist": 237,
+            "neutral": 212,
+            "unknown": 58
+          },
+          "rest_neutral_fraction": 0.8306382978723404,
+          "rest_active_fraction": 0.07659574468085106
+        },
+        {
+          "consecutive_frames": 2,
+          "ema_alpha": 1.0,
+          "stable_frames": 911,
+          "rest_frames": 1175,
+          "whole_stream_state_changes": 1232,
+          "whole_stream_changes_per_minute": 62.0342396777442,
+          "stable_accuracy": 0.7793633369923162,
+          "stable_macro_f1": 0.7742494979074617,
+          "stable_recall": {
+            "fist": 0.835820895522388,
+            "index_pinch": 0.5226130653266332,
+            "neutral": 0.8620689655172413,
+            "open_hand": 0.8538961038961039
+          },
+          "stable_display_support": {
+            "neutral": 266,
+            "open_hand": 274,
+            "index_pinch": 111,
+            "fist": 232,
+            "unknown": 28
+          },
+          "rest_neutral_fraction": 0.7991489361702128,
+          "rest_active_fraction": 0.13446808510638297
+        },
+        {
+          "consecutive_frames": 3,
+          "ema_alpha": 1.0,
+          "stable_frames": 911,
+          "rest_frames": 1175,
+          "whole_stream_state_changes": 655,
+          "whole_stream_changes_per_minute": 32.98086606243705,
+          "stable_accuracy": 0.7310647639956093,
+          "stable_macro_f1": 0.7234432181778024,
+          "stable_recall": {
+            "fist": 0.746268656716418,
+            "index_pinch": 0.4020100502512563,
+            "neutral": 0.9064039408866995,
+            "open_hand": 0.8181818181818182
+          },
+          "stable_display_support": {
+            "neutral": 368,
+            "open_hand": 258,
+            "index_pinch": 81,
+            "fist": 180,
+            "unknown": 24
+          },
+          "rest_neutral_fraction": 0.7429787234042553,
+          "rest_active_fraction": 0.21106382978723404
+        }
+      ]
+    }
+  },
+  "boundary": "S03 collection readiness failed; S04 is same participant/day and its current-rule results had already been inspected before this candidate study. Recorded cue intervals are not physiological movement onsets, and rest may contain residual movement. Decoder-state replay is not physical USB/UI timing or cross-person/day validation."
+}

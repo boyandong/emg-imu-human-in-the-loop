@@ -105,3 +105,18 @@ input batch, so this is a decoder-state replay, not a measured screen refresh
 rate or a live accuracy test. These S04 results were inspected after the rule
 was set and must not be used to tune its threshold or duration on the final
 session.
+
+A follow-up [decoder rule study](DECODER_RULE_STUDY.json) replayed the same
+source-trained model on S03 first, comparing 12 causal rules: probability EMA
+alpha 0.25/0.5/0.75/1.0 and one/two/three consecutive 100 ms frames, all at
+the existing 0.5 threshold. The current unsmoothed three-frame rule reached
+82.16% stable-cue frame macro-F1 on S03, 67.78% neutral state in pre-prompt
+rest and 38.2 state changes per minute across its full stream. Removing the
+debounce raised S03 macro-F1 to 85.98% but caused 131.9 changes/minute. The
+study required a candidate to preserve rest neutrality within two percentage
+points and to produce no more full-stream state changes than the current rule;
+none of the eleven alternatives met both conditions. The rule therefore stays
+unchanged. Selection was fixed before loading S04, although S04's earlier
+current-rule results had already motivated this exploratory study. This is a
+negative usability tradeoff result, not a confirmatory test or a reason to
+claim live recognition is solved.
