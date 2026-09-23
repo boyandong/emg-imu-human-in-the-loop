@@ -13,7 +13,7 @@ from pathlib import Path
 
 import h5py
 import numpy as np
-from scipy.signal import butter, filtfilt, iirnotch
+from scipy.signal import butter, filtfilt, iirnotch, sosfilt, tf2sos
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, recall_score
 from sklearn.pipeline import make_pipeline
@@ -25,6 +25,12 @@ from emgimu.feature_bank.families import BodyContextFamily, LocalDetailFamily, S
 ROLES = {"S01": "train", "S02": "train", "S03": "val", "S04": "test"}
 HANDS = ("neutral", "index_pinch", "fist", "open_hand")
 ARMS = ("still", "up", "down", "left", "right", "forward", "backward")
+CALIBRATION_BLOCKS = {
+    "calibration_rest_initial": ("neutral", 1), "calibration_rest_final": ("neutral", 2),
+    "calibration_pinch_1": ("index_pinch", 1), "calibration_pinch_2": ("index_pinch", 2),
+    "calibration_fist_1": ("fist", 1), "calibration_fist_2": ("fist", 2),
+    "calibration_open_1": ("open_hand", 1), "calibration_open_2": ("open_hand", 2),
+}
 WINDOW = 50  # 200 ms at 250 Hz
 IMU_WINDOW = 22  # ~196 ms at 112 Hz, ending no later than EMG window
 
@@ -57,19 +63,24 @@ def parse_label(value: str) -> tuple[str, str]:
     raise ValueError(f"unknown 28-state label: {value}")
 
 
-def _filter_emg(raw: np.ndarray) -> np.ndarray:
-    # Fixed, zero-phase offline preprocessing; no target-session fitted scale.
+def _filter_emg(raw: np.ndarray, mode: str = "zero_phase") -> np.ndarray:
+    # Fixed filters and no target-session fitted state. Causal mode carries
+    # filter memory across the continuous recorded session.
     x = np.asarray(raw, dtype=np.float64)
-    x -= np.median(x, axis=0)
-    b, a = butter(4, 40.0, btype="highpass", fs=250.0)
-    x = filtfilt(b, a, x, axis=0)
+    if mode not in ("zero_phase", "causal"):
+        raise ValueError(f"unknown EMG filter mode: {mode}")
+    if mode == "causal":
+        x = sosfilt(butter(4, 40.0, btype="highpass", fs=250.0, output="sos"), x, axis=0)
+    else:
+        b, a = butter(4, 40.0, btype="highpass", fs=250.0)
+        x = filtfilt(b, a, x, axis=0)
     for hz in (50.0, 100.0):
         b, a = iirnotch(hz, Q=30.0, fs=250.0)
-        x = filtfilt(b, a, x, axis=0)
+        x = sosfilt(tf2sos(b, a), x, axis=0) if mode == "causal" else filtfilt(b, a, x, axis=0)
     return x.astype(np.float32)
 
 
-def load_session(folder: Path, expected_id: str):
+def load_session(folder: Path, expected_id: str, filter_mode: str = "zero_phase"):
     path = folder / "session.h5"
     readiness = json.loads((folder / "SESSION_COLLECTION_READINESS.json").read_text(encoding="utf-8"))
     sha = _hash(path)
@@ -96,8 +107,9 @@ def load_session(folder: Path, expected_id: str):
             raise ValueError(f"nonmonotone IMU alignment: {expected_id}")
         imu = np.column_stack((f["streams/imu/accel"][:], f["streams/imu/gyro"][:]))
         trials = f["trials"][:]
+        calibration_rows = f["calibration_blocks"][:]
     print(f"{expected_id}: filter {len(raw)} EMG samples, {len(imu)} IMU samples", flush=True)
-    emg = _filter_emg(raw)
+    emg = _filter_emg(raw, filter_mode)
     windows, imus, trial_keys, hands, composite, exclusions = [], [], [], [], [], Counter()
     valid_trial_ids = set()
     for row in trials:
@@ -133,10 +145,44 @@ def load_session(folder: Path, expected_id: str):
             composite.append(label)
     if not windows:
         raise ValueError(f"no usable windows: {expected_id}")
+    first_formal_start = min(int(row["trial_start_sample"]) for row in trials
+                             if _text(row["trial_kind"]) == "formal")
+    cal_windows, cal_hands, cal_shots = [], [], []
+    seen_calibration = set()
+    selected_calibration_intervals = []
+    for row in calibration_rows:
+        name = _text(row["label"])
+        if name not in CALIBRATION_BLOCKS:
+            continue
+        if name in seen_calibration or not bool(row["valid"]) or _text(row["completion_status"]) != "completed":
+            raise ValueError(f"missing/duplicate/invalid calibration block: {expected_id}/{name}")
+        seen_calibration.add(name)
+        start, end = int(row["stable_start_sample"]), int(row["stable_end_sample"])
+        if not (0 <= start < end <= first_formal_start <= len(emg)):
+            raise ValueError(f"invalid calibration interval: {expected_id}/{name}")
+        hand, shot = CALIBRATION_BLOCKS[name]
+        selected_calibration_intervals.append((int(row["trial_start_sample"]),
+                                               int(row["trial_end_sample"]), shot))
+        starts = window_starts(start, end)
+        if not len(starts):
+            raise ValueError(f"calibration shorter than one window: {expected_id}/{name}")
+        for left in starts:
+            cal_windows.append(emg[left:int(left) + WINDOW])
+            cal_hands.append(hand)
+            cal_shots.append(shot)
+    if seen_calibration != set(CALIBRATION_BLOCKS):
+        raise ValueError(f"incomplete calibration protocol: {expected_id}")
     return {
         "batch": FeatureBatch(np.stack(windows), 250.0, np.stack(imus)),
         "trial": np.asarray(trial_keys), "hand": np.asarray(hands),
         "composite": np.asarray(composite),
+        "calibration_batch": FeatureBatch(np.stack(cal_windows), 250.0),
+        "calibration_hand": np.asarray(cal_hands),
+        "calibration_shot": np.asarray(cal_shots),
+        "calibration_elapsed_seconds": {
+            str(budget): (max(end for _, end, shot in selected_calibration_intervals if shot <= budget)
+                          - min(start for start, _, shot in selected_calibration_intervals if shot <= budget)) / 250.0
+            for budget in (1, 2)},
         "audit": {"session": expected_id, "role": ROLES[expected_id], "sha256": sha,
                   "readiness": readiness["status"], "formal_trials": int(sum(_text(r["trial_kind"]) == "formal" for r in trials)),
                   "usable_trials": len(set(trial_keys)), "windows": len(windows),
@@ -165,10 +211,10 @@ def _trial_metrics(y, probabilities, trials, classes):
             "true_support": dict(Counter(true)), "predicted_support": dict(Counter(pred))}
 
 
-def run(root: Path):
+def run(root: Path, filter_mode: str = "zero_phase"):
     data = {}
     for session_id in ROLES:
-        data[session_id] = load_session(root / f"2026-09-18_{session_id}", session_id)
+        data[session_id] = load_session(root / f"2026-09-18_{session_id}", session_id, filter_mode)
     train = _join_batches([data["S01"], data["S02"]])
     features = {}
     for family_id, family in (("F0", LocalDetailFamily()), ("F1", ScalePatternFamily()), ("F6_imu", BodyContextFamily())):
@@ -202,22 +248,24 @@ def run(root: Path):
     full_validation = _trial_metrics(data["S03"]["composite"], full_model.predict_proba(full_matrix["S03"]), data["S03"]["trial"], full_labels)
     full_test = _trial_metrics(data["S04"]["composite"], full_model.predict_proba(full_matrix["S04"]), data["S04"]["trial"], full_labels)
     return {"status": "exploratory_single_participant_not_deployment_validated", "protocol": "jilv_music_28_v2",
+            "filter_mode": filter_mode,
             "split": ROLES, "window_samples": WINDOW, "imu_window_samples": IMU_WINDOW,
-            "preprocessing": "continuous session median subtraction, 40Hz 4th-order zero-phase high-pass, 50/100Hz Q30 notch; source-only fitted feature thresholds and StandardScaler",
+            "preprocessing": f"40Hz 4th-order {filter_mode} high-pass, 50/100Hz Q30 notch on continuous sessions; no target-global centering; source-only fitted feature thresholds and StandardScaler",
             "selection_rule": "best S03 trial-level 4-hand macro-F1; fixed C=1 balanced multinomial logistic; S04 viewed once after selection",
             "source_audit": [data[sid]["audit"] for sid in ROLES], "validation": validation,
             "selected": selected, "test": test,
             "secondary_28_state": {"features": "F0_F6imu", "validation": full_validation, "test": full_test,
                                    "note": "fixed secondary design; 28 labels = 7 arm postures x 4 hand states"},
-            "limitations": ["one participant and one collection date", "S01-S03 collection readiness failed; valid trials used only for exploratory work", "S04 readiness passed", "cue labels are instructions, not verified physiological onset", "zero-phase filtering is offline; no real-time latency claim", "no clinical or cross-participant generalization claim"]}
+            "limitations": ["one participant and one collection date", "S01-S03 collection readiness failed; valid trials used only for exploratory work", "S04 readiness passed", "cue labels are instructions, not verified physiological onset", "stable cued trial windows are not continuous online recognition; no measured end-to-end latency", "no clinical or cross-participant generalization claim"]}
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--filter-mode", choices=("zero_phase", "causal"), default="zero_phase")
     args = parser.parse_args()
-    result = run(args.source)
+    result = run(args.source, args.filter_mode)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {args.output}", flush=True)

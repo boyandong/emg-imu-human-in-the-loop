@@ -2,7 +2,7 @@ import unittest
 
 import numpy as np
 
-from benchmarks.song_real8_study import _trial_metrics, parse_label, window_starts
+from benchmarks.song_real8_study import _filter_emg, _trial_metrics, parse_label, window_starts
 
 
 class SongReal8StudyTests(unittest.TestCase):
@@ -27,6 +27,12 @@ class SongReal8StudyTests(unittest.TestCase):
         outcome = _trial_metrics(labels, probabilities, trials, np.array(["fist", "neutral"]))
         self.assertEqual(outcome["trials"], 2)
         self.assertEqual(outcome["accuracy"], 1.0)
+
+    def test_causal_preprocessing_is_invariant_to_future_samples(self):
+        raw = np.random.default_rng(9).normal(size=(1000, 8))
+        prefix = _filter_emg(raw[:700], "causal")
+        extended = _filter_emg(raw, "causal")
+        np.testing.assert_array_equal(prefix, extended[:700])
 
 
 if __name__ == "__main__":

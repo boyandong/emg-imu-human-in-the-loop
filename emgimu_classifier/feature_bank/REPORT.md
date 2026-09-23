@@ -2663,3 +2663,22 @@ names without preserved documentation.
 # Real 8-channel single-participant follow-up
 
 The user-provided Song HDF5 v3 sessions have now been audited and evaluated in an exploratory split-locked offline study: [study report](../benchmarks/song_real8/REPORT.md) and [machine-readable results](../benchmarks/song_real8/RESULTS.json). Four-state S04 trial accuracy is 90.3% (macro-F1 90.0%); the 28-state endpoint is materially weaker at 64.6% (macro-F1 53.1%). These one-day cue-labelled results do not establish live UniBo recognition or formal collection acceptance.
+
+The distinct pre-formal Song calibration blocks now provide a direct paired
+personal/session follow-up: one neutral, pinch, fist and open block per class
+improves S04 four-state trial accuracy from 90.3% to 93.8% and macro-F1 from
+90.0% to 93.6%, correcting five trials with no new errors. Two blocks per
+class give the same score. Parameters were chosen using S03 only; S04 formal
+trials were scored after applying the earlier calibration blocks. The exact
+paired discordance p-value is 0.0625 and this single-person/single-day study
+does not establish product-level recovery or live accuracy. Details and
+descriptive bootstrap uncertainty are in
+[CALIBRATION_RESULTS.json](../benchmarks/song_real8/CALIBRATION_RESULTS.json).
+
+Under a separate causal filtering replay, S04 zero-shot accuracy/macro-F1 are
+91.0%/90.7%. One calibration block per class gives 91.7%/91.3% (two corrected
+trials, one new error); two blocks give 91.0%/90.6%. The causal one-shot
+macro-F1 difference has a descriptive paired 95% bootstrap interval spanning
+zero. The larger zero-phase calibration gain therefore does not establish a
+real-time-compatible recovery effect. See
+[causal calibration results](../benchmarks/song_real8/CAUSAL_CALIBRATION_RESULTS.json).

@@ -1,0 +1,411 @@
+{
+  "status": "exploratory_actual_calibration_blocks_not_deployment_validated",
+  "filter_mode": "causal",
+  "source_hashes": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+    "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+    "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+  },
+  "source_roles": {
+    "S01": "train",
+    "S02": "train",
+    "S03": "val",
+    "S04": "test"
+  },
+  "classes": [
+    "fist",
+    "index_pinch",
+    "neutral",
+    "open_hand"
+  ],
+  "zero_shot": {
+    "validation": {
+      "trials": 140,
+      "accuracy": 0.9357142857142857,
+      "macro_f1": 0.935935362695926,
+      "recall": {
+        "fist": 0.9375,
+        "index_pinch": 0.9166666666666666,
+        "neutral": 0.9166666666666666,
+        "open_hand": 0.9722222222222222
+      },
+      "confusion_matrix": [
+        [
+          30,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          33,
+          1,
+          0
+        ],
+        [
+          0,
+          3,
+          33,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          35
+        ]
+      ],
+      "labels": [
+        "fist",
+        "index_pinch",
+        "neutral",
+        "open_hand"
+      ],
+      "true_support": {
+        "fist": 32,
+        "neutral": 36,
+        "open_hand": 36,
+        "index_pinch": 36
+      },
+      "predicted_support": {
+        "index_pinch": 38,
+        "fist": 33,
+        "open_hand": 35,
+        "neutral": 34
+      }
+    },
+    "test": {
+      "trials": 144,
+      "accuracy": 0.9097222222222222,
+      "macro_f1": 0.9068393441879964,
+      "recall": {
+        "fist": 1.0,
+        "index_pinch": 0.7222222222222222,
+        "neutral": 0.9444444444444444,
+        "open_hand": 0.9722222222222222
+      },
+      "confusion_matrix": [
+        [
+          36,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          26,
+          5,
+          1
+        ],
+        [
+          1,
+          0,
+          34,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          35
+        ]
+      ],
+      "labels": [
+        "fist",
+        "index_pinch",
+        "neutral",
+        "open_hand"
+      ],
+      "true_support": {
+        "index_pinch": 36,
+        "fist": 36,
+        "neutral": 36,
+        "open_hand": 36
+      },
+      "predicted_support": {
+        "index_pinch": 26,
+        "fist": 42,
+        "neutral": 39,
+        "open_hand": 37
+      }
+    }
+  },
+  "method": "F0 source-trained logistic; optional target neutral feature shift and standardized target class prototypes; S03 chooses beta/weight before S04 test",
+  "calibration": {
+    "1": {
+      "blocks_per_class": 1,
+      "calibration_blocks": 4,
+      "calibration_windows": 12,
+      "nominal_cue_duration_seconds": 14,
+      "S04_first_to_last_selected_block_elapsed_seconds": 26.0,
+      "selected_beta": 0.0,
+      "selected_prototype_weight": 0.5,
+      "validation": {
+        "trials": 140,
+        "accuracy": 0.95,
+        "macro_f1": 0.9501657957696427,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.9166666666666666,
+          "neutral": 0.9166666666666666,
+          "open_hand": 0.9722222222222222
+        },
+        "confusion_matrix": [
+          [
+            32,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            33,
+            1,
+            0
+          ],
+          [
+            0,
+            3,
+            33,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            35
+          ]
+        ],
+        "labels": [
+          "fist",
+          "index_pinch",
+          "neutral",
+          "open_hand"
+        ],
+        "true_support": {
+          "fist": 32,
+          "neutral": 36,
+          "open_hand": 36,
+          "index_pinch": 36
+        },
+        "predicted_support": {
+          "fist": 35,
+          "index_pinch": 36,
+          "open_hand": 35,
+          "neutral": 34
+        }
+      },
+      "test": {
+        "trials": 144,
+        "accuracy": 0.9166666666666666,
+        "macro_f1": 0.9125257639166063,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.6944444444444444,
+          "neutral": 0.9722222222222222,
+          "open_hand": 1.0
+        },
+        "confusion_matrix": [
+          [
+            36,
+            0,
+            0,
+            0
+          ],
+          [
+            5,
+            25,
+            5,
+            1
+          ],
+          [
+            1,
+            0,
+            35,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            36
+          ]
+        ],
+        "labels": [
+          "fist",
+          "index_pinch",
+          "neutral",
+          "open_hand"
+        ],
+        "true_support": {
+          "index_pinch": 36,
+          "fist": 36,
+          "neutral": 36,
+          "open_hand": 36
+        },
+        "predicted_support": {
+          "index_pinch": 25,
+          "fist": 42,
+          "neutral": 40,
+          "open_hand": 37
+        }
+      },
+      "paired_test_audit": {
+        "trial_count": 144,
+        "corrected_trials": 2,
+        "new_errors": 1,
+        "changed_but_both_correct_or_wrong": 0,
+        "paired_macro_f1_delta_bootstrap_95pct": [
+          -0.017014180040798247,
+          0.032770996194655844
+        ],
+        "paired_accuracy_discordance_exact_p": 1.0,
+        "bootstrap": "4000 class-stratified trial resamples, seed 20260924; descriptive interval"
+      },
+      "test_delta_macro_f1_vs_zero": 0.005686419728609948,
+      "test_delta_accuracy_vs_zero": 0.00694444444444442
+    },
+    "2": {
+      "blocks_per_class": 2,
+      "calibration_blocks": 8,
+      "calibration_windows": 24,
+      "nominal_cue_duration_seconds": 28,
+      "S04_first_to_last_selected_block_elapsed_seconds": 63.988,
+      "selected_beta": 0.0,
+      "selected_prototype_weight": 0.5,
+      "validation": {
+        "trials": 140,
+        "accuracy": 0.95,
+        "macro_f1": 0.9501657957696427,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.9166666666666666,
+          "neutral": 0.9166666666666666,
+          "open_hand": 0.9722222222222222
+        },
+        "confusion_matrix": [
+          [
+            32,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            33,
+            1,
+            0
+          ],
+          [
+            0,
+            3,
+            33,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            35
+          ]
+        ],
+        "labels": [
+          "fist",
+          "index_pinch",
+          "neutral",
+          "open_hand"
+        ],
+        "true_support": {
+          "fist": 32,
+          "neutral": 36,
+          "open_hand": 36,
+          "index_pinch": 36
+        },
+        "predicted_support": {
+          "fist": 35,
+          "index_pinch": 36,
+          "open_hand": 35,
+          "neutral": 34
+        }
+      },
+      "test": {
+        "trials": 144,
+        "accuracy": 0.9097222222222222,
+        "macro_f1": 0.9060388297980932,
+        "recall": {
+          "fist": 0.9722222222222222,
+          "index_pinch": 0.6944444444444444,
+          "neutral": 0.9722222222222222,
+          "open_hand": 1.0
+        },
+        "confusion_matrix": [
+          [
+            35,
+            0,
+            1,
+            0
+          ],
+          [
+            5,
+            25,
+            5,
+            1
+          ],
+          [
+            1,
+            0,
+            35,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            36
+          ]
+        ],
+        "labels": [
+          "fist",
+          "index_pinch",
+          "neutral",
+          "open_hand"
+        ],
+        "true_support": {
+          "index_pinch": 36,
+          "fist": 36,
+          "neutral": 36,
+          "open_hand": 36
+        },
+        "predicted_support": {
+          "index_pinch": 25,
+          "fist": 41,
+          "neutral": 41,
+          "open_hand": 37
+        }
+      },
+      "paired_test_audit": {
+        "trial_count": 144,
+        "corrected_trials": 2,
+        "new_errors": 2,
+        "changed_but_both_correct_or_wrong": 0,
+        "paired_macro_f1_delta_bootstrap_95pct": [
+          -0.02861624650903153,
+          0.026905858424986984
+        ],
+        "paired_accuracy_discordance_exact_p": 1.0,
+        "bootstrap": "4000 class-stratified trial resamples, seed 20260924; descriptive interval"
+      },
+      "test_delta_macro_f1_vs_zero": -0.0008005143899031397,
+      "test_delta_accuracy_vs_zero": 0.0
+    }
+  },
+  "limitations": [
+    "same person/day; no cross-day or cross-user inference",
+    "S01-S03 collection readiness failed; use is exploratory",
+    "calibration blocks precede formal trials but cue labels are not physiological onset verification",
+    "offline trial-level stable-window scoring only; causal filtering does not validate the live UI/latency path",
+    "S03 selected coefficients; S04 data used only for prescribed calibration and final scoring",
+    "calibration cue durations exclude device preparation and UI operator time; observed span includes interleaved protocol blocks and uses nominal EMG sample rate"
+  ]
+}

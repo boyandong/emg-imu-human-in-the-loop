@@ -24,7 +24,7 @@ not full-sequence or streaming validation.
 | EMG-EPN612 | no | 612 users | no validated repeated-session key | no | no | no | synthetic only | personal 0/1/2/5-shot |
 | sEMG-MANUS | no | yes | up to 3 sessions | confounded with session | no controlled posture | slow/medium/fast | source anomaly flags plus synthetic | personal and session calibration |
 | EMG-FMG | external grasped load, not voluntary force | yes | no repeated day | no | 8 limb positions | no | synthetic only | personal; load/posture product mode |
-| Own 8-channel data | only if explicitly collected | yes if multiple people exist | only if completed sessions pass readiness | only controlled re-donning trials | IMU exists | only if cued and labelled | real packet/channel audit plus synthetic | personal and session when data gates pass |
+| Song real 8-channel EMG + 6-axis IMU | no measured force | one participant only | four sessions on one date; S01–S03 failed readiness, S04 passed | no validated re-donning split | seven cued arm states with raw IMU; 28-state test exploratory | no controlled speed | real packet/channel audit; cue onset not physiologically verified | distinct pre-formal 0/1/2-shot calibration evaluated offline; causal-filter gain is weak and not live deployment evidence |
 
 Secondary datasets are activated only when a Tier 1 capability gap remains. GREAT can confirm
 posture by day, NinaPro DB6 and GRABMyo can confirm cross-day effects, and the three-position
