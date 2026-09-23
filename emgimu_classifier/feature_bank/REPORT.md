@@ -6,7 +6,7 @@ diagnostics are explicitly labelled. Model compositions and calibration rules ar
 from source evidence, validation evidence or prespecified controls; final scores do not tune them.
 Seed: 20260915. Classical logistic regression runs use CPU; no neural training is needed
 for these representation comparisons.
-The current suite has 200 tests (199 passed, one skipped); `results/validation.json` carries
+The current suite has 203 tests (202 passed, one skipped); `results/validation.json` carries
 the exact log hash. Older section-local test counts below are dated snapshots,
 not the current total. At this review, the collection application's documented
 default `collection/emg_meta/emg_meta/data` directory does not exist, so no
@@ -73,9 +73,9 @@ does not establish archive identity; secondary source provenance remains incompl
 `benchmarks/discovery/DISCOVERY_DELIVERY_AUDIT.json` records these boundaries;
 it does not prove complete prerequisite acceptance or original phase ordering.
 
-`FORMULA_IMPLEMENTATION_AUDIT.md` and CSV now record 30 reviewed formula/API
+`FORMULA_IMPLEMENTATION_AUDIT.md` and CSV now record 31 reviewed formula/API
 boundaries in the precise-definition appendix, each with exact heading line,
-source AST symbol span and SHA-256. Eighteen runtime classes have measured named
+source AST symbol span and SHA-256. Nineteen runtime classes have measured named
 dimensions on explicit synthetic fixtures (original G5 only on its native four
 channels). These fixtures prove interface dimensions, not dataset validity or
 scientific completion. Candidate formula status is distinct from validated reuse.
@@ -2371,6 +2371,40 @@ trial IDs and evaluation budgets but use a different source representation
 and population classifier; any descriptive numerical difference is not an
 incremental F7 contribution to a fixed multi-family Core. The candidate
 also has no live-device result or historical RLCS identity.
+
+### Fixed Core plus SPD Anchor on matched EPN trials (2026-09-23)
+
+`epn_spd_anchor_core_increment.py` joins the saved source-frozen EPN
+F0+Ring+CSP+real-IMU shortlist probabilities to the saved SPD personal
+prototype probabilities by exact user and native trial ID. The input hashes,
+six-class order, labels and complete calibration exclusion are checked before
+scoring. Every arm sees the same 432/414/360 native trials per phase at
+1/2/5 shots;
+no classifier or SPD reference is refitted. The additional arm is a fixed
+equal-probability mixture, chosen without using these scores. Compact per-user
+and pooled results plus input hashes are in
+`results/epn_spd_anchor_core_increment_{validation,final}.json`.
+
+| Phase | Shots/class | Core F1 | Core+SPD F1 | Core LL | Core+SPD LL | Core Brier | Core+SPD Brier |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Validation | 1 | .4503 | .4643 | 1.6344 | 1.4359 | .1189 | .1119 |
+| Validation | 2 | .4527 | .4785 | 1.6240 | 1.4010 | .1176 | .1102 |
+| Validation | 5 | .4568 | .4790 | 1.5795 | 1.3766 | .1155 | .1089 |
+| Final | 1 | .4427 | .4450 | 1.5371 | 1.4400 | .1157 | .1121 |
+| Final | 2 | .4460 | .4595 | 1.5458 | 1.4143 | .1159 | .1107 |
+| Final | 5 | .4476 | .4613 | 1.5399 | 1.4179 | .1165 | .1111 |
+
+This gives a narrow conditional value for SPD personal information when added
+by late fusion to this fixed multi-family Core. The anchor alone is weaker at
+one/two final shots (.2907/.3573 F1), and at five validation shots the anchor
+alone (.4853) exceeds the mixture (.4790). Mixture gains should not be
+interpreted as proof that its standalone classifier is strong or that every
+subject gains. User21 loses .0356 F1 at one final shot despite a .1206
+log-loss improvement. These final users were already
+examined in earlier project analyses, so this retrospective replay is
+exploratory, not an untouched confirmatory test. It does not establish the
+value of concatenating F7 into a newly fitted Core, a tuned fusion weight,
+historical RLCS, other datasets or current-device recognition.
 
 ## Frozen Quality × reference-family interaction replay (2026-09-22)
 
