@@ -92,3 +92,16 @@ rest intervals, 87.1% were predicted neutral. These labels are task cues, not
 measured EMG onsets; no continuous event-detection accuracy follows from them.
 The live UI now keeps a debounced current Song label visible while its frames
 continue, instead of clearing a sustained action after two seconds.
+
+The same S04 replay now also applies the live worker's fixed 0.5 probability
+threshold and three-consecutive-frame rule to every 100 ms prediction frame.
+On the 911 frames wholly inside stable cue intervals, the raw class winner
+matches the cue in 80.1%; the resulting persistent decoder state matches in
+73.1% (macro-F1 72.3%). Decoder-state recall is 74.6% Fist, 40.2% Index
+Pinch, 90.6% Neutral and 81.8% Open Hand; 24 stable frames remain unresolved.
+This shows that the display rule can hide short or inconsistent active
+predictions, especially Pinch. The Qt page emits its latest state per processed
+input batch, so this is a decoder-state replay, not a measured screen refresh
+rate or a live accuracy test. These S04 results were inspected after the rule
+was set and must not be used to tune its threshold or duration on the final
+session.

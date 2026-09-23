@@ -62,6 +62,38 @@ def discover_song_models(models_root: Path) -> list[SongModelInfo]:
     return found
 
 
+class SongOnlineDecision:
+    """The exact sustained-label rule shared by the live worker and replay audit."""
+
+    def __init__(self, consecutive_frames: int = 3):
+        if consecutive_frames < 1:
+            raise ValueError("consecutive_frames must be positive")
+        self.consecutive_frames = consecutive_frames
+        self.reset()
+
+    def reset(self) -> None:
+        self.candidate: str | None = None
+        self.candidate_count = 0
+        self.active_label: str | None = None
+
+    def step(self, probabilities: np.ndarray, threshold: float) -> tuple[str | None, bool]:
+        values = np.asarray(probabilities, dtype=np.float64)
+        if values.shape != (len(LABELS),) or not np.isfinite(values).all():
+            raise ValueError("Song decision requires four finite probabilities")
+        if not np.isfinite(threshold) or not 0 <= threshold <= 1:
+            raise ValueError("Song decision threshold must be in [0,1]")
+        peak = int(np.argmax(values))
+        name = LABELS[peak] if values[peak] >= threshold else None
+        if name == self.candidate:
+            self.candidate_count += 1
+        else:
+            self.candidate, self.candidate_count = name, 1
+        changed = self.candidate_count >= self.consecutive_frames and name != self.active_label
+        if changed:
+            self.active_label = name
+        return self.active_label, changed
+
+
 class SongLocalRuntime:
     def __init__(self, directory: Path):
         self.directory = Path(directory).resolve()

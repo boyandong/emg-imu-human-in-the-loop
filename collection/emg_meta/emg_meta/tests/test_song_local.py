@@ -8,7 +8,25 @@ import time
 import numpy as np
 import pytest
 
-from emgforce.inference.song_local import SongLocalRuntime, discover_song_models
+from emgforce.inference.song_local import SongLocalRuntime, SongOnlineDecision, discover_song_models
+
+
+def test_online_decision_requires_three_confident_frames_and_resets_on_gap():
+    decision = SongOnlineDecision()
+    open_hand = np.array([0.02, 0.02, 0.06, 0.90])
+    neutral = np.array([0.03, 0.02, 0.92, 0.03])
+    for _ in range(2):
+        assert decision.step(open_hand, 0.5) == (None, False)
+    assert decision.step(open_hand, 0.5) == ("open_hand", True)
+    assert decision.step(neutral, 0.5) == ("open_hand", False)
+    assert decision.step(open_hand, 0.5) == ("open_hand", False)
+    assert decision.step(neutral, 0.5) == ("open_hand", False)
+    assert decision.step(neutral, 0.5) == ("open_hand", False)
+    assert decision.step(neutral, 0.5) == ("neutral", True)
+    decision.reset()
+    assert decision.step(open_hand, 0.5) == (None, False)
+    with pytest.raises(ValueError, match="threshold"):
+        decision.step(open_hand, 1.5)
 
 
 def _bundle(tmp_path):

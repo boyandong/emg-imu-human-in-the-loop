@@ -27,6 +27,28 @@
   },
   "stable_frame_accuracy": 0.8013172338090011,
   "stable_frame_macro_f1": 0.7883867921638231,
+  "online_decision_rule": {
+    "probability_threshold": 0.5,
+    "consecutive_frames": 3,
+    "hop_ms": 100,
+    "unresolved_label": "unknown"
+  },
+  "stable_decoded_frame_support": {
+    "neutral": 368,
+    "open_hand": 258,
+    "index_pinch": 81,
+    "fist": 180,
+    "unknown": 24
+  },
+  "stable_decoded_frame_accuracy": 0.7310647639956093,
+  "stable_decoded_frame_macro_f1": 0.7234432181778024,
+  "stable_decoded_frame_recall": {
+    "fist": 0.746268656716418,
+    "index_pinch": 0.4020100502512563,
+    "neutral": 0.9064039408866995,
+    "open_hand": 0.8181818181818182
+  },
+  "stable_trial_at_least_one_correct_decoded_frame_fraction": 0.8819444444444444,
   "stable_trial_mean_probability_accuracy": 0.8958333333333334,
   "stable_trial_mean_probability_macro_f1": 0.8918586034715066,
   "stable_trial_recall": {
@@ -77,5 +99,5 @@
     "neutral",
     "open_hand"
   ],
-  "boundary": "All-frame support includes calibration, rest, transitions and uncued time. Trial/stable metrics use recorded cue intervals, not physiological onset. Rest intervals may contain residual prior movement. No physical USB, event-onset or UI-latency validation."
+  "boundary": "All-frame support includes calibration, rest, transitions and uncued time. Decoder metrics replay the fixed live threshold and three-frame rule on every frame; Qt displays the latest state per processed input batch, so these are decoder-state rather than measured screen metrics. Trial/stable metrics use recorded cue intervals, not physiological onset. Rest intervals may contain residual prior movement. No physical USB, event-onset or UI-latency validation."
 }

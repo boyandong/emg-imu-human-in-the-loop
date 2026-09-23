@@ -16,7 +16,7 @@ from benchmarks.song_real8_study import _hash, _text, parse_label
 
 def run(source: Path, bundle: Path, collection_root: Path, output: Path) -> dict:
     sys.path.insert(0, str(collection_root.resolve()))
-    from emgforce.inference.song_local import LABELS, SongLocalRuntime
+    from emgforce.inference.song_local import LABELS, SongLocalRuntime, SongOnlineDecision
 
     session_dir = source / "2026-09-18_S04"
     session_file = session_dir / "session.h5"
@@ -36,7 +36,9 @@ def run(source: Path, bundle: Path, collection_root: Path, output: Path) -> dict
         raise ValueError("S04 sample indices are not contiguous")
 
     runtime = SongLocalRuntime(bundle)
+    decision = SongOnlineDecision()
     frame_indices, frame_probabilities = [], []
+    decoded_labels = []
     for start in range(0, len(raw), 37):
         gap, frames = runtime.ingest(raw[start:start + 37], indices[start:start + 37])
         if gap:
@@ -44,12 +46,17 @@ def run(source: Path, bundle: Path, collection_root: Path, output: Path) -> dict
         for index, probabilities in frames:
             frame_indices.append(index)
             frame_probabilities.append(probabilities)
+            active, _ = decision.step(probabilities, threshold=0.5)
+            decoded_labels.append(active if active is not None else "unknown")
     frame_indices = np.asarray(frame_indices, dtype=np.int64)
     probabilities = np.stack(frame_probabilities)
     predicted = np.asarray(LABELS)[np.argmax(probabilities, axis=1)]
+    decoded = np.asarray(decoded_labels)
     whole_session_support = dict(Counter(predicted.tolist()))
 
     trial_true, trial_pred, trial_has_correct, stable_frame_true, stable_frame_pred = [], [], [], [], []
+    stable_decoded = []
+    trial_decoded_has_correct = []
     rest_frame_pred = []
     stable_support = Counter()
     rest_intervals = 0
@@ -66,6 +73,8 @@ def run(source: Path, bundle: Path, collection_root: Path, output: Path) -> dict
             trial_has_correct.append(bool(np.any(predicted[selected] == hand)))
             stable_frame_true.extend([hand] * len(selected))
             stable_frame_pred.extend(predicted[selected].tolist())
+            stable_decoded.extend(decoded[selected].tolist())
+            trial_decoded_has_correct.append(bool(np.any(decoded[selected] == hand)))
             stable_support[hand] += len(selected)
         rest_start, prompt_start = int(row["rest_start_sample"]), int(row["prompt_start_sample"])
         selected_rest = np.flatnonzero((frame_indices - 49 >= rest_start) & (frame_indices < prompt_start))
@@ -86,6 +95,15 @@ def run(source: Path, bundle: Path, collection_root: Path, output: Path) -> dict
         "stable_frame_accuracy": float(accuracy_score(stable_frame_true, stable_frame_pred)),
         "stable_frame_macro_f1": float(f1_score(stable_frame_true, stable_frame_pred, labels=labels,
                                                   average="macro", zero_division=0)),
+        "online_decision_rule": {"probability_threshold": 0.5, "consecutive_frames": 3,
+                                 "hop_ms": 100, "unresolved_label": "unknown"},
+        "stable_decoded_frame_support": dict(Counter(stable_decoded)),
+        "stable_decoded_frame_accuracy": float(accuracy_score(stable_frame_true, stable_decoded)),
+        "stable_decoded_frame_macro_f1": float(f1_score(stable_frame_true, stable_decoded,
+                                                          labels=labels, average="macro", zero_division=0)),
+        "stable_decoded_frame_recall": dict(zip(labels, map(float, recall_score(
+            stable_frame_true, stable_decoded, labels=labels, average=None, zero_division=0)))),
+        "stable_trial_at_least_one_correct_decoded_frame_fraction": float(np.mean(trial_decoded_has_correct)),
         "stable_trial_mean_probability_accuracy": float(accuracy_score(trial_true, trial_pred)),
         "stable_trial_mean_probability_macro_f1": float(f1_score(trial_true, trial_pred, labels=labels,
                                                                    average="macro", zero_division=0)),
@@ -99,13 +117,14 @@ def run(source: Path, bundle: Path, collection_root: Path, output: Path) -> dict
         "rest_cue_neutral_fraction": float(np.mean(np.asarray(rest_frame_pred) == "neutral"))
         if rest_frame_pred else None,
         "labels_order": labels,
-        "boundary": "All-frame support includes calibration, rest, transitions and uncued time. Trial/stable metrics use recorded cue intervals, not physiological onset. Rest intervals may contain residual prior movement. No physical USB, event-onset or UI-latency validation."
+        "boundary": "All-frame support includes calibration, rest, transitions and uncued time. Decoder metrics replay the fixed live threshold and three-frame rule on every frame; Qt displays the latest state per processed input batch, so these are decoder-state rather than measured screen metrics. Trial/stable metrics use recorded cue intervals, not physiological onset. Rest intervals may contain residual prior movement. No physical USB, event-onset or UI-latency validation."
     }
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({key: result[key] for key in (
         "frame_count", "all_frame_predicted_support", "stable_frame_accuracy",
-        "stable_trial_mean_probability_accuracy", "stable_trial_recall", "rest_cue_neutral_fraction")},
+        "stable_decoded_frame_accuracy", "stable_trial_mean_probability_accuracy",
+        "stable_trial_recall", "rest_cue_neutral_fraction")},
         ensure_ascii=False), flush=True)
     return result
 

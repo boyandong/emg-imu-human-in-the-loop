@@ -10,7 +10,7 @@ import numpy as np
 from PySide6.QtCore import QThread, Signal
 
 from .engine import DetectedEvent, PredictionFrame
-from .song_local import DISPLAY, LABELS, SongLocalRuntime
+from .song_local import DISPLAY, LABELS, SongLocalRuntime, SongOnlineDecision
 
 
 class SongRealtimeWorker(QThread):
@@ -59,9 +59,7 @@ class SongRealtimeWorker(QThread):
             self.status_changed.emit("Song 8 通道实验模型已校验；连接设备后可直接开始识别")
             mode = "idle"
             pending: tuple[str, object, object] | None = None
-            candidate: str | None = None
-            candidate_count = 0
-            emitted: str | None = None
+            decision = SongOnlineDecision()
             while not self._stopping.is_set():
                 if pending is None:
                     try:
@@ -78,7 +76,7 @@ class SongRealtimeWorker(QThread):
                     continue
                 if command == "gap":
                     runtime.reset()
-                    candidate, emitted, candidate_count = None, None, 0
+                    decision.reset()
                     self.status_changed.emit(f"检测到 {value} 帧丢失；Song 滤波状态已重置")
                     continue
                 if command == "calibrate":
@@ -86,13 +84,14 @@ class SongRealtimeWorker(QThread):
                     continue
                 if command == "recognize":
                     runtime.reset()
-                    candidate, emitted, candidate_count = None, None, 0
+                    decision.reset()
                     mode = "recognizing"
                     self.status_changed.emit("Song 四分类因果推理运行中；连续动作/延迟尚未验证")
                     continue
                 if command == "pause":
                     mode = "idle"
                     runtime.reset()
+                    decision.reset()
                     self.status_changed.emit("Song 实时识别已暂停")
                     continue
                 if command != "emg" or mode != "recognizing":
@@ -115,24 +114,17 @@ class SongRealtimeWorker(QThread):
                     gap, frames = runtime.ingest(raw, indices)
                     had_gap |= gap
                     if gap:
-                        candidate, emitted, candidate_count = None, None, 0
+                        decision.reset()
                         # A gap may occur inside this chunk; omit any pre-gap
                         # predictions rather than mixing two stream epochs.
                         frames = []
                     for sample_index, probabilities in frames:
                         latest = (sample_index, probabilities)
-                        peak_index = int(np.argmax(probabilities))
-                        name = LABELS[peak_index] if float(probabilities[peak_index]) >= self._threshold else None
-                        if name == candidate:
-                            candidate_count += 1
-                        else:
-                            candidate, candidate_count = name, 1
-                        if candidate_count >= 3 and name != emitted:
-                            emitted = name
-                            if name is not None:
-                                events.append(DetectedEvent(
-                                    name=name, display_name=DISPLAY[name], sample_index=sample_index,
-                                    probability=float(probabilities[peak_index])))
+                        name, changed = decision.step(probabilities, self._threshold)
+                        if changed and name is not None:
+                            events.append(DetectedEvent(
+                                name=name, display_name=DISPLAY[name], sample_index=sample_index,
+                                probability=float(probabilities[LABELS.index(name)])))
                 if had_gap:
                     self.status_changed.emit("检测到采样不连续；Song 滤波状态和 200 ms 窗口已重置")
                 if latest is not None:
@@ -141,6 +133,6 @@ class SongRealtimeWorker(QThread):
                         probabilities=probabilities, labels=LABELS, events=tuple(events),
                         output_sample_index=sample_index, output_age_ms=0.0,
                         fixed_lag_ms=0.0, inference_ms=(time.perf_counter() - started) * 1000.0,
-                        scale_counts_per_unit=1.0, active_label=emitted))
+                        scale_counts_per_unit=1.0, active_label=decision.active_label))
         except Exception as exc:
             self.failed.emit(str(exc))
