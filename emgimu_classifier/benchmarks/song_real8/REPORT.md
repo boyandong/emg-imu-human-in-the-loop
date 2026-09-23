@@ -255,3 +255,16 @@ The mean absolute 32-coordinate `session−long` log-band shift is 1.048 for
 S03 and 1.022 for S04. These shifts are descriptive sensor/context evidence
 from one person on one day, not fatigue, cross-day drift, or a demonstrated
 recognition benefit. S01–S03 whole sessions failed collection readiness.
+
+The [trial-level probability audit](PROBABILITY_CALIBRATION_AUDIT.json) reloads
+the exported source-only F0 and F0+SPD bundles, reproduces every saved S03/S04
+accuracy, macro-F1, LogLoss and Brier value within 1e-5, then computes a fixed
+10-bin top-label ECE without refitting. S03 ECE is 0.1600 for F0 and 0.0913
+for F0+SPD; S04 is 0.1851 and 0.1029. The 40 [bin rows](PROBABILITY_CALIBRATION_BINS.csv)
+give support, mean confidence and observed accuracy, including empty bins.
+This is reliability of cued stable-trial mean probabilities for one person/day,
+not a claim that the live interface is calibrated. S04 was previously inspected.
+The four zero-shot family scores, two conditional increments, two paired error
+rows and four 0-shot calibration-curve rows are now included in the versioned
+Feature Bank delivery tables. No Song result is labelled a full F0–F9 bank or
+a cross-person/day robustness estimate.

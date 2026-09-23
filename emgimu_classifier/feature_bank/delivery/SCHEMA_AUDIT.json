@@ -1,9 +1,9 @@
 {
   "status": "schema_complete_evidence_partial",
-  "prediction_disagreement_recovery_sha256": "9b0bd1414285082a62ab8d771894940a9c41b395a58f3797c9576dc96f18293f",
+  "prediction_disagreement_recovery_sha256": "de2c32a7ba09e6489205ecae1725b1f9cc857e1cbb10497ea925f27c97b4d3cb",
   "artifacts": {
     "feature_family_results.csv": {
-      "rows": 4839,
+      "rows": 4843,
       "required_fields": [
         "dataset",
         "subject",
@@ -59,11 +59,11 @@
           "session/domain": 6
         }
       },
-      "source_csv_sha256": "8dbe1b1eaee503ddf4c62e2ac4e87bc8f628806f772cb0ce49102b5d59750c78",
-      "canonical_csv_sha256": "87ee6b7c882a6c4b9e487dab8d6b491c3ed0973904a9cce87ffcc08b7f7a590f"
+      "source_csv_sha256": "3cd11ef1f6c25bb566a8fa20da18ef337053d29137d23ac12051a47f36dafc99",
+      "canonical_csv_sha256": "2d5deeffeb3256ab249879436da14011a64f17f5560c66e8ab2fa236c0d3c8e2"
     },
     "conditional_incremental.csv": {
-      "rows": 5719,
+      "rows": 5721,
       "required_fields": [
         "dataset",
         "subject",
@@ -111,11 +111,11 @@
           "condition": 12
         }
       },
-      "source_csv_sha256": "959753154a29377ea9104a37517b4022c996a4ad09a83c125d9d6530dc23932e",
-      "canonical_csv_sha256": "f6676e506461fc7d625e4a8b953a0ddebe77d55945f960cc0448afa3cb0da97d"
+      "source_csv_sha256": "a3d2e0ff5d98ccfd647fec19c82f4f459d30ab9975b534d86e04bb14a6cef97e",
+      "canonical_csv_sha256": "5f6c818b8204386816aa8818e426c6229a8b2909e59893864d18a00bc2b27dc3"
     },
     "error_complementarity.csv": {
-      "rows": 4685,
+      "rows": 4687,
       "required_fields": [
         "dataset",
         "subject",
@@ -177,11 +177,11 @@
           "session/domain": 60
         }
       },
-      "source_csv_sha256": "b9385c81df2f9d85f401a54ea7a67965a5920f5cfe3a105685db5eae8911f391",
-      "canonical_csv_sha256": "9e93ae41a76614927594e73698a48dfba7349dac6a87b5086515dd1f999a0d3e"
+      "source_csv_sha256": "38fb01a689d7cbf7b9e967f821edbad34c3608fdfc563842eb68d037396d432d",
+      "canonical_csv_sha256": "b7eaacc0bb5615ebf48f39fd889c9cb53c7facf0d3e0dc560718b67db66a20d4"
     },
     "calibration_curve.csv": {
-      "rows": 20122,
+      "rows": 20126,
       "required_fields": [
         "dataset",
         "subject",
@@ -334,8 +334,8 @@
           "log_loss": 7
         }
       },
-      "source_csv_sha256": "9d2184422fc0203088102818dce140e97bc1e4ffcde882921764eac277301d3f",
-      "canonical_csv_sha256": "335881b317eb481e9c730913df6cdebe8b1d30bbea45c61f919eeb890d75c4f6"
+      "source_csv_sha256": "3f0fd797eacd20972ae1f7f69960ecf551f9702846abad7fa5edfcf28d224934",
+      "canonical_csv_sha256": "42846cdb045c2c8b9a25b6073505b6ff9a2bad97ab44c4b4f7ad664ce864e26b"
     },
     "ablation_full_bank.csv": {
       "rows": 14623,

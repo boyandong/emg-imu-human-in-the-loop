@@ -1,0 +1,3 @@
+dataset,phase,subject,session/domain,condition,family_a,family_b,error_correlation,disagreement_rate,a_correct_b_wrong,a_wrong_b_correct,evaluation_unit,evaluation_trials
+song_real8_one_person_one_day,validation,Song,S03,completed_valid_cued_stable_formal,F0,F0+F2c_SPD,0.4794848305620432,0.05714285714285714,0.007142857142857143,0.04285714285714286,whole_native_trial_mean,140
+song_real8_one_person_one_day,final,Song,S04,completed_valid_cued_stable_formal,F0,F0+F2c_SPD,0.7175508910890145,0.041666666666666664,0.0,0.041666666666666664,whole_native_trial_mean,144

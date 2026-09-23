@@ -2773,3 +2773,19 @@ order, and the latest UI probability vector exactly matched direct runtime
 inference. This narrows the software-path uncertainty; physical USB acquisition
 and new-donning electrode geometry remain unverified. See the
 [protocol audit](../benchmarks/song_real8/PROTOCOL_TO_UI_AUDIT.json).
+
+The local Song source-only F0 versus F0+F2c SPD study now supplies a held-out
+probability reliability curve and the requested canonical delivery schemas.
+The exported bundles exactly replay the previously saved 140 S03 and 144 S04
+trial scores before ECE is calculated. S04 10-bin top-label ECE is 0.1851
+for F0 and 0.1029 for F0+SPD (S03 0.1600 and 0.0913). Four family rows,
+two conditional increments, two paired error-complementarity rows and four
+zero-shot calibration-curve rows were appended to the five delivery tables;
+all prior source records remain in order and unchanged, and the canonical
+verifier now checks 50,000 rows. The existing prediction-rate recovery was
+rebound only after verifying an append-only source table with 4,685 unchanged
+prior pair rows; the two new Song rows carry directly computed disagreement
+rates. This remains a same-person/day cued-stable result, not live reliability
+or a full-bank ablation. See the [calibration audit](../benchmarks/song_real8/PROBABILITY_CALIBRATION_AUDIT.json),
+[Song source run](source_runs/feature_bank_song_real8_spd_delivery_20260924/run_manifest.json)
+and [delivery provenance](delivery/PROVENANCE_AUDIT.json).

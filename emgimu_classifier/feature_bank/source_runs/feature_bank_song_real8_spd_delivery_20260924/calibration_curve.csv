@@ -1,0 +1,5 @@
+dataset,phase,subject,session/domain,condition,shots_per_class,evaluation_trials,feature_bank,method,macro_f1,log_loss
+song_real8_one_person_one_day,validation,Song,S03,completed_valid_cued_stable_formal,0,140,F0,source_only_zero_shot,0.935935362695926,0.3108983701408517
+song_real8_one_person_one_day,validation,Song,S03,completed_valid_cued_stable_formal,0,140,F0+F2c_SPD,source_only_zero_shot,0.9713817713817714,0.1865997186648965
+song_real8_one_person_one_day,final,Song,S04,completed_valid_cued_stable_formal,0,144,F0,source_only_zero_shot,0.9068393441879964,0.4271641995302901
+song_real8_one_person_one_day,final,Song,S04,completed_valid_cued_stable_formal,0,144,F0+F2c_SPD,source_only_zero_shot,0.9507791284107074,0.2375934495342445

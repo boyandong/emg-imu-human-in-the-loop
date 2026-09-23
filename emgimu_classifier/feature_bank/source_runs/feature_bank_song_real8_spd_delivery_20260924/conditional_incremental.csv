@@ -1,0 +1,3 @@
+dataset,phase,subject,session/domain,condition,calibration_budget,core_bank,added_family,delta_logloss,delta_macro_f1,delta_brier,evaluation_unit,evaluation_trials
+song_real8_one_person_one_day,validation,Song,S03,completed_valid_cued_stable_formal,0,F0,F2c_SPD,-0.1242986514759552,0.035446408685845365,-0.01295897192806366,whole_native_trial_mean,140
+song_real8_one_person_one_day,final,Song,S04,completed_valid_cued_stable_formal,0,F0,F2c_SPD,-0.18957074999604562,0.043939784222711054,-0.02346387655530912,whole_native_trial_mean,144

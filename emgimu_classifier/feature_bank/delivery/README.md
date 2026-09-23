@@ -28,3 +28,13 @@ fitted during recovery.
 The current evidence status is partial: schema presence and record provenance do not
 prove that every requested experiment is complete. Unsupported budgets retain N/A
 metrics. Reused training states from another phase never supply its target domain.
+
+The versioned Song source run under `../source_runs/feature_bank_song_real8_spd_delivery_20260924`
+adds four zero-shot family rows, two F0→F0+SPD increments, two paired error rows
+and four 0-shot calibration-curve rows. Its exporter reads the saved Song SPD
+study and trial-reliability audit; it does not retrain a model or copy raw EMG.
+It is one participant on one date with S03 validation and previously inspected
+S04 final data. Rebuild that run with `benchmarks/export_song_real8_delivery.py`
+and then consolidate using the original processed root plus the workspace's
+`work/benchmark_runs` as `--local-root`. The consolidation script also reads
+the repository's versioned Song source run. Existing source records are unchanged.

@@ -130,6 +130,7 @@ RUNS = (
     'feature_bank_epn_spd_anchor_core_increment_validation_20260923',
     'feature_bank_epn_spd_anchor_core_increment_final_20260923',
     'feature_bank_epn_shortlist_final_delivery_20260923',
+    'feature_bank_song_real8_spd_delivery_20260924',
 )
 ARTIFACTS = ('feature_family_results.csv', 'conditional_incremental.csv', 'interaction_results.csv',
              'error_complementarity.csv', 'calibration_curve.csv', 'ablation_full_bank.csv',
@@ -140,7 +141,8 @@ ARTIFACTS = ('feature_family_results.csv', 'conditional_incremental.csv', 'inter
 
 
 def run_directory(root,run,local_root=None):
-    candidates=[base/run for base in (root,local_root) if base is not None and (base/run).is_dir()]
+    versioned_root=Path(__file__).resolve().parents[1]/'feature_bank/source_runs'
+    candidates=[base/run for base in (root,local_root,versioned_root) if base is not None and (base/run).is_dir()]
     if len(candidates)>1:raise ValueError(f'Ambiguous source run: {run}')
     return candidates[0] if candidates else root/run
 

@@ -243,6 +243,13 @@
     "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
   },
   {
+    "run_id": "feature_bank_song_real8_spd_delivery_20260924",
+    "artifact": "feature_family_results.csv",
+    "sha256": "4dfd0bf8bf9c172bcd6dd856e1fe276b1c9c31613fec95b2014184d1aa47346f",
+    "bytes": 1839,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\feature_bank\\source_runs"
+  },
+  {
     "run_id": "feature_bank_wearing_document_core_validation_20260916",
     "artifact": "conditional_incremental.csv",
     "sha256": "2dc931b64da727dab460631c86b2d57807efb6821f09434a8ee6e88f09c8f3c3",
@@ -417,6 +424,13 @@
     "sha256": "4b778c37598215841de71cd7f75e4801ab5fe872c82caecc9fe0515b4febdf5b",
     "bytes": 3958,
     "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_song_real8_spd_delivery_20260924",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "ba030ed78ab1f74f35b2b0cc8aa7676f1d9c5b3cb838ac7544fcd30d978e4664",
+    "bytes": 539,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\feature_bank\\source_runs"
   },
   {
     "run_id": "feature_bank_wearing_ring_session_interaction_validation_20260923_v2",
@@ -673,6 +687,13 @@
     "artifact": "error_complementarity.csv",
     "sha256": "8dd8258bb4ddfae80475d1dd7f8baaa15409b9591675160742d25134904467cf",
     "bytes": 6824
+  },
+  {
+    "run_id": "feature_bank_song_real8_spd_delivery_20260924",
+    "artifact": "error_complementarity.csv",
+    "sha256": "1ef65222bf1b1bf6193c9f8f0ae2347467d6cbf00b39501d8a26fe28ac3f292d",
+    "bytes": 568,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\feature_bank\\source_runs"
   },
   {
     "run_id": "feature_bank_epn612_anchor_temperature_validation_20260916_v2",
@@ -1005,6 +1026,13 @@
     "sha256": "312ec3f8d0a371e483d0a17cc73dea2ebff8e42c226e675ab80a6c77a945c0ee",
     "bytes": 18438,
     "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
+    "run_id": "feature_bank_song_real8_spd_delivery_20260924",
+    "artifact": "calibration_curve.csv",
+    "sha256": "918c9c4082c1d086e34b9ca830fd44b23a3f44bd1c44273ee07daf6af72f46c1",
+    "bytes": 745,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\feature_bank\\source_runs"
   },
   {
     "run_id": "feature_bank_manus_session_blend_validation_20260915_v2",

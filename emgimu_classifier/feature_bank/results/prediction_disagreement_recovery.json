@@ -1,6 +1,6 @@
 {
   "scope": "frozen native held-out predictions; no refit",
-  "source_csv_sha256": "b9385c81df2f9d85f401a54ea7a67965a5920f5cfe3a105685db5eae8911f391",
+  "source_csv_sha256": "38fb01a689d7cbf7b9e967f821edbad34c3608fdfc563842eb68d037396d432d",
   "source_npz_sha256": {
     "feature_bank_epn_selection_20260915": "8c2a9f8c616e7c836d788ba9b3dcbd5cff92d706741aed576efc33a8445f6b31",
     "feature_bank_force_audited_validation_20260915": "ac613595b377c5b8b43e65f1861e53763d50329ba39c6662e3d50c5e944593ce"
@@ -2441,5 +2441,14 @@
       "source_record_sha256": "3725de0cb417763f4855ff2bb81801ccf9d66062b095fb4689e88721936b993b",
       "prediction_disagreement_rate": 0.8333333333333334
     }
-  ]
+  ],
+  "append_only_extension": {
+    "base_ref": "51421cb",
+    "unchanged_prior_rows": 4685,
+    "appended_rows": 2,
+    "appended_run_ids": [
+      "feature_bank_song_real8_spd_delivery_20260924"
+    ],
+    "rule": "All original parsed records and recovered row identities unchanged; appended rows have their own recorded disagreement rate; no prediction replay or model fit needed"
+  }
 }
