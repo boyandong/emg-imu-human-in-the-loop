@@ -79,3 +79,16 @@ In the local CPU replay, 37-sample chunks took 0.58 ms at the 95th percentile
 (0.97 ms maximum), compared with 148 ms of nominal sample time per chunk.
 These are processing times only; acquisition, UI queueing and output data age
 remain unmeasured.
+
+The [continuous S04 cue-timeline audit](CONTINUOUS_REPLAY_AUDIT.json) replayed
+all 297,942 EMG samples through the exported runtime in 37-sample chunks.
+Across 11,916 sliding windows, 7,865 (66.0%) were predicted as neutral;
+this includes calibration, rest, transitions and uncued time, so it is not an
+accuracy score. Within the recorded stable cue intervals, 911 fully contained
+windows reached 80.1% frame accuracy and 144 trial means reached 89.6%.
+Open Hand was correct in 36/36 stable-cue trials, Fist in 35/36, Neutral in
+33/36 and Index Pinch in 25/36. In 1,175 windows wholly inside pre-prompt
+rest intervals, 87.1% were predicted neutral. These labels are task cues, not
+measured EMG onsets; no continuous event-detection accuracy follows from them.
+The live UI now keeps a debounced current Song label visible while its frames
+continue, instead of clearing a sustained action after two seconds.

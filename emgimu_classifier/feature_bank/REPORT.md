@@ -2688,7 +2688,16 @@ hash-checked local JSON bundle. An independent runtime replay compared 416
 S03 validation windows against the source sklearn classifier (maximum
 probability error `1.41e-7`) and 999 chunked S04 windows against the offline
 causal filter (zero observed probability difference). The app's offscreen
-model-load/probability test passes. This closes the model-format and
+model-load/probability test passes with a schema-compatible synthetic bundle.
+This closes the model-format and
 preprocessing-transfer gap, while real USB streaming accuracy and end-to-end
 latency remain unmeasured. The learned model stays local under Git-ignored
 `models/`; see [the replay audit](../benchmarks/song_real8/LIVE_EXPORT_REPLAY_AUDIT.json).
+
+A full S04 replay with sliding 200 ms windows predicts neutral in 66.0% of
+11,916 frames, which include rest and uncued time. In stable cue intervals,
+frame accuracy is 80.1%; trial-mean accuracy is 89.6%, with Open Hand 36/36
+and Index Pinch 25/36. The interface now keeps a debounced Song label visible
+through a sustained action. These are cue-timeline findings, not verified
+physiological onsets or a physical-device accuracy test; see
+[continuous replay](../benchmarks/song_real8/CONTINUOUS_REPLAY_AUDIT.json).

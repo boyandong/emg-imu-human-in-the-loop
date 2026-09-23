@@ -1,0 +1,81 @@
+{
+  "status": "continuous_cue_timeline_audited_not_physiological_onset_validated",
+  "source_s04_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+  "model_sha256": "843a1230f8fbee5a839557e59edaf449ab250cbb125df8f77164a6255420eedc",
+  "sample_count": 297942,
+  "duration_seconds_nominal": 1191.768,
+  "frame_count": 11916,
+  "all_frame_predicted_support": {
+    "fist": 1365,
+    "open_hand": 1125,
+    "index_pinch": 1561,
+    "neutral": 7865
+  },
+  "formal_trials_with_full_stable_windows": 144,
+  "stable_frames": 911,
+  "stable_frame_true_support": {
+    "index_pinch": 199,
+    "fist": 201,
+    "neutral": 203,
+    "open_hand": 308
+  },
+  "stable_frame_predicted_support": {
+    "open_hand": 282,
+    "index_pinch": 149,
+    "fist": 243,
+    "neutral": 237
+  },
+  "stable_frame_accuracy": 0.8013172338090011,
+  "stable_frame_macro_f1": 0.7883867921638231,
+  "stable_trial_mean_probability_accuracy": 0.8958333333333334,
+  "stable_trial_mean_probability_macro_f1": 0.8918586034715066,
+  "stable_trial_recall": {
+    "fist": 0.9722222222222222,
+    "index_pinch": 0.6944444444444444,
+    "neutral": 0.9166666666666666,
+    "open_hand": 1.0
+  },
+  "stable_trial_confusion_matrix": [
+    [
+      35,
+      1,
+      0,
+      0
+    ],
+    [
+      4,
+      25,
+      5,
+      2
+    ],
+    [
+      2,
+      0,
+      33,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      36
+    ]
+  ],
+  "stable_trial_at_least_one_correct_frame_fraction": 0.9652777777777778,
+  "rest_cue_intervals_with_full_windows": 144,
+  "rest_cue_frames": 1175,
+  "rest_cue_predicted_support": {
+    "neutral": 1023,
+    "index_pinch": 78,
+    "fist": 42,
+    "open_hand": 32
+  },
+  "rest_cue_neutral_fraction": 0.8706382978723404,
+  "labels_order": [
+    "fist",
+    "index_pinch",
+    "neutral",
+    "open_hand"
+  ],
+  "boundary": "All-frame support includes calibration, rest, transitions and uncued time. Trial/stable metrics use recorded cue intervals, not physiological onset. Rest intervals may contain residual prior movement. No physical USB, event-onset or UI-latency validation."
+}

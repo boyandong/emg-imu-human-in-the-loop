@@ -19,7 +19,7 @@ from emgforce.algorithms import ALGORITHMS, META_CONV_LSTM, algorithm_display_na
 from emgforce.inference.engine import PredictionFrame
 from emgforce.inference.model_bundle import ModelBundle, discover_model_bundles
 from emgforce.inference.song_local import (
-    SongLocalRuntime, SongModelInfo, discover_song_models, song_key_path,
+    DISPLAY as SONG_DISPLAY, SongLocalRuntime, SongModelInfo, discover_song_models, song_key_path,
 )
 from emgforce.inference.song_worker import SongRealtimeWorker
 from emgforce.inference.unibo_adapter import (
@@ -1037,9 +1037,21 @@ class RealtimeInferencePage(QWidget):
             self.music_gesture_ready.emit(gesture, peak if gesture else 1.0)
         else:
             self.music_gesture_ready.emit(0, 1.0)
-        if self.bundle is not None and self.bundle.metadata.get("song_real8_local"):
+        is_song = self.bundle is not None and self.bundle.metadata.get("song_real8_local")
+        if is_song:
             self.current_probability.setText(
                 f"最高概率 {peak:.3f} · 计算 {frame.inference_ms:.0f} ms · 200 ms 窗口 · 数据龄未测")
+            self._gesture_reset_timer.stop()
+            if frame.active_label in SONG_DISPLAY:
+                label = frame.active_label
+                confidence = float(frame.probabilities[frame.labels.index(label)])
+                self.current_gesture.setText(SONG_DISPLAY[label])
+                self.current_gesture_status.setText(f"当前识别 · 置信度 {confidence:.1%}")
+                self.current_gesture_status.setStyleSheet(
+                    "font-size: 14px; font-weight: 600; color: #1d4ed8; padding: 4px 10px; background-color: #dbeafe; border-radius: 6px;")
+                self.gesture_icon.set_action("rest" if label == "neutral" else label)
+            else:
+                self._reset_current_gesture()
         else:
             self.current_probability.setText(
                 f"最高概率 {peak:.3f} · 推理 {frame.inference_ms:.0f} ms"
@@ -1065,12 +1077,13 @@ class RealtimeInferencePage(QWidget):
                 gesture_text = display_name
                 status_text = f"置信度 {event.probability:.1%}"
                 badge_style = "color: #1d4ed8; background-color: #dbeafe;"
-            self.current_gesture.setText(gesture_text)
-            self.current_gesture_status.setText(status_text)
-            self.current_gesture_status.setStyleSheet(
-                f"font-size: 14px; font-weight: 600; padding: 4px 10px; border-radius: 6px; {badge_style}")
-            self.gesture_icon.set_action("rest" if event.name == "neutral" else event.name)
-            self._gesture_reset_timer.start(2000)
+            if not is_song:
+                self.current_gesture.setText(gesture_text)
+                self.current_gesture_status.setText(status_text)
+                self.current_gesture_status.setStyleSheet(
+                    f"font-size: 14px; font-weight: 600; padding: 4px 10px; border-radius: 6px; {badge_style}")
+                self.gesture_icon.set_action("rest" if event.name == "neutral" else event.name)
+                self._gesture_reset_timer.start(2000)
             stamp = datetime.now().strftime("%H:%M:%S.%f")[:-3]
             hold = (f"  hold={event.hold_duration_seconds:.3f}s"
                     if event.hold_duration_seconds is not None else "")

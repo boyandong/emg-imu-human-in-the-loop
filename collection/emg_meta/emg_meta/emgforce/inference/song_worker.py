@@ -127,11 +127,12 @@ class SongRealtimeWorker(QThread):
                             candidate_count += 1
                         else:
                             candidate, candidate_count = name, 1
-                        if name is not None and candidate_count >= 3 and name != emitted:
+                        if candidate_count >= 3 and name != emitted:
                             emitted = name
-                            events.append(DetectedEvent(
-                                name=name, display_name=DISPLAY[name], sample_index=sample_index,
-                                probability=float(probabilities[peak_index])))
+                            if name is not None:
+                                events.append(DetectedEvent(
+                                    name=name, display_name=DISPLAY[name], sample_index=sample_index,
+                                    probability=float(probabilities[peak_index])))
                 if had_gap:
                     self.status_changed.emit("检测到采样不连续；Song 滤波状态和 200 ms 窗口已重置")
                 if latest is not None:
@@ -140,6 +141,6 @@ class SongRealtimeWorker(QThread):
                         probabilities=probabilities, labels=LABELS, events=tuple(events),
                         output_sample_index=sample_index, output_age_ms=0.0,
                         fixed_lag_ms=0.0, inference_ms=(time.perf_counter() - started) * 1000.0,
-                        scale_counts_per_unit=1.0))
+                        scale_counts_per_unit=1.0, active_label=emitted))
         except Exception as exc:
             self.failed.emit(str(exc))

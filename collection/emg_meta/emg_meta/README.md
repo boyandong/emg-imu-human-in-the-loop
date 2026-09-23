@@ -265,6 +265,8 @@ Neutral, Index Pinch, Fist and Open Hand. Select **Song 8ch**, load it, connect
 the device and click **Start recognition**. This zero-shot model does not use
 the page's 24-second calibration step; the button is disabled for this model.
 Sample discontinuities and packet-loss reports reset its filter and window.
+The current debounced class remains visible during a sustained action; the
+event log records class changes.
 
 On this machine the model was built from `E:/qxy/emg_meta/emg_meta/data/Song/`
 using S01/S02 for training and S03 for validation. To regenerate it from the
@@ -280,3 +282,5 @@ as a live model. S01–S03 failed collection readiness, and all sessions are
 from one participant on one day. Continuous live-event accuracy, onset
 detection and end-to-end data age have **not** been measured. The UI marks
 this model as exploratory and displays data age as unmeasured.
+The full S04 cue-timeline replay is recorded in
+`emgimu_classifier/benchmarks/song_real8/CONTINUOUS_REPLAY_AUDIT.json`.

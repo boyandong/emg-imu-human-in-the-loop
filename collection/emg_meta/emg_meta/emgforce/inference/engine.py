@@ -63,6 +63,7 @@ class PredictionFrame:
     fixed_lag_ms: float
     inference_ms: float
     scale_counts_per_unit: float
+    active_label: str | None = None
 
 
 def detect_threshold_events(

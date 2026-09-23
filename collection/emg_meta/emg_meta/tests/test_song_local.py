@@ -76,6 +76,7 @@ def test_hash_mismatch_is_rejected(tmp_path):
 def test_realtime_page_loads_song_and_emits_probability_without_device(tmp_path):
     os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
     from PySide6.QtWidgets import QApplication
+    from emgforce.inference.engine import PredictionFrame
     from emgforce.ui.realtime_inference_page import RealtimeInferencePage
 
     app = QApplication.instance() or QApplication([])
@@ -106,6 +107,20 @@ def test_realtime_page_loads_song_and_emits_probability_without_device(tmp_path)
             time.sleep(0.01)
         assert predictions and predictions[-1].probabilities.shape == (4,)
         assert "数据龄未测" in page.current_probability.text()
+        steady = PredictionFrame(
+            probabilities=np.array([0.02, 0.03, 0.05, 0.90]),
+            labels=("fist", "index_pinch", "neutral", "open_hand"), events=(),
+            output_sample_index=250, output_age_ms=0, fixed_lag_ms=0,
+            inference_ms=1, scale_counts_per_unit=1, active_label="open_hand")
+        page._prediction_ready(steady)
+        assert page.current_gesture.text() == "张开手"
+        assert not page._gesture_reset_timer.isActive()
+        page._prediction_ready(PredictionFrame(
+            probabilities=np.array([0.2, 0.3, 0.3, 0.2]),
+            labels=steady.labels, events=(), output_sample_index=275,
+            output_age_ms=0, fixed_lag_ms=0, inference_ms=1,
+            scale_counts_per_unit=1, active_label=None))
+        assert page.current_gesture.text() == "等待识别"
     finally:
         assert page.shutdown()
         page.close()
