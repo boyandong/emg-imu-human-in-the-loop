@@ -6,11 +6,13 @@ diagnostics are explicitly labelled. Model compositions and calibration rules ar
 from source evidence, validation evidence or prespecified controls; final scores do not tune them.
 Seed: 20260915. Classical logistic regression runs use CPU; no neural training is needed
 for these representation comparisons.
-The current suite has 203 tests (202 passed, one skipped); `results/validation.json` carries
-the exact log hash. Older section-local test counts below are dated snapshots,
-not the current total. At this review, the collection application's documented
-default `collection/emg_meta/emg_meta/data` directory does not exist, so no
-own-eight-channel labelled session can support a live-accuracy claim.
+The recorded validation suite has 203 tests (202 passed, one skipped);
+`results/validation.json` carries the exact log hash. Older section-local test
+counts below are dated snapshots. The collection application's documented
+default `collection/emg_meta/emg_meta/data` directory did not contain a session
+at that earlier review. The user has since supplied four Song sessions at a
+separate path; their offline evaluation appears at the end of this report.
+They do not yet support a live-accuracy claim.
 The collection app's nine targeted UI simulator, formal-protocol and UniBo
 adapter tests pass in the existing `emgforce` Python environment with Qt
 offscreen. This checks software readiness only; simulator data cannot establish
@@ -364,9 +366,12 @@ files as trusted local artifacts only. Raw archives remain outside Git.
 ## Remaining specification work
 
 Historical DS2 remains blocked for reproduction: no exact historical artifacts were found.
-The publisher-linked Kaggle version 8 metadata is now accessible and protocol-matched, but
-the ZIP redirects to sign-in, no archive/hash was obtained, and current-version identity with
-the old B0/X1-H/X2 input is unproven. NinaPro requires access; secondary datasets remain explicitly deferred.
+The publisher-linked Kaggle version 8 archive is now complete at
+`work/datasets/historical_ds2_candidate/ds2_kaggle_v8.zip`: 1,123,505,003
+compressed bytes, 102 files and a recorded SHA-256. All ZIP members pass CRC.
+Native raw-signal checks and candidate-v8 experiments remain to be done;
+current-version identity with the old B0/X1-H/X2 input is still unproven.
+NinaPro requires access; secondary datasets remain explicitly deferred.
 EMG-FMG and UniBo now each have six-trial QC and six raw/envelope/PSD plots.
 F8 session signature now has a bounded MANUS reliability-fusion comparison, while full-bank
 session-context integration remains incomplete. Personal normalization now has an EPN comparison;
@@ -2655,3 +2660,6 @@ Therefore current reference families cannot be relabelled as recovered
 historical implementations. This audit cannot exclude code that existed only
 outside this repository, in inaccessible private history, or under unrelated
 names without preserved documentation.
+# Real 8-channel single-participant follow-up
+
+The user-provided Song HDF5 v3 sessions have now been audited and evaluated in an exploratory split-locked offline study: [study report](../benchmarks/song_real8/REPORT.md) and [machine-readable results](../benchmarks/song_real8/RESULTS.json). Four-state S04 trial accuracy is 90.3% (macro-F1 90.0%); the 28-state endpoint is materially weaker at 64.6% (macro-F1 53.1%). These one-day cue-labelled results do not establish live UniBo recognition or formal collection acceptance.

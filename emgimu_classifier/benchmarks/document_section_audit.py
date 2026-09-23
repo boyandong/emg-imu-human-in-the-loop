@@ -53,7 +53,7 @@ GOAL_META = {
     1: item("context", "feature_bank/REPORT.md", "Experiment objective preamble; assessed by the following sections."),
     6: item("partial", "feature_bank/REPORT.md", "The report answers the research questions with negative as well as positive results; exact historical-family evidence is incomplete."),
     48: item("verified_narrow", "feature_bank/delivery/conditional_incremental.csv", "Held-out delta loss/F1/Brier proxies are delivered; they are not direct conditional mutual-information estimates."),
-    90: item("verified_narrow", "feature_bank/EXPERIMENT_CAPABILITIES.md", "Dataset capabilities and N/A boundaries are explicit, including absent own-device formal data."),
+    90: item("verified_narrow", "feature_bank/EXPERIMENT_CAPABILITIES.md", "Native capabilities and N/A boundaries are explicit; a later single-participant own-device exploratory study does not meet formal acceptance."),
     133: item("partial", "feature_bank/REPRODUCIBILITY_METADATA_AUDIT.json", "Current runs preserve splits/config/state; exact old DS2/X1-H/RLCS/CES/Frequency artifacts cannot be frozen because they were not recovered."),
     176: item("partial", "feature_bank/FORMULA_IMPLEMENTATION_AUDIT.json", "F0-F9 APIs and candidate formulas are audited; several historical identities and native calibrated-body evidence remain unavailable."),
     447: item("partial", "feature_bank/results/calibration_burden_audit.json", "Personal calibration and supported budgets are evaluated across native tasks; unsupported budgets and own-device validation remain explicit."),
@@ -80,10 +80,10 @@ for line in GOAL_SECTIONS:
             "Formula/API boundary and dimensions are reviewed; candidate/reference status is distinct from recovered historical equivalence and native validation.")
 GOAL_META.update({
     2301: item("partial", "feature_bank/results/calibration_burden_audit.json", "Personal normalization/prototypes/reliability/shrinkage are implemented with held-out native evidence; not every dataset supports every budget."),
-    2476: item("partial", "feature_bank/results/family_specific_session_shift_audit.json", "Session updates and immutable long profiles have wearing/MANUS evidence; wearing domains are not calendar sessions and own-device data are absent."),
+    2476: item("partial", "feature_bank/results/family_specific_session_shift_audit.json", "Session updates and immutable long profiles have wearing/MANUS evidence; wearing domains are not calendar sessions and the later own-device study does not validate this full update method."),
     2514: item("verified_narrow", "feature_bank/results/quality_unknown_replay.json", "Late fusion contracts, quality weighting and explicit Unknown are tested and replayed; current Unknown rule has no demonstrated accuracy gain."),
     2563: item("partial", "feature_bank/delivery/error_complementarity.csv", "Nuisance, separation, conditional, complementarity and calibration diagnostics exist broadly; not every metric is natively identifiable for every family/dataset."),
-    2606: item("verified_narrow", "feature_bank/FORMULA_IMPLEMENTATION_AUDIT.json", "Channel/topology/fit/dimension boundaries have tests and audits; real own-eight-channel performance remains unavailable."),
+    2606: item("verified_narrow", "feature_bank/FORMULA_IMPLEMENTATION_AUDIT.json", "Channel/topology/fit/dimension boundaries have tests and audits; later real 8-channel preliminary scores do not validate every family or live deployment."),
 })
 
 

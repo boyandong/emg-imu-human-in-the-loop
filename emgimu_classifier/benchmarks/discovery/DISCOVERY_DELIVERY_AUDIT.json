@@ -2,14 +2,15 @@
   "status": "checked_evidence_partial",
   "completion_proven": false,
   "required_artifacts": {
-    "DATASET_INVENTORY.md": "b6ba1218f3323282559b3a4102359d1cccab8bba5430c197c758f4e4ef4468dc",
-    "DATASET_CANDIDATES.csv": "19de0754051397d9829f342a494b94dabd1340944590bc9cfa9388ad690da439",
+    "DATASET_INVENTORY.md": "085043ea0547ac149bf3049ce75c910fdb2b1fc9e0ef26c8eb05e3e9dce712bf",
+    "DATASET_CANDIDATES.csv": "b69fd7bb01a5199647f070ac743f6d0649fd5922c9367cde6c80ff6f56cfc898",
     "FAILURE_BENCHMARK_MATRIX.md": "4eb02fad7461536943013646d97e1f8b952e0f58a13232a2b0cc65d7dddfc1c5",
-    "BENCHMARK_SELECTION_REPORT.md": "6de725cd3fadea10079c6325bbd5b5b0abf09d08ab2e0f8cc2074e759cb83867",
+    "BENCHMARK_SELECTION_REPORT.md": "af17c2554c549fd85b2456cbe889180f1911c11e1621b2414c6da51e866e9f6a",
     "GESTURE_ONTOLOGY.md": "d159c04e1f41f65db97bd82e8fa0bac3279087a3240042db1877cccd1d2a93ee",
     "SENSOR_LAYOUTS.md": "1597650c761f7e324b8088ec1ce9774c2df5eb1cfcbe35b81572f61ef723de39",
-    "DATASET_MANIFEST.json": "667eb0dd8f6b7a8c1e97c40b859e7c2a20bbab1c829d5ee77929b3453f8b3891",
-    "DS2_ACCESS_AUDIT.json": "4e586e4615b71e871f34f5684694b526acfab001e75f38149a25943fde2493d2"
+    "DATASET_MANIFEST.json": "e4439d06c3cd2ddd378d2848e532e66fc1f58c2554f3dc08f45cc864daea2c78",
+    "DS2_ACCESS_AUDIT.json": "6967b39f1c6eba4672cc53ea7d43b86f1d9f2ebdd3d6ffeac09dec1f57cd8166",
+    "DS2_ARCHIVE_AUDIT.json": "7743a1f09d25a90d28f5275e9e7a5219a75729f63ec53a7958e52929f84bef8a"
   },
   "candidate_rows": 14,
   "score_vectors_checked": 14,
@@ -51,6 +52,13 @@
       "fresh_archive_digest_computed": false
     }
   ],
+  "ds2_candidate_archive": {
+    "bytes": 1123505003,
+    "sha256": "a19bfeb945392b38f5f41bde62e8135918da7d475e479b16e322e1fc4b867110",
+    "fresh_sha256_checked": true,
+    "zip_members_crc_checked": 102,
+    "historical_identity": "unproven"
+  },
   "archive_bytes": 15935850342,
   "archive_GB_decimal": 15.935850342,
   "archive_GiB_binary": 14.841417169198394,
@@ -141,7 +149,7 @@
     "fresh multi-GB archive digests not recomputed; recorded digests and current sizes only",
     "hash/caption verification does not establish visual or full-population signal quality",
     "reported durations agree with native rates; no independent hardware clock check",
-    "publisher-linked DS2 metadata is accessible; ZIP requires Kaggle sign-in and historical identity/raw/old results remain missing",
+    "publisher-linked DS2 v8 archive is verified; historical input identity and old-result reproduction remain unproven",
     "DS2 publication and Kaggle page expose conflicting license labels; redistribution is not cleared",
     "retrospective scorecards do not prove original scoring/phase ordering",
     "secondary candidate paper/licensing/layout verification remains incomplete",

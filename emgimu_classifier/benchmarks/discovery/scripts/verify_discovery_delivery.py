@@ -11,7 +11,7 @@ import numpy as np
 def verify(root):
     required=('DATASET_INVENTORY.md','DATASET_CANDIDATES.csv','FAILURE_BENCHMARK_MATRIX.md',
       'BENCHMARK_SELECTION_REPORT.md','GESTURE_ONTOLOGY.md','SENSOR_LAYOUTS.md',
-      'DATASET_MANIFEST.json','DS2_ACCESS_AUDIT.json')
+      'DATASET_MANIFEST.json','DS2_ACCESS_AUDIT.json','DS2_ARCHIVE_AUDIT.json')
     hashes={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in required}
     candidates=list(csv.DictReader((root/'DATASET_CANDIDATES.csv').open(encoding='utf-8-sig',newline='')))
     fields=('dataset','failure_targets','subjects','sessions','gestures','channels','sampling_rate',
@@ -24,10 +24,33 @@ def verify(root):
         if len(points)!=8 or any(v<0 or v>5 for v in points) or sum(points)!=int(row['score_review_total']):raise ValueError('Invalid reviewed vector')
     manifest=json.loads((root/'DATASET_MANIFEST.json').read_text(encoding='utf-8'))
     ds2_access=json.loads((root/'DS2_ACCESS_AUDIT.json').read_text(encoding='utf-8'))
+    ds2_archive=json.loads((root/'DS2_ARCHIVE_AUDIT.json').read_text(encoding='utf-8'))
     if (ds2_access['page_status']!='accessible_without_sign_in'
             or ds2_access['download_attempt']['archive_downloaded']
+            or not ds2_access['public_api_check']['archive_downloaded']
+            or ds2_access['public_api_check']['files_listed']!=102
+            or ds2_access['public_api_check']['sum_listed_file_bytes']!=1312583609
             or ds2_access['historical_identity']!='unproven'):
         raise ValueError('DS2 access boundary changed')
+    ds2=next(dataset for dataset in manifest['datasets'] if dataset['id']=='ds2_force')
+    ds2_path=Path(ds2['path'])
+    if (ds2['status']!='downloaded_verified_candidate_historical_unproven'
+            or ds2_path!=Path(ds2_archive['archive_path'])
+            or ds2_path.stat().st_size!=ds2['size']
+            or ds2['size']!=ds2_archive['archive_bytes']
+            or ds2['sha256']!=ds2_archive['archive_sha256']
+            or ds2['sha256']!=ds2_access['public_api_check']['archive_sha256']
+            or ds2_archive['files']!=102
+            or ds2_archive['uncompressed_bytes']!=1312583609
+            or ds2_archive['zip_crc_status']!='all_members_ok'
+            or ds2_archive['historical_identity']!='unproven'):
+        raise ValueError('DS2 candidate archive evidence changed')
+    ds2_digest=hashlib.sha256()
+    with ds2_path.open('rb') as stream:
+        for chunk in iter(lambda:stream.read(8*1024*1024),b''):
+            ds2_digest.update(chunk)
+    if ds2_digest.hexdigest()!=ds2['sha256']:
+        raise ValueError('DS2 candidate archive bytes changed')
     archives=[]
     for dataset in manifest['datasets']:
         if dataset['status']!='downloaded_verified':continue
@@ -83,13 +106,16 @@ def verify(root):
     total=sum(a['current_file_size'] for a in archives)
     result={'status':'checked_evidence_partial','completion_proven':False,'required_artifacts':hashes,
        'candidate_rows':len(candidates),'score_vectors_checked':len(candidates),'archives':archives,
+       'ds2_candidate_archive':{'bytes':ds2['size'],'sha256':ds2['sha256'],
+           'fresh_sha256_checked':True,'zip_members_crc_checked':ds2_archive['files'],
+           'historical_identity':'unproven'},
        'archive_bytes':total,'archive_GB_decimal':total/1e9,'archive_GiB_binary':total/(1024**3),
        'source_sanity_reports_rehashed':reports,'captioned_plot_files_rehashed':plots,'sampled_native_recordings':36,
        'random_subject_condition_checks':subject_checks,
        'limitations':['fresh multi-GB archive digests not recomputed; recorded digests and current sizes only',
           'hash/caption verification does not establish visual or full-population signal quality',
           'reported durations agree with native rates; no independent hardware clock check',
-          'publisher-linked DS2 metadata is accessible; ZIP requires Kaggle sign-in and historical identity/raw/old results remain missing',
+          'publisher-linked DS2 v8 archive is verified; historical input identity and old-result reproduction remain unproven',
           'DS2 publication and Kaggle page expose conflicting license labels; redistribution is not cleared',
           'retrospective scorecards do not prove original scoring/phase ordering',
           'secondary candidate paper/licensing/layout verification remains incomplete',

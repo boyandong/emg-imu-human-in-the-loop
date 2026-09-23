@@ -7,13 +7,21 @@
   "datasets": [
     {
       "id": "ds2_force",
-      "status": "metadata_verified_download_requires_kaggle_sign_in",
+      "status": "downloaded_verified_candidate_historical_unproven",
       "source": "https://www.mdpi.com/2306-5729/10/12/194",
       "dataset_url": "https://www.kaggle.com/datasets/d4d7612f90e026339cb1eba7ba2bcb68295fd5cbb11944eadd489d8fe0399584",
+      "dataset_ref": "cinthyazuniga/ds2-emg-signals-three-force-type",
+      "dataset_version": 8,
       "expected": "20 subjects; 3 channels; 1500 Hz; 5 gestures; low/medium/high",
+      "path": "C:/Users/SCQ666/Documents/Codex/2026-09-13/files-pasted-by-the-user-emg/work/datasets/historical_ds2_candidate/ds2_kaggle_v8.zip",
+      "size": 1123505003,
+      "sha256": "a19bfeb945392b38f5f41bde62e8135918da7d475e479b16e322e1fc4b867110",
+      "file_count": 102,
+      "uncompressed_bytes": 1312583609,
       "license": "conflict: publication CC-BY-4.0; Kaggle page CC0",
       "access_audit": "benchmarks/discovery/DS2_ACCESS_AUDIT.json",
-      "note": "Version 8 Kaggle metadata is accessible and matches the publisher-linked protocol; ZIP download redirects to sign-in. Historical artifacts and archive identity remain absent. No substitute is represented as historical DS2."
+      "archive_audit": "benchmarks/discovery/DS2_ARCHIVE_AUDIT.json",
+      "note": "Version 8 Kaggle archive and 102 ZIP members are verified. No old artifact proves this version is the exact historical B0/X1-H/X2 input; current native analyses must be labelled candidate v8 rather than reproduced old results."
     },
     {
       "id": "libemg_force",

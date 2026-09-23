@@ -6,7 +6,7 @@ data and manifests use sibling directories. Raw archives and extracted data are 
 
 | Dataset | Status | Existing adapter | Existing results | Expected local path | Download status |
 |---|---|---|---|---|---|
-| Historical DS2 force | historical | no | referenced by the supplied research brief, absent from this repository and Git history | `data/raw/ds2_force` | publisher-linked Kaggle v8 metadata verified; ZIP requires sign-in; exact old archive identity/raw remains missing |
+| Historical DS2 force | historical candidate | native adapter pending | referenced by the supplied research brief, absent from this repository and Git history | `work/datasets/historical_ds2_candidate/ds2_kaggle_v8.zip` | publisher-linked Kaggle v8 archive downloaded and CRC verified; identity with old experiment input remains unproven |
 | LibEMG Contraction Intensity | new | native CSV adapter | Feature Bank, calibration, ablation | `data/raw/libemg_force` | verified complete |
 | LibEMG Electrode Shift | new | native ZIP adapter | held-out before/after | `data/raw/libemg_electrode_shift` | verified complete |
 | UniBo-INAIL | historical | yes | prior 33-run ablation; Feature Bank chronological | `data/raw/unibo_inail` | verified complete |
@@ -26,9 +26,10 @@ historical DS2 source. The supplied brief matches the 2025 DS2 publication exact
 subjects, 3 channels at 1500 Hz, five gestures, and subjective low/medium/high effort.
 It is therefore recorded as the likely source, but old-result reproduction remains blocked
 until its archive identity is matched to the historical experiment artifacts.
-On 2026-09-23 the publisher-linked Kaggle page loaded successfully and exposed version 8,
-1.31 GB, 102 files, 20 subjects, three channels at 1500 Hz and the expected three effort
-levels. Downloading the ZIP redirects to Kaggle sign-in, so no bytes or local hash were
-obtained. `DS2_ACCESS_AUDIT.json` preserves the observed metadata and the CC-BY-4.0
-publication versus CC0 Kaggle-page license conflict. Page access does not prove that this
-version produced the historical B0/X1-H/X2 results.
+On 2026-09-23 the publisher-linked Kaggle public API resolved version 8 and
+listed 102 files totaling 1,312,583,609 uncompressed bytes. A resumable download
+obtained the complete 1,123,505,003-byte archive; all five MAT and 97 TDMS files
+pass ZIP CRC. `DS2_ACCESS_AUDIT.json` and `DS2_ARCHIVE_AUDIT.json` preserve the
+source, hash, file inventory and CC-BY-4.0 publication versus CC0 Kaggle license
+conflict. This version is not yet proven to have produced the historical
+B0/X1-H/X2 results.

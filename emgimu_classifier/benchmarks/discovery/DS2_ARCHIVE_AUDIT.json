@@ -1,0 +1,529 @@
+{
+  "status": "complete_public_v8_archive_crc_verified_historical_identity_unproven",
+  "source_ref": "cinthyazuniga/ds2-emg-signals-three-force-type",
+  "dataset_version": 8,
+  "archive_path": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\datasets\\historical_ds2_candidate\\ds2_kaggle_v8.zip",
+  "archive_bytes": 1123505003,
+  "archive_sha256": "a19bfeb945392b38f5f41bde62e8135918da7d475e479b16e322e1fc4b867110",
+  "files": 102,
+  "uncompressed_bytes": 1312583609,
+  "file_types": {
+    ".mat": 5,
+    ".tdms": 97
+  },
+  "zip_crc_status": "all_members_ok",
+  "members": [
+    {
+      "name": "Data_all_Raw.mat",
+      "bytes": 360320304,
+      "crc32": "ce0d5e5b"
+    },
+    {
+      "name": "EMG_WS_all.mat",
+      "bytes": 579773107,
+      "crc32": "bfaf91a8"
+    },
+    {
+      "name": "Feature_AAV_all.mat",
+      "bytes": 4299685,
+      "crc32": "70e0f351"
+    },
+    {
+      "name": "Feature_MAV_all.mat",
+      "bytes": 6155272,
+      "crc32": "23a2dc7a"
+    },
+    {
+      "name": "SEMG-01/SEMG-01_Mv1.tdms",
+      "bytes": 5359149,
+      "crc32": "72179a6e"
+    },
+    {
+      "name": "SEMG-01/SEMG-01_Mv2.tdms",
+      "bytes": 3110445,
+      "crc32": "b3ad5aa9"
+    },
+    {
+      "name": "SEMG-01/SEMG-01_Mv3.tdms",
+      "bytes": 5125677,
+      "crc32": "d1b492bc"
+    },
+    {
+      "name": "SEMG-01/SEMG-01_Mv4.tdms",
+      "bytes": 4392493,
+      "crc32": "520e2c1c"
+    },
+    {
+      "name": "SEMG-02/SEMG-02_Mv1.tdms",
+      "bytes": 4093485,
+      "crc32": "6d370b28"
+    },
+    {
+      "name": "SEMG-02/SEMG-02_Mv2.tdms",
+      "bytes": 3397165,
+      "crc32": "acceebd5"
+    },
+    {
+      "name": "SEMG-02/SEMG-02_Mv3.tdms",
+      "bytes": 3565101,
+      "crc32": "9deb8566"
+    },
+    {
+      "name": "SEMG-02/SEMG-02_Mv4.tdms",
+      "bytes": 3610157,
+      "crc32": "4d375340"
+    },
+    {
+      "name": "SEMG-03/SEMG-03_Mv1.tdms",
+      "bytes": 4514773,
+      "crc32": "01232049"
+    },
+    {
+      "name": "SEMG-03/SEMG-03_Mv2.tdms",
+      "bytes": 3027925,
+      "crc32": "9cb54cfb"
+    },
+    {
+      "name": "SEMG-03/SEMG-03_Mv3.tdms",
+      "bytes": 16737237,
+      "crc32": "d5b20a88"
+    },
+    {
+      "name": "SEMG-03/SEMG-03_Mv4.tdms",
+      "bytes": 11449301,
+      "crc32": "749f5d9b"
+    },
+    {
+      "name": "SEMG-03/SEMG-03_Mv5.tdms",
+      "bytes": 7521237,
+      "crc32": "b52135fa"
+    },
+    {
+      "name": "SEMG-04/SEMG-04_Mv1.tdms",
+      "bytes": 5885765,
+      "crc32": "5531a5b8"
+    },
+    {
+      "name": "SEMG-04/SEMG-04_Mv2.tdms",
+      "bytes": 3192365,
+      "crc32": "247479f5"
+    },
+    {
+      "name": "SEMG-04/SEMG-04_Mv3.tdms",
+      "bytes": 3073581,
+      "crc32": "5023fa4e"
+    },
+    {
+      "name": "SEMG-04/SEMG-04_Mv4_Mv5.tdms",
+      "bytes": 6362669,
+      "crc32": "d85d60f4"
+    },
+    {
+      "name": "SEMG-05/SEMG-05_Mv1.tdms",
+      "bytes": 4601389,
+      "crc32": "c1487446"
+    },
+    {
+      "name": "SEMG-05/SEMG-05_Mv2.tdms",
+      "bytes": 3171885,
+      "crc32": "80609900"
+    },
+    {
+      "name": "SEMG-05/SEMG-05_Mv3.tdms",
+      "bytes": 3360301,
+      "crc32": "086394e7"
+    },
+    {
+      "name": "SEMG-05/SEMG-05_Mv4.tdms",
+      "bytes": 3151405,
+      "crc32": "54b55a22"
+    },
+    {
+      "name": "SEMG-05/SEMG-05_Mv5.tdms",
+      "bytes": 2868181,
+      "crc32": "d914818d"
+    },
+    {
+      "name": "SEMG-06/SEMG-06_Mv1.tdms",
+      "bytes": 5104597,
+      "crc32": "f616f9cf"
+    },
+    {
+      "name": "SEMG-06/SEMG-06_Mv2.tdms",
+      "bytes": 3232725,
+      "crc32": "e3de3b4d"
+    },
+    {
+      "name": "SEMG-06/SEMG-06_Mv3.tdms",
+      "bytes": 3257301,
+      "crc32": "9c2c7bcb"
+    },
+    {
+      "name": "SEMG-06/SEMG-06_Mv4.tdms",
+      "bytes": 3376085,
+      "crc32": "a885f78e"
+    },
+    {
+      "name": "SEMG-06/SEMG-06_Mv5.tdms",
+      "bytes": 2832029,
+      "crc32": "6f22b214"
+    },
+    {
+      "name": "SEMG-07/SEMG-07_Mv1.tdms",
+      "bytes": 4011565,
+      "crc32": "5198e164"
+    },
+    {
+      "name": "SEMG-07/SEMG-07_Mv2.tdms",
+      "bytes": 3073581,
+      "crc32": "7f19aa8c"
+    },
+    {
+      "name": "SEMG-07/SEMG-07_Mv3.tdms",
+      "bytes": 3438125,
+      "crc32": "1d9bf7fb"
+    },
+    {
+      "name": "SEMG-07/SEMG-07_Mv4.tdms",
+      "bytes": 3151405,
+      "crc32": "b76d932f"
+    },
+    {
+      "name": "SEMG-07/SEMG-07_Mv5.tdms",
+      "bytes": 2832629,
+      "crc32": "d48c5c61"
+    },
+    {
+      "name": "SEMG-08/SEMG-08_Mv1.tdms",
+      "bytes": 3266093,
+      "crc32": "ae90f895"
+    },
+    {
+      "name": "SEMG-08/SEMG-08_Mv2.tdms",
+      "bytes": 3073581,
+      "crc32": "947606a6"
+    },
+    {
+      "name": "SEMG-08/SEMG-08_Mv3.tdms",
+      "bytes": 3319341,
+      "crc32": "7fbd9663"
+    },
+    {
+      "name": "SEMG-08/SEMG-08_Mv4.tdms",
+      "bytes": 3700269,
+      "crc32": "8229fc0f"
+    },
+    {
+      "name": "SEMG-08/SEMG-08_Mv5.tdms",
+      "bytes": 2930437,
+      "crc32": "5daee816"
+    },
+    {
+      "name": "SEMG-09/SEMG-09_Mv1.tdms",
+      "bytes": 6423509,
+      "crc32": "2d533642"
+    },
+    {
+      "name": "SEMG-09/SEMG-09_Mv2.tdms",
+      "bytes": 3982293,
+      "crc32": "ffbe0eb5"
+    },
+    {
+      "name": "SEMG-09/SEMG-09_Mv3.tdms",
+      "bytes": 3023829,
+      "crc32": "18d9b1bd"
+    },
+    {
+      "name": "SEMG-09/SEMG-09_Mv4.tdms",
+      "bytes": 3191765,
+      "crc32": "a326e3b0"
+    },
+    {
+      "name": "SEMG-09/SEMG-09_Mv5.tdms",
+      "bytes": 2833229,
+      "crc32": "e1324941"
+    },
+    {
+      "name": "SEMG-10/SEMG-10_Mv1.tdms",
+      "bytes": 4458029,
+      "crc32": "c001ee34"
+    },
+    {
+      "name": "SEMG-10/SEMG-10_Mv2.tdms",
+      "bytes": 3028525,
+      "crc32": "4aee99a9"
+    },
+    {
+      "name": "SEMG-10/SEMG-10_Mv3.tdms",
+      "bytes": 3958317,
+      "crc32": "54dd9c88"
+    },
+    {
+      "name": "SEMG-10/SEMG-10_Mv4.tdms",
+      "bytes": 3012141,
+      "crc32": "686b3573"
+    },
+    {
+      "name": "SEMG-10/SEMG-10_Mv5.tdms",
+      "bytes": 2864685,
+      "crc32": "7e45e3fc"
+    },
+    {
+      "name": "SEMG-11/SEMG-11_Mv1.tdms",
+      "bytes": 3425237,
+      "crc32": "3ce8ec7f"
+    },
+    {
+      "name": "SEMG-11/SEMG-11_Mv2.tdms",
+      "bytes": 4191189,
+      "crc32": "8f806637"
+    },
+    {
+      "name": "SEMG-11/SEMG-11_Mv3.tdms",
+      "bytes": 3285973,
+      "crc32": "55c80076"
+    },
+    {
+      "name": "SEMG-11/SEMG-11_Mv4.tdms",
+      "bytes": 3412949,
+      "crc32": "b007ea44"
+    },
+    {
+      "name": "SEMG-11/SEMG-11_Mv5.tdms",
+      "bytes": 2834429,
+      "crc32": "bd69ef18"
+    },
+    {
+      "name": "SEMG-12/SEMG-12_Mv1.tdms",
+      "bytes": 2921429,
+      "crc32": "b2bd20c0"
+    },
+    {
+      "name": "SEMG-12/SEMG-12_Mv2.tdms",
+      "bytes": 3191765,
+      "crc32": "7d01989b"
+    },
+    {
+      "name": "SEMG-12/SEMG-12_Mv3.tdms",
+      "bytes": 3347413,
+      "crc32": "34f4d216"
+    },
+    {
+      "name": "SEMG-12/SEMG-12_Mv4.tdms",
+      "bytes": 3019733,
+      "crc32": "b83367bb"
+    },
+    {
+      "name": "SEMG-12/SEMG-12_Mv5.tdms",
+      "bytes": 2838629,
+      "crc32": "7d7a7779"
+    },
+    {
+      "name": "SEMG-13/SEMG-13_Mv1.tdms",
+      "bytes": 3699669,
+      "crc32": "aad65134"
+    },
+    {
+      "name": "SEMG-13/SEMG-13_Mv2.tdms",
+      "bytes": 3187669,
+      "crc32": "3883f2db"
+    },
+    {
+      "name": "SEMG-13/SEMG-13_Mv3.tdms",
+      "bytes": 3924949,
+      "crc32": "87fd2551"
+    },
+    {
+      "name": "SEMG-13/SEMG-13_Mv4.tdms",
+      "bytes": 3019733,
+      "crc32": "c8bddc1d"
+    },
+    {
+      "name": "SEMG-13/SEMG-13_Mv5.tdms",
+      "bytes": 2824821,
+      "crc32": "795e888f"
+    },
+    {
+      "name": "SEMG-14/SEMG-14_Mv1.tdms",
+      "bytes": 3929045,
+      "crc32": "96e8086a"
+    },
+    {
+      "name": "SEMG-14/SEMG-14_Mv2.tdms",
+      "bytes": 3175381,
+      "crc32": "5fc596a6"
+    },
+    {
+      "name": "SEMG-14/SEMG-14_Mv3.tdms",
+      "bytes": 3302357,
+      "crc32": "d8c9c983"
+    },
+    {
+      "name": "SEMG-14/SEMG-14_Mv4.tdms",
+      "bytes": 3261397,
+      "crc32": "51e97392"
+    },
+    {
+      "name": "SEMG-14/SEMG-14_Mv5.tdms",
+      "bytes": 2836229,
+      "crc32": "20ed496f"
+    },
+    {
+      "name": "SEMG-15/SEMG-15_Mv1.tdms",
+      "bytes": 3802069,
+      "crc32": "0e18bd67"
+    },
+    {
+      "name": "SEMG-15/SEMG-15_Mv2.tdms",
+      "bytes": 3453909,
+      "crc32": "2791b36a"
+    },
+    {
+      "name": "SEMG-15/SEMG-15_Mv3.tdms",
+      "bytes": 3199957,
+      "crc32": "6e779016"
+    },
+    {
+      "name": "SEMG-15/SEMG-15_Mv4.tdms",
+      "bytes": 3818453,
+      "crc32": "478c2b40"
+    },
+    {
+      "name": "SEMG-15/SEMG-15_Mv5.tdms",
+      "bytes": 2832029,
+      "crc32": "4fde563c"
+    },
+    {
+      "name": "SEMG-16/SEMG-16_Mv1.tdms",
+      "bytes": 4167213,
+      "crc32": "f3d30238"
+    },
+    {
+      "name": "SEMG-16/SEMG-16_Mv2.tdms",
+      "bytes": 3270189,
+      "crc32": "74f64f97"
+    },
+    {
+      "name": "SEMG-16/SEMG-16_Mv3.tdms",
+      "bytes": 3040213,
+      "crc32": "44bea0c8"
+    },
+    {
+      "name": "SEMG-16/SEMG-16_Mv4.tdms",
+      "bytes": 3163093,
+      "crc32": "c6a03efe"
+    },
+    {
+      "name": "SEMG-16/SEMG-16_Mv5.tdms",
+      "bytes": 2856109,
+      "crc32": "925095c3"
+    },
+    {
+      "name": "SEMG-17/SEMG-17_Mv1.tdms",
+      "bytes": 3109845,
+      "crc32": "08c82550"
+    },
+    {
+      "name": "SEMG-17/SEMG-17_Mv2.tdms",
+      "bytes": 3032021,
+      "crc32": "a3614643"
+    },
+    {
+      "name": "SEMG-17/SEMG-17_Mv3.tdms",
+      "bytes": 3847125,
+      "crc32": "142a374e"
+    },
+    {
+      "name": "SEMG-17/SEMG-17_Mv4.tdms",
+      "bytes": 3133821,
+      "crc32": "1d84c304"
+    },
+    {
+      "name": "SEMG-17/SEMG-17_Mv5.tdms",
+      "bytes": 2896853,
+      "crc32": "dfab654e"
+    },
+    {
+      "name": "SEMG-18/SEMG-18_Mv1.tdms",
+      "bytes": 3867605,
+      "crc32": "ab9f76f0"
+    },
+    {
+      "name": "SEMG-18/SEMG-18_Mv2.tdms",
+      "bytes": 3199957,
+      "crc32": "7e988ceb"
+    },
+    {
+      "name": "SEMG-18/SEMG-18_Mv3.tdms",
+      "bytes": 3355605,
+      "crc32": "f1ea17fd"
+    },
+    {
+      "name": "SEMG-18/SEMG-18_Mv4.tdms",
+      "bytes": 3175381,
+      "crc32": "c684584f"
+    },
+    {
+      "name": "SEMG-18/SEMG-18_Mv5.tdms",
+      "bytes": 2832029,
+      "crc32": "5a1632c5"
+    },
+    {
+      "name": "SEMG-19/SEMG-19_Mv1.tdms",
+      "bytes": 3080573,
+      "crc32": "abadb80f"
+    },
+    {
+      "name": "SEMG-19/SEMG-19_Mv2.tdms",
+      "bytes": 3158997,
+      "crc32": "4f8d9b19"
+    },
+    {
+      "name": "SEMG-19/SEMG-19_Mv3.tdms",
+      "bytes": 3080573,
+      "crc32": "cebdd81c"
+    },
+    {
+      "name": "SEMG-19/SEMG-19_Mv4.tdms",
+      "bytes": 3105749,
+      "crc32": "977d42fa"
+    },
+    {
+      "name": "SEMG-19/SEMG-19_Mv5.tdms",
+      "bytes": 2935029,
+      "crc32": "2c46819c"
+    },
+    {
+      "name": "SEMG-20/SEMG-20_Mv1.tdms",
+      "bytes": 3605461,
+      "crc32": "4e7a92a1"
+    },
+    {
+      "name": "SEMG-20/SEMG-20_Mv2.tdms",
+      "bytes": 3183573,
+      "crc32": "9f3709bb"
+    },
+    {
+      "name": "SEMG-20/SEMG-20_Mv3.tdms",
+      "bytes": 3204053,
+      "crc32": "94c1a390"
+    },
+    {
+      "name": "SEMG-20/SEMG-20_Mv4.tdms",
+      "bytes": 3146709,
+      "crc32": "5588688d"
+    },
+    {
+      "name": "SEMG-20/SEMG-20_Mv5.tdms",
+      "bytes": 2901661,
+      "crc32": "292c106d"
+    },
+    {
+      "name": "Window_label_gestures.mat",
+      "bytes": 1620,
+      "crc32": "b2715192"
+    }
+  ],
+  "historical_identity": "unproven",
+  "boundary": "Public Kaggle v8 archive is complete and its ZIP members pass CRC. No old B0/X1-H/X2 archive hash, code or result manifest proves that this release was the historical experiment input."
+}

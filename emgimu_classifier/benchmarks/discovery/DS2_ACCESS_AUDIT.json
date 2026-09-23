@@ -1,6 +1,7 @@
 {
-  "checked_at": "2026-09-23T01:35:00+08:00",
+  "checked_at": "2026-09-23T23:55:00+08:00",
   "dataset_url": "https://www.kaggle.com/datasets/d4d7612f90e026339cb1eba7ba2bcb68295fd5cbb11944eadd489d8fe0399584",
+  "resolved_public_dataset_ref": "cinthyazuniga/ds2-emg-signals-three-force-type",
   "page_status": "accessible_without_sign_in",
   "page_title": "DS2_EMG_SIGNALS_THREE_FORCE_TYPE",
   "page_subtitle": "DS2 sEMG signals with three force type",
@@ -35,6 +36,35 @@
     "archive_downloaded": false,
     "local_hash": null
   },
+  "public_api_check": {
+    "dataset_search_endpoint": "https://www.kaggle.com/api/v1/datasets/list?search=DS2_EMG_SIGNALS_THREE_FORCE_TYPE",
+    "versioned_file_list_endpoint": "https://www.kaggle.com/api/v1/datasets/list/cinthyazuniga/ds2-emg-signals-three-force-type?datasetVersionNumber=8&pageSize=200",
+    "dataset_id": 8185127,
+    "version": 8,
+    "files_listed": 102,
+    "sum_listed_file_bytes": 1312583609,
+    "files_by_type": {"mat": 5, "tdms": 97},
+    "selected_file_bytes": {
+      "Data_all_Raw.mat": 360320304,
+      "EMG_WS_all.mat": 579773107,
+      "Feature_AAV_all.mat": 4299685,
+      "Feature_MAV_all.mat": 6155272,
+      "Window_label_gestures.mat": 1620
+    },
+    "download_endpoint": "https://www.kaggle.com/api/v1/datasets/download/cinthyazuniga/ds2-emg-signals-three-force-type?datasetVersionNumber=8",
+    "download_redirect_host": "storage.googleapis.com",
+    "download_redirect_path": "/kaggle-data-sets/8185127/13291049/bundle/archive.zip",
+    "anonymous_range_probe": "HTTP 206, 1024 archive bytes returned",
+    "single_request_download": "connection reset before archive bytes were saved",
+    "one_megabyte_range_probe": "HTTP 206 but timed out after 60 seconds with only 20843 bytes",
+    "small_label_file_attempt": "download redirect timed out before response bytes",
+    "resumable_download": "Windows Invoke-WebRequest 8 MiB byte ranges, retried failed chunks and completed all 1123505003 bytes",
+    "archive_downloaded": true,
+    "archive_path": "C:/Users/SCQ666/Documents/Codex/2026-09-13/files-pasted-by-the-user-emg/work/datasets/historical_ds2_candidate/ds2_kaggle_v8.zip",
+    "archive_bytes": 1123505003,
+    "archive_sha256": "a19bfeb945392b38f5f41bde62e8135918da7d475e479b16e322e1fc4b867110",
+    "zip_crc_status": "102 files verified; see DS2_ARCHIVE_AUDIT.json"
+  },
   "historical_identity": "unproven",
-  "boundary": "The current publisher-linked Kaggle release is accessible and protocol-matched. No archive bytes were obtained because download requires an authenticated Kaggle session. Repository/Git history still contains no old DS2 archive, source code, run manifest or hash that can prove this version is the exact input to the historical B0/X1-H/X2 results."
+  "boundary": "The publisher-linked Kaggle v8 archive is now downloaded and its 102 ZIP members pass CRC. Repository/Git history still contains no old DS2 archive hash, source code or run manifest proving this version was the input to historical B0/X1-H/X2 results. The conflicting publication/Kaggle license labels also prevent a redistribution claim."
 }

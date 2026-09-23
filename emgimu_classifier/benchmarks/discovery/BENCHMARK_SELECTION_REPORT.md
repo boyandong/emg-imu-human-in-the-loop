@@ -58,9 +58,10 @@ SHA-256 hashes are in DATASET_MANIFEST.json; official MD5 checks match for the Z
 Large EMG-FMG raw CSV expansion would require approximately 52.35 GB, so the adapter streams
 the archive. MANUS also streams its archive; UniBo and LibEMG force have immutable extracted
 trees. Sanity reports are under `D:/emg-imu-benchmarks/data/manifests/sanity`.
-Historical DS2 metadata is now accessible on the publisher-linked Kaggle version 8 page;
-the 1.31-GB ZIP download redirects to sign-in and no archive/hash has been acquired. Missing
-historical experiment artifacts still prevent identity and result reproduction. Public force data is supplementary evidence and
+Historical DS2 publisher-linked Kaggle version 8 archive is now complete:
+1,123,505,003 compressed bytes, 102 ZIP members and a recorded SHA-256; all
+members pass CRC. Missing historical experiment artifacts still prevent identity
+and old-result reproduction. Public force data is supplementary evidence and
 is not silently substituted as historical DS2. Secondary downloads remain deferred rather
 than represented as complete. A 14-byte failed UniBo master-branch download is ignored;
 the verified main-branch archive is the only source used.
