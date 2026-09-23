@@ -2797,3 +2797,11 @@ formal evaluation. S04 macro-F1 rises from 0.9068 to 0.9225/0.9210, while
 LogLoss worsens from 0.4272 to 0.8647/0.5357. Zero-shot source F0+SPD remains
 stronger at 0.9508 F1 and 0.2376 LogLoss. Only two pre-formal blocks/class
 exist, so 5-shot is N/A; this calibration method is not promoted to the app.
+
+A separate [Song temperature tradeoff audit](../benchmarks/song_real8/TEMPERATURE_STUDY.json)
+tested seven post-processing temperatures on the exported source-only F0+SPD
+probabilities. S03's best eligible value improved trial LogLoss by only
+0.0066, less than the fixed 0.01 adoption margin, so the selected temperature
+remains 1.0. S04 continuous decoding and probability scores are unchanged;
+no app threshold or bundle was changed. This one-person/day result does not
+validate live recognition or cross-session generalization.

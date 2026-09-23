@@ -274,3 +274,15 @@ but LogLoss worsens from 0.4272 to 0.8647/0.5357; source-only F0+SPD remains
 better at 0.9508 F1 and 0.2376 LogLoss. Only two blocks per class exist, so
 5-shot is unsupported. No Song result is labelled a full F0–F9 bank or a
 cross-person/day robustness estimate.
+
+The [temperature tradeoff audit](TEMPERATURE_STUDY.json) applies seven fixed
+probability temperatures to the exported source-only F0+SPD bundle without
+fitting another classifier. S03 alone selects a temperature subject to
+late-rest false-active, stable-cue macro-F1 and state-change constraints. Its
+best eligible candidate, 0.67, reduces stable-trial LogLoss only from 0.1866
+to 0.1800, below the prespecified 0.01 minimum improvement; the selected
+temperature is therefore 1.0. S04 retains 0.2376 LogLoss, 0.1029 ECE,
+0.7980 decoded stable-cue macro-F1 and 17.2% late-rest active display. This
+negative result does not justify a UI probability or threshold change. It is
+exploratory because S03 failed collection readiness, S04 had already been
+inspected, and all sessions are from one person on one day.

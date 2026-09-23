@@ -1,0 +1,135 @@
+{
+  "status": "exploratory_same_person_day_temperature_tradeoff_not_deployed",
+  "fixed_candidates": [
+    0.5,
+    0.67,
+    0.8,
+    1.0,
+    1.25,
+    1.5,
+    2.0
+  ],
+  "selection_rule": "S03 only: candidate late-rest decoded active fraction <= unscaled+2pp, stable decoded macro-F1 >= unscaled-2pp, state changes/min <= unscaled*1.2; then minimum stable-trial LogLoss, tie-break lower rest active and temperature nearer 1; switch only if LogLoss improves >=0.01. S04 loads after selection.",
+  "selected_temperature": 1.0,
+  "validation": {
+    "source_sha256": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+    "model_sha256": "ecbab44df4340991d9b02038f9508d0b4767686064c6a26cceeecffd1900d821",
+    "continuous_formal_trials": 139,
+    "candidates": [
+      {
+        "temperature": 0.5,
+        "stable_formal_trials": 140,
+        "stable_trial_accuracy": 0.9642857142857143,
+        "stable_trial_macro_f1": 0.9642345401684043,
+        "stable_trial_log_loss": 0.18512985981935332,
+        "stable_trial_brier": 0.023791048119458376,
+        "stable_trial_top_label_ece_10_bins": 0.08581104598525997,
+        "stable_decoded_macro_f1": 0.859698882909512,
+        "late_rest_decoded_active_fraction": 0.16140350877192983,
+        "whole_stream_state_changes_per_minute": 35.5697709015174
+      },
+      {
+        "temperature": 0.67,
+        "stable_formal_trials": 140,
+        "stable_trial_accuracy": 0.9642857142857143,
+        "stable_trial_macro_f1": 0.9642345401684043,
+        "stable_trial_log_loss": 0.18003154800342006,
+        "stable_trial_brier": 0.02297597457108836,
+        "stable_trial_top_label_ece_10_bins": 0.0900316008817269,
+        "stable_decoded_macro_f1": 0.860956999792629,
+        "late_rest_decoded_active_fraction": 0.16140350877192983,
+        "whole_stream_state_changes_per_minute": 34.677179410889615
+      },
+      {
+        "temperature": 0.8,
+        "stable_formal_trials": 140,
+        "stable_trial_accuracy": 0.9714285714285714,
+        "stable_trial_macro_f1": 0.9713817713817714,
+        "stable_trial_log_loss": 0.18057086444435622,
+        "stable_trial_brier": 0.022595858608581862,
+        "stable_trial_top_label_ece_10_bins": 0.08044018760915761,
+        "stable_decoded_macro_f1": 0.8608962182882709,
+        "late_rest_decoded_active_fraction": 0.15789473684210525,
+        "whole_stream_state_changes_per_minute": 34.27551324010711
+      },
+      {
+        "temperature": 1.0,
+        "stable_formal_trials": 140,
+        "stable_trial_accuracy": 0.9714285714285714,
+        "stable_trial_macro_f1": 0.9713817713817714,
+        "stable_trial_log_loss": 0.18659971958011878,
+        "stable_trial_brier": 0.022437216835243176,
+        "stable_trial_top_label_ece_10_bins": 0.09128380061991352,
+        "stable_decoded_macro_f1": 0.8576777482110112,
+        "late_rest_decoded_active_fraction": 0.1649122807017544,
+        "whole_stream_state_changes_per_minute": 34.186254091044326
+      },
+      {
+        "temperature": 1.25,
+        "stable_formal_trials": 140,
+        "stable_trial_accuracy": 0.9714285714285714,
+        "stable_trial_macro_f1": 0.9713817713817714,
+        "stable_trial_log_loss": 0.2007962706894876,
+        "stable_trial_brier": 0.02293052020846609,
+        "stable_trial_top_label_ece_10_bins": 0.10822344160083835,
+        "stable_decoded_macro_f1": 0.8623493928534378,
+        "late_rest_decoded_active_fraction": 0.14385964912280702,
+        "whole_stream_state_changes_per_minute": 33.91847664385599
+      },
+      {
+        "temperature": 1.5,
+        "stable_formal_trials": 140,
+        "stable_trial_accuracy": 0.9714285714285714,
+        "stable_trial_macro_f1": 0.9713817713817714,
+        "stable_trial_log_loss": 0.22048094042909036,
+        "stable_trial_brier": 0.024123923889424845,
+        "stable_trial_top_label_ece_10_bins": 0.12801105418183267,
+        "stable_decoded_macro_f1": 0.861355621743381,
+        "late_rest_decoded_active_fraction": 0.13333333333333333,
+        "whole_stream_state_changes_per_minute": 36.0160666468313
+      },
+      {
+        "temperature": 2.0,
+        "stable_formal_trials": 140,
+        "stable_trial_accuracy": 0.9714285714285714,
+        "stable_trial_macro_f1": 0.9713817713817714,
+        "stable_trial_log_loss": 0.27034432115278967,
+        "stable_trial_brier": 0.028269003747305416,
+        "stable_trial_top_label_ece_10_bins": 0.17226308764711284,
+        "stable_decoded_macro_f1": 0.8581666822368212,
+        "late_rest_decoded_active_fraction": 0.15087719298245614,
+        "whole_stream_state_changes_per_minute": 40.6575423980958
+      }
+    ]
+  },
+  "final": {
+    "source_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+    "model_sha256": "ecbab44df4340991d9b02038f9508d0b4767686064c6a26cceeecffd1900d821",
+    "continuous_formal_trials": 144,
+    "unscaled": {
+      "temperature": 1.0,
+      "stable_formal_trials": 144,
+      "stable_trial_accuracy": 0.9513888888888888,
+      "stable_trial_macro_f1": 0.9507791284107074,
+      "stable_trial_log_loss": 0.23759344885243547,
+      "stable_trial_brier": 0.029821162248906727,
+      "stable_trial_top_label_ece_10_bins": 0.10294600783367144,
+      "stable_decoded_macro_f1": 0.7979879896659435,
+      "late_rest_decoded_active_fraction": 0.1718213058419244,
+      "whole_stream_state_changes_per_minute": 34.340382678751254
+    },
+    "S03_selected": {
+      "temperature": 1.0,
+      "stable_formal_trials": 144,
+      "stable_trial_accuracy": 0.9513888888888888,
+      "stable_trial_macro_f1": 0.9507791284107074,
+      "stable_trial_log_loss": 0.23759344885243547,
+      "stable_trial_brier": 0.029821162248906727,
+      "stable_trial_top_label_ece_10_bins": 0.10294600783367144,
+      "stable_decoded_macro_f1": 0.7979879896659435,
+      "late_rest_decoded_active_fraction": 0.1718213058419244,
+      "whole_stream_state_changes_per_minute": 34.340382678751254
+    }
+  },
+  "boundary": "Only existing source-trained bundle probabilities are post-processed; no classifier fit. S03 collection readiness failed, and S04 had already been inspected in earlier Song work, so this is exploratory. Stable-trial metrics use cue intervals and no actual movement onset; late-rest cues may include residual movement. No physical device, new user/day or live latency validation."
+}
