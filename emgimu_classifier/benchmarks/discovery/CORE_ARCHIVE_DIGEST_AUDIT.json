@@ -1,0 +1,69 @@
+{
+  "status": "all_six_core_archives_freshly_hashed_and_matched",
+  "checked_at_utc": "2026-09-23T19:04:58.735307+00:00",
+  "archive_count": 6,
+  "bytes_hashed": 15935850342,
+  "archives": [
+    {
+      "id": "libemg_force",
+      "path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_force\\contraction-intensity-main.zip",
+      "size": 207707607,
+      "mtime_ns_after": 1789420609270136400,
+      "sha256": "237212d87f50c9b621e572bc780d99fac3a9af60b99ec8b455fb3d3dbb2d15e7",
+      "md5": "61d4a5aaea134f3c730517a354e20870",
+      "manifest_sha256_match": true,
+      "manifest_md5_match": true
+    },
+    {
+      "id": "libemg_electrode_shift",
+      "path": "D:\\emg-imu-benchmarks\\data\\raw\\libemg_electrode_shift\\CIILData-main.zip",
+      "size": 11563732,
+      "mtime_ns_after": 1789425339369986200,
+      "sha256": "4cfa9a4861193f230179fa87d53eda7503e66b5cfedeae81c81e476f53f6b2b6",
+      "md5": "711df74c47dfe811968b8f41a37e2438",
+      "manifest_sha256_match": true,
+      "manifest_md5_match": true
+    },
+    {
+      "id": "unibo_inail",
+      "path": "D:\\emg-imu-benchmarks\\data\\raw\\unibo_inail\\unibo-inail-main.zip",
+      "size": 513385791,
+      "mtime_ns_after": 1789426181479491900,
+      "sha256": "e32f1649b7b9b775a6b03328fb862ebf21a18c7ca6b4d9abb50b7281caefbce3",
+      "md5": "5d16b514fbd3ff854dad04fa2632317d",
+      "manifest_sha256_match": true,
+      "manifest_md5_match": false
+    },
+    {
+      "id": "epn612",
+      "path": "D:\\emg-imu-benchmarks\\data\\raw\\epn612\\EMG-EPN612-Dataset.zip",
+      "size": 5483385161,
+      "mtime_ns_after": 1789422520179420500,
+      "sha256": "4ee8db037385e7bee1e6ac6f9e9eea4f0869e25f7825f5eb7e5be0dff4f93c21",
+      "md5": "98bd3c315efab607cc54b2ed2f8f3ada",
+      "manifest_sha256_match": true,
+      "manifest_md5_match": true
+    },
+    {
+      "id": "semg_manus",
+      "path": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+      "size": 594438686,
+      "mtime_ns_after": 1789422698082118900,
+      "sha256": "2d9e1df613485b9a4afe9a5a71010ca84e75a521b596f836a195b5eaf3dc1f29",
+      "md5": "2d3975173cd6b6832d50d0be0948e1f0",
+      "manifest_sha256_match": true,
+      "manifest_md5_match": true
+    },
+    {
+      "id": "emg_fmg",
+      "path": "D:\\emg-imu-benchmarks\\data\\raw\\emg_fmg\\Data.zip",
+      "size": 9125369365,
+      "mtime_ns_after": 1789427255083713500,
+      "sha256": "3021e8b5ff31fd5aaba5e11f5f1c4d370d07407c0f1451f36c64a3a03b42c677",
+      "md5": "453a9e17b5a2ee4c5e8da683d4df2c29",
+      "manifest_sha256_match": true,
+      "manifest_md5_match": true
+    }
+  ],
+  "boundary": "Hashes confirm current archive bytes against recorded manifests. They do not prove original experiment chronology, dataset semantics, full extracted-file quality, or DS2 historical identity."
+}

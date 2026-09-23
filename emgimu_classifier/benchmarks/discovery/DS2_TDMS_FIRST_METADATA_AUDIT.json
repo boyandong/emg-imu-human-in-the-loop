@@ -1,0 +1,74 @@
+{
+  "status": "first_segment_file_metadata_only",
+  "archive": "..\\..\\work\\datasets\\historical_ds2_candidate\\ds2_kaggle_v8.zip",
+  "archive_bytes_checked": 1123505003,
+  "tdms_members": 97,
+  "subject_folders": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20"
+  ],
+  "missing_filename_movement_indices_by_subject": {
+    "01": [
+      "5"
+    ],
+    "02": [
+      "5"
+    ]
+  },
+  "filename_movement_indices": {
+    "1": 20,
+    "2": 20,
+    "3": 20,
+    "4": 20,
+    "5": 18
+  },
+  "first_segment_name_values": {
+    "Prueba1": 2,
+    "Prueba1Puño": 14,
+    "Prueba1_Puño": 2,
+    "Prueba1_Puño2": 1,
+    "Prueba2": 1,
+    "Prueba2Tacita": 12,
+    "Prueba2Tacitra": 1,
+    "Prueba2_PME": 2,
+    "Prueba2_Tacita": 3,
+    "Prueba3": 1,
+    "Prueba3Meñique": 14,
+    "Prueba3_Meñique": 1,
+    "Prueba3_PM": 3,
+    "Prueba4": 1,
+    "Prueba4Extension": 14,
+    "Prueba4_E": 2,
+    "Prueba4_Extension": 3,
+    "Prueba5Reposo": 12,
+    "PruebaMeñique": 1,
+    "PruebaPuño1": 1,
+    "PruebaReposo": 1,
+    "PruebaTacita": 1,
+    "Reposo": 4
+  },
+  "combined_movement_files": [
+    "SEMG-04/SEMG-04_Mv4_Mv5.tdms"
+  ],
+  "format_reference": "https://www.ni.com/en/support/documentation/supplemental/07/tdms-file-format-internal-structure.html",
+  "csv": "DS2_TDMS_FIRST_METADATA.csv",
+  "boundary": "First-segment file name and filename indices are provenance clues, not validated labels for aggregate MAT trials. No per-trial force level, repetition, or subject-to-MAT join is established. No TDMS waveform or later-segment property was decoded. Historical experiment identity remains unproven."
+}

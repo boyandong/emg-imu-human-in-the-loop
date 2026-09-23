@@ -12,7 +12,8 @@ def verify(root):
     required=('DATASET_INVENTORY.md','DATASET_CANDIDATES.csv','FAILURE_BENCHMARK_MATRIX.md',
       'BENCHMARK_SELECTION_REPORT.md','GESTURE_ONTOLOGY.md','SENSOR_LAYOUTS.md',
       'DATASET_MANIFEST.json','DS2_ACCESS_AUDIT.json','DS2_ARCHIVE_AUDIT.json',
-      'DS2_NATIVE_MAT_AUDIT.json')
+      'DS2_NATIVE_MAT_AUDIT.json','DS2_TDMS_FIRST_METADATA_AUDIT.json',
+      'DS2_TDMS_FIRST_METADATA.csv','CORE_ARCHIVE_DIGEST_AUDIT.json')
     hashes={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in required}
     candidates=list(csv.DictReader((root/'DATASET_CANDIDATES.csv').open(encoding='utf-8-sig',newline='')))
     fields=('dataset','failure_targets','subjects','sessions','gestures','channels','sampling_rate',
@@ -24,9 +25,12 @@ def verify(root):
         points=[int(row[k]) for k in row if k.startswith('score_review_') and k not in ('score_review_total','score_review_basis','score_review_status')]
         if len(points)!=8 or any(v<0 or v>5 for v in points) or sum(points)!=int(row['score_review_total']):raise ValueError('Invalid reviewed vector')
     manifest=json.loads((root/'DATASET_MANIFEST.json').read_text(encoding='utf-8'))
+    archive_digest=json.loads((root/'CORE_ARCHIVE_DIGEST_AUDIT.json').read_text(encoding='utf-8'))
     ds2_access=json.loads((root/'DS2_ACCESS_AUDIT.json').read_text(encoding='utf-8'))
     ds2_archive=json.loads((root/'DS2_ARCHIVE_AUDIT.json').read_text(encoding='utf-8'))
     ds2_native=json.loads((root/'DS2_NATIVE_MAT_AUDIT.json').read_text(encoding='utf-8'))
+    tdms=json.loads((root/'DS2_TDMS_FIRST_METADATA_AUDIT.json').read_text(encoding='utf-8'))
+    tdms_rows=list(csv.DictReader((root/'DS2_TDMS_FIRST_METADATA.csv').open(encoding='utf-8',newline='')))
     if (ds2_access['page_status']!='accessible_without_sign_in'
             or ds2_access['download_attempt']['archive_downloaded']
             or not ds2_access['public_api_check']['archive_downloaded']
@@ -60,16 +64,47 @@ def verify(root):
             or len(ds2_native['sampled_raw_trials'])!=6
             or not ds2_native['raw_all_finite']):
         raise ValueError('DS2 native MAT audit changed')
+    archived_tdms={item['name']:item for item in ds2_archive['members'] if item['name'].endswith('.tdms')}
+    if (ds2.get('tdms_first_metadata_audit')!='benchmarks/discovery/DS2_TDMS_FIRST_METADATA_AUDIT.json'
+            or tdms['tdms_members']!=97 or len(tdms_rows)!=97
+            or tdms['subject_folders']!=[f'{subject:02d}' for subject in range(1,21)]
+            or tdms['filename_movement_indices']!={'1':20,'2':20,'3':20,'4':20,'5':18}
+            or tdms['missing_filename_movement_indices_by_subject']!={'01':['5'],'02':['5']}
+            or tdms['combined_movement_files']!=['SEMG-04/SEMG-04_Mv4_Mv5.tdms']
+            or {row['member'] for row in tdms_rows}!=set(archived_tdms)
+            or any(not row['first_segment_file_name'] for row in tdms_rows)
+            or any(row['member_crc32']!=archived_tdms[row['member']]['crc32']
+                   or int(row['member_uncompressed_bytes'])!=archived_tdms[row['member']]['bytes']
+                   for row in tdms_rows)):
+        raise ValueError('DS2 TDMS first-metadata inventory inconsistent with verified archive')
+    if (manifest.get('core_archive_digest_audit')!='benchmarks/discovery/CORE_ARCHIVE_DIGEST_AUDIT.json'
+            or archive_digest['status']!='all_six_core_archives_freshly_hashed_and_matched'
+            or archive_digest['archive_count']!=6
+            or len(archive_digest['archives'])!=6
+            or archive_digest['bytes_hashed']!=sum(row['size'] for row in archive_digest['archives'])):
+        raise ValueError('Core archive digest audit changed')
+    digest_by_id={row['id']:row for row in archive_digest['archives']}
+    if len(digest_by_id)!=6:
+        raise ValueError('Core archive digest IDs are not unique')
     archives=[]
     for dataset in manifest['datasets']:
         if dataset['status']!='downloaded_verified':continue
         path=Path(dataset['path']); size=path.stat().st_size
         if size!=dataset['size'] or not dataset.get('sha256'):raise ValueError('Archive size/hash record missing or changed')
+        verified=digest_by_id[dataset['id']]
+        if (Path(verified['path'])!=path or verified['size']!=size
+                or verified['mtime_ns_after']!=path.stat().st_mtime_ns
+                or verified['sha256'].lower()!=dataset['sha256'].lower()
+                or not verified['manifest_sha256_match']
+                or (dataset.get('md5') and
+                    (verified['md5'].lower()!=dataset['md5'].lower() or not verified['manifest_md5_match']))):
+            raise ValueError('Core archive digest does not match current manifest/file metadata')
         for key in ('size','md5','sha256'):
             if f'expected_{key}' in dataset and str(dataset[f'expected_{key}']).lower()!=str(dataset[key]).lower():
                 raise ValueError('Recorded official digest/size mismatch')
         archives.append({'id':dataset['id'],'current_file_size':size,'recorded_sha256':dataset['sha256'],
-                         'fresh_archive_digest_computed':False})
+                         'fresh_archive_digest_computed':True,
+                         'digest_checked_at_utc':archive_digest['checked_at_utc']})
     sanity=json.loads((root/'SANITY_AUDIT.json').read_text(encoding='utf-8'))
     expected={'libemg_force':(8,1000),'epn612':(8,200),'semg_manus':(8,200),
               'electrode_shift':(8,200),'unibo_inail':(4,500),'emg_fmg':(8,2000)}
@@ -119,14 +154,18 @@ def verify(root):
            'fresh_sha256_checked':True,'zip_members_crc_checked':ds2_archive['files'],
            'native_raw_mat_trials':ds2_native['raw_trials'],
            'native_gesture_window_labels':ds2_native['gesture_window_label_count'],
+           'tdms_first_metadata_members':tdms['tdms_members'],
+           'tdms_per_trial_force_mapping':'unproven',
            'historical_identity':'unproven'},
        'archive_bytes':total,'archive_GB_decimal':total/1e9,'archive_GiB_binary':total/(1024**3),
+       'core_archive_digest_audit':'CORE_ARCHIVE_DIGEST_AUDIT.json',
        'source_sanity_reports_rehashed':reports,'captioned_plot_files_rehashed':plots,'sampled_native_recordings':36,
        'random_subject_condition_checks':subject_checks,
-       'limitations':['fresh multi-GB archive digests not recomputed; recorded digests and current sizes only',
+       'limitations':['current verifier cross-checks the freshly recorded full digests against current sizes and mtimes; it does not rehash the six multi-GB archives on each invocation',
           'hash/caption verification does not establish visual or full-population signal quality',
           'reported durations agree with native rates; no independent hardware clock check',
           'publisher-linked DS2 v8 archive is verified; historical input identity and old-result reproduction remain unproven',
+          'TDMS first-segment names give subject/movement provenance clues but no aggregate-MAT trial or force-level join',
           'DS2 publication and Kaggle page expose conflicting license labels; redistribution is not cleared',
           'retrospective scorecards do not prove original scoring/phase ordering',
           'secondary candidate paper/licensing/layout verification remains incomplete',

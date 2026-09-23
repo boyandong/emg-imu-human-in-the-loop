@@ -93,9 +93,12 @@ and frozen experiments remain unchanged; the review does not prove scoring prece
 training. Native repetition limitations lower wearing/MANUS calibration scores;
 metadata-only secondary datasets are not assigned sampled-QC evidence.
 
-DISCOVERY_DELIVERY_AUDIT.json rechecks all eight required files, candidate fields,
-eight-point score vectors, current six-archive sizes, six source sanity-report hashes
-and 36 captioned plot hashes. The six-core archive total is 15,935,850,342 bytes.
+DISCOVERY_DELIVERY_AUDIT.json rechecks the eight core required files and supplemental
+audits, candidate fields, eight-point score vectors, current six-archive sizes,
+six source sanity-report hashes and 36 captioned plot hashes. A separate full
+digest pass reread all 15,935,850,342 core-archive bytes and matched SHA-256;
+the public DS2 v8 TDMS first-segment inventory exposes file-level gesture clues
+but no per-trial force or aggregate-MAT label join.
 The original seed/population draw also reproduces three distinct subjects and two
 specified conditions for every dataset, including the restricted complete MANUS
 cohort used by the native sanity producer. This verifies sample selection evidence,

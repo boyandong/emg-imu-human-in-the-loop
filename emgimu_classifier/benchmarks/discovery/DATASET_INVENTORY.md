@@ -40,3 +40,21 @@ has 332,108 labels in five integer classes. [DS2_NATIVE_MAT_AUDIT.json](DS2_NATI
 records the source hashes and sample values. It does not establish how raw
 trials map to subjects, gestures or force levels; those labels cannot be
 joined to the window-label file by row count alone.
+
+The separate [TDMS first-segment inventory](DS2_TDMS_FIRST_METADATA_AUDIT.json)
+reads the file-level `name` property from all 97 TDMS members using the
+[NI TDMS segment definition](https://www.ni.com/en/support/documentation/supplemental/07/tdms-file-format-internal-structure.html).
+Their folder names cover subjects `01`–`20`; filename movement indices 1–4
+appear for all 20, while index 5 appears for 18. Subjects `01` and `02` lack
+an Mv5 filename, and subject `04` has one combined `Mv4_Mv5` member.
+File-level names contain gesture clues such as `Puño`, `Tacita`, `Meñique`,
+`Extension` and `Reposo`, but include inconsistent spellings and generic
+`Prueba1`–`Prueba4` names. These first-segment properties neither provide
+per-trial force labels nor map the 2,863 aggregate MAT trials to subjects.
+No labelled DS2 force experiment has been reconstructed from this inventory.
+
+The six selected native benchmark archives were also reread byte for byte.
+All 15,935,850,342 bytes matched the recorded SHA-256 digests (and recorded
+MD5 digests where available); the [fresh digest audit](CORE_ARCHIVE_DIGEST_AUDIT.json)
+records each check and file modification time. This verifies archive integrity,
+not the original research phase order or any historical DS2 result.
