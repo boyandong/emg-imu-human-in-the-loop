@@ -1,0 +1,67 @@
+{
+  "dataset": "epn612",
+  "phase": "final",
+  "source_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "validation_users": [
+    16,
+    17,
+    18
+  ],
+  "target_users": [
+    19,
+    20,
+    21
+  ],
+  "families": [
+    "F0",
+    "F3_Ring",
+    "F2b_CSP",
+    "F6_IMU"
+  ],
+  "calibration_budgets": [
+    0
+  ],
+  "random_seeds": {
+    "source_model_selection": 20260915
+  },
+  "model_hyperparameters": "frozen source fitted states; see original source manifest",
+  "preprocessing_config": "frozen source family states; native EPN trial aggregation",
+  "split_ids": "exact source/validation/final trial IDs in split_trial_ids.json",
+  "session_ids": null,
+  "force_labels": null,
+  "source_run": "feature_bank_epn_selection_20260915",
+  "source_result": "feature_bank\\results\\epn_shortlist_final_replay.json",
+  "source_result_sha256": "b8d7b1af08a78cfe8645313cd185cb47b4687e6981a6c1c80ac4b69c6a28ec98",
+  "source_outputs_sha256": {
+    "ablation_full_bank.csv": "2f0c5b6b7aaa2fe147d2dcc3da045fdc6dbe52923843d6750f6e3d7ecda56768",
+    "feature_family_results.csv": "b0a73b7b105d37b2be7df72f6b89b46ec15b516b0dc6e9f20a410fb27324de2c",
+    "heldout_predictions.npz": "c8d9dd03297e7b268dce7a67ef845f377a7f1117ad4dd40691e46c4641a11d04",
+    "split_trial_ids.json": "53f7e97c53fe3191dd345796c243527e1f63e704faaf7d79a285693971b4b691"
+  },
+  "export_script_sha256": "888a4a12dc5b759dbe17903fac8e29badf1ec6fa1dc29b33da9a3b64aa612d09",
+  "output_sha256": {
+    "feature_family_results.csv": "b0a73b7b105d37b2be7df72f6b89b46ec15b516b0dc6e9f20a410fb27324de2c",
+    "ablation_full_bank.csv": "6a3de16cce6875226ac38cca231d1d6f1364db88304c46deaba8f6d7fe6d09bc"
+  },
+  "rows": {
+    "feature_family_results.csv": 48,
+    "ablation_full_bank.csv": 20
+  },
+  "boundary": "Only the supplementary delta_logloss_vs_full column is omitted from the canonical ablation CSV; the original value remains in the frozen replay source and compact audit. Final users were examined elsewhere in the project, and reference Ring is not proven historical RLCS."
+}

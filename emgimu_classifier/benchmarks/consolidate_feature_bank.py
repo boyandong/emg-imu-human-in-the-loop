@@ -129,6 +129,7 @@ RUNS = (
     'feature_bank_epn_calibration_diagnostics_final_20260915_v2',
     'feature_bank_epn_spd_anchor_core_increment_validation_20260923',
     'feature_bank_epn_spd_anchor_core_increment_final_20260923',
+    'feature_bank_epn_shortlist_final_delivery_20260923',
 )
 ARTIFACTS = ('feature_family_results.csv', 'conditional_incremental.csv', 'interaction_results.csv',
              'error_complementarity.csv', 'calibration_curve.csv', 'ablation_full_bank.csv',

@@ -279,9 +279,9 @@ The current temporal comparison shares most errors (G5/reference-F5 model correl
 Six new benchmark archives are complete. Five canonical CSVs, schema/provenance audits,
 source run manifests, trial lists, dimensions, per-user/per-class diagnostics, calibration
 burden estimates and SVG curves are available. The latest suite ran 203 tests (202
-passed, one skipped); consolidated integrity covers 220 artifacts, 51,549 rows
+passed, one skipped); consolidated integrity covers 222 artifacts, 51,617 rows
 and 1,248 explicit partitions, while canonical record verification covers
-49,920 rows. These are narrow
+49,988 rows. These are narrow
 integrity/implementation checks, not proof that every scientific requirement is complete.
 
 The highest-priority remaining work is the exact historical dataset/algorithm audit,
@@ -2485,7 +2485,7 @@ invalid count/denominator combinations. It also maps the recorded
 `disagreement_fraction` to `disagreement_rate`; that disagreement need not equal
 the sum of asymmetric correctness rates because both predictions may be wrong.
 All 60 rows now have the three required rates without retraining or inventing
-observations. The regenerated provenance audit verifies 49,920 source records.
+observations. The regenerated provenance audit verifies 49,988 source records.
 The delivery remains `schema_complete_evidence_partial`: some source runs still
 lack subject, session/domain, or error-correlation evidence. This repair does
 not establish a physiological complementarity claim or complete Section 15.
@@ -2527,7 +2527,7 @@ splits and freshly SHA-256-verified raw archives, without fitting. Recovery
 verifies every original correctness-disagreement and asymmetric-correctness
 rate to 1e-12, binds each recovered rate to its original row hash and input
 hashes, and changes no source row. All 402 legacy rows now have true
-prediction disagreement; all 49,920 canonical records pass provenance checks.
+prediction disagreement; all 49,988 canonical records pass provenance checks.
 The broader schema remains evidence-partial because other fields still lack
 source support.
 
@@ -2563,6 +2563,14 @@ Only three final users are available. The final cohort is held out from this
 shortlist fit/selection, although it has been used by other project studies;
 this is not a pristine project-wide blind test. Reference Ring is not proven
 historical RLCS, and no cross-failure or own-device generalization follows.
+
+The frozen final replay is also included in the canonical delivery: 48
+family/model score rows and 20 full-bank/removal rows. Its source audit binds
+the saved source states, exact split IDs and replay outputs; the delivery
+exporter verifies those hashes and keeps the prior ablation columns stable.
+The additional relative log-loss value remains in the frozen source result.
+Canonical verification checks all 49,988 copied records; this incorporation
+does not change the original model selection or final-user scores.
 
 ## Frozen EPN Personal Anchor × reference Spatial Coordination (2026-09-23)
 

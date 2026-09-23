@@ -3,7 +3,7 @@
   "prediction_disagreement_recovery_sha256": "9b0bd1414285082a62ab8d771894940a9c41b395a58f3797c9576dc96f18293f",
   "artifacts": {
     "feature_family_results.csv": {
-      "rows": 4791,
+      "rows": 4839,
       "required_fields": [
         "dataset",
         "subject",
@@ -59,8 +59,8 @@
           "session/domain": 6
         }
       },
-      "source_csv_sha256": "f457c5e5f24e16f664e04b45a16ded4f8d4bbb3f693f22887b0536ce64041882",
-      "canonical_csv_sha256": "641d6a0cc30a8490900ca67a475bf2cf8665075e21a8b6a0fae5d5765fd240dc"
+      "source_csv_sha256": "8dbe1b1eaee503ddf4c62e2ac4e87bc8f628806f772cb0ce49102b5d59750c78",
+      "canonical_csv_sha256": "87ee6b7c882a6c4b9e487dab8d6b491c3ed0973904a9cce87ffcc08b7f7a590f"
     },
     "conditional_incremental.csv": {
       "rows": 5719,
@@ -338,7 +338,7 @@
       "canonical_csv_sha256": "335881b317eb481e9c730913df6cdebe8b1d30bbea45c61f919eeb890d75c4f6"
     },
     "ablation_full_bank.csv": {
-      "rows": 14603,
+      "rows": 14623,
       "required_fields": [
         "dataset",
         "subject",
@@ -355,9 +355,9 @@
         "macro_f1": 54,
         "log_loss": 54,
         "subject": 72,
-        "shots_per_class": 92,
+        "shots_per_class": 112,
         "feature_bank": 72,
-        "method": 92
+        "method": 112
       },
       "missing_by_run": {
         "feature_bank_manus_session_blend_validation_20260915_v2": {
@@ -452,10 +452,14 @@
         "feature_bank_manus_full_fusion_final_20260915_v2": {
           "macro_f1": 7,
           "log_loss": 7
+        },
+        "feature_bank_epn_shortlist_final_delivery_20260923": {
+          "shots_per_class": 20,
+          "method": 20
         }
       },
-      "source_csv_sha256": "49cd371d40e57a1ad610cf9df8589b00c111a933df227de1cb6dff76d47a036a",
-      "canonical_csv_sha256": "714d5208f39f1e8082bef822a1dcb469c078752b33274b82a18d9170ae1489a1"
+      "source_csv_sha256": "08b77fa187716210b2c52da795cf9d352f5a1bed24cf789380a3fe395916a3b0",
+      "canonical_csv_sha256": "74a37535409aa9b29235302d7633e5bcfdd131ccdc5597c4a4fdc1376d04f84f"
     }
   },
   "scope": "five required schemas; exact source record identities; no invented metrics/session IDs; N/A requires source repair or capability boundary",

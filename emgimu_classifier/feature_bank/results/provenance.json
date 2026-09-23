@@ -236,6 +236,13 @@
     "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
   },
   {
+    "run_id": "feature_bank_epn_shortlist_final_delivery_20260923",
+    "artifact": "feature_family_results.csv",
+    "sha256": "b0a73b7b105d37b2be7df72f6b89b46ec15b516b0dc6e9f20a410fb27324de2c",
+    "bytes": 16122,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
+  },
+  {
     "run_id": "feature_bank_wearing_document_core_validation_20260916",
     "artifact": "conditional_incremental.csv",
     "sha256": "2dc931b64da727dab460631c86b2d57807efb6821f09434a8ee6e88f09c8f3c3",
@@ -1232,6 +1239,13 @@
     "artifact": "ablation_full_bank.csv",
     "sha256": "9b6b5decb45f2d7fb0db42672babdd86def9c17d53fb049fc6dda2f13cc42bf2",
     "bytes": 185324
+  },
+  {
+    "run_id": "feature_bank_epn_shortlist_final_delivery_20260923",
+    "artifact": "ablation_full_bank.csv",
+    "sha256": "6a3de16cce6875226ac38cca231d1d6f1364db88304c46deaba8f6d7fe6d09bc",
+    "bytes": 7449,
+    "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\benchmark_runs"
   },
   {
     "run_id": "feature_bank_manus_calibration_diagnostics_validation_20260915",
