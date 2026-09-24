@@ -17,6 +17,7 @@ from PySide6.QtWidgets import (
 
 from emgforce.algorithms import ALGORITHMS, META_CONV_LSTM, algorithm_display_name, get_algorithm
 from emgforce.inference.engine import PredictionFrame
+from emgforce.inference.analyze_live_diagnostic import analyze as analyze_live_diagnostic
 from emgforce.inference.live_diagnostic import LiveDiagnosticRecorder
 from emgforce.inference.model_bundle import ModelBundle, discover_model_bundles
 from emgforce.inference.song_local import (
@@ -828,7 +829,10 @@ class RealtimeInferencePage(QWidget):
     def ingest_emg(self, raw: np.ndarray, indices: np.ndarray,
                    received_ns: np.ndarray | None = None) -> None:
         if len(indices):
+            first_captured = self._diagnostic is not None and self._last_live_sample_index is None
             self._last_live_sample_index = int(indices[-1])
+            if first_captured:
+                self._update_live_buttons()
         if self._diagnostic is not None:
             try:
                 self._diagnostic.record_emg(raw, indices, received_ns)
@@ -854,6 +858,7 @@ class RealtimeInferencePage(QWidget):
         if (self._diagnostic is not None or self.bundle is None or not self._connected or
                 self.worker is None or not self.worker.isRunning()):
             return
+        self._last_live_sample_index = None
         try:
             self._diagnostic = LiveDiagnosticRecorder(
                 self.models_root.parent / "data" / "live_diagnostics",
@@ -873,9 +878,19 @@ class RealtimeInferencePage(QWidget):
         self._diagnostic = None
         try:
             path = recorder.close()
-            self.diagnostic_status.setText(f"诊断记录已保存：{path}")
         except (OSError, RuntimeError, ValueError) as exc:
             self.diagnostic_status.setText(f"诊断记录关闭异常，检查 {recorder.directory}：{exc}")
+        else:
+            try:
+                summary = analyze_live_diagnostic(path)
+            except (OSError, RuntimeError, ValueError) as exc:
+                self.diagnostic_status.setText(f"诊断记录已保存到 {path}；自动分析失败：{exc}")
+            else:
+                neutral_share = summary["peak_label_fractions"].get("neutral")
+                neutral_text = (f"；峰值静息 {neutral_share:.1%}" if neutral_share is not None else "")
+                self.diagnostic_status.setText(
+                    f"诊断记录与分析已保存：{path}；{summary['prediction_frames']} 帧预测"
+                    f"{neutral_text}；{summary['manual_intervals']} 段人工标记")
         self._update_live_buttons()
 
     def _diagnostic_failed(self, exc: Exception) -> None:
@@ -1291,8 +1306,9 @@ class RealtimeInferencePage(QWidget):
         enabled = self.bundle is not None and self._connected
         self.start_diagnostic_button.setEnabled(enabled and self._diagnostic is None)
         self.stop_diagnostic_button.setEnabled(self._diagnostic is not None)
-        self.mark_action_start_button.setEnabled(self._diagnostic is not None)
-        self.mark_action_end_button.setEnabled(self._diagnostic is not None)
+        can_annotate = self._diagnostic is not None and self._last_live_sample_index is not None
+        self.mark_action_start_button.setEnabled(can_annotate)
+        self.mark_action_end_button.setEnabled(can_annotate)
         is_song = enabled and bool(self.bundle.metadata.get("song_real8_local"))
         self.calibrate_button.setEnabled(enabled and not is_song)
         self.pause_button.setEnabled(enabled)

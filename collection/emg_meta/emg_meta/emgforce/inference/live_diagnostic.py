@@ -126,8 +126,10 @@ class LiveDiagnosticRecorder:
                           latest_sample_index: int | None) -> None:
         if action not in self.labels or event not in ("start", "end"):
             raise ValueError("manual annotation must name a model label and start/end")
+        if latest_sample_index is None:
+            raise ValueError("wait for a captured EMG sample before annotating")
         self._annotation_writer.writerow((_utc(), time.monotonic_ns(),
-                                          "" if latest_sample_index is None else int(latest_sample_index),
+                                          int(latest_sample_index),
                                           action, event))
         self._annotation_handle.flush()
         self.manifest["manual_annotations"] += 1
