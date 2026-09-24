@@ -18,7 +18,7 @@ data and manifests use sibling directories. Raw archives and extracted data are 
 | GRABMyo | new | frozen F1–F8 WFDB subset adapter | 8-subject, 3-day, 4-class F0/F2a/F4 trial-level screen | `D:/emg-imu-benchmarks/data/raw/grabmyo_crossday_subset_v1` | selected 672 records / 1,344 files / 442,479,520 bytes match official SHA256SUMS; full 9.4 GB collection not downloaded |
 | NinaPro DB5 | new | generic 16-to-two-8-channel policy | no | `data/raw/ninapro_db5` | secondary; NinaPro account and terms required |
 | FORS-EMG | new | no | no | `data/raw/fors_emg` | supplementary; original release is Kaggle |
-| Three-position electrode replacement | new | no | no | `data/raw/electrode_replacement` | secondary; public Zenodo archive |
+| Three-position electrode replacement | new | strict eight-channel text adapter | independent P1 gallery / P2 selection / P3 final file-level movement retrieval | `../work/secondary_raw/electrode_replacement/EMG dataset.7z` | official 315,604,904-byte Zenodo archive downloaded and SHA-256 checked; 267/270 expected recordings present, 23 malformed files rejected; see [`REPORT.md`](../new_bank_v1/ZENODO_REPLACEMENT_REPORT.md) |
 | Hyser | new | no | no | `data/raw/hyser` | metadata only; full collection is about 143 GB |
 
 The repository search found no files, commits, configurations or reports identifying the

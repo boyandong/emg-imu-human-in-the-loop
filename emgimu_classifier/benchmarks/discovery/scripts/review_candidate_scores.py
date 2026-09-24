@@ -7,7 +7,7 @@ CRITERIA=('A_failure_relevance','B_product_similarity','C_factor_isolation','D_i
 # Current metadata judgement, not a reconstruction of the undocumented old totals.
 # Unknown repetition/quality/size lowers confidence and is stated explicitly.
 CARDS={
- 'Historical DS2 force':((5,2,4,2,5,2,0,2),'Publication protocol only; historical identity and raw archive missing. Current access unresolved; no native QC or reliable storage estimate.'),
+ 'Historical DS2 force':((5,2,4,2,5,2,0,2),'Retrospective score unchanged; public v8 archive CRC checked and all 996324 MAV values exactly reconstructed in raw-trial order. 2862 uniform gesture-code blocks and one mixed block; exact TDMS waveform join verifies subject folders for 2833 trials while 30 remain unmatched. Force mapping and historical input identity remain unproven.'),
  'LibEMG Contraction Intensity':((5,5,4,3,4,4,3,4),'Verified native sample/QC; clear intensity conditions, eight-channel cuff; day labels not reliably encoded. Ramp source has four trials/class; repository license undeclared.'),
  'LibEMG Electrode Shift':((5,5,4,3,2,4,3,5),'Verified native sample/QC; five Before and two trials/class/After-domain. Only0/1-shot per wearing domain. Calendar days not encoded; repository license undeclared.'),
  'UniBo-INAIL':((5,2,4,5,3,4,5,4),'Verified native sample/QC; day by posture factorial, four targeted muscles not eight-ring. Calibration capability follows native independent trials, not window count.'),
@@ -16,11 +16,16 @@ CARDS={
  'EMG-FMG load and limb position':((5,3,5,5,2,4,5,2),'Verified sample/QC and orthogonal load/position labels. External load is not voluntary force; per-cell calibration repetition support needs explicit inventory. Large raw expansion avoided by streaming.'),
  'GREAT':((5,3,4,4,3,2,4,3),'Metadata-only independent day/posture design;16 channels. No native archive QC or independent repetition inventory yet.'),
  'NinaPro DB6':((5,3,4,5,5,2,2,2),'Metadata-only repeated-day and morning/afternoon design,14 electrodes. Account/terms and actual download size remain unresolved; no native QC.'),
- 'GRABMyo':((5,3,4,4,5,2,5,2),'Metadata-only multi-session cohort/seven trials per gesture.28 usable of32 channels, higher storage cost; no native QC.'),
+ 'GRABMyo':((5,3,4,4,5,2,5,2),'Retrospective score unchanged. Selected F1-F8 native WFDB subset verified against publisher SHA256SUMS: 8 subjects, 3 days, 4 classes, 7 trials/cell, 672 records. Frozen day1/day2/day3 F0/F2a/F4 study reported in benchmarks/grabmyo_crossday/REPORT.md; full cohort and own-device performance remain unmeasured.'),
  'NinaPro DB5':((4,4,3,2,3,2,2,3),'Metadata-only two-Myo sensing, no strong multi-day design. Repetition inventory, account/terms and actual size remain to verify.'),
  'FORS-EMG':((4,2,3,2,3,2,2,2),'Metadata-only orientation/coarse placement regions, not controlled re-donning. Native repetition layout, license, access and archive size unverified.'),
- 'Three-position electrode replacement':((5,5,4,3,3,2,5,5),'Metadata-only controlled array positions and315MB official archive; native repetitions and QC not yet checked.'),
+ 'Three-position electrode replacement':((5,5,4,3,3,2,5,5),'Retrospective score unchanged. Official archive SHA-256 verified; 267/270 expected native eight-channel text files present. Strict parser rejected 23 malformed files; 9 subjects and 79 matched movement recordings per target position evaluated. P1/P2/P3 file-level retrieval and limitations reported in benchmarks/new_bank_v1/ZENODO_REPLACEMENT_REPORT.md.'),
  'Hyser':((5,1,4,5,4,2,5,0),'Metadata-only real-force/HD observability resource.256 channels and roughly143GB full collection; calibrated subsets would require separate design. No native QC.'),
+}
+
+STATUS_OVERRIDES={
+ 'GRABMyo':'retrospective_metadata_judgement; selected native subset verified and evaluated',
+ 'Three-position electrode replacement':'retrospective_metadata_judgement; native archive and file-level screen verified',
 }
 
 
@@ -35,7 +40,8 @@ def review(root):
         row.update({f'score_review_{key}':value for key,value in zip(CRITERIA,values)})
         row['score_review_total']=sum(values)
         row['score_review_basis']=basis
-        row['score_review_status']='retrospective_metadata_judgement; native verification confidence stated in basis'
+        row['score_review_status']=STATUS_OVERRIDES.get(row['dataset'],
+            'retrospective_metadata_judgement; native verification confidence stated in basis')
         if row['dataset']=='Historical DS2 force':
             row['license']='CC-BY-4.0 (publication; archive identity unverified)'
     assert original==[(r['dataset'],r['score'],r['decision'],r['reason']) for r in rows]
