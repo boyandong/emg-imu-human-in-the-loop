@@ -1,0 +1,34 @@
+{
+  "name": "new_bank_v1_independent_feature_screen",
+  "frozen_date": "2026-09-24",
+  "implementation": "new_bank_v1.py; independent numerical implementation, no historical-code equivalence claim",
+  "families": {
+    "scale_pattern": "per-channel RMS divided by root-mean-square of channel RMS; no amplitude coordinate",
+    "ring_lag": "moving-RMS envelope with 25 ms width; correlation mean and standard deviation for circular lags 1..floor(C/2)",
+    "correlation_spectrum": "descending nonnegative eigenvalues of moving-RMS-envelope channel correlation, normalized to sum one",
+    "frequency_direction": "Hann-windowed mean-removed FFT; four equal-width bands from min(20,0.1*Nyquist) to min(450,0.95*Nyquist); L2-normalized channel power vector per band"
+  },
+  "baseline": "existing F0 LocalDetailFamily fitted on source only; not an attempt to recover historical B0",
+  "common_classifier": "StandardScaler plus balanced LogisticRegression C=1 max_iter=2000 random_state=20260924, fitted on source trials only",
+  "force": {
+    "dataset": "LibEMG ContractionIntensity native eight-channel 1000 Hz",
+    "source_subjects": [1,2,3,4,5,6],
+    "source_conditions": ["Ramp"],
+    "validation_subjects": [7,8],
+    "final_subjects": [9,10],
+    "target_conditions": ["20P","30P","40P","50P","60P","70P","80P","MVC","Light","Medium","Hard"],
+    "arms": ["F0","F0+scale_pattern","F0+frequency_direction","F0+scale_pattern+frequency_direction"]
+  },
+  "wearing": {
+    "dataset": "LibEMG CIILData native eight-channel 200 Hz",
+    "validation_subjects": [15,16,17],
+    "final_subjects": [18,19,20],
+    "source_domain": "training",
+    "target_domains": ["trial_1","trial_2","trial_3","trial_4"],
+    "arms": ["F0","F0+ring_lag","F0+correlation_spectrum","F0+ring_lag+correlation_spectrum"]
+  },
+  "trial_aggregation": "mean of at most eight nonoverlapping native 200ms windows; split before windowing",
+  "primary_metrics": ["pooled_macro_f1","pooled_log_loss","pooled_brier","minimum_subject_macro_f1","worst_condition_macro_f1"],
+  "selection_rule": "No definition, bands, envelope width, subjects, conditions, arms or hyperparameters changed after outcome inspection. Validation-best arm identified before interpreting final arm rankings.",
+  "scope": "Exploratory forward feature development; not old X1-H/RLCS/CES/Frequency reproduction, not own-device live recognition."
+}
