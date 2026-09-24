@@ -27,6 +27,8 @@ def test_manual_interval_analysis_counts_neutral_bias_without_claiming_truth(tmp
     assert summary["manual_intervals"] == 1
     assert summary["file_hashes_verified"] is True
     assert summary["raw_emg_samples_verified"] == 101
+    assert summary["raw_signal_profile"]["zero_fraction_per_channel"] == [1.0] * 8
+    assert summary["reported_lost_packets"] == 0
     assert summary["prediction_frames_outside_captured_raw"] == 0
     assert summary["annotated_action_summary"]["open_hand"]["mean_peak_agreement"] == pytest.approx(1 / 3)
     assert summary["annotated_action_summary"]["open_hand"]["mean_display_agreement"] == pytest.approx(1 / 3)
@@ -36,3 +38,23 @@ def test_manual_interval_analysis_counts_neutral_bias_without_claiming_truth(tmp
         handle.write("\n")
     with pytest.raises(ValueError, match="hash mismatch"):
         analyze(directory)
+
+
+def test_signal_profile_flags_flat_and_near_limit_channels_descriptively(tmp_path):
+    run = LiveDiagnosticRecorder(tmp_path, model_id="m", model_sha256="c" * 64,
+                                 labels=("neutral", "open_hand"), sample_rate_hz=250,
+                                 threshold=0.5, hand="right")
+    raw = np.tile(np.arange(500, dtype=np.int32)[:, None], (1, 8))
+    raw[:, 0] = 0
+    raw[10:20, 2] = 8_300_000
+    run.record_emg(raw, np.arange(len(raw)), np.arange(len(raw), dtype=np.int64) * 4_000_000)
+    run.record_packet_loss(3)
+    result = analyze(run.close())
+    profile = result["raw_signal_profile"]
+    assert profile["complete_one_second_windows"] == 2
+    assert profile["flat_one_second_windows_per_channel"][0] == 2
+    assert profile["flat_one_second_windows_per_channel"][1] == 0
+    assert profile["near_adc_limit_fraction_per_channel"][2] == pytest.approx(10 / 500)
+    assert profile["received_rate_hz_approx"] == pytest.approx(250.0)
+    assert result["reported_lost_packets"] == 3
+    assert result["sample_index_gap_edges"] == 0

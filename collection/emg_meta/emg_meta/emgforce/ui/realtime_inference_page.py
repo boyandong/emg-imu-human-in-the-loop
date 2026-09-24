@@ -888,9 +888,15 @@ class RealtimeInferencePage(QWidget):
             else:
                 neutral_share = summary["peak_label_fractions"].get("neutral")
                 neutral_text = (f"；峰值静息 {neutral_share:.1%}" if neutral_share is not None else "")
+                profile = summary["raw_signal_profile"]
+                flat = max(profile["flat_one_second_windows_per_channel"])
+                near_limit = max(profile["near_adc_limit_fraction_per_channel"] or [0])
+                quality_text = (f"；平线整秒窗口最多 {flat} 个"
+                                f"；近 ADC 上限占比最高 {near_limit:.1%}"
+                                f"；设备报告丢包 {summary['reported_lost_packets']}")
                 self.diagnostic_status.setText(
                     f"诊断记录与分析已保存：{path}；{summary['prediction_frames']} 帧预测"
-                    f"{neutral_text}；{summary['manual_intervals']} 段人工标记")
+                    f"{neutral_text}；{summary['manual_intervals']} 段人工标记{quality_text}")
         self._update_live_buttons()
 
     def _diagnostic_failed(self, exc: Exception) -> None:

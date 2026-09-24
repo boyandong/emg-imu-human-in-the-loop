@@ -25,6 +25,45 @@ def _sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def _signal_profile(handle: h5py.File, sample_rate: int) -> dict:
+    raw = handle["emg/raw"]
+    count = len(raw)
+    squared = np.zeros(8, dtype=np.float64)
+    zeros = np.zeros(8, dtype=np.int64)
+    saturation = np.zeros(8, dtype=np.int64)
+    minimum = np.full(8, np.inf)
+    maximum = np.full(8, -np.inf)
+    flat_windows = np.zeros(8, dtype=np.int64)
+    full_windows = 0
+    chunk_size = max(sample_rate * 60, sample_rate)
+    for start in range(0, count, chunk_size):
+        values = raw[start:start + chunk_size].astype(np.float64)
+        squared += np.square(values).sum(axis=0)
+        zeros += np.count_nonzero(values == 0, axis=0)
+        saturation += np.count_nonzero(np.abs(values) >= 8_300_000, axis=0)
+        minimum = np.minimum(minimum, values.min(axis=0))
+        maximum = np.maximum(maximum, values.max(axis=0))
+        complete = len(values) // sample_rate
+        if complete:
+            windows = values[:complete * sample_rate].reshape(complete, sample_rate, 8)
+            flat_windows += np.count_nonzero(np.ptp(windows, axis=1) == 0, axis=0)
+            full_windows += complete
+    received = handle["emg/received_ns"][:]
+    valid_stamps = received[received >= 0]
+    duration = ((int(valid_stamps[-1]) - int(valid_stamps[0])) / 1e9
+                if len(valid_stamps) > 1 else 0.0)
+    return {
+        "raw_unit": "device integer values; no physical-unit conversion inferred",
+        "rms_per_channel": (np.sqrt(squared / count).tolist() if count else None),
+        "peak_to_peak_per_channel": ((maximum - minimum).tolist() if count else None),
+        "zero_fraction_per_channel": ((zeros / count).tolist() if count else None),
+        "near_adc_limit_fraction_per_channel": ((saturation / count).tolist() if count else None),
+        "flat_one_second_windows_per_channel": flat_windows.tolist(),
+        "complete_one_second_windows": full_windows,
+        "received_rate_hz_approx": ((len(valid_stamps) - 1) / duration if duration > 0 else None),
+    }
+
+
 def analyze(directory: Path) -> dict:
     directory = Path(directory)
     manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
@@ -56,6 +95,13 @@ def analyze(directory: Path) -> dict:
                 len(handle["imu/received_ns"]) != imu_count or
                 imu_count != manifest["imu_samples"]):
             raise ValueError("diagnostic IMU arrays or counts are inconsistent")
+        signal_profile = _signal_profile(handle, int(manifest["sample_rate_hz"]))
+        imu_nonfinite_samples = 0
+        for start in range(0, imu_count, 60_000):
+            gyro = handle["imu/gyro_rad_s"][start:start + 60_000]
+            accel = handle["imu/accel_m_s2"][start:start + 60_000]
+            imu_nonfinite_samples += int(np.count_nonzero(
+                ~np.isfinite(gyro).all(axis=1) | ~np.isfinite(accel).all(axis=1)))
     predictions = []
     for row in prediction_rows:
         values = np.asarray([float(row[f"p_{label}"]) for label in labels])
@@ -113,6 +159,10 @@ def analyze(directory: Path) -> dict:
         "prediction_frames_outside_captured_raw": outside_raw,
         "raw_emg_samples_verified": raw_count,
         "raw_imu_samples_verified": imu_count,
+        "imu_nonfinite_samples": imu_nonfinite_samples,
+        "raw_signal_profile": signal_profile,
+        "sample_index_gap_edges": int(np.count_nonzero(np.diff(sample_indices) > 1)),
+        "reported_lost_packets": int(manifest["reported_lost_packets"]),
         "file_hashes_verified": True,
         "manual_intervals": len(intervals),
         "unfinished_manual_start": pending is not None,
@@ -126,7 +176,7 @@ def analyze(directory: Path) -> dict:
                      "mean_target_probability": float(np.mean([row["mean_target_probability"] for row in rows]))}
             for action, rows in by_action.items()},
         "intervals": scored,
-        "scope": "Manual keypress intervals express intended actions, not measured physiological onset/offset; values are diagnostic agreement, not formal recognition accuracy. Predictions outside the captured raw range can occur when recording starts while inference is already running.",
+        "scope": "Manual keypress intervals express intended actions, not measured physiological onset/offset; values are diagnostic agreement, not formal recognition accuracy. Raw signal metrics are descriptive across movements, not a rest-calibration pass/fail. Packet loss can occur without a sample-index gap because indices count received samples. Predictions outside the captured raw range can occur when recording starts while inference is already running.",
     }
     (directory / "analysis.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False) + "\n",
                                               encoding="utf-8")
