@@ -1,0 +1,135 @@
+{
+  "status": "raw_adc_same_person_day_F9_observation_not_deployed",
+  "source_sessions": [
+    {
+      "session": "S01",
+      "sha256": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+      "readiness": "failed",
+      "formal_windows": 426
+    },
+    {
+      "session": "S02",
+      "sha256": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+      "readiness": "failed",
+      "formal_windows": 423
+    }
+  ],
+  "source_f9_state_sha256": "30aa7db6a67f834ae2d76dabc078fd4a20575ef664242eafddffb09139e2ed64",
+  "adc_range_counts": [
+    -8388608,
+    8388607
+  ],
+  "sampling_rate_hz": 250,
+  "window_samples": 50,
+  "availability": {
+    "adc_clipping": true,
+    "line_noise": true,
+    "low_frequency_pre_highpass": true
+  },
+  "feature_dimension": 80,
+  "validation_and_final": {
+    "S03": {
+      "sha256": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+      "readiness": "failed",
+      "raw_formal_windows": 416,
+      "observed": {
+        "windows": 416,
+        "mean_quality": 0.8176829973952129,
+        "min_quality_median": 0.6268835067749023,
+        "any_bad_channel_fraction": 0.35336538461538464,
+        "hypothetical_min_quality_below_0_5_fraction": 0.35336538461538464,
+        "by_hand": {
+          "neutral": {
+            "windows": 107,
+            "mean_quality": 0.8347333778287763,
+            "hypothetical_min_quality_below_0_5_fraction": 0.21495327102803738
+          },
+          "index_pinch": {
+            "windows": 107,
+            "mean_quality": 0.8623819718851107,
+            "hypothetical_min_quality_below_0_5_fraction": 0.14953271028037382
+          },
+          "fist": {
+            "windows": 94,
+            "mean_quality": 0.8170217532426753,
+            "hypothetical_min_quality_below_0_5_fraction": 0.43617021276595747
+          },
+          "open_hand": {
+            "windows": 108,
+            "mean_quality": 0.7570809230760291,
+            "hypothetical_min_quality_below_0_5_fraction": 0.6203703703703703
+          }
+        }
+      },
+      "observed_quality_flag_components": {
+        "legacy_quality_flag_fraction": 0.35336538461538464,
+        "amplitude_z_over_3_fraction": 0.35336538461538464,
+        "zero_fraction_over_0_5_fraction": 0.0,
+        "flatline_fraction_over_0_5_fraction": 0.0,
+        "clip_fraction_over_0_5_fraction": 0.0,
+        "candidate_hardware_only_flag_fraction": 0.0,
+        "legacy_flag_not_explained_by_components": 0
+      },
+      "synthetic_ch1_constant": {
+        "longest_flatline_median_clean": 0.019999999552965164,
+        "longest_flatline_median_fault": 0.9800000190734863,
+        "min_quality_below_0_5_fraction_clean": 0.35336538461538464,
+        "min_quality_below_0_5_fraction_fault": 1.0,
+        "detected_fault_fraction": 1.0,
+        "candidate_hardware_only_flag_fraction": 1.0
+      }
+    },
+    "S04": {
+      "sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+      "readiness": "passed",
+      "raw_formal_windows": 431,
+      "observed": {
+        "windows": 431,
+        "mean_quality": 0.6617009410172217,
+        "min_quality_median": 0.2562481760978699,
+        "any_bad_channel_fraction": 0.679814385150812,
+        "hypothetical_min_quality_below_0_5_fraction": 0.679814385150812,
+        "by_hand": {
+          "neutral": {
+            "windows": 107,
+            "mean_quality": 0.6981678323768009,
+            "hypothetical_min_quality_below_0_5_fraction": 0.48598130841121495
+          },
+          "index_pinch": {
+            "windows": 108,
+            "mean_quality": 0.6703487173826607,
+            "hypothetical_min_quality_below_0_5_fraction": 0.6018518518518519
+          },
+          "fist": {
+            "windows": 108,
+            "mean_quality": 0.7225488956879687,
+            "hypothetical_min_quality_below_0_5_fraction": 0.7222222222222222
+          },
+          "open_hand": {
+            "windows": 108,
+            "mean_quality": 0.5560759750229342,
+            "hypothetical_min_quality_below_0_5_fraction": 0.9074074074074074
+          }
+        }
+      },
+      "observed_quality_flag_components": {
+        "legacy_quality_flag_fraction": 0.679814385150812,
+        "amplitude_z_over_3_fraction": 0.679814385150812,
+        "zero_fraction_over_0_5_fraction": 0.0,
+        "flatline_fraction_over_0_5_fraction": 0.0,
+        "clip_fraction_over_0_5_fraction": 0.0,
+        "candidate_hardware_only_flag_fraction": 0.0,
+        "legacy_flag_not_explained_by_components": 0
+      },
+      "synthetic_ch1_constant": {
+        "longest_flatline_median_clean": 0.019999999552965164,
+        "longest_flatline_median_fault": 0.9800000190734863,
+        "min_quality_below_0_5_fraction_clean": 0.679814385150812,
+        "min_quality_below_0_5_fraction_fault": 1.0,
+        "detected_fault_fraction": 1.0,
+        "candidate_hardware_only_flag_fraction": 1.0
+      }
+    }
+  },
+  "boundary": "All F9 references fit on S01/S02 formal stable raw-count windows only. S03/S04 remain read-only; their labels summarize potential gesture-dependent rejection rather than fit quality rules. A constant-channel synthetic fault tests detection, not observed hardware failure. The <0.5 minimum-quality gate and separate hardware-only flatline/clipping candidate are hypothetical, not chosen or deployed. Legacy F9 quality does not include line-noise, low-frequency or covariance scores in its quality aggregate. Source sessions and S03 failed collection readiness; S04 was previously inspected; one participant/day cannot validate another wearing, live recognition, or fault prevalence."
+}

@@ -2815,3 +2815,14 @@ macro-F1 with 5.6% active-to-neutral errors. S04 recorded per-channel RMS
 remained near the source reference (0.98–1.28×), so this is a failure-mode
 probe rather than an explanation of a measured live amplitude drop. It cannot
 substitute for another wearing or the required multiuser/multiday evidence.
+
+The [Song raw-ADC F9 observability audit](../benchmarks/song_real8/QUALITY_OBSERVABILITY.json)
+fits source quality references on S01/S02 and checks the recorded S03/S04
+stable windows. The existing composite F9 `min_quality < 0.5` would reject
+35.3%/68.0% of windows, including 62.0%/90.7% of Open Hand windows. All
+flags arise from source-relative amplitude `|z| > 3`, not observed zero,
+flatline or ADC-clipping faults. A separate flatline/clipping-only candidate
+flags none of those recorded windows and all windows with one synthetically
+frozen channel, but remains undeployed pending real fault and new-wearing
+validation. This prevents treating F9 activation variation as measured
+hardware quality or claiming the current quality mask is a safe live gate.

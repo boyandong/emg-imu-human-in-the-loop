@@ -303,3 +303,19 @@ combined S01/S02 source reference, not a measured 0.25× collapse. A new
 wearing, electrode change, ADC saturation, class transitions and USB behavior
 are not represented by this perturbation; no automatic gain correction was
 introduced.
+
+An [F9 raw-ADC observability audit](QUALITY_OBSERVABILITY.json) extracts the
+same formal 200 ms windows before high-pass filtering, fixes the signed-24-bit
+ADC clipping range from the device protocol, and fits F9 references on S01/S02
+only. Its descriptive S03/S04 scores show why the existing composite F9
+`min_quality < 0.5` must not become a hard recognition gate: it would mark
+35.3%/68.0% of recorded stable windows, including 62.0%/90.7% of Open Hand
+windows. Every marked window is explained by the source-relative amplitude
+`|z| > 3` term; zero, flatline and ADC-clipping fractions do not explain any
+of them. A separate **candidate**, restricted to obvious long flatlines or
+ADC clipping, marks 0% of these clean windows and 100% of windows with an
+injected constant channel. That synthetic success does not establish real
+fault detection or another-wearing specificity, so neither gate was deployed.
+Line noise and low-frequency ratios are observable in raw data here, but the
+existing F9 quality aggregate does not incorporate them. S01–S03 readiness
+failures and same-person/day sampling still limit the diagnostic.
