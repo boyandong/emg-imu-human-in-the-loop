@@ -391,3 +391,41 @@ readiness, and these sessions have already informed other analyses. The S04
 three-session-fold F1 is below the existing S01/S02-trained F0+SPD result
 (0.9437 versus 0.9508), so these exploratory folds provide no reason to
 replace the selectable live bundle with an all-session refit.
+
+A fixed [14-arm family screen](FAMILY_HELD_OUT_SCREEN.json) extends those same
+four held-out folds to reference F1, F2a, supervised F2b, F2c, F4, F5 and
+real-IMU F6. Every feature reference, CSP filter, scaler and classifier is
+fitted only on the other three sessions. The F0+F2c core reproduces all 569
+prior trial probability vectors exactly (maximum error zero). The 7,966
+[saved arm/trial rows](FAMILY_HELD_OUT_PREDICTIONS.csv) were read back and
+rescored. This is a fixed screen, not a search for a selected live model.
+
+| Arm | Pooled macro-F1 | Pooled LogLoss | Pooled Brier |
+|---|---:|---:|---:|
+| F0 | 0.9222 | 0.3639 | 0.0431 |
+| F0+F1 | 0.9133 | 0.3516 | 0.0419 |
+| F0+F2a | 0.9612 | 0.2176 | 0.0250 |
+| F0+F2b | 0.9491 | 0.2578 | 0.0293 |
+| F0+F2c (core) | 0.9522 | 0.2043 | 0.0241 |
+| F0+F4 | 0.9306 | 0.3241 | 0.0404 |
+| F0+F5 | 0.9295 | 0.3436 | 0.0412 |
+| F0+F6 | 0.9273 | 0.3419 | 0.0403 |
+
+| Added to F0+F2c core | ΔLogLoss (positive helps) | ΔBrier | ΔMacro-F1 | Corrected / new-error trials |
+|---|---:|---:|---:|---:|
+| F1 | +0.0090 | +0.0009 | +0.0054 | 5 / 2 |
+| F2a | +0.0154 | +0.0013 | +0.0018 | 4 / 3 |
+| F2b | +0.0002 | +0.0001 | ~0 | 1 / 1 |
+| F4 | +0.0104 | ~0 | +0.0053 | 12 / 9 |
+| F5 | -0.0065 | -0.0007 | +0.0037 | 8 / 6 |
+| F6 | +0.0091 | +0.0009 | +0.0091 | 10 / 5 |
+
+The F2a conditional LogLoss increment is positive in each of four folds;
+F4's is positive in two and negative in two. The pooled F0+F2c core has
+per-class F1 of 0.975 fist, 0.942 pinch, 0.922 neutral and 0.969 open;
+adding F6 raises neutral to 0.944 but lowers open slightly to 0.966. These
+correlated trials and reused same-day sessions cannot support a statistical
+claim about new wearings, people or days. F1/F4/F5/F6 are current reference
+implementations, not proven exact historical families; F5 summarizes only a
+200 ms stable window rather than a complete gesture bout. No arm is promoted
+to live use from this exploratory screen.

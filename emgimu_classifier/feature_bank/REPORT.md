@@ -2888,3 +2888,12 @@ individual S01/S02/S03/S04 values are 0.9222/0.9713/0.9722/0.9437. These
 are within-day, one-person folds, not multiuser or multiday validation. The
 S04 fold is slightly worse than the existing S01/S02-trained F0+SPD result,
 so the live bundle is unchanged.
+
+On those same Song folds, a fixed [14-arm F0-family screen](../benchmarks/song_real8/FAMILY_HELD_OUT_SCREEN.json)
+keeps all 569 trial identities matched and exactly replays the prior F0+F2c
+probabilities. Adding F2a to that core lowers pooled LogLoss by 0.0154 and
+does so on all four within-day folds, while macro-F1 rises only 0.0018.
+F4 lowers pooled LogLoss by 0.0104 but its fold signs split two positive/two
+negative; F5 worsens pooled LogLoss. These are exploratory current-family
+results for one person/day, not historical algorithm reproduction or a reason
+to change the live bundle.
