@@ -14,6 +14,7 @@
   "selected_windows_per_recording": 100,
   "window_selection": "up to 100 deterministic evenly spaced disjoint complete 200-sample windows across the entire native recording",
   "corrupt_record_policy": "Reject whole recording if any row is not eight finite numeric values. Do not delete rows or impute. For each subject/target position, evaluate only movement codes with valid gallery and target whole recordings; apply the same matched set to every arm.",
+  "insufficient_class_policy": "A subject with fewer than two valid P1 movement recordings is excluded from both target positions. A subject-position pair with fewer than two matched valid classes is excluded from that position. Record all exclusions and included-subject counts before model scores; never fill missing classes from partial recordings.",
   "arms": ["F0","F0+ring_lag","F0+correlation_spectrum","F0+ring_lag+correlation_spectrum"],
   "file_descriptor": "mean feature vector over selected windows, including any rest intervals because no native interval labels exist",
   "retrieval": "subject-specific gallery P1 source-only StandardScaler, nearest Euclidean gallery descriptor; one gallery recording per movement",
