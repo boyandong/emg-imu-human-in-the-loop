@@ -1,0 +1,284 @@
+{
+  "protocol": {
+    "name": "new_bank_v1_grabmyo_crossday_ring_families_v1",
+    "source": "https://physionet.org/content/grabmyo/1.1.0/",
+    "source_subset_protocol": "../grabmyo_crossday/PROTOCOL.json",
+    "source_integrity": "All 1344 selected files must match the publisher SHA256SUMS.txt before feature extraction",
+    "subjects": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "sessions": {
+      "train": 1,
+      "validation": 2,
+      "final": 3
+    },
+    "gesture_codes": [
+      4,
+      15,
+      16,
+      17
+    ],
+    "channels": [
+      "F1",
+      "F2",
+      "F3",
+      "F4",
+      "F5",
+      "F6",
+      "F7",
+      "F8"
+    ],
+    "sample_rate_hz": 2048,
+    "window_samples": 512,
+    "trial_aggregation": "mean and standard deviation over twenty disjoint windows per five-second recording",
+    "baseline": "same training-rest-fitted F0 and classifier as grabmyo_crossday v1",
+    "feature_arms": [
+      "F0",
+      "F0+ring_lag",
+      "F0+correlation_spectrum",
+      "F0+ring_lag+correlation_spectrum"
+    ],
+    "feature_fit": "All feature metadata and rest-noise thresholds use training day only; target days are transform only",
+    "classifier": "StandardScaler plus LogisticRegression C=1 max_iter=2000 random_state=20260924, training day only",
+    "validation_selection": "Choose highest Day2 macro-F1; break ties by lower Day2 log loss; never select on Day3",
+    "primary_metrics": [
+      "pooled_macro_f1",
+      "pooled_log_loss",
+      "pooled_brier",
+      "minimum_subject_macro_f1"
+    ],
+    "secondary_metrics": [
+      "accuracy",
+      "per_class_recall",
+      "per_subject_macro_f1"
+    ],
+    "scope": "Independent public eight-channel cross-day screen of new v1 ring families; no own-device, historical-family, or continuous online claim"
+  },
+  "protocol_sha256": "4600693441c33def3f35a21c9e0c7532d3b7c93f134fc6a8f142d99fe974e73c",
+  "source_checksum_manifest_sha256": "757ea64fa5134b7b3b84d9f79e30cfa1ac4d2c65a40ce9b427db11dd8258974e",
+  "source_file_verification": "all 1344 selected files match official SHA256SUMS",
+  "training_rest_windows": 1120,
+  "feature_dimensions": {
+    "F0": 96,
+    "ring_lag": 16,
+    "correlation_spectrum": 16
+  },
+  "arms": {
+    "F0": {
+      "train_trials": 224,
+      "feature_dimensions": 96,
+      "validation": {
+        "trials": 224,
+        "accuracy": 0.9553571428571429,
+        "macro_f1": 0.9551079403053087,
+        "log_loss": 0.150671479321107,
+        "brier": 0.07947227250299763,
+        "per_class_recall": {
+          "4": 0.8928571428571429,
+          "15": 0.9464285714285714,
+          "16": 0.9821428571428571,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 0.9641025641025641,
+          "5": 0.8601190476190477,
+          "6": 0.9270833333333334,
+          "7": 0.9641025641025641,
+          "8": 0.9270833333333334
+        },
+        "minimum_subject_macro_f1": 0.8601190476190477
+      },
+      "final": {
+        "trials": 224,
+        "accuracy": 0.9017857142857143,
+        "macro_f1": 0.9008139284917354,
+        "log_loss": 0.30074100731440295,
+        "brier": 0.15524289503185357,
+        "per_class_recall": {
+          "4": 0.7857142857142857,
+          "15": 0.875,
+          "16": 0.9464285714285714,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "1": 0.9641025641025642,
+          "2": 0.6666666666666666,
+          "3": 1.0,
+          "4": 0.9641025641025642,
+          "5": 0.7,
+          "6": 0.9270833333333334,
+          "7": 1.0,
+          "8": 0.8918269230769231
+        },
+        "minimum_subject_macro_f1": 0.6666666666666666
+      }
+    },
+    "F0+ring_lag": {
+      "train_trials": 224,
+      "feature_dimensions": 112,
+      "validation": {
+        "trials": 224,
+        "accuracy": 0.96875,
+        "macro_f1": 0.9685870080606922,
+        "log_loss": 0.14217401197834786,
+        "brier": 0.07326184500105673,
+        "per_class_recall": {
+          "4": 0.9285714285714286,
+          "15": 0.9464285714285714,
+          "16": 1.0,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "1": 1.0,
+          "2": 0.9270833333333334,
+          "3": 1.0,
+          "4": 0.9641025641025641,
+          "5": 0.9641025641025641,
+          "6": 0.9270833333333334,
+          "7": 1.0,
+          "8": 0.9641025641025641
+        },
+        "minimum_subject_macro_f1": 0.9270833333333334
+      },
+      "final": {
+        "trials": 224,
+        "accuracy": 0.8883928571428571,
+        "macro_f1": 0.8861578911698856,
+        "log_loss": 0.33972945239580327,
+        "brier": 0.1773919016694611,
+        "per_class_recall": {
+          "4": 0.7321428571428571,
+          "15": 0.9107142857142857,
+          "16": 0.9107142857142857,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "1": 0.9641025641025641,
+          "2": 0.6666666666666666,
+          "3": 1.0,
+          "4": 0.8375,
+          "5": 0.7833333333333334,
+          "6": 0.8839015151515153,
+          "7": 1.0,
+          "8": 0.855654761904762
+        },
+        "minimum_subject_macro_f1": 0.6666666666666666
+      }
+    },
+    "F0+correlation_spectrum": {
+      "train_trials": 224,
+      "feature_dimensions": 112,
+      "validation": {
+        "trials": 224,
+        "accuracy": 0.9553571428571429,
+        "macro_f1": 0.9551379565256407,
+        "log_loss": 0.1367317958128013,
+        "brier": 0.06790606991785918,
+        "per_class_recall": {
+          "4": 0.8928571428571429,
+          "15": 0.9642857142857143,
+          "16": 0.9642857142857143,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "1": 1.0,
+          "2": 0.9641025641025641,
+          "3": 1.0,
+          "4": 0.9283882783882784,
+          "5": 0.9641025641025641,
+          "6": 0.9270833333333334,
+          "7": 0.9641025641025641,
+          "8": 0.895054945054945
+        },
+        "minimum_subject_macro_f1": 0.895054945054945
+      },
+      "final": {
+        "trials": 224,
+        "accuracy": 0.8392857142857143,
+        "macro_f1": 0.8363218297797737,
+        "log_loss": 0.47417920403602326,
+        "brier": 0.24053952326816339,
+        "per_class_recall": {
+          "4": 0.7321428571428571,
+          "15": 0.7321428571428571,
+          "16": 0.8928571428571429,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "1": 0.7953216374269005,
+          "2": 0.6209150326797386,
+          "3": 1.0,
+          "4": 0.8035014005602241,
+          "5": 0.6535353535353535,
+          "6": 0.8839015151515153,
+          "7": 0.9641025641025641,
+          "8": 0.8172348484848484
+        },
+        "minimum_subject_macro_f1": 0.6209150326797386
+      }
+    },
+    "F0+ring_lag+correlation_spectrum": {
+      "train_trials": 224,
+      "feature_dimensions": 128,
+      "validation": {
+        "trials": 224,
+        "accuracy": 0.96875,
+        "macro_f1": 0.968705547652916,
+        "log_loss": 0.13629304646612586,
+        "brier": 0.06661412684424081,
+        "per_class_recall": {
+          "4": 0.9464285714285714,
+          "15": 0.9464285714285714,
+          "16": 0.9821428571428571,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "1": 1.0,
+          "2": 0.9641025641025641,
+          "3": 1.0,
+          "4": 0.9641025641025641,
+          "5": 0.9641025641025641,
+          "6": 0.9270833333333334,
+          "7": 1.0,
+          "8": 0.9283882783882784
+        },
+        "minimum_subject_macro_f1": 0.9270833333333334
+      },
+      "final": {
+        "trials": 224,
+        "accuracy": 0.8571428571428571,
+        "macro_f1": 0.8551514489587885,
+        "log_loss": 0.38771431702580017,
+        "brier": 0.19682673263628978,
+        "per_class_recall": {
+          "4": 0.7321428571428571,
+          "15": 0.8035714285714286,
+          "16": 0.8928571428571429,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "1": 0.8877005347593583,
+          "2": 0.6209150326797386,
+          "3": 1.0,
+          "4": 0.8054015837104072,
+          "5": 0.7484848484848484,
+          "6": 0.8839015151515153,
+          "7": 1.0,
+          "8": 0.7805576776165011
+        },
+        "minimum_subject_macro_f1": 0.6209150326797386
+      }
+    }
+  },
+  "validation_selected_arm": "F0+ring_lag+correlation_spectrum"
+}

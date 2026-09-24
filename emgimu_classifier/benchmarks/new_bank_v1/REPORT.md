@@ -44,3 +44,7 @@ S03 selects F0 + frequency direction by the frozen macro-F1 rule, yet it regress
 ## Independent electrode re-placement dataset
 
 A separately frozen [file-level check](ZENODO_REPLACEMENT_REPORT.md) used the official eight-channel, 1000 Hz Zenodo archive. Nine subjects had valid P1 galleries; P2 and P3 each contributed 79 matched complete movement recordings. The P2-selected F0 + ring lag + correlation spectrum arm reached 0.5972 mean-subject top-1 on P2 and 0.6188 on P3, versus F0's 0.5170 and 0.6003. This small P3 advantage is a cross-position **whole-recording retrieval** result, not trial-level or online recognition. It does not change the decision to keep the live recognizer unchanged.
+
+## Independent public cross-day check
+
+The [frozen GRABMyo screen](GRABMYO_REPORT.md) adds a trial-level three-day check of the new ring families with the exact earlier F0 baseline replayed. Day2 selected F0 + ring lag + correlation spectrum at macro-F1 0.9687 versus F0 0.9551, but its Day3 macro-F1 fell to 0.8552 versus F0 0.9008. This validation-to-final reversal strengthens the decision not to enable the new bank in the live model without new own-device continuous and cross-day validation.

@@ -1,0 +1,22 @@
+{
+  "status": "verified",
+  "prediction_rows": 1792,
+  "distinct_trial_ids": 448,
+  "prior_grabmyo_F0_probability_replay": "exact within 1e-10 for all 448 held-out trials",
+  "metric_groups_read_back": 8,
+  "validation_selected_arm": "F0+ring_lag+correlation_spectrum",
+  "paired_vs_F0": {
+    "validation": {
+      "selected_correct_baseline_wrong": 6,
+      "selected_wrong_baseline_correct": 3,
+      "both_correct": 211,
+      "both_wrong": 4
+    },
+    "final": {
+      "selected_correct_baseline_wrong": 3,
+      "selected_wrong_baseline_correct": 13,
+      "both_correct": 189,
+      "both_wrong": 19
+    }
+  }
+}
