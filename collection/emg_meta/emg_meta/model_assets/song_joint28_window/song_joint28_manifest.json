@@ -1,0 +1,19 @@
+{
+  "format_version": 1,
+  "artifact": "song_joint28_model.json",
+  "sha256": "854b938e25e15e6b0cc521060ddef876160f467c54bb5a7154d18e43ea94f440",
+  "model_status": "exploratory_one_person_one_day_offline_only",
+  "source_hdf5_sha256": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479"
+  },
+  "reference_results_sha256": "d49988832a704cdd825ec8932f504af1247c4bf327b2970c1e9e3bf7d3d3e977",
+  "reference_trial_csv_sha256": "323c3bbf8642c22387a46d84fd83a1f12b1126baf6a03b67595a875bdb24c550",
+  "training_runtime": {
+    "python": "3.13.9",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1",
+    "scikit_learn": "1.8.0"
+  },
+  "limitation": "Cued stable windows, one person/day; no continuous or physical-device validation."
+}
