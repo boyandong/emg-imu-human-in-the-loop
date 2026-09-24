@@ -2897,3 +2897,12 @@ F4 lowers pooled LogLoss by 0.0104 but its fold signs split two positive/two
 negative; F5 worsens pooled LogLoss. These are exploratory current-family
 results for one person/day, not historical algorithm reproduction or a reason
 to change the live bundle.
+
+Stratifying those frozen Song predictions by the native
+[arm-cue labels](../benchmarks/song_real8/CUE_ARM_DOMAIN_AUDIT.json) reveals a
+limitation hidden by the pooled scores: 283/569 trials are `still`, versus
+47–48 in each moving-arm group. Core F0+F2c macro-F1 is 0.993 on `still`
+and 0.828 on `up`; adding F2a raises the latter to 0.867 but worsens
+`backward` LogLoss by 0.011. F6 helps `up`/`down` LogLoss while harming
+`right`/`forward`. These descriptive cue-group differences are not measured
+posture robustness or evidence of new-day/device transfer.

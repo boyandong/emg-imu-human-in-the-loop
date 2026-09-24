@@ -429,3 +429,16 @@ claim about new wearings, people or days. F1/F4/F5/F6 are current reference
 implementations, not proven exact historical families; F5 summarizes only a
 200 ms stable window rather than a complete gesture bout. No arm is promoted
 to live use from this exploratory screen.
+
+The [native cue-arm domain audit](CUE_ARM_DOMAIN_AUDIT.json) joins every
+saved trial prediction back to its hash-checked HDF5 formal-trial label,
+without refitting. Of 569 trials, 283 are cued `still` and only 47–48 occur
+in each of the six moving-arm conditions. The F0+F2c core macro-F1 is 0.993
+for `still`, but only 0.828 for `up`, its worst condition. Adding F2a raises
+the `up` value to 0.867 and improves LogLoss in six of seven cue-arm groups;
+`backward` LogLoss worsens by 0.011. F4 helps five of seven groups by
+LogLoss, while F6 helps `up` and `down` by 0.056 each but worsens `right`
+and `forward` by 0.025/0.023. Thus the pooled family increments do not imply
+uniform condition recovery. These are instructed arm labels, not measured
+posture or movement onset; small moving-arm cells, one day/person and
+previously inspected S04 prohibit a broader robustness claim.
