@@ -1,0 +1,16 @@
+# Independent electrode re-placement check (file-level)
+
+The [frozen protocol](ZENODO_REPLACEMENT_PROTOCOL.json) evaluates the new eight-channel feature bank on the independent [Zenodo electrode re-placement dataset](https://zenodo.org/records/4039550). Each participant's P1 whole-recording descriptors form a movement gallery; P2 selects an arm and P3 is the final position. The source archive SHA-256 is `d30a1096ed2522b32bfafcfcb2d9cdf5ccf28e1e21a41dda77824317a8c1b1ff`. Features and standardization are fitted using P1 only. The result measures **whole-file movement-intent retrieval**: each long recording includes unlabeled repeated actions and possibly rest, so its individual windows are not labeled trials.
+
+The archive has 267 of 270 expected recordings. All three ID7/EX recordings are absent. Strict complete-file parsing rejected another 23 recordings with malformed rows: 22 from ID5 and one ID6/P1. ID5 has no valid P1 gallery movements and was excluded under the pre-score QC rule. Nine subjects and 79 matched movement recordings per target position remained. Missing rows were neither deleted nor imputed. Every arm uses the same matched recordings at each position.
+
+| Arm | P2 mean-subject top-1 | P2 pooled top-1 | P3 mean-subject top-1 | P3 pooled top-1 | P3 minimum subject |
+|---|---:|---:|---:|---:|---:|
+| F0 | 0.5170 | 0.5190 | 0.6003 | 0.5949 | 0.4444 |
+| F0 + ring lag | 0.5833 | 0.5823 | 0.6111 | 0.6076 | 0.4444 |
+| F0 + correlation spectrum | 0.5586 | 0.5570 | **0.6312** | **0.6329** | 0.4444 |
+| F0 + ring lag + correlation spectrum | **0.5972** | **0.5949** | 0.6188 | 0.6203 | 0.4444 |
+
+The P2-selected arm is **F0 + ring lag + correlation spectrum**. On P3 it exceeds F0 by 0.0185 mean-subject accuracy, or two additional correct recordings out of 79. The correlation-only arm is best on P3, but that is a descriptive final-set observation and must not replace the P2-selected arm. The selected arm's P3 per-subject accuracy ranges from 0.4444 to 0.7778; its PP recall is 0.2222. This does not establish reliable performance across subjects or movements. It does provide independent, limited evidence that the new features can help a position-shifted file-level retrieval task. It does not overturn the separate held-out force and wearing macro-F1 regressions or justify deploying the bank into the live 250 Hz recognizer.
+
+The [machine-readable results](ZENODO_REPLACEMENT_RESULTS.json) include every QC rejection, matched class set, per-subject accuracy and per-movement recall. The [632 prediction rows](ZENODO_REPLACEMENT_PREDICTIONS.csv) provide one row per arm, position and included recording. Rows were checked for unique keys, valid ranks and correct-label consistency; pooled rates were independently recomputed from the CSV. The source files stay outside Git. To reproduce, install `py7zr` and the classifier dependencies, set `PYTHONPATH=emgimu_classifier/src;emgimu_classifier`, then run `python -m benchmarks.new_bank_v1.zenodo_replacement_run acquire` and `python -m benchmarks.new_bank_v1.zenodo_replacement_run evaluate` from the repository root with the verified archive at `../work/secondary_raw/electrode_replacement/EMG dataset.7z`.

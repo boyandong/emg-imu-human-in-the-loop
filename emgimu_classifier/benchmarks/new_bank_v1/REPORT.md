@@ -40,3 +40,7 @@ The [separately frozen Song protocol](SONG_PROTOCOL.json) applies the same new m
 | F0 + all four | 0.9071 | 0.8854 | **0.3707** | 0.9722 | 0.9444 |
 
 S03 selects F0 + frequency direction by the frozen macro-F1 rule, yet it regresses below F0 on S04. The S04-only correlation-spectrum gain is too small and too selection-dependent for deployment. The high trial-level hand-open recall is compatible with the user's poor real-time experience: complete cued trials and averaged probabilities do not measure action onset, transient rest decisions or latency. A new live model should therefore be selected using a newly recorded, time-stamped continuous session rather than this already-used S04 set.
+
+## Independent electrode re-placement dataset
+
+A separately frozen [file-level check](ZENODO_REPLACEMENT_REPORT.md) used the official eight-channel, 1000 Hz Zenodo archive. Nine subjects had valid P1 galleries; P2 and P3 each contributed 79 matched complete movement recordings. The P2-selected F0 + ring lag + correlation spectrum arm reached 0.5972 mean-subject top-1 on P2 and 0.6188 on P3, versus F0's 0.5170 and 0.6003. This small P3 advantage is a cross-position **whole-recording retrieval** result, not trial-level or online recognition. It does not change the decision to keep the live recognizer unchanged.
