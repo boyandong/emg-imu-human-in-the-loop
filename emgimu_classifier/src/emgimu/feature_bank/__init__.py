@@ -19,14 +19,20 @@ from .calibration import (
 from .temporal import PathSignatureFamily, TemporalTemplateFamily, CompleteSequenceBatch, dtw_distance
 from .body_frame import CalibratedBodyContextFamily
 from .spd_anchor import SpdTangentPersonalAnchor
+from .new_bank_v1 import (
+    CorrelationSpectrumV1, FrequencyDirectionV1, RingLagV1, ScalePatternV1,
+    new_bank_v1_registry,
+)
 
 __all__ = [
     "BodyContextFamily",
+    "CorrelationSpectrumV1",
     "CalibratedBodyContextFamily",
     "CspSpatialFamily",
     "FeatureBatch",
     "FeatureFamily",
     "FeatureRegistry",
+    "FrequencyDirectionV1",
     "FusionDecision",
     "LocalDetailFamily",
     "PathSignatureFamily",
@@ -35,7 +41,9 @@ __all__ = [
     "QualityFamily",
     "ReliabilityWeights",
     "RingGeometryFamily",
+    "RingLagV1",
     "ScalePatternFamily",
+    "ScalePatternV1",
     "SpectralStateFamily",
     "SpdTangentFamily",
     "SpdTangentPersonalAnchor",
@@ -48,4 +56,5 @@ __all__ = [
     "dtw_distance",
     "late_fusion",
     "late_fusion_decision",
+    "new_bank_v1_registry",
 ]

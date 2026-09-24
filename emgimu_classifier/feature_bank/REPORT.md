@@ -2941,3 +2941,11 @@ whereas reconstructed RLCS alone lowers it to 0.4875. The validation-best
 combined arm does not retain its validation advantage on final users. These
 new operational definitions let forward Feature Bank work continue without
 the old source, but do not prove historical formula or effect equivalence.
+
+The [new bank v1](../benchmarks/new_bank_v1/REPORT.md) independently implements
+four opt-in eight-channel families rather than wrapping old reference code.
+Source-only public force and wearing screens were preregistered before results.
+Both validation-best combinations regress below F0 macro-F1 on independent
+final subjects. The families are available for further research, but no v1
+combination is enabled in the live recognizer or claimed to solve own-device
+hand-open recognition.
