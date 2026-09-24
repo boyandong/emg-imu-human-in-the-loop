@@ -2964,6 +2964,14 @@ selects F0 alone. Adding either spatial family lowers Day3 pooled macro-F1
 and increases log loss. F3c's better Day3 minimum-subject F1 is final-only
 descriptive evidence, not a selection result or own-device validation.
 
+On the user's own 250 Hz Song recordings, the [frozen v2 follow-up](../benchmarks/new_bank_v2/SONG_REPORT.md)
+selects F0v2+F2a+F3c on S03 (macro-F1 0.9714 versus F0v2 0.9277).
+The same arm scores 0.9366 versus 0.8919 on S04 and achieves 36/36
+open-hand recall in its stable trial intervals. Its old F0 reference exactly
+replays all 284 previous held-out probabilities. These one-person, one-day
+offline results do not override the public cross-day regression or justify a
+live-bundle switch; S04 was previously examined and is exploratory.
+
 The independently sourced [Zenodo electrode re-placement check](../benchmarks/new_bank_v1/ZENODO_REPLACEMENT_REPORT.md)
 adds a separate file-level P1-to-P2/P3 position-shift test of the new bank.
 The P2-selected ring-lag-plus-correlation arm improves P3 mean-subject top-1

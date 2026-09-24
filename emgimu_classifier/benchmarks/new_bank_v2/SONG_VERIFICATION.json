@@ -1,0 +1,50 @@
+{
+  "status": "verified",
+  "prediction_rows": 1420,
+  "heldout_native_trials": 284,
+  "old_F0_probability_max_abs_error": 0.0,
+  "metric_groups_read_back": 10,
+  "validation_selected_arm": "F0v2+F2a+F3c",
+  "paired_vs_F0v2": {
+    "validation": {
+      "F0v2+F2a": {
+        "added_correct_F0v2_wrong": 4,
+        "added_wrong_F0v2_correct": 1,
+        "both_correct": 129,
+        "both_wrong": 6
+      },
+      "F0v2+F3c": {
+        "added_correct_F0v2_wrong": 4,
+        "added_wrong_F0v2_correct": 0,
+        "both_correct": 130,
+        "both_wrong": 6
+      },
+      "F0v2+F2a+F3c": {
+        "added_correct_F0v2_wrong": 7,
+        "added_wrong_F0v2_correct": 1,
+        "both_correct": 129,
+        "both_wrong": 3
+      }
+    },
+    "final": {
+      "F0v2+F2a": {
+        "added_correct_F0v2_wrong": 7,
+        "added_wrong_F0v2_correct": 1,
+        "both_correct": 128,
+        "both_wrong": 8
+      },
+      "F0v2+F3c": {
+        "added_correct_F0v2_wrong": 6,
+        "added_wrong_F0v2_correct": 0,
+        "both_correct": 129,
+        "both_wrong": 9
+      },
+      "F0v2+F2a+F3c": {
+        "added_correct_F0v2_wrong": 6,
+        "added_wrong_F0v2_correct": 0,
+        "both_correct": 129,
+        "both_wrong": 9
+      }
+    }
+  }
+}
