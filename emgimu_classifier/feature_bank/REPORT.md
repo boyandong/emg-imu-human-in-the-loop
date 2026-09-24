@@ -6,7 +6,7 @@ diagnostics are explicitly labelled. Model compositions and calibration rules ar
 from source evidence, validation evidence or prespecified controls; final scores do not tune them.
 Seed: 20260915. Classical logistic regression runs use CPU; no neural training is needed
 for these representation comparisons.
-The recorded validation suite has 203 tests (202 passed, one skipped);
+The recorded validation suite has 223 tests (222 passed, one skipped);
 `results/validation.json` carries the exact log hash. Older section-local test
 counts below are dated snapshots. The collection application's documented
 default `collection/emg_meta/emg_meta/data` directory did not contain a session
@@ -280,7 +280,7 @@ The current temporal comparison shares most errors (G5/reference-F5 model correl
 
 Six new benchmark archives are complete. Five canonical CSVs, schema/provenance audits,
 source run manifests, trial lists, dimensions, per-user/per-class diagnostics, calibration
-burden estimates and SVG curves are available. The latest suite ran 203 tests (202
+burden estimates and SVG curves are available. The latest suite ran 223 tests (222
 passed, one skipped); consolidated integrity covers 222 artifacts, 51,617 rows
 and 1,248 explicit partitions, while canonical record verification covers
 49,988 rows. These are narrow
