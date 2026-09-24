@@ -1,0 +1,28 @@
+{
+  "status": "verified",
+  "prediction_rows": 1792,
+  "heldout_native_trials": 448,
+  "baseline_probability_replay": "448 old F0 rows matched within 1e-10",
+  "metric_groups_read_back": 8,
+  "validation_selected_arm": "F0",
+  "final_paired_vs_F0": {
+    "F0+F2a": {
+      "added_correct_F0_wrong": 2,
+      "added_wrong_F0_correct": 12,
+      "both_correct": 190,
+      "both_wrong": 20
+    },
+    "F0+F3c": {
+      "added_correct_F0_wrong": 5,
+      "added_wrong_F0_correct": 10,
+      "both_correct": 192,
+      "both_wrong": 17
+    },
+    "F0+F2a+F3c": {
+      "added_correct_F0_wrong": 5,
+      "added_wrong_F0_correct": 14,
+      "both_correct": 188,
+      "both_wrong": 17
+    }
+  }
+}

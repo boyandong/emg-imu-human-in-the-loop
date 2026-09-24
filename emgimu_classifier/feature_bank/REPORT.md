@@ -2956,6 +2956,14 @@ final subjects. The families are available for further research, but no v1
 combination is enabled in the live recognizer or claimed to solve own-device
 hand-open recognition.
 
+The versioned [new-bank v2 spatial screen](../benchmarks/new_bank_v2/GRABMYO_REPORT.md)
+adds independently coded source-Rest F0, trace covariance F2a and ring-relative
+covariance F3c. On the public eight-channel GRABMyo Day1/Day2/Day3 split,
+the new F0 reproduces 448 prior held-out baseline probabilities; Day2
+selects F0 alone. Adding either spatial family lowers Day3 pooled macro-F1
+and increases log loss. F3c's better Day3 minimum-subject F1 is final-only
+descriptive evidence, not a selection result or own-device validation.
+
 The independently sourced [Zenodo electrode re-placement check](../benchmarks/new_bank_v1/ZENODO_REPLACEMENT_REPORT.md)
 adds a separate file-level P1-to-P2/P3 position-shift test of the new bank.
 The P2-selected ring-lag-plus-correlation arm improves P3 mean-subject top-1
