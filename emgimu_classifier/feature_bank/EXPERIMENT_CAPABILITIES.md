@@ -28,6 +28,11 @@ not full-sequence or streaming validation.
 | Public DS2 v8 candidate | three subjective force levels in protocol, but no verified per-trial force labels | 20 subject folders; 2,833/2,863 raw trials exact-matched to TDMS | no repeated day | no validated re-donning | no controlled posture variation | no controlled speed | raw-to-MAV window order exact; one mixed gesture-code block; 30 subject-unmatched trials | gesture-code-only held-out subject split available on 2,832 trials; no historical force result or personal-force calibration claim |
 | GRABMyo selected F1–F8 forearm ring | no | 8 selected subjects, not held-out-user test | three distinct days; day 1 train, day 2 validation, day 3 final | electrode reapplication may contribute but is not separately identified | no controlled posture | no controlled speed | 1,344 selected files match official SHA256SUMS | fixed pooled model; no personal or session calibration; four-class trial-level cross-day screen only |
 
+The collection UI now records local click-to-calibration-outcome wall time separately
+from the requested signal duration, including interrupted attempts. No real-device
+wall-time observations have been collected for the research tables yet; electrode
+placement and device setup are outside this measurement.
+
 Secondary datasets are activated only when a Tier 1 capability gap remains. GREAT can confirm
 posture by day, NinaPro DB6 remains a cross-day candidate, and the selected GRABMyo subset now provides one public cross-day confirmation. The three-position
 dataset can confirm electrode replacement. Hyser remains a measured-force and observability

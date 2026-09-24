@@ -240,6 +240,10 @@ D:\Users\qxy\anaconda3\envs\emgforce\python.exe -m pip install --no-deps -e thir
 2. 选择模型并点击“加载模型”。
 3. 点击“开始推理校准”，按页面提示在默认 24 秒内完成静息和七种目标动作。
 4. 校准完成后点击“开始实时识别”，观察九路概率和超过在线阈值 0.50 的事件。
+
+页面在校准完成时显示从点击到完成的实际耗时，并在本地
+`models/calibration_timings.jsonl` 追加模型哈希、请求的信号秒数、实际等待秒数和完成／中断状态。
+这项计时不包括佩戴电极、连接设备等准备时间；Song 零校准模型不会生成校准记录。
 5. 在线事件按论文执行 50 ms 防抖及 press/release 状态机；食指和中指保持至少 500 ms 才算有效 hold。
 6. 也可选择任意 `session_meta_aligned.hdf5` 以论文离线阈值 0.35 运行回放。
 

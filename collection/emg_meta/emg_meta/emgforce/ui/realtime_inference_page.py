@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import subprocess
 import threading
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -237,6 +238,7 @@ class RealtimeInferencePage(QWidget):
         self.remote_model_worker: RemoteModelWorker | None = None
         self.bundle: ModelBundle | None = None
         self._diagnostic: LiveDiagnosticRecorder | None = None
+        self._calibration_timing: tuple[float, int, str, str] | None = None
         self._last_live_sample_index: int | None = None
         self._connected = False
         self._probability_bars: dict[str, QProgressBar] = {}
@@ -822,6 +824,7 @@ class RealtimeInferencePage(QWidget):
         self._connected = bool(connected)
         if not connected:
             self.stop_diagnostic()
+            self._finish_calibration_timing("device_disconnected")
         self._update_live_buttons()
         if not connected and self.worker is not None:
             self.worker.pause_recognition()
@@ -916,25 +919,32 @@ class RealtimeInferencePage(QWidget):
             self._diagnostic_failed(exc)
 
     def start_calibration(self) -> None:
-        if self.worker is None or not self._connected:
+        if self.worker is None or self.bundle is None or not self._connected:
             self.live_status.setText("请先连接设备并加载模型")
             return
-        if self.bundle is not None and self.bundle.metadata.get("song_real8_local"):
+        if self._calibration_timing is not None:
+            self.live_status.setText("校准正在进行，请等待完成")
+            return
+        if self.bundle.metadata.get("song_real8_local"):
             self.live_status.setText("Song 模型当前使用零校准；可直接开始识别")
             return
         seconds = self.calibration_seconds.value()
-        sample_rate = self.bundle.sample_rate if self.bundle is not None else 250
+        sample_rate = self.bundle.sample_rate
         self.calibration_progress.setRange(0, seconds * sample_rate)
         self.calibration_progress.setValue(0)
         self._show_calibration_guidance(0)
+        self._calibration_timing = (
+            time.monotonic(), seconds, str(self.bundle.model_id), str(self.bundle.sha256))
         self.worker.begin_calibration(seconds)
 
     def start_recognition(self) -> None:
         if self.worker is not None:
+            self._finish_calibration_timing("recognition_started_before_completion")
             self.worker.begin_recognition()
 
     def pause_recognition(self) -> None:
         if self.worker is not None:
+            self._finish_calibration_timing("paused_before_completion")
             self.worker.pause_recognition()
 
     def browse_replay(self) -> None:
@@ -1248,7 +1258,35 @@ class RealtimeInferencePage(QWidget):
             )
             self._show_calibration_guidance(guidance_index)
 
+    def _finish_calibration_timing(self, outcome: str, *, scale: float | None = None) -> tuple[float | None, bool]:
+        active = self._calibration_timing
+        self._calibration_timing = None
+        if active is None:
+            return None, False
+        started, requested_seconds, model_id, model_sha256 = active
+        elapsed = max(0.0, time.monotonic() - started)
+        record = {
+            "timestamp_local": datetime.now().astimezone().isoformat(timespec="milliseconds"),
+            "model_id": model_id,
+            "model_sha256": model_sha256,
+            "requested_signal_seconds": requested_seconds,
+            "click_to_outcome_seconds": elapsed,
+            "outcome": outcome,
+            "scale": float(scale) if scale is not None else None,
+            "scope": "UI click to worker outcome on this computer; excludes electrode placement and setup",
+        }
+        try:
+            self.models_root.mkdir(parents=True, exist_ok=True)
+            with (self.models_root / "calibration_timings.jsonl").open("a", encoding="utf-8") as handle:
+                handle.write(json.dumps(record, ensure_ascii=False) + "\n")
+        except OSError:
+            return elapsed, False
+        return elapsed, True
+
     def _calibration_finished(self, scale: float) -> None:
+        if self._calibration_timing is None:
+            return  # A queued completion from an interrupted or unloaded worker.
+        elapsed, saved = self._finish_calibration_timing("completed", scale=scale)
         self.calibration_progress.setValue(self.calibration_progress.maximum())
         self.calibration_instruction.setText("校准完成")
         if self.bundle is not None and self.bundle.metadata.get("experimental_adapter"):
@@ -1257,6 +1295,11 @@ class RealtimeInferencePage(QWidget):
         else:
             self.calibration_detail.setText(
                 f"本次佩戴缩放系数 {scale:.3f}，现在可以点击“开始实时识别”")
+        if elapsed is not None:
+            suffix = f"；点击至完成 {elapsed:.1f} 秒"
+            if not saved:
+                suffix += "（本地计时记录未保存）"
+            self.calibration_detail.setText(self.calibration_detail.text() + suffix)
         self.calibration_icon.set_action("idle")
         self.start_button.setEnabled(self._connected)
 
@@ -1289,6 +1332,7 @@ class RealtimeInferencePage(QWidget):
         self.live_status.setText(message)
 
     def _worker_failed(self, message: str) -> None:
+        self._finish_calibration_timing("worker_failed")
         self.model_status.setText(f"模型或实时推理失败：{message}")
         self.live_status.setText(message)
         self.bundle = None
@@ -1296,6 +1340,7 @@ class RealtimeInferencePage(QWidget):
         self.load_model_button.setEnabled(self.model_combo.count() > 0)
 
     def _stop_realtime_worker(self) -> bool:
+        self._finish_calibration_timing("model_unloaded")
         self.stop_diagnostic()
         worker = self.worker
         if worker is None:
