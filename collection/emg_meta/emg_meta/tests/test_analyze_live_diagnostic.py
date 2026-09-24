@@ -25,7 +25,14 @@ def test_manual_interval_analysis_counts_neutral_bias_without_claiming_truth(tmp
     summary = analyze(directory)
     assert summary["peak_label_counts"] == {"neutral": 2, "open_hand": 1}
     assert summary["manual_intervals"] == 1
+    assert summary["file_hashes_verified"] is True
+    assert summary["raw_emg_samples_verified"] == 101
+    assert summary["prediction_frames_outside_captured_raw"] == 0
     assert summary["annotated_action_summary"]["open_hand"]["mean_peak_agreement"] == pytest.approx(1 / 3)
     assert summary["annotated_action_summary"]["open_hand"]["mean_display_agreement"] == pytest.approx(1 / 3)
     assert (directory / "analysis.json").is_file()
     assert "not formal recognition accuracy" in summary["scope"]
+    with (directory / "predictions.csv").open("a", encoding="utf-8") as handle:
+        handle.write("\n")
+    with pytest.raises(ValueError, match="hash mismatch"):
+        analyze(directory)

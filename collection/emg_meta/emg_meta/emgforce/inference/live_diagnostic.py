@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import time
 from datetime import datetime, timezone
@@ -14,6 +15,14 @@ import numpy as np
 
 def _utc() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
 
 
 class LiveDiagnosticRecorder:
@@ -139,6 +148,10 @@ class LiveDiagnosticRecorder:
             self._csv_handle.close()
             self._annotation_handle.close()
             self._h5.close()
+            self.manifest["file_sha256"] = {
+                name: _sha256(self.directory / name)
+                for name in ("signals.h5", "predictions.csv", "manual_annotations.csv")
+            }
             self.manifest["stopped_utc"] = _utc()
             self.manifest["status"] = "closed"
             self._write_manifest()
