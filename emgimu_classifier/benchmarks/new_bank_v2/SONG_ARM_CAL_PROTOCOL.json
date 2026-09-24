@@ -1,0 +1,18 @@
+{
+  "name": "song_guided_arm_imu_calibration_exploratory",
+  "source": "Song HDF5 v3 S01-S04, one participant and date, 250 Hz eight-channel EMG plus 112 Hz recorded IMU",
+  "source_train_sessions": ["S01", "S02"],
+  "validation_session": "S03",
+  "final_session": "S04",
+  "calibration_blocks": ["calibration_rest_initial", "calibration_rest_final", "calibration_arm_up", "calibration_arm_down", "calibration_arm_left", "calibration_arm_right", "calibration_arm_forward", "calibration_arm_backward"],
+  "calibration_policy": "Only valid completed pre-formal stable intervals. Extract 22-IMU-sample windows every 11 samples. Per-session still/rest reference is median of the two rest blocks; each direction prototype is the median of its guided arm block. Never use formal target labels for calibration.",
+  "arm_descriptor": "Existing 13-dimensional F6 real-IMU magnitude and mean-gravity descriptor; subtract per-session rest descriptor. No body-frame or absolute-yaw claim.",
+  "distance": "Source S01/S02 calibration-prototype coordinate standard deviation floored at 0.05; squared Euclidean distances; fixed softmax of negative half distance; no target-fitted scale or temperature.",
+  "hand_model": "Previously S03-selected F0v2+F2a+F3c; source S01/S02 windows only; balanced LogisticRegression C=1 random_state=20260924; original 28-state runtime",
+  "arm_source_model": "Existing F6 descriptor; source S01/S02 formal windows only; balanced LogisticRegression C=1 random_state=20260924",
+  "arms": ["source_arm_x_same_hand", "guided_cal_arm_x_same_hand"],
+  "context_reference": "Previous F0v2+IMU joint classifier from SONG_28_RESULTS.json and its saved native-trial probabilities",
+  "score": "Mean window probabilities separately for arm and hand per formal trial; outer product and normalize to 28 native states; joint trial macro-F1 is primary, arm and hand accuracies secondary",
+  "selection": "This is a fixed paired comparison. Do not tune descriptors, scale or temperature on S03/S04 and do not deploy from same-day results.",
+  "scope": "Pre-formal guided cues are an explicit calibration budget. S04 was previously inspected; one person/day and cue-labelled stable windows cannot establish online or cross-donning performance."
+}
