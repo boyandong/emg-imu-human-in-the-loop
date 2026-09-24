@@ -25,6 +25,8 @@
       "tdms_group_audit": "benchmarks/discovery/DS2_TDMS_GROUP_AUDIT.json",
       "raw_mav_window_join_audit": "benchmarks/discovery/DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json",
       "tdms_exact_waveform_join_audit": "benchmarks/discovery/DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json",
+      "force_annotation_source_audit": "benchmarks/discovery/DS2_FORCE_ANNOTATION_SOURCE_AUDIT.json",
+      "per_trial_force_labels": "unverified",
       "subject_held_out_gesture_study": "benchmarks/discovery/public_ds2_subject_gesture/RESULTS.json",
       "verified_tdms_subject_trials": 2833,
       "unmatched_tdms_subject_trials": 30,

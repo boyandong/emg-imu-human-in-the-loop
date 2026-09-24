@@ -87,6 +87,17 @@ uses the 2,832 uniquely matched trials with uniform labels. Its five fixed
 F0/reference-family arms supply new cross-user gesture evidence, but no force
 condition analysis or reproduction of the old DS2 baselines.
 
+The [force-annotation source audit](DS2_FORCE_ANNOTATION_SOURCE_AUDIT.json)
+checked the publisher-linked Kaggle v8 description, all five MAT variable
+inventories and the already parsed TDMS metadata. The release declares three
+subjective effort conditions and ten repetitions per gesture per condition,
+but provides no verified trial-to-force key. Its description also conflicts
+with itself about 120 versus roughly 150 samples per subject and calls 375
+samples at 1500 Hz a 375 ms window (the duration is 250 ms). These do not
+establish an acquisition order. Gesture and subject joins therefore cannot be
+repurposed as low/medium/high labels; force-stratified DS2 experiments remain
+unavailable until an authoritative annotation or ordering record is obtained.
+
 The six selected native benchmark archives were also reread byte for byte.
 All 15,935,850,342 bytes matched the recorded SHA-256 digests (and recorded
 MD5 digests where available); the [fresh digest audit](CORE_ARCHIVE_DIGEST_AUDIT.json)

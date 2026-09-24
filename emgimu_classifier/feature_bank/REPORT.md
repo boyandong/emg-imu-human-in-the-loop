@@ -389,6 +389,14 @@ F1 raises macro-F1 only to 0.4475 while improving LogLoss to 1.7167.
 The 5,725 held-out trial-probability rows and paired metrics pass independent
 read-back checks. This adds bounded reference-family cross-user evidence, not
 historical force-family reproduction or Song eight-channel validation.
+The [DS2 force-annotation audit](../benchmarks/discovery/DS2_FORCE_ANNOTATION_SOURCE_AUDIT.json)
+also checks the publisher-linked v8 description against every MAT variable and
+the TDMS metadata inventory. Three subjective force conditions are described,
+but no per-trial force key or validated condition order is supplied; the
+description itself has sample-count and window-duration inconsistencies.
+The exact subject and gesture joins cannot justify low/medium/high labels,
+so the historical force requirement remains missing rather than silently
+substituting a guessed order.
 NinaPro requires access; secondary datasets remain explicitly deferred.
 EMG-FMG and UniBo now each have six-trial QC and six raw/envelope/PSD plots.
 F8 session signature now has a bounded MANUS reliability-fusion comparison, while full-bank

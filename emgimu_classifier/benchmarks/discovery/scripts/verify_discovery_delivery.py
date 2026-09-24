@@ -15,6 +15,8 @@ def verify(root):
       'DS2_NATIVE_MAT_AUDIT.json','DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json',
       'DS2_MAT_TRIAL_WINDOW_JOIN.csv','DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json',
       'DS2_TDMS_RAW_EXACT_JOIN.csv',
+      'DS2_FORCE_ANNOTATION_SOURCE_AUDIT.json',
+      'scripts/audit_ds2_force_annotation_source.py',
       'public_ds2_subject_gesture/REPORT.md',
       'public_ds2_subject_gesture/RESULTS.json',
       'public_ds2_subject_gesture/TRIAL_PREDICTIONS.csv',
@@ -45,6 +47,7 @@ def verify(root):
     join_rows=list(csv.DictReader((root/'DS2_MAT_TRIAL_WINDOW_JOIN.csv').open(encoding='utf-8',newline='')))
     ds2_exact=json.loads((root/'DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json').read_text(encoding='utf-8'))
     exact_rows=list(csv.DictReader((root/'DS2_TDMS_RAW_EXACT_JOIN.csv').open(encoding='utf-8',newline='')))
+    ds2_force_source=json.loads((root/'DS2_FORCE_ANNOTATION_SOURCE_AUDIT.json').read_text(encoding='utf-8'))
     ds2_study=json.loads((root/'public_ds2_subject_gesture/RESULTS.json').read_text(encoding='utf-8'))
     ds2_study_verification=json.loads((root/'public_ds2_subject_gesture/VERIFICATION.json').read_text(encoding='utf-8'))
     tdms=json.loads((root/'DS2_TDMS_FIRST_METADATA_AUDIT.json').read_text(encoding='utf-8'))
@@ -187,6 +190,24 @@ def verify(root):
             or ds2_study_verification['prediction_rows']!=5725
             or ds2_study_verification['arm_count']!=5):
         raise ValueError('DS2 public gesture-only held-out study inconsistent')
+    if (ds2.get('force_annotation_source_audit')!='benchmarks/discovery/DS2_FORCE_ANNOTATION_SOURCE_AUDIT.json'
+            or ds2.get('per_trial_force_labels')!='unverified'
+            or ds2_force_source['status']!='force_protocol_declared_but_per_trial_annotation_unverified'
+            or ds2_force_source['kaggle_version']!=8
+            or ds2_force_source['source_archive_sha256']!=ds2['sha256']
+            or ds2_force_source['source_evidence_sha256']['archive_audit']!=hashes['DS2_ARCHIVE_AUDIT.json']
+            or ds2_force_source['source_evidence_sha256']['tdms_group_audit']!=hashes['DS2_TDMS_GROUP_AUDIT.json']
+            or ds2_force_source['source_evidence_sha256']['tdms_first_metadata_audit']!=hashes['DS2_TDMS_FIRST_METADATA_AUDIT.json']
+            or ds2_force_source['source_evidence_sha256']['raw_mav_join_audit']!=hashes['DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json']
+            or ds2_force_source['source_evidence_sha256']['tdms_raw_join_audit']!=hashes['DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json']
+            or ds2_force_source['archive_files']!=102
+            or ds2_force_source['mat_files']!=5
+            or ds2_force_source['tdms_files']!=97
+            or ds2_force_source['tdms_groups_without_group_properties']!=3210
+            or ds2_force_source['tdms_file_level_names_with_force_clue']
+            or ds2_force_source['per_trial_force_label_source'] is not None
+            or ds2_force_source['force_order_within_each_gesture'] is not None):
+        raise ValueError('DS2 force-annotation provenance boundary changed')
     if (manifest.get('core_archive_digest_audit')!='benchmarks/discovery/CORE_ARCHIVE_DIGEST_AUDIT.json'
             or archive_digest['status']!='all_six_core_archives_freshly_hashed_and_matched'
             or archive_digest['archive_count']!=6
@@ -269,6 +290,7 @@ def verify(root):
            'mixed_gesture_label_trial_zero_based':209,
            'exact_raw_mat_to_tdms_subject_trials':ds2_exact['uniquely_matched_raw_trials'],
            'unmatched_raw_mat_trials':len(ds2_exact['unmatched_raw_trial_indices_zero_based']),
+           'per_trial_force_label_status':'unverified',
            'gesture_only_subject_held_out_trial_counts':{
                split:ds2_study['scores'][split]['F0']['trials']
                for split in ('validation','final')},
@@ -287,6 +309,7 @@ def verify(root):
           'TDMS metadata alone cannot join the 3210 groups to MAT trials; exact raw waveforms verify 2833 subject-folder joins, leaving 30 unmatched and no force labels',
           'public DS2 raw MAT to MAV window order is numerically verified; one mixed gesture-code block is ambiguous, 30 subjects are unmatched, and force/historical identity remain unproven',
           'public DS2 gesture-only subject-held-out family increments are new candidate-v8 results, not historical force-run reproduction or own-device eight-channel evidence',
+          'publisher-linked DS2 v8 describes three subjective force conditions but provides no verified per-trial force key in its five MAT variables or inspected TDMS metadata; no force-condition scores are claimed',
           'DS2 publication and Kaggle page expose conflicting license labels; redistribution is not cleared',
           'retrospective scorecards do not prove original scoring/phase ordering',
           'secondary candidate paper/licensing/layout verification remains incomplete',

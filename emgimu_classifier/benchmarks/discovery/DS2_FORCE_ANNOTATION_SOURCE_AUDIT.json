@@ -1,0 +1,88 @@
+{
+  "status": "force_protocol_declared_but_per_trial_annotation_unverified",
+  "publisher_linked_api": "https://www.kaggle.com/api/v1/datasets/view/cinthyazuniga/ds2-emg-signals-three-force-type",
+  "kaggle_version": 8,
+  "kaggle_description_sha256": "6d008d4be3203e4c786b03b725945a06a6eaaaac8b052f3ca1f203f5757e2b59",
+  "source_archive_sha256": "a19bfeb945392b38f5f41bde62e8135918da7d475e479b16e322e1fc4b867110",
+  "source_evidence_sha256": {
+    "archive_audit": "7743a1f09d25a90d28f5275e9e7a5219a75729f63ec53a7958e52929f84bef8a",
+    "tdms_group_audit": "a25509f51fd2e7813afc38a316b67a05c68839fc899092a6cfdf4991b3e2b6f1",
+    "tdms_first_metadata_audit": "ce8f3e8cac4c72177046df8e2807b2a394e10cfd22bfd6fce0bf07b1ad7f30b2",
+    "raw_mav_join_audit": "c741665d350f7ad115e09a88acec2d72bac8d6d2247652dd8d5feb165aae13cb",
+    "tdms_raw_join_audit": "432d09c58dfb9b7b6960628847c0c81a32aeb8132eccae0871ace5bf50f1dec1"
+  },
+  "archive_files": 102,
+  "mat_files": 5,
+  "tdms_files": 97,
+  "mat_variables": {
+    "Data_all_Raw.mat": [
+      {
+        "variable": "data_final_all",
+        "shape": [
+          2863,
+          3,
+          15000
+        ],
+        "type": "double"
+      }
+    ],
+    "EMG_WS_all.mat": [
+      {
+        "variable": "final_matrix",
+        "shape_on_disk": [
+          375,
+          3,
+          332108
+        ],
+        "type": "float64",
+        "format": "MATLAB v7.3 HDF5"
+      }
+    ],
+    "Feature_AAV_all.mat": [
+      {
+        "variable": "matrix_all_AAV",
+        "shape": [
+          332108,
+          3
+        ],
+        "type": "double"
+      }
+    ],
+    "Feature_MAV_all.mat": [
+      {
+        "variable": "matrix_all_MAV",
+        "shape": [
+          332108,
+          3
+        ],
+        "type": "double"
+      }
+    ],
+    "Window_label_gestures.mat": [
+      {
+        "variable": "y",
+        "shape": [
+          332108,
+          1
+        ],
+        "type": "double"
+      }
+    ]
+  },
+  "tdms_groups": 3210,
+  "tdms_groups_without_group_properties": 3210,
+  "tdms_file_level_property_keys": {
+    "name": 97
+  },
+  "tdms_file_level_names_with_force_clue": [],
+  "raw_trials_with_verified_subject_folder": 2833,
+  "raw_trials_with_uniform_gesture_code": 2862,
+  "publisher_description_discrepancies": [
+    "The same dataset description says 120 samples per subject and approximately 150 samples per subject; 5 gestures x 30 repetitions is 150 before exclusions.",
+    "The description calls a 375-sample window at 1500 Hz 375 ms; arithmetic gives 250 ms.",
+    "The description names low/normal/high while the publication names low/medium/high; these textual names do not create per-trial labels."
+  ],
+  "per_trial_force_label_source": null,
+  "force_order_within_each_gesture": null,
+  "boundary": "The publisher describes three subjective force conditions and 10 attempts per gesture per condition, but does not give a trial-to-condition key. All five MAT variables are signal, feature or five-code gesture arrays; inspected TDMS groups have no properties and file-level names have no force clue. Subject and gesture joins do not establish low/medium/high trial labels. No force task or historical B0/X1-H/X2 reproduction may be claimed without an authoritative annotation/order mapping and old-input identity."
+}

@@ -142,6 +142,13 @@ final macro-F1 from 0.4413 to 0.5183 but worsens LogLoss from 1.7615 to
 1.8344. F1's smaller macro-F1 gain (0.4475) accompanies an improved 1.7167
 LogLoss. These are new candidate-v8 gesture results, with no force labels or
 historical baseline equivalence; they are not Song eight-channel evidence.
+The [publisher metadata and native-file audit](DS2_FORCE_ANNOTATION_SOURCE_AUDIT.json)
+now makes the force boundary explicit: the published protocol has three
+subjective levels, but neither the five MAT variables nor inspected TDMS
+properties contain a verified per-trial force key. The Kaggle v8 description
+does not specify which retained repetitions belong to each level and contains
+internal count/window-duration inconsistencies. No force-label assignment is
+made from group ordinal or signal amplitude.
 
 
 ## Optional secondary acquisition (2026-09-16)
