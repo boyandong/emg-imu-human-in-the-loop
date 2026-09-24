@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import shutil
 import time
 
 import numpy as np
@@ -118,6 +119,43 @@ def test_spd_bundle_validates_reference_and_outputs_four_probabilities(tmp_path)
     save(model)
     with pytest.raises(ValueError, match="positive definite"):
         SongLocalRuntime(directory)
+
+
+def test_song_only_page_prefers_valid_spd_but_keeps_manual_selection(tmp_path):
+    os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+    from PySide6.QtWidgets import QApplication
+    from emgforce.ui.realtime_inference_page import RealtimeInferencePage
+
+    app = QApplication.instance() or QApplication([])
+    base = _bundle(tmp_path)
+    spd = base.parent / "song_real8_f0_spd"
+    shutil.copytree(base, spd)
+    artifact = spd / "song_f0_model.json"
+    model = json.loads(artifact.read_text(encoding="utf-8"))
+    model["model_kind"] = "song_real8_causal_f0_spd_logistic"
+    model["spd_shrinkage"] = 0.05
+    model["spd_reference"] = np.eye(8).tolist()
+    model["standard_scaler_mean"] += [0.0] * 36
+    model["standard_scaler_scale"] += [1.0] * 36
+    model["logistic_coef"] = np.zeros((4, 84)).tolist()
+    artifact.write_text(json.dumps(model), encoding="utf-8")
+    manifest_path = spd / "song_manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["model_id"] = "test Song SPD"
+    manifest["sha256"] = hashlib.sha256(artifact.read_bytes()).hexdigest()
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    page = RealtimeInferencePage(base.parent, prefer_song_spd=True)
+    try:
+        page.refresh_models()
+        assert page.model_combo.currentData() == f"song::{spd}"
+        page.model_combo.setCurrentIndex(page.model_combo.findData(f"song::{base}"))
+        page.refresh_models()
+        assert page.model_combo.currentData() == f"song::{base}"
+        app.processEvents()
+    finally:
+        assert page.shutdown()
+        page.close()
 
 
 def test_realtime_page_loads_song_and_emits_probability_without_device(tmp_path):

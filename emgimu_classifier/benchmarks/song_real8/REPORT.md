@@ -218,6 +218,14 @@ preserved as `EMG 数据采集（旧版，无 Song 模型）`; its
 `E:/qxy/emg_meta/emg_meta/` models directory has no Song bundle.
 This check does not use the physical USB device or measure actual screen
 latency or recognition accuracy while a person performs gestures.
+The Song-specific desktop shortcut now passes `--song-realtime`. It opens
+the realtime tab and hash-checks/loads the existing F0+SPD bundle at startup;
+the generic data-collection shortcut keeps its normal start page. The
+versioned [shortcut installer](../../../collection/emg_meta/emg_meta/install_song_shortcut.ps1)
+recreates this local Windows link. A current offscreen full-window launch
+confirmed that the selected and loaded model was F0+SPD even though UniBo
+models are also discoverable. This fixes the launch-path selection, not the
+unmeasured physical USB or new-wearing recognition accuracy.
 
 The [S03](CUE_RESPONSE_S03_AUDIT.json) and [S04](CUE_RESPONSE_S04_AUDIT.json)
 cue-response audits replay the two exported bundles on full continuous streams

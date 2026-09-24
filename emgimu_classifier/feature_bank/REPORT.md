@@ -2914,3 +2914,11 @@ improves S03/S04 LogLoss by 0.0217/0.0227 but reduces macro-F1 by
 0.0071/0.0149; S04 Index Pinch recall falls from 30/36 to 28/36. The
 current realtime model therefore remains F0+F2c. Neither this one-day
 result nor the prior leave-one-session-out screen proves a deployable gain.
+
+The project-specific Song desktop launcher now passes `--song-realtime`,
+opens the realtime tab and loads the existing hash-checked F0+F2c bundle.
+Previously, the same shortcut launched the generic page, whose first
+discoverable model was UniBo. An offscreen full-window smoke test confirmed
+the current shortcut's preferred model loads; the generic collection
+shortcut remains unchanged. This resolves model-selection ambiguity at
+launch but is not a physical-device recognition test.

@@ -11,6 +11,7 @@ from PySide6.QtWidgets import (
 from emgforce.config import BAUDRATE, SAMPLING_RATE, SOFTWARE_NAME
 from emgforce.controller import AcquisitionController
 from emgforce.experiment.session import ExperimentSession
+from emgforce.inference.song_local import SongLocalRuntime, song_key_path
 from emgforce.music_control import MusicControlBridge
 from emgforce.styles import LIGHT_STYLESHEET
 from emgforce.worker import AcquisitionConfig, AcquisitionWorker
@@ -27,7 +28,7 @@ LOGGER = logging.getLogger(__name__)
 
 
 class MainWindow(QMainWindow):
-    def __init__(self, project_root: Path) -> None:
+    def __init__(self, project_root: Path, *, song_realtime: bool = False) -> None:
         super().__init__(); self.project_root = Path(project_root)
         self.setWindowTitle(f"{SOFTWARE_NAME} · 表面肌电科研数据采集")
         self.resize(1500, 950); self.setMinimumSize(1180, 760)
@@ -37,9 +38,11 @@ class MainWindow(QMainWindow):
         self.music_control = MusicControlBridge(self)
         self.session = ExperimentSession(self.acquisition, self.project_root / "data", self)
         self.main_tabs = QTabWidget()
-        self.device_page = DevicePage(); self.experiment_page = ExperimentPage(self.project_root / "protocols", self.project_root / "data"); self.data_check_page = DataCheckPage(self.project_root / "data"); self.dataset_upload_page = DatasetUploadPage(self.project_root / "data"); self.training_page = TrainingPage(); self.realtime_inference_page = RealtimeInferencePage(self.project_root / "models")
+        self.device_page = DevicePage(); self.experiment_page = ExperimentPage(self.project_root / "protocols", self.project_root / "data"); self.data_check_page = DataCheckPage(self.project_root / "data"); self.dataset_upload_page = DatasetUploadPage(self.project_root / "data"); self.training_page = TrainingPage(); self.realtime_inference_page = RealtimeInferencePage(self.project_root / "models", prefer_song_spd=song_realtime)
         self.prompt_window = self.experiment_page.prompt_panel
         self.main_tabs.addTab(self.device_page, "设备监测"); self.main_tabs.addTab(self.experiment_page, "实验采集"); self.main_tabs.addTab(self.data_check_page, "数据检查"); self.main_tabs.addTab(self.dataset_upload_page, "数据上传"); self.main_tabs.addTab(self.training_page, "训练模型"); self.main_tabs.addTab(self.realtime_inference_page, "实时识别")
+        if song_realtime:
+            self.main_tabs.setCurrentWidget(self.realtime_inference_page)
         root = QWidget(); root.setObjectName("root")
         root_layout = QVBoxLayout(root); root_layout.setContentsMargins(0, 0, 0, 0); root_layout.setSpacing(0)
         root_layout.addWidget(self.device_page.header); root_layout.addWidget(self.main_tabs, 1)
@@ -47,6 +50,20 @@ class MainWindow(QMainWindow):
         self.statusBar().showMessage(f"● 未连接 | {SAMPLING_RATE} Hz | 8 通道 | 丢包 0.0%")
         self._wire()
         LOGGER.info("app start")
+
+    def load_preferred_song_realtime(self) -> None:
+        """Complete the Song shortcut's model selection after Qt starts."""
+        self.realtime_inference_page.refresh_models()
+        selected = self.realtime_inference_page.model_combo.currentData()
+        path = song_key_path(selected)
+        try:
+            if path is not None and SongLocalRuntime(path).with_spd:
+                self.realtime_inference_page.load_selected_model()
+                return
+        except (OSError, KeyError, TypeError, ValueError):
+            pass
+        self.realtime_inference_page.model_status.setText(
+            "未找到可加载的 Song F0+SPD 模型；请检查 models/song_real8_f0_spd")
 
     def _wire(self) -> None:
         self.device_page.connect_requested.connect(self.connect_device); self.device_page.disconnect_requested.connect(self.disconnect_device)

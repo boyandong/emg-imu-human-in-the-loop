@@ -226,9 +226,10 @@ class RealtimeInferencePage(QWidget):
 
     music_gesture_ready = Signal(int, float)
 
-    def __init__(self, models_root: Path) -> None:
+    def __init__(self, models_root: Path, *, prefer_song_spd: bool = False) -> None:
         super().__init__()
         self.models_root = Path(models_root)
+        self.prefer_song_spd = bool(prefer_song_spd)
         self.worker: RealtimeInferenceWorker | UniBoRealtimeWorker | SongRealtimeWorker | None = None
         self.replay_worker: OfflineReplayWorker | None = None
         self.remote_model_worker: RemoteModelWorker | None = None
@@ -572,6 +573,17 @@ class RealtimeInferencePage(QWidget):
             index = self.model_combo.findData(previous)
             if index >= 0:
                 self.model_combo.setCurrentIndex(index)
+        elif self.prefer_song_spd:
+            # The Song-specific launcher chooses a valid native 8-channel
+            # bundle; a deliberate selection survives later refreshes.
+            for info in self._song_models.values():
+                try:
+                    if SongLocalRuntime(info.directory).with_spd:
+                        self.model_combo.setCurrentIndex(
+                            self.model_combo.findData(info.combo_key))
+                        break
+                except (OSError, KeyError, TypeError, ValueError):
+                    continue
         self.model_combo.blockSignals(False)
         self._on_model_combo_changed()
 
