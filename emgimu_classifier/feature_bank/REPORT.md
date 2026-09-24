@@ -375,8 +375,11 @@ compressed bytes, 102 files and a recorded SHA-256. All ZIP members pass CRC.
 Native raw-signal checks now include an exact [raw-to-MAV window join](../benchmarks/discovery/DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json):
 all 996,324 published MAV values reconstruct from the corresponding raw trial.
 Of 2,863 gesture-code blocks, 2,862 are uniform and one is mixed and retained
-as ambiguous. This permits bounded public-v8 gesture-code analysis, but not
-subject/force stratification or reproduction of historical B0/X1-H/X2;
+as ambiguous. An additional [exact TDMS waveform join](../benchmarks/discovery/DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json)
+verifies subject-folder identity for 2,833 trials. Thirty consecutive trials
+have no exact TDMS match, including at nonzero offsets, and remain unassigned.
+This permits bounded public-v8 gesture-code and verified-subject-subset analysis,
+but not complete subject/force stratification or reproduction of historical B0/X1-H/X2;
 current-version identity with that old input is still unproven.
 NinaPro requires access; secondary datasets remain explicitly deferred.
 EMG-FMG and UniBo now each have six-trial QC and six raw/envelope/PSD plots.

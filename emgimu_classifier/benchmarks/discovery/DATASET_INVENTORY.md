@@ -74,6 +74,15 @@ from 100 to 980,100 samples; only 1,284 have exactly 15,000 samples, while
 the aggregate MAT has 2,863 arrays of that length. A positional join of these
 different populations would invent subject, gesture and force labels.
 
+A later [exact waveform join](DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json) now maps
+2,833 of 2,863 MAT trials to a unique TDMS group and subject folder by matching
+all 45,000 values across three channels. The remaining zero-based MAT trials
+389–418 have no exact match at group starts or at any possible nonzero offset
+in the released TDMS groups. The [join index](DS2_TDMS_RAW_EXACT_JOIN.csv)
+records only verified matches; the 30 unmatched trials retain unknown subject
+identity. This materially improves public-v8 provenance but supplies neither
+per-trial force labels nor proof that v8 was the historical experiment input.
+
 The six selected native benchmark archives were also reread byte for byte.
 All 15,935,850,342 bytes matched the recorded SHA-256 digests (and recorded
 MD5 digests where available); the [fresh digest audit](CORE_ARCHIVE_DIGEST_AUDIT.json)

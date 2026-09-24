@@ -101,6 +101,10 @@ the public DS2 v8 TDMS first-segment inventory exposes file-level gesture clues
 but no per-trial force or aggregate-MAT label join. Full TDMS metadata reads
 find 3,210 three-channel groups with no group-level properties, compared with
 2,863 aggregate MAT arrays; the counts cannot establish a positional join.
+A subsequent [exact waveform join](DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json) maps
+2,833 MAT trials uniquely to TDMS subject folders by comparing all 45,000
+raw values. Thirty consecutive MAT trials have no exact TDMS waveform match,
+including at nonzero group offsets; their subject identity remains unknown.
 The original seed/population draw also reproduces three distinct subjects and two
 specified conditions for every dataset, including the restricted complete MANUS
 cohort used by the native sanity producer. This verifies sample selection evidence,
@@ -124,9 +128,11 @@ trials (3 × 15,000 samples) and 332,108 separate five-class gesture-window
 labels. See [DS2_NATIVE_MAT_AUDIT.json](DS2_NATIVE_MAT_AUDIT.json). A later
 [full MAT-window audit](DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json) exactly reconstructs
 all 996,324 MAV values in raw-trial order. Its [trial index](DS2_MAT_TRIAL_WINDOW_JOIN.csv)
-has uniform gesture-code blocks for 2,862 trials and one mixed block. Subject,
-force and TDMS identity, named gesture validation and equivalence to the
-historical input remain unproven, so this does not reproduce the earlier DS2 result.
+has uniform gesture-code blocks for 2,862 trials and one mixed block. The
+later exact TDMS join verifies subject folders for 2,833 trials, while 30
+remain unmatched. Force identity, complete subject coverage, named gesture
+validation and equivalence to the historical input remain unproven, so this
+does not reproduce the earlier DS2 result.
 
 
 ## Optional secondary acquisition (2026-09-16)

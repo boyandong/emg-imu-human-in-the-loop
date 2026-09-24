@@ -13,7 +13,8 @@ def verify(root):
       'BENCHMARK_SELECTION_REPORT.md','GESTURE_ONTOLOGY.md','SENSOR_LAYOUTS.md',
       'DATASET_MANIFEST.json','DS2_ACCESS_AUDIT.json','DS2_ARCHIVE_AUDIT.json',
       'DS2_NATIVE_MAT_AUDIT.json','DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json',
-      'DS2_MAT_TRIAL_WINDOW_JOIN.csv','DS2_TDMS_FIRST_METADATA_AUDIT.json',
+      'DS2_MAT_TRIAL_WINDOW_JOIN.csv','DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json',
+      'DS2_TDMS_RAW_EXACT_JOIN.csv','DS2_TDMS_FIRST_METADATA_AUDIT.json',
       'DS2_TDMS_FIRST_METADATA.csv','DS2_TDMS_GROUP_AUDIT.json',
       'DS2_TDMS_GROUPS.csv','CORE_ARCHIVE_DIGEST_AUDIT.json')
     hashes={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in required}
@@ -33,6 +34,8 @@ def verify(root):
     ds2_native=json.loads((root/'DS2_NATIVE_MAT_AUDIT.json').read_text(encoding='utf-8'))
     ds2_join=json.loads((root/'DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json').read_text(encoding='utf-8'))
     join_rows=list(csv.DictReader((root/'DS2_MAT_TRIAL_WINDOW_JOIN.csv').open(encoding='utf-8',newline='')))
+    ds2_exact=json.loads((root/'DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json').read_text(encoding='utf-8'))
+    exact_rows=list(csv.DictReader((root/'DS2_TDMS_RAW_EXACT_JOIN.csv').open(encoding='utf-8',newline='')))
     tdms=json.loads((root/'DS2_TDMS_FIRST_METADATA_AUDIT.json').read_text(encoding='utf-8'))
     tdms_rows=list(csv.DictReader((root/'DS2_TDMS_FIRST_METADATA.csv').open(encoding='utf-8',newline='')))
     tdms_groups=json.loads((root/'DS2_TDMS_GROUP_AUDIT.json').read_text(encoding='utf-8'))
@@ -121,6 +124,41 @@ def verify(root):
             or any([int(row['group_ordinal_zero_based']) for row in rows]!=list(range(len(rows)))
                    for rows in by_member.values())):
         raise ValueError('DS2 TDMS full group metadata audit inconsistent')
+    group_index={(row['member'],int(row['group_ordinal_zero_based'])):row
+                 for row in group_rows}
+    if (ds2.get('raw_mav_window_join_audit')!='benchmarks/discovery/DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json'
+            or ds2.get('tdms_exact_waveform_join_audit')!='benchmarks/discovery/DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json'
+            or ds2.get('verified_tdms_subject_trials')!=2833
+            or ds2.get('unmatched_tdms_subject_trials')!=30
+            or ds2_exact['status']!='partial_exact_join'
+            or ds2_exact['source_archive_sha256']!=ds2['sha256']
+            or ds2_exact['source_raw_mat_sha256']!=ds2_native['raw_mat_sha256']
+            or ds2_exact['source_trial_window_join_sha256']!=hashes['DS2_MAT_TRIAL_WINDOW_JOIN.csv']
+            or ds2_exact['join_csv_sha256']!=hashes['DS2_TDMS_RAW_EXACT_JOIN.csv']
+            or ds2_exact['tdms_members']!=97
+            or ds2_exact['eligible_groups_at_least_15000_samples']!=3085
+            or ds2_exact['raw_trials']!=2863
+            or ds2_exact['exact_signal_matches']!=2833
+            or ds2_exact['uniquely_matched_raw_trials']!=2833
+            or ds2_exact['unmatched_raw_trial_indices_zero_based']!=list(range(389,419))
+            or ds2_exact['multiply_matched_raw_trial_indices_zero_based']
+            or ds2_exact['prefix_fingerprint_collision_keys']!=0
+            or ds2_exact['unmatched_trials_searched_at_nonzero_tdms_group_offsets']!=30
+            or ds2_exact['nonzero_offset_exact_subsequence_matches']
+            or sum(ds2_exact['unique_subject_trial_counts'].values())!=2833
+            or len(exact_rows)!=2833
+            or len({int(row['raw_trial_index_zero_based']) for row in exact_rows})!=2833
+            or any(int(row['raw_trial_index_zero_based']) in range(389,419)
+                   or int(row['matched_samples_per_channel'])!=15000
+                   or not row['tdms_member'].startswith(f"SEMG-{int(row['subject_folder']):02d}/")
+                   or row['tdms_member'] not in archived_tdms
+                   or (row['tdms_member'],int(row['tdms_group_ordinal_zero_based'])) not in group_index
+                   or int(row['tdms_samples_per_channel'])!=int(group_index[
+                       (row['tdms_member'],int(row['tdms_group_ordinal_zero_based']))]['samples_per_channel'])
+                   or row['gesture_code_if_uniform']!=join_rows[
+                       int(row['raw_trial_index_zero_based'])]['gesture_label_if_uniform']
+                   for row in exact_rows)):
+        raise ValueError('DS2 exact raw-MAT to TDMS subject join inconsistent')
     if (manifest.get('core_archive_digest_audit')!='benchmarks/discovery/CORE_ARCHIVE_DIGEST_AUDIT.json'
             or archive_digest['status']!='all_six_core_archives_freshly_hashed_and_matched'
             or archive_digest['archive_count']!=6
@@ -201,6 +239,8 @@ def verify(root):
            'raw_to_mav_join_verified_trials':ds2_join['raw_trials'],
            'uniform_gesture_label_trials':ds2_join['uniform_gesture_label_trials'],
            'mixed_gesture_label_trial_zero_based':209,
+           'exact_raw_mat_to_tdms_subject_trials':ds2_exact['uniquely_matched_raw_trials'],
+           'unmatched_raw_mat_trials':len(ds2_exact['unmatched_raw_trial_indices_zero_based']),
            'tdms_first_metadata_members':tdms['tdms_members'],
            'tdms_full_metadata_groups':tdms_groups['groups'],
            'tdms_per_trial_force_mapping':'unproven',
@@ -213,7 +253,7 @@ def verify(root):
           'hash/caption verification does not establish visual or full-population signal quality',
           'reported durations agree with native rates; no independent hardware clock check',
           'publisher-linked DS2 v8 archive is verified; historical input identity and old-result reproduction remain unproven',
-          'TDMS file names give subject/movement provenance clues; all 3210 groups lack group properties and do not join to 2863 aggregate MAT arrays or force levels',
+          'TDMS metadata alone cannot join the 3210 groups to MAT trials; exact raw waveforms verify 2833 subject-folder joins, leaving 30 unmatched and no force labels',
           'public DS2 raw MAT to MAV window order is numerically verified; one mixed gesture-code block is ambiguous, and subject/force/historical identity remain unproven',
           'DS2 publication and Kaggle page expose conflicting license labels; redistribution is not cleared',
           'retrospective scorecards do not prove original scoring/phase ordering',

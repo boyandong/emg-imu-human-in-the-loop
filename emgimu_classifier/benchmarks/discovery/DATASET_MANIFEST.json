@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "generated_at": "2026-09-15",
-  "updated_at": "2026-09-23",
+  "updated_at": "2026-09-24",
   "raw_root": "D:/emg-imu-benchmarks/data/raw",
   "immutability": "archives and extracted raw files are never modified",
   "datasets": [
@@ -23,6 +23,10 @@
       "archive_audit": "benchmarks/discovery/DS2_ARCHIVE_AUDIT.json",
       "tdms_first_metadata_audit": "benchmarks/discovery/DS2_TDMS_FIRST_METADATA_AUDIT.json",
       "tdms_group_audit": "benchmarks/discovery/DS2_TDMS_GROUP_AUDIT.json",
+      "raw_mav_window_join_audit": "benchmarks/discovery/DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json",
+      "tdms_exact_waveform_join_audit": "benchmarks/discovery/DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json",
+      "verified_tdms_subject_trials": 2833,
+      "unmatched_tdms_subject_trials": 30,
       "note": "Version 8 Kaggle archive and 102 ZIP members are verified. No old artifact proves this version is the exact historical B0/X1-H/X2 input; current native analyses must be labelled candidate v8 rather than reproduced old results."
     },
     {
