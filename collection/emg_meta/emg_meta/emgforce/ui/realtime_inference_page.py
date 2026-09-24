@@ -894,9 +894,12 @@ class RealtimeInferencePage(QWidget):
                 quality_text = (f"；平线整秒窗口最多 {flat} 个"
                                 f"；近 ADC 上限占比最高 {near_limit:.1%}"
                                 f"；设备报告丢包 {summary['reported_lost_packets']}")
+                event_count = summary["event_intervals_with_predictions"]
+                event_text = (f"；标记动作曾显示正确 {summary['event_intervals_ever_display_match']}/{event_count}"
+                              if event_count else "")
                 self.diagnostic_status.setText(
                     f"诊断记录与分析已保存：{path}；{summary['prediction_frames']} 帧预测"
-                    f"{neutral_text}；{summary['manual_intervals']} 段人工标记{quality_text}")
+                    f"{neutral_text}；{summary['manual_intervals']} 段人工标记{event_text}{quality_text}")
         self._update_live_buttons()
 
     def _diagnostic_failed(self, exc: Exception) -> None:
