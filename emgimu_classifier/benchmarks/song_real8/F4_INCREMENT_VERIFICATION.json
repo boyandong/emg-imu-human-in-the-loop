@@ -1,0 +1,8 @@
+{
+  "status": "all_song_f4_trial_scores_and_pairs_recomputed",
+  "result_sha256": "cae76be89d30a12a8a45ea51c63712e301349abf2624fbab47ab389b4a8db9df",
+  "prediction_rows": 1136,
+  "source_sessions_verified_against_readiness_and_frozen_baseline": 4,
+  "arm_count": 4,
+  "boundary": "This read-back checks source/implementation hashes, 1136 trial probabilities, four-arm held-out scores, class recalls, confusion matrices and paired increments. It cannot turn one person/day and previously inspected S04 into live-device or new-cohort validation."
+}

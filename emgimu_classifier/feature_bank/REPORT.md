@@ -2862,3 +2862,12 @@ versioned JSON artifacts match byte for byte in the current Python environment;
 the audit binds source HDF5, ignored local model bundles, script hashes and
 commands. This is targeted reproducibility evidence, not a rerun of all
 historical model fits or a substitute for unavailable new-user/day data.
+
+The [Song F4 conditional-increment study](../benchmarks/song_real8/F4_INCREMENT_RESULTS.json)
+now compares source-fitted F0, F0+SPD, F0+F4 and F0+SPD+F4 on identical causal
+S03/S04 trials. The saved source F0 and SPD scores replay before the new
+comparison. F4 added to F0+SPD lowers S03/S04 LogLoss by 0.0124/0.0222, but
+S03 macro-F1 drops from 0.9714 to 0.9640 and S04 remains about 0.9508.
+All 1,136 trial probabilities and paired errors pass independent read-back.
+The current selectable live bundle remains F0+SPD; this one-person/day,
+previously inspected S04 result does not support a deployment change.

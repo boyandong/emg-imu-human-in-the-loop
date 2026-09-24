@@ -344,3 +344,27 @@ byte. The audit records source, model, manifest and script hashes and the
 command templates. It does not rerun the older training, export or full
 Feature Bank studies, and the external raw files/model bundles remain required
 for reproduction on another computer.
+
+A subsequent [F4 conditional-increment study](F4_INCREMENT_RESULTS.json)
+tests the current reference spectral family on the same causal Song split.
+S01/S02 alone fit F0, SPD, F4, scalers and four fixed logistic models; S03
+contains 140 evaluation trials and S04 contains 144. Before testing F4, both
+source F0 and F0+SPD scores exactly replay the saved SPD study on S03 and S04.
+
+| Arm | S03 macro-F1 / LogLoss | S04 macro-F1 / LogLoss |
+|---|---:|---:|
+| F0 | 0.9359 / 0.3109 | 0.9068 / 0.4272 |
+| F0 + SPD | 0.9714 / 0.1866 | 0.9508 / 0.2376 |
+| F0 + F4 | 0.9220 / 0.2997 | 0.8813 / 0.4145 |
+| F0 + SPD + F4 | 0.9640 / 0.1742 | 0.9508 / 0.2153 |
+
+Adding F4 to F0+SPD reduces LogLoss by 0.0124 on S03 and 0.0222 on S04,
+and Brier by 0.00046/0.00214, but S03 macro-F1 falls by 0.0073. The added
+family corrects one S03 trial while introducing two new errors; on S04 it
+corrects two and introduces two. This probability-versus-hard-label tradeoff
+does not justify replacing the selectable live F0+SPD bundle. S04 had already
+been inspected, S01–S03 failed whole-session readiness, and all recordings
+remain one person/day. The [1,136 trial probability rows](F4_INCREMENT_TRIAL_PREDICTIONS.csv),
+[conditional increments](F4_INCREMENT_CONDITIONAL.csv),
+[paired errors](F4_INCREMENT_PAIRED_ERRORS.csv) and
+[independent read-back](F4_INCREMENT_VERIFICATION.json) preserve the bounded evidence.
