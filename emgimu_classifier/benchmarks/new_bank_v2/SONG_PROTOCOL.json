@@ -1,0 +1,17 @@
+{
+  "name": "new_bank_v2_song_250hz_exploratory",
+  "source": "user-supplied Song HDF5 v3 eight-channel sessions on 2026-09-18",
+  "preprocessing": "existing continuous-session causal 40 Hz highpass and 50/100 Hz notch; fixed 50-sample windows; no target-fitted filter state",
+  "train_sessions": ["S01", "S02"],
+  "validation_session": "S03",
+  "final_session": "S04",
+  "classes": ["fist", "index_pinch", "neutral", "open_hand"],
+  "reference_arm": "legacy_F0",
+  "arms": ["F0v2", "F0v2+F2a", "F0v2+F3c", "F0v2+F2a+F3c"],
+  "family_parameters": {"F0v2": "six local measures per channel; noise thresholds fitted from source neutral only", "F2a": "centered covariance, fixed 0.05 shrinkage, trace normalized", "F3c": "four circular covariance lags, five statistics each; no half-window drift under 100 samples"},
+  "classifier": "source-window StandardScaler plus balanced LogisticRegression C=1 max_iter=2000 random_state=20260924",
+  "score_unit": "one probability vector per formal native trial by mean of its available window probabilities",
+  "selection_rule": "Select among v2 arms by S03 trial macro-F1, tie by log loss, then listed order. S04 was examined in earlier studies, so all S04 results remain exploratory and cannot support an independent final claim.",
+  "reference_check": "Reproduce prior new_bank_v1 legacy F0 probabilities for all S03/S04 held-out trials to within 1e-10",
+  "scope": "One person, four same-day sessions, offline cue-labelled stable intervals; no new-day, electrode re-placement, force, online onset or live latency claim"
+}
