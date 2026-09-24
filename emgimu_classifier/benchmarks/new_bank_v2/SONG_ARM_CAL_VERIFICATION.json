@@ -1,0 +1,30 @@
+{
+  "status": "verified",
+  "prediction_rows": 568,
+  "heldout_native_trials": 284,
+  "metric_groups_read_back": 4,
+  "max_hand_probability_replay_error": 3.7119077348490848e-06,
+  "all_calibration_blocks_preformal": true,
+  "paired": {
+    "validation": {
+      "source_vs_previous_joint": {
+        "corrected": 20,
+        "new_errors": 16
+      },
+      "guided_vs_same_hand_source_arm": {
+        "corrected": 4,
+        "new_errors": 38
+      }
+    },
+    "final": {
+      "source_vs_previous_joint": {
+        "corrected": 18,
+        "new_errors": 25
+      },
+      "guided_vs_same_hand_source_arm": {
+        "corrected": 24,
+        "new_errors": 24
+      }
+    }
+  }
+}

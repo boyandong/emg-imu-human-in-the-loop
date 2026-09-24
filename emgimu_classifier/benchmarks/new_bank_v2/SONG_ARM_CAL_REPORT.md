@@ -1,0 +1,21 @@
+# Guided IMU arm calibration on the Song 28-state task
+
+The [fixed protocol](SONG_ARM_CAL_PROTOCOL.json) and [runner](song_arm_calibration.py) were committed as `b6e41f9` before scoring. The Song HDF5 files contain six valid guided arm-direction calibration blocks and two rest blocks per session, all before the first formal trial. This study tests whether their real 112 Hz IMU can establish a useful per-session arm reference. It does **not** call the descriptor a body frame: the collection did not save an independently measured forearm-forward axis, and a prompted arm movement is not such a measurement.
+
+The selected eight-block pre-formal calibration spans 63.24–64.07 seconds across S01–S04; the six guided arm blocks span 21.10–22.00 seconds of that period. Those are recording-time spans between block boundaries, not a measured operator setup or future product time.
+
+Both compared systems use the same S01+S02-trained, previously S03-selected F0v2+F2a+F3c hand model. They differ only in the seven-way arm branch: one trains a balanced classifier on S01+S02 formal IMU windows; the other uses each session's own pre-formal guided/rest IMU descriptor medians, with coordinate scale frozen from S01+S02 calibration blocks. Hand and arm probabilities are averaged separately per native formal trial, multiplied into 28 joint probabilities, and normalized. The fixed 22-sample IMU descriptor uses the existing F6 magnitude and gravity summaries. No target formal labels or windows fit the guided prototypes, scale, source models or temperature.
+
+| Joint system | S03 macro-F1 | S03 accuracy | S03 log loss | S04 macro-F1 | S04 accuracy | S04 log loss |
+|---|---:|---:|---:|---:|---:|---:|
+| Previous F0v2+IMU joint classifier, context | 0.6125 | 0.7143 | 1.1597 | 0.5365 | **0.6944** | 1.2373 |
+| Same hand + source-trained arm classifier | **0.7159** | **0.7429** | **1.0553** | **0.5789** | 0.6458 | 1.1887 |
+| Same hand + guided-session arm prototypes | 0.3272 | 0.5000 | 2.0004 | 0.5386 | 0.6458 | **1.1123** |
+
+The source-trained factorization improves S03 joint macro-F1 and accuracy over the previous joint classifier. On S04 it raises macro-F1 by 0.0424 but lowers accuracy by 0.0486; the S04 arm accuracy is 0.7014, versus 0.7639 for the previous joint classifier. It is a class-balance tradeoff, not an unqualified recognition improvement. The guided prototype branch has the **same hand probabilities** and lower S03 arm accuracy (0.5071 versus 0.7643). It corrects four source-arm errors but creates 38 new ones on S03. On S04 it has equal joint accuracy, lower macro-F1 and lower log loss. The guided blocks' stable IMU signatures therefore do not align reliably with formal-trial arm states under this frozen simple distance rule. Possible causes include different movement phases, orientation drift and descriptor mismatch; this experiment does not identify which caused the errors.
+
+The [read-back verifier](verify_song_arm_cal.py) checks every probability and metric group from [568 saved trial rows](SONG_ARM_CAL_TRIAL_PREDICTIONS.csv), all eight calibration blocks per session, source HDF5 hashes, trial identities, and pairwise errors. Marginalizing either joint arm reproduces the prior four-hand-state probabilities within 3.72e-6, the known Python/SciPy runtime difference; all labels and hard decisions match. The [results](SONG_ARM_CAL_RESULTS.json) and [verification](SONG_ARM_CAL_VERIFICATION.json) retain full precision. The prior 28-state study uses the same recorded Python 3.13.9/NumPy 2.4.3/SciPy 1.17.1/scikit-learn 1.8.0 runtime.
+
+These one-person, one-day stable-cue results do not establish a body-frame transform, a validated calibration product, continuous action onset, new-day electrode robustness or live accuracy. No live model is changed. A proper body-frame study requires an explicitly measured/guided device-forward axis and independent new-session recordings; the present guided arm blocks alone cannot substitute for that measurement.
+
+From `emgimu_classifier` with `PYTHONPATH=src;.`, run `D:/miniconda/python.exe -m benchmarks.new_bank_v2.song_arm_calibration` then `D:/miniconda/python.exe -m benchmarks.new_bank_v2.verify_song_arm_cal`. Raw HDF5 files stay at `E:/qxy/emg_meta/emg_meta/data/Song` outside Git.

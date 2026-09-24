@@ -2981,6 +2981,15 @@ The prior 28-state baseline reproduces only in its recorded Python 3.13/NumPy
 2.4/SciPy 1.17 runtime; a separate Python 3.11/NumPy 1.26/SciPy 1.14
 environment changes one S04 decision. The live model remains unchanged.
 
+The [guided Song IMU arm-calibration test](../benchmarks/new_bank_v2/SONG_ARM_CAL_REPORT.md)
+uses the actual pre-formal six-direction and rest blocks without fitting on
+target formal trials. With identical source-trained hand probabilities, a
+source-trained arm classifier scores S03/S04 joint macro-F1 0.7159/0.5789;
+per-session guided arm prototypes score 0.3272/0.5386. The factorized source
+model improves S04 macro-F1 versus the earlier joint classifier but lowers
+S04 accuracy from 0.6944 to 0.6458. Guided blocks do not supply a measured
+body-forward axis or a validated live calibration solution.
+
 The independently sourced [Zenodo electrode re-placement check](../benchmarks/new_bank_v1/ZENODO_REPLACEMENT_REPORT.md)
 adds a separate file-level P1-to-P2/P3 position-shift test of the new bank.
 The P2-selected ring-lag-plus-correlation arm improves P3 mean-subject top-1

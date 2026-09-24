@@ -46,9 +46,10 @@ def calibration_imu_windows(folder: Path, session: str) -> tuple[dict[str, np.nd
         if name not in required:
             continue
         start, end = int(row["stable_start_sample"]), int(row["stable_end_sample"])
+        trial_start, trial_end = int(row["trial_start_sample"]), int(row["trial_end_sample"])
         if (name in blocks or not bool(row["valid"])
                 or _text(row["completion_status"]) != "completed"
-                or not 0 <= int(row["trial_start_sample"]) <= start < end < first_formal):
+                or not 0 <= trial_start <= start < end <= trial_end <= first_formal):
             raise ValueError(f"invalid or duplicate pre-formal calibration: {session}/{name}")
         left, right = np.searchsorted(indices, (start, end), side="left")
         segment = imu[left:right]
@@ -57,7 +58,9 @@ def calibration_imu_windows(folder: Path, session: str) -> tuple[dict[str, np.nd
         if not windows:
             raise ValueError(f"calibration interval shorter than 22 IMU samples: {session}/{name}")
         blocks[name] = np.stack(windows)
-        audit[name] = {"trial_id": int(row["trial_id"]), "emg_stable_start": start,
+        audit[name] = {"trial_id": int(row["trial_id"]),
+                       "trial_start_sample": trial_start, "trial_end_sample": trial_end,
+                       "emg_stable_start": start,
                        "emg_stable_end": end, "imu_samples": int(len(segment)),
                        "descriptor_windows": len(windows), "preformal": True}
     if set(blocks) != required:
@@ -140,13 +143,24 @@ def run(source: Path = SOURCE) -> dict:
             source / f"2026-09-18_{sid}", sid)
         rest[sid], guide[sid] = prototypes(imu_family, blocks[sid], arm_classes)
         print(f"{sid}: {sum(len(v) for v in blocks[sid].values())} pre-formal calibration descriptor windows", flush=True)
+    calibration_burden = {}
+    for sid, audit in calibration_audit.items():
+        all_blocks = list(audit.values())
+        arm_blocks = [value for name, value in audit.items() if name.startswith("calibration_arm_")]
+        calibration_burden[sid] = {
+            "selected_eight_block_span_seconds": (max(item["trial_end_sample"] for item in all_blocks)
+                - min(item["trial_start_sample"] for item in all_blocks)) / 250.0,
+            "six_guided_arm_block_span_seconds": (max(item["trial_end_sample"] for item in arm_blocks)
+                - min(item["trial_start_sample"] for item in arm_blocks)) / 250.0,
+        }
     source_scale = np.maximum(np.std(np.concatenate([guide[sid] for sid in ("S01", "S02")]), axis=0), .05)
     rows = []; results = {
         "protocol": PROTOCOL, "protocol_sha256": hashlib.sha256(PROTOCOL_PATH.read_bytes()).hexdigest(),
         "runtime_versions": current_runtime, "source_hdf5_sha256": source_hashes,
         "reference_28_results_sha256": hashlib.sha256(prior_path.read_bytes()).hexdigest(),
         "source_arm_coordinate_scale": source_scale.tolist(),
-        "calibration_blocks": calibration_audit, "sessions": {},
+        "calibration_blocks": calibration_audit,
+        "calibration_burden": calibration_burden, "sessions": {},
     }
     for phase, sid in (("validation", "S03"), ("final", "S04")):
         item = data[sid]
