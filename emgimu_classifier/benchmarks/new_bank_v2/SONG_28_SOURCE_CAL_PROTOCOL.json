@@ -1,0 +1,16 @@
+{
+  "name": "song_28_factorized_source_oof_temperature_exploratory",
+  "source_sessions": ["S01", "S02"],
+  "source_oof_folds": [["S01", "S02"], ["S02", "S01"]],
+  "validation_session": "S03",
+  "final_session": "S04",
+  "source_data": "Hashed Song HDF5 v3, one participant/day, native 250 Hz eight-channel EMG and 112 Hz IMU; causal filtering",
+  "branches": "Previously fixed F0v2+F2a+F3c four-hand branch and 13-coordinate real-IMU F6 seven-arm branch; balanced logistic C=1, source-only StandardScaler, random_state=20260924",
+  "fold_fit_boundary": "Every feature-family state, scaler and classifier is refit on just the training source session; held-out source session supplies trial probabilities and labels only. Full source S01+S02 models are refit separately for S03/S04 evaluation.",
+  "calibration_unit": "Mean window class probability per native formal trial; temperature softmax(log(clipped trial probability)/T) applied separately to hand and arm branches before normalized outer product.",
+  "temperature_candidates": [0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 3.0],
+  "selection": "Minimize pooled source-session OOF trial log loss separately for hand and arm; ties choose T closest to 1, then smaller T. No S03/S04 probability or label fits either temperature.",
+  "comparison": ["source_factorized_uncalibrated", "source_factorized_source_oof_temperature"],
+  "primary": "S03 and S04 joint trial log loss and Brier; report macro-F1/accuracy and branch accuracy without claiming an unseen final set",
+  "scope": "S03 collection readiness failed and S04 was already inspected; one person/day. This is source-only probability calibration evidence, not live reliability, force labels or cross-day transfer."
+}
