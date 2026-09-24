@@ -40,6 +40,15 @@ GRABMyo support session calibration because the same user returns. Electrode-shi
 a targeted wearing calibration. Force-ZeroShot calibration must use source-force trials only;
 Force-ProductMode is reported separately when onboarding includes multiple intensities.
 
+On 2026-09-24, a previously frozen secondary GRABMyo subset was activated to test a genuine
+eight-channel cross-day gap. The first eight subject IDs, F1–F8 forearm ring, four specified
+classes and all three days were fixed in commit `11c2f8b` before download or result inspection.
+All 1,344 selected files matched official SHA-256 checksums. The separate
+[`grabmyo_crossday` report](../grabmyo_crossday/REPORT.md) records that F0 won the final-day
+macro-F1, log loss and Brier comparisons; adding F2a or F4 provided no stable final-day gain.
+This is independent public-hardware evidence, not original before-training candidate selection,
+own-device validation, or a reproduction of historical force/wearing work.
+
 No current public benchmark reproduces all properties of the own eight-channel device. The
 suite therefore reports a robustness vector and its worst available cell. It never averages
 away missing factors or reports synthetic quality corruption as a real sensor failure.

@@ -1,0 +1,233 @@
+{
+  "protocol": {
+    "name": "grabmyo_v1_1_0_forearm_ring1_crossday_four_gesture_v1",
+    "frozen_before_acquisition": "2026-09-24",
+    "source": "https://physionet.org/content/grabmyo/1.1.0/",
+    "source_version": "1.1.0",
+    "source_license": "CC BY 4.0",
+    "source_checksums": "https://physionet.org/files/grabmyo/1.1.0/SHA256SUMS.txt",
+    "subjects": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "sessions": {
+      "train": 1,
+      "validation": 2,
+      "final": 3
+    },
+    "gesture_codes": {
+      "4": "thumb_index_opposition",
+      "15": "hand_open",
+      "16": "hand_close",
+      "17": "rest"
+    },
+    "trials_per_subject_session_gesture": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "channels": [
+      "F1",
+      "F2",
+      "F3",
+      "F4",
+      "F5",
+      "F6",
+      "F7",
+      "F8"
+    ],
+    "sample_rate_hz": 2048,
+    "window_samples": 512,
+    "window_overlap_samples": 0,
+    "feature_aggregation": "per_trial_mean_and_std_of_20_disjoint_windows",
+    "feature_arms": [
+      "F0",
+      "F0+F2a",
+      "F0+F4"
+    ],
+    "classifier": "StandardScaler plus multinomial LogisticRegression C=1 max_iter=2000 random_state=20260924",
+    "selection_rule": "No feature, hyperparameter, subject or class selection after validation/final outcomes are inspected.",
+    "primary_metrics": [
+      "macro_f1",
+      "log_loss",
+      "brier"
+    ],
+    "secondary_metrics": [
+      "accuracy",
+      "per_class_recall",
+      "per_subject_macro_f1",
+      "minimum_subject_macro_f1"
+    ],
+    "scope": "Public GRABMyo selected eight-channel forearm ring across three sessions/days; independent exploratory confirmation. Not the user's device, not UniBo, not historical DS2, and not proof of realtime accuracy."
+  },
+  "source_file_verification": "all 1344 selected files match official SHA256SUMS",
+  "f0_rest_training_windows": 1120,
+  "arms": {
+    "F0": {
+      "train_trials": 224,
+      "feature_dimensions": 96,
+      "validation": {
+        "trials": 224,
+        "accuracy": 0.9553571428571429,
+        "macro_f1": 0.9551079403053087,
+        "log_loss": 0.150671479321107,
+        "brier": 0.07947227250299763,
+        "per_class_recall": {
+          "4": 0.8928571428571429,
+          "15": 0.9464285714285714,
+          "16": 0.9821428571428571,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 0.9641025641025641,
+          "5": 0.8601190476190477,
+          "6": 0.9270833333333334,
+          "7": 0.9641025641025641,
+          "8": 0.9270833333333334
+        },
+        "minimum_subject_macro_f1": 0.8601190476190477
+      },
+      "final": {
+        "trials": 224,
+        "accuracy": 0.9017857142857143,
+        "macro_f1": 0.9008139284917354,
+        "log_loss": 0.30074100731440295,
+        "brier": 0.15524289503185357,
+        "per_class_recall": {
+          "4": 0.7857142857142857,
+          "15": 0.875,
+          "16": 0.9464285714285714,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "1": 0.9641025641025642,
+          "2": 0.6666666666666666,
+          "3": 1.0,
+          "4": 0.9641025641025642,
+          "5": 0.7,
+          "6": 0.9270833333333334,
+          "7": 1.0,
+          "8": 0.8918269230769231
+        },
+        "minimum_subject_macro_f1": 0.6666666666666666
+      }
+    },
+    "F0+F2a": {
+      "train_trials": 224,
+      "feature_dimensions": 168,
+      "validation": {
+        "trials": 224,
+        "accuracy": 0.9285714285714286,
+        "macro_f1": 0.9266725349639948,
+        "log_loss": 0.18745871072401815,
+        "brier": 0.10497366829715502,
+        "per_class_recall": {
+          "4": 0.7857142857142857,
+          "15": 0.9285714285714286,
+          "16": 1.0,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "1": 0.9641025641025641,
+          "2": 0.9270833333333334,
+          "3": 1.0,
+          "4": 0.9641025641025641,
+          "5": 0.8899267399267399,
+          "6": 0.6465277777777778,
+          "7": 0.9641025641025641,
+          "8": 0.9641025641025641
+        },
+        "minimum_subject_macro_f1": 0.6465277777777778
+      },
+      "final": {
+        "trials": 224,
+        "accuracy": 0.8571428571428571,
+        "macro_f1": 0.8535804527475532,
+        "log_loss": 0.7640164403145854,
+        "brier": 0.2041688711596342,
+        "per_class_recall": {
+          "4": 0.6785714285714286,
+          "15": 0.8571428571428571,
+          "16": 0.8928571428571429,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "1": 1.0,
+          "2": 0.6583333333333333,
+          "3": 0.8949849170437405,
+          "4": 0.8375,
+          "5": 0.7,
+          "6": 0.8519862490450725,
+          "7": 1.0,
+          "8": 0.7777777777777778
+        },
+        "minimum_subject_macro_f1": 0.6583333333333333
+      }
+    },
+    "F0+F4": {
+      "train_trials": 224,
+      "feature_dimensions": 240,
+      "validation": {
+        "trials": 224,
+        "accuracy": 0.9419642857142857,
+        "macro_f1": 0.9413285396336244,
+        "log_loss": 0.1443554528294781,
+        "brier": 0.07567237659632157,
+        "per_class_recall": {
+          "4": 0.8571428571428571,
+          "15": 0.9107142857142857,
+          "16": 1.0,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "1": 0.9641025641025641,
+          "2": 0.9641025641025641,
+          "3": 1.0,
+          "4": 0.9283882783882784,
+          "5": 0.9641025641025641,
+          "6": 0.8444444444444444,
+          "7": 1.0,
+          "8": 0.8500000000000001
+        },
+        "minimum_subject_macro_f1": 0.8444444444444444
+      },
+      "final": {
+        "trials": 224,
+        "accuracy": 0.9017857142857143,
+        "macro_f1": 0.9001931506876848,
+        "log_loss": 0.47668927069473543,
+        "brier": 0.15668185584241323,
+        "per_class_recall": {
+          "4": 0.7678571428571429,
+          "15": 0.8571428571428571,
+          "16": 0.9821428571428571,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "1": 0.9641025641025642,
+          "2": 0.6529605263157895,
+          "3": 1.0,
+          "4": 0.8392156862745097,
+          "5": 0.8162719633307869,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 0.8115773115773115
+        },
+        "minimum_subject_macro_f1": 0.6529605263157895
+      }
+    }
+  }
+}

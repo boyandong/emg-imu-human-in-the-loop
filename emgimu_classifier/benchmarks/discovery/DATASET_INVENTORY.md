@@ -15,7 +15,7 @@ data and manifests use sibling directories. Raw archives and extracted data are 
 | EMG-FMG load and limb position | new | EMG-only ZIP adapter | load/position held-out study | `data/raw/emg_fmg` | verified complete |
 | GREAT | new | no | no | `data/raw/great` | secondary, deferred until Tier 1 validation |
 | NinaPro DB6 | new | no | no | `data/raw/ninapro_db6` | secondary; NinaPro account and terms required |
-| GRABMyo | new | metadata entry only | no | `data/raw/grabmyo` | secondary; 9.4 GB uncompressed |
+| GRABMyo | new | frozen F1–F8 WFDB subset adapter | 8-subject, 3-day, 4-class F0/F2a/F4 trial-level screen | `D:/emg-imu-benchmarks/data/raw/grabmyo_crossday_subset_v1` | selected 672 records / 1,344 files / 442,479,520 bytes match official SHA256SUMS; full 9.4 GB collection not downloaded |
 | NinaPro DB5 | new | generic 16-to-two-8-channel policy | no | `data/raw/ninapro_db5` | secondary; NinaPro account and terms required |
 | FORS-EMG | new | no | no | `data/raw/fors_emg` | supplementary; original release is Kaggle |
 | Three-position electrode replacement | new | no | no | `data/raw/electrode_replacement` | secondary; public Zenodo archive |

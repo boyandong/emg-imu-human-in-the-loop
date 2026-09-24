@@ -26,9 +26,10 @@ not full-sequence or streaming validation.
 | EMG-FMG | external grasped load, not voluntary force | yes | no repeated day | no | 8 limb positions | no | synthetic only | personal; load/posture product mode |
 | Song real 8-channel EMG + 6-axis IMU | no measured force | one participant only | four sessions on one date; S01–S03 failed readiness, S04 passed | no validated re-donning split | seven cued arm states with raw IMU; 28-state test exploratory | no controlled speed | reconstructed protocol software path; original packet bytes and physiological cue onset unverified | distinct pre-formal 0/1/2-shot calibration evaluated offline; causal-filter gain is weak and not live deployment evidence |
 | Public DS2 v8 candidate | three subjective force levels in protocol, but no verified per-trial force labels | 20 subject folders; 2,833/2,863 raw trials exact-matched to TDMS | no repeated day | no validated re-donning | no controlled posture variation | no controlled speed | raw-to-MAV window order exact; one mixed gesture-code block; 30 subject-unmatched trials | gesture-code-only held-out subject split available on 2,832 trials; no historical force result or personal-force calibration claim |
+| GRABMyo selected F1–F8 forearm ring | no | 8 selected subjects, not held-out-user test | three distinct days; day 1 train, day 2 validation, day 3 final | electrode reapplication may contribute but is not separately identified | no controlled posture | no controlled speed | 1,344 selected files match official SHA256SUMS | fixed pooled model; no personal or session calibration; four-class trial-level cross-day screen only |
 
 Secondary datasets are activated only when a Tier 1 capability gap remains. GREAT can confirm
-posture by day, NinaPro DB6 and GRABMyo can confirm cross-day effects, and the three-position
+posture by day, NinaPro DB6 remains a cross-day candidate, and the selected GRABMyo subset now provides one public cross-day confirmation. The three-position
 dataset can confirm electrode replacement. Hyser remains a measured-force and observability
 ceiling using selected subsets.
 

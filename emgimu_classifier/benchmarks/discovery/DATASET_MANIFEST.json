@@ -116,10 +116,17 @@
     },
     {
       "id": "grabmyo",
-      "status": "deferred",
+      "status": "selected_subset_verified",
       "source": "https://physionet.org/content/grabmyo/1.1.0/",
       "uncompressed_size": 9400000000,
-      "license": "ODC-BY-1.0"
+      "license": "CC-BY-4.0",
+      "selected_subset_path": "D:/emg-imu-benchmarks/data/raw/grabmyo_crossday_subset_v1",
+      "selected_subset_records": 672,
+      "selected_subset_files": 1344,
+      "selected_subset_bytes": 442479520,
+      "selected_subset_verified_against": "official SHA256SUMS.txt",
+      "official_checksum_manifest_sha256": "757ea64fa5134b7b3b84d9f79e30cfa1ac4d2c65a40ce9b427db11dd8258974e",
+      "full_dataset_downloaded": false
     },
     {
       "id": "ninapro_db5",

@@ -2922,3 +2922,13 @@ discoverable model was UniBo. An offscreen full-window smoke test confirmed
 the current shortcut's preferred model loads; the generic collection
 shortcut remains unchanged. This resolves model-selection ambiguity at
 launch but is not a physical-device recognition test.
+
+The separately preregistered [GRABMyo public cross-day screen](../benchmarks/grabmyo_crossday/REPORT.md)
+adds 672 verified trials from eight selected subjects across three days, using
+the publisher's first forearm F1–F8 ring. A fixed day-1 model was tested on
+day 2 and then day 3. On final day, F0 macro-F1/LogLoss/Brier were
+0.9008/0.3007/0.1552; F0+F2a gave 0.8536/0.7640/0.2042 and F0+F4 gave
+0.9002/0.4767/0.1567. Thus neither added family demonstrated a robust
+cross-day improvement in this limited four-class public setting. Different
+hardware, subject selection and trial-level labels keep this separate from
+own-device real-time claims and historical DS2 force reproduction.
