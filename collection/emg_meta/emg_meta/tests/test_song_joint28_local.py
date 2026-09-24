@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import shutil
+import time
 from pathlib import Path
 
 import numpy as np
@@ -98,3 +100,89 @@ def test_indexed_stream_matches_offline_windows_across_packet_chunking():
         native_imu = np.column_stack((accel[last - 22:last], gyro[last - 22:last]))
         expected = model.predict_filtered_window(filtered[end - 49:end + 1], native_imu)[2]
         np.testing.assert_allclose(joint, expected, atol=1e-6)
+
+
+def test_collection_page_loads_opt_in_joint_model_and_consumes_both_sensors(tmp_path):
+    os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+    from PySide6.QtWidgets import QApplication
+    from emgforce.ui.realtime_inference_page import RealtimeInferencePage
+
+    app = QApplication.instance() or QApplication([])
+    page = RealtimeInferencePage(tmp_path / "models")
+    try:
+        page.refresh_models()
+        key = f"song28::{BUNDLE.resolve()}"
+        index = page.model_combo.findData(key)
+        assert index >= 0
+        page.model_combo.setCurrentIndex(index)
+        page.set_connected(True)
+        page.load_selected_model()
+        deadline = time.monotonic() + 5
+        while page.bundle is None and time.monotonic() < deadline:
+            app.processEvents()
+            time.sleep(.01)
+        assert page.bundle is not None
+        assert page.bundle.output_channels == 28
+        assert page.start_button.isEnabled() and not page.calibrate_button.isEnabled()
+        frames = []
+        page.worker.prediction_ready.connect(frames.append)
+        page.start_recognition()
+        rng = np.random.default_rng(19)
+        page.ingest_emg(rng.integers(-200, 200, size=(250, 8), dtype=np.int32),
+                        np.arange(250, dtype=np.int64))
+        imu_indices = np.rint(np.arange(113) * 250 / 112).astype(np.int64)
+        page.ingest_imu(rng.normal(size=(113, 3)).astype(np.float32),
+                        rng.normal(size=(113, 3)).astype(np.float32),
+                        np.arange(113, dtype=np.int64), imu_indices)
+        deadline = time.monotonic() + 5
+        while not frames and time.monotonic() < deadline:
+            app.processEvents()
+            time.sleep(.01)
+        assert frames and frames[-1].probabilities.shape == (28,)
+        assert "数据龄未测" in page.current_probability.text()
+    finally:
+        assert page.shutdown()
+        page.close()
+
+
+def test_main_window_controller_routes_batched_imu_into_joint_worker(tmp_path):
+    os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+    from PySide6.QtWidgets import QApplication
+    from emgforce.protocol import Packet
+    from emgforce.ui import MainWindow
+
+    app = QApplication.instance() or QApplication([])
+    (tmp_path / "protocols").mkdir()
+    window = MainWindow(tmp_path)
+    page = window.realtime_inference_page
+    try:
+        page.refresh_models()
+        page.model_combo.setCurrentIndex(page.model_combo.findData(f"song28::{BUNDLE.resolve()}"))
+        page.set_connected(True)
+        page.load_selected_model()
+        deadline = time.monotonic() + 5
+        while page.bundle is None and time.monotonic() < deadline:
+            app.processEvents()
+            time.sleep(.01)
+        assert page.bundle is not None
+        frames = []
+        page.worker.prediction_ready.connect(frames.append)
+        page.start_recognition()
+        for batch in range(50):
+            packets = [Packet("EMG", (batch * 7 + offset) % 256,
+                              (batch * 5 + offset) * 4_000_000, b"",
+                              emg_uv=tuple(100 + offset for _ in range(8)))
+                       for offset in range(5)]
+            packets += [Packet("IMU", (batch * 7 + 5 + offset) % 256,
+                               batch * 20_000_000 + offset * 8_000_000, b"",
+                               gyro_rad_s=(.1, .2, .3), accel_m_s2=(.0, .0, 9.81))
+                        for offset in range(2)]
+            window.acquisition.ingest_packets(packets)
+        deadline = time.monotonic() + 5
+        while not frames and time.monotonic() < deadline:
+            app.processEvents()
+            time.sleep(.01)
+        assert frames and frames[-1].output_sample_index >= 74
+        assert frames[-1].probabilities.shape == (28,)
+    finally:
+        assert window.close()

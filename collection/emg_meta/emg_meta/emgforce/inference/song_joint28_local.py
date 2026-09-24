@@ -17,6 +17,10 @@ from scipy.special import softmax
 
 MODEL_NAME = "song_joint28_model.json"
 MANIFEST_NAME = "song_joint28_manifest.json"
+COMBO_PREFIX = "song28::"
+ARM_DISPLAY = {"still": "手臂静止", "up": "向上", "down": "向下", "left": "向左",
+               "right": "向右", "forward": "向前", "backward": "向后"}
+HAND_DISPLAY = {"neutral": "静息", "index_pinch": "食指捏合", "fist": "握拳", "open_hand": "张开"}
 
 
 def _read_object(path: Path) -> dict:
@@ -24,6 +28,25 @@ def _read_object(path: Path) -> dict:
     if not isinstance(value, dict):
         raise ValueError(f"model JSON must be an object: {path}")
     return value
+
+
+def song_joint28_key_path(value: object) -> Path | None:
+    name = str(value)
+    return Path(name[len(COMBO_PREFIX):]) if name.startswith(COMBO_PREFIX) else None
+
+
+def discover_song_joint28_bundles(models_root: Path) -> list[Path]:
+    built_in = Path(__file__).resolve().parents[2] / "model_assets/song_joint28_window"
+    candidates = [built_in, *sorted(Path(models_root).glob("*/" + MANIFEST_NAME))]
+    found = []
+    for path in candidates:
+        try:
+            SongJoint28WindowRuntime(path)
+            if path.resolve() not in found:
+                found.append(path.resolve())
+        except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError):
+            continue
+    return found
 
 
 class SongJoint28WindowRuntime:
@@ -65,6 +88,30 @@ class SongJoint28WindowRuntime:
         self.arm_scale = self._array(model["arm"], "scaler_scale", (13,), positive=True)
         self.arm_coef = self._array(model["arm"], "coef", (7, 13))
         self.arm_intercept = self._array(model["arm"], "intercept", (7,))
+
+    def make_bundle(self):
+        # Keep offline export independent of the collection application's imports.
+        from emgforce.inference.model_bundle import ModelBundle
+
+        display = {}
+        for name in self.joint_classes:
+            for arm in self.arm_classes:
+                prefix = arm + "_"
+                if name.startswith(prefix):
+                    display[name] = f"{ARM_DISPLAY[arm]} · {HAND_DISPLAY[name[len(prefix):]]}"
+                    break
+        return ModelBundle(
+            root=self.directory, model_id="Song 手势×手臂 28 类（S01/S02）",
+            artifact=self.artifact, sha256=self.sha256, labels=self.joint_classes,
+            display_names=display, sample_rate=250, input_channels=8, output_channels=28,
+            algorithm_id="song_joint28_local_v1", runtime_backend="song_joint28_source_factorized",
+            preprocessing={"online_event_threshold": 0.15, "window_samples": 50,
+                           "hop_samples": 25, "imu_window_samples": 22},
+            metadata={"experimental_adapter": True, "song_joint28_local": True,
+                      "model_status": self.manifest["model_status"],
+                      "source_checkpoint": {"path": str(self.artifact), "sha256": self.sha256},
+                      "training": {"source_sessions": ["S01", "S02"]}},
+        )
 
     @staticmethod
     def _array(group: dict, field: str, shape: tuple[int, ...], *, positive: bool = False) -> np.ndarray:

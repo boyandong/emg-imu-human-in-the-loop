@@ -25,6 +25,11 @@ from emgforce.inference.song_local import (
     DISPLAY as SONG_DISPLAY, SongLocalRuntime, SongModelInfo, discover_song_models, song_key_path,
 )
 from emgforce.inference.song_worker import SongRealtimeWorker
+from emgforce.inference.song_joint28_local import (
+    COMBO_PREFIX as SONG28_PREFIX, SongJoint28WindowRuntime,
+    discover_song_joint28_bundles, song_joint28_key_path,
+)
+from emgforce.inference.song_joint28_worker import SongJoint28RealtimeWorker
 from emgforce.inference.unibo_adapter import (
     DEFAULT_CHANNEL_MAP, MUSCLE_NAMES, POSTURE_NAMES, UniBoModelInfo,
     UniBoRealtimeWorker, discover_unibo_models, unibo_key_path,
@@ -233,7 +238,7 @@ class RealtimeInferencePage(QWidget):
         super().__init__()
         self.models_root = Path(models_root)
         self.prefer_song_spd = bool(prefer_song_spd)
-        self.worker: RealtimeInferenceWorker | UniBoRealtimeWorker | SongRealtimeWorker | None = None
+        self.worker: RealtimeInferenceWorker | UniBoRealtimeWorker | SongRealtimeWorker | SongJoint28RealtimeWorker | None = None
         self.replay_worker: OfflineReplayWorker | None = None
         self.remote_model_worker: RemoteModelWorker | None = None
         self.bundle: ModelBundle | None = None
@@ -607,6 +612,10 @@ class RealtimeInferencePage(QWidget):
             self.model_combo.addItem(
                 f"[Song 8ch] {info.model_id} · S03 val ACC {info.validation_accuracy:.3f} · "
                 f"macro-F1 {info.validation_macro_f1:.3f} · 同人单日实验", info.combo_key)
+        for directory in discover_song_joint28_bundles(self.models_root):
+            self.model_combo.addItem(
+                "[Song EMG+IMU 28 类] 手势×手臂 · 250/112 Hz · 同人单日实验",
+                SONG28_PREFIX + str(directory))
         if previous:
             index = self.model_combo.findData(previous)
             if index >= 0:
@@ -632,6 +641,23 @@ class RealtimeInferencePage(QWidget):
             self.model_details.setText("--")
             self.model_status.setText(f"未在 {self.models_root} 找到完整模型包")
             self.load_model_button.setEnabled(False)
+            return
+        joint28_path = song_joint28_key_path(path_str)
+        if joint28_path is not None:
+            self.unibo_adapter_panel.setVisible(False)
+            try:
+                runtime = SongJoint28WindowRuntime(joint28_path)
+            except (OSError, KeyError, TypeError, ValueError) as exc:
+                self.model_details.setText("--")
+                self.model_status.setText(f"Song 28 类模型包无效：{exc}")
+                self.load_model_button.setEnabled(False)
+                return
+            self.model_details.setText(
+                f"Song EMG 8 通道 250 Hz + IMU 6 轴 112 Hz / 28 类 / 200 ms · "
+                f"SHA-256 {runtime.sha256[:12]}…\n"
+                "S01/S02 训练；S03/S04 仅验证提示动作稳定窗口；连续实时准确率与延迟未验证")
+            self.model_status.setText("已选择 Song EMG+IMU 28 类实验模型（点击「加载模型」）")
+            self.load_model_button.setEnabled(True)
             return
         song_path = song_key_path(path_str)
         if song_path is not None:
@@ -796,8 +822,11 @@ class RealtimeInferencePage(QWidget):
         self.model_status.setText("正在校验并加载模型……")
         self.load_model_button.setEnabled(False)
         song_path = song_key_path(path)
+        joint28_path = song_joint28_key_path(path)
         unibo_path = unibo_key_path(path)
-        if song_path is not None:
+        if joint28_path is not None:
+            worker = SongJoint28RealtimeWorker(joint28_path, parent=self)
+        elif song_path is not None:
             worker = SongRealtimeWorker(song_path, parent=self)
         elif unibo_path is not None:
             channel_map = tuple(
@@ -844,17 +873,21 @@ class RealtimeInferencePage(QWidget):
         if self.worker is not None and self.worker.isRunning():
             self.worker.submit_emg(raw, indices)
 
-    def ingest_imu(self, gyro: np.ndarray, accel: np.ndarray, received_ns: np.ndarray) -> None:
+    def ingest_imu(self, gyro: np.ndarray, accel: np.ndarray, received_ns: np.ndarray,
+                   emg_indices: np.ndarray | None = None) -> None:
         if self._diagnostic is not None:
             try:
                 self._diagnostic.record_imu(gyro, accel, received_ns)
             except (OSError, ValueError, RuntimeError) as exc:
                 self._diagnostic_failed(exc)
+        if isinstance(self.worker, SongJoint28RealtimeWorker) and self.worker.isRunning():
+            if emg_indices is not None:
+                self.worker.submit_imu(accel, gyro, emg_indices)
 
     def notify_packet_loss(self, lost: int, previous_sequence: int, sequence: int) -> None:
         if self._diagnostic is not None:
             self._diagnostic.record_packet_loss(lost)
-        if isinstance(self.worker, SongRealtimeWorker) and self.worker.isRunning():
+        if isinstance(self.worker, (SongRealtimeWorker, SongJoint28RealtimeWorker)) and self.worker.isRunning():
             self.worker.notify_packet_loss(lost)
 
     def start_diagnostic(self) -> None:
@@ -925,7 +958,7 @@ class RealtimeInferencePage(QWidget):
         if self._calibration_timing is not None:
             self.live_status.setText("校准正在进行，请等待完成")
             return
-        if self.bundle.metadata.get("song_real8_local"):
+        if self.bundle.metadata.get("song_real8_local") or self.bundle.metadata.get("song_joint28_local"):
             self.live_status.setText("Song 模型当前使用零校准；可直接开始识别")
             return
         seconds = self.calibration_seconds.value()
@@ -1096,6 +1129,17 @@ class RealtimeInferencePage(QWidget):
         self.calibration_seconds.setValue(8 if experimental else 24)
         self.run_replay_button.setEnabled(not experimental)
         if experimental:
+            if bundle.metadata.get("song_joint28_local"):
+                self.model_status.setText("Song EMG+IMU 28 类实验模型已校验；连接设备后可直接开始识别")
+                self.model_details.setText(
+                    "8 通道 EMG 250 Hz + 6 轴 IMU 112 Hz · 200 ms 因果窗口 · 28 类\n"
+                    "同人单日提示动作稳定窗口验证；连续实时准确率、同步精度与端到端延迟未验证")
+                self.replay_result.setText("本模型的离线逐窗口回放审计位于 model_assets/song_joint28_window")
+                self.calibration_instruction.setText("零校准模型")
+                self.calibration_detail.setText("此模型当前不使用现场校准；连接设备后直接开始识别")
+                self._update_live_buttons()
+                self.load_model_button.setEnabled(True)
+                return
             if bundle.metadata.get("song_real8_local"):
                 self.model_status.setText("Song 8 通道实验模型已校验；连接设备后可直接开始识别")
                 self.model_details.setText(
@@ -1187,12 +1231,23 @@ class RealtimeInferencePage(QWidget):
             self.music_gesture_ready.emit(gesture, peak if gesture else 1.0)
         else:
             self.music_gesture_ready.emit(0, 1.0)
-        is_song = self.bundle is not None and self.bundle.metadata.get("song_real8_local")
+        is_joint28 = self.bundle is not None and self.bundle.metadata.get("song_joint28_local")
+        is_song = self.bundle is not None and (
+            self.bundle.metadata.get("song_real8_local") or is_joint28)
         if is_song:
             self.current_probability.setText(
                 f"最高概率 {peak:.3f} · 计算 {frame.inference_ms:.0f} ms · 200 ms 窗口 · 数据龄未测")
             self._gesture_reset_timer.stop()
-            if frame.active_label in SONG_DISPLAY:
+            if is_joint28 and frame.active_label in self.bundle.display_names:
+                label = frame.active_label
+                confidence = float(frame.probabilities[frame.labels.index(label)])
+                self.current_gesture.setText(self.bundle.display_names[label])
+                self.current_gesture_status.setText(f"当前实验识别 · 置信度 {confidence:.1%}")
+                self.current_gesture_status.setStyleSheet(
+                    "font-size: 14px; font-weight: 600; color: #1d4ed8; padding: 4px 10px; background-color: #dbeafe; border-radius: 6px;")
+                hand = next((value for value in SONG_DISPLAY if label.endswith("_" + value)), "idle")
+                self.gesture_icon.set_action("rest" if hand == "neutral" else hand)
+            elif frame.active_label in SONG_DISPLAY:
                 label = frame.active_label
                 confidence = float(frame.probabilities[frame.labels.index(label)])
                 self.current_gesture.setText(SONG_DISPLAY[label])
@@ -1363,7 +1418,8 @@ class RealtimeInferencePage(QWidget):
         can_annotate = self._diagnostic is not None and self._last_live_sample_index is not None
         self.mark_action_start_button.setEnabled(can_annotate)
         self.mark_action_end_button.setEnabled(can_annotate)
-        is_song = enabled and bool(self.bundle.metadata.get("song_real8_local"))
+        is_song = enabled and bool(self.bundle.metadata.get("song_real8_local")
+                                   or self.bundle.metadata.get("song_joint28_local"))
         self.calibrate_button.setEnabled(enabled and not is_song)
         self.pause_button.setEnabled(enabled)
         if is_song:

@@ -23,6 +23,7 @@ class AcquisitionController(QObject):
     emg_display_ready = Signal(object, object)
     emg_inference_ready = Signal(object, object, object)
     imu_display_ready = Signal(object, object, object)
+    imu_inference_ready = Signal(object, object, object, object)
     packet_loss = Signal(int, int, int)
     statistics_ready = Signal(object)
     recording_error = Signal(str)
@@ -166,6 +167,12 @@ class AcquisitionController(QObject):
                 gyro,
                 accel,
                 np.asarray([p.received_ns for p in imu_packets], dtype=np.int64),
+            )
+            # Use the same packet-batch EMG boundary as the HDF5 recorder,
+            # translated to the global indices used by live EMG inference.
+            self.imu_inference_ready.emit(
+                gyro, accel, received_ns,
+                np.full(len(imu_packets), self.clock.total, dtype=np.int64),
             )
 
     @Slot(object)

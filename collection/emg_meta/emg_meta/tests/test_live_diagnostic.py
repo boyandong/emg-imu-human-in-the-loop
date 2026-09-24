@@ -69,3 +69,23 @@ def test_live_inference_fanout_keeps_original_receive_timestamps():
     np.testing.assert_array_equal(raw[:, 0], [1, 2])
     np.testing.assert_array_equal(indices, [0, 1])
     np.testing.assert_array_equal(received, [123_000, 127_000])
+
+
+def test_imu_inference_fanout_uses_global_emg_boundary():
+    controller = AcquisitionController()
+    captured = []
+    controller.imu_inference_ready.connect(
+        lambda gyro, accel, received, indices: captured.append(
+            (gyro.copy(), accel.copy(), received.copy(), indices.copy())))
+    controller.ingest_packets([
+        Packet("EMG", 1, 123_000, b"", emg_uv=(1,) * 8),
+        Packet("EMG", 2, 127_000, b"", emg_uv=(2,) * 8),
+        Packet("IMU", 3, 129_000, b"", gyro_rad_s=(.1, .2, .3),
+               accel_m_s2=(1., 2., 3.)),
+    ])
+    assert len(captured) == 1
+    gyro, accel, received, indices = captured[0]
+    np.testing.assert_allclose(gyro, [[.1, .2, .3]])
+    np.testing.assert_allclose(accel, [[1., 2., 3.]])
+    np.testing.assert_array_equal(received, [129_000])
+    np.testing.assert_array_equal(indices, [2])

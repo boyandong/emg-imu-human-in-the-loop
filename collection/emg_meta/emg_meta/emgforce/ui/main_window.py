@@ -71,7 +71,7 @@ class MainWindow(QMainWindow):
         self.acquisition.emg_display_ready.connect(self.device_page.append_emg); self.acquisition.emg_display_ready.connect(self.music_control.ingest_emg)
         self.acquisition.emg_inference_ready.connect(self.realtime_inference_page.ingest_emg)
         self.acquisition.imu_display_ready.connect(self.device_page.update_imu); self.acquisition.imu_display_ready.connect(self.music_control.ingest_imu)
-        self.acquisition.imu_display_ready.connect(self.realtime_inference_page.ingest_imu)
+        self.acquisition.imu_inference_ready.connect(self.realtime_inference_page.ingest_imu)
         self.music_control.values_changed.connect(self.device_page.set_music_values)
         self.music_control.calibration_changed.connect(self.device_page.set_music_calibration)
         self.music_control.output_changed.connect(self.device_page.set_music_output)
