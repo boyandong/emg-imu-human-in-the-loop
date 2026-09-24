@@ -17,6 +17,7 @@ from PySide6.QtWidgets import (
 
 from emgforce.algorithms import ALGORITHMS, META_CONV_LSTM, algorithm_display_name, get_algorithm
 from emgforce.inference.engine import PredictionFrame
+from emgforce.inference.live_diagnostic import LiveDiagnosticRecorder
 from emgforce.inference.model_bundle import ModelBundle, discover_model_bundles
 from emgforce.inference.song_local import (
     DISPLAY as SONG_DISPLAY, SongLocalRuntime, SongModelInfo, discover_song_models, song_key_path,
@@ -234,6 +235,8 @@ class RealtimeInferencePage(QWidget):
         self.replay_worker: OfflineReplayWorker | None = None
         self.remote_model_worker: RemoteModelWorker | None = None
         self.bundle: ModelBundle | None = None
+        self._diagnostic: LiveDiagnosticRecorder | None = None
+        self._last_live_sample_index: int | None = None
         self._connected = False
         self._probability_bars: dict[str, QProgressBar] = {}
         self._probability_values: dict[str, QLabel] = {}
@@ -395,6 +398,34 @@ class RealtimeInferencePage(QWidget):
             actions.addWidget(button)
         actions.addStretch()
         live_layout.addLayout(actions)
+        diagnostic_row = QHBoxLayout()
+        self.start_diagnostic_button = QPushButton("开始诊断记录")
+        self.stop_diagnostic_button = QPushButton("结束诊断记录")
+        self.start_diagnostic_button.setEnabled(False)
+        self.stop_diagnostic_button.setEnabled(False)
+        diagnostic_row.addWidget(self.start_diagnostic_button)
+        diagnostic_row.addWidget(self.stop_diagnostic_button)
+        diagnostic_row.addStretch()
+        live_layout.addLayout(diagnostic_row)
+        self.diagnostic_status = QLabel("按“开始诊断记录”保存本次原始 EMG/IMU 与逐帧概率；文件仅保存在本机 data/live_diagnostics")
+        self.diagnostic_status.setWordWrap(True)
+        self.diagnostic_status.setObjectName("muted")
+        live_layout.addWidget(self.diagnostic_status)
+        annotation_row = QHBoxLayout()
+        self.annotation_action = QComboBox()
+        self.mark_action_start_button = QPushButton("标记动作开始")
+        self.mark_action_end_button = QPushButton("标记动作结束")
+        self.mark_action_start_button.setEnabled(False)
+        self.mark_action_end_button.setEnabled(False)
+        annotation_row.addWidget(QLabel("当前尝试动作"))
+        annotation_row.addWidget(self.annotation_action, 1)
+        annotation_row.addWidget(self.mark_action_start_button)
+        annotation_row.addWidget(self.mark_action_end_button)
+        live_layout.addLayout(annotation_row)
+        annotation_note = QLabel("手动标记只记录按键时刻，不能当作肌肉真实起止时间；用于之后对齐原始信号与预测。")
+        annotation_note.setWordWrap(True)
+        annotation_note.setObjectName("muted")
+        live_layout.addWidget(annotation_note)
         guidance_box = QFrame()
         guidance_box.setObjectName("qcMetricNeutral")
         guidance_layout = QHBoxLayout(guidance_box)
@@ -521,6 +552,10 @@ class RealtimeInferencePage(QWidget):
         self.calibrate_button.clicked.connect(self.start_calibration)
         self.start_button.clicked.connect(self.start_recognition)
         self.pause_button.clicked.connect(self.pause_recognition)
+        self.start_diagnostic_button.clicked.connect(self.start_diagnostic)
+        self.stop_diagnostic_button.clicked.connect(self.stop_diagnostic)
+        self.mark_action_start_button.clicked.connect(lambda: self._mark_diagnostic_action("start"))
+        self.mark_action_end_button.clicked.connect(lambda: self._mark_diagnostic_action("end"))
         self.threshold.valueChanged.connect(self._threshold_changed)
         self.hand_combo.currentIndexChanged.connect(self._on_hand_changed)
         self.browse_replay_button.clicked.connect(self.browse_replay)
@@ -784,17 +819,77 @@ class RealtimeInferencePage(QWidget):
 
     def set_connected(self, connected: bool) -> None:
         self._connected = bool(connected)
+        if not connected:
+            self.stop_diagnostic()
         self._update_live_buttons()
         if not connected and self.worker is not None:
             self.worker.pause_recognition()
 
-    def ingest_emg(self, raw: np.ndarray, indices: np.ndarray) -> None:
+    def ingest_emg(self, raw: np.ndarray, indices: np.ndarray,
+                   received_ns: np.ndarray | None = None) -> None:
+        if len(indices):
+            self._last_live_sample_index = int(indices[-1])
+        if self._diagnostic is not None:
+            try:
+                self._diagnostic.record_emg(raw, indices, received_ns)
+            except (OSError, ValueError, RuntimeError) as exc:
+                self._diagnostic_failed(exc)
         if self.worker is not None and self.worker.isRunning():
             self.worker.submit_emg(raw, indices)
 
+    def ingest_imu(self, gyro: np.ndarray, accel: np.ndarray, received_ns: np.ndarray) -> None:
+        if self._diagnostic is not None:
+            try:
+                self._diagnostic.record_imu(gyro, accel, received_ns)
+            except (OSError, ValueError, RuntimeError) as exc:
+                self._diagnostic_failed(exc)
+
     def notify_packet_loss(self, lost: int, previous_sequence: int, sequence: int) -> None:
+        if self._diagnostic is not None:
+            self._diagnostic.record_packet_loss(lost)
         if isinstance(self.worker, SongRealtimeWorker) and self.worker.isRunning():
             self.worker.notify_packet_loss(lost)
+
+    def start_diagnostic(self) -> None:
+        if (self._diagnostic is not None or self.bundle is None or not self._connected or
+                self.worker is None or not self.worker.isRunning()):
+            return
+        try:
+            self._diagnostic = LiveDiagnosticRecorder(
+                self.models_root.parent / "data" / "live_diagnostics",
+                model_id=self.bundle.model_id, model_sha256=self.bundle.sha256,
+                labels=self.bundle.labels, sample_rate_hz=self.bundle.sample_rate,
+                threshold=self.threshold.value(), hand=str(self.hand_combo.currentData()))
+        except (OSError, ValueError) as exc:
+            self.diagnostic_status.setText(f"诊断记录无法启动：{exc}")
+            return
+        self.diagnostic_status.setText(f"正在诊断记录：{self._diagnostic.directory}")
+        self._update_live_buttons()
+
+    def stop_diagnostic(self) -> None:
+        recorder = self._diagnostic
+        if recorder is None:
+            return
+        self._diagnostic = None
+        try:
+            path = recorder.close()
+            self.diagnostic_status.setText(f"诊断记录已保存：{path}")
+        except (OSError, RuntimeError, ValueError) as exc:
+            self.diagnostic_status.setText(f"诊断记录关闭异常，检查 {recorder.directory}：{exc}")
+        self._update_live_buttons()
+
+    def _diagnostic_failed(self, exc: Exception) -> None:
+        self.stop_diagnostic()
+        self.diagnostic_status.setText(f"诊断记录提前停止：{exc}")
+
+    def _mark_diagnostic_action(self, event: str) -> None:
+        if self._diagnostic is None:
+            return
+        try:
+            self._diagnostic.record_annotation(
+                str(self.annotation_action.currentData()), event, self._last_live_sample_index)
+        except (OSError, ValueError, RuntimeError) as exc:
+            self._diagnostic_failed(exc)
 
     def start_calibration(self) -> None:
         if self.worker is None or not self._connected:
@@ -847,6 +942,7 @@ class RealtimeInferencePage(QWidget):
         worker.start()
 
     def shutdown(self, timeout_ms: int = 5000) -> bool:
+        self.stop_diagnostic()
         ok = True
         if self.remote_model_worker is not None:
             self.remote_model_worker.cancel()
@@ -931,6 +1027,9 @@ class RealtimeInferencePage(QWidget):
 
     def _model_loaded(self, bundle: ModelBundle) -> None:
         self.bundle = bundle
+        self.annotation_action.clear()
+        for label in bundle.labels:
+            self.annotation_action.addItem(bundle.display_names.get(label, label), label)
         online_threshold = float(bundle.preprocessing.get(
             "online_event_threshold", 0.50))
         self.threshold.blockSignals(True)
@@ -1030,6 +1129,11 @@ class RealtimeInferencePage(QWidget):
             "font-size: 14px; font-weight: 600; color: #475569; padding: 4px 10px; background-color: #f1f5f9; border-radius: 6px;")
 
     def _prediction_ready(self, frame: PredictionFrame) -> None:
+        if self._diagnostic is not None:
+            try:
+                self._diagnostic.record_prediction(frame, self.threshold.value())
+            except (OSError, ValueError, RuntimeError) as exc:
+                self._diagnostic_failed(exc)
         for name, probability in zip(frame.labels, frame.probabilities):
             if name in self._probability_bars:
                 self._probability_bars[name].setValue(round(float(probability) * 1000))
@@ -1168,6 +1272,7 @@ class RealtimeInferencePage(QWidget):
         self.load_model_button.setEnabled(self.model_combo.count() > 0)
 
     def _stop_realtime_worker(self) -> bool:
+        self.stop_diagnostic()
         worker = self.worker
         if worker is None:
             return True
@@ -1184,6 +1289,10 @@ class RealtimeInferencePage(QWidget):
 
     def _update_live_buttons(self) -> None:
         enabled = self.bundle is not None and self._connected
+        self.start_diagnostic_button.setEnabled(enabled and self._diagnostic is None)
+        self.stop_diagnostic_button.setEnabled(self._diagnostic is not None)
+        self.mark_action_start_button.setEnabled(self._diagnostic is not None)
+        self.mark_action_end_button.setEnabled(self._diagnostic is not None)
         is_song = enabled and bool(self.bundle.metadata.get("song_real8_local"))
         self.calibrate_button.setEnabled(enabled and not is_song)
         self.pause_button.setEnabled(enabled)

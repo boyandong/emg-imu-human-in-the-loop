@@ -21,6 +21,7 @@ class AcquisitionController(QObject):
     """Fan-out point for decoded frames: lossless recorder queue and droppable GUI."""
 
     emg_display_ready = Signal(object, object)
+    emg_inference_ready = Signal(object, object, object)
     imu_display_ready = Signal(object, object, object)
     packet_loss = Signal(int, int, int)
     statistics_ready = Signal(object)
@@ -127,6 +128,7 @@ class AcquisitionController(QObject):
                     self._recording = False
                     self.recording_error.emit(str(exc))
             self.emg_display_ready.emit(raw, global_index)
+            self.emg_inference_ready.emit(raw, global_index, received_ns)
             if self._recording:
                 self._quality_window = np.concatenate((self._quality_window, raw), axis=0)[-2 * SAMPLING_RATE:]
                 if len(self._quality_window) >= 2 * SAMPLING_RATE:

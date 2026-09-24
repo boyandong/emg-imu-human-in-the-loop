@@ -181,11 +181,18 @@ def test_realtime_page_loads_song_and_emits_probability_without_device(tmp_path)
         assert page.bundle is not None
         assert page.start_button.isEnabled()
         assert not page.calibrate_button.isEnabled()
+        assert page.start_diagnostic_button.isEnabled()
+        page.start_diagnostic()
+        assert page._diagnostic is not None
+        diagnostic_directory = page._diagnostic.directory
         predictions = []
         page.worker.prediction_ready.connect(predictions.append)
         page.start_recognition()
         raw = np.random.default_rng(13).integers(-2000, 2000, size=(250, 8), dtype=np.int32)
         page.ingest_emg(raw, np.arange(250, dtype=np.int64))
+        page.annotation_action.setCurrentIndex(page.annotation_action.findData("open_hand"))
+        page._mark_diagnostic_action("start")
+        page._mark_diagnostic_action("end")
         deadline = time.monotonic() + 5
         while not predictions and time.monotonic() < deadline:
             app.processEvents()
@@ -206,6 +213,11 @@ def test_realtime_page_loads_song_and_emits_probability_without_device(tmp_path)
             output_age_ms=0, fixed_lag_ms=0, inference_ms=1,
             scale_counts_per_unit=1, active_label=None))
         assert page.current_gesture.text() == "等待识别"
+        page.stop_diagnostic()
+        assert (diagnostic_directory / "signals.h5").is_file()
+        assert (diagnostic_directory / "predictions.csv").is_file()
+        assert (diagnostic_directory / "manual_annotations.csv").is_file()
+        assert "已保存" in page.diagnostic_status.text()
     finally:
         assert page.shutdown()
         page.close()
