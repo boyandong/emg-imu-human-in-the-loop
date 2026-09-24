@@ -6,7 +6,7 @@ diagnostics are explicitly labelled. Model compositions and calibration rules ar
 from source evidence, validation evidence or prespecified controls; final scores do not tune them.
 Seed: 20260915. Classical logistic regression runs use CPU; no neural training is needed
 for these representation comparisons.
-The recorded validation suite has 223 tests (222 passed, one skipped);
+The recorded validation suite has 224 tests (223 passed, one skipped);
 `results/validation.json` carries the exact log hash. Older section-local test
 counts below are dated snapshots. The collection application's documented
 default `collection/emg_meta/emg_meta/data` directory did not contain a session
@@ -372,8 +372,12 @@ Historical DS2 remains blocked for reproduction: no exact historical artifacts w
 The publisher-linked Kaggle version 8 archive is now complete at
 `work/datasets/historical_ds2_candidate/ds2_kaggle_v8.zip`: 1,123,505,003
 compressed bytes, 102 files and a recorded SHA-256. All ZIP members pass CRC.
-Native raw-signal checks and candidate-v8 experiments remain to be done;
-current-version identity with the old B0/X1-H/X2 input is still unproven.
+Native raw-signal checks now include an exact [raw-to-MAV window join](../benchmarks/discovery/DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json):
+all 996,324 published MAV values reconstruct from the corresponding raw trial.
+Of 2,863 gesture-code blocks, 2,862 are uniform and one is mixed and retained
+as ambiguous. This permits bounded public-v8 gesture-code analysis, but not
+subject/force stratification or reproduction of historical B0/X1-H/X2;
+current-version identity with that old input is still unproven.
 NinaPro requires access; secondary datasets remain explicitly deferred.
 EMG-FMG and UniBo now each have six-trial QC and six raw/envelope/PSD plots.
 F8 session signature now has a bounded MANUS reliability-fusion comparison, while full-bank

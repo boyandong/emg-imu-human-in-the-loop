@@ -12,7 +12,8 @@ def verify(root):
     required=('DATASET_INVENTORY.md','DATASET_CANDIDATES.csv','FAILURE_BENCHMARK_MATRIX.md',
       'BENCHMARK_SELECTION_REPORT.md','GESTURE_ONTOLOGY.md','SENSOR_LAYOUTS.md',
       'DATASET_MANIFEST.json','DS2_ACCESS_AUDIT.json','DS2_ARCHIVE_AUDIT.json',
-      'DS2_NATIVE_MAT_AUDIT.json','DS2_TDMS_FIRST_METADATA_AUDIT.json',
+      'DS2_NATIVE_MAT_AUDIT.json','DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json',
+      'DS2_MAT_TRIAL_WINDOW_JOIN.csv','DS2_TDMS_FIRST_METADATA_AUDIT.json',
       'DS2_TDMS_FIRST_METADATA.csv','DS2_TDMS_GROUP_AUDIT.json',
       'DS2_TDMS_GROUPS.csv','CORE_ARCHIVE_DIGEST_AUDIT.json')
     hashes={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in required}
@@ -30,6 +31,8 @@ def verify(root):
     ds2_access=json.loads((root/'DS2_ACCESS_AUDIT.json').read_text(encoding='utf-8'))
     ds2_archive=json.loads((root/'DS2_ARCHIVE_AUDIT.json').read_text(encoding='utf-8'))
     ds2_native=json.loads((root/'DS2_NATIVE_MAT_AUDIT.json').read_text(encoding='utf-8'))
+    ds2_join=json.loads((root/'DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json').read_text(encoding='utf-8'))
+    join_rows=list(csv.DictReader((root/'DS2_MAT_TRIAL_WINDOW_JOIN.csv').open(encoding='utf-8',newline='')))
     tdms=json.loads((root/'DS2_TDMS_FIRST_METADATA_AUDIT.json').read_text(encoding='utf-8'))
     tdms_rows=list(csv.DictReader((root/'DS2_TDMS_FIRST_METADATA.csv').open(encoding='utf-8',newline='')))
     tdms_groups=json.loads((root/'DS2_TDMS_GROUP_AUDIT.json').read_text(encoding='utf-8'))
@@ -67,6 +70,27 @@ def verify(root):
             or len(ds2_native['sampled_raw_trials'])!=6
             or not ds2_native['raw_all_finite']):
         raise ValueError('DS2 native MAT audit changed')
+    if (ds2_join['status']!='public_ds2_raw_to_mav_window_order_verified_gesture_labels_partial'
+            or ds2_join['source_sha256']['raw_mat_sha256']!=ds2_native['raw_mat_sha256']
+            or ds2_join['source_sha256']['gesture_label_mat_sha256']!=ds2_native['gesture_label_mat_sha256']
+            or ds2_join['native_audit_sha256']!=hashes['DS2_NATIVE_MAT_AUDIT.json']
+            or ds2_join['trial_join_csv_sha256']!=hashes['DS2_MAT_TRIAL_WINDOW_JOIN.csv']
+            or ds2_join['raw_trials']!=2863 or ds2_join['mav_window_rows']!=332108
+            or ds2_join['mav_values_compared']!=996324
+            or ds2_join['mav_values_over_1e_minus_10']!=0
+            or ds2_join['global_max_mav_abs_error']!=0
+            or ds2_join['uniform_gesture_label_trials']!=2862
+            or len(ds2_join['mixed_gesture_label_trials'])!=1
+            or ds2_join['mixed_gesture_label_trials'][0]['raw_trial_index_zero_based']!=209
+            or len(join_rows)!=2863
+            or [int(row['raw_trial_index_zero_based']) for row in join_rows]!=list(range(2863))
+            or any(int(row['first_window_index_zero_based'])!=116*i
+                   or int(row['last_window_index_zero_based'])!=116*i+115
+                   or int(row['mav_values_over_tolerance'])!=0
+                   for i,row in enumerate(join_rows))
+            or sum(row['uniform_gesture_label']=='True' for row in join_rows)!=2862
+            or join_rows[209]['uniform_gesture_label']!='False'):
+        raise ValueError('DS2 raw-to-MAV window join audit inconsistent')
     archived_tdms={item['name']:item for item in ds2_archive['members'] if item['name'].endswith('.tdms')}
     if (ds2.get('tdms_first_metadata_audit')!='benchmarks/discovery/DS2_TDMS_FIRST_METADATA_AUDIT.json'
             or tdms['tdms_members']!=97 or len(tdms_rows)!=97
@@ -174,6 +198,9 @@ def verify(root):
            'fresh_sha256_checked':True,'zip_members_crc_checked':ds2_archive['files'],
            'native_raw_mat_trials':ds2_native['raw_trials'],
            'native_gesture_window_labels':ds2_native['gesture_window_label_count'],
+           'raw_to_mav_join_verified_trials':ds2_join['raw_trials'],
+           'uniform_gesture_label_trials':ds2_join['uniform_gesture_label_trials'],
+           'mixed_gesture_label_trial_zero_based':209,
            'tdms_first_metadata_members':tdms['tdms_members'],
            'tdms_full_metadata_groups':tdms_groups['groups'],
            'tdms_per_trial_force_mapping':'unproven',
@@ -187,6 +214,7 @@ def verify(root):
           'reported durations agree with native rates; no independent hardware clock check',
           'publisher-linked DS2 v8 archive is verified; historical input identity and old-result reproduction remain unproven',
           'TDMS file names give subject/movement provenance clues; all 3210 groups lack group properties and do not join to 2863 aggregate MAT arrays or force levels',
+          'public DS2 raw MAT to MAV window order is numerically verified; one mixed gesture-code block is ambiguous, and subject/force/historical identity remain unproven',
           'DS2 publication and Kaggle page expose conflicting license labels; redistribution is not cleared',
           'retrospective scorecards do not prove original scoring/phase ordering',
           'secondary candidate paper/licensing/layout verification remains incomplete',

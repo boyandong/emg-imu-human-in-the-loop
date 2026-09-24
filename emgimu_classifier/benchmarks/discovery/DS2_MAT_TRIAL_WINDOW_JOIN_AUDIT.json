@@ -1,0 +1,40 @@
+{
+  "status": "public_ds2_raw_to_mav_window_order_verified_gesture_labels_partial",
+  "publication": "https://www.mdpi.com/2306-5729/10/12/194",
+  "source_sha256": {
+    "raw_mat_sha256": "1ee1b28193a60fa5b03493bac153fcd32290605f7eac45b8b535d58c15d109a0",
+    "mav_mat_sha256": "c8f06a08dd279ab42abed00e95f3b0bf02d3c9afe8a6424ee4b08862d4ccba24",
+    "gesture_label_mat_sha256": "6e03a15a63af0deea925e5f1d0ccd7f64791f96eff58e36570c05ad93a26d51b"
+  },
+  "native_audit_sha256": "5f12e3b36ed59105a781893d126b77f46cec9de482932737d58a5dbf065e1b92",
+  "window_contract": {
+    "sample_rate_hz": 1500,
+    "raw_samples_per_trial": 15000,
+    "action_start_sample_zero_based": 3000,
+    "action_samples": 9000,
+    "window_samples": 375,
+    "hop_samples": 75,
+    "windows_per_trial": 116
+  },
+  "raw_trials": 2863,
+  "mav_window_rows": 332108,
+  "mav_values_compared": 996324,
+  "mav_values_over_1e_minus_10": 0,
+  "global_max_mav_abs_error": 0.0,
+  "uniform_gesture_label_trials": 2862,
+  "mixed_gesture_label_trials": [
+    {
+      "raw_trial_index_zero_based": 209,
+      "label_counts": {
+        "2": 115,
+        "3": 1
+      },
+      "label_change_window_zero_based": [
+        114
+      ]
+    }
+  ],
+  "trial_join_csv": "DS2_MAT_TRIAL_WINDOW_JOIN.csv",
+  "trial_join_csv_sha256": "02b9d6d7b5ca1c2f28957089b37f2eb8784505ece0bc2a1fb2ffbd14593d1faf",
+  "boundary": "The exact MAV reconstruction proves ordinal alignment of public raw MAT trials with all 116-window feature blocks. Uniform label blocks support a gesture code for 2862 trials only; the mixed block is retained as ambiguous. No subject ID, force level, TDMS segment identity or old B0/X1-H/X2 experiment-input identity is inferred. Gesture code names require the publication's ordering and independent validation before use as named classes."
+}

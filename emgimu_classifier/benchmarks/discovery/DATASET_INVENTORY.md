@@ -41,6 +41,17 @@ records the source hashes and sample values. It does not establish how raw
 trials map to subjects, gestures or force levels; those labels cannot be
 joined to the window-label file by row count alone.
 
+A subsequent [complete MAT-window join audit](DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json)
+recomputed all 996,324 MAV channel values from the 2,863 raw trials using the
+published 375-sample window and 75-sample hop after the 3,000-sample rest.
+Every value matches the corresponding block of 116 published MAV rows exactly.
+The accompanying [trial index](DS2_MAT_TRIAL_WINDOW_JOIN.csv) finds 2,862
+uniform 116-window gesture-code blocks; zero-based trial 209 contains 115
+windows of code 2 and one of code 3, so it remains ambiguous. This verifies
+raw-to-MAV order and supports numerical gesture codes for the uniform blocks;
+it does not identify subjects, force levels, TDMS segments, gesture names or
+the historical B0/X1-H/X2 input.
+
 The separate [TDMS first-segment inventory](DS2_TDMS_FIRST_METADATA_AUDIT.json)
 reads the file-level `name` property from all 97 TDMS members using the
 [NI TDMS segment definition](https://www.ni.com/en/support/documentation/supplemental/07/tdms-file-format-internal-structure.html).

@@ -121,9 +121,12 @@ remain incomplete. File/hash/field checks do not prove full Phase-1 acceptance.
 
 The acquired public DS2 v8 candidate passed a native MAT audit: 2,863 finite raw
 trials (3 × 15,000 samples) and 332,108 separate five-class gesture-window
-labels. See [DS2_NATIVE_MAT_AUDIT.json](DS2_NATIVE_MAT_AUDIT.json). The raw-trial
-subject/gesture/force mapping and equivalence to the historical input remain
-unproven, so this does not reproduce the earlier DS2 result.
+labels. See [DS2_NATIVE_MAT_AUDIT.json](DS2_NATIVE_MAT_AUDIT.json). A later
+[full MAT-window audit](DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json) exactly reconstructs
+all 996,324 MAV values in raw-trial order. Its [trial index](DS2_MAT_TRIAL_WINDOW_JOIN.csv)
+has uniform gesture-code blocks for 2,862 trials and one mixed block. Subject,
+force and TDMS identity, named gesture validation and equivalence to the
+historical input remain unproven, so this does not reproduce the earlier DS2 result.
 
 
 ## Optional secondary acquisition (2026-09-16)

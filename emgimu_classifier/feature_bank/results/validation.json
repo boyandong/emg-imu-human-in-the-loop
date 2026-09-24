@@ -1,11 +1,11 @@
 {
   "date": "2026-09-24",
   "command": "$env:PYTHONPATH='src;.'; D:/miniconda/envs/emgforce/python.exe -m pytest -q -p no:cacheprovider --basetemp <fresh-user-temp-directory>",
-  "tests_run": 223,
-  "passed": 222,
+  "tests_run": 224,
+  "passed": 223,
   "skipped": 1,
   "result": "OK",
   "scope": "unit and synthetic integration checks; no live-device accuracy claim",
   "test_log": "results/test_run_20260924_full.txt",
-  "test_log_sha256": "413310d5e43618ca9384720996058a0fb884cb2912211e51fa2c6c6bfd4f9fea"
+  "test_log_sha256": "877ab08be850b8708714ab092861a0614c4d4809e1d30395fa8604178eea27b2"
 }
