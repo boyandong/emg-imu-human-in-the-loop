@@ -1,0 +1,21 @@
+{
+  "name": "new_bank_v1_grabmyo_crossday_ring_families_v1",
+  "source": "https://physionet.org/content/grabmyo/1.1.0/",
+  "source_subset_protocol": "../grabmyo_crossday/PROTOCOL.json",
+  "source_integrity": "All 1344 selected files must match the publisher SHA256SUMS.txt before feature extraction",
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8],
+  "sessions": {"train": 1, "validation": 2, "final": 3},
+  "gesture_codes": [4, 15, 16, 17],
+  "channels": ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8"],
+  "sample_rate_hz": 2048,
+  "window_samples": 512,
+  "trial_aggregation": "mean and standard deviation over twenty disjoint windows per five-second recording",
+  "baseline": "same training-rest-fitted F0 and classifier as grabmyo_crossday v1",
+  "feature_arms": ["F0", "F0+ring_lag", "F0+correlation_spectrum", "F0+ring_lag+correlation_spectrum"],
+  "feature_fit": "All feature metadata and rest-noise thresholds use training day only; target days are transform only",
+  "classifier": "StandardScaler plus LogisticRegression C=1 max_iter=2000 random_state=20260924, training day only",
+  "validation_selection": "Choose highest Day2 macro-F1; break ties by lower Day2 log loss; never select on Day3",
+  "primary_metrics": ["pooled_macro_f1", "pooled_log_loss", "pooled_brier", "minimum_subject_macro_f1"],
+  "secondary_metrics": ["accuracy", "per_class_recall", "per_subject_macro_f1"],
+  "scope": "Independent public eight-channel cross-day screen of new v1 ring families; no own-device, historical-family, or continuous online claim"
+}
