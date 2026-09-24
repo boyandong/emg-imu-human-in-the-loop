@@ -2989,6 +2989,15 @@ per-session guided arm prototypes score 0.3272/0.5386. The factorized source
 model improves S04 macro-F1 versus the earlier joint classifier but lowers
 S04 accuracy from 0.6944 to 0.6458. Guided blocks do not supply a measured
 body-forward axis or a validated live calibration solution.
+The [post-hoc shift diagnostic](../benchmarks/new_bank_v2/SONG_ARM_SHIFT_REPORT.md)
+finds that only 3/7 S03 and 5/7 S04 formal arm centroids are nearest their
+own guided IMU prototype; this explains the risk of deploying the guided rule
+without identifying the physical cause. Separately, [source-session OOF
+probability calibration](../benchmarks/new_bank_v2/SONG_28_SOURCE_CAL_REPORT.md)
+selects hand/arm temperatures 0.5/0.75 from S01/S02 only. It lowers factorized
+joint LogLoss on S03 from 1.0553 to 0.8858 and on S04 from 1.1887 to 1.0157;
+all 28-state decisions and macro-F1 values remain unchanged. This improves
+probability quality in the same-day offline study, not live recognition.
 
 The independently sourced [Zenodo electrode re-placement check](../benchmarks/new_bank_v1/ZENODO_REPLACEMENT_REPORT.md)
 adds a separate file-level P1-to-P2/P3 position-shift test of the new bank.

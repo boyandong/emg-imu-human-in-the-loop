@@ -1,0 +1,13 @@
+{
+  "status": "verified",
+  "source_oof_trials": 285,
+  "heldout_native_trials": 284,
+  "metric_groups_read_back": 4,
+  "temperatures_selected_from_source_oof_only": {
+    "hand": 0.5,
+    "arm": 0.75
+  },
+  "max_uncalibrated_baseline_probability_error": 0.0,
+  "max_temperature_probability_replay_error": 4.440892098500626e-16,
+  "hard_decisions_unchanged": true
+}
