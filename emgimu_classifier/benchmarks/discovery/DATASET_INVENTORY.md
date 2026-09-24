@@ -82,6 +82,10 @@ in the released TDMS groups. The [join index](DS2_TDMS_RAW_EXACT_JOIN.csv)
 records only verified matches; the 30 unmatched trials retain unknown subject
 identity. This materially improves public-v8 provenance but supplies neither
 per-trial force labels nor proof that v8 was the historical experiment input.
+The [subject-held-out gesture-code study](public_ds2_subject_gesture/REPORT.md)
+uses the 2,832 uniquely matched trials with uniform labels. Its five fixed
+F0/reference-family arms supply new cross-user gesture evidence, but no force
+condition analysis or reproduction of the old DS2 baselines.
 
 The six selected native benchmark archives were also reread byte for byte.
 All 15,935,850,342 bytes matched the recorded SHA-256 digests (and recorded

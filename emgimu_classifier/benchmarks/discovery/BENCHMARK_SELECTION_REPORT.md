@@ -134,6 +134,15 @@ remain unmatched. Force identity, complete subject coverage, named gesture
 validation and equivalence to the historical input remain unproven, so this
 does not reproduce the earlier DS2 result.
 
+The verified-subject subset also supports a new [gesture-code-only held-out study](public_ds2_subject_gesture/REPORT.md):
+2,832 uniquely matched, uniformly labelled trials, with subject folders
+01–12 training, 13–16 validation and 17–20 final. Current F0 plus F1, F2a,
+F2c or F4 families were compared on identical trial partitions. F4 improves
+final macro-F1 from 0.4413 to 0.5183 but worsens LogLoss from 1.7615 to
+1.8344. F1's smaller macro-F1 gain (0.4475) accompanies an improved 1.7167
+LogLoss. These are new candidate-v8 gesture results, with no force labels or
+historical baseline equivalence; they are not Song eight-channel evidence.
+
 
 ## Optional secondary acquisition (2026-09-16)
 

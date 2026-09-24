@@ -381,6 +381,14 @@ have no exact TDMS match, including at nonzero offsets, and remain unassigned.
 This permits bounded public-v8 gesture-code and verified-subject-subset analysis,
 but not complete subject/force stratification or reproduction of historical B0/X1-H/X2;
 current-version identity with that old input is still unproven.
+A separate [public-v8 subject-held-out gesture-code study](../benchmarks/discovery/public_ds2_subject_gesture/REPORT.md)
+now uses only the 2,832 verified-subject, uniform-label trials for fixed F0
+versus F0 plus F1/F2a/F2c/F4 increments. On final subjects 17–20, F4 raises
+macro-F1 from 0.4413 to 0.5183 but worsens LogLoss from 1.7615 to 1.8344;
+F1 raises macro-F1 only to 0.4475 while improving LogLoss to 1.7167.
+The 5,725 held-out trial-probability rows and paired metrics pass independent
+read-back checks. This adds bounded reference-family cross-user evidence, not
+historical force-family reproduction or Song eight-channel validation.
 NinaPro requires access; secondary datasets remain explicitly deferred.
 EMG-FMG and UniBo now each have six-trial QC and six raw/envelope/PSD plots.
 F8 session signature now has a bounded MANUS reliability-fusion comparison, while full-bank

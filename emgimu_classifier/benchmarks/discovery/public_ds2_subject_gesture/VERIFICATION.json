@@ -1,0 +1,11 @@
+{
+  "status": "all_held_out_trial_scores_recomputed",
+  "result_sha256": "19aba7a1c97247556779d1b7a08731b0ab7cb0beed55898358030f94c59fe24d",
+  "prediction_rows": 5725,
+  "held_out_trials_per_arm": {
+    "validation": 587,
+    "final": 558
+  },
+  "arm_count": 5,
+  "boundary": "Read-back verifies CSV hashes, subject/gesture joins, disjoint held-out trial coverage, aggregate and per-subject scores, increments and paired correctness. It does not independently rerun source-only fitting; the runner and source hashes bind that computation. Historical force labels and old experiment identity remain unavailable."
+}

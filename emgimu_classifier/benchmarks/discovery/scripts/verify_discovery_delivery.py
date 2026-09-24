@@ -14,7 +14,16 @@ def verify(root):
       'DATASET_MANIFEST.json','DS2_ACCESS_AUDIT.json','DS2_ARCHIVE_AUDIT.json',
       'DS2_NATIVE_MAT_AUDIT.json','DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json',
       'DS2_MAT_TRIAL_WINDOW_JOIN.csv','DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json',
-      'DS2_TDMS_RAW_EXACT_JOIN.csv','DS2_TDMS_FIRST_METADATA_AUDIT.json',
+      'DS2_TDMS_RAW_EXACT_JOIN.csv',
+      'public_ds2_subject_gesture/REPORT.md',
+      'public_ds2_subject_gesture/RESULTS.json',
+      'public_ds2_subject_gesture/TRIAL_PREDICTIONS.csv',
+      'public_ds2_subject_gesture/CONDITIONAL_INCREMENTAL.csv',
+      'public_ds2_subject_gesture/ERROR_COMPLEMENTARITY.csv',
+      'public_ds2_subject_gesture/VERIFICATION.json',
+      'scripts/public_ds2_subject_gesture_incremental.py',
+      'scripts/verify_public_ds2_subject_gesture.py',
+      'DS2_TDMS_FIRST_METADATA_AUDIT.json',
       'DS2_TDMS_FIRST_METADATA.csv','DS2_TDMS_GROUP_AUDIT.json',
       'DS2_TDMS_GROUPS.csv','CORE_ARCHIVE_DIGEST_AUDIT.json')
     hashes={name:hashlib.sha256((root/name).read_bytes()).hexdigest() for name in required}
@@ -36,6 +45,8 @@ def verify(root):
     join_rows=list(csv.DictReader((root/'DS2_MAT_TRIAL_WINDOW_JOIN.csv').open(encoding='utf-8',newline='')))
     ds2_exact=json.loads((root/'DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json').read_text(encoding='utf-8'))
     exact_rows=list(csv.DictReader((root/'DS2_TDMS_RAW_EXACT_JOIN.csv').open(encoding='utf-8',newline='')))
+    ds2_study=json.loads((root/'public_ds2_subject_gesture/RESULTS.json').read_text(encoding='utf-8'))
+    ds2_study_verification=json.loads((root/'public_ds2_subject_gesture/VERIFICATION.json').read_text(encoding='utf-8'))
     tdms=json.loads((root/'DS2_TDMS_FIRST_METADATA_AUDIT.json').read_text(encoding='utf-8'))
     tdms_rows=list(csv.DictReader((root/'DS2_TDMS_FIRST_METADATA.csv').open(encoding='utf-8',newline='')))
     tdms_groups=json.loads((root/'DS2_TDMS_GROUP_AUDIT.json').read_text(encoding='utf-8'))
@@ -159,6 +170,23 @@ def verify(root):
                        int(row['raw_trial_index_zero_based'])]['gesture_label_if_uniform']
                    for row in exact_rows)):
         raise ValueError('DS2 exact raw-MAT to TDMS subject join inconsistent')
+    if (ds2.get('subject_held_out_gesture_study')!='benchmarks/discovery/public_ds2_subject_gesture/RESULTS.json'
+            or ds2_study['status']!='public_v8_gesture_only_subject_held_out_exploratory'
+            or ds2_study['eligible_trials']!=2832
+            or ds2_study['source_sha256']['raw_mat']!=ds2_native['raw_mat_sha256']
+            or ds2_study['source_sha256']['tdms_join_csv']!=hashes['DS2_TDMS_RAW_EXACT_JOIN.csv']
+            or ds2_study['source_sha256']['window_join_csv']!=hashes['DS2_MAT_TRIAL_WINDOW_JOIN.csv']
+            or ds2_study['source_sha256']['runner']!=hashes['scripts/public_ds2_subject_gesture_incremental.py']
+            or ds2_study['trial_predictions_sha256']!=hashes['public_ds2_subject_gesture/TRIAL_PREDICTIONS.csv']
+            or ds2_study['conditional_incremental_sha256']!=hashes['public_ds2_subject_gesture/CONDITIONAL_INCREMENTAL.csv']
+            or ds2_study['error_complementarity_sha256']!=hashes['public_ds2_subject_gesture/ERROR_COMPLEMENTARITY.csv']
+            or ds2_study['scores']['validation']['F0']['trials']!=587
+            or ds2_study['scores']['final']['F0']['trials']!=558
+            or ds2_study_verification['status']!='all_held_out_trial_scores_recomputed'
+            or ds2_study_verification['result_sha256']!=hashes['public_ds2_subject_gesture/RESULTS.json']
+            or ds2_study_verification['prediction_rows']!=5725
+            or ds2_study_verification['arm_count']!=5):
+        raise ValueError('DS2 public gesture-only held-out study inconsistent')
     if (manifest.get('core_archive_digest_audit')!='benchmarks/discovery/CORE_ARCHIVE_DIGEST_AUDIT.json'
             or archive_digest['status']!='all_six_core_archives_freshly_hashed_and_matched'
             or archive_digest['archive_count']!=6
@@ -241,6 +269,9 @@ def verify(root):
            'mixed_gesture_label_trial_zero_based':209,
            'exact_raw_mat_to_tdms_subject_trials':ds2_exact['uniquely_matched_raw_trials'],
            'unmatched_raw_mat_trials':len(ds2_exact['unmatched_raw_trial_indices_zero_based']),
+           'gesture_only_subject_held_out_trial_counts':{
+               split:ds2_study['scores'][split]['F0']['trials']
+               for split in ('validation','final')},
            'tdms_first_metadata_members':tdms['tdms_members'],
            'tdms_full_metadata_groups':tdms_groups['groups'],
            'tdms_per_trial_force_mapping':'unproven',
@@ -254,7 +285,8 @@ def verify(root):
           'reported durations agree with native rates; no independent hardware clock check',
           'publisher-linked DS2 v8 archive is verified; historical input identity and old-result reproduction remain unproven',
           'TDMS metadata alone cannot join the 3210 groups to MAT trials; exact raw waveforms verify 2833 subject-folder joins, leaving 30 unmatched and no force labels',
-          'public DS2 raw MAT to MAV window order is numerically verified; one mixed gesture-code block is ambiguous, and subject/force/historical identity remain unproven',
+          'public DS2 raw MAT to MAV window order is numerically verified; one mixed gesture-code block is ambiguous, 30 subjects are unmatched, and force/historical identity remain unproven',
+          'public DS2 gesture-only subject-held-out family increments are new candidate-v8 results, not historical force-run reproduction or own-device eight-channel evidence',
           'DS2 publication and Kaggle page expose conflicting license labels; redistribution is not cleared',
           'retrospective scorecards do not prove original scoring/phase ordering',
           'secondary candidate paper/licensing/layout verification remains incomplete',
