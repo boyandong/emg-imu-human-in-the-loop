@@ -1,0 +1,15 @@
+{
+  "name": "new_bank_v1_song_250hz_exploratory",
+  "source": "user-supplied Song HDF5 v3 8-channel sessions on 2026-09-18",
+  "preprocessing": "existing causal continuous-session 40 Hz highpass plus 50/100 Hz notch, no test-fitted state",
+  "train_sessions": ["S01", "S02"],
+  "validation_session": "S03",
+  "final_session": "S04",
+  "classes": ["fist", "index_pinch", "neutral", "open_hand"],
+  "arms": ["F0", "F0+scale_pattern", "F0+ring_lag", "F0+correlation_spectrum", "F0+frequency_direction", "F0+scale_pattern+ring_lag+correlation_spectrum+frequency_direction"],
+  "classifier": "source-window StandardScaler plus balanced LogisticRegression C=1 max_iter=2000 random_state=20260924",
+  "score_unit": "one probability vector per formal native trial by mean of its available window probabilities",
+  "primary_metrics": ["trial_macro_f1", "trial_log_loss", "trial_brier", "open_hand_recall", "neutral_recall"],
+  "selection_rule": "No feature or arm changes after session scores. S04 was already used by earlier studies, so its result is exploratory confirmation only and cannot be called newly blind final evidence.",
+  "scope": "One person's four same-day sessions; offline cue labels, no live latency or multi-person/day claim."
+}
