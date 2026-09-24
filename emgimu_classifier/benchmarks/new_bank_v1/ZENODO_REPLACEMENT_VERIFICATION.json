@@ -1,0 +1,18 @@
+{
+  "prediction_csv_sha256": "2c6f2cc2e01fa90280a6d32059b50e873d1a3aa01acfcc9a95e10de5f4e02c15",
+  "result_json_sha256": "f1b1f536d0912f92ce1e4dee468e29569a99eb5f6949fa6fe98e5ddd1e446068",
+  "rows_verified": 632,
+  "metric_groups_verified": 8,
+  "selected_arm": "F0+ring_lag+correlation_spectrum",
+  "final_paired_improved_recordings": 12,
+  "final_paired_degraded_recordings": 10,
+  "final_paired_exact_two_sided_p": 0.8318119049072266,
+  "final_mean_subject_delta": 0.018518518518518514,
+  "final_subject_bootstrap_percentile_95": [
+    -0.09876543209876543,
+    0.1234567901234568
+  ],
+  "bootstrap_subjects": 9,
+  "bootstrap_replicates": 100000,
+  "uncertainty_scope": "Descriptive post-result paired analysis; subjects resampled, no model selection or live-accuracy inference"
+}
