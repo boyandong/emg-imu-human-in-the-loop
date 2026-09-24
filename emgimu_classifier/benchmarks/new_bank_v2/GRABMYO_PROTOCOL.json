@@ -1,0 +1,24 @@
+{
+  "name": "new_bank_v2_grabmyo_crossday_spatial_v1",
+  "source": "https://physionet.org/content/grabmyo/1.1.0/",
+  "source_subset_protocol": "../grabmyo_crossday/PROTOCOL.json",
+  "source_integrity": "All selected WFDB files must match official SHA256SUMS before extraction",
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8],
+  "sessions": {"train": 1, "validation": 2, "final": 3},
+  "gesture_codes": [4, 15, 16, 17],
+  "channels": ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8"],
+  "sample_rate_hz": 2048,
+  "window_samples": 512,
+  "trial_aggregation": "mean and standard deviation of twenty disjoint 250 ms windows per recording",
+  "features": {
+    "F0": "RestNoiseDetailV2 fit only on training-day Rest windows",
+    "F2a": "TraceCovarianceV2 with fixed 0.05 shrinkage",
+    "F3c": "RingRelativeCovarianceV2 with fixed 0.05 shrinkage and half-window drift because 512 >= 100 samples"
+  },
+  "arms": ["F0", "F0+F2a", "F0+F3c", "F0+F2a+F3c"],
+  "classifier": "StandardScaler and LogisticRegression C=1 max_iter=2000 random_state=20260924 fit on training day only",
+  "selection": "highest validation Day2 macro-F1 then lowest Day2 log loss; Day3 never selects features or parameters",
+  "primary_metrics": ["macro_f1", "log_loss", "brier", "minimum_subject_macro_f1"],
+  "secondary_metrics": ["accuracy", "per_class_recall", "per_subject_macro_f1"],
+  "scope": "Independent public 8-channel spatial-family check; not full F0-F9, not user's 250 Hz hardware, not historical-code equivalence or continuous deployment"
+}
