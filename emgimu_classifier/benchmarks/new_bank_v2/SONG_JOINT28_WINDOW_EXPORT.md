@@ -6,8 +6,11 @@ the small, inspectable JSON [model and manifest](../../../collection/emg_meta/em
 for the independent [collection runtime](../../../collection/emg_meta/emg_meta/emgforce/inference/song_joint28_local.py).
 Neither the model nor this replay uses S03/S04 windows or labels for fitting.
 
-The runtime accepts **already causally filtered** 50×8 EMG windows and matched
-22×6 native IMU windows, at 250 and 112 Hz respectively. It has no stream clock,
+The window runtime accepts **already causally filtered** 50×8 EMG windows and matched
+22×6 native IMU windows, at 250 and 112 Hz respectively. A separate causal
+stream wrapper now waits for an IMU index beyond each EMG window end before
+selecting the final 22 prior IMU samples. Its chunk-invariance test compares
+every emitted synthetic frame to independent whole-stream filtering. It has no
 UI selection, decision smoothing or device connection yet. It outputs four hand,
 seven arm and 28 joint window probabilities, with the same frozen class order as
 the native-trial experiment. Source-OOF temperatures selected for trial-averaged

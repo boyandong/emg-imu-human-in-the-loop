@@ -7,9 +7,11 @@ from __future__ import annotations
 
 import hashlib
 import json
+from collections import deque
 from pathlib import Path
 
 import numpy as np
+from scipy.signal import butter, iirnotch, sosfilt, tf2sos
 from scipy.special import softmax
 
 
@@ -132,3 +134,92 @@ class SongJoint28WindowRuntime:
         if not np.isfinite(joint).all():
             raise RuntimeError("Song 28-state model produced nonfinite probabilities")
         return p_hand, p_arm, joint
+
+
+class SongJoint28Stream:
+    """Causal 25-sample-hop stream with indexed native IMU and a watermark.
+
+    An EMG frame is emitted only after an IMU sample mapped *after* its ending
+    EMG index arrives. This makes the last 22 IMU samples with index <= end
+    final, including when packets from the two sensors arrive in separate calls.
+    """
+
+    def __init__(self, model: SongJoint28WindowRuntime):
+        self.model = model
+        self._filters = [butter(4, 40.0, btype="highpass", fs=250.0, output="sos")]
+        for frequency in (50.0, 100.0):
+            b, a = iirnotch(frequency, Q=30.0, fs=250.0)
+            self._filters.append(tf2sos(b, a))
+        self.reset()
+
+    def reset(self) -> None:
+        self._states = [np.zeros((len(sos), 2, 8), dtype=np.float64) for sos in self._filters]
+        self._emg = deque(maxlen=50)
+        self._imu: deque[tuple[int, np.ndarray]] = deque(maxlen=128)
+        self._pending: deque[tuple[int, np.ndarray]] = deque(maxlen=40)
+        self._last_emg_index: int | None = None
+        self._last_imu_index: int | None = None
+        self._since_reset = 0
+        self.dropped_frames = 0
+
+    def ingest_emg(self, raw: np.ndarray, indices: np.ndarray) -> tuple[bool, list[tuple[int, np.ndarray]]]:
+        values = np.asarray(raw)
+        indices = np.asarray(indices, dtype=np.int64)
+        if (values.ndim != 2 or values.shape[1] != 8 or indices.shape != (len(values),)
+                or not np.isfinite(values).all()):
+            raise ValueError("Song 28 stream EMG requires finite [samples,8] and matching indices")
+        if not len(values):
+            return False, []
+        discontinuity = False
+        emitted = []
+        boundaries = [0, *(np.flatnonzero(np.diff(indices) != 1) + 1).tolist(), len(values)]
+        for part in range(len(boundaries) - 1):
+            left, right = boundaries[part], boundaries[part + 1]
+            if (part > 0 or (self._last_emg_index is not None
+                             and int(indices[left]) != self._last_emg_index + 1)):
+                self.reset()
+                discontinuity = True
+                emitted = []
+            filtered = np.asarray(values[left:right], dtype=np.float64)
+            for i, sos in enumerate(self._filters):
+                filtered, self._states[i] = sosfilt(sos, filtered, axis=0, zi=self._states[i])
+            for offset, sample in enumerate(filtered.astype(np.float32)):
+                index = int(indices[left + offset])
+                self._emg.append(sample)
+                self._last_emg_index = index
+                self._since_reset += 1
+                if self._since_reset >= 50 and (self._since_reset - 50) % 25 == 0:
+                    if len(self._pending) == self._pending.maxlen:
+                        self.dropped_frames += 1
+                    self._pending.append((index, np.stack(self._emg)))
+            emitted.extend(self._flush())
+        return discontinuity, emitted
+
+    def ingest_imu(self, accel: np.ndarray, gyro: np.ndarray,
+                   emg_indices: np.ndarray) -> list[tuple[int, np.ndarray]]:
+        accel = np.asarray(accel, dtype=np.float32)
+        gyro = np.asarray(gyro, dtype=np.float32)
+        indices = np.asarray(emg_indices, dtype=np.int64)
+        if (accel.ndim != 2 or accel.shape[1] != 3 or gyro.shape != accel.shape
+                or indices.shape != (len(accel),) or not np.isfinite(accel).all()
+                or not np.isfinite(gyro).all() or np.any(np.diff(indices) < 0)
+                or (len(indices) and self._last_imu_index is not None
+                    and int(indices[0]) < self._last_imu_index)):
+            raise ValueError("Song 28 stream IMU requires ordered finite accel/gyro and EMG indices")
+        for index, a, g in zip(indices, accel, gyro):
+            self._imu.append((int(index), np.concatenate((a, g))))
+            self._last_imu_index = int(index)
+        return self._flush()
+
+    def _flush(self) -> list[tuple[int, np.ndarray]]:
+        frames = []
+        while self._pending and self._last_imu_index is not None and self._last_imu_index > self._pending[0][0]:
+            end, emg = self._pending.popleft()
+            eligible = [(index, value) for index, value in self._imu if index <= end]
+            if len(eligible) < 22 or end - eligible[-1][0] > 8 or end - eligible[-22][0] > 60:
+                self.dropped_frames += 1
+                continue
+            imu = np.stack([value for _, value in eligible[-22:]])
+            _, _, joint = self.model.predict_filtered_window(emg, imu)
+            frames.append((end, joint))
+        return frames
