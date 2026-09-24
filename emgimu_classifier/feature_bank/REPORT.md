@@ -2949,3 +2949,10 @@ Both validation-best combinations regress below F0 macro-F1 on independent
 final subjects. The families are available for further research, but no v1
 combination is enabled in the live recognizer or claimed to solve own-device
 hand-open recognition.
+
+The independently sourced [Zenodo electrode re-placement check](../benchmarks/new_bank_v1/ZENODO_REPLACEMENT_REPORT.md)
+adds a separate file-level P1-to-P2/P3 position-shift test of the new bank.
+The P2-selected ring-lag-plus-correlation arm improves P3 mean-subject top-1
+from 0.6003 to 0.6188 over F0 on 79 matched whole recordings from nine
+subjects. This is limited corroboration for a new representation, not a
+time-local gesture or live-device result; the deployment decision is unchanged.
