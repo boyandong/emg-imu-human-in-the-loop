@@ -1,0 +1,20 @@
+# Independent reconstruction without the historical source
+
+The historical X1-H/RLCS/CES/Frequency code cannot be recovered from the accessible Git refs. That does **not** prevent a forward experiment: the goal document states conceptual formulas, and the current repository already implements RMS/global-RMS scale pattern (`ScalePatternFamily`), ring envelope correlation and normalized correlation eigen-spectrum (`RingGeometryFamily`), and bandwise frequency orientation (`SpectralStateFamily`). These are independently defined candidates, never labelled as the old validated implementation. This study separates the ring correlation and spectrum blocks so their contributions can be tested without the bundled ring-covariance block.
+
+The [`PROTOCOL.json`](PROTOCOL.json) was committed as `eae0cd0` before running this screen. Source is the 11,563,732-byte public LibEMG Electrode Shift archive, SHA-256 `4cfa9a4861193f230179fa87d53eda7503e66b5cfedeae81c81e476f53f6b2b6`. Each of subjects 15–17 (validation) and 18–20 (final) trains a personal five-class model on unshifted `training` trials. Four shifted target domains provide 40 held-out whole-trial predictions per subject. The eight 200 Hz channels are native to the source; window features are averaged within each trial. The scaler and balanced logistic classifier fit source trials only. No shifted trial fits a feature, scaler or classifier.
+
+The reconstructed RLCS block is eight dimensions: for circular lags 1–4, mean and standard deviation of 25 ms smoothed rectified-envelope correlations. It is invariant to a cyclic change in channel origin, but not to arbitrary channel permutation. The reconstructed CES block is eight descending eigenvalues of the same channel correlation matrix, normalized to sum to one. Its permutation invariance loses topology by construction. Those properties are tested; neither feature's historical envelope or aggregation parameters are known.
+
+| Arm | Validation macro-F1 | Final macro-F1 | Final log loss | Final Brier | Final minimum subject F1 | Final worst shifted-domain F1 |
+|---|---:|---:|---:|---:|---:|---:|
+| F0 | 0.4533 | 0.4912 | 1.2047 | 0.6216 | 0.1780 | 0.3938 |
+| F0 + reconstructed RLCS | 0.4905 | 0.4875 | 1.2369 | 0.6432 | 0.2531 | 0.3505 |
+| F0 + reconstructed CES | 0.4977 | **0.5184** | **1.1845** | **0.5944** | 0.2800 | **0.4141** |
+| F0 + both | **0.5256** | 0.4976 | 1.2176 | 0.6199 | **0.3019** | 0.3210 |
+
+All unrounded cells, class recall, domain/subject cells and source/target trial IDs are in [`RESULTS.json`](RESULTS.json); the 960 arm–trial probabilities are in [`TRIAL_PREDICTIONS.csv`](TRIAL_PREDICTIONS.csv). On the final subjects, adding CES to F0 corrects eight F0 errors and introduces three errors. Adding RLCS corrects six and introduces six. The pair chosen by *validation* macro-F1 would be **F0 + both**; its final gain is small and its worst shifted-domain F1 falls. CES alone has the strongest final descriptive metrics, but selecting it *because of those final results* would leak the final set into model choice. It is therefore a candidate for a new independent test, not a deployed or confirmed winner.
+
+This resolves the practical question of whether development must wait for an unavailable old version: **no**. A transparent, testable successor can be built and evaluated under new names. It does not resolve historical identity, original claimed effect sizes, or own-device accuracy. The current public study has only three independent final subjects and no pinch class; four domains within a subject are correlated. A third-source electrode-replacement test or new own-device re-donning cohort should be frozen before using CES as a preferred feature.
+
+Reproduce from the repository root with `PYTHONPATH=emgimu_classifier/src;emgimu_classifier` and `python -m benchmarks.historical_reconstruction.run`. The runner hashes the source archive, checks disjoint native trials, and writes all predictions. `tests/test_reconstructed_ring.py` verifies the topology and permutation contracts.

@@ -2932,3 +2932,12 @@ day 2 and then day 3. On final day, F0 macro-F1/LogLoss/Brier were
 cross-day improvement in this limited four-class public setting. Different
 hardware, subject selection and trial-level labels keep this separate from
 own-device real-time claims and historical DS2 force reproduction.
+
+An [independent ring-family reconstruction](../benchmarks/historical_reconstruction/REPORT.md)
+now separates the current code's RLCS-like lag correlation and CES-like
+eigen-spectrum blocks. In held-out LibEMG Electrode Shift users, F0 plus
+reconstructed CES improves pooled final macro-F1 from 0.4912 to 0.5184,
+whereas reconstructed RLCS alone lowers it to 0.4875. The validation-best
+combined arm does not retain its validation advantage on final users. These
+new operational definitions let forward Feature Bank work continue without
+the old source, but do not prove historical formula or effect equivalence.
