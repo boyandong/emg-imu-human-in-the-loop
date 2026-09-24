@@ -1,0 +1,26 @@
+{
+  "name": "independent_ring_family_reconstruction_v1",
+  "frozen_date": "2026-09-24",
+  "question": "Can independently defined RLCS-like lag correlation and CES-like correlation eigen-spectrum add after-wearing information beyond F0?",
+  "historical_identity": "not claimed; original implementation is unavailable",
+  "source": "LibEMG CIILData-main Electrode Shift archive already verified in DATASET_MANIFEST.json",
+  "subjects": {"validation": [15, 16, 17], "final": [18, 19, 20]},
+  "source_domain": "training",
+  "target_domains": ["trial_1", "trial_2", "trial_3", "trial_4"],
+  "labels": ["close", "open", "rest", "flexion", "extension"],
+  "sample_rate_hz": 200,
+  "channels": 8,
+  "native_window_ms": 200,
+  "trial_aggregation": "mean window feature per native trial",
+  "feature_definitions": {
+    "F0": "existing LocalDetailFamily source fit",
+    "RLCS_reconstructed": "existing 25 ms smoothed rectified envelope; circular-lag cross-channel correlation mean and standard deviation, lags 1..4, eight dimensions",
+    "CES_reconstructed": "normalized descending eigenvalues of full envelope correlation matrix, eight dimensions"
+  },
+  "arms": ["F0", "F0+RLCS_reconstructed", "F0+CES_reconstructed", "F0+RLCS_reconstructed+CES_reconstructed"],
+  "classifier": "per-subject source-only StandardScaler and balanced LogisticRegression C=1 max_iter=1000 seed=20260924",
+  "primary_metrics": ["pooled_macro_f1", "pooled_log_loss", "pooled_brier", "minimum_subject_macro_f1"],
+  "secondary_metrics": ["worst_domain_macro_f1", "per_class_recall", "paired_correctness_changes"],
+  "selection_rule": "No changed definition, arm, subject, domain or hyperparameter after looking at validation or final outputs.",
+  "scope": "Independent current-code reconstruction on public 8-channel Myo wearing data; not historical RLCS/CES equivalence, not user's device or realtime recognition."
+}
