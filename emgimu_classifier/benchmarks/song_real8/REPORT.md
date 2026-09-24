@@ -319,3 +319,19 @@ fault detection or another-wearing specificity, so neither gate was deployed.
 Line noise and low-frequency ratios are observable in raw data here, but the
 existing F9 quality aggregate does not incorporate them. S01–S03 readiness
 failures and same-person/day sampling still limit the diagnostic.
+
+A [pre-formal signal-calibration audit](SIGNAL_CALIBRATION.json) evaluates
+another 0/1/2-block-per-class method on the frozen source F0+SPD bundle.
+S01/S02 pre-formal blocks provide a source per-channel RMS reference; S03/S04
+pre-formal blocks alone estimate a bounded target channel scale. Formal
+labels and samples never estimate that scale. On unmodified S04, 0/1/2-shot
+macro-F1 is 0.9508/0.9513/0.9438 and LogLoss is
+0.2376/0.2554/0.2601. S03 also worsens from 0.9714 F1 and 0.1866 LogLoss
+at zero shot to 0.9493/0.2050 (one block) or 0.9565/0.1946 (two).
+The synthetic 0.25× S04 gain case recovers F1 from 0.9157 to
+0.9513/0.9438 after calibration, but this is an algebraic gain-control
+diagnostic, not new-wearing performance. A post-hoc, non-fitted amplitude
+check reveals why the real correction is risky: the source calibration/formal
+median RMS ratio spans 0.30–0.53 by channel, while S04 one-block
+calibration/formal spans 0.72–0.91. The pre-formal and formal contexts are
+not interchangeable across these sessions. This correction is not deployed.

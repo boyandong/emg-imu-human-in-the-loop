@@ -2826,3 +2826,14 @@ flags none of those recorded windows and all windows with one synthetically
 frozen channel, but remains undeployed pending real fault and new-wearing
 validation. This prevents treating F9 activation variation as measured
 hardware quality or claiming the current quality mask is a safe live gate.
+
+A further [Song signal-calibration audit](../benchmarks/song_real8/SIGNAL_CALIBRATION.json)
+uses only pre-formal native 1/2-block-per-class windows to estimate a bounded
+per-channel RMS correction for the frozen F0+SPD model. It restores much of
+the loss from a synthetic uniform 0.25× gain, but on unmodified S04 the
+0/1/2-shot macro-F1 is 0.9508/0.9513/0.9438 and LogLoss worsens from
+0.2376 to 0.2554/0.2601; S03 also worsens. Post-hoc amplitude summaries,
+excluded from correction fitting, show source calibration/formal RMS ratios
+of 0.30–0.53 versus S04 one-block ratios of 0.72–0.91. This measured
+protocol-context mismatch makes simple calibration transfer unreliable, so
+the method remains experimental and outside the live app.
