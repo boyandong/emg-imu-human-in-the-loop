@@ -1,0 +1,14 @@
+{
+  "name": "song_s04_cue_relative_event_audit_v1",
+  "source_session": "S04",
+  "source_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+  "model_sha256": "843a1230f8fbee5a839557e59edaf449ab250cbb125df8f77164a6255420eedc",
+  "eligible_events": "completed valid formal trials with at least one 200 ms model window wholly inside the recorded stable cue interval",
+  "decoder": "existing SongOnlineDecision with threshold 0.5 and three consecutive 100 ms frames, replayed continuously over all S04 raw packets",
+  "late_rest": "200 ms model windows wholly inside the final 400 ms before each formal prompt; any decoded active label counts as a pre-prompt activation for that trial",
+  "active_event_success": "at least one decoded matching hand state within the full-window stable cue interval",
+  "active_event_endpoint": "last full-window stable frame has the correct decoded hand state",
+  "cue_relative_first_correct_seconds": "(end sample index of first correct decoded full-window stable frame minus stable_start_sample) / 250; only successful non-neutral events",
+  "neutral_event": "report matching-decoded-frame and endpoint fractions separately; no active onset latency",
+  "limitations": "Cue and stable sample markers are collection annotations, not measured physiological movement onset; frame delay includes 200 ms window formation and decoder persistence. This is saved-signal offline replay, not USB, screen or product latency."
+}
