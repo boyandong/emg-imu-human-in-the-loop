@@ -1,0 +1,15 @@
+{
+  "name": "new_bank_v2_song_28_state_exploratory",
+  "source": "user-supplied Song HDF5 v3, 8 EMG channels at 250 Hz and real IMU at 112 Hz, four sessions on 2026-09-18",
+  "preprocessing": "continuous causal 40 Hz highpass plus 50/100 Hz notch; EMG 50 samples, aligned prior IMU 22 samples; no target-fitted state",
+  "train_sessions": ["S01", "S02"],
+  "validation_session": "S03",
+  "final_session": "S04",
+  "endpoint": "28 native hand-by-arm labels, one probability vector per formal trial",
+  "reference_arm": "legacy_F0+IMU",
+  "arms": ["F0v2+IMU", "F0v2+IMU+F2a", "F0v2+IMU+F3c", "F0v2+IMU+F2a+F3c"],
+  "classifier": "source-window StandardScaler plus balanced LogisticRegression C=1 max_iter=2000 random_state=0, as in saved causal 28-state baseline",
+  "selection_rule": "Among four v2 arms, highest S03 trial-level joint macro-F1; tie by lower trial log loss then listed order. Never select on S04.",
+  "reference_check": "Legacy F0+real IMU S03/S04 joint accuracy and macro-F1 must exactly reproduce saved causal Song baseline",
+  "scope": "One person, one date, cue-labelled stable windows; S01-S03 collection readiness failed, S04 passed; S04 was previously inspected and is exploratory, not independent deployment validation"
+}
