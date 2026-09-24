@@ -2879,3 +2879,12 @@ S03 macro-F1 drops from 0.9714 to 0.9640 and S04 remains about 0.9508.
 All 1,136 trial probabilities and paired errors pass independent read-back.
 The current selectable live bundle remains F0+SPD; this one-person/day,
 previously inspected S04 result does not support a deployment change.
+
+The four supplied Song recordings also support a fixed F0+SPD
+[leave-one-session-out check](../benchmarks/song_real8/SESSION_HELD_OUT_RESULTS.json):
+three sessions' valid stable formal trials train each fold and the fourth contributes only cued stable
+trial scores. Across 569 held-out trials, pooled macro-F1 is 0.9522;
+individual S01/S02/S03/S04 values are 0.9222/0.9713/0.9722/0.9437. These
+are within-day, one-person folds, not multiuser or multiday validation. The
+S04 fold is slightly worse than the existing S01/S02-trained F0+SPD result,
+so the live bundle is unchanged.

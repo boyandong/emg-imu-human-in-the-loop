@@ -1,0 +1,276 @@
+{
+  "status": "exploratory_one_person_one_day_leave_one_session_out",
+  "protocol": "fixed causal F0+SPD; three complete sessions train, fourth held out; no target-session fitting or calibration",
+  "session_date": "2026-09-18",
+  "participant_count": 1,
+  "classes": [
+    "fist",
+    "index_pinch",
+    "neutral",
+    "open_hand"
+  ],
+  "folds": {
+    "S01": {
+      "train_sessions": [
+        "S02",
+        "S03",
+        "S04"
+      ],
+      "test_session": "S01",
+      "train_windows": 1270,
+      "test_windows": 426,
+      "scores": {
+        "trials": 143,
+        "accuracy": 0.9230769230769231,
+        "macro_f1": 0.922207286261311,
+        "log_loss": 0.2296746197578044,
+        "brier": 0.027555390377556013,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.9142857142857143,
+          "neutral": 0.8055555555555556,
+          "open_hand": 0.9722222222222222
+        },
+        "confusion_matrix": [
+          [
+            36,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            32,
+            1,
+            1
+          ],
+          [
+            5,
+            1,
+            29,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            35
+          ]
+        ]
+      },
+      "source_hdf5_sha256": {
+        "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+        "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+        "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+      },
+      "test_hdf5_sha256": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a"
+    },
+    "S02": {
+      "train_sessions": [
+        "S01",
+        "S03",
+        "S04"
+      ],
+      "test_session": "S02",
+      "train_windows": 1273,
+      "test_windows": 423,
+      "scores": {
+        "trials": 142,
+        "accuracy": 0.971830985915493,
+        "macro_f1": 0.971306079831122,
+        "log_loss": 0.16503786184438102,
+        "brier": 0.018511677146092618,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 1.0,
+          "neutral": 0.8888888888888888,
+          "open_hand": 1.0
+        },
+        "confusion_matrix": [
+          [
+            36,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            34,
+            0,
+            0
+          ],
+          [
+            0,
+            3,
+            32,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            36
+          ]
+        ]
+      },
+      "source_hdf5_sha256": {
+        "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+        "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+        "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+      },
+      "test_hdf5_sha256": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479"
+    },
+    "S03": {
+      "train_sessions": [
+        "S01",
+        "S02",
+        "S04"
+      ],
+      "test_session": "S03",
+      "train_windows": 1280,
+      "test_windows": 416,
+      "scores": {
+        "trials": 140,
+        "accuracy": 0.9714285714285714,
+        "macro_f1": 0.9722114972114972,
+        "log_loss": 0.17053077874207007,
+        "brier": 0.019157479912952902,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.9444444444444444,
+          "neutral": 0.9444444444444444,
+          "open_hand": 1.0
+        },
+        "confusion_matrix": [
+          [
+            32,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            34,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            34,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            36
+          ]
+        ]
+      },
+      "source_hdf5_sha256": {
+        "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+        "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+        "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+      },
+      "test_hdf5_sha256": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e"
+    },
+    "S04": {
+      "train_sessions": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "test_session": "S04",
+      "train_windows": 1265,
+      "test_windows": 431,
+      "scores": {
+        "trials": 144,
+        "accuracy": 0.9444444444444444,
+        "macro_f1": 0.9436928035876953,
+        "log_loss": 0.25063076113288374,
+        "brier": 0.030848842587479948,
+        "recall": {
+          "fist": 0.9722222222222222,
+          "index_pinch": 0.8333333333333334,
+          "neutral": 0.9722222222222222,
+          "open_hand": 1.0
+        },
+        "confusion_matrix": [
+          [
+            35,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            30,
+            4,
+            2
+          ],
+          [
+            0,
+            0,
+            35,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            36
+          ]
+        ]
+      },
+      "source_hdf5_sha256": {
+        "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+        "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+        "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e"
+      },
+      "test_hdf5_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+    }
+  },
+  "pooled_trial_scores": {
+    "trials": 569,
+    "accuracy": 0.9525483304042179,
+    "macro_f1": 0.9522362307562602,
+    "log_loss": 0.20429522958575258,
+    "brier": 0.024065658170731422,
+    "recall": {
+      "fist": 0.9928571428571429,
+      "index_pinch": 0.9219858156028369,
+      "neutral": 0.9027777777777778,
+      "open_hand": 0.9930555555555556
+    },
+    "confusion_matrix": [
+      [
+        139,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        130,
+        7,
+        3
+      ],
+      [
+        5,
+        4,
+        130,
+        5
+      ],
+      [
+        0,
+        0,
+        1,
+        143
+      ]
+    ]
+  },
+  "predictions_csv": "SESSION_HELD_OUT_TRIAL_PREDICTIONS.csv",
+  "predictions_sha256": "1887f6de6d89a0fe6ebcf231b49b5716cde89a2bc00d0a70cbae404e1b226a91",
+  "boundary": "Exploratory within-day session transfer on valid cued stable trials. S01-S03 failed collection readiness; S04 passed. Folds reuse a single person's same-day data and several outcomes were inspected earlier. This does not measure cross-person/day generalization, continuous live accuracy, or an independent final test."
+}

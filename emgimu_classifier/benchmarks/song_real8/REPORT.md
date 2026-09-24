@@ -368,3 +368,26 @@ remain one person/day. The [1,136 trial probability rows](F4_INCREMENT_TRIAL_PRE
 [conditional increments](F4_INCREMENT_CONDITIONAL.csv),
 [paired errors](F4_INCREMENT_PAIRED_ERRORS.csv) and
 [independent read-back](F4_INCREMENT_VERIFICATION.json) preserve the bounded evidence.
+
+The [leave-one-session-out F0+SPD study](SESSION_HELD_OUT_RESULTS.json) uses all
+four supplied Song recordings without fitting any feature or classifier on the
+held-out session. Each fold trains on valid stable formal trials from the
+other three sessions with the fixed
+causal filter, F0+SPD features and logistic classifier. The 569 saved
+[trial probabilities](SESSION_HELD_OUT_TRIAL_PREDICTIONS.csv) were read back
+and rescored after serialization.
+
+| Held-out session | Trials | Accuracy | Macro-F1 | LogLoss |
+|---|---:|---:|---:|---:|
+| S01 | 143 | 0.9231 | 0.9222 | 0.2297 |
+| S02 | 142 | 0.9718 | 0.9713 | 0.1650 |
+| S03 | 140 | 0.9714 | 0.9722 | 0.1705 |
+| S04 | 144 | 0.9444 | 0.9437 | 0.2506 |
+
+The pooled trial macro-F1 is 0.9522. This measures transfer between four
+same-person, same-day recordings under cued stable-interval scoring. It cannot
+measure cross-day or cross-person generalization; S01–S03 failed collection
+readiness, and these sessions have already informed other analyses. The S04
+three-session-fold F1 is below the existing S01/S02-trained F0+SPD result
+(0.9437 versus 0.9508), so these exploratory folds provide no reason to
+replace the selectable live bundle with an all-session refit.
