@@ -1,0 +1,44 @@
+{
+  "status": "verified",
+  "prediction_rows": 1420,
+  "heldout_native_trials": 284,
+  "metric_groups_read_back": 10,
+  "baseline_metrics_reproduced": true,
+  "baseline_runtime_reproduced": {
+    "python": "3.13.9",
+    "numpy": "2.4.3",
+    "scipy": "1.17.1",
+    "scikit_learn": "1.8.0"
+  },
+  "validation_selected_arm": "F0v2+IMU",
+  "paired_vs_F0v2_plus_IMU": {
+    "validation": {
+      "F0v2+IMU+F2a": {
+        "corrected_F0v2_IMU_errors": 12,
+        "new_errors_from_F0v2_IMU": 15
+      },
+      "F0v2+IMU+F3c": {
+        "corrected_F0v2_IMU_errors": 7,
+        "new_errors_from_F0v2_IMU": 12
+      },
+      "F0v2+IMU+F2a+F3c": {
+        "corrected_F0v2_IMU_errors": 13,
+        "new_errors_from_F0v2_IMU": 17
+      }
+    },
+    "final": {
+      "F0v2+IMU+F2a": {
+        "corrected_F0v2_IMU_errors": 9,
+        "new_errors_from_F0v2_IMU": 10
+      },
+      "F0v2+IMU+F3c": {
+        "corrected_F0v2_IMU_errors": 6,
+        "new_errors_from_F0v2_IMU": 9
+      },
+      "F0v2+IMU+F2a+F3c": {
+        "corrected_F0v2_IMU_errors": 9,
+        "new_errors_from_F0v2_IMU": 10
+      }
+    }
+  }
+}

@@ -4,9 +4,12 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
+import scipy
+import sklearn
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
@@ -44,6 +47,13 @@ def check_protocol() -> None:
 
 def evaluate(source: Path = SOURCE) -> dict:
     check_protocol()
+    prior_runtime = json.loads((ROOT.parent / "song_real8" / "SPD_28_STATE_RESULTS.json").read_text(
+        encoding="utf-8"))["runtime_versions"]
+    current_runtime = {"python": sys.version.split()[0], "numpy": np.__version__,
+                       "scipy": scipy.__version__, "scikit_learn": sklearn.__version__}
+    if current_runtime != prior_runtime:
+        raise RuntimeError(f"28-state baseline requires its saved runtime {prior_runtime}; "
+                           f"current runtime is {current_runtime}")
     data = {sid: load_session(source / f"2026-09-18_{sid}", sid, "causal")
             for sid in ("S01", "S02", "S03", "S04")}
     source_batch = _join_batches([data[sid] for sid in PROTOCOL["train_sessions"]])
@@ -69,6 +79,7 @@ def evaluate(source: Path = SOURCE) -> dict:
         "protocol": PROTOCOL,
         "protocol_sha256": hashlib.sha256(PROTOCOL_PATH.read_bytes()).hexdigest(),
         "saved_causal_baseline_sha256": hashlib.sha256(baseline_file.read_bytes()).hexdigest(),
+        "runtime_versions": current_runtime,
         "source_hdf5_sha256": source_hashes,
         "source_rest_windows": int((source_hand == "neutral").sum()),
         "classes": classes.tolist(), "feature_dimensions": dimensions, "sessions": {},
@@ -100,7 +111,8 @@ def evaluate(source: Path = SOURCE) -> dict:
                 saved = baseline["secondary_28_state"]["validation" if phase == "validation" else "test"]
                 for key in ("trials", "accuracy", "macro_f1"):
                     if not np.isclose(scores[key], saved[key], rtol=0, atol=1e-12):
-                        raise ValueError(f"old 28-state baseline mismatch: {phase}/{key}")
+                        raise ValueError(f"old 28-state baseline mismatch: {phase}/{key}: "
+                                         f"current={scores[key]!r} saved={saved[key]!r}")
             for trial_id, label, vector in zip(trial_ids, truth, probability):
                 rows.append({"phase": phase, "session": sid, "arm": arm,
                              "trial_id": str(trial_id), "label": str(label),

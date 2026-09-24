@@ -2972,6 +2972,15 @@ replays all 284 previous held-out probabilities. These one-person, one-day
 offline results do not override the public cross-day regression or justify a
 live-bundle switch; S04 was previously examined and is exploratory.
 
+The matching [28-state Song screen](../benchmarks/new_bank_v2/SONG_28_REPORT.md)
+adds the real IMU to every v2 arm and scores all seven arm cues times four hand
+states. The S03-selected arm is F0v2+IMU alone (joint macro-F1 0.6125); its
+S04 joint macro-F1 is 0.5365, below the reproduced previous F0+IMU baseline
+0.5487. F2a/F3c hand-only gains do not transfer to the joint endpoint.
+The prior 28-state baseline reproduces only in its recorded Python 3.13/NumPy
+2.4/SciPy 1.17 runtime; a separate Python 3.11/NumPy 1.26/SciPy 1.14
+environment changes one S04 decision. The live model remains unchanged.
+
 The independently sourced [Zenodo electrode re-placement check](../benchmarks/new_bank_v1/ZENODO_REPLACEMENT_REPORT.md)
 adds a separate file-level P1-to-P2/P3 position-shift test of the new bank.
 The P2-selected ring-lag-plus-correlation arm improves P3 mean-subject top-1

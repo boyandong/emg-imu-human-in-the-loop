@@ -55,6 +55,14 @@ def run(root: Path):
     baseline_record = json.loads(baseline_file.read_text(encoding="utf-8"))
     if baseline_record["filter_mode"] != "causal":
         raise ValueError("saved 28-state baseline does not use causal filtering")
+    saved_runtime_file = Path(__file__).resolve().parent / "song_real8/SPD_28_STATE_RESULTS.json"
+    if saved_runtime_file.is_file():
+        saved_runtime = json.loads(saved_runtime_file.read_text(encoding="utf-8"))["runtime_versions"]
+        current_runtime = {"python": sys.version.split()[0], "numpy": np.__version__,
+                           "scipy": scipy.__version__, "scikit_learn": sklearn.__version__}
+        if current_runtime != saved_runtime:
+            raise RuntimeError(f"saved 28-state comparison requires runtime {saved_runtime}; "
+                               f"current runtime is {current_runtime}")
     print("[1/3] load causal Song source S01/S02 and validation S03", flush=True)
     data = {sid: load_session(root / f"2026-09-18_{sid}", sid, "causal")
             for sid in ("S01", "S02", "S03")}
