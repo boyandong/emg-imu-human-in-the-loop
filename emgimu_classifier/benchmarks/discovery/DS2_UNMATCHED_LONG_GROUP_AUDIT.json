@@ -1,0 +1,223 @@
+{
+  "status": "candidate_long_group_not_verified_as_source",
+  "source_archive_sha256": "a19bfeb945392b38f5f41bde62e8135918da7d475e479b16e322e1fc4b867110",
+  "source_raw_mat_sha256": "1ee1b28193a60fa5b03493bac153fcd32290605f7eac45b8b535d58c15d109a0",
+  "exact_join_csv_sha256": "c5cbeb85a1e9cb5f3685902b031472c7335e590a509ecb7a986c38ec90deb3a2",
+  "mat_trial_window_join_csv_sha256": "02b9d6d7b5ca1c2f28957089b37f2eb8784505ece0bc2a1fb2ffbd14593d1faf",
+  "candidate_member": "SEMG-04/SEMG-04_Mv1.tdms",
+  "candidate_group_samples_per_channel": 980100,
+  "basis_for_candidate_only": "30 consecutive gesture-code-0 MAT trials occur between exact subject-folder-3 and subject-folder-4 joins; this is not an identity key",
+  "positive_control": {
+    "raw_trial_index_zero_based": 388,
+    "best_offset": 0,
+    "signed_pearson": 0.9999999999999658
+  },
+  "unmatched_first_channel": [
+    {
+      "raw_trial_index_zero_based": 389,
+      "best_offset": 819528,
+      "signed_pearson": 0.09356804211776037
+    },
+    {
+      "raw_trial_index_zero_based": 390,
+      "best_offset": 764359,
+      "signed_pearson": -0.08646481559454991
+    },
+    {
+      "raw_trial_index_zero_based": 391,
+      "best_offset": 820611,
+      "signed_pearson": 0.06984068628539816
+    },
+    {
+      "raw_trial_index_zero_based": 392,
+      "best_offset": 963033,
+      "signed_pearson": 0.08583942054119267
+    },
+    {
+      "raw_trial_index_zero_based": 393,
+      "best_offset": 825971,
+      "signed_pearson": 0.07909001895562343
+    },
+    {
+      "raw_trial_index_zero_based": 394,
+      "best_offset": 816897,
+      "signed_pearson": 0.08120646536766467
+    },
+    {
+      "raw_trial_index_zero_based": 395,
+      "best_offset": 820997,
+      "signed_pearson": 0.0852609391553066
+    },
+    {
+      "raw_trial_index_zero_based": 396,
+      "best_offset": 782859,
+      "signed_pearson": 0.07555849806266864
+    },
+    {
+      "raw_trial_index_zero_based": 397,
+      "best_offset": 699915,
+      "signed_pearson": 0.08647783229886306
+    },
+    {
+      "raw_trial_index_zero_based": 398,
+      "best_offset": 889919,
+      "signed_pearson": -0.10274873683697891
+    },
+    {
+      "raw_trial_index_zero_based": 399,
+      "best_offset": 897929,
+      "signed_pearson": -0.07932690564104485
+    },
+    {
+      "raw_trial_index_zero_based": 400,
+      "best_offset": 874061,
+      "signed_pearson": -0.07115412714442194
+    },
+    {
+      "raw_trial_index_zero_based": 401,
+      "best_offset": 748616,
+      "signed_pearson": 0.07788243507917984
+    },
+    {
+      "raw_trial_index_zero_based": 402,
+      "best_offset": 872451,
+      "signed_pearson": 0.07601131014658914
+    },
+    {
+      "raw_trial_index_zero_based": 403,
+      "best_offset": 779387,
+      "signed_pearson": 0.08461828214978327
+    },
+    {
+      "raw_trial_index_zero_based": 404,
+      "best_offset": 930465,
+      "signed_pearson": -0.08626660012067974
+    },
+    {
+      "raw_trial_index_zero_based": 405,
+      "best_offset": 946322,
+      "signed_pearson": -0.09011476117435098
+    },
+    {
+      "raw_trial_index_zero_based": 406,
+      "best_offset": 826300,
+      "signed_pearson": 0.12880928910176442
+    },
+    {
+      "raw_trial_index_zero_based": 407,
+      "best_offset": 779698,
+      "signed_pearson": 0.07902506664371374
+    },
+    {
+      "raw_trial_index_zero_based": 408,
+      "best_offset": 826897,
+      "signed_pearson": 0.0934853896059126
+    },
+    {
+      "raw_trial_index_zero_based": 409,
+      "best_offset": 824322,
+      "signed_pearson": 0.099259370874768
+    },
+    {
+      "raw_trial_index_zero_based": 410,
+      "best_offset": 824480,
+      "signed_pearson": 0.09592053539275339
+    },
+    {
+      "raw_trial_index_zero_based": 411,
+      "best_offset": 823933,
+      "signed_pearson": 0.10967723265865764
+    },
+    {
+      "raw_trial_index_zero_based": 412,
+      "best_offset": 946651,
+      "signed_pearson": -0.08156068815250189
+    },
+    {
+      "raw_trial_index_zero_based": 413,
+      "best_offset": 822747,
+      "signed_pearson": 0.12458161514919945
+    },
+    {
+      "raw_trial_index_zero_based": 414,
+      "best_offset": 779283,
+      "signed_pearson": -0.08121670789295257
+    },
+    {
+      "raw_trial_index_zero_based": 415,
+      "best_offset": 759613,
+      "signed_pearson": -0.08836495912903804
+    },
+    {
+      "raw_trial_index_zero_based": 416,
+      "best_offset": 824587,
+      "signed_pearson": -0.10280526841756396
+    },
+    {
+      "raw_trial_index_zero_based": 417,
+      "best_offset": 716259,
+      "signed_pearson": -0.10037907836064344
+    },
+    {
+      "raw_trial_index_zero_based": 418,
+      "best_offset": 823548,
+      "signed_pearson": -0.13202187307008745
+    }
+  ],
+  "max_absolute_first_channel_pearson": 0.13202187307008745,
+  "cross_channel_probe_trials": {
+    "389": [
+      [
+        0.09356804211776037,
+        0.10945477673597832,
+        0.09124483058842678
+      ],
+      [
+        -0.06798265103148418,
+        0.07305490158956329,
+        -0.06957048321315047
+      ],
+      [
+        -0.15338056734818198,
+        -0.1330713025556492,
+        -0.13943449094611388
+      ]
+    ],
+    "406": [
+      [
+        0.12880928910176442,
+        0.13146207937879653,
+        0.1372515403146039
+      ],
+      [
+        0.17725563296463073,
+        -0.1481374857713311,
+        0.15398083737677284
+      ],
+      [
+        -0.11636906722129157,
+        0.1087382507268453,
+        -0.09382456215090348
+      ]
+    ],
+    "418": [
+      [
+        -0.13202187307008745,
+        0.12419382879733407,
+        0.14442694908061143
+      ],
+      [
+        0.10470723409664458,
+        -0.10562302741175073,
+        0.1084544097944587
+      ],
+      [
+        -0.11145568359920711,
+        -0.11158059430403858,
+        -0.11568975964092655
+      ]
+    ]
+  },
+  "max_absolute_cross_channel_probe_pearson": 0.17725563296463073,
+  "boundary": "The 30 MAT trials have no exact TDMS waveform join. Their weak strongest linear correlations with this positional candidate, even after arbitrary time shift and selected channel swaps, do not establish a source, subject, or force level. Nonlinear preprocessing or another source is not excluded. Leave subject unknown."
+}

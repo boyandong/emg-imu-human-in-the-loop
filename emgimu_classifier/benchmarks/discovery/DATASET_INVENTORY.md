@@ -82,6 +82,10 @@ in the released TDMS groups. The [join index](DS2_TDMS_RAW_EXACT_JOIN.csv)
 records only verified matches; the 30 unmatched trials retain unknown subject
 identity. This materially improves public-v8 provenance but supplies neither
 per-trial force labels nor proof that v8 was the historical experiment input.
+The [long-group diagnostic](DS2_UNMATCHED_LONG_GROUP_REPORT.md) additionally
+checks the positional TDMS candidate for these 30 trials using full-length
+time-shifted correlations and an exact-match positive control. It finds no
+evidence sufficient to assign their subject identities.
 The [subject-held-out gesture-code study](public_ds2_subject_gesture/REPORT.md)
 uses the 2,832 uniquely matched trials with uniform labels. Its five fixed
 F0/reference-family arms supply new cross-user gesture evidence, but no force
