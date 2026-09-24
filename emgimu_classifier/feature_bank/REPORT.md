@@ -281,10 +281,13 @@ The current temporal comparison shares most errors (G5/reference-F5 model correl
 Six new benchmark archives are complete. Five canonical CSVs, schema/provenance audits,
 source run manifests, trial lists, dimensions, per-user/per-class diagnostics, calibration
 burden estimates and SVG curves are available. The latest suite ran 223 tests (222
-passed, one skipped); consolidated integrity covers 222 artifacts, 51,617 rows
+passed, one skipped); consolidated integrity covers 226 artifacts, 51,635 rows
 and 1,248 explicit partitions, while canonical record verification covers
-49,988 rows. These are narrow
+50,006 rows. These are narrow
 integrity/implementation checks, not proof that every scientific requirement is complete.
+The copied-result check was rerun against the archived processed-run directory
+`D:/emg-imu-benchmarks/data/processed` plus source roots recorded per entry;
+the canonical check used `benchmarks/canonical_delivery.py --verify`.
 
 The highest-priority remaining work is the exact historical dataset/algorithm audit,
 remaining named complementarity pairs and Core comparisons on other eligible datasets,
