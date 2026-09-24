@@ -2906,3 +2906,11 @@ and 0.828 on `up`; adding F2a raises the latter to 0.867 but worsens
 `backward` LogLoss by 0.011. F6 helps `up`/`down` LogLoss while harming
 `right`/`forward`. These descriptive cue-group differences are not measured
 posture robustness or evidence of new-day/device transfer.
+
+Rechecking F2a on the original Song S01/S02 source, S03/S04 held-out split
+([fixed-split study](../benchmarks/song_real8/F2a_INCREMENT_RESULTS.json))
+confirms a probability-versus-decision tradeoff. F2a added to F0+F2c
+improves S03/S04 LogLoss by 0.0217/0.0227 but reduces macro-F1 by
+0.0071/0.0149; S04 Index Pinch recall falls from 30/36 to 28/36. The
+current realtime model therefore remains F0+F2c. Neither this one-day
+result nor the prior leave-one-session-out screen proves a deployable gain.

@@ -1,0 +1,435 @@
+{
+  "status": "exploratory_song_one_person_one_day_f2a_conditional_increment",
+  "source_sessions": [
+    "S01",
+    "S02"
+  ],
+  "validation_session": "S03",
+  "final_session": "S04",
+  "filter_mode": "causal_continuous",
+  "source_hdf5_sha256": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+    "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+    "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+  },
+  "source_code_sha256": {
+    "study": "bbcab2ca145552adfb8f552e58f4107017f5da43ece9cc2598a037048babe17e",
+    "song_loader": "6051769442d6b68e5893dff9b991a2a60a056eca4b7bacd907bad98ebeb15b3b",
+    "song_trial_metrics": "4e12eeb646ac965721a1eebb7589cc25350c5e0e9a6b043622b47b527ebf8194",
+    "feature_families": "32dcf4cd8f409d3dc68f3879fa0f801d7164b6aa268cbeff17eadb64ec73f4e4",
+    "feature_batch": "b411b586f98dad30265c586a6b44eb4be452ea4c2554477a3122a2ac56cea04d"
+  },
+  "frozen_baseline_sha256": "dd40acfa6e0b1f54f8b218e7f9c2cf61e43dfbb33fabd9a25e41d456468118a1",
+  "frozen_baseline_replayed": true,
+  "classes": [
+    "fist",
+    "index_pinch",
+    "neutral",
+    "open_hand"
+  ],
+  "arms": {
+    "F0": [
+      "F0"
+    ],
+    "F0_plus_SPD": [
+      "F0",
+      "SPD"
+    ],
+    "F0_plus_F2a": [
+      "F0",
+      "F2a"
+    ],
+    "F0_plus_SPD_plus_F2a": [
+      "F0",
+      "SPD",
+      "F2a"
+    ]
+  },
+  "feature_counts": {
+    "F0": 48,
+    "SPD": 36,
+    "F2a": 36
+  },
+  "scores": {
+    "validation": {
+      "F0": {
+        "trials": 140,
+        "accuracy": 0.9357142857142857,
+        "macro_f1": 0.935935362695926,
+        "log_loss": 0.3108983605404138,
+        "brier": 0.0353961874046856,
+        "recall": {
+          "fist": 0.9375,
+          "index_pinch": 0.9166666666666666,
+          "neutral": 0.9166666666666666,
+          "open_hand": 0.9722222222222222
+        },
+        "confusion_matrix": [
+          [
+            30,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            33,
+            1,
+            0
+          ],
+          [
+            0,
+            3,
+            33,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            35
+          ]
+        ]
+      },
+      "F0_plus_SPD": {
+        "trials": 140,
+        "accuracy": 0.9714285714285714,
+        "macro_f1": 0.9713817713817714,
+        "log_loss": 0.18659971206755183,
+        "brier": 0.02243721599386143,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.9444444444444444,
+          "neutral": 0.9444444444444444,
+          "open_hand": 1.0
+        },
+        "confusion_matrix": [
+          [
+            32,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            34,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            34,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            36
+          ]
+        ]
+      },
+      "F0_plus_F2a": {
+        "trials": 140,
+        "accuracy": 0.9428571428571428,
+        "macro_f1": 0.94250469993494,
+        "log_loss": 0.2061281811720206,
+        "brier": 0.025689709726132128,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8888888888888888,
+          "neutral": 0.8888888888888888,
+          "open_hand": 1.0
+        },
+        "confusion_matrix": [
+          [
+            32,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            32,
+            1,
+            0
+          ],
+          [
+            0,
+            2,
+            32,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            36
+          ]
+        ]
+      },
+      "F0_plus_SPD_plus_F2a": {
+        "trials": 140,
+        "accuracy": 0.9642857142857143,
+        "macro_f1": 0.9642345401684043,
+        "log_loss": 0.16490246901204045,
+        "brier": 0.02006797208415439,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.9166666666666666,
+          "neutral": 0.9444444444444444,
+          "open_hand": 1.0
+        },
+        "confusion_matrix": [
+          [
+            32,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            33,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            34,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            36
+          ]
+        ]
+      }
+    },
+    "final": {
+      "F0": {
+        "trials": 144,
+        "accuracy": 0.9097222222222222,
+        "macro_f1": 0.9068393441879964,
+        "log_loss": 0.4271641965595015,
+        "brier": 0.05328503887704212,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7222222222222222,
+          "neutral": 0.9444444444444444,
+          "open_hand": 0.9722222222222222
+        },
+        "confusion_matrix": [
+          [
+            36,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            26,
+            5,
+            1
+          ],
+          [
+            1,
+            0,
+            34,
+            1
+          ],
+          [
+            1,
+            0,
+            0,
+            35
+          ]
+        ]
+      },
+      "F0_plus_SPD": {
+        "trials": 144,
+        "accuracy": 0.9513888888888888,
+        "macro_f1": 0.9507791284107074,
+        "log_loss": 0.23759344505102162,
+        "brier": 0.029821161987144327,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8333333333333334,
+          "neutral": 0.9722222222222222,
+          "open_hand": 1.0
+        },
+        "confusion_matrix": [
+          [
+            36,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            30,
+            5,
+            1
+          ],
+          [
+            0,
+            0,
+            35,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            36
+          ]
+        ]
+      },
+      "F0_plus_F2a": {
+        "trials": 144,
+        "accuracy": 0.9236111111111112,
+        "macro_f1": 0.923059373059373,
+        "log_loss": 0.25329544419618677,
+        "brier": 0.03255416208265402,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8055555555555556,
+          "neutral": 0.8888888888888888,
+          "open_hand": 1.0
+        },
+        "confusion_matrix": [
+          [
+            36,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            29,
+            6,
+            1
+          ],
+          [
+            0,
+            0,
+            32,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            36
+          ]
+        ]
+      },
+      "F0_plus_SPD_plus_F2a": {
+        "trials": 144,
+        "accuracy": 0.9375,
+        "macro_f1": 0.935841312981724,
+        "log_loss": 0.21493778114493747,
+        "brier": 0.02709215184875551,
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7777777777777778,
+          "neutral": 0.9722222222222222,
+          "open_hand": 1.0
+        },
+        "confusion_matrix": [
+          [
+            36,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            28,
+            6,
+            1
+          ],
+          [
+            0,
+            0,
+            35,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            36
+          ]
+        ]
+      }
+    }
+  },
+  "conditional_increments": {
+    "validation": {
+      "F0_plus_F2a_vs_F0": {
+        "delta_log_loss": 0.1047701793683932,
+        "delta_brier": 0.009706477678553472,
+        "delta_macro_f1": 0.006569337239013984
+      },
+      "F0_plus_SPD_plus_F2a_vs_F0_plus_SPD": {
+        "delta_log_loss": 0.021697243055511378,
+        "delta_brier": 0.002369243909707039,
+        "delta_macro_f1": -0.007147231213367133
+      }
+    },
+    "final": {
+      "F0_plus_F2a_vs_F0": {
+        "delta_log_loss": 0.17386875236331473,
+        "delta_brier": 0.0207308767943881,
+        "delta_macro_f1": 0.016220028871376635
+      },
+      "F0_plus_SPD_plus_F2a_vs_F0_plus_SPD": {
+        "delta_log_loss": 0.022655663906084145,
+        "delta_brier": 0.0027290101383888182,
+        "delta_macro_f1": -0.014937815428983425
+      }
+    }
+  },
+  "paired_errors": {
+    "validation": {
+      "F0_plus_F2a_vs_F0": {
+        "corrected_trials": 3,
+        "new_errors": 2,
+        "both_correct": 129,
+        "both_wrong": 6
+      },
+      "F0_plus_SPD_plus_F2a_vs_F0_plus_SPD": {
+        "corrected_trials": 0,
+        "new_errors": 1,
+        "both_correct": 135,
+        "both_wrong": 4
+      }
+    },
+    "final": {
+      "F0_plus_F2a_vs_F0": {
+        "corrected_trials": 6,
+        "new_errors": 4,
+        "both_correct": 127,
+        "both_wrong": 7
+      },
+      "F0_plus_SPD_plus_F2a_vs_F0_plus_SPD": {
+        "corrected_trials": 1,
+        "new_errors": 3,
+        "both_correct": 134,
+        "both_wrong": 6
+      }
+    }
+  },
+  "trial_predictions": "F2a_INCREMENT_TRIAL_PREDICTIONS.csv",
+  "trial_predictions_sha256": "a0cfc632997428e18d0f37c0c98acfcaaed1f6087ec1b7b37bdc386e4cb2383d",
+  "conditional_incremental_csv": "F2a_INCREMENT_CONDITIONAL.csv",
+  "conditional_incremental_sha256": "3369228316d57a801feb741b6618d43f3ac04e15a5eab722cc00e77c045047d6",
+  "paired_errors_csv": "F2a_INCREMENT_PAIRED_ERRORS.csv",
+  "paired_errors_sha256": "ceda2716e0616612c174c8e8fb9eb8b17ee871a18cdcc0098b2b5c1c45fe8d9b",
+  "boundary": "Only Song one-person/one-day cue-labelled stable formal trials. S01/S02 source-only family/scaler/model fits, S03 validation, S04 final loaded after fixed-model S03 checks; S04 was previously inspected. S01-S03 failed whole-session collection readiness. No live USB, new-wearing, multiuser/day or deployable accuracy claim. F2a is the current trace-normalized covariance candidate, not historical Spatial Coordination equivalence."
+}

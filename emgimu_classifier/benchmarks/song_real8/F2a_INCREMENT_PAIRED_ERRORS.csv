@@ -1,0 +1,5 @@
+split,base_arm,candidate_arm,corrected_trials,new_errors,both_correct,both_wrong
+validation,F0,F0_plus_F2a,3,2,129,6
+validation,F0_plus_SPD,F0_plus_SPD_plus_F2a,0,1,135,4
+final,F0,F0_plus_F2a,6,4,127,7
+final,F0_plus_SPD,F0_plus_SPD_plus_F2a,1,3,134,6

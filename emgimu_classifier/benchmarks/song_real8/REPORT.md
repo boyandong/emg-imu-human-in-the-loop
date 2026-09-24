@@ -442,3 +442,30 @@ and `forward` by 0.025/0.023. Thus the pooled family increments do not imply
 uniform condition recovery. These are instructed arm labels, not measured
 posture or movement onset; small moving-arm cells, one day/person and
 previously inspected S04 prohibit a broader robustness claim.
+
+The [fixed-split F2a increment](F2a_INCREMENT_RESULTS.json) checks the
+within-day screening signal against the original S01/S02 source fit, S03
+validation and S04 final replay. Four fixed causal logistic arms cover the
+same 140/144 formal trials; F0 and F0+F2c reproduce the previously saved
+baseline before F2a is evaluated. The [1,136 trial probability rows](F2a_INCREMENT_TRIAL_PREDICTIONS.csv),
+[conditional deltas](F2a_INCREMENT_CONDITIONAL.csv),
+[paired errors](F2a_INCREMENT_PAIRED_ERRORS.csv) and
+[independent read-back](F2a_INCREMENT_VERIFICATION.json) preserve the result.
+
+| Arm | S03 macro-F1 / LogLoss | S04 macro-F1 / LogLoss |
+|---|---:|---:|
+| F0 | 0.9359 / 0.3109 | 0.9068 / 0.4272 |
+| F0+F2a | 0.9425 / 0.2061 | 0.9231 / 0.2533 |
+| F0+F2c | 0.9714 / 0.1866 | 0.9508 / 0.2376 |
+| F0+F2c+F2a | 0.9642 / 0.1649 | 0.9358 / 0.2149 |
+
+F2a adds conditional probability information to F0+F2c: LogLoss improves
+by 0.0217/0.0227 on S03/S04, and Brier also improves. Yet macro-F1 drops
+by 0.0071/0.0149. On S04, the combined arm corrects one prior error and
+creates three; Index Pinch recall falls from 30/36 to 28/36, while Fist
+and Open Hand remain 36/36. This explains why positive LogLoss increments
+must not be described as better hard-label recognition. The experiment uses
+one person/day, previously inspected S04 and three sessions that failed
+whole-session readiness. F2a is a current covariance candidate, not a
+recovered historical spatial algorithm, and the live F0+F2c bundle stays
+unchanged.
