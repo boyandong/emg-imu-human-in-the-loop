@@ -1,0 +1,551 @@
+{
+  "status": "posthoc_diagnostic_only",
+  "source_hdf5_sha256": {
+    "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+    "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+  },
+  "reference_arm_results_sha256": "d49988832a704cdd825ec8932f504af1247c4bf327b2970c1e9e3bf7d3d3e977",
+  "reference_arm_probabilities_sha256": "323c3bbf8642c22387a46d84fd83a1f12b1126baf6a03b67595a875bdb24c550",
+  "sessions": {
+    "validation": {
+      "session": "S03",
+      "formal_trials": 140,
+      "arm_order": [
+        "backward",
+        "down",
+        "forward",
+        "left",
+        "right",
+        "still",
+        "up"
+      ],
+      "formal_to_guided_distances": [
+        [
+          2.9441200865703636,
+          5.688394426945688,
+          1.831325238009231,
+          3.6410347450629055,
+          4.600781282635983,
+          2.955087139807499,
+          3.5375466232712265
+        ],
+        [
+          5.199976384021806,
+          1.8315944065804743,
+          4.98241946065773,
+          7.167072522684574,
+          6.257455847119894,
+          5.499047251619144,
+          5.165153329091402
+        ],
+        [
+          2.884893319084461,
+          4.709444938140392,
+          0.9841556814724355,
+          4.097222864660627,
+          5.043290724232885,
+          2.9593333287862937,
+          3.4458223425218404
+        ],
+        [
+          4.009347296988755,
+          6.022104335523465,
+          1.7196310179289618,
+          4.821986869280255,
+          5.611407116625962,
+          2.016228359589244,
+          4.529566632114285
+        ],
+        [
+          1.518506526390447,
+          4.21981881050778,
+          3.3556180904323805,
+          3.7025538602640906,
+          2.663279114391508,
+          4.182505499790248,
+          2.654920070933211
+        ],
+        [
+          4.269682717436114,
+          6.051027011370233,
+          1.7284172351049034,
+          5.427275773177139,
+          5.488835870221094,
+          0.9290920557136615,
+          4.809841365422291
+        ],
+        [
+          7.249262169534828,
+          8.52773222923686,
+          7.446454653442795,
+          7.137489595494408,
+          7.356261936000048,
+          7.393298935547016,
+          7.4704124983510996
+        ]
+      ],
+      "formal_arm_centroids_matching_own_guide": 3,
+      "per_arm": {
+        "backward": {
+          "trials": 12,
+          "source_correct": 5,
+          "guided_correct": 0,
+          "guided_prediction_counts": {
+            "still": 3,
+            "forward": 2,
+            "left": 7
+          },
+          "guided_corrected_source_arm_errors": 0,
+          "guided_new_arm_errors": 5,
+          "nearest_guided_centroid": "forward",
+          "own_guided_distance": 2.9441200865703636,
+          "nearest_guided_distance": 1.831325238009231,
+          "direction_all_13": {
+            "guided_norm": 4.63275643292359,
+            "formal_norm": 2.955087139807499,
+            "cosine": 0.7862241134879009,
+            "distance": 2.9441200882599055
+          },
+          "direction_gravity_3": {
+            "guided_norm": 0.5513545505141715,
+            "formal_norm": 1.7653622239737383,
+            "cosine": 0.46947163160672195,
+            "distance": 1.5832195429407467
+          }
+        },
+        "down": {
+          "trials": 12,
+          "source_correct": 12,
+          "guided_correct": 12,
+          "guided_prediction_counts": {
+            "down": 12
+          },
+          "guided_corrected_source_arm_errors": 0,
+          "guided_new_arm_errors": 0,
+          "nearest_guided_centroid": "down",
+          "own_guided_distance": 1.8315944065804743,
+          "nearest_guided_distance": 1.8315944065804743,
+          "direction_all_13": {
+            "guided_norm": 6.045255481396259,
+            "formal_norm": 5.499047251619144,
+            "cosine": 0.9540297016081898,
+            "distance": 1.8315944065804746
+          },
+          "direction_gravity_3": {
+            "guided_norm": 4.487579248295956,
+            "formal_norm": 4.84630067025794,
+            "cosine": 0.9941401758176659,
+            "distance": 0.6193236848777229
+          }
+        },
+        "forward": {
+          "trials": 12,
+          "source_correct": 12,
+          "guided_correct": 7,
+          "guided_prediction_counts": {
+            "forward": 7,
+            "still": 3,
+            "backward": 1,
+            "left": 1
+          },
+          "guided_corrected_source_arm_errors": 0,
+          "guided_new_arm_errors": 5,
+          "nearest_guided_centroid": "forward",
+          "own_guided_distance": 0.9841556814724355,
+          "nearest_guided_distance": 0.9841556814724355,
+          "direction_all_13": {
+            "guided_norm": 2.291392358805156,
+            "formal_norm": 2.9593333287862937,
+            "cosine": 0.9614792991119352,
+            "distance": 0.9841556814724355
+          },
+          "direction_gravity_3": {
+            "guided_norm": 1.2629843763815523,
+            "formal_norm": 1.9195073170379442,
+            "cosine": 0.9933387715232793,
+            "distance": 0.6806762132416211
+          }
+        },
+        "left": {
+          "trials": 12,
+          "source_correct": 4,
+          "guided_correct": 1,
+          "guided_prediction_counts": {
+            "forward": 7,
+            "still": 4,
+            "left": 1
+          },
+          "guided_corrected_source_arm_errors": 0,
+          "guided_new_arm_errors": 3,
+          "nearest_guided_centroid": "forward",
+          "own_guided_distance": 4.821986869280255,
+          "nearest_guided_distance": 1.7196310179289618,
+          "direction_all_13": {
+            "guided_norm": 5.9981166786289,
+            "formal_norm": 2.016228359589244,
+            "cosine": 0.694212646033694,
+            "distance": 4.8219869277121425
+          },
+          "direction_gravity_3": {
+            "guided_norm": 2.1583363296336624,
+            "formal_norm": 1.805121690005165,
+            "cosine": 0.9650698889348398,
+            "distance": 0.6300318875469895
+          }
+        },
+        "right": {
+          "trials": 12,
+          "source_correct": 11,
+          "guided_correct": 0,
+          "guided_prediction_counts": {
+            "still": 3,
+            "left": 4,
+            "backward": 2,
+            "up": 1,
+            "forward": 2
+          },
+          "guided_corrected_source_arm_errors": 0,
+          "guided_new_arm_errors": 11,
+          "nearest_guided_centroid": "backward",
+          "own_guided_distance": 2.663279114391508,
+          "nearest_guided_distance": 1.518506526390447,
+          "direction_all_13": {
+            "guided_norm": 5.506271769734049,
+            "formal_norm": 4.182505499790248,
+            "cosine": 0.8840491527752105,
+            "distance": 2.6632791694108104
+          },
+          "direction_gravity_3": {
+            "guided_norm": 2.0826317504897474,
+            "formal_norm": 0.5789353695656223,
+            "cosine": -0.024280829517896837,
+            "distance": 2.175102850092709
+          }
+        },
+        "still": {
+          "trials": 69,
+          "source_correct": 52,
+          "guided_correct": 49,
+          "guided_prediction_counts": {
+            "still": 49,
+            "forward": 19,
+            "backward": 1
+          },
+          "guided_corrected_source_arm_errors": 4,
+          "guided_new_arm_errors": 7,
+          "nearest_guided_centroid": "still",
+          "own_guided_distance": 0.9290920557136615,
+          "nearest_guided_distance": 0.9290920557136615,
+          "direction_all_13": {
+            "guided_norm": 0.0,
+            "formal_norm": 0.9290920557136615,
+            "cosine": null,
+            "distance": 0.9290920557136615
+          },
+          "direction_gravity_3": {
+            "guided_norm": 0.0,
+            "formal_norm": 0.8034220361838619,
+            "cosine": null,
+            "distance": 0.8034220361838619
+          }
+        },
+        "up": {
+          "trials": 11,
+          "source_correct": 11,
+          "guided_correct": 2,
+          "guided_prediction_counts": {
+            "up": 2,
+            "left": 5,
+            "still": 4
+          },
+          "guided_corrected_source_arm_errors": 0,
+          "guided_new_arm_errors": 9,
+          "nearest_guided_centroid": "left",
+          "own_guided_distance": 7.4704124983510996,
+          "nearest_guided_distance": 7.137489595494408,
+          "direction_all_13": {
+            "guided_norm": 5.195154476173998,
+            "formal_norm": 7.393298935547016,
+            "cosine": 0.3364213828535804,
+            "distance": 7.470412258772388
+          },
+          "direction_gravity_3": {
+            "guided_norm": 0.9297085477315,
+            "formal_norm": 6.526354666621282,
+            "cosine": -0.22782059548703062,
+            "distance": 6.7986995245959925
+          }
+        }
+      }
+    },
+    "final": {
+      "session": "S04",
+      "formal_trials": 144,
+      "arm_order": [
+        "backward",
+        "down",
+        "forward",
+        "left",
+        "right",
+        "still",
+        "up"
+      ],
+      "formal_to_guided_distances": [
+        [
+          1.7048775679194095,
+          4.768761668988161,
+          1.9238596284195124,
+          3.0359371034517117,
+          5.035875829337745,
+          3.0910500904478333,
+          7.011707044480291
+        ],
+        [
+          5.649123004124028,
+          2.592971119594829,
+          4.8660148875054965,
+          4.812529277862866,
+          4.899530007263624,
+          6.387346411020281,
+          8.027634730850705
+        ],
+        [
+          3.0693696195408973,
+          4.665460595145984,
+          1.4451155537302656,
+          4.2316657397264414,
+          5.593850465886936,
+          1.8962271188964943,
+          8.461778519961856
+        ],
+        [
+          1.6245798489172933,
+          4.260740288060468,
+          1.6893244000894325,
+          2.5128442820550094,
+          4.806940247462195,
+          3.429388112751409,
+          7.6346528096456705
+        ],
+        [
+          2.4530539462734158,
+          3.988613608459245,
+          2.0873695857209564,
+          2.859266086790662,
+          3.233489225535207,
+          4.004563157433422,
+          7.829696379062439
+        ],
+        [
+          3.720454401144232,
+          5.212023119884963,
+          1.7001199497831463,
+          4.818240494082161,
+          6.088611413825195,
+          0.7297291491527665,
+          8.347453044268708
+        ],
+        [
+          7.064842005517968,
+          8.077432490321256,
+          7.513137619876859,
+          7.142886419775125,
+          7.292305937134587,
+          8.16203389594954,
+          2.514096859399687
+        ]
+      ],
+      "formal_arm_centroids_matching_own_guide": 5,
+      "per_arm": {
+        "backward": {
+          "trials": 12,
+          "source_correct": 6,
+          "guided_correct": 9,
+          "guided_prediction_counts": {
+            "backward": 9,
+            "still": 3
+          },
+          "guided_corrected_source_arm_errors": 5,
+          "guided_new_arm_errors": 2,
+          "nearest_guided_centroid": "backward",
+          "own_guided_distance": 1.7048775679194095,
+          "nearest_guided_distance": 1.7048775679194095,
+          "direction_all_13": {
+            "guided_norm": 4.176792983459901,
+            "formal_norm": 3.0910500904478333,
+            "cosine": 0.9330875529755644,
+            "distance": 1.7048775679194095
+          },
+          "direction_gravity_3": {
+            "guided_norm": 1.2815939312948268,
+            "formal_norm": 1.1603558093386337,
+            "cosine": 0.9981830772869293,
+            "distance": 0.14178360901344006
+          }
+        },
+        "down": {
+          "trials": 12,
+          "source_correct": 12,
+          "guided_correct": 7,
+          "guided_prediction_counts": {
+            "down": 7,
+            "right": 5
+          },
+          "guided_corrected_source_arm_errors": 0,
+          "guided_new_arm_errors": 5,
+          "nearest_guided_centroid": "down",
+          "own_guided_distance": 2.592971119594829,
+          "nearest_guided_distance": 2.592971119594829,
+          "direction_all_13": {
+            "guided_norm": 5.741042779521725,
+            "formal_norm": 6.387346411020281,
+            "cosine": 0.9140198274165784,
+            "distance": 2.5929711195948295
+          },
+          "direction_gravity_3": {
+            "guided_norm": 2.847148780330538,
+            "formal_norm": 4.194179516561295,
+            "cosine": 0.9661298950944424,
+            "distance": 1.6196939039397713
+          }
+        },
+        "forward": {
+          "trials": 12,
+          "source_correct": 10,
+          "guided_correct": 3,
+          "guided_prediction_counts": {
+            "forward": 3,
+            "right": 2,
+            "still": 5,
+            "left": 1,
+            "down": 1
+          },
+          "guided_corrected_source_arm_errors": 0,
+          "guided_new_arm_errors": 7,
+          "nearest_guided_centroid": "forward",
+          "own_guided_distance": 1.4451155537302656,
+          "nearest_guided_distance": 1.4451155537302656,
+          "direction_all_13": {
+            "guided_norm": 2.200467151952959,
+            "formal_norm": 1.896227118896494,
+            "cosine": 0.7608440891424862,
+            "distance": 1.4451155537302656
+          },
+          "direction_gravity_3": {
+            "guided_norm": 0.3684855737927893,
+            "formal_norm": 0.6706495908388762,
+            "cosine": 0.6749288473006426,
+            "distance": 0.5019654519162637
+          }
+        },
+        "left": {
+          "trials": 12,
+          "source_correct": 4,
+          "guided_correct": 5,
+          "guided_prediction_counts": {
+            "forward": 2,
+            "left": 5,
+            "still": 3,
+            "right": 2
+          },
+          "guided_corrected_source_arm_errors": 3,
+          "guided_new_arm_errors": 2,
+          "nearest_guided_centroid": "backward",
+          "own_guided_distance": 2.5128442820550094,
+          "nearest_guided_distance": 1.6245798489172933,
+          "direction_all_13": {
+            "guided_norm": 5.302600487541859,
+            "formal_norm": 3.4293881127514094,
+            "cosine": 0.9228619243452293,
+            "distance": 2.512844261990004
+          },
+          "direction_gravity_3": {
+            "guided_norm": 0.7265250553758023,
+            "formal_norm": 0.7019355554153792,
+            "cosine": 0.9732206756028037,
+            "distance": 0.167087251031741
+          }
+        },
+        "right": {
+          "trials": 12,
+          "source_correct": 9,
+          "guided_correct": 4,
+          "guided_prediction_counts": {
+            "still": 2,
+            "right": 4,
+            "forward": 5,
+            "left": 1
+          },
+          "guided_corrected_source_arm_errors": 1,
+          "guided_new_arm_errors": 6,
+          "nearest_guided_centroid": "forward",
+          "own_guided_distance": 3.233489225535207,
+          "nearest_guided_distance": 2.0873695857209564,
+          "direction_all_13": {
+            "guided_norm": 6.542522618832448,
+            "formal_norm": 4.004563157433422,
+            "cosine": 0.9233926885177971,
+            "distance": 3.233489280652031
+          },
+          "direction_gravity_3": {
+            "guided_norm": 3.6188958465383734,
+            "formal_norm": 1.1851185337442995,
+            "cosine": 0.8651062945687756,
+            "distance": 2.6608911659922767
+          }
+        },
+        "still": {
+          "trials": 72,
+          "source_correct": 48,
+          "guided_correct": 59,
+          "guided_prediction_counts": {
+            "still": 59,
+            "forward": 13
+          },
+          "guided_corrected_source_arm_errors": 15,
+          "guided_new_arm_errors": 4,
+          "nearest_guided_centroid": "still",
+          "own_guided_distance": 0.7297291491527665,
+          "nearest_guided_distance": 0.7297291491527665,
+          "direction_all_13": {
+            "guided_norm": 0.0,
+            "formal_norm": 0.7297291491527665,
+            "cosine": null,
+            "distance": 0.7297291491527665
+          },
+          "direction_gravity_3": {
+            "guided_norm": 0.0,
+            "formal_norm": 0.03737925404054498,
+            "cosine": null,
+            "distance": 0.03737925404054498
+          }
+        },
+        "up": {
+          "trials": 12,
+          "source_correct": 12,
+          "guided_correct": 12,
+          "guided_prediction_counts": {
+            "up": 12
+          },
+          "guided_corrected_source_arm_errors": 0,
+          "guided_new_arm_errors": 0,
+          "nearest_guided_centroid": "up",
+          "own_guided_distance": 2.514096859399687,
+          "nearest_guided_distance": 2.514096859399687,
+          "direction_all_13": {
+            "guided_norm": 8.740434260229582,
+            "formal_norm": 8.16203389594954,
+            "cosine": 0.958044859311668,
+            "distance": 2.5140968593996864
+          },
+          "direction_gravity_3": {
+            "guided_norm": 6.756057638934106,
+            "formal_norm": 6.718502331799356,
+            "cosine": 0.9886019414782115,
+            "distance": 1.0179094167147409
+          }
+        }
+      }
+    }
+  }
+}
