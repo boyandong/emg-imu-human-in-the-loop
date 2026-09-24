@@ -2840,3 +2840,10 @@ excluded from correction fitting, show source calibration/formal RMS ratios
 of 0.30–0.53 versus S04 one-block ratios of 0.72–0.91. This measured
 protocol-context mismatch makes simple calibration transfer unreliable, so
 the method remains experimental and outside the live app.
+
+The [recent Song reproduction recheck](../benchmarks/song_real8/REPRODUCTION_RECHECK.json)
+reruns the four newest diagnostics in isolated temporary outputs. Their
+versioned JSON artifacts match byte for byte in the current Python environment;
+the audit binds source HDF5, ignored local model bundles, script hashes and
+commands. This is targeted reproducibility evidence, not a rerun of all
+historical model fits or a substitute for unavailable new-user/day data.

@@ -1,0 +1,102 @@
+{
+  "status": "four_recent_song_diagnostics_exactly_reproduced",
+  "python_executable": "D:\\miniconda\\envs\\emgforce\\python.exe",
+  "python_version": "3.11.16",
+  "pythonpath": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\src;C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier",
+  "source_hdf5_sha256": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+    "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+    "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+  },
+  "local_bundle_sha256": {
+    "song_real8_f0": {
+      "model_sha256": "843a1230f8fbee5a839557e59edaf449ab250cbb125df8f77164a6255420eedc",
+      "manifest_sha256": "0454913b16b1eff724f6041a268a982a7ff2347c6bc9e993244b56c18b7b5880"
+    },
+    "song_real8_f0_spd": {
+      "model_sha256": "ecbab44df4340991d9b02038f9508d0b4767686064c6a26cceeecffd1900d821",
+      "manifest_sha256": "6c4a6d8ddd4461f3311820becfb03337b9e24b08c0bcc66b52b7b7b9eba3dbff"
+    }
+  },
+  "reference_sha256": "d1cea4501a26104bc3a1b1617f95848679ed8bb33f448928057eda6aca797189",
+  "studies": [
+    {
+      "script": "benchmarks/song_temperature_study.py",
+      "script_sha256": "61df3a4d736a0d5af9ba965cc269fdf80beb41811ef6824961333be14cb712d9",
+      "saved_artifact": "benchmarks/song_real8/TEMPERATURE_STUDY.json",
+      "saved_and_reproduced_sha256": "1939ee1ff91b185835cc498ef2e02dc2f05f4b1950b1051b8fba5e63dd2faae0",
+      "exact_byte_match": true,
+      "command_argv": [
+        "D:\\miniconda\\envs\\emgforce\\python.exe",
+        "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\benchmarks\\song_temperature_study.py",
+        "--source",
+        "E:\\qxy\\emg_meta\\emg_meta\\data\\Song",
+        "--collection-root",
+        "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\collection\\emg_meta\\emg_meta",
+        "--bundle",
+        "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\collection\\emg_meta\\emg_meta\\models\\song_real8_f0_spd",
+        "--output",
+        "<temporary-output-path>"
+      ],
+      "command_template": "D:\\miniconda\\envs\\emgforce\\python.exe C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\benchmarks\\song_temperature_study.py --source E:\\qxy\\emg_meta\\emg_meta\\data\\Song --collection-root C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\collection\\emg_meta\\emg_meta --bundle C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\collection\\emg_meta\\emg_meta\\models\\song_real8_f0_spd --output <temporary-output-path>"
+    },
+    {
+      "script": "benchmarks/song_gain_sensitivity.py",
+      "script_sha256": "f97f3482b3cd340102392e9de68b52717d071a8f3164b641d9389630ce3c4e34",
+      "saved_artifact": "benchmarks/song_real8/GAIN_SENSITIVITY.json",
+      "saved_and_reproduced_sha256": "1d4cabc7fd13b7f9179a818ad05438c31d5e21dac31da27902f05e5416577f17",
+      "exact_byte_match": true,
+      "command_argv": [
+        "D:\\miniconda\\envs\\emgforce\\python.exe",
+        "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\benchmarks\\song_gain_sensitivity.py",
+        "--source",
+        "E:\\qxy\\emg_meta\\emg_meta\\data\\Song",
+        "--collection-root",
+        "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\collection\\emg_meta\\emg_meta",
+        "--reference",
+        "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\benchmarks\\song_real8\\PROBABILITY_CALIBRATION_AUDIT.json",
+        "--output",
+        "<temporary-output-path>"
+      ],
+      "command_template": "D:\\miniconda\\envs\\emgforce\\python.exe C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\benchmarks\\song_gain_sensitivity.py --source E:\\qxy\\emg_meta\\emg_meta\\data\\Song --collection-root C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\collection\\emg_meta\\emg_meta --reference C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\benchmarks\\song_real8\\PROBABILITY_CALIBRATION_AUDIT.json --output <temporary-output-path>"
+    },
+    {
+      "script": "benchmarks/song_quality_observability.py",
+      "script_sha256": "ab486edf4df4148e32ed9aeb3c95dae5884be62e8aef177deed857debc46b98b",
+      "saved_artifact": "benchmarks/song_real8/QUALITY_OBSERVABILITY.json",
+      "saved_and_reproduced_sha256": "3d3ac9ad1e998d9636881a7897a1622aa565a99b490d8a2a6e0b3f818acfe6ef",
+      "exact_byte_match": true,
+      "command_argv": [
+        "D:\\miniconda\\envs\\emgforce\\python.exe",
+        "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\benchmarks\\song_quality_observability.py",
+        "--source",
+        "E:\\qxy\\emg_meta\\emg_meta\\data\\Song",
+        "--output",
+        "<temporary-output-path>"
+      ],
+      "command_template": "D:\\miniconda\\envs\\emgforce\\python.exe C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\benchmarks\\song_quality_observability.py --source E:\\qxy\\emg_meta\\emg_meta\\data\\Song --output <temporary-output-path>"
+    },
+    {
+      "script": "benchmarks/song_signal_calibration.py",
+      "script_sha256": "4caf205bd6df59fe5171317dfbf64d8190789f5eb01fffd1059177624347a2d8",
+      "saved_artifact": "benchmarks/song_real8/SIGNAL_CALIBRATION.json",
+      "saved_and_reproduced_sha256": "a205f7b134bae0209577709f8f9658bf455c3be527e4150532e4d222262b2e9c",
+      "exact_byte_match": true,
+      "command_argv": [
+        "D:\\miniconda\\envs\\emgforce\\python.exe",
+        "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\benchmarks\\song_signal_calibration.py",
+        "--source",
+        "E:\\qxy\\emg_meta\\emg_meta\\data\\Song",
+        "--collection-root",
+        "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\collection\\emg_meta\\emg_meta",
+        "--reference",
+        "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\benchmarks\\song_real8\\PROBABILITY_CALIBRATION_AUDIT.json",
+        "--output",
+        "<temporary-output-path>"
+      ],
+      "command_template": "D:\\miniconda\\envs\\emgforce\\python.exe C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\benchmarks\\song_signal_calibration.py --source E:\\qxy\\emg_meta\\emg_meta\\data\\Song --collection-root C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\collection\\emg_meta\\emg_meta --reference C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\benchmarks\\song_real8\\PROBABILITY_CALIBRATION_AUDIT.json --output <temporary-output-path>"
+    }
+  ],
+  "boundary": "Exact-byte rerun of four recent diagnostics in the current Windows/Python environment. It does not rerun older Song experiments, retrain model bundles, validate physical USB or establish cross-person/day accuracy. Raw Song HDF5 and ignored local model bundles must be supplied separately to reproduce elsewhere."
+}

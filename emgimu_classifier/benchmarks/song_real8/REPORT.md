@@ -335,3 +335,12 @@ check reveals why the real correction is risky: the source calibration/formal
 median RMS ratio spans 0.30–0.53 by channel, while S04 one-block
 calibration/formal spans 0.72–0.91. The pre-formal and formal contexts are
 not interchangeable across these sessions. This correction is not deployed.
+
+The [recent-study reproduction recheck](REPRODUCTION_RECHECK.json) reruns the
+temperature, fixed-gain, raw-ADC F9 and signal-calibration scripts into fresh
+temporary outputs with the recorded Song HDF5s and ignored local model
+bundles. All four JSON results match their versioned counterparts byte for
+byte. The audit records source, model, manifest and script hashes and the
+command templates. It does not rerun the older training, export or full
+Feature Bank studies, and the external raw files/model bundles remain required
+for reproduction on another computer.
