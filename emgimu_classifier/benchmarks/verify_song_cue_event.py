@@ -48,6 +48,8 @@ def verify(source: Path = Path("E:/qxy/emg_meta/emg_meta/data/Song"),
             if row[field] not in ("True", "False"):
                 raise ValueError(f"invalid boolean {field}")
             parsed[field] = row[field] == "True"
+        if row["pre_prompt_activation"] not in ("", "True", "False"):
+            raise ValueError("invalid pre-prompt activation flag")
         parsed["pre_prompt_activation"] = (None if row["pre_prompt_activation"] == ""
                                            else row["pre_prompt_activation"] == "True")
         parsed["first_correct_latency_seconds"] = (None if row["first_correct_latency_seconds"] == ""

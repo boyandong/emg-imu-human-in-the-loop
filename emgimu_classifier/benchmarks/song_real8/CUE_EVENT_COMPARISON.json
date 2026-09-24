@@ -1,0 +1,39 @@
+{
+  "status": "verified_paired_cue_comparison",
+  "same_s04_source_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+  "f0_model_sha256": "843a1230f8fbee5a839557e59edaf449ab250cbb125df8f77164a6255420eedc",
+  "current_spd_model_sha256": "ecbab44df4340991d9b02038f9508d0b4767686064c6a26cceeecffd1900d821",
+  "active_event_detection": {
+    "both": 91,
+    "current_only": 9,
+    "f0_only": 1,
+    "neither": 7
+  },
+  "active_event_detection_by_class": {
+    "fist": {
+      "both": 34,
+      "current_only": 0,
+      "f0_only": 1,
+      "neither": 1
+    },
+    "index_pinch": {
+      "both": 21,
+      "current_only": 9,
+      "f0_only": 0,
+      "neither": 6
+    },
+    "open_hand": {
+      "both": 36,
+      "current_only": 0,
+      "f0_only": 0,
+      "neither": 0
+    }
+  },
+  "late_rest_active_decoded_state": {
+    "both": 11,
+    "current_only": 17,
+    "f0_only": 5,
+    "neither": 111
+  },
+  "boundary": "Same saved S04 and fixed decoder rule; after-the-fact paired comparison on an already explored one-person session. Late rest may retain prior movement. Neither cue-relative delay nor active state establishes physical-device false triggers or physiological onset latency."
+}

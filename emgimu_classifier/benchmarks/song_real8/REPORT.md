@@ -121,6 +121,15 @@ current-rule results had already motivated this exploratory study. This is a
 negative usability tradeoff result, not a confirmatory test or a reason to
 claim live recognition is solved.
 
+The separately frozen [cue-relative event audits](CUE_EVENT_REPORT.md) read
+the F0 and current F0+SPD continuous decoder states one trial at a time.
+Among 108 active stable-cue intervals, F0 matches 92 and F0+SPD matches 100.
+Index Pinch increases from 21/36 to 30/36, but late pre-prompt rest
+intervals with an active decoded state increase from 16/144 to 28/144.
+The current model's successful active-event first-correct median is 0.288 s
+relative to the recorded stable cue start; actual physiological onset and
+screen latency were not captured.
+
 The [causal SPD increment study](SPD_INCREMENT_RESULTS.json) tests a missing
 native eight-channel feature family with exactly the same Song split and 200 ms
 stable formal-trial scoring. A log-tangent SPD reference and two logistic models

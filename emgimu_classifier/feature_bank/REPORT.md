@@ -2755,6 +2755,12 @@ same-person/day cues prove hardware live or cross-person/day performance.
 See [the SPD study](../benchmarks/song_real8/SPD_INCREMENT_RESULTS.json),
 [export replay](../benchmarks/song_real8/SPD_LIVE_EXPORT_REPLAY_AUDIT.json)
 and [continuous replay](../benchmarks/song_real8/SPD_CONTINUOUS_REPLAY_AUDIT.json).
+The [paired cue-event readback](../benchmarks/song_real8/CUE_EVENT_REPORT.md)
+finds 100/108 active events detected at least once by F0+SPD versus 92/108
+by F0; nine Pinch misses are recovered and one Fist becomes missed. Late
+pre-prompt rest intervals containing an active decoded state rise from
+16/144 to 28/144. These are recorded-cue diagnostics, not measured USB or
+physiological-onset behavior.
 
 A separate validation-only neutral-logit offset study confirms that the SPD
 model's active/rest tradeoff is visible after online decoding. S03 selects

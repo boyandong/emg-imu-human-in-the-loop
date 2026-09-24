@@ -1,0 +1,70 @@
+{
+  "status": "cue_relative_offline_replay_not_physiological_onset_or_ui_latency",
+  "protocol": {
+    "name": "song_s04_current_spd_cue_relative_event_audit_v1",
+    "source_session": "S04",
+    "source_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+    "model_sha256": "ecbab44df4340991d9b02038f9508d0b4767686064c6a26cceeecffd1900d821",
+    "eligible_events": "completed valid formal trials with at least one 200 ms model window wholly inside the recorded stable cue interval",
+    "decoder": "existing SongOnlineDecision with threshold 0.5 and three consecutive 100 ms frames, replayed continuously over all S04 raw packets",
+    "late_rest": "200 ms model windows wholly inside the final 400 ms before each formal prompt; any decoded active label counts as a pre-prompt activation for that trial",
+    "active_event_success": "at least one decoded matching hand state within the full-window stable cue interval",
+    "active_event_endpoint": "last full-window stable frame has the correct decoded hand state",
+    "cue_relative_first_correct_seconds": "(end sample index of first correct decoded full-window stable frame minus stable_start_sample) / 250; only successful non-neutral events",
+    "neutral_event": "report matching-decoded-frame and endpoint fractions separately; no active onset latency",
+    "comparison": "Use identical S04 event IDs and annotations as the separately frozen F0 cue-event audit; report paired corrected and regressed events without choosing a decoder on S04",
+    "limitations": "Cue and stable sample markers are collection annotations, not measured physiological movement onset; frame delay includes 200 ms window formation and decoder persistence. This is saved-signal offline replay, not USB, screen or product latency."
+  },
+  "protocol_sha256": "a78aee2b34b20128bd3002f573c1012cab699b76fd3bd24fdb36ff41d1b67d87",
+  "source_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+  "model_sha256": "ecbab44df4340991d9b02038f9508d0b4767686064c6a26cceeecffd1900d821",
+  "sample_count": 297942,
+  "decoded_frames": 11916,
+  "eligible_events": 144,
+  "active_events": 108,
+  "active_ever_correct": 100,
+  "active_endpoint_correct": 100,
+  "active_missed": 8,
+  "late_rest_intervals_with_frames": 144,
+  "late_rest_intervals_with_active_decoded_state": 28,
+  "successful_active_first_correct_median_seconds": 0.288,
+  "successful_active_first_correct_p90_seconds": 0.6320000000000003,
+  "by_class": {
+    "fist": {
+      "events": 36,
+      "ever_correct_decoded": 34,
+      "endpoint_correct_decoded": 34,
+      "late_rest_with_frames": 36,
+      "late_rest_pre_prompt_active": 5,
+      "first_correct_latency_median_seconds": 0.28400000000000003,
+      "first_correct_latency_p90_seconds": 0.594
+    },
+    "index_pinch": {
+      "events": 36,
+      "ever_correct_decoded": 30,
+      "endpoint_correct_decoded": 30,
+      "late_rest_with_frames": 36,
+      "late_rest_pre_prompt_active": 8,
+      "first_correct_latency_median_seconds": 0.294,
+      "first_correct_latency_p90_seconds": 0.6320000000000001
+    },
+    "neutral": {
+      "events": 36,
+      "ever_correct_decoded": 35,
+      "endpoint_correct_decoded": 33,
+      "late_rest_with_frames": 36,
+      "late_rest_pre_prompt_active": 8,
+      "first_correct_latency_median_seconds": null,
+      "first_correct_latency_p90_seconds": null
+    },
+    "open_hand": {
+      "events": 36,
+      "ever_correct_decoded": 36,
+      "endpoint_correct_decoded": 36,
+      "late_rest_with_frames": 36,
+      "late_rest_pre_prompt_active": 7,
+      "first_correct_latency_median_seconds": 0.288,
+      "first_correct_latency_p90_seconds": 0.722
+    }
+  }
+}

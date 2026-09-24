@@ -1,0 +1,8 @@
+{
+  "status": "verified",
+  "native_formal_trials_checked": 144,
+  "event_rows_read_back": 144,
+  "summary_groups_read_back": 10,
+  "protocol_sha256": "6cfdcbd428eba061d8a3d03106443d0dfb48835fc8121e3d14b71b2c28892ff4",
+  "boundary": "Native cue markers and saved rows agree; physiological onset, USB and screen latency remain unmeasured."
+}
