@@ -1,23 +1,57 @@
-emgimu_classifier/benchmarks/new_bank_v2/SONG_JOINT28_CONTINUOUS_FRAMES.csv -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_CONTINUOUS_FRAMES.csv -text
-collection/emg_meta/emg_meta/emgforce/inference/song_joint28_local.py -text
-collection/emg_meta/emg_meta/model_assets/song_joint28_window/song_joint28_model.json -text
-collection/emg_meta/emg_meta/model_assets/song_joint28_window/song_joint28_manifest.json -text
-collection/emg_meta/emg_meta/model_assets/song_joint28_window/song_joint28_replay_audit.json -text
-collection/emg_meta/emg_meta/model_assets/song_joint28_signed/song_joint28_model.json -text
-collection/emg_meta/emg_meta/model_assets/song_joint28_signed/song_joint28_manifest.json -text
-collection/emg_meta/emg_meta/model_assets/song_joint28_signed/song_joint28_replay_audit.json -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_28_RESULTS.json -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_CAL_PROTOCOL.json -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_CAL_RESULTS.json -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_CAL_TRIAL_PREDICTIONS.csv -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_JOINT28_CONTINUOUS_PROTOCOL.json -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_JOINT28_CONTINUOUS_RESULTS.json -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_PROTOCOL.json -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_RESULTS.json -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_TRIAL_PREDICTIONS.csv -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_VERIFICATION.json -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_CONTINUOUS_PROTOCOL.json -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_ARM_MODEL.json -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_CONTINUOUS_RESULTS.json -text
-emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_CONTINUOUS_VERIFICATION.json -text
+*.json text eol=crlf
+*.csv text eol=crlf
+emgimu_classifier/benchmarks/new_bank_v2/SONG_JOINT28_CONTINUOUS_FRAMES.csv -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_CONTINUOUS_FRAMES.csv -text -eol
+collection/emg_meta/emg_meta/emgforce/inference/song_joint28_local.py -text -eol
+collection/emg_meta/emg_meta/model_assets/song_joint28_window/song_joint28_model.json -text -eol
+collection/emg_meta/emg_meta/model_assets/song_joint28_window/song_joint28_manifest.json -text -eol
+collection/emg_meta/emg_meta/model_assets/song_joint28_window/song_joint28_replay_audit.json -text -eol
+collection/emg_meta/emg_meta/model_assets/song_joint28_signed/song_joint28_model.json -text -eol
+collection/emg_meta/emg_meta/model_assets/song_joint28_signed/song_joint28_manifest.json -text -eol
+collection/emg_meta/emg_meta/model_assets/song_joint28_signed/song_joint28_replay_audit.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_28_RESULTS.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_CAL_PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_CAL_RESULTS.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_CAL_TRIAL_PREDICTIONS.csv -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_JOINT28_CONTINUOUS_PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_JOINT28_CONTINUOUS_RESULTS.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_RESULTS.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_TRIAL_PREDICTIONS.csv -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_VERIFICATION.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_CONTINUOUS_PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_ARM_MODEL.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_CONTINUOUS_RESULTS.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_CONTINUOUS_VERIFICATION.json -text -eol
+emgimu_classifier/benchmarks/discovery/DATASET_MANIFEST.json -text -eol
+emgimu_classifier/benchmarks/discovery/DS2_ACCESS_AUDIT.json -text -eol
+emgimu_classifier/benchmarks/discovery/DS2_MAT_TRIAL_WINDOW_JOIN.csv -text -eol
+emgimu_classifier/benchmarks/discovery/DS2_TDMS_FIRST_METADATA.csv -text -eol
+emgimu_classifier/benchmarks/discovery/DS2_TDMS_GROUPS.csv -text -eol
+emgimu_classifier/benchmarks/discovery/DS2_TDMS_RAW_EXACT_JOIN.csv -text -eol
+emgimu_classifier/benchmarks/discovery/public_ds2_subject_gesture/CONDITIONAL_INCREMENTAL.csv -text -eol
+emgimu_classifier/benchmarks/discovery/public_ds2_subject_gesture/ERROR_COMPLEMENTARITY.csv -text -eol
+emgimu_classifier/benchmarks/discovery/public_ds2_subject_gesture/TRIAL_PREDICTIONS.csv -text -eol
+emgimu_classifier/benchmarks/grabmyo_crossday/PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/historical_reconstruction/PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v1/GRABMYO_PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v1/PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v1/SONG_PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v1/ZENODO_REPLACEMENT_PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/GRABMYO_PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_28_PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_28_SOURCE_CAL_OOF.csv -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_28_SOURCE_CAL_PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_28_SOURCE_CAL_TRIAL_PREDICTIONS.csv -text -eol
+emgimu_classifier/benchmarks/new_bank_v2/SONG_PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/song_real8/CUE_EVENT_PROTOCOL.json -text -eol
+emgimu_classifier/benchmarks/song_real8/F2a_INCREMENT_CONDITIONAL.csv -text -eol
+emgimu_classifier/benchmarks/song_real8/F2a_INCREMENT_PAIRED_ERRORS.csv -text -eol
+emgimu_classifier/benchmarks/song_real8/F2a_INCREMENT_TRIAL_PREDICTIONS.csv -text -eol
+emgimu_classifier/benchmarks/song_real8/F4_INCREMENT_CONDITIONAL.csv -text -eol
+emgimu_classifier/benchmarks/song_real8/F4_INCREMENT_PAIRED_ERRORS.csv -text -eol
+emgimu_classifier/benchmarks/song_real8/F4_INCREMENT_TRIAL_PREDICTIONS.csv -text -eol
+emgimu_classifier/benchmarks/song_real8/SPD_CUE_EVENT_PROTOCOL.json -text -eol
+emgimu_classifier/feature_bank/REQUIREMENT_AUDIT.json -text -eol
+emgimu_classifier/feature_bank/results/validation.json -text -eol
+emgimu_classifier/feature_bank/results/historical_manifests/*.json -text -eol
