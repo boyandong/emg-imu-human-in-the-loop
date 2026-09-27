@@ -1,0 +1,14 @@
+{
+  "name": "song_arm_signed_continuous_replay_exploratory",
+  "candidate_protocol": "SONG_ARM_SIGNED_PROTOCOL.json",
+  "candidate_trial_results": "SONG_ARM_SIGNED_RESULTS.json",
+  "baseline_continuous_results": "SONG_JOINT28_CONTINUOUS_RESULTS.json",
+  "sessions": ["S03", "S04"],
+  "source_train_sessions": ["S01", "S02"],
+  "stream": "Whole raw EMG/IMU HDF5; 25-sample EMG chunks, causal 40 Hz high-pass plus 50/100 Hz notch, 50 EMG samples and 22 indexed IMU samples per frame, 25-sample global hop and IMU watermark, identical to frozen baseline continuous replay",
+  "candidate_model": "Frozen tracked baseline hand runtime plus source-only balanced logistic arm model with 13 baseline F6 and six signed device-axis quantities; independently verify candidate against trial-level saved probabilities before stream replay",
+  "event_rule": "Top joint class at probability >= 0.15 for three consecutive emitted frames; unchanged from baseline",
+  "score": "Same full-window cue-labelled formal-stable intervals and two explicit rest-stable intervals as frozen baseline; report joint/hand/arm window metrics, trial mean-joint-probability metrics, explicit rest active-hand argmax/display, emitted and dropped frames and transition counts",
+  "selection": "No threshold/model adjustment on S03/S04 after seeing replay. S04 has been inspected and remains descriptive. Do not promote to live UI solely on same-person/day replay.",
+  "scope": "No physiological action onset label, hardware latency, new-day/person or independent device-axis calibration. Unlabelled frames cannot be counted as false positives."
+}
