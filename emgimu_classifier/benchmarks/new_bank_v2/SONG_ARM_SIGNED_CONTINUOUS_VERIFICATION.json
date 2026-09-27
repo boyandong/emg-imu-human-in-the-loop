@@ -1,0 +1,22 @@
+{
+  "status": "verified",
+  "frame_rows": 25360,
+  "maximum_baseline_hand_marginal_error": 6.661338147750939e-16,
+  "sessions": {
+    "S03": {
+      "frames": 13444,
+      "formal_windows": 895,
+      "scored_trials": 139,
+      "rest_frames": 144,
+      "active_hand_display_on_explicit_rest": 0
+    },
+    "S04": {
+      "frames": 11916,
+      "formal_windows": 911,
+      "scored_trials": 144,
+      "rest_frames": 144,
+      "active_hand_display_on_explicit_rest": 0
+    }
+  },
+  "boundary": "Verifier checks saved frames and metrics; no independent hardware or physiological onset labels."
+}
