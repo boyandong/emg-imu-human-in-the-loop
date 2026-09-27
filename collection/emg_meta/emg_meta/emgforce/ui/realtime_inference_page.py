@@ -943,6 +943,14 @@ class RealtimeInferencePage(QWidget):
                 event_count = summary["event_intervals_with_predictions"]
                 event_text = (f"；标记动作曾显示正确 {summary['event_intervals_ever_display_match']}/{event_count}"
                               if event_count else "")
+                factorized = summary.get("factorized_28_state_summary")
+                factorized_text = ""
+                if factorized and factorized["intervals_with_predictions"]:
+                    agreement = factorized["mean_interval_agreement"]
+                    factorized_text = (
+                        f"；标记区间手势/手臂峰值一致率 "
+                        f"{agreement['hand_peak_agreement_fraction']:.1%}/"
+                        f"{agreement['arm_peak_agreement_fraction']:.1%}")
                 host_time = summary["host_receive_to_ui_callback_ms"]
                 host_time_text = (f"；主机收包至界面回调中位 {host_time['median']:.1f} ms，"
                                   f"P95 {host_time['p95']:.1f} ms"
@@ -950,7 +958,7 @@ class RealtimeInferencePage(QWidget):
                 self.diagnostic_status.setText(
                     f"诊断记录与分析已保存：{path}；{summary['prediction_frames']} 帧预测"
                     f"{neutral_text}；{summary['manual_intervals']} 段人工标记"
-                    f"{event_text}{host_time_text}{quality_text}")
+                    f"{event_text}{factorized_text}{host_time_text}{quality_text}")
         self._update_live_buttons()
 
     def _diagnostic_failed(self, exc: Exception) -> None:

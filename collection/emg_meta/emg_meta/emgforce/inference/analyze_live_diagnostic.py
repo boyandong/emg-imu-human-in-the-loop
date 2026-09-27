@@ -12,6 +12,18 @@ import numpy as np
 import h5py
 
 
+JOINT_ARMS = ("still", "up", "down", "left", "right", "forward", "backward")
+JOINT_HANDS = ("neutral", "index_pinch", "fist", "open_hand")
+
+
+def _joint28_parts(label: str) -> tuple[str, str]:
+    for arm in JOINT_ARMS:
+        prefix = arm + "_"
+        if label.startswith(prefix) and label[len(prefix):] in JOINT_HANDS:
+            return arm, label[len(prefix):]
+    raise ValueError(f"unknown hand-by-arm label: {label}")
+
+
 def _rows(path: Path) -> list[dict[str, str]]:
     with path.open(newline="", encoding="utf-8") as handle:
         return list(csv.DictReader(handle))
@@ -76,6 +88,8 @@ def analyze(directory: Path) -> dict:
         if files.get(name) != _sha256(directory / name):
             raise ValueError(f"diagnostic capture file hash mismatch: {name}")
     labels = tuple(manifest["labels"])
+    factorized_28 = (len(labels) == 28 and set(labels) == {
+        f"{arm}_{hand}" for arm in JOINT_ARMS for hand in JOINT_HANDS})
     prediction_rows = _rows(directory / "predictions.csv")
     annotations = _rows(directory / "manual_annotations.csv")
     if (len(prediction_rows) != manifest["predictions"] or
@@ -164,11 +178,16 @@ def analyze(directory: Path) -> dict:
                       if start - int(0.4 * sample_rate_hz) <= index < start]
         pre_active = sum(active in active_labels for _, active in pre_frames)
         if not frames:
-            scored.append({"action": action, "start_sample_index": start,
-                           "end_sample_index": end, "prediction_frames": 0,
-                           "pre_start_frames": len(pre_frames),
-                           "pre_start_active_frames": pre_active,
-                           "pre_start_any_active": bool(pre_active) if pre_frames else None})
+            missing = {"action": action, "start_sample_index": start,
+                       "end_sample_index": end, "prediction_frames": 0,
+                       "pre_start_frames": len(pre_frames),
+                       "pre_start_active_frames": pre_active,
+                       "pre_start_any_active": bool(pre_active) if pre_frames else None}
+            if factorized_28:
+                missing.update({key: None for key in (
+                    "hand_peak_agreement_fraction", "arm_peak_agreement_fraction",
+                    "hand_display_agreement_fraction", "arm_display_agreement_fraction")})
+            scored.append(missing)
             continue
         target_column = labels.index(action)
         matching_display = [index for index, _, active, _ in frames if active == action]
@@ -187,10 +206,50 @@ def analyze(directory: Path) -> dict:
             "pre_start_active_frames": pre_active,
             "pre_start_any_active": bool(pre_active) if pre_frames else None,
         }
+        if factorized_28:
+            target_arm, target_hand = _joint28_parts(action)
+            peak_parts = [_joint28_parts(peak) for _, peak, _, _ in frames]
+            display_parts = [_joint28_parts(active) if active else None
+                             for _, _, active, _ in frames]
+            row.update({
+                "hand_peak_agreement_fraction": float(np.mean([
+                    hand == target_hand for _, hand in peak_parts])),
+                "arm_peak_agreement_fraction": float(np.mean([
+                    arm == target_arm for arm, _ in peak_parts])),
+                "hand_display_agreement_fraction": float(np.mean([
+                    value is not None and value[1] == target_hand for value in display_parts])),
+                "arm_display_agreement_fraction": float(np.mean([
+                    value is not None and value[0] == target_arm for value in display_parts])),
+            })
         by_action[action].append(row)
         scored.append(row)
     counts = Counter(peak for _, peak, _, _ in predictions)
     by_action_rows = [row for row in scored if row["prediction_frames"] > 0]
+    factorized_summary = None
+    if factorized_28:
+        metric_names = ("hand_peak_agreement_fraction", "arm_peak_agreement_fraction",
+                        "hand_display_agreement_fraction", "arm_display_agreement_fraction")
+        factorized_summary = {
+            "intervals_with_predictions": len(by_action_rows),
+            "mean_interval_agreement": {
+                metric: float(np.mean([row[metric] for row in by_action_rows]))
+                if by_action_rows else None for metric in metric_names},
+            "by_hand": {}, "by_arm": {},
+        }
+        for factor, names, position in (("by_hand", JOINT_HANDS, 1),
+                                        ("by_arm", JOINT_ARMS, 0)):
+            for name in names:
+                matching = [row for row in by_action_rows
+                            if _joint28_parts(row["action"])[position] == name]
+                factorized_summary[factor][name] = {
+                    "intervals_with_predictions": len(matching),
+                    "mean_peak_agreement": float(np.mean([
+                        row[("hand" if position == 1 else "arm") + "_peak_agreement_fraction"]
+                        for row in matching])) if matching else None,
+                    "mean_display_agreement": float(np.mean([
+                        row[("hand" if position == 1 else "arm") + "_display_agreement_fraction"]
+                        for row in matching])) if matching else None,
+                }
     summary = {
         "schema": "emgforce_live_diagnostic_analysis_v1",
         "capture_directory": str(directory.resolve()),
@@ -235,8 +294,9 @@ def analyze(directory: Path) -> dict:
                          if any(row["first_display_match_after_start_seconds"] is not None for row in rows)
                          else None)}
             for action, rows in by_action.items()},
+        "factorized_28_state_summary": factorized_summary,
         "intervals": scored,
-        "scope": "Manual keypress intervals express intended actions, not measured physiological onset/offset; event matches are diagnostic agreement, not formal recognition accuracy. First-match seconds use nominal sample indices after a manual marker, not measured muscle or screen latency. Host receive-to-UI callback timing excludes acquisition before packet receipt and screen paint. IMU-to-EMG indices are packet-batch boundaries, not a physical sensor-clock synchronization measurement. Pre-start activity uses the final nominal 400 ms before the marker and may contain previous movement. Raw signal metrics are descriptive across movements, not a rest-calibration pass/fail. Packet loss can occur without a sample-index gap because indices count received samples. Predictions outside the captured raw range can occur when recording starts while inference is already running.",
+        "scope": "Manual keypress intervals express intended actions, not measured physiological onset/offset; joint and factorized hand/arm matches are diagnostic agreement, not formal recognition accuracy. First-match seconds use nominal sample indices after a manual marker, not measured muscle or screen latency. Host receive-to-UI callback timing excludes acquisition before packet receipt and screen paint. IMU-to-EMG indices are packet-batch boundaries, not a physical sensor-clock synchronization measurement. Pre-start activity uses the final nominal 400 ms before the marker and may contain previous movement. Raw signal metrics are descriptive across movements, not a rest-calibration pass/fail. Packet loss can occur without a sample-index gap because indices count received samples. Predictions outside the captured raw range can occur when recording starts while inference is already running.",
     }
     (directory / "analysis.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False) + "\n",
                                               encoding="utf-8")

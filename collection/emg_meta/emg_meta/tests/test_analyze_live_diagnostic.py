@@ -153,3 +153,37 @@ def test_joint28_still_neutral_is_rest_for_prestart_activity(tmp_path):
     result = analyze(run.close())
     assert result["pre_start_intervals_with_frames"] == 1
     assert result["pre_start_intervals_any_active"] == 0
+
+
+def test_joint28_diagnostic_separates_hand_from_arm_errors(tmp_path):
+    labels = tuple(f"{arm}_{hand}" for arm in
+                   ("still", "up", "down", "left", "right", "forward", "backward")
+                   for hand in ("neutral", "index_pinch", "fist", "open_hand"))
+    run = LiveDiagnosticRecorder(tmp_path, model_id="joint28", model_sha256="a" * 64,
+                                 labels=labels, sample_rate_hz=250,
+                                 threshold=.15, hand="right")
+    run.record_emg(np.ones((100, 8), dtype=np.int32), np.arange(100))
+    run.record_annotation("left_open_hand", "start", 10)
+
+    def prediction(index: int, name: str):
+        values = np.full(len(labels), .001)
+        values[labels.index(name)] = 1 - (len(labels) - 1) * .001
+        run.record_prediction(PredictionFrame(
+            probabilities=values, labels=labels, events=(), output_sample_index=index,
+            output_age_ms=0, fixed_lag_ms=0, inference_ms=1,
+            scale_counts_per_unit=1, active_label="right_open_hand"), .15)
+
+    prediction(25, "right_open_hand")
+    prediction(50, "left_open_hand")
+    run.record_annotation("left_open_hand", "end", 75)
+    result = analyze(run.close())
+    interval = result["intervals"][0]
+    assert interval["peak_agreement_fraction"] == .5
+    assert interval["hand_peak_agreement_fraction"] == 1
+    assert interval["arm_peak_agreement_fraction"] == .5
+    assert interval["hand_display_agreement_fraction"] == 1
+    assert interval["arm_display_agreement_fraction"] == 0
+    assert result["factorized_28_state_summary"]["by_hand"]["open_hand"][
+        "mean_peak_agreement"] == 1
+    assert result["factorized_28_state_summary"]["by_arm"]["left"][
+        "mean_peak_agreement"] == .5
