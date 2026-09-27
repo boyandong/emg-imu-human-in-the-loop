@@ -31,12 +31,31 @@ def run(results,output):
         and replay.get('native_data_reloaded') is True and replay.get('classifier_retrained') is False
         and cells['G5']==cells['DTW'] and len(cells['G5'])==16
         and manifest.get('target_days')==[6] and manifest.get('final_days_opened') is False)
+    final_run='feature_bank_unibo_sequence_temporal_final_20260928'
+    final_scores=[r for r in scores if r.get('run_id')==final_run and r.get('feature_family') in ('G5','DTW')]
+    final_errors=[r for r in errors if r.get('run_id')==final_run and
+        r.get('family_a')=='validated_G5_bout_mean' and r.get('family_b')=='full_bout_DTW']
+    final_cells={name:{tuple(row.get(key) for key in cell_keys) for row in final_scores if row['feature_family']==name}
+        for name in ('G5','DTW')}
+    final_manifest_path=results/'manifests'/f'{final_run}__run_manifest.json'
+    final_replay_path=results/'manifests'/f'{final_run}__replay_audit.json'
+    final_manifest=json.loads(final_manifest_path.read_text(encoding='utf-8')) if final_manifest_path.exists() else {}
+    final_replay=json.loads(final_replay_path.read_text(encoding='utf-8')) if final_replay_path.exists() else {}
+    final_verified=(final_cells['G5']==final_cells['DTW'] and len(final_cells['G5'])==18
+        and len(final_errors)==18 and final_manifest.get('target_days')==[7,8]
+        and final_manifest.get('classifier_or_family_fit') is False
+        and final_replay.get('status')=='ok' and final_replay.get('native_final_data_reloaded') is True
+        and final_replay.get('source_hashes_verified') is True
+        and final_replay.get('maximum_absolute_probability_error')==0.)
     stage3.append({'requirement':'G5 vs Temporal/DTW','rows':len(g5),'run_ids':sorted({r['run_id'] for r in g5}),
         'standalone_validation_score_rows':len(standalone),
         'standalone_validation_run_id':standalone_run if standalone_verified else None,
         'standalone_validation_replay':str(standalone_replay.relative_to(results.parent)).replace('\\','/') if standalone_verified else None,
-        'status':'verified_day6_standalone_and_conditional_increment_final_pending' if standalone_verified and g5 else 'partial_or_missing',
-        'boundary':'Native complete-bout standalone G5 and DTW scores are available for Day6 only; the canonical error table has G5 versus G5+DTW increment for Day6 and Days7-8, not standalone G5-versus-DTW paired errors on independent final days. All complete-bout comparisons use oracle boundaries and do not establish streaming performance.'})
+        'standalone_final_score_rows':len(final_scores),
+        'standalone_final_error_rows':len(final_errors),
+        'standalone_final_run_id':final_run if final_verified else None,
+        'status':'verified_standalone_day6_and_frozen_final_with_conditional_increment' if standalone_verified and final_verified and g5 else 'partial_or_missing',
+        'boundary':'Native complete-bout standalone G5-versus-DTW scores are paired on Day6 and frozen Days7-8, with final source-state/native-data replay and no refit. Days7-8 had been examined by earlier project experiments, so this added final comparison is descriptive confirmation rather than a newly untouched holdout. Oracle bout boundaries do not establish unsegmented streaming performance.'})
     ring=[r for r in errors if r.get('family_a')=='F3_Ring_population' and r.get('family_b')=='F3_Ring_local_anchor']
     stage3.append({'requirement':'RLCS vs Personal Anchor','rows':0,'run_ids':[],'status':'missing_exact_historical_RLCS',
         'reference_proxy_rows':len(ring),'boundary':'Reference envelope-ring population/local-anchor rows cannot substitute for missing historical validated RLCS.'})

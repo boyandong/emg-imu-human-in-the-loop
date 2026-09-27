@@ -3005,3 +3005,26 @@ The P2-selected ring-lag-plus-correlation arm improves P3 mean-subject top-1
 from 0.6003 to 0.6188 over F0 on 79 matched whole recordings from nine
 subjects. This is limited corroboration for a new representation, not a
 time-local gesture or live-device result; the deployment decision is unchanged.
+
+## Frozen standalone G5 versus DTW on UniBo Days 7–8 (2026-09-28)
+
+The Day-6 standalone study saved each user's source-only G5 classifier, DTW
+templates, and Day-5 probability temperatures. The new final run
+`feature_bank_unibo_sequence_temporal_final_20260928` loads those states without
+fitting and scores both methods on exactly the same 3,391 complete bouts from
+Days 7–8. Native trials, source artifact hashes, split IDs, and all 14 user-by-
+method probability arrays replay exactly (maximum absolute difference 0).
+
+| Method | Weighted macro-F1 | Accuracy | Log loss |
+| --- | ---: | ---: | ---: |
+| G5 | 0.753845 | 0.836147 | 0.809240 |
+| Standalone DTW | 0.371166 | 0.391969 | 1.235459 |
+
+Their prediction disagreement is 0.564798. Weighted mass with G5 correct and
+DTW wrong is 0.480312; the reverse is only 0.036133. A low error correlation
+(0.155461) therefore does not imply a useful standalone DTW predictor here.
+The 36 score rows and 18 paired-error rows are in the canonical result tables.
+All bouts use oracle ground-truth boundaries, so this is an offline sequence
+comparison, not an unsegmented streaming or own-device result. Earlier project
+experiments had already examined Days 7–8; this added comparison is descriptive
+confirmation, not a newly untouched final test.

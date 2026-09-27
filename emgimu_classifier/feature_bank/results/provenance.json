@@ -250,6 +250,12 @@
     "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\feature_bank\\source_runs"
   },
   {
+    "run_id": "feature_bank_unibo_sequence_temporal_final_20260928",
+    "artifact": "feature_family_results.csv",
+    "sha256": "748919118b278a243d4c6156730e1650619248669b1775b5554c5a720fe31db4",
+    "bytes": 11808
+  },
+  {
     "run_id": "feature_bank_wearing_document_core_validation_20260916",
     "artifact": "conditional_incremental.csv",
     "sha256": "2dc931b64da727dab460631c86b2d57807efb6821f09434a8ee6e88f09c8f3c3",
@@ -694,6 +700,12 @@
     "sha256": "1ef65222bf1b1bf6193c9f8f0ae2347467d6cbf00b39501d8a26fe28ac3f292d",
     "bytes": 568,
     "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\feature_bank\\source_runs"
+  },
+  {
+    "run_id": "feature_bank_unibo_sequence_temporal_final_20260928",
+    "artifact": "error_complementarity.csv",
+    "sha256": "25970015624bef6fff13c505b829364a97f8963c75636ac0d6d7fc74fc89f3f2",
+    "bytes": 4944
   },
   {
     "run_id": "feature_bank_epn612_anchor_temperature_validation_20260916_v2",

@@ -4,7 +4,7 @@
     658,
     678
   ],
-  "error_table_sha256": "38fb01a689d7cbf7b9e967f821edbad34c3608fdfc563842eb68d037396d432d",
+  "error_table_sha256": "27d94c832d6e83530add5364941dd8efc0ffb8a9b06b53ade98503544bbc8384",
   "stage3": [
     {
       "requirement": "X1 vs Frequency",
@@ -42,8 +42,11 @@
       "standalone_validation_score_rows": 32,
       "standalone_validation_run_id": "feature_bank_unibo_sequence_temporal_validation_20260916",
       "standalone_validation_replay": "results/manifests/feature_bank_unibo_sequence_temporal_validation_20260916__replay_audit.json",
-      "status": "verified_day6_standalone_and_conditional_increment_final_pending",
-      "boundary": "Native complete-bout standalone G5 and DTW scores are available for Day6 only; the canonical error table has G5 versus G5+DTW increment for Day6 and Days7-8, not standalone G5-versus-DTW paired errors on independent final days. All complete-bout comparisons use oracle boundaries and do not establish streaming performance."
+      "standalone_final_score_rows": 36,
+      "standalone_final_error_rows": 18,
+      "standalone_final_run_id": "feature_bank_unibo_sequence_temporal_final_20260928",
+      "status": "verified_standalone_day6_and_frozen_final_with_conditional_increment",
+      "boundary": "Native complete-bout standalone G5-versus-DTW scores are paired on Day6 and frozen Days7-8, with final source-state/native-data replay and no refit. Days7-8 had been examined by earlier project experiments, so this added final comparison is descriptive confirmation rather than a newly untouched holdout. Oracle bout boundaries do not establish unsegmented streaming performance."
     },
     {
       "requirement": "RLCS vs Personal Anchor",

@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "native_final_data_reloaded": true,
+  "source_hashes_verified": true,
+  "classifier_or_family_fit": false,
+  "source_states_immutable": true,
+  "target_bouts": 3391,
+  "final_prediction_arrays_replayed": 14,
+  "maximum_absolute_probability_error": 0.0,
+  "scope": "Frozen complete-bout offline comparison; oracle boundaries, not streaming"
+}

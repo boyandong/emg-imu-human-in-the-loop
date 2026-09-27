@@ -10,7 +10,9 @@ frame calibration trials cannot become held-out evaluation. No absolute yaw clai
 DTW now requires explicit complete contiguous sequences with native duration
 >=1 second and full-coverage metadata. Compressed-path sample rate and sparse
 window count cannot establish eligibility. UniBo complete oracle-labelled bouts
-have native-data replay evidence; the legacy MANUS eight-sparse-window DTW runner
+have native-data replay evidence on Day6 and frozen Days7-8, with the latter
+descriptive because those days were previously examined in other experiments;
+the legacy MANUS eight-sparse-window DTW runner
 is disabled for new runs. Its saved historical results remain proxy evidence,
 not full-sequence or streaming validation.
 

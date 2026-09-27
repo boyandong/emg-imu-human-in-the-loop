@@ -131,6 +131,7 @@ RUNS = (
     'feature_bank_epn_spd_anchor_core_increment_final_20260923',
     'feature_bank_epn_shortlist_final_delivery_20260923',
     'feature_bank_song_real8_spd_delivery_20260924',
+    'feature_bank_unibo_sequence_temporal_final_20260928',
 )
 ARTIFACTS = ('feature_family_results.csv', 'conditional_incremental.csv', 'interaction_results.csv',
              'error_complementarity.csv', 'calibration_curve.csv', 'ablation_full_bank.csv',

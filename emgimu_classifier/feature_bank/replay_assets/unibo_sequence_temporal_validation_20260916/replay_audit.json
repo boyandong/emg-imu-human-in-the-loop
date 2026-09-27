@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "prediction_arrays": 14,
+  "source_probability_arrays": 14,
+  "source_temperatures_recomputed": 14,
+  "native_data_reloaded": true,
+  "source_state_immutable": true,
+  "classifier_retrained": false,
+  "target_bouts": 1700,
+  "scope": "All source/target model predictions and source temperatures replayed from saved states and reloaded native bouts; not streaming accuracy"
+}

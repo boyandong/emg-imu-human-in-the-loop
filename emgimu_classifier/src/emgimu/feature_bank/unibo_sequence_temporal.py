@@ -278,8 +278,121 @@ def replay(root,output):
     print(json.dumps(result))
 
 
+def run_final(root,parent,output):
+    """Evaluate frozen Day-6 source states on complete Day-7/8 bouts."""
+    if output.exists():
+        raise FileExistsError(output)
+    source_manifest=json.loads((parent/'run_manifest.json').read_text())
+    if source_manifest.get('target_days')!=[6] or source_manifest.get('train_days')!=[1,2,3,4,5]:
+        raise ValueError('Requires the frozen Days1-5 personal-source run')
+    source_hashes={name:hashlib.sha256((parent/name).read_bytes()).hexdigest() for name in
+        ('fitted_states.pkl','run_manifest.json','replay_audit.json','split_trial_ids.json')}
+    states,temperatures=pickle.loads((parent/'fitted_states.pkl').read_bytes())
+    print('[1/3] reusing frozen G5 and DTW states; loading final Days7-8',flush=True)
+    target=load_bouts(root,days=(7,8))
+    if {b['user'] for b in target}!=set(states):
+        raise ValueError('Final-day user coverage differs from frozen source')
+    source_splits=json.loads((parent/'split_trial_ids.json').read_text())
+    ordered=[];predictions={'G5':[],'DTW':[]};splits=[]
+    for user in sorted(states):
+        ev=[b for b in target if b['user']==user]
+        historical=next(s for s in source_splits if s['user']==user)
+        source_trials=set(historical['train'])|set(historical['calibration'])|set(historical['evaluation'])
+        final_trials={b['trial'] for b in ev}
+        if source_trials & final_trials:
+            raise AssertionError('Source, Day6, and final trial leakage')
+        print(f'[2/3] {user}: {len(ev)} final bouts',flush=True)
+        raw=predict_pair(states[user][1],ev)
+        for name in predictions:
+            predictions[name].append(temperature_probability(raw[name],temperatures[user][name]))
+        ordered.extend(ev)
+        splits.append(dict(user=user,train=historical['train'],calibration=historical['calibration'],
+            previous_validation=historical['evaluation'],final=sorted(final_trials)))
+    probs={name:np.concatenate(parts) for name,parts in predictions.items()}
+    y=np.array([b['label'] for b in ordered]);u=np.array([b['user'] for b in ordered])
+    posture=np.array([b['posture'] for b in ordered]);day=np.array([b['day'] for b in ordered])
+    w=bout_weights(ordered)
+    cells=[('ALL','ALL',np.ones(len(y),bool))]
+    cells.extend((user,'ALL',u==user) for user in sorted(states))
+    cells.extend(('ALL',f'posture_{value}',posture==value) for value in sorted(set(posture)))
+    cells.extend(('ALL',f'day_{value}',day==value) for value in sorted(set(day)))
+    cells.extend(('ALL',f'class_{HAND_NAMES[h]}',y==h) for h in range(4))
+    scores=[];errors=[]
+    for user,condition,mask in cells:
+        if not mask.any():
+            continue
+        common=dict(dataset='unibo_inail',phase='final',subject=user,condition=condition,
+            calibration_budget=0,protocol='frozen personal-source Days1-5; complete oracle-labelled final bouts',
+            evaluation_bouts=int(mask.sum()),evaluation_trials=len({b['trial'] for b,m in zip(ordered,mask) if m}))
+        for name in probs:
+            scores.append({**common,'feature_family':name,'method':name,
+                'feature_dimension':len(states[sorted(states)[0]][1]['g5'][0].feature_names) if name=='G5' else 4,
+                **_metrics(y[mask],probs[name][mask],w[mask])})
+        errors.append({**common,'family_a':'validated_G5_bout_mean','family_b':'full_bout_DTW',
+            **complementarity(y[mask],probs['G5'][mask],probs['DTW'][mask],w[mask])})
+    print('[3/3] saving frozen final predictions and paired errors',flush=True)
+    output.mkdir(parents=True)
+    write(output/'feature_family_results.csv',scores)
+    write(output/'error_complementarity.csv',errors)
+    np.savez_compressed(output/'heldout_predictions.npz',**probs,labels=y,subjects=u,posture=posture,
+        days=day,weights=w,bout_ids=np.array([b['id'] for b in ordered]))
+    (output/'bout_metadata.json').write_text(json.dumps(
+        [{k:v for k,v in b.items() if k not in ('path','windows')} for b in ordered],indent=2))
+    (output/'split_trial_ids.json').write_text(json.dumps(splits,indent=2))
+    (output/'run_manifest.json').write_text(json.dumps(dict(dataset='unibo_inail',phase='final',
+        source_days=[1,2,3,4,5],previous_validation_days=[6],target_days=[7,8],
+        frozen_run=parent.name,frozen_artifacts_sha256=source_hashes,
+        classifier_or_family_fit=False,source_states_immutable=True,
+        target_sha256={b['trial']:b['raw_sha256'] for b in ordered},
+        limitation='Complete oracle-labelled bouts, not unsegmented streaming. Days7-8 were examined by earlier project experiments; this additional comparison is descriptive confirmation, not a newly untouched final set.'),indent=2))
+    replay_final(root,parent,output)
+
+
+def replay_final(root,parent,output):
+    """Reload native final bouts and frozen source models without fitting."""
+    manifest=json.loads((output/'run_manifest.json').read_text())
+    if manifest['target_days']!=[7,8] or manifest['classifier_or_family_fit'] is not False:
+        raise ValueError('Requires frozen final protocol')
+    for name,digest in manifest['frozen_artifacts_sha256'].items():
+        if hashlib.sha256((parent/name).read_bytes()).hexdigest()!=digest:
+            raise AssertionError('Frozen source artifact changed')
+    target=load_bouts(root,days=(7,8))
+    if {b['trial']:b['raw_sha256'] for b in target}!=manifest['target_sha256']:
+        raise AssertionError('Native final data changed')
+    states,temperatures=pickle.loads((parent/'fitted_states.pkl').read_bytes())
+    ordered=[];arrays={'G5':[],'DTW':[]}
+    for user in sorted(states):
+        ev=[b for b in target if b['user']==user]
+        raw=predict_pair(states[user][1],ev)
+        for name in arrays:
+            arrays[name].append(temperature_probability(raw[name],temperatures[user][name]))
+        ordered.extend(ev)
+    expected=[{k:v for k,v in b.items() if k not in ('path','windows')} for b in ordered]
+    if expected!=json.loads((output/'bout_metadata.json').read_text()):
+        raise AssertionError('Final bout ordering or metadata changed')
+    maximum_error=0.
+    with np.load(output/'heldout_predictions.npz',allow_pickle=False) as saved:
+        np.testing.assert_array_equal(saved['bout_ids'],[b['id'] for b in ordered])
+        for name in arrays:
+            actual=np.concatenate(arrays[name]);reference=saved[name]
+            maximum_error=max(maximum_error,float(np.max(np.abs(actual-reference))))
+            np.testing.assert_allclose(actual,reference,atol=1e-12,rtol=0)
+    result=dict(status='ok',native_final_data_reloaded=True,source_hashes_verified=True,
+        classifier_or_family_fit=False,source_states_immutable=True,
+        target_bouts=len(ordered),final_prediction_arrays_replayed=2*len(states),
+        maximum_absolute_probability_error=maximum_error,
+        scope='Frozen complete-bout offline comparison; oracle boundaries, not streaming')
+    (output/'replay_audit.json').write_text(json.dumps(result,indent=2))
+    print(json.dumps(result))
+
+
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('dataset',type=Path);parser.add_argument('output',type=Path)
     parser.add_argument('--replay',action='store_true')
-    args=parser.parse_args();replay(args.dataset,args.output) if args.replay else run(args.dataset,args.output)
+    parser.add_argument('--final-parent',type=Path)
+    args=parser.parse_args()
+    if args.final_parent:
+        replay_final(args.dataset,args.final_parent,args.output) if args.replay else run_final(args.dataset,args.final_parent,args.output)
+    else:
+        replay(args.dataset,args.output) if args.replay else run(args.dataset,args.output)

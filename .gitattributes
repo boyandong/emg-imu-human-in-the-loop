@@ -55,3 +55,8 @@ emgimu_classifier/benchmarks/song_real8/SPD_CUE_EVENT_PROTOCOL.json -text -eol
 emgimu_classifier/feature_bank/REQUIREMENT_AUDIT.json -text -eol
 emgimu_classifier/feature_bank/results/validation.json -text -eol
 emgimu_classifier/feature_bank/results/historical_manifests/*.json -text -eol
+emgimu_classifier/feature_bank/REPORT.md -text -eol
+emgimu_classifier/feature_bank/EXPERIMENT_CAPABILITIES.md -text -eol
+emgimu_classifier/feature_bank/replay_assets/*/*.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/replay_assets/*/*.npz -text -eol
+emgimu_classifier/feature_bank/replay_assets/*/*.pkl -text -eol
