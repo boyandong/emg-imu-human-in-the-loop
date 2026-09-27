@@ -1,0 +1,19 @@
+{
+  "status": "verified",
+  "trials": 284,
+  "checks": {
+    "validation": {
+      "trials": 140,
+      "baseline_accuracy": 0.7428571428571429,
+      "candidate_accuracy": 0.7785714285714286,
+      "candidate_macro_f1": 0.7998730528379486
+    },
+    "final_descriptive": {
+      "trials": 144,
+      "baseline_accuracy": 0.6458333333333334,
+      "candidate_accuracy": 0.7361111111111112,
+      "candidate_macro_f1": 0.7120875415130072
+    }
+  },
+  "boundary": "Read-back verifies saved trial scores and frozen baseline identity, not physical-device or new-day accuracy."
+}
