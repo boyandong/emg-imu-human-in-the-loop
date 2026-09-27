@@ -1,0 +1,13 @@
+{
+  "name": "song_joint28_continuous_replay_descriptive_v1",
+  "model": "tracked S01+S02 source-only factorized Song 28-state JSON bundle; no refit",
+  "sessions": ["S03", "S04"],
+  "stream": "entire raw 250 Hz 8-channel EMG plus recorded 112 Hz six-axis IMU, causal filter, 50 EMG samples, 25 sample hop, final 22 IMU samples at or before window end after IMU watermark",
+  "chunk_emg_samples": 25,
+  "event_rule": "existing live worker: top joint class at probability >= 0.15 for three consecutive emitted frames; no target tuning",
+  "scored_formal_interval": "valid completed formal trial stable_start_sample <= full 50-sample EMG window < stable_end_sample; native 28-class cue label",
+  "scored_rest_interval": "valid completed calibration_rest_initial or calibration_rest_final stable interval; report non-neutral hand predictions and displayed states only",
+  "unlabelled_frames": "count and preserve predictions, but exclude from accuracy and false-positive denominators",
+  "endpoints": ["stable-window joint/hand/arm accuracy and 28-class macro-F1", "mean-window-joint-probability native-trial accuracy and macro-F1", "rest-block active-hand argmax and displayed fractions", "frame loss and state transition counts"],
+  "limitations": "one person/day, cue labels not physiological onset, S03 readiness failed and S04 previously inspected, HDF5 packet-batch alignment not a hardware timing oracle, no real-time or cross-day/person claim"
+}
