@@ -1,0 +1,14 @@
+{
+  "name": "song_arm_signed_device_axis_source_only_exploratory",
+  "hypothesis": "Signed short-window gyro and acceleration change may separate left/backward from directions that have similar magnitude-only F6 descriptors.",
+  "source_train_sessions": ["S01", "S02"],
+  "validation_session": "S03",
+  "descriptive_final_session": "S04",
+  "baseline": "Frozen source-arm x same-hand trial predictions in SONG_ARM_CAL_TRIAL_PREDICTIONS.csv",
+  "candidate": "Existing 13 F6 descriptors concatenated with three device-axis mean gyroscope values and three device-axis late-minus-early accelerometer means, using the first and last five samples of each 22-sample IMU window.",
+  "classifier": "StandardScaler and class-weight-balanced LogisticRegression(C=1, max_iter=2000, random_state=20260924), fitted only on S01+S02 formal windows",
+  "hand_branch": "Marginalize the frozen baseline 28-state trial probabilities to recover its hand probabilities; no hand refit or tuning",
+  "score": "Mean arm window probability per native trial, outer product with unchanged hand probability, 28-state trial macro-F1/accuracy/log loss and per-arm recall",
+  "selection": "Single fixed candidate; no hyperparameter search, no change to deployed model from these same-person same-day results. S04 was previously inspected and is descriptive, not an untouched test set.",
+  "boundary": "Device axes are not a calibrated body frame; short-window signed dynamics may be orientation-dependent. No target formal labels, session calibration, or final-session observations fit the candidate."
+}
