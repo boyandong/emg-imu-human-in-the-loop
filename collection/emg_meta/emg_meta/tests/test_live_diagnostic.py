@@ -19,14 +19,16 @@ def test_live_capture_preserves_raw_indices_imu_and_displayed_probabilities(tmp_
     capture.record_emg(np.arange(24, dtype=np.int32).reshape(3, 8), np.array([8, 9, 10]),
                        np.array([80, 90, 100]))
     capture.record_emg(np.full((2, 8), 4, dtype=np.int32), np.array([12, 13]))
-    capture.record_imu(np.ones((2, 3)), np.zeros((2, 3)), np.array([100, 200]))
+    capture.record_imu(np.ones((2, 3)), np.zeros((2, 3)), np.array([100, 200]),
+                       np.array([10, 13]))
     capture.record_packet_loss(2)
     capture.record_annotation("neutral", "start", 13)
     capture.record_annotation("neutral", "end", 13)
     capture.record_prediction(PredictionFrame(
         probabilities=np.array([0.2, 0.8]), labels=("fist", "neutral"), events=(),
         output_sample_index=13, output_age_ms=0, fixed_lag_ms=0,
-        inference_ms=3.5, scale_counts_per_unit=1.0, active_label="neutral"), 0.55)
+        inference_ms=3.5, scale_counts_per_unit=1.0, active_label="neutral"),
+        0.55, host_receive_to_ui_ms=12.5)
     with pytest.raises(ValueError, match="indices must increase"):
         capture.record_emg(np.zeros((1, 8)), np.array([13]))
     directory = capture.close()
@@ -37,18 +39,21 @@ def test_live_capture_preserves_raw_indices_imu_and_displayed_probabilities(tmp_
         np.testing.assert_array_equal(handle["emg/received_ns"][:], [80, 90, 100, -1, -1])
         assert handle["imu/gyro_rad_s"].shape == (2, 3)
         np.testing.assert_array_equal(handle["imu/received_ns"][:], [100, 200])
+        np.testing.assert_array_equal(handle["imu/emg_sample_index"][:], [10, 13])
     with (directory / "predictions.csv").open(newline="", encoding="utf-8") as handle:
         predictions = list(csv.DictReader(handle))
     assert len(predictions) == 1
     assert predictions[0]["active_label"] == "neutral"
     assert predictions[0]["output_sample_index"] == "13"
     assert float(predictions[0]["p_neutral"]) == pytest.approx(0.8)
+    assert float(predictions[0]["host_receive_to_ui_ms"]) == pytest.approx(12.5)
     with (directory / "manual_annotations.csv").open(newline="", encoding="utf-8") as handle:
         annotations = list(csv.DictReader(handle))
     assert [(row["action"], row["event"], row["latest_emg_sample_index"])
             for row in annotations] == [("neutral", "start", "13"), ("neutral", "end", "13")]
     manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["status"] == "closed"
+    assert manifest["schema"] == "emgforce_live_diagnostic_v2"
     assert (manifest["raw_samples"], manifest["imu_samples"], manifest["predictions"],
             manifest["reported_lost_packets"]) == (5, 2, 1, 2)
     assert manifest["ground_truth_available"] is False

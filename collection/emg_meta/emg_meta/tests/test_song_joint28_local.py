@@ -126,10 +126,14 @@ def test_collection_page_loads_opt_in_joint_model_and_consumes_both_sensors(tmp_
         assert page.start_button.isEnabled() and not page.calibrate_button.isEnabled()
         frames = []
         page.worker.prediction_ready.connect(frames.append)
+        page.start_diagnostic()
+        assert page._diagnostic is not None
+        diagnostic_directory = page._diagnostic.directory
         page.start_recognition()
         rng = np.random.default_rng(19)
         page.ingest_emg(rng.integers(-200, 200, size=(250, 8), dtype=np.int32),
-                        np.arange(250, dtype=np.int64))
+                        np.arange(250, dtype=np.int64),
+                        np.full(250, time.monotonic_ns(), dtype=np.int64))
         imu_indices = np.rint(np.arange(113) * 250 / 112).astype(np.int64)
         page.ingest_imu(rng.normal(size=(113, 3)).astype(np.float32),
                         rng.normal(size=(113, 3)).astype(np.float32),
@@ -139,7 +143,13 @@ def test_collection_page_loads_opt_in_joint_model_and_consumes_both_sensors(tmp_
             app.processEvents()
             time.sleep(.01)
         assert frames and frames[-1].probabilities.shape == (28,)
-        assert "数据龄未测" in page.current_probability.text()
+        assert "主机收包→界面回调" in page.current_probability.text()
+        page.stop_diagnostic()
+        with (diagnostic_directory / "analysis.json").open(encoding="utf-8") as handle:
+            analysis = json.load(handle)
+        assert analysis["imu_samples_with_emg_boundary"] == 113
+        assert analysis["host_receive_to_ui_callback_ms"]["frames"] >= 1
+        assert analysis["host_receive_to_ui_callback_ms"]["median"] >= 0
     finally:
         assert page.shutdown()
         page.close()

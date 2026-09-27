@@ -36,7 +36,7 @@ class LiveDiagnosticRecorder:
         self.directory.mkdir(parents=True, exist_ok=False)
         self.labels = tuple(labels)
         self.manifest = {
-            "schema": "emgforce_live_diagnostic_v1", "status": "recording",
+            "schema": "emgforce_live_diagnostic_v2", "status": "recording",
             "started_utc": _utc(), "model_id": str(model_id),
             "model_sha256": str(model_sha256), "labels": list(self.labels),
             "sample_rate_hz": int(sample_rate_hz), "threshold_at_start": float(threshold),
@@ -57,10 +57,14 @@ class LiveDiagnosticRecorder:
                                              chunks=(512, 3), dtype="f4")
         self._imu_received = self._h5.create_dataset("imu/received_ns", (0,), maxshape=(None,),
                                                     chunks=(512,), dtype="i8")
+        self._imu_emg_index = self._h5.create_dataset("imu/emg_sample_index", (0,),
+                                                      maxshape=(None,), chunks=(512,), dtype="i8")
+        self._last_valid_imu_emg_index: int | None = None
         self._csv_handle = (self.directory / "predictions.csv").open("w", newline="", encoding="utf-8")
         self._writer = csv.writer(self._csv_handle)
         self._writer.writerow(("received_utc", "output_sample_index", "peak_label",
-                               "active_label", "events", "inference_ms", "threshold",
+                               "active_label", "events", "inference_ms", "host_receive_to_ui_ms",
+                               "threshold",
                                *(f"p_{label}" for label in self.labels)))
         self._annotation_handle = (self.directory / "manual_annotations.csv").open(
             "w", newline="", encoding="utf-8")
@@ -101,29 +105,49 @@ class LiveDiagnosticRecorder:
         self.manifest["raw_samples"] += len(values)
         self._h5.flush()
 
-    def record_imu(self, gyro: np.ndarray, accel: np.ndarray, received_ns: np.ndarray) -> None:
+    def record_imu(self, gyro: np.ndarray, accel: np.ndarray, received_ns: np.ndarray,
+                   emg_indices: np.ndarray | None = None) -> None:
         gyro = np.asarray(gyro, dtype=np.float32)
         accel = np.asarray(accel, dtype=np.float32)
         received_ns = np.asarray(received_ns, dtype=np.int64)
+        emg_indices = (np.full(len(gyro), -1, dtype=np.int64) if emg_indices is None
+                       else np.asarray(emg_indices, dtype=np.int64))
         if gyro.ndim != 2 or gyro.shape[1] != 3 or accel.shape != gyro.shape or received_ns.shape != (len(gyro),):
             raise ValueError("diagnostic IMU streams must have aligned three-axis samples")
+        if emg_indices.shape != (len(gyro),) or np.any(emg_indices < -1):
+            raise ValueError("diagnostic IMU EMG indices must align with samples")
+        valid = emg_indices[emg_indices >= 0]
+        if len(valid) and (np.any(np.diff(valid) < 0) or
+                           (self._last_valid_imu_emg_index is not None and
+                            valid[0] < self._last_valid_imu_emg_index)):
+            raise ValueError("diagnostic IMU EMG indices must be nondecreasing")
         count = len(self._gyro)
         for dataset, values in ((self._gyro, gyro), (self._accel, accel)):
             dataset.resize((count + len(values), 3))
             dataset[count:] = values
         self._imu_received.resize((count + len(received_ns),))
         self._imu_received[count:] = received_ns
+        self._imu_emg_index.resize((count + len(emg_indices),))
+        self._imu_emg_index[count:] = emg_indices
+        if len(valid):
+            self._last_valid_imu_emg_index = int(valid[-1])
         self.manifest["imu_samples"] += len(gyro)
         self._h5.flush()
 
-    def record_prediction(self, frame, threshold: float) -> None:
+    def record_prediction(self, frame, threshold: float,
+                          *, host_receive_to_ui_ms: float | None = None) -> None:
         probabilities = np.asarray(frame.probabilities, dtype=np.float64)
         if tuple(frame.labels) != self.labels or probabilities.shape != (len(self.labels),) or not np.isfinite(probabilities).all():
             raise ValueError("diagnostic prediction labels or probabilities differ from loaded model")
+        if (host_receive_to_ui_ms is not None and
+                (not np.isfinite(host_receive_to_ui_ms) or host_receive_to_ui_ms < 0)):
+            raise ValueError("diagnostic host receive-to-UI time must be finite and nonnegative")
         peak = self.labels[int(np.argmax(probabilities))]
         self._writer.writerow((_utc(), int(frame.output_sample_index), peak,
                                frame.active_label or "", "|".join(event.name for event in frame.events),
-                               float(frame.inference_ms), float(threshold),
+                               float(frame.inference_ms),
+                               "" if host_receive_to_ui_ms is None else float(host_receive_to_ui_ms),
+                               float(threshold),
                                *(float(value) for value in probabilities)))
         self._csv_handle.flush()
         self.manifest["predictions"] += 1

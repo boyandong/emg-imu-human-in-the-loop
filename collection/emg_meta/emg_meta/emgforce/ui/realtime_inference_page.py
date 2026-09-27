@@ -245,6 +245,7 @@ class RealtimeInferencePage(QWidget):
         self._diagnostic: LiveDiagnosticRecorder | None = None
         self._calibration_timing: tuple[float, int, str, str] | None = None
         self._last_live_sample_index: int | None = None
+        self._emg_receive_ns: dict[int, int] = {}
         self._connected = False
         self._probability_bars: dict[str, QProgressBar] = {}
         self._probability_values: dict[str, QLabel] = {}
@@ -854,12 +855,20 @@ class RealtimeInferencePage(QWidget):
         if not connected:
             self.stop_diagnostic()
             self._finish_calibration_timing("device_disconnected")
+            self._emg_receive_ns.clear()
         self._update_live_buttons()
         if not connected and self.worker is not None:
             self.worker.pause_recognition()
 
     def ingest_emg(self, raw: np.ndarray, indices: np.ndarray,
                    received_ns: np.ndarray | None = None) -> None:
+        if (isinstance(self.worker, SongJoint28RealtimeWorker) and received_ns is not None
+                and np.asarray(received_ns).shape == np.asarray(indices).shape):
+            for index, stamp in zip(indices, received_ns):
+                if int(stamp) > 0:
+                    self._emg_receive_ns[int(index)] = int(stamp)
+            while len(self._emg_receive_ns) > 2500:
+                self._emg_receive_ns.pop(next(iter(self._emg_receive_ns)))
         if len(indices):
             first_captured = self._diagnostic is not None and self._last_live_sample_index is None
             self._last_live_sample_index = int(indices[-1])
@@ -877,7 +886,7 @@ class RealtimeInferencePage(QWidget):
                    emg_indices: np.ndarray | None = None) -> None:
         if self._diagnostic is not None:
             try:
-                self._diagnostic.record_imu(gyro, accel, received_ns)
+                self._diagnostic.record_imu(gyro, accel, received_ns, emg_indices)
             except (OSError, ValueError, RuntimeError) as exc:
                 self._diagnostic_failed(exc)
         if isinstance(self.worker, SongJoint28RealtimeWorker) and self.worker.isRunning():
@@ -922,7 +931,8 @@ class RealtimeInferencePage(QWidget):
             except (OSError, RuntimeError, ValueError) as exc:
                 self.diagnostic_status.setText(f"诊断记录已保存到 {path}；自动分析失败：{exc}")
             else:
-                neutral_share = summary["peak_label_fractions"].get("neutral")
+                neutral_share = summary["peak_label_fractions"].get(
+                    "neutral", summary["peak_label_fractions"].get("still_neutral"))
                 neutral_text = (f"；峰值静息 {neutral_share:.1%}" if neutral_share is not None else "")
                 profile = summary["raw_signal_profile"]
                 flat = max(profile["flat_one_second_windows_per_channel"])
@@ -933,9 +943,14 @@ class RealtimeInferencePage(QWidget):
                 event_count = summary["event_intervals_with_predictions"]
                 event_text = (f"；标记动作曾显示正确 {summary['event_intervals_ever_display_match']}/{event_count}"
                               if event_count else "")
+                host_time = summary["host_receive_to_ui_callback_ms"]
+                host_time_text = (f"；主机收包至界面回调中位 {host_time['median']:.1f} ms，"
+                                  f"P95 {host_time['p95']:.1f} ms"
+                                  if host_time["frames"] else "")
                 self.diagnostic_status.setText(
                     f"诊断记录与分析已保存：{path}；{summary['prediction_frames']} 帧预测"
-                    f"{neutral_text}；{summary['manual_intervals']} 段人工标记{event_text}{quality_text}")
+                    f"{neutral_text}；{summary['manual_intervals']} 段人工标记"
+                    f"{event_text}{host_time_text}{quality_text}")
         self._update_live_buttons()
 
     def _diagnostic_failed(self, exc: Exception) -> None:
@@ -1207,9 +1222,19 @@ class RealtimeInferencePage(QWidget):
             "font-size: 14px; font-weight: 600; color: #475569; padding: 4px 10px; background-color: #f1f5f9; border-radius: 6px;")
 
     def _prediction_ready(self, frame: PredictionFrame) -> None:
+        is_joint28 = self.bundle is not None and self.bundle.metadata.get("song_joint28_local")
+        host_receive_to_ui_ms = None
+        if is_joint28:
+            stamp = self._emg_receive_ns.get(int(frame.output_sample_index))
+            if stamp is not None:
+                age_ns = time.monotonic_ns() - stamp
+                if 0 <= age_ns <= 300_000_000_000:
+                    host_receive_to_ui_ms = age_ns / 1e6
         if self._diagnostic is not None:
             try:
-                self._diagnostic.record_prediction(frame, self.threshold.value())
+                self._diagnostic.record_prediction(
+                    frame, self.threshold.value(),
+                    host_receive_to_ui_ms=host_receive_to_ui_ms)
             except (OSError, ValueError, RuntimeError) as exc:
                 self._diagnostic_failed(exc)
         for name, probability in zip(frame.labels, frame.probabilities):
@@ -1231,12 +1256,13 @@ class RealtimeInferencePage(QWidget):
             self.music_gesture_ready.emit(gesture, peak if gesture else 1.0)
         else:
             self.music_gesture_ready.emit(0, 1.0)
-        is_joint28 = self.bundle is not None and self.bundle.metadata.get("song_joint28_local")
         is_song = self.bundle is not None and (
             self.bundle.metadata.get("song_real8_local") or is_joint28)
         if is_song:
+            timing = (f"主机收包→界面回调 {host_receive_to_ui_ms:.0f} ms"
+                      if host_receive_to_ui_ms is not None else "数据龄未测")
             self.current_probability.setText(
-                f"最高概率 {peak:.3f} · 计算 {frame.inference_ms:.0f} ms · 200 ms 窗口 · 数据龄未测")
+                f"最高概率 {peak:.3f} · 计算 {frame.inference_ms:.0f} ms · 200 ms 窗口 · {timing}")
             self._gesture_reset_timer.stop()
             if is_joint28 and frame.active_label in self.bundle.display_names:
                 label = frame.active_label
@@ -1406,6 +1432,7 @@ class RealtimeInferencePage(QWidget):
             return False
         worker.deleteLater()
         self.worker = None
+        self._emg_receive_ns.clear()
         self.bundle = None
         self.event_log.clear()
         self.calibration_progress.setValue(0)

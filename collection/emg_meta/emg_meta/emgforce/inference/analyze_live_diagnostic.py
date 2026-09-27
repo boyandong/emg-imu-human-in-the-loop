@@ -67,7 +67,9 @@ def _signal_profile(handle: h5py.File, sample_rate: int) -> dict:
 def analyze(directory: Path) -> dict:
     directory = Path(directory)
     manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
-    if manifest.get("schema") != "emgforce_live_diagnostic_v1" or manifest.get("status") != "closed":
+    if (manifest.get("schema") not in {"emgforce_live_diagnostic_v1",
+                                       "emgforce_live_diagnostic_v2"}
+            or manifest.get("status") != "closed"):
         raise ValueError("diagnostic capture must be complete before analysis")
     files = manifest.get("file_sha256", {})
     for name in ("signals.h5", "predictions.csv", "manual_annotations.csv"):
@@ -95,6 +97,19 @@ def analyze(directory: Path) -> dict:
                 len(handle["imu/received_ns"]) != imu_count or
                 imu_count != manifest["imu_samples"]):
             raise ValueError("diagnostic IMU arrays or counts are inconsistent")
+        if manifest["schema"] == "emgforce_live_diagnostic_v2":
+            if "imu/emg_sample_index" not in handle or len(handle["imu/emg_sample_index"]) != imu_count:
+                raise ValueError("diagnostic IMU-to-EMG alignment indices are inconsistent")
+            imu_emg_index = handle["imu/emg_sample_index"][:]
+            aligned = imu_emg_index[imu_emg_index >= 0]
+            if np.any(imu_emg_index < -1) or np.any(np.diff(aligned) < 0):
+                raise ValueError("diagnostic IMU-to-EMG alignment indices are nonmonotone")
+            imu_indexed_samples = len(aligned)
+            imu_indices_outside_captured_emg = int(np.count_nonzero(
+                (aligned < sample_indices[0]) | (aligned > sample_indices[-1] + 1))) if len(sample_indices) else len(aligned)
+        else:
+            imu_indexed_samples = 0
+            imu_indices_outside_captured_emg = 0
         signal_profile = _signal_profile(handle, int(manifest["sample_rate_hz"]))
         imu_nonfinite_samples = 0
         for start in range(0, imu_count, 60_000):
@@ -103,6 +118,7 @@ def analyze(directory: Path) -> dict:
             imu_nonfinite_samples += int(np.count_nonzero(
                 ~np.isfinite(gyro).all(axis=1) | ~np.isfinite(accel).all(axis=1)))
     predictions = []
+    host_receive_to_ui_ms = []
     for row in prediction_rows:
         values = np.asarray([float(row[f"p_{label}"]) for label in labels])
         if (values.shape != (len(labels),) or not np.isfinite(values).all() or
@@ -110,6 +126,12 @@ def analyze(directory: Path) -> dict:
             raise ValueError("saved prediction schema or peak label is inconsistent")
         predictions.append((int(row["output_sample_index"]), row["peak_label"],
                             row["active_label"], values))
+        latency_text = row.get("host_receive_to_ui_ms", "")
+        if latency_text:
+            latency = float(latency_text)
+            if not np.isfinite(latency) or latency < 0:
+                raise ValueError("saved host receive-to-UI timing is invalid")
+            host_receive_to_ui_ms.append(latency)
     outside_raw = int(sum(bool(not len(sample_indices) or index < sample_indices[0] or
                                index > sample_indices[-1]) for index, _, _, _ in predictions))
     intervals = []
@@ -134,7 +156,7 @@ def analyze(directory: Path) -> dict:
     by_action = defaultdict(list)
     scored = []
     sample_rate_hz = int(manifest["sample_rate_hz"])
-    active_labels = set(labels) - {"neutral"}
+    active_labels = set(labels) - {"neutral", "still_neutral"}
     for action, start, end in intervals:
         frames = [(index, peak, active, values) for index, peak, active, values in predictions
                   if start <= index <= end]
@@ -177,7 +199,15 @@ def analyze(directory: Path) -> dict:
         "prediction_frames_outside_captured_raw": outside_raw,
         "raw_emg_samples_verified": raw_count,
         "raw_imu_samples_verified": imu_count,
+        "imu_samples_with_emg_boundary": imu_indexed_samples,
+        "imu_boundaries_outside_captured_emg": imu_indices_outside_captured_emg,
         "imu_nonfinite_samples": imu_nonfinite_samples,
+        "host_receive_to_ui_callback_ms": {
+            "frames": len(host_receive_to_ui_ms),
+            "median": float(np.median(host_receive_to_ui_ms)) if host_receive_to_ui_ms else None,
+            "p95": float(np.quantile(host_receive_to_ui_ms, .95)) if host_receive_to_ui_ms else None,
+            "max": float(max(host_receive_to_ui_ms)) if host_receive_to_ui_ms else None,
+        },
         "raw_signal_profile": signal_profile,
         "sample_index_gap_edges": int(np.count_nonzero(np.diff(sample_indices) > 1)),
         "reported_lost_packets": int(manifest["reported_lost_packets"]),
@@ -206,7 +236,7 @@ def analyze(directory: Path) -> dict:
                          else None)}
             for action, rows in by_action.items()},
         "intervals": scored,
-        "scope": "Manual keypress intervals express intended actions, not measured physiological onset/offset; event matches are diagnostic agreement, not formal recognition accuracy. First-match seconds use nominal sample indices after a manual marker, not measured muscle or screen latency. Pre-start activity uses the final nominal 400 ms before the marker and may contain previous movement. Raw signal metrics are descriptive across movements, not a rest-calibration pass/fail. Packet loss can occur without a sample-index gap because indices count received samples. Predictions outside the captured raw range can occur when recording starts while inference is already running.",
+        "scope": "Manual keypress intervals express intended actions, not measured physiological onset/offset; event matches are diagnostic agreement, not formal recognition accuracy. First-match seconds use nominal sample indices after a manual marker, not measured muscle or screen latency. Host receive-to-UI callback timing excludes acquisition before packet receipt and screen paint. IMU-to-EMG indices are packet-batch boundaries, not a physical sensor-clock synchronization measurement. Pre-start activity uses the final nominal 400 ms before the marker and may contain previous movement. Raw signal metrics are descriptive across movements, not a rest-calibration pass/fail. Packet loss can occur without a sample-index gap because indices count received samples. Predictions outside the captured raw range can occur when recording starts while inference is already running.",
     }
     (directory / "analysis.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False) + "\n",
                                               encoding="utf-8")
