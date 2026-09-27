@@ -11,9 +11,9 @@ from pathlib import Path
 
 import h5py
 import numpy as np
-from sklearn.metrics import accuracy_score, f1_score
+from sklearn.metrics import accuracy_score, f1_score, recall_score
 
-from benchmarks.song_real8_study import parse_label
+from benchmarks.song_real8_study import ARMS, HANDS, parse_label
 
 
 ROOT = Path(__file__).resolve().parent
@@ -115,6 +115,7 @@ def run(source: Path = SOURCE, bundle: Path = BUNDLE) -> dict:
         frame_truth, frame_pred, trial_probability = [], [], defaultdict(list)
         rest_frames = rest_active_argmax = rest_active_display = 0
         event_count = 0
+        event_intervals = Counter()
         emitted_count = 0
         candidate = active = None
         candidate_count = 0
@@ -133,6 +134,11 @@ def run(source: Path = SOURCE, bundle: Path = BUNDLE) -> dict:
                 active = threshold_name
                 if active is not None:
                     event_count += 1
+                    event_fired = True
+                else:
+                    event_fired = False
+            else:
+                event_fired = False
             begin = end - 49
             matching_formal = [interval for interval in formal
                                if interval[0] <= begin and end < interval[1]]
@@ -153,15 +159,22 @@ def run(source: Path = SOURCE, bundle: Path = BUNDLE) -> dict:
                 rest_frames += 1
                 rest_active_argmax += int(parse_label(name)[1] != "neutral")
                 rest_active_display += int(active is not None and parse_label(active)[1] != "neutral")
+            if event_fired:
+                event_intervals[kind] += 1
             rows.append({"session": sid, "emg_end_index": end,
                          "interval_kind": kind, "trial_id": trial_id, "cue_label": label,
                          "peak_label": name, "peak_probability": float(probability[peak]),
-                         "display_label": active or ""})
+                         "display_label": active or "", "event_fired": int(event_fired),
+                         "joint_probabilities": json.dumps(probability.tolist(), separators=(",", ":"))
+                         if kind == "formal_stable" else ""})
         trial_truth = [label for _, label in trial_probability]
         trial_pred = [model.joint_classes[int(np.argmax(np.mean(values, axis=0)))]
                       for values in trial_probability.values()]
-        if len(trial_probability) != len(formal):
-            raise ValueError(f"formal trial coverage changed: {sid}: {len(trial_probability)}/{len(formal)}")
+        scored_trial_ids = {trial_id for trial_id, _ in trial_probability}
+        unscored_formal = [{"trial_id": trial_id, "label": label,
+                            "stable_samples": end - start}
+                           for start, end, trial_id, label in formal
+                           if trial_id not in scored_trial_ids]
         hand_truth = [parse_label(value)[1] for value in frame_truth]
         hand_pred = [parse_label(value)[1] for value in frame_pred]
         arm_truth = [parse_label(value)[0] for value in frame_truth]
@@ -171,9 +184,17 @@ def run(source: Path = SOURCE, bundle: Path = BUNDLE) -> dict:
             "replay_cpu_seconds_not_live_latency": duration,
             "emitted_frames": emitted_count, "dropped_frames": stream.dropped_frames,
             "formal_stable_intervals": len(formal), "calibration_rest_stable_intervals": len(rest),
+            "scored_formal_trials": len(trial_probability),
+            "formal_intervals_without_full_emitted_window": unscored_formal,
             "stable_windows": _scores(frame_truth, frame_pred, model.joint_classes),
             "stable_hand_accuracy": float(accuracy_score(hand_truth, hand_pred)),
             "stable_arm_accuracy": float(accuracy_score(arm_truth, arm_pred)),
+            "stable_hand_recall": {name: float(value) for name, value in zip(
+                HANDS, recall_score(hand_truth, hand_pred, labels=list(HANDS),
+                                    average=None, zero_division=0))},
+            "stable_arm_recall": {name: float(value) for name, value in zip(
+                ARMS, recall_score(arm_truth, arm_pred, labels=list(ARMS),
+                                   average=None, zero_division=0))},
             "trial_mean_joint_probability": _scores(trial_truth, trial_pred, model.joint_classes),
             "rest_frames": rest_frames,
             "rest_active_hand_argmax_frames": rest_active_argmax,
@@ -181,6 +202,9 @@ def run(source: Path = SOURCE, bundle: Path = BUNDLE) -> dict:
             "rest_active_hand_display_frames": rest_active_display,
             "rest_active_hand_display_fraction": rest_active_display / rest_frames if rest_frames else None,
             "continuous_state_transitions_to_non_null": event_count,
+            "state_transitions_by_scored_interval": dict(event_intervals),
+            "unlabelled_frames": int(sum(row["interval_kind"] == "unlabelled"
+                                           for row in rows if row["session"] == sid)),
             "all_frame_peak_counts": dict(by_label),
         }
         print(f"{sid}: {emitted_count} frames, {len(trial_probability)} scored trials, "

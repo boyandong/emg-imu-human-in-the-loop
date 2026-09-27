@@ -1,0 +1,23 @@
+{
+  "status": "all_saved_continuous_rows_replayed",
+  "results_sha256": "8739f8388d181c42230f4aaff9446ccbd05970d9c29e7d2e439d4bf386254e0c",
+  "frames_sha256": "9c2aca89ec46ee31367dcf6554817c6c589cff521b6424baaeb2f929afc79830",
+  "sessions": {
+    "S03": {
+      "frames": 13444,
+      "formal_stable_windows": 895,
+      "formal_trials": 139,
+      "rest_frames": 144,
+      "non_null_transitions": 883
+    },
+    "S04": {
+      "frames": 11916,
+      "formal_stable_windows": 911,
+      "formal_trials": 144,
+      "rest_frames": 144,
+      "non_null_transitions": 862
+    }
+  },
+  "total_frames": 25360,
+  "scope": "Saved cue assignment, online state rule, rest summaries and trial probability averages; not an independent new recording or latency measurement."
+}
