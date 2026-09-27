@@ -4,7 +4,7 @@
     658,
     678
   ],
-  "error_table_sha256": "b9385c81df2f9d85f401a54ea7a67965a5920f5cfe3a105685db5eae8911f391",
+  "error_table_sha256": "38fb01a689d7cbf7b9e967f821edbad34c3608fdfc563842eb68d037396d432d",
   "stage3": [
     {
       "requirement": "X1 vs Frequency",
@@ -39,8 +39,11 @@
         "feature_bank_unibo_sequence_incremental_final_20260916",
         "feature_bank_unibo_sequence_incremental_validation_20260916"
       ],
-      "status": "verified_conditional_increment_not_standalone_DTW",
-      "boundary": "Exact validated G5 baseline versus G5+complete-bout DTW increment; not a standalone DTW model and uses oracle bout boundaries."
+      "standalone_validation_score_rows": 32,
+      "standalone_validation_run_id": "feature_bank_unibo_sequence_temporal_validation_20260916",
+      "standalone_validation_replay": "results/manifests/feature_bank_unibo_sequence_temporal_validation_20260916__replay_audit.json",
+      "status": "verified_day6_standalone_and_conditional_increment_final_pending",
+      "boundary": "Native complete-bout standalone G5 and DTW scores are available for Day6 only; the canonical error table has G5 versus G5+DTW increment for Day6 and Days7-8, not standalone G5-versus-DTW paired errors on independent final days. All complete-bout comparisons use oracle boundaries and do not establish streaming performance."
     },
     {
       "requirement": "RLCS vs Personal Anchor",

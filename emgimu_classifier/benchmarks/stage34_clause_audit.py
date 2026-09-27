@@ -10,14 +10,33 @@ def pair(rows,a,b):
 
 def run(results,output):
     ep=results/'error_complementarity.csv';errors=load(ep);ip=results/'interaction_results.csv';interactions=load(ip)
+    scores=load(results/'feature_family_results.csv')
     stage3=[]
     for req,a,b in (('X1 vs Frequency','F1_X1H','F4_Spectral'),('X1 vs F2 Spatial Coordination','F1_X1H','F2b_CSP')):
         found=pair(errors,a,b);stage3.append({'requirement':req,'family_a':a,'family_b':b,'rows':len(found),
             'run_ids':sorted({r['run_id'] for r in found}),'status':'verified_reference_pair' if found else 'missing',
             'boundary':'Native held-out/source-OOF predictions, but current reference families are not missing historical validated implementations.'})
     g5=[r for r in errors if r.get('family_a')=='validated_G5_bout_mean' and r.get('family_b')=='validated_G5_plus_full_bout_DTW']
+    standalone_run='feature_bank_unibo_sequence_temporal_validation_20260916'
+    standalone=[r for r in scores if r.get('run_id')==standalone_run and r.get('feature_family') in ('G5','DTW')]
+    standalone_methods={r.get('feature_family') for r in standalone}
+    standalone_replay=results/'manifests'/f'{standalone_run}__replay_audit.json'
+    standalone_manifest=results/'manifests'/f'{standalone_run}__run_manifest.json'
+    replay=json.loads(standalone_replay.read_text(encoding='utf-8')) if standalone_replay.exists() else {}
+    manifest=json.loads(standalone_manifest.read_text(encoding='utf-8')) if standalone_manifest.exists() else {}
+    cell_keys=('subject','condition','calibration_budget')
+    cells={name:{tuple(row.get(key) for key in cell_keys) for row in standalone if row['feature_family']==name}
+        for name in ('G5','DTW')}
+    standalone_verified=(standalone_methods=={'G5','DTW'} and replay.get('status')=='ok'
+        and replay.get('native_data_reloaded') is True and replay.get('classifier_retrained') is False
+        and cells['G5']==cells['DTW'] and len(cells['G5'])==16
+        and manifest.get('target_days')==[6] and manifest.get('final_days_opened') is False)
     stage3.append({'requirement':'G5 vs Temporal/DTW','rows':len(g5),'run_ids':sorted({r['run_id'] for r in g5}),
-        'status':'verified_conditional_increment_not_standalone_DTW' if g5 else 'missing','boundary':'Exact validated G5 baseline versus G5+complete-bout DTW increment; not a standalone DTW model and uses oracle bout boundaries.'})
+        'standalone_validation_score_rows':len(standalone),
+        'standalone_validation_run_id':standalone_run if standalone_verified else None,
+        'standalone_validation_replay':str(standalone_replay.relative_to(results.parent)).replace('\\','/') if standalone_verified else None,
+        'status':'verified_day6_standalone_and_conditional_increment_final_pending' if standalone_verified and g5 else 'partial_or_missing',
+        'boundary':'Native complete-bout standalone G5 and DTW scores are available for Day6 only; the canonical error table has G5 versus G5+DTW increment for Day6 and Days7-8, not standalone G5-versus-DTW paired errors on independent final days. All complete-bout comparisons use oracle boundaries and do not establish streaming performance.'})
     ring=[r for r in errors if r.get('family_a')=='F3_Ring_population' and r.get('family_b')=='F3_Ring_local_anchor']
     stage3.append({'requirement':'RLCS vs Personal Anchor','rows':0,'run_ids':[],'status':'missing_exact_historical_RLCS',
         'reference_proxy_rows':len(ring),'boundary':'Reference envelope-ring population/local-anchor rows cannot substitute for missing historical validated RLCS.'})
