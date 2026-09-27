@@ -1,0 +1,5 @@
+# Song 28-state signed IMU candidate
+
+This is an opt-in experimental model for native 8-channel EMG at 250 Hz and six-axis IMU at 112 Hz. In the application's “实时识别” page, refresh the model list and choose **[Song EMG+IMU 28 类] 有符号 IMU 候选**. The original “手势×手臂” model remains a separate choice. The candidate uses the same source-trained hand branch and adds six signed device-axis quantities to the arm branch. It uses no on-device calibration.
+
+The [research report](../../../../../emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_CONTINUOUS_REPORT.md) compares its full-stream replay with the original model on S03/S04. The [replay audit](song_joint28_replay_audit.json) verifies the exported bundle against all 25,360 saved native frames. Both recordings are from one person on one day. Physical live accuracy, new-day/electrode replacement behavior, independent action timing and end-to-end latency remain unverified; use the diagnostic recording feature during the next real-device comparison.

@@ -614,8 +614,10 @@ class RealtimeInferencePage(QWidget):
                 f"[Song 8ch] {info.model_id} · S03 val ACC {info.validation_accuracy:.3f} · "
                 f"macro-F1 {info.validation_macro_f1:.3f} · 同人单日实验", info.combo_key)
         for directory in discover_song_joint28_bundles(self.models_root):
+            signed = SongJoint28WindowRuntime(directory).arm_feature_kind == "f6_signed_19"
             self.model_combo.addItem(
-                "[Song EMG+IMU 28 类] 手势×手臂 · 250/112 Hz · 同人单日实验",
+                ("[Song EMG+IMU 28 类] 有符号 IMU 候选 · 250/112 Hz · 同人单日实验"
+                 if signed else "[Song EMG+IMU 28 类] 手势×手臂 · 250/112 Hz · 同人单日实验"),
                 SONG28_PREFIX + str(directory))
         if previous:
             index = self.model_combo.findData(previous)
@@ -656,7 +658,10 @@ class RealtimeInferencePage(QWidget):
             self.model_details.setText(
                 f"Song EMG 8 通道 250 Hz + IMU 6 轴 112 Hz / 28 类 / 200 ms · "
                 f"SHA-256 {runtime.sha256[:12]}…\n"
-                "S01/S02 训练；S03/S04 仅验证提示动作稳定窗口；连续实时准确率与延迟未验证")
+                + ("有符号设备轴 IMU 候选；S01/S02 训练，S03/S04 连续录制回放已核对；"
+                   "新佩戴与现场准确率、延迟未验证"
+                   if runtime.arm_feature_kind == "f6_signed_19" else
+                   "S01/S02 训练；S03/S04 仅验证提示动作稳定窗口；连续实时准确率与延迟未验证"))
             self.model_status.setText("已选择 Song EMG+IMU 28 类实验模型（点击「加载模型」）")
             self.load_model_button.setEnabled(True)
             return
@@ -1153,11 +1158,17 @@ class RealtimeInferencePage(QWidget):
         self.run_replay_button.setEnabled(not experimental)
         if experimental:
             if bundle.metadata.get("song_joint28_local"):
-                self.model_status.setText("Song EMG+IMU 28 类实验模型已校验；连接设备后可直接开始识别")
+                signed = bool(bundle.metadata.get("song_joint28_signed_candidate"))
+                self.model_status.setText("Song 有符号 IMU 候选模型已校验；连接设备后可进行实验识别"
+                                          if signed else "Song EMG+IMU 28 类实验模型已校验；连接设备后可直接开始识别")
                 self.model_details.setText(
                     "8 通道 EMG 250 Hz + 6 轴 IMU 112 Hz · 200 ms 因果窗口 · 28 类\n"
-                    "同人单日提示动作稳定窗口验证；连续实时准确率、同步精度与端到端延迟未验证")
-                self.replay_result.setText("本模型的离线逐窗口回放审计位于 model_assets/song_joint28_window")
+                    + ("有符号设备轴 IMU 候选；同人单日连续录制回放已核对；现场准确率与端到端延迟未验证"
+                       if signed else
+                       "同人单日提示动作稳定窗口验证；连续实时准确率、同步精度与端到端延迟未验证"))
+                self.replay_result.setText("候选模型连续回放审计位于 benchmarks/new_bank_v2/SONG_ARM_SIGNED_CONTINUOUS_REPORT.md"
+                                           if signed else
+                                           "本模型的离线逐窗口回放审计位于 model_assets/song_joint28_window")
                 self.calibration_instruction.setText("零校准模型")
                 self.calibration_detail.setText("此模型当前不使用现场校准；连接设备后直接开始识别")
                 self._update_live_buttons()

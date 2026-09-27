@@ -36,8 +36,9 @@ def song_joint28_key_path(value: object) -> Path | None:
 
 
 def discover_song_joint28_bundles(models_root: Path) -> list[Path]:
-    built_in = Path(__file__).resolve().parents[2] / "model_assets/song_joint28_window"
-    candidates = [built_in, *sorted(Path(models_root).glob("*/" + MANIFEST_NAME))]
+    assets = Path(__file__).resolve().parents[2] / "model_assets"
+    candidates = [assets / "song_joint28_window", assets / "song_joint28_signed",
+                  *(path.parent for path in sorted(Path(models_root).glob("*/" + MANIFEST_NAME)))]
     found = []
     for path in candidates:
         try:
@@ -62,13 +63,19 @@ class SongJoint28WindowRuntime:
         if self.sha256 != self.manifest.get("sha256"):
             raise ValueError("Song 28-state model artifact hash mismatch")
         model = _read_object(self.artifact)
+        kinds = {"song_28_source_factorized_f0v2_f2a_f3c_f6": ("f6_13", 13),
+                 "song_28_source_factorized_f0v2_f2a_f3c_f6_signed": ("f6_signed_19", 19)}
+        model_kind = model.get("model_kind")
         if (model.get("format_version") != 1
-                or model.get("model_kind") != "song_28_source_factorized_f0v2_f2a_f3c_f6"
+                or model_kind not in kinds
                 or model.get("emg_rate_hz") != 250 or model.get("imu_rate_hz") != 112
                 or model.get("emg_channels") != 8 or model.get("imu_channels") != 6
                 or model.get("emg_window_samples") != 50 or model.get("imu_window_samples") != 22
                 or model.get("covariance_shrinkage") != 0.05):
             raise ValueError("incompatible Song 28-state signal or feature contract")
+        self.arm_feature_kind, arm_dim = kinds[model_kind]
+        if model.get("arm_feature_kind", self.arm_feature_kind) != self.arm_feature_kind:
+            raise ValueError("Song 28-state arm feature contract differs from model kind")
         self.hand_classes = tuple(model["hand_classes"])
         self.arm_classes = tuple(model["arm_classes"])
         self.joint_classes = tuple(model["joint_classes"])
@@ -84,9 +91,9 @@ class SongJoint28WindowRuntime:
         self.hand_scale = self._array(model["hand"], "scaler_scale", (104,), positive=True)
         self.hand_coef = self._array(model["hand"], "coef", (4, 104))
         self.hand_intercept = self._array(model["hand"], "intercept", (4,))
-        self.arm_mean = self._array(model["arm"], "scaler_mean", (13,))
-        self.arm_scale = self._array(model["arm"], "scaler_scale", (13,), positive=True)
-        self.arm_coef = self._array(model["arm"], "coef", (7, 13))
+        self.arm_mean = self._array(model["arm"], "scaler_mean", (arm_dim,))
+        self.arm_scale = self._array(model["arm"], "scaler_scale", (arm_dim,), positive=True)
+        self.arm_coef = self._array(model["arm"], "coef", (7, arm_dim))
         self.arm_intercept = self._array(model["arm"], "intercept", (7,))
 
     def make_bundle(self):
@@ -100,14 +107,17 @@ class SongJoint28WindowRuntime:
                 if name.startswith(prefix):
                     display[name] = f"{ARM_DISPLAY[arm]} · {HAND_DISPLAY[name[len(prefix):]]}"
                     break
+        signed = self.arm_feature_kind == "f6_signed_19"
         return ModelBundle(
-            root=self.directory, model_id="Song 手势×手臂 28 类（S01/S02）",
+            root=self.directory, model_id=("Song 手势×手臂 28 类 · 有符号 IMU 候选（S01/S02）"
+                                           if signed else "Song 手势×手臂 28 类（S01/S02）"),
             artifact=self.artifact, sha256=self.sha256, labels=self.joint_classes,
             display_names=display, sample_rate=250, input_channels=8, output_channels=28,
             algorithm_id="song_joint28_local_v1", runtime_backend="song_joint28_source_factorized",
             preprocessing={"online_event_threshold": 0.15, "window_samples": 50,
                            "hop_samples": 25, "imu_window_samples": 22},
             metadata={"experimental_adapter": True, "song_joint28_local": True,
+                      "song_joint28_signed_candidate": signed,
                       "model_status": self.manifest["model_status"],
                       "source_checkpoint": {"path": str(self.artifact), "sha256": self.sha256},
                       "training": {"source_sessions": ["S01", "S02"]}},
@@ -154,8 +164,7 @@ class SongJoint28WindowRuntime:
         f3c = np.asarray(columns, dtype=np.float32)
         return np.concatenate((f0, f2a.astype(np.float32), f3c)).astype(np.float32)
 
-    @staticmethod
-    def arm_features(imu_window: np.ndarray) -> np.ndarray:
+    def arm_features(self, imu_window: np.ndarray) -> np.ndarray:
         imu = np.asarray(imu_window, dtype=np.float64)
         if imu.shape != (22, 6) or not np.isfinite(imu).all():
             raise ValueError("Song 28-state IMU requires finite 22×6 matched samples")
@@ -166,6 +175,9 @@ class SongJoint28WindowRuntime:
                              norm.max(), np.ptp(norm)))
         gravity = imu[:, :3].mean(axis=0)
         features.extend(gravity / max(float(np.linalg.norm(gravity)), 1e-10))
+        if self.arm_feature_kind == "f6_signed_19":
+            features.extend(imu[:, 3:6].mean(axis=0))
+            features.extend(imu[-5:, :3].mean(axis=0) - imu[:5, :3].mean(axis=0))
         return np.nan_to_num(np.asarray(features, dtype=np.float32))
 
     def predict_filtered_window(self, filtered_emg: np.ndarray,

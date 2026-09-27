@@ -1,0 +1,22 @@
+{
+  "status": "exported_candidate_continuous_replay_verified",
+  "model_sha256": "540b0a0234b51f19239e830623ced5bd14539ac53162cd2bfc1acfffff87b65d",
+  "manifest_sha256": "339e527fa37bb7c6eed61329379e250d5dbde93aab4d66c918db2d8eccdc0df2",
+  "runtime_source_sha256": "fa1ffcd0570e7a3fc57df4f7997cd8f206dc7eb8f03d523746c80d99f84eae1e",
+  "continuous_results_sha256": "1f903af3bd843a42d3a4b2b9808c43bf95ec36545d3167f53c6cf9922d1f4668",
+  "continuous_frame_csv_sha256": "c90eef058eadddb41a3450d831c5b3b5e9ea613184b8ddb65e0f643241a39099",
+  "matched_frames": 25360,
+  "maximum_peak_probability_error": 1.4800078335097666e-07,
+  "maximum_formal_joint_probability_error": 1.2593021625484369e-07,
+  "sessions": {
+    "S03": {
+      "frames": 13444,
+      "dropped": 0
+    },
+    "S04": {
+      "frames": 11916,
+      "dropped": 0
+    }
+  },
+  "boundary": "Exported software stream reproduces frozen replay; physical hardware and new-day/person use remain unverified."
+}

@@ -11,10 +11,13 @@ import numpy as np
 import pytest
 from scipy.signal import butter, iirnotch, sosfilt, tf2sos
 
-from emgforce.inference.song_joint28_local import SongJoint28Stream, SongJoint28WindowRuntime
+from emgforce.inference.song_joint28_local import (
+    SongJoint28Stream, SongJoint28WindowRuntime, discover_song_joint28_bundles,
+)
 
 
 BUNDLE = Path(__file__).resolve().parents[1] / "model_assets/song_joint28_window"
+SIGNED_BUNDLE = Path(__file__).resolve().parents[1] / "model_assets/song_joint28_signed"
 
 
 def test_tracked_bundle_predicts_finite_28_state_probabilities():
@@ -32,6 +35,89 @@ def test_tracked_bundle_predicts_finite_28_state_probabilities():
         runtime.predict_filtered_window(emg[:-1], imu)
     with pytest.raises(ValueError, match="22×6"):
         runtime.predict_filtered_window(emg, imu[:-1])
+
+
+def test_signed_candidate_is_separate_and_preserves_baseline_hand_branch():
+    baseline = SongJoint28WindowRuntime(BUNDLE)
+    signed = SongJoint28WindowRuntime(SIGNED_BUNDLE)
+    assert baseline.arm_feature_kind == "f6_13"
+    assert signed.arm_feature_kind == "f6_signed_19"
+    assert signed.arm_coef.shape == (7, 19)
+    assert signed.make_bundle().metadata["song_joint28_signed_candidate"] is True
+    assert baseline.make_bundle().metadata["song_joint28_signed_candidate"] is False
+    rng = np.random.default_rng(20260928)
+    emg = rng.normal(size=(50, 8)).astype(np.float32)
+    imu = rng.normal(size=(22, 6)).astype(np.float32)
+    hand_base, _, _ = baseline.predict_filtered_window(emg, imu)
+    hand_signed, arm_signed, joint_signed = signed.predict_filtered_window(emg, imu)
+    np.testing.assert_array_equal(hand_base, hand_signed)
+    np.testing.assert_allclose(joint_signed.sum(), 1, atol=1e-12)
+    for i, (arm, hand) in enumerate(signed.joint_indices):
+        np.testing.assert_allclose(joint_signed[i], arm_signed[arm] * hand_signed[hand], atol=1e-12)
+
+
+def test_signed_bundle_discovery_and_feature_contract(tmp_path):
+    copied = tmp_path / "models" / "candidate"
+    shutil.copytree(SIGNED_BUNDLE, copied)
+    assert copied.resolve() in discover_song_joint28_bundles(tmp_path / "models")
+    artifact = copied / "song_joint28_model.json"
+    manifest_path = copied / "song_joint28_manifest.json"
+    model = json.loads(artifact.read_text(encoding="utf-8"))
+    model["arm_feature_kind"] = "f6_13"
+    artifact.write_text(json.dumps(model), encoding="utf-8")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["sha256"] = hashlib.sha256(artifact.read_bytes()).hexdigest()
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    with pytest.raises(ValueError, match="arm feature contract"):
+        SongJoint28WindowRuntime(copied)
+
+
+def test_collection_page_lists_and_loads_signed_candidate(tmp_path):
+    os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+    from PySide6.QtWidgets import QApplication
+    from emgforce.ui.realtime_inference_page import RealtimeInferencePage
+
+    app = QApplication.instance() or QApplication([])
+    page = RealtimeInferencePage(tmp_path / "models")
+    try:
+        page.refresh_models()
+        original_key = f"song28::{BUNDLE.resolve()}"
+        signed_key = f"song28::{SIGNED_BUNDLE.resolve()}"
+        assert page.model_combo.findData(original_key) >= 0
+        index = page.model_combo.findData(signed_key)
+        assert index >= 0
+        page.model_combo.setCurrentIndex(index)
+        assert "有符号" in page.model_combo.currentText()
+        assert "候选" in page.model_details.text()
+        page.set_connected(True)
+        page.load_selected_model()
+        deadline = time.monotonic() + 5
+        while page.bundle is None and time.monotonic() < deadline:
+            app.processEvents()
+            time.sleep(.01)
+        assert page.bundle is not None
+        assert page.bundle.metadata["song_joint28_signed_candidate"] is True
+        assert page.start_button.isEnabled()
+        assert "现场准确率" in page.model_details.text()
+        frames = []
+        page.worker.prediction_ready.connect(frames.append)
+        page.start_recognition()
+        rng = np.random.default_rng(29)
+        page.ingest_emg(rng.integers(-200, 200, size=(250, 8), dtype=np.int32),
+                        np.arange(250, dtype=np.int64),
+                        np.full(250, time.monotonic_ns(), dtype=np.int64))
+        imu_indices = np.rint(np.arange(113) * 250 / 112).astype(np.int64)
+        page.ingest_imu(rng.normal(size=(113, 3)).astype(np.float32),
+                        rng.normal(size=(113, 3)).astype(np.float32),
+                        np.arange(113, dtype=np.int64), imu_indices)
+        deadline = time.monotonic() + 5
+        while not frames and time.monotonic() < deadline:
+            app.processEvents()
+            time.sleep(.01)
+        assert frames and frames[-1].probabilities.shape == (28,)
+    finally:
+        assert page.shutdown()
+        page.close()
 
 
 def test_bundle_rejects_tampered_model_and_invalid_label_order(tmp_path):

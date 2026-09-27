@@ -20,6 +20,8 @@ The [model coefficients](SONG_ARM_SIGNED_ARM_MODEL.json), [full frame table](SON
 
 This remains a one-person, one-day software replay. S01–S03 did not pass formal collection readiness; S04 was previously inspected. Device axes are not a calibrated body frame. Replay CPU time is not hardware latency or end-to-end UI latency. No live model has been replaced. A fresh physical-session evaluation with independent action annotations, measured synchronization and latency is still needed before deciding whether this arm candidate should become the default recognizer.
 
+The candidate is also available as a **separate opt-in local model** at `collection/emg_meta/emg_meta/model_assets/song_joint28_signed`. The application labels it “有符号 IMU 候选”; the original bundle remains available and is not overwritten. The exported runtime reproduced all 25,360 saved stream frames, with maximum formal joint probability difference `1.26e-7`; its [export replay audit](../../../collection/emg_meta/emg_meta/model_assets/song_joint28_signed/song_joint28_replay_audit.json) records the hashes. This gives the next physical-device session a directly selectable comparison without treating the retrospective improvement as a proven deployment gain.
+
 Reproduce from `emgimu_classifier` with `PYTHONPATH=src;.`:
 
 ```powershell
