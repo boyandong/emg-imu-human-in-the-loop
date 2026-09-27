@@ -1,0 +1,20 @@
+{
+  "status": "frozen_before_outcomes",
+  "question": "Does a newly reconstructed circular-lag envelope-correlation family interact with calibration-only Personal Anchor on native EPN612 users?",
+  "historical_identity": "No claim of equivalence to the unavailable historical RLCS implementation",
+  "family": "ReconstructedRlcs: 25 ms RMS envelope, circular lags 1..4, correlation mean and standard deviation; eight channels, eight output features",
+  "source_users": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+  "source_oof_groups": [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15]],
+  "validation_users": [16, 17, 18],
+  "final_users": [19, 20, 21],
+  "target_calibration_shots_per_class": [1, 2, 5],
+  "target_split": "Reuse exact whole-trial calibration/evaluation IDs from frozen feature_bank_epn_probability_{validation,final}_20260915 runs; calibration trials excluded entirely from scoring",
+  "source_classifier": "StandardScaler plus balanced six-class LogisticRegression C=1, max_iter=1000, seed=20260915; 3-fold source-user OOF temperature; full source refit only after temperature selection",
+  "F0_provider": "Frozen existing F0 state and source-user OOF temperature from feature_bank_epn_probability_{validation,final}_20260915; no F0 refit",
+  "personal_anchor": "Mean standardized feature vector per class from target calibration trials only; local softmax temperature median of calibration self-distances; blend weight shots/(shots+2)",
+  "four_arms": ["F0 population", "equal F0+RLCS population", "F0 personalized", "equal F0+RLCS personalized"],
+  "interaction": "Joint minus RLCS-only minus Anchor-only plus F0 base, for macro-F1, negative log loss and negative Brier",
+  "primary_readout": "Per-user and pooled trial-level four-arm scores and reconstructed-RLCS population-versus-personalized paired errors",
+  "final_interpretation": "Exploratory confirmation because EPN users 19-21 have been examined by earlier project experiments; source and formula are frozen before this new run, but final users are not newly untouched",
+  "limits": "No own-device, force, calendar-day, or exact historical-RLCS claim"
+}
