@@ -3179,3 +3179,12 @@ calibrated F1. All source-only probabilities exactly replay the zero-shot
 parent, and calibration/evaluation trial IDs are disjoint. This public
 same-domain result supports the value of a short guided calibration, but does
 not decide the own-device model or later-day performance.
+
+An independently frozen [new-v2 cross-user intensity screen](../benchmarks/new_bank_v2/FORCE_REPORT.md)
+on native eight-channel LibEMG force data provides the counterpoint. The
+validation-selected F0v2 arm improves macro-F1 from 0.4835 to 0.6295 on
+validation users but falls below F0 on final users, 0.4939 versus 0.5118;
+final worst-condition F1 falls from 0.4102 to 0.3579. F2a is the final-only
+best arm and cannot be selected retrospectively. The new spatial bank is
+therefore condition-specific and calibration-sensitive, not a validated
+universal default representation.
