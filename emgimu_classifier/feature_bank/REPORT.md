@@ -3168,3 +3168,14 @@ change the validation choice. All 1,200 native-trial predictions are saved,
 independently rescored and byte-reproducible. See the
 [new wearing report](../benchmarks/new_bank_v2/WEARING_REPORT.md). This is
 public-device, trial-level evidence, not a live own-device approval.
+
+A [fixed one-shot same-domain calibration follow-up](../benchmarks/new_bank_v2/WEARING_CAL_REPORT.md)
+uses each of the two native target trials per gesture once as calibration and
+once as held-out evaluation in reciprocal folds. The previous F0v2-only arm
+rises from final macro-F1 0.6170 at zero shots to 0.9338 at one shot/class;
+the previously selected F0v2+F2a+F3c arm rises from 0.6560 to 0.9163.
+The full arm has slightly lower calibrated log loss, while F0v2 has higher
+calibrated F1. All source-only probabilities exactly replay the zero-shot
+parent, and calibration/evaluation trial IDs are disjoint. This public
+same-domain result supports the value of a short guided calibration, but does
+not decide the own-device model or later-day performance.

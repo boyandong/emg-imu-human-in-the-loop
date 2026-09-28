@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "prediction_rows": 960,
+  "assignments": 48,
+  "score_groups_recomputed": 8,
+  "parent_zero_shot_max_error": 0.0,
+  "paired": {
+    "validation_F0v2": {
+      "corrected": 48,
+      "new_errors": 2
+    },
+    "validation_F0v2+F2a+F3c": {
+      "corrected": 27,
+      "new_errors": 3
+    },
+    "final_F0v2": {
+      "corrected": 39,
+      "new_errors": 2
+    },
+    "final_F0v2+F2a+F3c": {
+      "corrected": 34,
+      "new_errors": 4
+    }
+  }
+}
