@@ -3188,3 +3188,9 @@ final worst-condition F1 falls from 0.4102 to 0.3579. F2a is the final-only
 best arm and cannot be selected retrospectively. The new spatial bank is
 therefore condition-specific and calibration-sensitive, not a validated
 universal default representation.
+The frozen-trial [paired analysis](../benchmarks/new_bank_v2/FORCE_REPORT.md#paired-feature-family-analysis)
+shows why: adding F2a or F3c separately reduces validation F1 by about
+0.064, and their positive validation interaction still leaves the combined
+arm below F0v2. On final users, F2a alone adds 0.0418 F1 but the combination
+loses 0.0142, with a negative interaction. These descriptive final-user
+comparisons do not alter the validation selection.

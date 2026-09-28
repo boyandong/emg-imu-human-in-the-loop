@@ -1,0 +1,13 @@
+{
+  "status": "ok",
+  "source_predictions_sha256": "f021fb07317495326366502a5ae1018396df247f8e46b591432717b4b973997c",
+  "paired_native_trials": 1176,
+  "cells": 28,
+  "rows": {
+    "FORCE_CONDITIONAL.csv": 84,
+    "FORCE_COMPLEMENTARITY.csv": 28,
+    "FORCE_INTERACTION.csv": 28
+  },
+  "formula": "P=-log_loss; interaction=P(B+F2a+F3c)-P(B+F2a)-P(B+F3c)+P(B)",
+  "boundary": "matched saved predictions only; final subjects descriptive, no selection/refit"
+}

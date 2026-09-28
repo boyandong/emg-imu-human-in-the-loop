@@ -43,6 +43,35 @@ do not establish the user's 250 Hz live behavior. Final users had been examined
 in earlier project studies, so this is descriptive confirmation rather than
 a wholly untouched project-wide test.
 
+## Paired feature-family analysis
+
+The [paired analysis](force_paired_analysis.py) uses only the frozen 5,880
+arm–trial probability rows. Each comparison matches the same native trials:
+588 validation and 588 final. The [conditional table](FORCE_CONDITIONAL.csv),
+[complementarity table](FORCE_COMPLEMENTARITY.csv), and
+[interaction table](FORCE_INTERACTION.csv) include pooled, subject, and
+intensity-condition cells. A positive log-loss delta means improvement over
+F0v2; interaction uses `P = -log_loss` and
+`P(both) - P(F2a) - P(F3c) + P(F0v2)`.
+
+| Phase | F2a F1 delta | F3c F1 delta | Both F1 delta | F2a/F3c error correlation | Log-loss interaction | F1 interaction |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Validation | -0.0644 | -0.0646 | -0.0624 | 0.7505 | +0.3159 | +0.0667 |
+| Final | +0.0418 | -0.0236 | -0.0142 | 0.6939 | -0.1003 | -0.0324 |
+
+The validation interaction is positive only relative to adding the two
+families separately: the joint arm is still worse than F0v2 by 0.0624 F1 and
+0.8257 log loss. On final users, F2a alone helps F1 but the combination loses
+0.0142 F1 relative to F0v2. F2a and F3c prediction disagreements rise from
+18.88% to 29.93%, while their error correlation remains high. Thus their
+errors are only partly complementary and the combination has no stable
+cross-user benefit. These final-user diagnostics are descriptive; they do not
+change the validation-selected F0v2 arm. The [audit](FORCE_PAIRED_AUDIT.json)
+records the source prediction SHA-256 and row counts. Run
+`python -m benchmarks.new_bank_v2.force_paired_analysis --verify` to check
+that every published table is byte-identical to a fresh derivation.
+
 Reproduce from `emgimu_classifier` with `PYTHONPATH=src;.` using
 `python -m benchmarks.new_bank_v2.force_run` followed by
-`python -m benchmarks.new_bank_v2.verify_force`.
+`python -m benchmarks.new_bank_v2.verify_force` and
+`python -m benchmarks.new_bank_v2.force_paired_analysis --verify`.
