@@ -1,6 +1,6 @@
 {
   "status": "schema_complete_evidence_partial",
-  "prediction_disagreement_recovery_sha256": "5956b26c62b5b78c00cc974fea10c4f4b6bdc2fb72ae858d2638e524eaf8ce8e",
+  "prediction_disagreement_recovery_sha256": "fa3636bf74b877135eebde3814b3c123d63d1933b52067007f8bd7ae443bf820",
   "artifacts": {
     "feature_family_results.csv": {
       "rows": 5231,
@@ -115,7 +115,7 @@
       "canonical_csv_sha256": "baa0c106b6cf321f31a9616f33222c0762496f9a246621f5001a3e6fef726319"
     },
     "error_complementarity.csv": {
-      "rows": 5157,
+      "rows": 5541,
       "required_fields": [
         "dataset",
         "subject",
@@ -183,8 +183,8 @@
           "session/domain": 12
         }
       },
-      "source_csv_sha256": "80b509e749d00e708ee358f30912669e684949488acf29da0b30566e77cdfff5",
-      "canonical_csv_sha256": "cb8fdeb651ec34ce5d7519d465f19918c87d8ac264036c7c03c5d091a12f452c"
+      "source_csv_sha256": "3d4df84c8a70cbc333e1afb4c1d8c89c4acce9565509b79de46267994ce4fcf7",
+      "canonical_csv_sha256": "30d5639879a6e0856d53311f78c63670b30c3d07537fe00c176d0a2d9b6f8ba9"
     },
     "calibration_curve.csv": {
       "rows": 20748,

@@ -107,3 +107,11 @@ one-person Song results separate. Source files are
 `../../benchmarks/new_bank_v2/export_family_screen_delivery.py`; the hash
 record is `../../benchmarks/new_bank_v2/FAMILY_SCREEN_DELIVERY_AUDIT.json`.
 The current canonical provenance check covers 52,012 rows.
+
+The new-v2 matched-error analysis adds 384 exact native-trial arm pairs to
+`error_complementarity.csv`. The 64 F2a×F3c interaction cells and the
+interpretation boundary are in
+`../../benchmarks/new_bank_v2/PAIR_REPORT.md`; independent verification and
+source hashes are in `../../benchmarks/new_bank_v2/PAIR_AUDIT.json` and
+`../../benchmarks/new_bank_v2/PAIR_DELIVERY_AUDIT.json`. The current
+canonical provenance check covers 52,396 rows.

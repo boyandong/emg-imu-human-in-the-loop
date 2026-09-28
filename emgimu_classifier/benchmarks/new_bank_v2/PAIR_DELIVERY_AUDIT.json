@@ -1,0 +1,9 @@
+{
+  "run_id": "feature_bank_new_v2_matched_errors_20260928",
+  "rows": 384,
+  "source_pair_sha256": "8eff202e3b5d0586f2b58f4c59a5aeffa36c21b88f64edf1e2f13144d9b71549",
+  "source_interaction_sha256": "2ee25571bb2c6b11156a4317d65a2588d82cff77600942b7eabe20594e5934cb",
+  "source_audit_sha256": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17",
+  "source_table_sha256": "3d4df84c8a70cbc333e1afb4c1d8c89c4acce9565509b79de46267994ce4fcf7",
+  "boundary": "four heterogeneous datasets; validation/final separate; Song one user and one date; undefined constant-error correlation is N/A"
+}

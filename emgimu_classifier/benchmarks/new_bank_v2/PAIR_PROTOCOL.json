@@ -1,0 +1,13 @@
+{
+  "name": "new_bank_v2_matched_error_complementarity_and_F2a_F3c_interaction",
+  "version": 1,
+  "parent_family_screen_protocol_sha256": "125339c1529f2800399a36ce8f6423934260490f9a8649fec1a04cbc49b26993",
+  "arms": ["F0v2", "F0v2+F2a", "F0v2+F3c", "F0v2+F2a+F3c"],
+  "pairing": "all six unordered arm pairs on exact matching native trial IDs and labels; pooled, subject and controlled-condition cells",
+  "error_outputs": ["error_correlation", "prediction_disagreement_rate", "a_correct_b_wrong", "a_wrong_b_correct", "both_correct", "both_wrong"],
+  "interaction_pair": ["F2a", "F3c"],
+  "interaction": "P(B+F2a+F3c)-P(B+F2a)-P(B+F3c)+P(B); P is negative held-out log loss; macro-F1 auxiliary",
+  "interpretation": "positive interaction is relative to the two separate additions and does not prove the joint arm exceeds the core",
+  "selection": "pure saved-prediction analysis; no model fitting, fusion-weight tuning or final-set arm selection",
+  "boundary": "four heterogeneous datasets; validation/final separate; Song one user and one date; undefined constant-error correlation is N/A"
+}
