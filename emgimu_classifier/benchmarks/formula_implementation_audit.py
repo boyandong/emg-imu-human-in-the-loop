@@ -75,7 +75,9 @@ REVIEWS = (
  ('F7_SPD_tangent_candidate','F7. Personal Anchor Coordinates','spd_anchor.py','SpdTangentPersonalAnchor','candidate_native_partial',
   'Frozen source-fitted F2c log-tangent reference; one equal-weight mean per native calibration trial, calibration-only class prototypes and Frobenius-equivalent tangent Euclidean distances. EPN 1/2/5-shot native trials and exploratory one-person Song 1/2-block calibrations show limited standalone/mixed incremental value; no0-shot personal anchor. Newly fitted concatenated-Core value, affine-invariant geodesic, historical equivalence and formal own-device validity remain unproven.','2H+2'),
  ('F8','F8. Session Signature','calibration.py','SessionSignature','partial',
-  'Residual norms, cosines and pair geometry exact generic block; family-specific scale/RLCS/spectral/SPD/quality summaries are separate partial study evidence, not complete in this API.','2H+H(H-1)/2'),
+  'Residual norms, cosines and pair geometry generic block. Family-specific summaries are provided separately by FamilySessionShiftSummary; no claim of predictive benefit from this interface alone.','2H+H(H-1)/2'),
+ ('F8_family_shift','F8. Session Signature','session_shift_summary.py','FamilySessionShiftSummary','candidate_formula',
+  'Source and calibration trial-balanced class profiles provide log global activation, scale pattern, log-band, affine-invariant SPD covariance, optional ring-vector and channel-quality shifts. This is a domain descriptor; native wearing evidence is narrower than own-device cross-day validation.','per-class family-specific summary'),
  ('F9_legacy','F9. Quality / Observability','families.py','QualityFamily','reference_only',
   'Legacy flatline is fraction of flat edges rather than longest run; unknown ADC yields zero without mask; optional low-frequency observation unavailable. Preserve legacy measurements.','6C+5'),
  ('F9v2','F9. Quality / Observability','quality_observability.py','QualityObservabilityFamily','partial',
@@ -89,7 +91,9 @@ REVIEWS = (
  ('SESSION','七、Session Calibration v0','session_pipeline.py','SessionCalibrationPipeline','partial',
   'Current rest/scale/quality/signature/local prototypes preserve long profile; controlled native wearing0/1 only, 2/5 unsupported per domain, current device/calendar-day validation missing.','two-family branch-specific state'),
  ('FUSION','八、Late Fusion：精确定义','calibration.py','late_fusion','partial',
-  'Nonnegative weighted probabilities and clipped quality renormalization; reject-all fallback retains valid distribution but explicit Unknown output absent here. Empirical source probability calibration audited for specified runs only.','H output probabilities'),
+  'Nonnegative weighted probabilities and clipped quality renormalization; reject-all fallback retains a valid scoreable distribution. Decision and rejection are exposed by a separate API. Empirical source probability calibration is audited for specified runs only.','H output probabilities'),
+ ('FUSION_DECISION','八、Late Fusion：精确定义','calibration.py','late_fusion_decision','candidate_api',
+  'Explicit Unknown decision for all-quality-rejected or source/validation-prespecified confidence rejection, with original scoreable probabilities and reason retained. Saved corruption replay does not establish an effective hardware quality detector.','H probabilities + one decision/reason per window'),
 )
 
 

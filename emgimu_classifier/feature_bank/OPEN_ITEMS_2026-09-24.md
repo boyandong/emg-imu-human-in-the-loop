@@ -1,5 +1,11 @@
 # Remaining evidence after the available-data work (2026-09-24)
 
+Scope update (2026-09-28): the user has explicitly retired exact replication of
+unavailable historical experiments and deferred new physical-device recordings.
+The historical rows below are provenance boundaries, not work to pursue for the
+new version. The recording-dependent rows remain unverified, rather than being
+treated as software failures or silently filled with public-data proxies.
+
 This is a dependency list, not a claim that the Feature Bank goal is complete. The row-by-row state remains in [`REQUIREMENT_AUDIT.csv`](REQUIREMENT_AUDIT.csv); `partial` means the available experiment answers only a narrower question. The new public [GRABMyo cross-day screen](../benchmarks/grabmyo_crossday/REPORT.md) adds genuine eight-channel, three-day evidence, but it does not remove the dependencies below.
 
 | Dependency | Affected requirements | Why the available evidence cannot settle it | Concrete route to completion |

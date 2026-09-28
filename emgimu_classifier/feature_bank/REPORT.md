@@ -1,5 +1,18 @@
 # Feature Bank + Personal Calibration — interim evidence
 
+The current project decision is to use the independently implemented, versioned
+feature families. Exact equivalence to unavailable earlier B0/X1-H/X2 runs is
+retired from the requested forward-work scope; historical references below remain
+only to distinguish prior claims from new evidence. New own-device participants,
+days and physical live sessions are deferred until recordings exist. Under the
+available public and one-person Song evidence, no new bank is approved for live
+deployment: validation-selected additions have inconsistent independent or
+descriptive final macro-F1 and condition-level effects. The existing live model
+remains unchanged, without a new accuracy claim. The formula audit now indexes
+the already implemented explicit
+Unknown decision and family-specific session-shift summary separately from
+their base APIs.
+
 This is an incomplete execution of the two supplied specifications, not a completion claim.
 The publisher's 2026-09-25 DS2 v9 release now supplies verified public trial-level
 subjective force codes; the prior v8-only statements that DS2 has no force labels
