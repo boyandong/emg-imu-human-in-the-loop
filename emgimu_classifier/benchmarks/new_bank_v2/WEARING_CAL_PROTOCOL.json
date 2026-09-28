@@ -1,0 +1,22 @@
+{
+  "name": "new_bank_v2_wearing_one_shot_calibration",
+  "version": 1,
+  "parent_experiment": "new_bank_v2_electrode_shift_8ch",
+  "parent_protocol_sha256": "0d875dbce6d4a4f3c5075993b2c28bcd59397aee90b5a0cf98683fafd549e8b6",
+  "archive": "D:/emg-imu-benchmarks/data/raw/libemg_electrode_shift/CIILData-main.zip",
+  "validation_subjects": [15, 16, 17],
+  "final_subjects": [18, 19, 20],
+  "target_domains": ["trial_1", "trial_2", "trial_3", "trial_4"],
+  "selected_parent_arm": "F0v2+F2a+F3c",
+  "comparison_arm": "F0v2",
+  "folds": ["rep0_cal_rep1_test", "rep1_cal_rep0_test"],
+  "shots_per_class": 1,
+  "source_fit": "each subject's unshifted training native trials; source-only feature thresholds, StandardScaler and balanced LogisticRegression C=1",
+  "prototype": "one same-domain complete native calibration trial per class in source-scaled feature space",
+  "prototype_temperature": "median source-training per-trial mean-squared distance to its source-class centroid, lower bounded at 1e-6",
+  "fusion": "fixed 0.5 source logistic plus 0.5 softmax negative prototype mean-squared distances divided by source-only temperature",
+  "controls": ["F0v2_source_only", "F0v2_one_shot", "F0v2+F2a+F3c_source_only", "F0v2+F2a+F3c_one_shot"],
+  "selection": "no new arm or weight selection; compare fixed treatments on matched held-out native trials",
+  "endpoint": "pooled macro-F1, log loss, Brier and minimum subject/domain macro-F1; paired corrected/new errors",
+  "boundary": "public same-user wearing trial classification; only 0/1 shot per class is supportable per domain; not own-device or live recognition"
+}
