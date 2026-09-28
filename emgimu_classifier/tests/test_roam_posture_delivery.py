@@ -19,3 +19,14 @@ def test_roam_posture_frozen_evidence_and_subject_boundary():
     assert result["validation_selected_arm"] == "F0v2"
     verify_pairs(verify=True)
     verify_envelope(verify=True)
+
+
+def test_roam_discovery_manifest_matches_frozen_native_audit():
+    discovery = ROOT.parent / "discovery"
+    manifest = json.loads((discovery / "DATASET_MANIFEST.json").read_text(encoding="utf-8"))
+    records = [row for row in manifest["datasets"] if row["id"] == "roam_emg"]
+    audit = json.loads((discovery / "ROAM_NATIVE_AUDIT.json").read_text(encoding="utf-8"))
+    assert len(records) == 1
+    assert records[0]["sha256"] == audit["archive_sha256"]
+    assert records[0]["size"] == audit["archive_bytes"]
+    assert audit["zip_crc_verified"] and audit["static_files_verified"] == 112

@@ -21,6 +21,7 @@ data and manifests use sibling directories. Raw archives and extracted data are 
 | UniBo-INAIL | historical | yes | prior 33-run ablation; Feature Bank chronological | `data/raw/unibo_inail` | verified complete |
 | EMG-EPN612 | new | labelled JSON adapter | cross-user calibration and late fusion | `data/raw/epn612` | verified complete |
 | sEMG-MANUS | new | native ZIP adapter | session/speed and calibration | `data/raw/semg_manus` | verified complete |
+| ROAM-EMG | new public supplement | native labelled CSV-in-ZIP adapter | new-v2 static posture, synthetic quality and source-only Rest reference for MANUS | `data/raw/roam_emg/data.zip` | author-linked 1,423,366,661-byte ZIP downloaded; SHA-256 and all member CRCs verified; 28 users × 4 static postures |
 | EMG-FMG load and limb position | new | EMG-only ZIP adapter | load/position held-out study | `data/raw/emg_fmg` | verified complete |
 | GREAT | new | no | no | `data/raw/great` | secondary, deferred until Tier 1 validation |
 | NinaPro DB6 | new | no | no | `data/raw/ninapro_db6` | secondary; NinaPro account and terms required |

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "generated_at": "2026-09-15",
-  "updated_at": "2026-09-24",
+  "updated_at": "2026-09-29",
   "raw_root": "D:/emg-imu-benchmarks/data/raw",
   "immutability": "archives and extracted raw files are never modified",
   "datasets": [
@@ -154,6 +154,24 @@
       "source": "https://physionet.org/content/hd-semg/2.0.0/",
       "uncompressed_size": 142600000000,
       "license": "ODC-BY-1.0"
+    },
+    {
+      "id": "roam_emg",
+      "tier": "public_supplement",
+      "status": "downloaded_verified",
+      "source": "https://github.com/roamlab/reactemg",
+      "download_url": "https://www.dropbox.com/scl/fi/isj4450alriqjfstkna2s/data.zip?rlkey=n5sf910lopskewzyae0vgn6j7&st=vt89hfpj&dl=1",
+      "path": "D:/emg-imu-benchmarks/data/raw/roam_emg/data.zip",
+      "size": 1423366661,
+      "sha256": "c9de0e25c187c216e4771d17ccfa19acb0e4028f907ea726b2a87a18d2db5343",
+      "zip_member_count": 187515,
+      "roam_subjects": 28,
+      "roam_static_recordings": 112,
+      "roam_emg_channels": 8,
+      "roam_nominal_sample_rate_hz": 200,
+      "roam_native_sanity_audit": "benchmarks/discovery/ROAM_NATIVE_AUDIT.json",
+      "license": "project repository MIT; data archive terms not separately stated in README",
+      "scope": "Author-hosted archive also includes preprocessed external datasets; only ROAM_EMG static CSVs used for posture/quality and source Rest. Raw archive kept outside Git."
     },
     {
       "id": "electrode_replacement_secondary",
