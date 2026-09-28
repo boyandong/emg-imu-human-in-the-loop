@@ -3239,3 +3239,16 @@ a separate same-day supplement. F3c is a wearing specialist candidate, not
 a general default; F2a is inconsistent across validation and descriptive
 final cohorts. The canonical family table and all 52,012 provenance rows
 pass the source-bound audit.
+
+The independent [new-v2 paired-error and interaction study](../benchmarks/new_bank_v2/PAIR_REPORT.md)
+matches all four candidate arms on 2,148 native trials before comparison.
+Its 384 arm-pair cells quantify error overlap and prediction disagreement;
+64 more cells test the F2a×F3c interaction without retraining. On final
+force, F2a-only is correct and F3c-only wrong on 60 matched trials, with
+the reverse on 31; on final electrode shift those counts are 9 and 27.
+Their errors therefore differ, but combining them does not consistently
+beat F0v2: final force and GRABMyo day joint macro-F1 are 0.0142 and
+0.0441 below core, while electrode shift and Song same-day are above it.
+The interaction sign alone is not an absolute performance gain. The 384
+canonical pair rows and all 52,396 provenance records pass verification;
+the 64 interaction rows retain their own versioned table and hash audit.
