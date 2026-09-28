@@ -24,9 +24,10 @@ diagnostics are explicitly labelled. Model compositions and calibration rules ar
 from source evidence, validation evidence or prespecified controls; final scores do not tune them.
 Seed: 20260915. Classical logistic regression runs use CPU; no neural training is needed
 for these representation comparisons.
-The recorded validation suite has 224 tests (223 passed, one skipped);
-`results/validation.json` carries the exact log hash. Older section-local test
-counts below are dated snapshots. The collection application's documented
+The dated `results/validation.json` log records 224 tests (223 passed, one
+skipped). The current classifier suite was rerun after the new-v2 feature
+calibration delivery: 247 passed, one skipped and 14 subtests passed.
+Older section-local test counts below are dated snapshots. The collection application's documented
 default `collection/emg_meta/emg_meta/data` directory did not contain a session
 at that earlier review. The user has since supplied four Song sessions at a
 separate path; their offline evaluation appears at the end of this report.
