@@ -1,0 +1,31 @@
+{
+  "name": "new_v2_roam_static_resting_synthetic_quality_v1",
+  "version": 1,
+  "parent_posture_protocol_sha256": "a4b322b062116b168c7ef22be113ad60957d7015c5c83b9879e0e9a1849a741c",
+  "parent_posture_prediction_sha256": "32bbe99a2a7347a13bd8d46492b25072ad0f34dcf355dfeb3bc77bc9cde9c764",
+  "archive": "D:/emg-imu-benchmarks/data/raw/roam_emg/data.zip",
+  "archive_sha256": "c9de0e25c187c216e4771d17ccfa19acb0e4028f907ea726b2a87a18d2db5343",
+  "source_subjects": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+  "validation_subjects": [19, 20, 21, 22, 23],
+  "final_subjects": [24, 25, 26, 27, 28],
+  "posture": "resting",
+  "sample_rate_hz": 200,
+  "window_samples": 40,
+  "labels": {"0": "relax", "1": "open", "2": "close"},
+  "arms": ["F0v2", "F0v2+F2a", "F0v2+F3c", "F0v2+F2a+F3c"],
+  "conditions": ["clean", "dropout_ch0", "dropout_ch1", "dropout_ch2", "dropout_ch3", "dropout_ch4", "dropout_ch5", "dropout_ch6", "dropout_ch7", "gain_half_all", "clip_q95_all", "line50_half_rms_all", "baseline_ramp_half_rms_all", "burst_ch0_2q95"],
+  "fault_definitions": {
+    "dropout_ch0..7": "Set the named EMG channel to zero in every held-out window; test all eight channel placements separately",
+    "gain_half_all": "Multiply all eight held-out channels by 0.5",
+    "clip_q95_all": "Clip each channel to its symmetric source-subject retained resting-posture window 95th absolute-sample percentile; not an ADC clipping claim",
+    "line50_half_rms_all": "Add a common-phase 50 Hz sine at 0.5 times each channel's source-subject retained resting-posture window RMS",
+    "baseline_ramp_half_rms_all": "Add a linear -0.5 to +0.5 source-window RMS drift to each channel over each 200 ms window",
+    "burst_ch0_2q95": "Add an eight-sample Hann burst of amplitude 2 times source-window channel-0 q95 absolute amplitude at samples 16..23 of every held-out window"
+  },
+  "source_state": "F0v2 Rest thresholds, source q95/RMS corruption references, feature metadata, scaler and classifier fit only source subjects 1-18 resting. No target or final signal fits state. Every corruption is applied only to a copy of the identical target native-bout windows.",
+  "classifier": "Same source-only balanced LogisticRegression C=1 max_iter=2000 random_state=20260929 as frozen ROAM posture study; clean resting predictions must replay byte-level values within 1e-10",
+  "selection": "No arm or fault selection by final results; preserve F0v2 choice from frozen posture validation. Fault family and strength fixed before this experiment.",
+  "quality_summary": "Six family coordinates: mean of eight dropout-channel macro-F1 values, and individual gain, clipping, line-noise, baseline-ramp and burst macro-F1 values; equal mean and minimum of six coordinates. Clean is a matched control, excluded from corrupted-quality mean.",
+  "primary_metrics": ["macro_f1", "log_loss", "brier", "minimum_subject_macro_f1", "drop_from_matched_clean_macro_f1", "minimum_corruption_macro_f1"],
+  "scope": "Synthetic test-only corruptions on public Myo eight-channel 200 Hz static resting bouts. Same held-out users and native bouts are paired across faults and arms; no measured hardware-fault labels, 250 Hz device, live transitions or real quality prevalence claim."
+}
