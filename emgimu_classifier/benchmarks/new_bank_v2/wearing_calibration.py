@@ -107,8 +107,9 @@ def run() -> None:
                             raise ValueError("one-shot domain split invalid")
                         prototypes = np.stack([zt[cal][target_y[cal] == label][0] for label in CLASSES])
                         distance = np.mean((zt[test, None, :] - prototypes[None, :, :]) ** 2, axis=2)
-                        personal_probability = softmax(-distance / temperature, axis=1)
+                        personal_probability = softmax(-distance.astype(np.float64) / temperature, axis=1)
                         blended = 0.5 * source_probability[test] + 0.5 * personal_probability
+                        blended /= blended.sum(axis=1, keepdims=True)
                         assignment = f"{phase}_{subject}_{domain}_cal{cal_rep}"
                         assignments[assignment] = {"calibration": target_trials[cal].tolist(),
                                                    "evaluation": target_trials[test].tolist(),
