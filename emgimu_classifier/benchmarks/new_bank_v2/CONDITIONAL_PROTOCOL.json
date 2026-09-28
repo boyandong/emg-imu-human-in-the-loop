@@ -1,0 +1,15 @@
+{
+  "name": "new_bank_v2_conditional_family_value_given_other_candidate",
+  "version": 1,
+  "parent_family_screen_protocol_sha256": "125339c1529f2800399a36ce8f6423934260490f9a8649fec1a04cbc49b26993",
+  "parent_pair_protocol_sha256": "6fea20b7d4e426a4497777f7e4d39121a25944cff9250c6c814c244dc4ca5db5",
+  "comparisons": [
+    {"core": "F0v2+F3c", "added_family": "F2a", "increment": "F0v2+F2a+F3c"},
+    {"core": "F0v2+F2a", "added_family": "F3c", "increment": "F0v2+F2a+F3c"}
+  ],
+  "metrics": ["delta_log_loss", "delta_brier", "delta_macro_f1", "delta_accuracy", "delta_ece", "core_and_increment_per_class_f1"],
+  "sign": "positive delta_log_loss and delta_brier mean lower loss/Brier after adding the family; positive delta_macro_f1 means better F1",
+  "pairing": "same dataset phase scope subject condition and native trial set, audited by parent matched-prediction analysis",
+  "selection": "descriptive saved-prediction calculation; no refit or final-set selection",
+  "boundary": "four heterogeneous datasets; Song is one user and one date; parent final cohorts previously inspected"
+}

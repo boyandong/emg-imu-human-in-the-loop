@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "protocol_sha256": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+  "family_screen_sha256": "3ccc6ae4db2ff7fd4273dc3e468dd90c31f87a90fabad3b37959ae93c4aac69b",
+  "pair_interaction_sha256": "2ee25571bb2c6b11156a4317d65a2588d82cff77600942b7eabe20594e5934cb",
+  "rows": 128,
+  "matched_cells": 64,
+  "boundary": "four heterogeneous datasets; Song is one user and one date; parent final cohorts previously inspected"
+}

@@ -63,7 +63,7 @@
       "canonical_csv_sha256": "689615069ece0c4271201017e0f0a9610ed6f5fc4f97f374d8cc6249d3eba1d5"
     },
     "conditional_incremental.csv": {
-      "rows": 6077,
+      "rows": 6205,
       "required_fields": [
         "dataset",
         "subject",
@@ -111,8 +111,8 @@
           "condition": 12
         }
       },
-      "source_csv_sha256": "8a72b55c6c3ccd1cf340e1fd75a9c812805a425d8849fabae786087217a3ec3c",
-      "canonical_csv_sha256": "baa0c106b6cf321f31a9616f33222c0762496f9a246621f5001a3e6fef726319"
+      "source_csv_sha256": "0e1056428e95c6184dbc899ef1a88ace07bb932db733d59211ee5fdf1ff265a7",
+      "canonical_csv_sha256": "f3f598c8e48d5930b6bc7d69d2d25a2df1551098600f3bf53fba9dd24d575e0d"
     },
     "error_complementarity.csv": {
       "rows": 5541,

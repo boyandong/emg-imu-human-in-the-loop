@@ -1,0 +1,8 @@
+{
+  "run_id": "feature_bank_new_v2_conditional_value_20260928",
+  "rows": 128,
+  "source_conditional_sha256": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+  "source_audit_sha256": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+  "source_table_sha256": "0e1056428e95c6184dbc899ef1a88ace07bb932db733d59211ee5fdf1ff265a7",
+  "boundary": "four heterogeneous datasets; Song is one user and one date; parent final cohorts previously inspected"
+}

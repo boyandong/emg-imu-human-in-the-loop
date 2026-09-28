@@ -3252,3 +3252,13 @@ beat F0v2: final force and GRABMyo day joint macro-F1 are 0.0142 and
 The interaction sign alone is not an absolute performance gain. The 384
 canonical pair rows and all 52,396 provenance records pass verification;
 the 64 interaction rows retain their own versioned table and hash audit.
+
+The [new-v2 Stage-2 conditional analysis](../benchmarks/new_bank_v2/CONDITIONAL_REPORT.md)
+then asks whether F2a or F3c still adds value when the other is already in
+the core. Its 128 matched cells show F3c's consistent held-out conditional
+log-loss and macro-F1 benefit on public electrode shift. F2a is unstable
+there and harms both metrics on the descriptive final split. Neither
+addition improves pooled force log loss in both phases; F2a's cross-day
+conditional loss also worsens. These contrasts support a wearing-specialist
+interpretation for F3c, not a universal concatenated bank. The canonical
+conditional table and all 52,524 records pass source-bound verification.

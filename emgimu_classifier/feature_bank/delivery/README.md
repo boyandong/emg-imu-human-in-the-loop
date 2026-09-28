@@ -115,3 +115,14 @@ interpretation boundary are in
 source hashes are in `../../benchmarks/new_bank_v2/PAIR_AUDIT.json` and
 `../../benchmarks/new_bank_v2/PAIR_DELIVERY_AUDIT.json`. The current
 canonical provenance check covers 52,396 rows.
+
+The new-v2 Stage-2 conditional comparison adds 128 source-only records to
+`conditional_incremental.csv`. It compares each of F2a and F3c against a
+core already containing the other, on the same matched native trials.
+The full source result, sign convention, and evidence limits are in
+`../../benchmarks/new_bank_v2/CONDITIONAL_REPORT.md`; the deterministic
+reproducer and hash records are
+`../../benchmarks/new_bank_v2/conditional_analysis.py`,
+`../../benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json`, and
+`../../benchmarks/new_bank_v2/CONDITIONAL_DELIVERY_AUDIT.json`.
+The current canonical provenance check covers 52,524 rows.
