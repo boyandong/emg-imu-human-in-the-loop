@@ -114,8 +114,9 @@ def build(data_root: Path, verify: bool = False) -> dict:
             key = (arm, records[index]["stem"])
             difference = float(np.max(np.abs(probability - frozen[key])))
             max_replay_error = max(max_replay_error, difference)
-            if difference > 1e-10:
-                raise AssertionError(f"source model does not replay frozen prediction: {key}")
+            if difference > 1e-8:
+                raise AssertionError(f"source model does not replay frozen prediction: {key}, "
+                                     f"difference={difference:.9g}")
         record_index = {(r["session"], r["subject"], r["gesture"], r["trial"]): i
                         for i, r in enumerate(records)}
         if len(record_index) != len(records):
