@@ -486,3 +486,21 @@ one person/day, previously inspected S04 and three sessions that failed
 whole-session readiness. F2a is a current covariance candidate, not a
 recovered historical spatial algorithm, and the live F0+F2c bundle stays
 unchanged.
+
+## Four-session cohort readiness
+
+The [cohort audit](COHORT_READINESS_AUDIT.json) checks the four original HDF5
+files together, rather than interpreting S04's individual `passed` status as
+acceptance of the entire study. It verifies each session's manifest against
+the HDF5 hash, participant identity, acquisition order, local calendar day,
+and recorded re-donning attestation. The cohort **fails**: S01–S03 each fail
+individual readiness; S03 was recorded on 2026-09-18, the same day as S01/S02
+despite its next-day validation role; and S02–S04 have no re-donning notes.
+S04's individual readiness is valid for that session only. No score from
+these four files is a formal cross-day or verified re-donning estimate.
+
+Future four-session acquisitions can run
+`python -m emgforce.quality.cohort_readiness S01/session.h5 S02/session.h5 S03/session.h5 S04/session.h5 --output COHORT_READINESS_AUDIT.json`
+from the collection package directory. A pass remains an operator-metadata
+gate, not independent proof of electrode removal, model immutability or live
+recognition accuracy.

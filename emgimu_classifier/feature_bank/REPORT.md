@@ -2706,7 +2706,7 @@ outside this repository, in inaccessible private history, or under unrelated
 names without preserved documentation.
 # Real 8-channel single-participant follow-up
 
-The user-provided Song HDF5 v3 sessions have now been audited and evaluated in an exploratory split-locked offline study: [study report](../benchmarks/song_real8/REPORT.md) and [machine-readable results](../benchmarks/song_real8/RESULTS.json). Four-state S04 trial accuracy is 90.3% (macro-F1 90.0%); the 28-state endpoint is materially weaker at 64.6% (macro-F1 53.1%). These one-day cue-labelled results do not establish live UniBo recognition or formal collection acceptance.
+The user-provided Song HDF5 v3 sessions have now been audited and evaluated in an exploratory split-locked offline study: [study report](../benchmarks/song_real8/REPORT.md) and [machine-readable results](../benchmarks/song_real8/RESULTS.json). Four-state S04 trial accuracy is 90.3% (macro-F1 90.0%); the 28-state endpoint is materially weaker at 64.6% (macro-F1 53.1%). These one-day cue-labelled results do not establish live UniBo recognition or formal collection acceptance. A separate [four-session cohort gate](../benchmarks/song_real8/COHORT_READINESS_AUDIT.json) confirms that S03 did not occur on a later day and S02–S04 lack re-donning attestations; S04's individual pass cannot certify the cohort.
 
 The distinct pre-formal Song calibration blocks now provide a direct paired
 personal/session follow-up: one neutral, pinch, fist and open block per class

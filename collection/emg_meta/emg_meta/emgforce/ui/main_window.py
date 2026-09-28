@@ -178,8 +178,9 @@ class MainWindow(QMainWindow):
                    if aligned else f"🎉 采集完成！实验文件：{path}")
         readiness = self.session.last_readiness
         if readiness is not None:
-            message += (" | 分类门禁：通过" if readiness.get("status") == "passed"
-                        else " | 分类门禁：未通过，请查看 SESSION_COLLECTION_READINESS.json")
+            message += (" | 单场质量门禁：通过；跨场/跨天需另行审核"
+                        if readiness.get("status") == "passed"
+                        else " | 单场质量门禁：未通过，请查看 SESSION_COLLECTION_READINESS.json")
         self.statusBar().showMessage(message)
         self.device_page.set_recording(False)
         if path:

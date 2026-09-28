@@ -40,7 +40,9 @@ def refresh_table(path: Path, update_boundary: bool = False) -> int:
                 row["boundary"] = ("Native channel/rate/label capabilities and unsupported factors recorded. "
                                    "Public DS2 v9 has verified force-coded trials and 0/1/2/5-shot "
                                    "personal curves under distinct unseen-high and product modes; it is "
-                                   "three-channel public evidence, not eight-channel device validation.")
+                                   "three-channel public evidence, not eight-channel device validation. "
+                                   "The Song four-session cohort gate fails the specified cross-day and "
+                                   "re-donning checks, despite S04's individual pass.")
             elif requirement == "GOAL-CAL":
                 row["boundary"] += (" Separate public DS2 v9 personal 0/1/2/5-shot curves "
                                     "now quantify four-gesture signal time 0/40/80/200 seconds; "

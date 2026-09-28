@@ -1,0 +1,59 @@
+{
+  "status": "failed",
+  "scope": "four-session formal collection cohort; individual readiness, one participant, chronology, day split and operator attestations",
+  "sessions": {
+    "S01": {
+      "participant_id": "Song",
+      "date": "2026-09-18",
+      "start_datetime": "2026-09-18T16:28:31.997103+08:00",
+      "hdf5_sha256": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+      "individual_readiness": "failed",
+      "donning_attested": false,
+      "model_freeze_attested": true,
+      "expected_split": "train"
+    },
+    "S02": {
+      "participant_id": "Song",
+      "date": "2026-09-18",
+      "start_datetime": "2026-09-18T17:00:35.212489+08:00",
+      "hdf5_sha256": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+      "individual_readiness": "failed",
+      "donning_attested": false,
+      "model_freeze_attested": true,
+      "expected_split": "train"
+    },
+    "S03": {
+      "participant_id": "Song",
+      "date": "2026-09-18",
+      "start_datetime": "2026-09-18T17:23:31.473226+08:00",
+      "hdf5_sha256": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+      "individual_readiness": "failed",
+      "donning_attested": false,
+      "model_freeze_attested": true,
+      "expected_split": "val"
+    },
+    "S04": {
+      "participant_id": "Song",
+      "date": "2026-09-18",
+      "start_datetime": "2026-09-18T20:39:45.535118+08:00",
+      "hdf5_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+      "individual_readiness": "passed",
+      "donning_attested": false,
+      "model_freeze_attested": true,
+      "expected_split": "test"
+    }
+  },
+  "problems": [
+    "S01: individual readiness failed",
+    "S02: individual readiness failed",
+    "S03: individual readiness failed",
+    "S03 validation must occur on a later local day than S01/S02",
+    "S02: no recorded electrode re-donning attestation",
+    "S03: no recorded electrode re-donning attestation",
+    "S04: no recorded electrode re-donning attestation"
+  ],
+  "warnings": [
+    "Donning notes and freeze confirmation are operator attestations, not independent physical or historical proof"
+  ],
+  "boundary": "A pass does not establish live recognition accuracy, real reapplication, or immutable model files; those require independent measurements and archived model hashes."
+}
