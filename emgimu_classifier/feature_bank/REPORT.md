@@ -3374,3 +3374,25 @@ four-arm set. F0v2 retains the strongest validation equal-axis mean
 (0.7861) and minimum (0.5775); the latter remains the wearing axis.
 Speed and real signal quality remain N/A for this exact bank, and none
 of the public 200 Hz posture result validates the user's 250 Hz device.
+
+## Exact new-v2 synthetic quality stress test
+
+The [frozen ROAM quality study](../benchmarks/new_bank_v2/ROAM_QUALITY_REPORT.md)
+applies 13 source-prespecified faults only to held-out resting-posture
+windows; source models and 1,828 Rest calibration windows are unchanged.
+Its clean predictions replay the posture study for every target bout.
+F0v2 has the highest validation synthetic-quality family mean (0.9110)
+versus 0.7221/0.6915/0.6856 for the F2a, F3c and joint arms. The
+descriptive final ordering is the same, but F0v2's worst individual
+channel dropout falls to 0.4960/0.4929 F1 in validation/final. Mean
+resilience is not a worst-channel guarantee; F2a/F3c arms are particularly
+sensitive to the fixed 50 Hz contamination. All 5,040 saved predictions,
+168 matched groups, 55,186 canonical records and the source-only clean
+replay are audited.
+
+The [six-axis synthetic envelope](../benchmarks/new_bank_v2/ENVELOPE_QUALITY_REPORT.md)
+adds an explicitly labelled quality simulation to force, wearing, day,
+user and posture. F0v2's validation equal-axis mean is 0.8069 and its
+minimum remains wearing at 0.5775. Execution speed for the exact bank
+and *real* hardware-quality measurements remain unavailable. These
+synthetic failures do not measure the user's device or live recognition.

@@ -1,0 +1,21 @@
+{
+  "status": "ok",
+  "protocol_sha256": "8db4618b0c8feb8778e80449dbf77b244d3ff5bc92f900de87feddbf3b321c0b",
+  "parent_five_axis_envelope_sha256": "ae823deb31c691353aa7e821cd51e0ac06a6ee917f2944ea1ba83ab437ad03a8",
+  "quality_result_sha256": "1243d75e4e123e833e30893a1caded0993d0be4dc27ef0f6d7e58674af9432d0",
+  "quality_screen_sha256": "b5c02df9017d0a9aff6325e51ba4e0a6a4f02f3d4ff856f08c546c2170df6416",
+  "rows": 8,
+  "observed_axes": [
+    "force",
+    "wearing",
+    "day",
+    "user",
+    "posture",
+    "quality_synthetic"
+  ],
+  "unobserved_axes": [
+    "speed",
+    "quality_real"
+  ],
+  "boundary": "Synthetic faults applied to public 8-channel ROAM static resting windows; no observed hardware-fault prevalence or own 250 Hz device claim. Quality and posture share ROAM users, day and user share GRABMyo records; force and other axes use different labels/rates. Six-axis mean is descriptive, not pooled accuracy; explicit execution-speed and real hardware-quality measurements remain unavailable."
+}

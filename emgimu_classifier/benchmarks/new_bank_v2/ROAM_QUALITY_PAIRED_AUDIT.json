@@ -1,0 +1,14 @@
+{
+  "status": "ok",
+  "analysis_protocol_sha256": "02f10332160e6eb3f06b1629b883053ffb5e5233fdd0591a47656fd9980e6051",
+  "parent_prediction_sha256": "2d9ae2e2c5a36dc8d746bc5b247160208cab47e21b6d828bdc99d29f96f6b338",
+  "saved_pooled_score_groups_replayed": 112,
+  "matched_cells": 168,
+  "rows": {
+    "ROAM_QUALITY_SCREEN.csv": 672,
+    "ROAM_QUALITY_CONDITIONAL.csv": 336,
+    "ROAM_QUALITY_COMPLEMENTARITY.csv": 168,
+    "ROAM_QUALITY_INTERACTION.csv": 168
+  },
+  "boundary": "Post-hoc analysis of frozen public synthetic-fault predictions. Bouts and fault conditions are repeated measurements of the same native recordings. No measured sensor-fault label or own-device reliability claim."
+}

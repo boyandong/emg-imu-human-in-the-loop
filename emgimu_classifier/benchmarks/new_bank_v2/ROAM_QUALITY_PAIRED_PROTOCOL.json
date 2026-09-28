@@ -1,0 +1,14 @@
+{
+  "name": "new_v2_roam_static_resting_synthetic_quality_matched_bout_analysis_v1",
+  "version": 1,
+  "parent_protocol_sha256": "784e2ffcaace2f8bf031905e40a332f12bd41a49033202e68d759a1fcc7e6cc8",
+  "parent_result_sha256": "1243d75e4e123e833e30893a1caded0993d0be4dc27ef0f6d7e58674af9432d0",
+  "parent_prediction_sha256": "2d9ae2e2c5a36dc8d746bc5b247160208cab47e21b6d828bdc99d29f96f6b338",
+  "arms": ["F0v2", "F0v2+F2a", "F0v2+F3c", "F0v2+F2a+F3c"],
+  "classes": [0, 1, 2],
+  "cells": "Each of validation and descriptive final, for clean plus 13 named synthetic faults: one pooled and five subject-level groups, paired on identical native label-bout IDs across four arms",
+  "unit": "one contiguous native label bout aggregated from disjoint pure-label 200 ms EMG windows",
+  "conditional": "Add F2a given F0v2+F3c and F3c given F0v2+F2a; positive delta_log_loss means lower loss",
+  "interaction": "P(F0v2+F2a+F3c)-P(F0v2+F2a)-P(F0v2+F3c)+P(F0v2), P=-held-out log loss",
+  "boundary": "Post-hoc analysis of frozen public synthetic-fault predictions. Bouts and fault conditions are repeated measurements of the same native recordings. No measured sensor-fault label or own-device reliability claim."
+}

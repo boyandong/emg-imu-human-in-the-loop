@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_roam_quality_synthetic_v2_20260929",
+  "exports": {
+    "feature_family_results.csv": {
+      "rows": 672,
+      "source_sha256": "b5c02df9017d0a9aff6325e51ba4e0a6a4f02f3d4ff856f08c546c2170df6416",
+      "output_sha256": "df0517199f48cbdb1da35b680300e2072eb99025d473edaa3826c7eb40dc8c71"
+    },
+    "conditional_incremental.csv": {
+      "rows": 336,
+      "source_sha256": "630bbf57084ec554092827a995d67a9e90ef057111c90e15022bda5122dd68ce",
+      "output_sha256": "9ec32c2c99ba1155da7c596bc50e745cd1b9fc7281c2000133bccac84d3e0c0a"
+    },
+    "error_complementarity.csv": {
+      "rows": 168,
+      "source_sha256": "11f19927882667898dd3f317967c9a5afbe9221869b3cbae821240e98c59f23f",
+      "output_sha256": "7c18315842e258970e1272b16202974e0a074a401e6648788223347a28578595"
+    }
+  },
+  "interaction_sha256": "3a655feab29ee728f10f0b2fc83b17398f371a9303ddd6e0e2874f4d8313d24c",
+  "envelope_sha256": "d7c30e133f92d4207921f0a40e713a1b8c21bd8cd3b03ae2aace3888539a2f4f",
+  "paired_audit_sha256": "119b0a34a8cdf9dcd83a0b412053849141f9b5589c9da58e4e88d89c58ea2ede",
+  "boundary": "Post-hoc analysis of frozen public synthetic-fault predictions. Bouts and fault conditions are repeated measurements of the same native recordings. No measured sensor-fault label or own-device reliability claim."
+}

@@ -20,7 +20,8 @@ DATASET_NAMES = {"force": "libemg_contraction_intensity",
                  "wearing": "libemg_electrode_shift",
                  "manus": "semg_manus",
                  "grab_user": "grabmyo_forearm8",
-                 "roam_posture": "roam_emg_static"}
+                 "roam_posture": "roam_emg_static",
+                 "roam_quality": "roam_emg_static"}
 
 
 def csv_text(rows: list[dict]) -> str:
