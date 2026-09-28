@@ -3194,3 +3194,16 @@ shows why: adding F2a or F3c separately reduces validation F1 by about
 arm below F0v2. On final users, F2a alone adds 0.0418 F1 but the combination
 loses 0.0142, with a negative interaction. These descriptive final-user
 comparisons do not alter the validation selection.
+
+A frozen [new-v2 force personal-calibration follow-up](../benchmarks/new_bank_v2/FORCE_CAL_REPORT.md)
+uses the parent validation-selected F0v2 on public eight-channel intensity
+trials. For each target user and ten four-repetition conditions, it reserves
+repetitions 1–2 for 0/1/2-shot class prototypes and evaluates all budgets on
+the same repetitions 3–4. On descriptive final users, macro-F1 rises from
+0.5187 to 0.7254/0.7369 and worst-condition F1 from 0.3320 to
+0.5974/0.6718. Final minimum-subject F1 remains only 0.4836/0.4851 after
+calibration, so a pooled gain does not solve all users. All source-only
+probabilities replay the frozen parent; 3,360 prediction rows and 40 nested
+assignments pass independent verification. MVC lacks enough native trials
+for the matched 2-shot protocol and is excluded. This does not establish
+new-day or own-device live reliability.

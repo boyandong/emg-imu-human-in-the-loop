@@ -149,7 +149,7 @@ def run() -> None:
                                          "label": int(label),
                                          **{f"p_{c}": float(v) for c, v in zip(CLASSES, values)}})
         print(f"force calibration {phase}: {len(target_trials)} target trials loaded", flush=True)
-    if len(rows) != 1680 or len(assignments) != 40:
+    if len(rows) != 3360 or len(assignments) != 40:
         raise AssertionError("unexpected force calibration output shape")
     scores = {phase: {arm: {method: _score(rows, phase, arm, method) for method in METHODS}
                       for arm in ARMS} for phase in ("validation", "final")}
