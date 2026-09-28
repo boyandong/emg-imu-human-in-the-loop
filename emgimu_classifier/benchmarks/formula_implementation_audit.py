@@ -23,6 +23,7 @@ from emgimu.feature_bank.document_signal import RestNoiseLocalDetailFamily,Docum
 from emgimu.feature_bank.body_frame import CalibratedBodyContextFamily
 from emgimu.feature_bank.spd_anchor import SpdTangentPersonalAnchor
 from emgimu.feature_bank.reconstructed_ring import ReconstructedRlcs
+from emgimu.feature_bank.calibration import PersonalAnchor
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
 # Exact historical mandatory reuse cannot be replaced by a conceptual candidate.
@@ -70,7 +71,7 @@ REVIEWS = (
  ('F6b','F6b. Public dataset posture context','families.py','BodyContextFamily','candidate_formula',
   'Training-fixed posture one-hot, unseen category rejection; explicit oracle context, never fabricated IMU.','P posture block'),
  ('F7','F7. Personal Anchor Coordinates','calibration.py','PersonalAnchor','partial',
-  'Mean/median prototypes, Euclidean/source-or-cal standardized/cosine distances, fixed-cal similarity and margins; optional shrinkage Mahalanobis absent. Separate frozen-source SPD tangent candidate below is not an affine-invariant geodesic.','2H+2'),
+  'Mean/median prototypes, Euclidean/source-or-cal standardized/cosine distances, fixed-cal similarity and margins. Optional classwise shrinkage Mahalanobis is implemented only with at least feature dimension + 2 calibration samples per class; present 1/2/5-shot native high-dimensional budgets are ineligible. Separate frozen-source SPD tangent candidate below is not an affine-invariant geodesic.','2H+2'),
  ('F7_SPD_tangent_candidate','F7. Personal Anchor Coordinates','spd_anchor.py','SpdTangentPersonalAnchor','candidate_native_partial',
   'Frozen source-fitted F2c log-tangent reference; one equal-weight mean per native calibration trial, calibration-only class prototypes and Frobenius-equivalent tangent Euclidean distances. EPN 1/2/5-shot native trials and exploratory one-person Song 1/2-block calibrations show limited standalone/mixed incremental value; no0-shot personal anchor. Newly fitted concatenated-Core value, affine-invariant geodesic, historical equivalence and formal own-device validity remain unproven.','2H+2'),
  ('F8','F8. Session Signature','calibration.py','SessionSignature','partial',
@@ -136,6 +137,15 @@ def build(document, output):
     measured['SpdTangentPersonalAnchor']={'fixture_dimension':spd_values.shape[1],
         'names':list(spd_anchor.feature_names),'source_immutable':True,
         'fixture_override':'synthetic source8, disjoint calibration4 and evaluation4 for API shape only; no native performance claim',
+        'native_evaluation':'N/A'}
+    small_cal=rng.normal(size=(12,2));small_labels=np.repeat([0,1],6)
+    mahalanobis=PersonalAnchor(metric='shrinkage_mahalanobis').fit(small_cal,small_labels)
+    before=pickle.dumps(mahalanobis)
+    values=mahalanobis.transform(rng.normal(size=(3,2)))
+    if values.shape!=(3,6) or not np.isfinite(values).all() or before!=pickle.dumps(mahalanobis):
+        raise AssertionError('Optional shrinkage Mahalanobis anchor fixture failed')
+    measured['PersonalAnchor']={'fixture_dimension':values.shape[1],
+        'source_immutable':True,'fixture_override':'synthetic two-class, two-feature, six calibration samples per class; no native eligible 1/2/5-shot high-dimensional result',
         'native_evaluation':'N/A'}
     spectrum=LogBandEnergyFamily().fit(batch).transform(batch)
     shift=PersonalSessionSpectralShift().fit_long_term(spectrum[:8],[f'long-{i}' for i in range(8)])

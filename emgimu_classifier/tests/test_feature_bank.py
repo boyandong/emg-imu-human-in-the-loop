@@ -134,6 +134,34 @@ class CalibrationTests(unittest.TestCase):
         self.assertEqual(transformed.shape, (7, 10))
         np.testing.assert_array_equal(prototypes, anchor.prototypes_)
 
+    def test_shrinkage_mahalanobis_requires_enough_calibration_and_matches_quadratic_form(self) -> None:
+        import pickle
+        class_zero = np.array([[-1., -2.], [-1., 2.], [0., -1.], [0., 1.], [1., -2.], [1., 2.]])
+        class_one = np.array([[3., 1.], [3., 3.], [4., 0.], [4., 4.], [5., 1.], [5., 3.]])
+        x = np.vstack((class_zero, class_one))
+        y = np.repeat([0, 1], 6)
+        anchor = PersonalAnchor(metric="shrinkage_mahalanobis", covariance_shrinkage=0.25).fit(x, y)
+        query = np.array([[0.5, 0.25]])
+        expected = []
+        for values in (class_zero, class_one):
+            center = values.mean(axis=0)
+            covariance = np.cov(values, rowvar=False)
+            isotropic = np.trace(covariance) / 2
+            regularized = 0.75 * covariance + 0.25 * isotropic * np.eye(2)
+            regularized += max(isotropic * 1e-8, 1e-10) * np.eye(2)
+            delta = query[0] - center
+            expected.append(np.sqrt(delta @ np.linalg.inv(regularized) @ delta))
+        before = pickle.dumps(anchor)
+        np.testing.assert_allclose(anchor.transform(query)[0, :2], expected, rtol=1e-6)
+        np.testing.assert_allclose(anchor.transform(np.vstack((query, [[1e9, -1e9]])))[0],
+                                   anchor.transform(query)[0], rtol=0, atol=0)
+        self.assertEqual(before, pickle.dumps(anchor))
+        with self.assertRaisesRegex(ValueError, "dimension \\+ 2"):
+            anchor.fit(x[[0, 1, 2, 6, 7, 8]], y[[0, 1, 2, 6, 7, 8]])
+        self.assertEqual(before, pickle.dumps(anchor))
+        with self.assertRaises(ValueError):
+            PersonalAnchor(metric="shrinkage_mahalanobis", covariance_shrinkage=0)
+
     def test_reliability_shrinkage_and_quality_fusion(self) -> None:
         labels = np.repeat(np.arange(4), 2)
         calibration = {

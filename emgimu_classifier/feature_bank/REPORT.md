@@ -3059,3 +3059,9 @@ matches the earlier frozen EPN interaction arrays exactly. Canonical tables
 contain 96 four-arm score rows, 72 conditional increments, 24 reconstructed
 population-versus-anchor error rows, and 24 interaction rows. Final users were
 inspected in earlier project experiments, so these results are descriptive.
+
+The optional F7 classwise shrinkage-Mahalanobis distance now has an independent
+quadratic-form test and rejects calibration sets with fewer than feature
+dimension + 2 samples in any class. The existing native 1/2/5-shot high-dimensional
+calibration protocols fail that eligibility rule, so this implementation adds
+formula coverage without a native performance claim or a deployment change.

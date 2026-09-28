@@ -43,16 +43,23 @@ class PersonalNormalizer:
 class PersonalAnchor:
     """Gesture-relative coordinates fit only from explicitly supplied calibration rows."""
 
-    def __init__(self, *, metric: str = "standardized_euclidean", prototype: str = "mean") -> None:
-        if metric not in {"euclidean", "standardized_euclidean", "cosine"}:
+    def __init__(self, *, metric: str = "standardized_euclidean", prototype: str = "mean",
+                 covariance_shrinkage: float = 0.2) -> None:
+        if metric not in {"euclidean", "standardized_euclidean", "cosine", "shrinkage_mahalanobis"}:
             raise ValueError("unsupported anchor metric")
         if prototype not in {"mean", "median"}:
             raise ValueError("unsupported prototype estimator")
+        if metric == "shrinkage_mahalanobis" and prototype != "mean":
+            raise ValueError("Mahalanobis anchors require mean prototypes")
+        if not np.isfinite(covariance_shrinkage) or not 0 < covariance_shrinkage <= 1:
+            raise ValueError("covariance shrinkage must be in (0, 1]")
         self.metric = metric
         self.prototype = prototype
+        self.covariance_shrinkage = float(covariance_shrinkage)
         self.classes_: np.ndarray | None = None
         self.prototypes_: np.ndarray | None = None
         self.scale_: np.ndarray | None = None
+        self.precisions_: np.ndarray | None = None
         self.similarity_scale_: float | None = None
 
     def fit(self, features: np.ndarray, labels: np.ndarray) -> "PersonalAnchor":
@@ -64,9 +71,25 @@ class PersonalAnchor:
         classes = np.unique(y)
         if len(classes) < 2:
             raise ValueError("anchors require at least two gesture classes")
+        if self.metric == "shrinkage_mahalanobis" and any(
+            int(np.sum(y == label)) < x.shape[1] + 2 for label in classes
+        ):
+            raise ValueError("Mahalanobis requires at least dimension + 2 calibration samples per class")
         estimator = np.mean if self.prototype == "mean" else np.median
         self.classes_ = classes
         self.prototypes_ = np.stack([estimator(x[y == label], axis=0) for label in classes])
+        if self.metric == "shrinkage_mahalanobis":
+            dimension = x.shape[1]
+            precisions = []
+            for index, label in enumerate(classes):
+                centered = x[y == label] - self.prototypes_[index]
+                covariance = centered.T @ centered / (len(centered) - 1)
+                isotropic = float(np.trace(covariance)) / dimension
+                regularized = ((1 - self.covariance_shrinkage) * covariance
+                    + self.covariance_shrinkage * isotropic * np.eye(dimension)
+                    + max(isotropic * 1e-8, EPS) * np.eye(dimension))
+                precisions.append(np.linalg.inv(regularized))
+            self.precisions_ = np.stack(precisions)
         median = np.median(x, axis=0)
         self.scale_ = np.maximum(1.4826 * np.median(np.abs(x - median), axis=0), EPS)
         self.similarity_scale_ = max(float(np.median(self._distances(x))), EPS)
@@ -82,6 +105,10 @@ class PersonalAnchor:
             dot = x @ self.prototypes_.T
             norms = np.linalg.norm(x, axis=1, keepdims=True) * np.linalg.norm(self.prototypes_, axis=1)[None, :]
             distances = 1.0 - dot / np.maximum(norms, EPS)
+        elif self.metric == "shrinkage_mahalanobis":
+            delta = x[:, None, :] - self.prototypes_[None, :, :]
+            squared = np.einsum("nkd,kde,nke->nk", delta, self.precisions_, delta)
+            distances = np.sqrt(np.maximum(squared, 0.0))
         else:
             delta = x[:, None, :] - self.prototypes_[None, :, :]
             if self.metric == "standardized_euclidean":
