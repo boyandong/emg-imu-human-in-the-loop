@@ -3219,3 +3219,12 @@ burden reduction therefore sacrifices much of the gain; it is not a validated
 short-calibration default. All 3,360 predictions and four nested assignments
 pass independent checks, and the 156 additional calibration-curve records
 are provenance-verified.
+
+The new-v2 eight-channel candidate full bank now has a matched
+[leave-one-family-out study](../benchmarks/new_bank_v2/LOFO_REPORT.md) on both
+public wearing and cross-user intensity trials. F0v2 is useful in all four
+phase–dataset comparisons. F2a's inclusion lowers descriptive final wearing
+F1 by 0.1178, while F3c's inclusion lowers descriptive final force F1 by
+0.0560. The complete three-family concatenation is therefore not a stable
+common default. All 5,664 arm–trial predictions, 1,416 native trials, exact
+parent replays and 176 canonical ablation rows pass independent checks.

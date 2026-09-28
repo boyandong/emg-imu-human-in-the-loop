@@ -1,0 +1,9 @@
+{
+  "run_id": "feature_bank_new_v2_lofo_20260928",
+  "rows": 176,
+  "source_results_sha256": "0273fe1c5fae48872f809ffb71a019936fd0c66db47fc9a36104f801866c670d",
+  "source_predictions_sha256": "b1b62d9a95d88506dbee29aff03fd62e20350c3ad3e5eaf3e857a088fb2a86bb",
+  "source_verification_sha256": "e97c6075355ef5a8d290a9d0a42355cde609441663eae1c255eed438b33de437",
+  "source_table_sha256": "93eba6db7a553929eeb08d9ad3640da99cb005508cdf3ff03e83f661180d65b8",
+  "boundary": "fixed candidate bank; public matched trials; force full arm not parent-selected"
+}

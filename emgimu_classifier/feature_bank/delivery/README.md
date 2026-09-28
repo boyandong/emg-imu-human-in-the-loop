@@ -87,4 +87,13 @@ source results from `../../benchmarks/new_bank_v2/FORCE_REF_CAL_REPORT.md`.
 The exporter and SHA audit are
 `../../benchmarks/new_bank_v2/export_force_ref_cal_delivery.py` and
 `../../benchmarks/new_bank_v2/FORCE_REF_CAL_DELIVERY_AUDIT.json`.
-The current canonical provenance check covers 51,580 rows.
+The canonical provenance check covered 51,580 rows at that export.
+
+The new-v2 eight-channel candidate full-bank leave-one-family-out study adds
+176 pooled, subject and condition records to `ablation_full_bank.csv`, with
+per-class F1 and full-versus-removed F1 deltas. Its independently verified
+source study and exporter are
+`../../benchmarks/new_bank_v2/LOFO_REPORT.md` and
+`../../benchmarks/new_bank_v2/export_lofo_delivery.py`; the SHA audit is
+`../../benchmarks/new_bank_v2/LOFO_DELIVERY_AUDIT.json`. The current
+canonical provenance check covers 51,756 rows.

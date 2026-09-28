@@ -1,0 +1,58 @@
+{
+  "status": "ok",
+  "prediction_rows": 5664,
+  "native_trials": 1416,
+  "score_groups_recomputed": 16,
+  "parent_arms": "exact saved probability replay",
+  "paired_vs_removal": {
+    "wearing_validation_remove_F0v2": {
+      "full_correct_removed_wrong": 22,
+      "full_wrong_removed_correct": 8
+    },
+    "wearing_validation_remove_F2a": {
+      "full_correct_removed_wrong": 8,
+      "full_wrong_removed_correct": 2
+    },
+    "wearing_validation_remove_F3c": {
+      "full_correct_removed_wrong": 7,
+      "full_wrong_removed_correct": 2
+    },
+    "wearing_final_remove_F0v2": {
+      "full_correct_removed_wrong": 19,
+      "full_wrong_removed_correct": 9
+    },
+    "wearing_final_remove_F2a": {
+      "full_correct_removed_wrong": 4,
+      "full_wrong_removed_correct": 18
+    },
+    "wearing_final_remove_F3c": {
+      "full_correct_removed_wrong": 9,
+      "full_wrong_removed_correct": 5
+    },
+    "force_validation_remove_F0v2": {
+      "full_correct_removed_wrong": 160,
+      "full_wrong_removed_correct": 15
+    },
+    "force_validation_remove_F2a": {
+      "full_correct_removed_wrong": 28,
+      "full_wrong_removed_correct": 28
+    },
+    "force_validation_remove_F3c": {
+      "full_correct_removed_wrong": 9,
+      "full_wrong_removed_correct": 11
+    },
+    "force_final_remove_F0v2": {
+      "full_correct_removed_wrong": 155,
+      "full_wrong_removed_correct": 53
+    },
+    "force_final_remove_F2a": {
+      "full_correct_removed_wrong": 39,
+      "full_wrong_removed_correct": 38
+    },
+    "force_final_remove_F3c": {
+      "full_correct_removed_wrong": 13,
+      "full_wrong_removed_correct": 41
+    }
+  },
+  "boundary": "fixed candidate full bank; public trial-level descriptive final results"
+}
