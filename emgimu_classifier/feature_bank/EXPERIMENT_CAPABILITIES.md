@@ -35,6 +35,13 @@ from the requested signal duration, including interrupted attempts. No real-devi
 wall-time observations have been collected for the research tables yet; electrode
 placement and device setup are outside this measurement.
 
+The existing four Song HDF5 recordings also contain host monotonic events and EMG
+packet-reception timestamps. Their [clock audit](../benchmarks/song_real8/CALIBRATION_CLOCK_AUDIT.json)
+measures about 64 seconds from first to last guided calibration block in each
+session, with about 32 seconds through the hand-state sequence. This is recorded
+in-protocol time only, not the separate recognition UI's click-to-outcome time
+or electrode preparation time.
+
 Secondary datasets are activated only when a Tier 1 capability gap remains. GREAT can confirm
 posture by day, NinaPro DB6 remains a cross-day candidate, and the selected GRABMyo subset now provides one public cross-day confirmation. The three-position
 dataset can confirm electrode replacement. Hyser remains a measured-force and observability

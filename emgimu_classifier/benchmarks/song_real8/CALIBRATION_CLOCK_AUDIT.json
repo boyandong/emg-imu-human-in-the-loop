@@ -1,0 +1,52 @@
+{
+  "status": "recorded_in_protocol_elapsed_only",
+  "freeze_sha256": "2254d2f03835ed9566e8c0bc64edde8bc049905f647c3f8e06b67fea068b0541",
+  "sessions": [
+    {
+      "session": "S01",
+      "hdf5_sha256": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+      "calibration_blocks": 26,
+      "recorded_event_first_to_last_seconds": 64.0,
+      "recorded_emg_reception_first_to_last_seconds": 64.0,
+      "recorded_event_hand_sequence_seconds": 32.0,
+      "recorded_emg_reception_hand_sequence_seconds": 31.985,
+      "session_start_to_calibration_end_event_seconds": 66.015
+    },
+    {
+      "session": "S02",
+      "hdf5_sha256": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+      "calibration_blocks": 26,
+      "recorded_event_first_to_last_seconds": 64.0,
+      "recorded_emg_reception_first_to_last_seconds": 63.969,
+      "recorded_event_hand_sequence_seconds": 32.0,
+      "recorded_emg_reception_hand_sequence_seconds": 31.969,
+      "session_start_to_calibration_end_event_seconds": 66.0
+    },
+    {
+      "session": "S03",
+      "hdf5_sha256": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+      "calibration_blocks": 26,
+      "recorded_event_first_to_last_seconds": 64.0,
+      "recorded_emg_reception_first_to_last_seconds": 63.985,
+      "recorded_event_hand_sequence_seconds": 32.0,
+      "recorded_emg_reception_hand_sequence_seconds": 31.985,
+      "session_start_to_calibration_end_event_seconds": 66.0
+    },
+    {
+      "session": "S04",
+      "hdf5_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+      "calibration_blocks": 26,
+      "recorded_event_first_to_last_seconds": 64.0,
+      "recorded_emg_reception_first_to_last_seconds": 63.984,
+      "recorded_event_hand_sequence_seconds": 32.0,
+      "recorded_emg_reception_hand_sequence_seconds": 31.984,
+      "session_start_to_calibration_end_event_seconds": 66.0
+    }
+  ],
+  "limitations": [
+    "All four sessions are one person and one day; S01-S03 failed collection readiness.",
+    "Recorded monotonic event and EMG reception clocks measure only in-app guided-protocol time.",
+    "Electrode preparation, operator clicks before session start, recognition calibration outside this protocol, and user-perceived burden were not recorded.",
+    "No inference about new-day or new-user calibration effectiveness is possible."
+  ]
+}

@@ -3078,3 +3078,14 @@ model fails. A future session must be collected after the freeze date before
 this gate can be used for blind scoring. Passing is only an eligibility check:
 it does not itself validate live accuracy, new wearer generalization, measured
 gesture onset, or actual electrode re-placement.
+
+The four existing Song recordings preserve host-clock timing for their 26 guided
+calibration blocks. A [dual-clock audit](../benchmarks/song_real8/CALIBRATION_CLOCK_AUDIT.json)
+checks frozen HDF5 hashes and independently reads block events and EMG packet
+reception times. All four show a 64.0-second first-to-last event span; received
+EMG spans are 63.969–64.000 seconds. The hand-state portion through the last
+post-open rest is 32.0 seconds by events and 31.969–31.985 seconds by packet
+reception. From session start to calibration end is about 66 seconds. These
+numbers quantify this one-day scripted collection protocol only. They exclude
+electrode preparation, operator interaction before recording, and the separate
+live-recognition calibration flow; S01–S03 also failed collection readiness.
