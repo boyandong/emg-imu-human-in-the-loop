@@ -57,8 +57,12 @@ def run(results,output):
         'status':'verified_standalone_day6_and_frozen_final_with_conditional_increment' if standalone_verified and final_verified and g5 else 'partial_or_missing',
         'boundary':'Native complete-bout standalone G5-versus-DTW scores are paired on Day6 and frozen Days7-8, with final source-state/native-data replay and no refit. Days7-8 had been examined by earlier project experiments, so this added final comparison is descriptive confirmation rather than a newly untouched holdout. Oracle bout boundaries do not establish unsegmented streaming performance.'})
     ring=[r for r in errors if r.get('family_a')=='F3_Ring_population' and r.get('family_b')=='F3_Ring_local_anchor']
+    reconstructed=[r for r in errors if r.get('family_a')=='reconstructed_RLCS_population' and
+        r.get('family_b')=='reconstructed_RLCS_personalized']
     stage3.append({'requirement':'RLCS vs Personal Anchor','rows':0,'run_ids':[],'status':'missing_exact_historical_RLCS',
-        'reference_proxy_rows':len(ring),'boundary':'Reference envelope-ring population/local-anchor rows cannot substitute for missing historical validated RLCS.'})
+        'reference_proxy_rows':len(ring),'reconstructed_pair_rows':len(reconstructed),
+        'reconstructed_run_ids':sorted({r['run_id'] for r in reconstructed}),
+        'boundary':'Native EPN paired errors now cover a newly reconstructed circular-lag RLCS population versus calibration-only personal anchor at 1/2/5 shots on validation and descriptive final users. This cannot substitute for missing exact historical validated RLCS.'})
     raw=[r for r in errors if '_raw' in r.get('family_a','') or '_raw' in r.get('family_b','')]
     stage3.append({'requirement':'Raw vs robust features','rows':len(raw),'run_ids':sorted({r['run_id'] for r in raw}),
         'status':'verified_reference_pairs','boundary':'Current reference raw/robust families; historical equivalence remains unproven.'})
@@ -72,6 +76,8 @@ def run(results,output):
     anchor_spatial=json.loads(anchor_spatial_path.read_text(encoding='utf-8'))
     ring_session_path=results/'wearing_ring_session_interaction.json'
     ring_session=json.loads(ring_session_path.read_text(encoding='utf-8'))
+    reconstructed_path=results/'epn_reconstructed_rlcs_anchor_interaction.json'
+    reconstructed_interaction=json.loads(reconstructed_path.read_text(encoding='utf-8'))
     quality_candidate={'artifact':str(quality_path.relative_to(results.parent)).replace('\\','/'),
         'artifact_sha256':hashlib.sha256(quality_path.read_bytes()).hexdigest(),
         'native_dataset':'LibEMG Contraction Intensity, frozen source users1-6; validation7-8, final9-10',
@@ -106,12 +112,22 @@ def run(results,output):
         'pooled_interaction_rows':len(ring_session['pooled_interactions']),
         'status':'verified_reference_ring_pair_not_historical_RLCS',
         'boundary':'Four matched F0+CSP base arms reuse frozen provider states, source OOF temperatures and exact one-shot wearing splits. Reference Ring is not historical RLCS; the pooled joint arm has no F1 gain beyond Ring alone.'}
+    reconstructed_candidate={
+        'artifact':str(reconstructed_path.relative_to(results.parent)).replace('\\','/'),
+        'artifact_sha256':hashlib.sha256(reconstructed_path.read_bytes()).hexdigest(),
+        'native_dataset':'EPN native eight-channel; source users1-15; validation16-18; descriptive final19-21',
+        'pair':reconstructed_interaction['pair'],'budgets':[1,2,5],
+        'pooled_interaction_rows':len(reconstructed_interaction['pooled_interactions']),
+        'paired_error_rows':len(reconstructed),
+        'status':'verified_new_reconstruction_not_historical_equivalence',
+        'boundary':'Frozen F0 and source-only reconstructed RLCS, with matched target calibration-only anchors and exact native-trial replay. Absolute final four-arm performance does not support promotion. Historical RLCS identity and untouched final validation are unavailable.'}
     audit={'completion_proven':False,'stage3_document_lines':[658,678],'error_table_sha256':hashlib.sha256(ep.read_bytes()).hexdigest(),
         'stage3':stage3,'stage4_document_lines':[685,712],'interaction_table_sha256':hashlib.sha256(ip.read_bytes()).hexdigest(),
         'stage4_reviewed_priority_pairs':stage4,'stage4_quality_reference_replay':quality_candidate,
         'stage4_g5_reference_temporal':g5_candidate,
         'stage4_personal_anchor_reference_spatial':anchor_spatial_candidate,
         'stage4_reference_ring_session_signature':ring_session_candidate,
+        'stage4_reconstructed_rlcs_personal_anchor':reconstructed_candidate,
         'remaining_stage4_exact_pairs':['RLCS x PersonalAnchor','RLCS x SessionSignature','G5 x TemporalShape','PersonalAnchor x exact historical SpatialCoordination','Quality x historically validated robust families'],
         'boundary':'Recorded pair metrics and source hashes verified; full named-pair and historical-family coverage remains incomplete.'}
     output.write_text(json.dumps(audit,indent=2)+'\n',encoding='utf-8');print(json.dumps({'stage3_rows':sum(x['rows'] for x in stage3),'stage4_rows':sum(x['rows'] for x in stage4),'completion_proven':False}))

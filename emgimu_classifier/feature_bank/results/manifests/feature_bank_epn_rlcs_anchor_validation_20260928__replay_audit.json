@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "phase": "validation",
+  "native_target_reloaded": true,
+  "source_model_or_temperature_refit": false,
+  "target_anchors_recomputed_from_saved_calibration_trials": true,
+  "source_and_output_hashes_verified": true,
+  "prediction_arrays": 54,
+  "maximum_absolute_probability_error": 0.0,
+  "boundary": "Reconstructed RLCS, not historical RLCS or own-device validation"
+}

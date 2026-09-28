@@ -58,6 +58,7 @@ emgimu_classifier/feature_bank/results/historical_manifests/*.json -text -eol
 emgimu_classifier/feature_bank/REPORT.md -text -eol
 emgimu_classifier/feature_bank/EXPERIMENT_CAPABILITIES.md -text -eol
 emgimu_classifier/feature_bank/replay_assets/*/*.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/replay_assets/*/*.csv -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/replay_assets/*/*.npz -text -eol
 emgimu_classifier/feature_bank/replay_assets/*/*.pkl -text -eol
 emgimu_classifier/benchmarks/reconstructed_rlcs_anchor_protocol.json -text -eol

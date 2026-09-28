@@ -40,3 +40,11 @@ S04 final data. Rebuild that run with `benchmarks/export_song_real8_delivery.py`
 and then consolidate using the original processed root plus the workspace's
 `work/benchmark_runs` as `--local-root`. The consolidation script also reads
 the repository's versioned Song source run. Existing source records are unchanged.
+
+The reconstructed RLCS/PersonalAnchor runs append 96 four-arm scores, 72
+conditional increments, 24 paired-error rows and 24 interaction rows. The
+source-user classifier and temperature were fixed before validation and reused
+for descriptive final users. The label `RLCS_reconstructed_v1` distinguishes
+this new method from the unavailable historical RLCS implementation. Frozen
+states, prediction arrays, exact trial splits and replay audits are retained
+under `../replay_assets/feature_bank_epn_rlcs_anchor_*_20260928`.

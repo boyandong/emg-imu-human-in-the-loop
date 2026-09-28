@@ -3028,3 +3028,34 @@ All bouts use oracle ground-truth boundaries, so this is an offline sequence
 comparison, not an unsegmented streaming or own-device result. Earlier project
 experiments had already examined Days 7–8; this added comparison is descriptive
 confirmation, not a newly untouched final test.
+
+## Newly reconstructed RLCS by Personal Anchor on EPN (2026-09-28)
+
+The [prespecified protocol](../benchmarks/reconstructed_rlcs_anchor_protocol.json)
+tests an eight-feature circular-lag envelope-correlation family against the
+frozen F0 provider, with and without 1/2/5 whole calibration trials per class.
+This is `RLCS_reconstructed_v1`, not the unavailable historical RLCS. Source
+users 1–15 fit one population classifier; their three user-held-out folds fit
+the probability temperature. Validation users 16–18 and descriptive final
+users 19–21 retain the existing exact trial splits. No population model or
+temperature is refit on target users.
+
+| Phase and shots/class | F0 F1 | F0+RLCS F1 | F0+Anchor F1 | Joint F1 |
+| --- | ---: | ---: | ---: | ---: |
+| Validation, 1 | 0.3946 | 0.4106 | 0.3676 | 0.3735 |
+| Validation, 2 | 0.3981 | 0.4210 | 0.3638 | 0.3657 |
+| Validation, 5 | 0.4104 | 0.4344 | 0.3730 | 0.3319 |
+| Final, 1 | 0.4455 | 0.4334 | 0.3516 | 0.3599 |
+| Final, 2 | 0.4462 | 0.4329 | 0.4213 | 0.4120 |
+| Final, 5 | 0.4518 | 0.4382 | 0.3841 | 0.3705 |
+
+The reconstruction gives no stable final gain, and the joint arm is worse
+than F0 at every budget. The final pooled log loss also rises for all added
+arms. A positive second-difference interaction in negative log loss therefore
+does not justify promotion: it measures combined effects relative to the two
+individual losses, not an absolute win. Native-trial replay reproduced all 54
+saved prediction arrays per phase with zero difference; the F0 baseline also
+matches the earlier frozen EPN interaction arrays exactly. Canonical tables
+contain 96 four-arm score rows, 72 conditional increments, 24 reconstructed
+population-versus-anchor error rows, and 24 interaction rows. Final users were
+inspected in earlier project experiments, so these results are descriptive.

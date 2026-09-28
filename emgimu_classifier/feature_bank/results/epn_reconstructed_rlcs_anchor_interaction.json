@@ -1,0 +1,120 @@
+{
+  "pair": "RLCS_reconstructed_v1 x PersonalAnchor",
+  "historical_equivalence": false,
+  "completion_proven": false,
+  "phases": {
+    "validation": {
+      "run_manifest_sha256": "c566485940825b200b62ead0d835177d0bea97f15e3d0e32711d89436a8f72aa",
+      "replay_audit_sha256": "59b5a4417d82f39a130e422657be391de3cea557e85c08c2ea86bb93eb46e6e3",
+      "output_hashes": {
+        "arm_scores.csv": "b337981bd01a72faf9f6bf93dee6282dafb6526215491643dc9c503072c34959",
+        "interaction_results.csv": "e9eb822f54844f0039b456dc9d3febc64413074aa2ae3b70eaaeb0318dd1e143",
+        "error_complementarity.csv": "473f67bec9efef6c1ac233717d71cb73c3f235847870d3a1920acfa03b18b9d9",
+        "heldout_predictions.npz": "e4de98efaebcdd287dff71fdad0147360ba983b4da8454d5530fbffd60631688",
+        "split_trial_ids.json": "2f364c764450c88d1fdebc535ffaf4e64cc3b508ea257fc6dad5c00a819d576a",
+        "feature_family_results.csv": "b2c2491065d3d2abfccc0e96764a1fb84874df272659c5ab8027abdd34f2f0a0",
+        "conditional_incremental.csv": "0f18dcbda07abfac2f0c930a13b612482721e75702602ec16e94cf4de6599116"
+      }
+    },
+    "final": {
+      "run_manifest_sha256": "0de6f89bb5a82ed8019ce077ce5e9ab44faa3e09acc7fa688a5712b2b2251f95",
+      "replay_audit_sha256": "cd3cf9f8a0dadbc1b8c28220750dde1372f9d1d5f03b1c82b5a7d4f809c5fdce",
+      "output_hashes": {
+        "arm_scores.csv": "cd00dd0385e1acbe30120ac41f342aa0beb3b93a6d26be1f65152a2142d71664",
+        "interaction_results.csv": "3ad93569486c10df92922fb79c3d2cfae3c66d273e82fa94878fff5a72119956",
+        "error_complementarity.csv": "fc07accf6ffdadd6cd5a11ce12966b42f596d7868cf68a635f74a92790a9c4cb",
+        "heldout_predictions.npz": "895d97257fa758fa060b81858513911a340f639d2f005ccfdc4f2119fd3e384a",
+        "split_trial_ids.json": "1be35af331a9ad6a0e1cabefba067e19d99c34a344c4b6eeb3782fb549c6a000",
+        "feature_family_results.csv": "f52ae983c1fc82583c79f22238bbb2650e47e91b943ff8ad9ea4ed9e7ccc7909",
+        "conditional_incremental.csv": "1925b7ebd7484a7863e78e678256bfea26fba06848a38720fada0f0405980344"
+      }
+    }
+  },
+  "pooled_interactions": [
+    {
+      "dataset": "epn612",
+      "phase": "validation",
+      "subject": "ALL",
+      "shots_per_class": "1",
+      "calibration_trials": "18",
+      "evaluation_trials": "432",
+      "base": "frozen_F0",
+      "S_macro_f1": "-0.010158077327021897",
+      "S_negative_logloss": "0.012944570353055518",
+      "S_negative_brier": "0.0006177790787158244",
+      "family_a": "RLCS_reconstructed_v1",
+      "family_b": "PersonalAnchor"
+    },
+    {
+      "dataset": "epn612",
+      "phase": "validation",
+      "subject": "ALL",
+      "shots_per_class": "2",
+      "calibration_trials": "36",
+      "evaluation_trials": "414",
+      "base": "frozen_F0",
+      "S_macro_f1": "-0.021047115974004826",
+      "S_negative_logloss": "0.01335080113588738",
+      "S_negative_brier": "0.0011338508430018823",
+      "family_a": "RLCS_reconstructed_v1",
+      "family_b": "PersonalAnchor"
+    },
+    {
+      "dataset": "epn612",
+      "phase": "validation",
+      "subject": "ALL",
+      "shots_per_class": "5",
+      "calibration_trials": "90",
+      "evaluation_trials": "360",
+      "base": "frozen_F0",
+      "S_macro_f1": "-0.06513476284029784",
+      "S_negative_logloss": "0.015148743252771935",
+      "S_negative_brier": "0.0011911538806887029",
+      "family_a": "RLCS_reconstructed_v1",
+      "family_b": "PersonalAnchor"
+    },
+    {
+      "dataset": "epn612",
+      "phase": "final",
+      "subject": "ALL",
+      "shots_per_class": "1",
+      "calibration_trials": "18",
+      "evaluation_trials": "432",
+      "base": "frozen_F0",
+      "S_macro_f1": "0.020445405425241592",
+      "S_negative_logloss": "0.03818261591948069",
+      "S_negative_brier": "0.003325091567442165",
+      "family_a": "RLCS_reconstructed_v1",
+      "family_b": "PersonalAnchor"
+    },
+    {
+      "dataset": "epn612",
+      "phase": "final",
+      "subject": "ALL",
+      "shots_per_class": "2",
+      "calibration_trials": "36",
+      "evaluation_trials": "414",
+      "base": "frozen_F0",
+      "S_macro_f1": "0.004090889521764118",
+      "S_negative_logloss": "0.034484581185940444",
+      "S_negative_brier": "0.0023627310854042183",
+      "family_a": "RLCS_reconstructed_v1",
+      "family_b": "PersonalAnchor"
+    },
+    {
+      "dataset": "epn612",
+      "phase": "final",
+      "subject": "ALL",
+      "shots_per_class": "5",
+      "calibration_trials": "90",
+      "evaluation_trials": "360",
+      "base": "frozen_F0",
+      "S_macro_f1": "-6.871735879915297e-05",
+      "S_negative_logloss": "0.06147290037389008",
+      "S_negative_brier": "0.0038284545680186965",
+      "family_a": "RLCS_reconstructed_v1",
+      "family_b": "PersonalAnchor"
+    }
+  ],
+  "boundary": "New reconstructed RLCS only; EPN final users previously examined; no old-method or own-device claim"
+}

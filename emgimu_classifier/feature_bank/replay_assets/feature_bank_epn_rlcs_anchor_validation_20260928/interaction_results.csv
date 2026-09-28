@@ -1,0 +1,13 @@
+dataset,phase,subject,shots_per_class,calibration_trials,evaluation_trials,base,S_macro_f1,S_negative_logloss,S_negative_brier,family_a,family_b
+epn612,validation,16,1,6,144,frozen_F0,-0.043616645042530544,0.02672988587627656,0.0011934252449446042,RLCS_reconstructed_v1,PersonalAnchor
+epn612,validation,17,1,6,144,frozen_F0,-0.04029351833985467,0.009804329602130846,0.002480639862803405,RLCS_reconstructed_v1,PersonalAnchor
+epn612,validation,18,1,6,144,frozen_F0,0.05784113701148674,0.002299495580759814,-0.0018207278716006192,RLCS_reconstructed_v1,PersonalAnchor
+epn612,validation,ALL,1,18,432,frozen_F0,-0.010158077327021897,0.012944570353055518,0.0006177790787158244,RLCS_reconstructed_v1,PersonalAnchor
+epn612,validation,16,2,12,138,frozen_F0,-0.008618083176980817,0.022388141198551592,0.0016071850788489245,RLCS_reconstructed_v1,PersonalAnchor
+epn612,validation,17,2,12,138,frozen_F0,-0.07477347026139086,0.010723410048137039,0.0030201808845439215,RLCS_reconstructed_v1,PersonalAnchor
+epn612,validation,18,2,12,138,frozen_F0,-0.015132263405274737,0.006940852160975064,-0.0012258134343871713,RLCS_reconstructed_v1,PersonalAnchor
+epn612,validation,ALL,2,36,414,frozen_F0,-0.021047115974004826,0.01335080113588738,0.0011338508430018823,RLCS_reconstructed_v1,PersonalAnchor
+epn612,validation,16,5,30,120,frozen_F0,-0.06645869319178738,0.030716268228444088,0.003311842987937949,RLCS_reconstructed_v1,PersonalAnchor
+epn612,validation,17,5,30,120,frozen_F0,-0.13075818352129337,-0.006118871257228875,-0.00010505519383201267,RLCS_reconstructed_v1,PersonalAnchor
+epn612,validation,18,5,30,120,frozen_F0,-0.01073134503974471,0.020848832787099925,0.00036667384796010283,RLCS_reconstructed_v1,PersonalAnchor
+epn612,validation,ALL,5,90,360,frozen_F0,-0.06513476284029784,0.015148743252771935,0.0011911538806887029,RLCS_reconstructed_v1,PersonalAnchor

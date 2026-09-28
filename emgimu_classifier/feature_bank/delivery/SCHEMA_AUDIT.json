@@ -1,9 +1,9 @@
 {
   "status": "schema_complete_evidence_partial",
-  "prediction_disagreement_recovery_sha256": "853b6f227ff36483213fbf40e00d7be8b58792530b215c4a29789c0f0fb47e34",
+  "prediction_disagreement_recovery_sha256": "1d5c3674934fc97e58e48eba150214105a0b093d086250e5a80d207dbe5fe855",
   "artifacts": {
     "feature_family_results.csv": {
-      "rows": 4879,
+      "rows": 4975,
       "required_fields": [
         "dataset",
         "subject",
@@ -59,11 +59,11 @@
           "session/domain": 6
         }
       },
-      "source_csv_sha256": "1a748e473cd62dfb8e8af2b6f8b19f437c18753b73a76e76024d74c1c064367e",
-      "canonical_csv_sha256": "4b78b7310e5c3c5b19ac30d6cf277e40bf6268229f4cfe2985cf99f1be97496e"
+      "source_csv_sha256": "4c65ed175047ffcd18a393a3f07b179d8d746cb7cf8a4b87b4df874e4f1e31c4",
+      "canonical_csv_sha256": "f601d3637e29db514a7806b17757df9d2c2bf31b01c811b71b580ede2dac71d2"
     },
     "conditional_incremental.csv": {
-      "rows": 5721,
+      "rows": 5793,
       "required_fields": [
         "dataset",
         "subject",
@@ -111,11 +111,11 @@
           "condition": 12
         }
       },
-      "source_csv_sha256": "a3d2e0ff5d98ccfd647fec19c82f4f459d30ab9975b534d86e04bb14a6cef97e",
-      "canonical_csv_sha256": "5f6c818b8204386816aa8818e426c6229a8b2909e59893864d18a00bc2b27dc3"
+      "source_csv_sha256": "7c362fb3f5783c1e04d7d573bf81e6a7a67e44e5134c3e9bcb29c2aa88ea1e10",
+      "canonical_csv_sha256": "8c7db49ad0421e9c37d357ba88963a7bf79ad7aefe9f191fa717a26607281e2b"
     },
     "error_complementarity.csv": {
-      "rows": 4705,
+      "rows": 4729,
       "required_fields": [
         "dataset",
         "subject",
@@ -128,7 +128,7 @@
         "a_wrong_b_correct"
       ],
       "missing_field_counts": {
-        "session/domain": 414,
+        "session/domain": 438,
         "error_correlation": 4,
         "subject": 179
       },
@@ -175,10 +175,16 @@
         },
         "feature_bank_epn_calibration_diagnostics_final_20260915_v2": {
           "session/domain": 60
+        },
+        "feature_bank_epn_rlcs_anchor_validation_20260928": {
+          "session/domain": 12
+        },
+        "feature_bank_epn_rlcs_anchor_final_20260928": {
+          "session/domain": 12
         }
       },
-      "source_csv_sha256": "27d94c832d6e83530add5364941dd8efc0ffb8a9b06b53ade98503544bbc8384",
-      "canonical_csv_sha256": "b5dca0d9733938179b4bb6fa85c83cbcee71d6c88eebe2f67b7d648ede7ed0f9"
+      "source_csv_sha256": "70ee3603c707da037eead22efdf33045846ec9218a75c859e87277778f44afca",
+      "canonical_csv_sha256": "1d9ca0098a4ed59c8954c12c57733dead6491f0417af93f0de96ac7a724fce80"
     },
     "calibration_curve.csv": {
       "rows": 20132,

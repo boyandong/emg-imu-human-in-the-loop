@@ -1,0 +1,61 @@
+{
+  "dataset": "epn612",
+  "phase": "final",
+  "ring_family": "RLCS_reconstructed_v1",
+  "source_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "target_users": [
+    19,
+    20,
+    21
+  ],
+  "budgets": [
+    1,
+    2,
+    5
+  ],
+  "protocol_sha256": "fa0eff6a8cc2109ab6d7911804e0f79a1b5b25ee25805466f84bee727202402b",
+  "source_run": "feature_bank_epn_rlcs_anchor_source_20260928",
+  "frozen_f0_run": "feature_bank_epn_probability_final_20260915",
+  "source_hashes": {
+    "fitted_state.pkl": "2eec080b2668908c5494e00e7a6b10714a98f2c36daa3076dfbbfdd3d55a8fc5",
+    "run_manifest.json": "2871ac8fe8850437cc2f7901913e9d16d6f4882b1cd3e6e2736277319646ad4a",
+    "source_oof_predictions.npz": "f8af4a3fe04b3a3aebbce2969592f565bb56b3bcd6731bfbe6afc2760855a1ba"
+  },
+  "frozen_f0_hashes": {
+    "fitted_states.pkl": "cfcc9079a3ce8834895c1d2770a82b2a03b1967dd9588e6f914500e7cb2cb244",
+    "run_manifest.json": "f221194de0e2518656bb6a7ae5d6f3f313aea51661b6708fafbc2ce18adce407",
+    "probability_calibration.json": "18ab51194795d204a736847f4dd9db9ff1d1dbea2daaab09494501b75e669cbb",
+    "split_trial_ids.json": "785fe79a93938c25870556986e346476ae23fb3a6ef94aa59cc9ef5bf182f82f",
+    "heldout_predictions.npz": "ea0838b79a23169710e631f9ea35fe857382c011fa9b13cb9ef34a16d448e797"
+  },
+  "source_model_or_temperature_fit": false,
+  "target_anchor_fit_on_calibration_only": true,
+  "target_split_selection": false,
+  "historical_equivalence": false,
+  "output_hashes": {
+    "arm_scores.csv": "cd00dd0385e1acbe30120ac41f342aa0beb3b93a6d26be1f65152a2142d71664",
+    "interaction_results.csv": "3ad93569486c10df92922fb79c3d2cfae3c66d273e82fa94878fff5a72119956",
+    "error_complementarity.csv": "fc07accf6ffdadd6cd5a11ce12966b42f596d7868cf68a635f74a92790a9c4cb",
+    "heldout_predictions.npz": "895d97257fa758fa060b81858513911a340f639d2f005ccfdc4f2119fd3e384a",
+    "split_trial_ids.json": "1be35af331a9ad6a0e1cabefba067e19d99c34a344c4b6eeb3782fb549c6a000",
+    "feature_family_results.csv": "f52ae983c1fc82583c79f22238bbb2650e47e91b943ff8ad9ea4ed9e7ccc7909",
+    "conditional_incremental.csv": "1925b7ebd7484a7863e78e678256bfea26fba06848a38720fada0f0405980344"
+  },
+  "boundary": "Reconstructed RLCS and target-calibration-only anchors; previously inspected final users are descriptive, not newly untouched"
+}

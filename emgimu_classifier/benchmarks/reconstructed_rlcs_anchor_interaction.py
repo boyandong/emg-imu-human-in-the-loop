@@ -79,6 +79,55 @@ def interaction(scores:dict[str,dict])->dict[str,float]:
         'S_negative_brier':-both['brier']+r['brier']+a['brier']-b['brier']}
 
 
+def export_delivery(output:Path)->None:
+    """Map immutable four-arm scores into the canonical delivery vocabulary."""
+    with (output/'arm_scores.csv').open(newline='',encoding='utf-8') as handle:
+        rows=list(csv.DictReader(handle))
+    if len(rows)!=48 or {r['arm'] for r in rows}!=set(ARMS):
+        raise ValueError('Expected the complete 3-user plus pooled, 3-budget, four-arm grid')
+    features=[];increments=[]
+    names={'B':'F0_frozen','B_plus_RLCS':'F0_plus_RLCS_reconstructed',
+        'B_plus_Anchor':'F0_PersonalAnchor',
+        'B_plus_RLCS_plus_Anchor':'F0_plus_RLCS_reconstructed_PersonalAnchor'}
+    for row in rows:
+        compact={key:value for key,value in row.items() if key not in ('ring_family','base','arm','calibration_trials')}
+        features.append({**compact,'condition':'cross_user','calibration_budget':row['shots_per_class'],
+            'feature_family':names[row['arm']],'method':row['arm']})
+    cells=sorted({(r['phase'],r['subject'],r['shots_per_class']) for r in rows})
+    for phase,subject,shots in cells:
+        scores={r['arm']:r for r in rows if (r['phase'],r['subject'],r['shots_per_class'])==(phase,subject,shots)}
+        if set(scores)!=set(ARMS):raise AssertionError('Incomplete matched delivery cell')
+        for core,added,family in (('B','B_plus_RLCS','RLCS_reconstructed_v1'),
+                ('B','B_plus_Anchor','PersonalAnchor'),
+                ('B_plus_Anchor','B_plus_RLCS_plus_Anchor','RLCS_reconstructed_v1_after_PersonalAnchor')):
+            before,after=scores[core],scores[added]
+            increments.append(dict(dataset='epn612',phase=phase,subject=subject,condition='cross_user',
+                calibration_budget=shots,core_bank=core,added_family=family,
+                delta_macro_f1=float(after['macro_f1'])-float(before['macro_f1']),
+                delta_logloss=float(before['log_loss'])-float(after['log_loss']),
+                delta_brier=float(before['brier'])-float(after['brier']),
+                scope='new reconstructed RLCS and calibration-only anchor; not historical identity'))
+    write_csv(output/'feature_family_results.csv',features)
+    write_csv(output/'conditional_incremental.csv',increments)
+    for name in ('interaction_results.csv','error_complementarity.csv'):
+        with (output/name).open(newline='',encoding='utf-8') as handle:
+            source_rows=list(csv.DictReader(handle))
+        compact=[]
+        for row in source_rows:
+            item={key:value for key,value in row.items() if key!='ring_family' and
+                (name=='interaction_results.csv' or key!='base')}
+            if name=='interaction_results.csv':
+                item.update(family_a='RLCS_reconstructed_v1',family_b='PersonalAnchor')
+            compact.append(item)
+        write_csv(output/name,compact)
+    manifest_path=output/'run_manifest.json'
+    manifest=json.loads(manifest_path.read_text())
+    for name in ('feature_family_results.csv','conditional_incremental.csv',
+            'interaction_results.csv','error_complementarity.csv'):
+        manifest['output_hashes'][name]=sha(output/name)
+    manifest_path.write_text(json.dumps(manifest,indent=2)+'\n')
+
+
 def prepare(archive:Path,frozen_f0:Path,output:Path,protocol:Path)->None:
     if output.exists():raise FileExistsError(output)
     if archive.stat().st_size!=ARCHIVE_BYTES or sha(archive)!=ARCHIVE_SHA256:
@@ -219,6 +268,7 @@ def evaluate(archive:Path,source_run:Path,frozen_f0:Path,output:Path,phase:str,p
         output_hashes={name:sha(output/name) for name in ('arm_scores.csv','interaction_results.csv','error_complementarity.csv','heldout_predictions.npz','split_trial_ids.json')},
         boundary='Reconstructed RLCS and target-calibration-only anchors; previously inspected final users are descriptive, not newly untouched')
     (output/'run_manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+    export_delivery(output)
     print(json.dumps({'status':'ok','phase':phase,'score_rows':len(score_rows),'interaction_rows':len(interaction_rows)}))
 
 
@@ -231,13 +281,75 @@ def summarize(validation:Path,final:Path,output:Path)->None:
             raise ValueError('Phase manifest changed')
         for name,digest in manifest['output_hashes'].items():
             if sha(root/name)!=digest:raise AssertionError(f'Output changed: {phase}/{name}')
+        replay=json.loads((root/'replay_audit.json').read_text())
+        if (replay.get('status')!='ok' or replay.get('prediction_arrays')!=54
+                or replay.get('maximum_absolute_probability_error')!=0.
+                or replay.get('source_model_or_temperature_refit') is not False):
+            raise AssertionError(f'Frozen native replay incomplete: {phase}')
         with (root/'interaction_results.csv').open(newline='',encoding='utf-8') as handle:
             rows=list(csv.DictReader(handle))
         result['pooled_interactions'].extend({**row,'phase':phase} for row in rows if row['subject']=='ALL')
         result['phases'][phase]={'run_manifest_sha256':sha(root/'run_manifest.json'),
+            'replay_audit_sha256':sha(root/'replay_audit.json'),
             'output_hashes':manifest['output_hashes']}
     result['boundary']='New reconstructed RLCS only; EPN final users previously examined; no old-method or own-device claim'
     output.write_text(json.dumps(result,indent=2)+'\n')
+
+
+def verify(archive:Path,source_run:Path,frozen_f0:Path,output:Path,phase:str,protocol:Path)->None:
+    """Recompute all target probabilities from native trials and saved states."""
+    manifest=json.loads((output/'run_manifest.json').read_text())
+    if manifest['phase']!=phase or manifest['protocol_sha256']!=sha(protocol):
+        raise ValueError('Run phase or frozen protocol changed')
+    for root,key in ((source_run,'source_hashes'),(frozen_f0,'frozen_f0_hashes')):
+        for name,digest in manifest[key].items():
+            if sha(root/name)!=digest:raise AssertionError(f'Frozen input changed: {name}')
+    for name,digest in manifest['output_hashes'].items():
+        if sha(output/name)!=digest:raise AssertionError(f'Saved result changed: {name}')
+    target=load_epn612_windows(archive,users=PHASE_USERS[phase])
+    f0_states,f0_anchors=pickle.loads((frozen_f0/'fitted_states.pkl').read_bytes())
+    ring_family,ring_scaler,ring_model,ring_t=pickle.loads((source_run/'fitted_state.pkl').read_bytes())
+    f0_family,f0_scaler,f0_model=f0_states['F0']
+    f0_features,y,u,trials,_=aggregate_trials(f0_family.transform(target.batch),target)
+    ring_features,ry,ru,rt,_=aggregate_trials(ring_family.transform(target.batch),target)
+    for actual,reference in ((ry,y),(ru,u),(rt,trials)):
+        np.testing.assert_array_equal(actual,reference)
+    f0_x=f0_scaler.transform(f0_features);ring_x=ring_scaler.transform(ring_features)
+    calibration=json.loads((frozen_f0/'probability_calibration.json').read_text())
+    f0=temperature_probability(f0_model.predict_proba(f0_x),float(calibration['temperatures']['F0']))
+    ring=temperature_probability(ring_model.predict_proba(ring_x),ring_t)
+    splits=json.loads((output/'split_trial_ids.json').read_text())
+    maximum_error=0.;prediction_arrays=0
+    with np.load(output/'heldout_predictions.npz',allow_pickle=False) as saved:
+        for split in splits:
+            user,shots=int(split['user']),int(split['shots'])
+            cal=np.flatnonzero(np.isin(trials,np.asarray(split['calibration'],dtype=trials.dtype)))
+            ev=np.flatnonzero(np.isin(trials,np.asarray(split['evaluation'],dtype=trials.dtype)))
+            if (len(cal)!=6*shots or len(ev)!=len(split['evaluation'])
+                    or set(y[cal])!=set(range(6)) or np.any(u[ev]!=user)):
+                raise AssertionError('Native target split changed')
+            alpha=shots/(shots+2)
+            f0_anchor,f0_t=f0_anchors[(user,shots,'F0')]
+            f0_personal=(1-alpha)*f0[ev]+alpha*anchor_probability(f0_anchor,f0_t,f0_x[ev])
+            ring_anchor=PersonalAnchor().fit(ring_x[cal],y[cal])
+            ring_anchor_t=max(float(np.median(ring_anchor.transform(ring_x[cal])[:,:6])),1e-10)
+            ring_personal=(1-alpha)*ring[ev]+alpha*anchor_probability(ring_anchor,ring_anchor_t,ring_x[ev])
+            expected={**four_arms(f0[ev],ring[ev],f0_personal,ring_personal),
+                'ring_population':ring[ev],'ring_personalized':ring_personal}
+            for name,value in expected.items():
+                reference=saved[f'{user}_{shots}_{name}']
+                maximum_error=max(maximum_error,float(np.max(np.abs(value-reference))))
+                np.testing.assert_allclose(value,reference,atol=1e-12,rtol=0)
+                prediction_arrays+=1
+            np.testing.assert_array_equal(saved[f'{user}_{shots}_labels'],y[ev])
+            np.testing.assert_array_equal(saved[f'{user}_{shots}_trials'],trials[ev])
+    result=dict(status='ok',phase=phase,native_target_reloaded=True,
+        source_model_or_temperature_refit=False,target_anchors_recomputed_from_saved_calibration_trials=True,
+        source_and_output_hashes_verified=True,prediction_arrays=prediction_arrays,
+        maximum_absolute_probability_error=maximum_error,
+        boundary='Reconstructed RLCS, not historical RLCS or own-device validation')
+    (output/'replay_audit.json').write_text(json.dumps(result,indent=2)+'\n')
+    print(json.dumps(result))
 
 
 if __name__=='__main__':
@@ -250,8 +362,14 @@ if __name__=='__main__':
     target.add_argument('output',type=Path);target.add_argument('phase',choices=tuple(PHASE_USERS))
     summary=sub.add_parser('summarize');summary.add_argument('validation',type=Path)
     summary.add_argument('final',type=Path);summary.add_argument('output',type=Path)
+    check=sub.add_parser('verify');check.add_argument('archive',type=Path)
+    check.add_argument('source_run',type=Path);check.add_argument('frozen_f0',type=Path)
+    check.add_argument('output',type=Path);check.add_argument('phase',choices=tuple(PHASE_USERS))
+    delivery=sub.add_parser('export');delivery.add_argument('output',type=Path)
     parser.add_argument('--protocol',type=Path,default=Path(__file__).with_name('reconstructed_rlcs_anchor_protocol.json'))
     args=parser.parse_args()
     if args.mode=='prepare':prepare(args.archive,args.frozen_f0,args.output,args.protocol)
     elif args.mode=='evaluate':evaluate(args.archive,args.source_run,args.frozen_f0,args.output,args.phase,args.protocol)
+    elif args.mode=='verify':verify(args.archive,args.source_run,args.frozen_f0,args.output,args.phase,args.protocol)
+    elif args.mode=='export':export_delivery(args.output)
     else:summarize(args.validation,args.final,args.output)

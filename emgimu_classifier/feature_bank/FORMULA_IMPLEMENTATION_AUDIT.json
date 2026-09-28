@@ -223,6 +223,21 @@
       "finite": true,
       "source_immutable": true
     },
+    "ReconstructedRlcs": {
+      "fixture_dimension": 8,
+      "names": [
+        "F3.rlcs.lag1.mean",
+        "F3.rlcs.lag1.std",
+        "F3.rlcs.lag2.mean",
+        "F3.rlcs.lag2.std",
+        "F3.rlcs.lag3.mean",
+        "F3.rlcs.lag3.std",
+        "F3.rlcs.lag4.mean",
+        "F3.rlcs.lag4.std"
+      ],
+      "finite": true,
+      "source_immutable": true
+    },
     "SpectralStateFamily": {
       "fixture_dimension": 72,
       "names": [

@@ -256,6 +256,18 @@
     "bytes": 11808
   },
   {
+    "run_id": "feature_bank_epn_rlcs_anchor_validation_20260928",
+    "artifact": "feature_family_results.csv",
+    "sha256": "b2c2491065d3d2abfccc0e96764a1fb84874df272659c5ab8027abdd34f2f0a0",
+    "bytes": 16741
+  },
+  {
+    "run_id": "feature_bank_epn_rlcs_anchor_final_20260928",
+    "artifact": "feature_family_results.csv",
+    "sha256": "f52ae983c1fc82583c79f22238bbb2650e47e91b943ff8ad9ea4ed9e7ccc7909",
+    "bytes": 16526
+  },
+  {
     "run_id": "feature_bank_wearing_document_core_validation_20260916",
     "artifact": "conditional_incremental.csv",
     "sha256": "2dc931b64da727dab460631c86b2d57807efb6821f09434a8ee6e88f09c8f3c3",
@@ -439,6 +451,18 @@
     "source_root": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\emg-imu-human-in-the-loop\\emgimu_classifier\\feature_bank\\source_runs"
   },
   {
+    "run_id": "feature_bank_epn_rlcs_anchor_validation_20260928",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "0f18dcbda07abfac2f0c930a13b612482721e75702602ec16e94cf4de6599116",
+    "bytes": 7621
+  },
+  {
+    "run_id": "feature_bank_epn_rlcs_anchor_final_20260928",
+    "artifact": "conditional_incremental.csv",
+    "sha256": "1925b7ebd7484a7863e78e678256bfea26fba06848a38720fada0f0405980344",
+    "bytes": 7432
+  },
+  {
     "run_id": "feature_bank_wearing_ring_session_interaction_validation_20260923_v2",
     "artifact": "interaction_results.csv",
     "sha256": "2c5da9abedb662a3decb4585de5f61dbaf1d3984dade6fdda46b8a6857419129",
@@ -483,6 +507,18 @@
     "artifact": "interaction_results.csv",
     "sha256": "1874c20bb5fd043d97e31d56a1627174007c7b7484911de62c99de2a08703bb0",
     "bytes": 5617
+  },
+  {
+    "run_id": "feature_bank_epn_rlcs_anchor_validation_20260928",
+    "artifact": "interaction_results.csv",
+    "sha256": "e9eb822f54844f0039b456dc9d3febc64413074aa2ae3b70eaaeb0318dd1e143",
+    "bytes": 1856
+  },
+  {
+    "run_id": "feature_bank_epn_rlcs_anchor_final_20260928",
+    "artifact": "interaction_results.csv",
+    "sha256": "3ad93569486c10df92922fb79c3d2cfae3c66d273e82fa94878fff5a72119956",
+    "bytes": 1783
   },
   {
     "run_id": "feature_bank_wearing_document_core_validation_20260916",
@@ -706,6 +742,18 @@
     "artifact": "error_complementarity.csv",
     "sha256": "25970015624bef6fff13c505b829364a97f8963c75636ac0d6d7fc74fc89f3f2",
     "bytes": 4944
+  },
+  {
+    "run_id": "feature_bank_epn_rlcs_anchor_validation_20260928",
+    "artifact": "error_complementarity.csv",
+    "sha256": "473f67bec9efef6c1ac233717d71cb73c3f235847870d3a1920acfa03b18b9d9",
+    "bytes": 2658
+  },
+  {
+    "run_id": "feature_bank_epn_rlcs_anchor_final_20260928",
+    "artifact": "error_complementarity.csv",
+    "sha256": "fc07accf6ffdadd6cd5a11ce12966b42f596d7868cf68a635f74a92790a9c4cb",
+    "bytes": 2618
   },
   {
     "run_id": "feature_bank_epn612_anchor_temperature_validation_20260916_v2",

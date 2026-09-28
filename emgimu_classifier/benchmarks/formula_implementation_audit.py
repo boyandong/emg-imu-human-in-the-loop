@@ -22,6 +22,7 @@ from emgimu.feature_bank.validated_unibo import ValidatedUniBoFamily
 from emgimu.feature_bank.document_signal import RestNoiseLocalDetailFamily,DocumentCspFamily
 from emgimu.feature_bank.body_frame import CalibratedBodyContextFamily
 from emgimu.feature_bank.spd_anchor import SpdTangentPersonalAnchor
+from emgimu.feature_bank.reconstructed_ring import ReconstructedRlcs
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
 # Exact historical mandatory reuse cannot be replaced by a conceptual candidate.
@@ -42,8 +43,8 @@ REVIEWS = (
   'Source-only one-vs-rest generalized eigensystem; uses centered/shrunk covariance instead of stated uncentered XX transpose. Default one tail component versus suggested two.','2 H min(tails,floor(C/2))'),
  ('F2c','F2c. SPD / Riemannian tangent feature','families.py','SpdTangentFamily','candidate_formula',
   'Explicit permitted log-Euclidean training reference; whitened matrix log and sqrt(2) vech; not geometric-mean claim. Exploratory one-person Song four-state trial and causal-stream gains coexist with pre-prompt-rest false-active cost; the 28-state F0+IMU+F2c final macro-F1 declines despite mean accuracy gain. Formal own-device generalization remains unproven.','C(C+1)/2'),
- ('F3a','F3a. RLCS','families.py','RingGeometryFamily','reference_only',
-  '25ms smoothed rectification, lag mean/std correlations; validated old envelope/aggregation missing; circular topology assumed by legacy class.','2 floor(C/2) block'),
+ ('F3a','F3a. RLCS','reconstructed_ring.py','ReconstructedRlcs','candidate_native_reconstruction',
+  'New wrapper selects 25ms smoothed-rectification circular-lag correlation mean/std block. Source-only EPN users1-15 and native validation16-18/descriptive final19-21 at 1/2/5-shot PersonalAnchor have exact frozen replay; no stable final F1/log-loss gain. Historical validated envelope, aggregation, and RLCS identity remain unavailable.','2 floor(C/2) block'),
  ('F3b','F3b. CES','families.py','RingGeometryFamily','reference_only',
   'Normalized sorted correlation eigenvalues are candidate CES block; validated old reuse missing; bundled with lag/ringcov blocks.','C block'),
  ('F3c','F3c. Ring-relative covariance','ring_covariance.py','RawRingCovarianceFamily','candidate_formula',
@@ -99,7 +100,7 @@ def build(document, output):
     batch = FeatureBatch(x,200,imu=rng.normal(size=(16,10,6)),posture=np.array(['up','down']*8))
     measured = {}
     for factory in (LocalDetailFamily,ScalePatternFamily,TraceCovarianceFamily,CspSpatialFamily,
-                    SpdTangentFamily,RingGeometryFamily,SpectralStateFamily,TemporalFormFamily,
+                    SpdTangentFamily,RingGeometryFamily,ReconstructedRlcs,SpectralStateFamily,TemporalFormFamily,
                     BodyContextFamily,QualityFamily,PathSignatureFamily,LogBandEnergyFamily,
                     lambda:RawRingCovarianceFamily(ring_topology=True),
                     lambda:QualityObservabilityFamily(ring_topology=True),
