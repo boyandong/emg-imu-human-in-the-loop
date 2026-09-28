@@ -3393,6 +3393,32 @@ replay are audited.
 The [six-axis synthetic envelope](../benchmarks/new_bank_v2/ENVELOPE_QUALITY_REPORT.md)
 adds an explicitly labelled quality simulation to force, wearing, day,
 user and posture. F0v2's validation equal-axis mean is 0.8069 and its
-minimum remains wearing at 0.5775. Execution speed for the exact bank
-and *real* hardware-quality measurements remain unavailable. These
+minimum remains wearing at 0.5775. The next section adds a qualified
+speed test using an external source Rest prior; *real* hardware-quality
+measurements remain unavailable. These
 synthetic failures do not measure the user's device or live recognition.
+
+## Qualified exact new-v2 speed axis using external source Rest
+
+The [frozen MANUS external-Rest study](../benchmarks/new_bank_v2/MANUS_REST_TRANSFER_REPORT.md)
+now evaluates all four exact F0v2/F2a/F3c formulas on the native
+200 Hz slow/medium/fast MANUS trials. Because MANUS has no labelled
+Rest, F0v2 thresholds come only from 1,828 source-user ROAM Rest
+windows; MANUS Session 1 alone fits the classifier, and Sessions 2/3
+remain held out. This explicitly qualified source-prior experiment
+does not silently relabel MANUS activity as Rest.
+
+Validation selects F0v2+F2a at 0.5244 macro-F1 versus F0v2's 0.3914,
+raising the worst native speed from 0.2845 to 0.4677; validation log
+loss worsens from 2.1203 to 2.3949. Descriptive final F1 is
+0.5304 versus 0.4600. The 864 saved predictions, 56 matched groups,
+80 parent-score replays and 55,578 canonical records are audited. All
+speed categories appear in every session, so this is speed-stratified
+session transfer rather than a previously unseen-speed experiment.
+
+The [qualified seven-axis envelope](../benchmarks/new_bank_v2/ENVELOPE_SPEED_REPORT.md)
+shows the resulting tradeoff: F0v2 retains the highest validation
+equal-axis mean (0.7476), but F0v2+F2a has the better minimum axis
+(0.5244 versus 0.3914). Synthetic quality and external-prior speed
+are explicitly tagged; *real* quality and own-device recognition
+remain unmeasured. No single-arm universal robustness claim follows.

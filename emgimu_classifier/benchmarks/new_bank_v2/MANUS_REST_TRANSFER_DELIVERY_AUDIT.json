@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_manus_external_rest_speed_v2_20260929",
+  "exports": {
+    "feature_family_results.csv": {
+      "rows": 224,
+      "source_sha256": "5dc230c580bd480fd04b2cdf6bb3ee501fe7ccabdbb6e33539871b2b3b2d46a2",
+      "output_sha256": "f46363761bdaa8a485295443b7209b29c16ae93235e4fbfca0113fa93efd3e90"
+    },
+    "conditional_incremental.csv": {
+      "rows": 112,
+      "source_sha256": "382f054512c1109105664d678e3341bff5006239a560167d6585e72649a80b6a",
+      "output_sha256": "f8163df59fc00ce432a02519983b87c8242ecd61844f4fde827ee689787bced8"
+    },
+    "error_complementarity.csv": {
+      "rows": 56,
+      "source_sha256": "4efb7597118679f3a5bebbb10c6200614958c34c185b99a1548f34e4097049fc",
+      "output_sha256": "2ab841305c3b060121ceeeaedee333030bff63d3f7a347b8f3973b0e46361e6b"
+    }
+  },
+  "interaction_sha256": "4f1b445fd3d74f0002750f09686f75d0869845d3d1f9ef392d1aa356f0428313",
+  "envelope_sha256": "b6d90526288be8c64826b230fcc34ff7e5eecbcfe2813cf54e4644a4205e4314",
+  "paired_audit_sha256": "0936951514d60cc2594e17999d148f8cfc1719382fc6fdcb5fa8361b9e7d3090",
+  "boundary": "Post-hoc matched whole-trial analysis from a cross-dataset source-only Rest prior. Same users appear in Sessions 1/2/3; all speeds in each session; final session previously inspected. Speed strata are descriptive, not an unseen-speed intervention or own-device validation."
+}

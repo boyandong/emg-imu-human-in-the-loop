@@ -1,0 +1,14 @@
+{
+  "name": "new_v2_seven_qualified_axis_envelope_with_external_rest_speed_v1",
+  "version": 1,
+  "parent_six_axis_envelope_sha256": "d7c30e133f92d4207921f0a40e713a1b8c21bd8cd3b03ae2aace3888539a2f4f",
+  "speed_result_sha256": "10c20b5ce8599e9403ef1aeda6be8117bb62a0789de819b13769aea5773f7b24",
+  "speed_screen_sha256": "5dc230c580bd480fd04b2cdf6bb3ee501fe7ccabdbb6e33539871b2b3b2d46a2",
+  "arms": ["F0v2", "F0v2+F2a", "F0v2+F3c", "F0v2+F2a+F3c"],
+  "observed_axes": ["force", "wearing", "day", "user", "posture", "quality_synthetic", "speed_external_rest"],
+  "unobserved_axes": ["quality_real"],
+  "speed_axis": "Pooled macro-F1 across native slow, medium and fast MANUS trial labels in each held-out session, with a source-only ROAM Myo Rest-noise prior; retain worst speed and subject-speed separately",
+  "aggregation": "unweighted descriptive mean and minimum of seven heterogenous axis-specific macro-F1 values; preserve minimum source observation cell separately",
+  "selection": "Report all arms and validation/final; do not use already-inspected final sessions to revise prior cross-axis or native MANUS validation selections",
+  "boundary": "The speed coordinate has a cross-dataset Rest prior and evaluates seen speed categories in a changed session, not unseen-speed transfer. Quality is synthetic, not measured hardware quality. Quality/posture share ROAM users; day/user share GRABMyo records; other axes have different classes/rates/devices. Seven-axis equal mean is descriptive only, with real hardware quality and own 250 Hz device performance still N/A."
+}

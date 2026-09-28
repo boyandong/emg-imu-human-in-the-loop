@@ -1,0 +1,14 @@
+{
+  "status": "ok",
+  "analysis_protocol_sha256": "11e6a93607ae8a3a708ac8f7d11bdeb569eb199e5fbb4c3dfa358807fca62b23",
+  "parent_prediction_sha256": "dd0f09bf73abe9620a8d1d71395784bba185d77c6391cbc92d6314bc87ce27da",
+  "parent_score_groups_replayed": 80,
+  "matched_cells": 56,
+  "rows": {
+    "MANUS_REST_TRANSFER_SCREEN.csv": 224,
+    "MANUS_REST_TRANSFER_CONDITIONAL.csv": 112,
+    "MANUS_REST_TRANSFER_COMPLEMENTARITY.csv": 56,
+    "MANUS_REST_TRANSFER_INTERACTION.csv": 56
+  },
+  "boundary": "Post-hoc matched whole-trial analysis from a cross-dataset source-only Rest prior. Same users appear in Sessions 1/2/3; all speeds in each session; final session previously inspected. Speed strata are descriptive, not an unseen-speed intervention or own-device validation."
+}

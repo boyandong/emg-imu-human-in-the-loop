@@ -1,0 +1,13 @@
+{
+  "name": "new_v2_manus_external_rest_speed_matched_trial_analysis_v1",
+  "version": 1,
+  "parent_protocol_sha256": "e8e7e4c014069afc4e91d371bb7505eaa604f15396dff8d7ea7101eeb18e31ba",
+  "parent_result_sha256": "10c20b5ce8599e9403ef1aeda6be8117bb62a0789de819b13769aea5773f7b24",
+  "parent_prediction_sha256": "dd0f09bf73abe9620a8d1d71395784bba185d77c6391cbc92d6314bc87ce27da",
+  "arms": ["F0v2", "F0v2+F2a", "F0v2+F3c", "F0v2+F2a+F3c"],
+  "classes": [0, 1, 2, 3, 4, 5],
+  "cells": "Validation/final separately; pooled, each of six users, each of three native speeds and each of 18 user-by-speed cells; four arms paired on identical native recording IDs and gesture labels",
+  "conditional": "Add F2a given F0v2+F3c and F3c given F0v2+F2a; positive delta_log_loss means lower held-out loss",
+  "interaction": "P(F0v2+F2a+F3c)-P(F0v2+F2a)-P(F0v2+F3c)+P(F0v2), P=-held-out log loss",
+  "scope": "Post-hoc matched whole-trial analysis from a cross-dataset source-only Rest prior. Same users appear in Sessions 1/2/3; all speeds in each session; final session previously inspected. Speed strata are descriptive, not an unseen-speed intervention or own-device validation."
+}

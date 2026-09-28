@@ -1,0 +1,21 @@
+{
+  "status": "ok",
+  "protocol_sha256": "e0abf9cacd8133c8000a0e79d1be7fafd8470574aabbbe5961440401b33b5f79",
+  "parent_six_axis_envelope_sha256": "d7c30e133f92d4207921f0a40e713a1b8c21bd8cd3b03ae2aace3888539a2f4f",
+  "speed_result_sha256": "10c20b5ce8599e9403ef1aeda6be8117bb62a0789de819b13769aea5773f7b24",
+  "speed_screen_sha256": "5dc230c580bd480fd04b2cdf6bb3ee501fe7ccabdbb6e33539871b2b3b2d46a2",
+  "rows": 8,
+  "observed_axes": [
+    "force",
+    "wearing",
+    "day",
+    "user",
+    "posture",
+    "quality_synthetic",
+    "speed_external_rest"
+  ],
+  "unobserved_axes": [
+    "quality_real"
+  ],
+  "boundary": "The speed coordinate has a cross-dataset Rest prior and evaluates seen speed categories in a changed session, not unseen-speed transfer. Quality is synthetic, not measured hardware quality. Quality/posture share ROAM users; day/user share GRABMyo records; other axes have different classes/rates/devices. Seven-axis equal mean is descriptive only, with real hardware quality and own 250 Hz device performance still N/A."
+}
