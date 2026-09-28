@@ -1,0 +1,14 @@
+{
+  "name": "new_v2_roam_static_posture_matched_bout_analysis_v1",
+  "version": 1,
+  "parent_protocol_sha256": "a4b322b062116b168c7ef22be113ad60957d7015c5c83b9879e0e9a1849a741c",
+  "parent_result_sha256": "6513aa9e62ebfd50d800c66a1b67f30812d1082711f8b5d79fca9e113ea7634f",
+  "parent_prediction_sha256": "32bbe99a2a7347a13bd8d46492b25072ad0f34dcf355dfeb3bc77bc9cde9c764",
+  "arms": ["F0v2", "F0v2+F2a", "F0v2+F3c", "F0v2+F2a+F3c"],
+  "classes": [0, 1, 2],
+  "cells": "Each of validation and descriptive final: pooled, four postures, five subjects, and twenty subject-by-posture cells; every cell pairs identical native label-bout IDs across four arms",
+  "unit": "one contiguous native label bout aggregated from disjoint pure-label 200 ms EMG windows",
+  "conditional": "Add F2a given F0v2+F3c and F3c given F0v2+F2a; positive delta_log_loss means lower loss",
+  "interaction": "P(F0v2+F2a+F3c)-P(F0v2+F2a)-P(F0v2+F3c)+P(F0v2), P=-held-out log loss",
+  "boundary": "Post-hoc analysis of frozen public cross-user posture predictions. Static label bouts are correlated within each native recording. Final subjects are descriptive only. No user's 250 Hz device or online transition claim."
+}

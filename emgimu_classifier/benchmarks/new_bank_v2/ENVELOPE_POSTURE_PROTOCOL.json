@@ -1,0 +1,14 @@
+{
+  "name": "new_v2_five_observed_axis_robustness_envelope_v1",
+  "version": 1,
+  "parent_four_axis_envelope_sha256": "16e8e4b2c63f67dd0022e009ba1e47daa1b0bde82f868a93fb947fbb60a429dd",
+  "parent_four_axis_screen_sha256": "9f37bb432b910d82c5f0e89e131aeeacad4aaf10a62ad94e412586f814a566c1",
+  "new_posture_screen_sha256": "8e3a5889f66bae528cc47227441cda5fb4642651f7aa9d44546fd161514e73d7",
+  "arms": ["F0v2", "F0v2+F2a", "F0v2+F3c", "F0v2+F2a+F3c"],
+  "observed_axes": ["force", "wearing", "day", "user", "posture"],
+  "unobserved_axes": ["speed", "quality"],
+  "posture_axis": "ROAM-EMG unseen-user pooled static label-bout macro-F1 over resting, hanging, unsupported and reaching. Per-posture and subject-by-posture minima are separately reported.",
+  "aggregation": "unweighted descriptive mean and minimum of five axis-specific pooled macro-F1 values; retain worst subject/condition cell and worst ROAM posture separately",
+  "selection": "Report all four arms in validation/final; no post-hoc final-based arm selection",
+  "boundary": "Force, wearing, day, user and posture arise from different public datasets, rates, labels and splits; day and user share GRABMyo records. ROAM posture target subjects are unseen and differ from resting source subjects, so source-to-target user and posture shifts coexist. Five-axis mean is descriptive, not pooled accuracy; own 250 Hz device, speed and real signal quality remain unobserved for this exact bank."
+}

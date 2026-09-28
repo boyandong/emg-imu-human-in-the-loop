@@ -1,0 +1,14 @@
+{
+  "status": "ok",
+  "analysis_protocol_sha256": "ef4ff630aef05bd37cdff0711a5031bcbbdd26a9e5bbb43217dbb53c3418dcfe",
+  "parent_prediction_sha256": "32bbe99a2a7347a13bd8d46492b25072ad0f34dcf355dfeb3bc77bc9cde9c764",
+  "saved_score_groups_replayed": 40,
+  "matched_cells": 60,
+  "rows": {
+    "ROAM_POSTURE_SCREEN.csv": 240,
+    "ROAM_POSTURE_CONDITIONAL.csv": 120,
+    "ROAM_POSTURE_COMPLEMENTARITY.csv": 60,
+    "ROAM_POSTURE_INTERACTION.csv": 60
+  },
+  "boundary": "Post-hoc analysis of frozen public cross-user posture predictions. Static label bouts are correlated within each native recording. Final subjects are descriptive only. No user's 250 Hz device or online transition claim."
+}

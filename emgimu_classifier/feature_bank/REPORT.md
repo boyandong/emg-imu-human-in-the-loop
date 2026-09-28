@@ -3348,3 +3348,29 @@ because they use different splits of the same public subset; posture,
 speed and real quality remain unobserved for this exact bank. The
 canonical provenance check now covers 53,590 records. None of this
 validates the user's 250 Hz live device.
+
+## Public ROAM-EMG static posture, exact new-v2 bank
+
+The [frozen ROAM-EMG study](../benchmarks/new_bank_v2/ROAM_POSTURE_REPORT.md)
+adds an eight-channel, nominal 200 Hz, three-class public posture test of
+the exact F0v2/F2a/F3c candidate bank. All 112 static files from 28
+subjects pass native sequence and sampling checks. Source users 1–18
+contribute only resting-posture training bouts; unseen users 19–23
+validate and 24–28 provide descriptive final bouts across four postures.
+The 1,828 F0v2 noise-calibration windows are source-user Rest only.
+
+Validation selects F0v2 at 0.9630 pooled bout macro-F1 and 0.8723
+worst-posture F1. Its descriptive final values are 0.9162 and 0.8452;
+hanging is the weakest posture in both splits. F2a raises final pooled
+F1 to 0.9353 but lowers validation F1 to 0.9167, so it is not promoted.
+All 1,440 saved arm–bout predictions, 60 matched paired cells, and
+54,010 source-bound canonical records are auditable. These bout scores do not
+measure online transitions, and relative to resting source users the
+unseen-user and posture shifts coexist.
+
+The [versioned five-axis envelope](../benchmarks/new_bank_v2/ENVELOPE_POSTURE_REPORT.md)
+now reports force, wearing, day, user and posture for the exact new-v2
+four-arm set. F0v2 retains the strongest validation equal-axis mean
+(0.7861) and minimum (0.5775); the latter remains the wearing axis.
+Speed and real signal quality remain N/A for this exact bank, and none
+of the public 200 Hz posture result validates the user's 250 Hz device.
