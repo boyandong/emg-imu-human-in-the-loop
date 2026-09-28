@@ -3422,3 +3422,16 @@ equal-axis mean (0.7476), but F0v2+F2a has the better minimum axis
 (0.5244 versus 0.3914). Synthetic quality and external-prior speed
 are explicitly tagged; *real* quality and own-device recognition
 remain unmeasured. No single-arm universal robustness claim follows.
+
+## Independent first-stage feature-family extension
+
+The [frozen ROAM extension](../benchmarks/new_bank_v2/ROAM_V1_EXTENSION_REPORT.md)
+screens four additional independently implemented eight-channel family
+formulas against F0v2 on the same unseen-user/posture split. None beats the
+0.9630 pooled validation F1 of F0v2. Ring lag raises the worst validation
+posture F1 from 0.8723 to 0.8963 while reducing pooled F1 to 0.9500;
+it remains a condition-specialist candidate. Scale pattern and frequency
+direction improve only the descriptive final outcomes. All 360 baseline
+predictions exactly replay the frozen posture experiment within `1e-10`.
+This is one independent Stage 1 axis, not a complete multi-dataset family
+screen or a historical formula reproduction.
