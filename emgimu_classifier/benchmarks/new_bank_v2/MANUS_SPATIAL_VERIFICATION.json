@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "prediction_rows": 864,
+  "native_target_trials": 216,
+  "checked_score_groups": 80,
+  "validation_selected_arm": "F0+F2a",
+  "results_sha256": "8c7638cb22c858e9fea9f7aeb1b7d62080a869e6a6828147ca45878af25399cc",
+  "prediction_sha256": "55a15cec45f0da8142a80562db55ed2550c52e474f07d80a2991f5adb528759e",
+  "boundary": "Same six users across three sessions, six finger flexion-extension classes, public device; speed and session changes are confounded. Reduced bank is separate from the F0v2 robustness envelope, and final session was previously inspected in this project. No own-device or live claim."
+}

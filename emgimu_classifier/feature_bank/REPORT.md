@@ -3307,3 +3307,22 @@ phases, but each reduces final F1. Forty-four exact-trial error cells and
 forty-four interaction cells show why single-metric promotion would be
 unsafe. This is forward new-family evidence, not historical formula
 equivalence. The canonical provenance check now covers 53,408 rows.
+
+## Reduced new-v2 MANUS spatial and speed-stratified session study
+
+The [frozen reduced-bank study](../benchmarks/new_bank_v2/MANUS_SPATIAL_REPORT.md)
+adds an eight-channel 200 Hz public check of new F2a/F3c spatial blocks on
+six finger flexion–extension gestures. MANUS has no Rest class, so the
+rest-conditioned F0v2 is invalid here; source-fitted original F0 is the
+explicitly separate baseline. Same users' Session 1 trains the models;
+Sessions 2 and 3 provide validation and descriptive final recordings, with
+slow/medium/fast conditions in each. Speed and session effects remain
+confounded, and this study does not fill the full-bank speed-axis `N/A`.
+
+The fixed validation rule selects F0+F2a: pooled macro-F1 is 0.4717 versus
+F0's 0.3410. Descriptive final F1 is 0.4869 versus 0.4453, while final log
+loss worsens from 1.5920 to 1.7900 and the minimum-user F1 falls from
+0.2381 to 0.2222. F2a/F3c conditionals and their interaction have opposite
+loss/F1 directions in several cells. All 864 saved native-trial predictions,
+80 score groups, 20 paired analysis cells, and the updated 53,548-row
+canonical provenance are independently checked. No live-model change follows.

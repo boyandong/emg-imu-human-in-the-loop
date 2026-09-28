@@ -32,6 +32,11 @@ F0v2+F2a has the highest descriptive final minimum, 0.5357, but is a
 final-only finding and must not be promoted using these inspected users.
 None of these arms is shown to lift the complete seven-axis envelope.
 
+The later [MANUS reduced-bank study](MANUS_SPATIAL_REPORT.md) gives a
+speed-stratified public eight-channel cross-session check of F2a/F3c, but
+MANUS has no Rest and cannot fit F0v2. It therefore does not replace the
+`N/A` speed cell of this exact four-arm envelope.
+
 This index averages three *different classification tasks* with different
 gestures, devices, users and sample rates. It is an explicit, transparent
 summary requested by the protocol, not a pooled accuracy estimate or a

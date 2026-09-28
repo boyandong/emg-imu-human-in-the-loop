@@ -17,7 +17,8 @@ PROTOCOL_PATH = ROOT / "PAIRED_PROTOCOL.json"
 PROTOCOL = json.loads(PROTOCOL_PATH.read_text(encoding="utf-8"))
 SOURCE = ROOT / "TRIAL_PREDICTIONS.csv"
 DATASET_NAMES = {"force": "libemg_contraction_intensity",
-                 "wearing": "libemg_electrode_shift"}
+                 "wearing": "libemg_electrode_shift",
+                 "manus": "semg_manus"}
 
 
 def csv_text(rows: list[dict]) -> str:

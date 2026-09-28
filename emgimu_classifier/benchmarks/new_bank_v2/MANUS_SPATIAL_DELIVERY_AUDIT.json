@@ -1,0 +1,24 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_manus_reduced_spatial_v2_20260928",
+  "exports": {
+    "feature_family_results.csv": {
+      "rows": 80,
+      "source_sha256": "4d504a938de999dfe9478f400cd12048fdb446ba4a9821d53f247849eee673e1",
+      "output_sha256": "a00f8d082709c3da75ce72833e73ec3b6728b6e30eeb09244d6590033f59687d"
+    },
+    "conditional_incremental.csv": {
+      "rows": 40,
+      "source_sha256": "90929f4a610ea78cf6572e9b81f201b92588a80c16a1a60b19fa02411c860064",
+      "output_sha256": "ceb5cca63dae340704e001da8b1b6fd1d83a5ab3b994859d883a6e6fe5e21686"
+    },
+    "error_complementarity.csv": {
+      "rows": 20,
+      "source_sha256": "3e6c1dfd07716ad1ced54259b832480e40fb2f929f4ca432e0b239a80ace6542",
+      "output_sha256": "89699038a0ab8cf9e84f4239dd8fd64d9d2cf04af98cc5df6775d40fec08211b"
+    }
+  },
+  "interaction_sha256": "91acf26cfd8fbfeae8d904050cdbe3d6ed5ce29b8e70fe58c966bcf84ff40115",
+  "paired_audit_sha256": "b4b5356f6d5e4c8f1f71a58b95b755e1cafe7c180b6c21859945d7531a6c5d8a",
+  "boundary": "Saved-prediction post-hoc descriptive analysis; different session, not speed-isolated intervention or independent users; final Session3 already inspected; no classifier fitting or result-based arm selection"
+}

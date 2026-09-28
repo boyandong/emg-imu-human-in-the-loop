@@ -1,0 +1,14 @@
+{
+  "status": "ok",
+  "analysis_protocol_sha256": "1d8ddbf71581b682eac87dc9082eb6fefabd1960e7e324e11c9d098cb562f3db",
+  "parent_prediction_sha256": "55a15cec45f0da8142a80562db55ed2550c52e474f07d80a2991f5adb528759e",
+  "parent_score_groups_replayed": 80,
+  "matched_cells": 20,
+  "rows": {
+    "MANUS_SPATIAL_SCREEN.csv": 80,
+    "MANUS_SPATIAL_CONDITIONAL.csv": 40,
+    "MANUS_SPATIAL_COMPLEMENTARITY.csv": 20,
+    "MANUS_SPATIAL_INTERACTION.csv": 20
+  },
+  "boundary": "Saved-prediction post-hoc descriptive analysis; different session, not speed-isolated intervention or independent users; final Session3 already inspected; no classifier fitting or result-based arm selection"
+}

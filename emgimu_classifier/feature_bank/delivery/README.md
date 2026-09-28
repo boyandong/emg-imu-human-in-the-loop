@@ -152,3 +152,12 @@ versioned source table. See `../../benchmarks/new_bank_v1/PAIRED_REPORT.md`
 and `../../benchmarks/new_bank_v1/PAIRED_DELIVERY_AUDIT.json` for the
 native-trial pairing, hashes and interpretation. The current canonical
 provenance check covers 53,408 rows.
+
+The reduced new-v2 MANUS spatial/session study adds 80 family, 40 conditional
+and 20 paired-error cells on public eight-channel finger gestures. Its 20
+F2a×F3c interaction cells remain in the versioned source table. The source
+archive, exact native-trial pairing, absent-Rest boundary and mixed final
+results are documented in
+`../../benchmarks/new_bank_v2/MANUS_SPATIAL_REPORT.md`; see
+`../../benchmarks/new_bank_v2/MANUS_SPATIAL_DELIVERY_AUDIT.json` for hashes.
+The canonical provenance check now covers 53,548 rows.

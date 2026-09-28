@@ -1,0 +1,13 @@
+{
+  "name": "manus_reduced_new_v2_matched_spatial_analysis_v1",
+  "version": 1,
+  "parent_protocol_sha256": "24cfc51fcb9d3eb2b6ef09b69203e22347dda5e2a101bb325bf535eb2c1aec50",
+  "parent_result_sha256": "8c7638cb22c858e9fea9f7aeb1b7d62080a869e6a6828147ca45878af25399cc",
+  "parent_prediction_sha256": "55a15cec45f0da8142a80562db55ed2550c52e474f07d80a2991f5adb528759e",
+  "arms": ["F0", "F0+F2a", "F0+F3c", "F0+F2a+F3c"],
+  "cells": "validation/final separately; pooled, each of six users, each of slow/medium/fast speeds; four arms exact native-trial and label pairing",
+  "conditional": "Add F2a to F0+F3c and F3c to F0+F2a; positive delta_log_loss means lower held-out log loss",
+  "complementarity": "F0+F2a versus F0+F3c exact four-way correctness counts and error correlation",
+  "interaction": "P(F0+F2a+F3c)-P(F0+F2a)-P(F0+F3c)+P(F0), P=-held-out log loss",
+  "scope": "Saved-prediction post-hoc descriptive analysis; different session, not speed-isolated intervention or independent users; final Session3 already inspected; no classifier fitting or result-based arm selection"
+}
