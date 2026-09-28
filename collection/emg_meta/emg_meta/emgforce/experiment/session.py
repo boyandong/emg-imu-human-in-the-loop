@@ -21,6 +21,7 @@ from emgforce.processing.meta_alignment import export_meta_aligned
 from emgforce.storage.hdf5_recorder import Hdf5Recorder
 from emgforce.storage.session_paths import SessionPaths, build_session_paths
 from emgforce.quality.session_readiness import generate_session_readiness
+from emgforce.quality.cohort_readiness import validate_next_session_day
 
 from .events import EventType
 from .models import (CueEvent, ExperimentEvent, ParticipantInfo,
@@ -72,6 +73,10 @@ class ExperimentSession(QObject):
         participant.validate(); info.validate(); protocol.validate()
         if protocol.formal_collection and protocol.name != FORMAL_PROTOCOL_NAME:
             raise ValueError(f"正式采集协议必须为 {FORMAL_PROTOCOL_NAME}")
+        if protocol.formal_collection:
+            validate_next_session_day(self.data_root, participant.participant_id, info.session_id)
+            if info.session_id.upper() != "S01" and not info.donning_notes.strip():
+                raise ValueError(f"{info.session_id} 必须记录电极取下、重新贴附及本次佩戴情况")
         if protocol.formal_collection and info.session_id.upper() == "S04" \
                 and not info.model_frozen_confirmed:
             raise ValueError("S04 是正式测试；必须先确认模型、阈值和校准算法已经冻结")

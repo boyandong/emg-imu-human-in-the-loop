@@ -4,13 +4,16 @@ from __future__ import annotations
 
 import hashlib
 import json
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
+from unittest.mock import Mock
 
 import h5py
 import pytest
 
-from emgforce.collection_protocol import SESSION_MANIFEST_FILENAME
+from emgforce.collection_protocol import FORMAL_PROTOCOL_NAME, SESSION_MANIFEST_FILENAME
+from emgforce.experiment.models import ParticipantInfo, ProtocolConfig, SessionInfo
+from emgforce.experiment.session import ExperimentSession
 from emgforce.quality.cohort_readiness import audit_cohort, validate_next_session_day
 
 
@@ -72,3 +75,28 @@ def test_start_gate_rejects_same_day_s03_and_accepts_later_day(tmp_path: Path) -
         validate_next_session_day(tmp_path, "P001", "S03", date(2026, 9, 18))
     validate_next_session_day(tmp_path, "P001", "S03", date(2026, 9, 19))
     validate_next_session_day(tmp_path, "P001", "S04", date(2026, 9, 19))
+
+
+def test_programmatic_formal_session_rejects_missing_redonning_before_writing(tmp_path: Path) -> None:
+    today = datetime.now().astimezone().date().isoformat()
+    _session(tmp_path / "P001", "S01", f"{today}T09:00:00+08:00")
+    session = ExperimentSession(Mock(), tmp_path)
+    protocol = ProtocolConfig(FORMAL_PROTOCOL_NAME, ["Neutral"], 1,
+                              formal_collection=True, block_size=1, block_break_sec=1)
+    with pytest.raises(ValueError, match="必须记录电极取下"):
+        session.start(ParticipantInfo("P001"),
+                      SessionInfo("S02", "formal", FORMAL_PROTOCOL_NAME), protocol)
+    assert list((tmp_path / "P001").glob("*_S02")) == []
+
+
+def test_programmatic_formal_session_rejects_same_day_validation(tmp_path: Path) -> None:
+    today = datetime.now().astimezone().date().isoformat()
+    _session(tmp_path / "P001", "S02", f"{today}T09:00:00+08:00")
+    session = ExperimentSession(Mock(), tmp_path)
+    protocol = ProtocolConfig(FORMAL_PROTOCOL_NAME, ["Neutral"], 1,
+                              formal_collection=True, block_size=1, block_break_sec=1)
+    with pytest.raises(ValueError, match="S03 是次日验证"):
+        session.start(ParticipantInfo("P001"),
+                      SessionInfo("S03", "formal", FORMAL_PROTOCOL_NAME,
+                                  donning_notes="electrodes removed and reapplied"), protocol)
+    assert list((tmp_path / "P001").glob("*_S03")) == []
