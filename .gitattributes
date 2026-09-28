@@ -4,6 +4,7 @@ emgimu_classifier/benchmarks/discovery/public_ds2_force_v9/*.json -text -eol
 emgimu_classifier/benchmarks/discovery/public_ds2_force_v9/*.csv -text -eol
 emgimu_classifier/benchmarks/discovery/DS2_V9_FORCE_TRIAL_JOIN.csv -text -eol
 emgimu_classifier/benchmarks/discovery/DS2_V9_FORCE_LABEL_AUDIT.json -text -eol
+emgimu_classifier/benchmarks/discovery/scripts/public_ds2_force_v9*.py -text -eol
 emgimu_classifier/benchmarks/new_bank_v2/SONG_JOINT28_CONTINUOUS_FRAMES.csv -text -eol
 emgimu_classifier/benchmarks/new_bank_v2/SONG_ARM_SIGNED_CONTINUOUS_FRAMES.csv -text -eol
 collection/emg_meta/emg_meta/emgforce/inference/song_joint28_local.py -text -eol
