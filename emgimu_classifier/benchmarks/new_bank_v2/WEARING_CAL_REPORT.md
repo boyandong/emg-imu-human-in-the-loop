@@ -41,6 +41,12 @@ in the first execution was corrected by `float64` prototype softmax and row
 normalization; the frozen allocation, features, temperature and 0.5 mixture
 rule did not change.
 
+The [delivery export](export_wearing_cal_delivery.py) adds 64 pooled, subject
+and domain 0/1-shot rows to the required Feature Bank calibration curve. Its
+[source audit](WEARING_CAL_DELIVERY_AUDIT.json) binds the appended rows to the
+saved result and probability hashes. Canonical delivery verification now checks
+51,156 original record identities and values across all five required tables.
+
 This measures an *assisted, same-domain, one-shot-per-gesture* user flow on a
 public 200 Hz device, not the current 250 Hz hardware. The second same-domain
 trial is a narrow test of reapplication adaptation; it cannot establish

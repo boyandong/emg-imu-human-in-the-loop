@@ -1,0 +1,9 @@
+{
+  "run_id": "feature_bank_new_v2_wearing_cal_20260928",
+  "rows": 64,
+  "source_results_sha256": "a91f0f77b086717b6f314a86b1cee53bace84867a3a358381c9cf697d3a6ef1e",
+  "source_predictions_sha256": "fad3a6d09840ee32abf9175411554f1be92dec04fbc65d6ba5353157beda6d11",
+  "source_verification_sha256": "7fccba514b4cea58ae35689a4eff5e779a5d95697101e88d82ee0e93894deb27",
+  "source_table_sha256": "516ea3be9de2f3c3ec10022fbe5fa3bfa7306cf95d664b69ceb1eb08d0bf135b",
+  "boundary": "matched same-domain public-device trial evidence; five calibration trials per decision"
+}
