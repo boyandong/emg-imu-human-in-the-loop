@@ -1,0 +1,27 @@
+{
+  "name": "new_bank_v2_eight_channel_full_candidate_leave_one_family_out",
+  "version": 1,
+  "parent_protocol_sha256": {
+    "wearing": "0d875dbce6d4a4f3c5075993b2c28bcd59397aee90b5a0cf98683fafd549e8b6",
+    "force": "73a1c1b200ea3249cb658d60bfd5a8f24596d0bb0e1838fd784ee653a358afe8"
+  },
+  "parent_predictions_sha256": {
+    "wearing": "bd2e0ac452ddab1de3eb17324c9447da10a47b2cca7a917becfc05a2c252d21f",
+    "force": "f021fb07317495326366502a5ae1018396df247f8e46b591432717b4b973997c"
+  },
+  "candidate_full_bank": "F0v2+F2a+F3c",
+  "removals": {
+    "F0v2": "F2a+F3c",
+    "F2a": "F0v2+F3c",
+    "F3c": "F0v2+F2a"
+  },
+  "datasets": {
+    "wearing": "LibEMG CIILData eight-channel 200 Hz; each subject's unshifted training trials are source, four shifted domains are target; users 15-17 validation and 18-20 final",
+    "force": "LibEMG ContractionIntensity eight-channel 1000 Hz; users 1-6 Ramp are source, 7-8 validation and 9-10 final across eleven conditions"
+  },
+  "classifier": "parent source-only trial StandardScaler plus balanced LogisticRegression C=1 max_iter=2000 random_state=20260924",
+  "metric_direction": "full-minus-removed positive macro-F1/log-loss-improvement/Brier-improvement means the removed family was useful",
+  "selection": "fixed candidate full bank; this is a matched ablation, not a new arm selection; force full bank was not selected in its parent validation screen",
+  "endpoint": "pooled macro-F1, log loss, Brier, minimum-subject and worst-condition/domain macro-F1, plus paired error changes",
+  "boundary": "two public native eight-channel datasets at different rates and tasks; final comparisons descriptive; no own-device or live claim"
+}
