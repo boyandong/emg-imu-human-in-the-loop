@@ -1,0 +1,23 @@
+{
+  "name": "new_v2_manus_reduced_spatial_speed_session_v1",
+  "version": 1,
+  "archive": "D:/emg-imu-benchmarks/data/raw/semg_manus/semg-manus-dataset-v1.zip",
+  "archive_sha256": "2D9E1DF613485B9A4AFE9A5A71010CA84E75A521B596F836A195B5EAF3DC1F29",
+  "users": [3, 4, 5, 6, 7, 8],
+  "source_session": 1,
+  "validation_session": 2,
+  "final_session": 3,
+  "gestures": ["flexext_fist", "flexext_thumb", "flexext_index", "flexext_middle", "flexext_ring", "flexext_pinky"],
+  "conditions": ["slow", "medium", "fast"],
+  "channels": 8,
+  "sample_rate_hz": 200,
+  "window_ms": 200,
+  "maximum_windows_per_trial": 8,
+  "arms": ["F0", "F0+F2a", "F0+F3c", "F0+F2a+F3c"],
+  "features": "Original LocalDetailFamily F0 uses only source-window difference thresholds. Independent new-v2 F2a is fixed-0.05 centered trace covariance; F3c is circular-lag covariance without half-window drift at 40 samples. F0v2 requires source Rest and is inapplicable because MANUS has six active classes and no Rest.",
+  "classifier": "source-trial StandardScaler plus balanced LogisticRegression C=1 max_iter=2000 random_state=20260924",
+  "aggregation": "mean of at most eight disjoint 200 ms windows per native recording",
+  "selection": "maximize pooled validation Session2 macro-F1, break ties by lower pooled log loss; Session3 is descriptive and never selects arms",
+  "metrics": ["pooled_macro_f1", "pooled_log_loss", "pooled_brier", "minimum_user_macro_f1", "minimum_speed_macro_f1", "per_speed_macro_f1"],
+  "scope": "Same six users across three sessions, six finger flexion-extension classes, public device; speed and session changes are confounded. Reduced bank is separate from the F0v2 robustness envelope, and final session was previously inspected in this project. No own-device or live claim."
+}
