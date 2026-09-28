@@ -504,3 +504,10 @@ Future four-session acquisitions can run
 from the collection package directory. A pass remains an operator-metadata
 gate, not independent proof of electrode removal, model immutability or live
 recognition accuracy.
+
+The collection page now checks the prior HDF5 date before starting S02–S04:
+S02 must share S01's local day, S03 must follow on a later day, and S04
+cannot precede S03. It also requires written re-donning notes for S02–S04
+and shows each session's intended role. This prevents the specific same-day
+and missing-attestation failure from recurring during normal formal capture;
+the final cohort audit is still required after all four files close.

@@ -4,18 +4,20 @@ from __future__ import annotations
 
 import hashlib
 import json
+from datetime import date
 from pathlib import Path
 
 import h5py
+import pytest
 
 from emgforce.collection_protocol import SESSION_MANIFEST_FILENAME
-from emgforce.quality.cohort_readiness import audit_cohort
+from emgforce.quality.cohort_readiness import audit_cohort, validate_next_session_day
 
 
 def _session(root: Path, session: str, stamp: str, *, subject: str = "P001",
              notes: str = "electrodes removed and reapplied") -> Path:
-    folder = root / session
-    folder.mkdir()
+    folder = root / f"{stamp[:10]}_{session}"
+    folder.mkdir(parents=True)
     path = folder / "session.h5"
     with h5py.File(path, "w") as handle:
         attrs = handle.create_group("meta").attrs
@@ -33,10 +35,11 @@ def _session(root: Path, session: str, stamp: str, *, subject: str = "P001",
 
 def _four(root: Path, *, s03: str = "2026-09-19T09:00:00+08:00",
           s04_notes: str = "electrodes removed and reapplied") -> list[Path]:
-    return [_session(root, "S01", "2026-09-18T09:00:00+08:00"),
-            _session(root, "S02", "2026-09-18T11:00:00+08:00"),
-            _session(root, "S03", s03),
-            _session(root, "S04", "2026-09-19T11:00:00+08:00", notes=s04_notes)]
+    participant_root = root / "P001"
+    return [_session(participant_root, "S01", "2026-09-18T09:00:00+08:00"),
+            _session(participant_root, "S02", "2026-09-18T11:00:00+08:00"),
+            _session(participant_root, "S03", s03),
+            _session(participant_root, "S04", "2026-09-19T11:00:00+08:00", notes=s04_notes)]
 
 
 def test_cross_day_attested_cohort_passes(tmp_path: Path) -> None:
@@ -60,3 +63,12 @@ def test_stale_manifest_and_missing_redonning_attestation_fail(tmp_path: Path) -
     assert result["status"] == "failed"
     assert any("hash is stale" in problem for problem in result["problems"])
     assert any("S04: no recorded electrode re-donning" in problem for problem in result["problems"])
+
+
+def test_start_gate_rejects_same_day_s03_and_accepts_later_day(tmp_path: Path) -> None:
+    _four(tmp_path)
+    validate_next_session_day(tmp_path, "P001", "S02", date(2026, 9, 18))
+    with pytest.raises(ValueError, match="S03 是次日验证"):
+        validate_next_session_day(tmp_path, "P001", "S03", date(2026, 9, 18))
+    validate_next_session_day(tmp_path, "P001", "S03", date(2026, 9, 19))
+    validate_next_session_day(tmp_path, "P001", "S04", date(2026, 9, 19))

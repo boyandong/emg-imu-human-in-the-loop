@@ -13,9 +13,11 @@ from PySide6.QtWidgets import (
 )
 
 from emgforce.experiment.models import ParticipantInfo, SessionInfo
+from emgforce.collection_protocol import FORMAL_SESSION_PURPOSES
 from emgforce.experiment.prompt_engine import PromptState
 from emgforce.experiment.protocol_loader import ProtocolLoader
 from emgforce.quality.monitor import SignalQualityMonitor
+from emgforce.quality.cohort_readiness import validate_next_session_day
 
 from .prompt_window import ACTION_NAMES, ParticipantPromptWindow
 
@@ -80,7 +82,7 @@ class ExperimentPage(QWidget):
         self.session_plan_status.setObjectName("muted")
         session.addWidget(self.session_plan_status, 5, 0, 1, 2)
         self.donning_notes = QLineEdit()
-        self.donning_notes.setPlaceholderText("佩戴编号、局部参考照片文件名或其他说明")
+        self.donning_notes.setPlaceholderText("S02–S04：记录取下电极、重新贴附和本次佩戴情况")
         self.tested_arm = QComboBox(); self.tested_arm.addItem("右臂", "right"); self.tested_arm.addItem("左臂", "left")
         self.channel1_orientation = QLineEdit(); self.channel1_orientation.setPlaceholderText("例如：通道1朝拇指侧/标记线朝上")
         self.anatomical_marker = QLineEdit(); self.anatomical_marker.setPlaceholderText("例如：腕横纹上方 6 cm")
@@ -98,7 +100,7 @@ class ExperimentPage(QWidget):
         for row, (title, widget) in enumerate((
                 ("测试手臂 *", self.tested_arm), ("通道1方向 *", self.channel1_orientation),
                 ("解剖高度/起点 *", self.anatomical_marker), ("绑带刻度与松紧 *", self.strap_setting),
-                ("身体与皮肤状态 *", self.physical_condition), ("佩戴备注", self.donning_notes)), start=6):
+                ("身体与皮肤状态 *", self.physical_condition), ("重贴/佩戴记录（S02–S04 必填）", self.donning_notes)), start=6):
             self._add_field(session, row, title, widget)
         for row, (title, widget) in enumerate((
                 ("解剖距离 mm *", self.anatomical_distance_mm),
@@ -252,6 +254,10 @@ class ExperimentPage(QWidget):
             session_id = self._available_session_id(participant_id)
             if session_id != self.session_id.text().strip():
                 self.session_id.setText(session_id)
+            if protocol.formal_collection:
+                validate_next_session_day(self.data_root, participant_id, session_id)
+                if session_id != "S01" and not self.donning_notes.text().strip():
+                    raise ValueError(f"{session_id} 必须记录电极取下、重新贴附及本次佩戴情况")
             photo_path = Path(self.reference_photo.text().strip())
             if float(self.anatomical_distance_mm.text()) <= 0:
                 raise ValueError("解剖距离必须为正数（mm）")
@@ -343,7 +349,7 @@ class ExperimentPage(QWidget):
         self.session_id.setText(session_id)
         completed = len(used & set(range(1, SESSIONS_PER_PARTICIPANT + 1)))
         self.session_plan_status.setText(
-            f"已完成 {completed} / 4 轮 · 下一轮 {session_id}"
+            f"已完成 {completed} / 4 轮 · 下一轮 {session_id}：{FORMAL_SESSION_PURPOSES[session_id]}"
         )
         self.start.setEnabled(not self._was_running)
 

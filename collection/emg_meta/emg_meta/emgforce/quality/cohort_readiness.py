@@ -27,6 +27,42 @@ def _sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def validate_next_session_day(data_root: Path, participant_id: str,
+                              session_id: str, today: date | None = None) -> None:
+    """Stop a formal session when its calendar role is already impossible.
+
+    Read prior HDF5 metadata rather than trusting the directory name. The
+    final cohort audit still checks all four files and individual readiness.
+    """
+    key = session_id.strip().upper()
+    if key not in FORMAL_SESSION_SPLITS:
+        raise ValueError("正式采集只允许 S01–S04")
+    if key == "S01":
+        return
+    current_day = today or datetime.now().astimezone().date()
+    prior_key = f"S{int(key[1:]) - 1:02d}"
+    participant_dir = Path(data_root) / participant_id
+    candidates = (sorted(participant_dir.glob(f"*_{prior_key}/session.h5"))
+                  if participant_dir.is_dir() else [])
+    if len(candidates) != 1:
+        raise ValueError(f"{key} 必须有唯一、完整的 {prior_key} 原始 session.h5")
+    try:
+        with h5py.File(candidates[0], "r") as handle:
+            meta = handle["meta"].attrs
+            if (_text(meta.get("participant_id", "")).strip() != participant_id
+                    or _text(meta.get("session_id", "")).strip().upper() != prior_key):
+                raise ValueError(f"{prior_key} 文件中的参与者或场次编号不符")
+            prior_day = date.fromisoformat(_text(meta.get("date", "")))
+    except (OSError, KeyError, ValueError) as exc:
+        raise ValueError(f"无法核实 {prior_key} 的采集日期：{exc}") from exc
+    if key == "S02" and current_day != prior_day:
+        raise ValueError("S02 必须与 S01 在同一本地日采集；请勿将隔天数据标为 S02")
+    if key == "S03" and current_day <= prior_day:
+        raise ValueError("S03 是次日验证，必须晚于 S02 的本地采集日期")
+    if key == "S04" and current_day < prior_day:
+        raise ValueError("S04 不能早于 S03 的本地采集日期")
+
+
 def audit_cohort(hdf5_paths: list[Path]) -> dict:
     """Check four individual readiness reports and their cross-session claims.
 
