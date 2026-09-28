@@ -134,3 +134,12 @@ native-trial split, probability-space method, and limitations are in
 delivery hash records are `../../benchmarks/new_bank_v2/GRAB_SCORE_CAL_AUDIT.json`
 and `../../benchmarks/new_bank_v2/GRAB_SCORE_CAL_DELIVERY_AUDIT.json`.
 The current canonical provenance check covers 52,812 rows.
+
+The distinct new-v2 GRABMyo **feature-space** anchor follow-up adds 288
+more pooled and subject calibration-curve cells. Its fixed 50/50 mixture
+mostly worsens held-out log loss, despite occasional F1 gains; see
+`../../benchmarks/new_bank_v2/GRAB_FEATURE_CAL_REPORT.md`. Raw-checksum,
+trial-split and source-model replay evidence are in
+`../../benchmarks/new_bank_v2/GRAB_FEATURE_CAL_AUDIT.json`; output hashes
+are in `../../benchmarks/new_bank_v2/GRAB_FEATURE_CAL_DELIVERY_AUDIT.json`.
+The current canonical provenance check covers 53,100 rows.

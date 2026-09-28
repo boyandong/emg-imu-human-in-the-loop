@@ -3281,3 +3281,16 @@ calibration can repair some public cross-day score drift; it is not a
 raw-feature F7 test or evidence for own-device live deployment. All 2,048
 predictions and 288 canonical curve cells pass independent replay and
 source-bound verification, now covering 52,812 canonical records.
+
+The separate [new-v2 feature-space prototype study](../benchmarks/new_bank_v2/GRAB_FEATURE_CAL_REPORT.md)
+tests the stronger F7-style question using source-fitted F0v2/F2a/F3c
+recording features and labelled target-day prototypes. Its frozen 50/50
+mixture harms Day2 log loss for every arm and nonzero budget; F0v2 Day3
+1-shot F1 stays at 0.9210 while log loss worsens from 0.2349 to 0.4870.
+This negative result rules out that fixed uncalibrated feature-anchor
+mixture as a current default, even though the earlier score-space anchor
+helped on the same held-out recordings. All 2,048 arm–budget–trial outputs,
+official checksums, source-fitted transforms, and 53,100 canonical rows
+are auditable. The fresh source classifier replays every top-1 label but
+has at most 2.72×10⁻⁵ probability difference on the F3c arm; the saved
+population probabilities remain authoritative for the calibration test.

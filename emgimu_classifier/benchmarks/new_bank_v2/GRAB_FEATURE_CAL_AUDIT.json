@@ -1,0 +1,33 @@
+{
+  "status": "ok",
+  "protocol_sha256": "7ff2f66373184dbc479b3371abf2d10503d5e9edd8828127270f7f4a31ad60c3",
+  "parent_prediction_sha256": "58401ac416aebc6e4ad059a0b98637c8e40c404c695780073a05fe666d66df75",
+  "official_checksum_manifest_sha256": "757ea64fa5134b7b3b84d9f79e30cfa1ac4d2c65a40ce9b427db11dd8258974e",
+  "source_recordings": 224,
+  "target_recordings": 448,
+  "feature_dimensions": {
+    "F0": 96,
+    "F2a": 72,
+    "F3c": 48
+  },
+  "source_model_replay_max_abs_error": 2.720966539704328e-05,
+  "source_model_replay_error_by_arm": {
+    "F0": 1.6163709259942038e-09,
+    "F0+F2a": 9.771183862028465e-12,
+    "F0+F3c": 2.720966539704328e-05,
+    "F0+F2a+F3c": 2.0050627824730327e-12
+  },
+  "source_model_replay_label_flips_by_arm": {
+    "F0": 0,
+    "F0+F2a": 0,
+    "F0+F3c": 0,
+    "F0+F2a+F3c": 0
+  },
+  "zero_shot_exact_replays": 512,
+  "rows": {
+    "GRAB_FEATURE_CAL_PREDICTIONS.csv": 2048,
+    "GRAB_FEATURE_CAL_CURVE.csv": 288
+  },
+  "split": "Day1 source; each target day repetitions 1..N calibration, 6/7 evaluation",
+  "boundary": "Days 2 and 3 have previously been examined; Day3 descriptive. Calibration recordings 1..N and evaluation recordings 6,7 must be disjoint. One fixed class taxonomy, eight selected users."
+}

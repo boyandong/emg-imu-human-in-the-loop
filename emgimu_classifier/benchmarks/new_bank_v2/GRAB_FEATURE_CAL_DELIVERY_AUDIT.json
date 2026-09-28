@@ -1,0 +1,9 @@
+{
+  "run_id": "feature_bank_new_v2_grab_feature_anchor_20260928",
+  "rows": 288,
+  "source_curve_sha256": "abaa4fc10ee8d4088cf1c9b49325fa2e785236bad5fa99ccac0533e8d665a29d",
+  "source_prediction_sha256": "62335d6d3b36f874435bcadb4706eea5378ca14ee198568e46855f30d2f52365",
+  "source_audit_sha256": "2e1d8acfb3e329a0df7aadc88c09ac31b35b1c98ef46a934b2fae486a3c10a4b",
+  "source_table_sha256": "619cd57745d71e45996fd6d2bb657ca4a031d1ca60e1cfa83e64761704bc5ee3",
+  "boundary": "Days 2 and 3 have previously been examined; Day3 descriptive. Calibration recordings 1..N and evaluation recordings 6,7 must be disjoint. One fixed class taxonomy, eight selected users."
+}
