@@ -48,3 +48,12 @@ for descriptive final users. The label `RLCS_reconstructed_v1` distinguishes
 this new method from the unavailable historical RLCS implementation. Frozen
 states, prediction arrays, exact trial splits and replay audits are retained
 under `../replay_assets/feature_bank_epn_rlcs_anchor_*_20260928`.
+
+The public DS2 v9 personal-calibration study adds 240 pooled and per-subject
+rows to `calibration_curve.csv`. Its exporter
+`../../benchmarks/export_public_ds2_calibration_delivery.py` reads only frozen,
+independently verified scores, checks the source hashes and can be rerun without
+duplicating rows. Force-ZeroShot calibration uses low/average force only;
+ProductMode reserves all five calibration trials per gesture before any budget.
+These three-channel public scores are descriptive and do not replace own-device
+validation or the unavailable historical X1-H experiment.

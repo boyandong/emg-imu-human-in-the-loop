@@ -3115,3 +3115,25 @@ screen, but the fixed concatenation does not reliably dominate F0 and the
 unseen-high final comparison is nearly tied. These subjective, three-channel
 public results neither recover historical X1-H nor validate own-device live
 recognition. Earlier gesture-only analyses had already inspected final users.
+
+## Public DS2 v9 personal force calibration (2026-09-28)
+
+The publisher's verified trial force codes now support a separate fixed
+0/1/2/5-shot personal-calibration study on public DS2. The source-user model
+is replayed exactly. In unseen-high mode, calibration uses only low/average
+force and the test set consists entirely of high-force trials. Product mode
+reserves the same five trials per gesture at every budget; those trials never
+enter evaluation. The [study report](../benchmarks/discovery/public_ds2_force_v9/REPORT.md)
+and [verification](../benchmarks/discovery/public_ds2_force_v9/CALIBRATION_VERIFICATION.json)
+include all individual scores and audit checks.
+
+For reconstructed F1 alone, validation high-force macro-F1 rises from .366
+at zero shots to .574 at five; descriptive final users rise from .473 to .791.
+Product all-force F1 rises from .354 to .576 on validation and .461 to .738
+on descriptive final users. The four final users vary substantially, and
+F0+F1 concatenation does not inherit the F1-only gain. The canonical
+`delivery/calibration_curve.csv` now includes 240 pooled/per-subject records
+from this frozen study, with 0/40/80/200 seconds of recorded trial signal
+for the four-gesture budgets. These are subjective-force, three-channel,
+trial-level results; they do not set an eight-channel live recognition model
+or establish historical X1-H equivalence.
