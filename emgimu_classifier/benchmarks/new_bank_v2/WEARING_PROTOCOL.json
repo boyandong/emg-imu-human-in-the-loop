@@ -1,0 +1,18 @@
+{
+  "name": "new_bank_v2_electrode_shift_8ch",
+  "version": 1,
+  "dataset": "LibEMG CIILData native eight-channel 200 Hz electrode shift",
+  "archive": "D:/emg-imu-benchmarks/data/raw/libemg_electrode_shift/CIILData-main.zip",
+  "source_domain": "training",
+  "target_domains": ["trial_1", "trial_2", "trial_3", "trial_4"],
+  "validation_subjects": [15, 16, 17],
+  "final_subjects": [18, 19, 20],
+  "rest_label": 2,
+  "arms": ["F0", "F0v2", "F0v2+F2a", "F0v2+F3c", "F0v2+F2a+F3c"],
+  "features": "F0v2 source-rest adjacent-difference noise thresholds; F2a centered fixed-0.05-shrinkage trace covariance; F3c circular-lag summaries of the same covariance; 40-sample windows omit temporal half drift",
+  "classifier": "source-trial StandardScaler plus balanced LogisticRegression C=1 max_iter=2000 random_state=20260924",
+  "aggregation": "at most eight nonoverlapping 200 ms windows averaged to one feature vector per native trial",
+  "selection": "maximize pooled validation macro-F1, break ties by lower pooled validation log loss; do not select on final subjects",
+  "metrics": ["pooled_macro_f1", "pooled_log_loss", "pooled_brier", "minimum_subject_macro_f1", "worst_domain_macro_f1"],
+  "boundary": "same-user before/after wearing transfer on a public 200 Hz device; no current-device or live claim"
+}
