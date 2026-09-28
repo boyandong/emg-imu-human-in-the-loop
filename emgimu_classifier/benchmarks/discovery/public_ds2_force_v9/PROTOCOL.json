@@ -1,0 +1,22 @@
+{
+  "name": "public_ds2_v9_force_labels_fixed_cross_user_screen",
+  "status": "frozen_before_force_model_scoring",
+  "source_version": 9,
+  "source_identity": "v9 publisher force-label MAT joined through byte-identical MAV and gesture MAT files to the already exact v8 raw-to-window join",
+  "eligibility": "verified TDMS subject folder, uniform gesture code, four active gesture codes 0-3; exclude 30 unknown-subject raw trials, one mixed-gesture trial, and code 4 Rest",
+  "split_subject_folders": {
+    "train": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "validation": [13, 14, 15, 16],
+    "final_descriptive": [17, 18, 19, 20]
+  },
+  "windowing": "three nonoverlapping 375-sample raw windows per 10-second trial, starts 3000/6000/9000 at 1500 Hz; one mean-probability vote per trial",
+  "arms": ["F0_local_detail", "F1_global_scale_normalized_rms", "F0_plus_F1"],
+  "classifier": "StandardScaler plus balanced LogisticRegression(C=1.0, max_iter=2000, random_state=20260928); all family state and scaler fit on train subjects only",
+  "training_modes": {
+    "unseen_high": "train source users on force codes 0/1 only; score code 2 separately in held-out users; no target or high-force calibration",
+    "product_all": "train source users on all 0/1/2 force codes; score each force in held-out users"
+  },
+  "selection": "No arm or hyperparameter selection before reporting all three fixed arms. Validation and final subjects were used in earlier gesture-only work, so both phases are descriptive rather than pristine blind tests.",
+  "primary_readouts": ["macro-F1", "log loss", "Brier", "per-force minimum macro-F1"],
+  "boundaries": ["subjective instructed force categories, not measured mechanical force", "3-channel public candidate, not own 8-channel device", "new reconstructed F1, not historical X1-H equivalence", "no Rest force physiology", "no model deployment change"]
+}

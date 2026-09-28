@@ -9,8 +9,8 @@
   },
   "locator_warning": "line ranges are search regions in extracted text; final audit must verify exact document clauses and formulas",
   "next_required_work": [
+    "identify exact historical DS2 B0/X1-H/X2 input identity, model formulas and run states before old-result reproduction; public v9 force codes are now verified",
     "remaining exact historical family equivalence and named interactions, if original implementations become available",
-    "identify the exact historical DS2 input and force/trial mapping before claiming old-result reproduction",
     "continue single-participant Song real 8-channel software and offline evaluation within its one-day evidence boundary",
     "physical-device live behavior and cross-person/cross-day generalization require recordings or device access not currently available",
     "finish requirement-by-requirement acceptance audit and synchronize reviewed commits to GitHub"
@@ -181,8 +181,20 @@
     "source_reference_frozen": true,
     "native_heldout_result": "EPN users16-18 validation and19-21 final; 1/2/5 full-trial calibration per class, frozen source users1-15; trial predictions and pooled scores in work/benchmark_runs/feature_bank_epn_spd_anchor_{validation,final}_20260922",
     "compact_evidence": "feature_bank/results/epn_spd_anchor_trial_study.json",
-    "final_pooled_macro_f1_1_2_5": [0.29074518886012973, 0.3573396054073348, 0.44333373986233077],
+    "final_pooled_macro_f1_1_2_5": [
+      0.29074518886012973,
+      0.3573396054073348,
+      0.44333373986233077
+    ],
     "matched_core_late_fusion_evidence": "feature_bank/results/epn_spd_anchor_core_increment_{validation,final}.json plus canonical family/increment/calibration rows; frozen four-family Core and SPD personal trial predictions aligned on validation users16-18 and final users19-21 for 1/2/5-shot budgets, fixed equal probability mixture",
     "boundary": "Tangent-space Frobenius-equivalent EPN candidate with mixed validation/final behavior. A matched fixed late-fusion increment exists, but final users were previously examined and the result is exploratory; no zero-shot personal anchor, newly fitted concatenated Core increment, exact affine-invariant geodesic, historical family equivalence or own-device validation."
+  },
+  "public_ds2_v9_force_evidence": {
+    "force_label_join": "benchmarks/discovery/DS2_V9_FORCE_LABEL_AUDIT.json",
+    "fixed_cross_user_screen": "benchmarks/discovery/public_ds2_force_v9/RESULTS.json",
+    "verified_public_raw_trial_force_codes": 2863,
+    "subject_and_uniform_gesture_verified_trials": 2832,
+    "active_gesture_study_trials": 2297,
+    "boundary": "Publisher v9 subjective force codes are joined exactly through byte-identical v8/v9 MAV and gesture files; exact old-run identity, mechanical force and own-device behavior remain unproven."
   }
 }

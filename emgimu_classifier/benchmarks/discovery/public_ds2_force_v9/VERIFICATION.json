@@ -1,0 +1,11 @@
+{
+  "status": "all_saved_trial_and_force_metrics_verified",
+  "prediction_rows": 5454,
+  "groups": 12,
+  "per_force_counts": {
+    "0": 1854,
+    "1": 1806,
+    "2": 1794
+  },
+  "trial_predictions_sha256": "8b2f35d7b91f5b65e5f874ed4a59e959c2047d4ea63ce33a6873a3a6777a5dc3"
+}

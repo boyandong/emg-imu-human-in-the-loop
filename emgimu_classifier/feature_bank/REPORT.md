@@ -1,6 +1,11 @@
 # Feature Bank + Personal Calibration — interim evidence
 
 This is an incomplete execution of the two supplied specifications, not a completion claim.
+The publisher's 2026-09-25 DS2 v9 release now supplies verified public trial-level
+subjective force codes; the prior v8-only statements that DS2 has no force labels
+are historical snapshots. The new [force join](../benchmarks/discovery/DS2_V9_FORCE_LABEL_AUDIT.json)
+and [fixed cross-user screen](../benchmarks/discovery/public_ds2_force_v9/REPORT.md)
+are separate from still-unproven exact historical B0/X1-H/X2 replication.
 Predictive evaluations use source OOF or held-out subjects/sessions; descriptive target
 diagnostics are explicitly labelled. Model compositions and calibration rules are frozen
 from source evidence, validation evidence or prespecified controls; final scores do not tune them.
@@ -3089,3 +3094,24 @@ reception. From session start to calibration end is about 66 seconds. These
 numbers quantify this one-day scripted collection protocol only. They exclude
 electrode preparation, operator interaction before recording, and the separate
 live-recognition calibration flow; S01–S03 also failed collection readiness.
+
+## Publisher DS2 v9 force labels and fixed active-gesture screen (2026-09-28)
+
+The publisher added `LabelForces_All.mat` in Kaggle version 9. Its 332,108
+window codes are uniform within every one of the 2,863 raw-trial blocks.
+Version-9 MAV and gesture files match audited version-8 bytes exactly, binding
+the new force codes to the existing exact raw-to-window and TDMS subject joins.
+The 30 subject-unmatched trials retain force labels but cannot enter a cross-user
+split; one additional trial has mixed gesture labels. The resulting fixed
+four-active-gesture study scores 2,297 subject-verified trials across two
+source-training modes and three F0/F1 arms. A second run exactly reproduced
+the results, and all 5,454 saved probability rows independently rescore.
+
+With source users trained on low and average force only, final descriptive
+high-force macro-F1 is 0.4767 for F0, 0.4730 for reconstructed F1 alone and
+0.4845 for F0+F1. With all three source force levels, final all-force F1 is
+0.3771/0.4551/0.3998 respectively. Thus F1 alone helps in the product-mode
+screen, but the fixed concatenation does not reliably dominate F0 and the
+unseen-high final comparison is nearly tied. These subjective, three-channel
+public results neither recover historical X1-H nor validate own-device live
+recognition. Earlier gesture-only analyses had already inspected final users.

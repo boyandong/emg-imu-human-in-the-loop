@@ -1,12 +1,21 @@
 # Public sEMG benchmark inventory
 
+**Latest DS2 update (2026-09-28):** [Kaggle v9](https://www.kaggle.com/datasets/cinthyazuniga/ds2-emg-signals-three-force-type/versions/9)
+adds `LabelForces_All.mat`. Its 332,108 force codes join exactly to all 2,863
+public raw trials through the v9 MAV and gesture files, which are byte-identical
+to the audited v8 files. Every 116-window trial block has one force code.
+[The v9 force audit](DS2_V9_FORCE_LABEL_AUDIT.json) and [fixed cross-user screen](public_ds2_force_v9/REPORT.md)
+supersede the v8-only missing-force-label statements below. The 30 trials
+without verified subject remain excluded from cross-user scoring; historical
+B0/X1-H/X2 input identity is still unproven.
+
 This inventory separates benchmarks already used by this repository from newly selected
 failure tests. Raw data lives outside Git at `D:\emg-imu-benchmarks\data\raw`; processed
 data and manifests use sibling directories. Raw archives and extracted data are immutable.
 
 | Dataset | Status | Existing adapter | Existing results | Expected local path | Download status |
 |---|---|---|---|---|---|
-| Historical DS2 force | historical candidate | native adapter pending | referenced by the supplied research brief, absent from this repository and Git history | `work/datasets/historical_ds2_candidate/ds2_kaggle_v8.zip` | publisher-linked Kaggle v8 archive downloaded and CRC verified; identity with old experiment input remains unproven |
+| Historical DS2 force | public candidate with v9 labels | raw trial and force-code join; fixed cross-user runner | v9 F0/F1 active-gesture force screen; old B0/X1-H/X2 unavailable | `work/datasets/historical_ds2_candidate/v9_labels` plus v8 raw MAT | publisher-linked v9 label, MAV and gesture files downloaded/hash-verified; identity with old experiment input remains unproven |
 | LibEMG Contraction Intensity | new | native CSV adapter | Feature Bank, calibration, ablation | `data/raw/libemg_force` | verified complete |
 | LibEMG Electrode Shift | new | native ZIP adapter | held-out before/after | `data/raw/libemg_electrode_shift` | verified complete |
 | UniBo-INAIL | historical | yes | prior 33-run ablation; Feature Bank chronological | `data/raw/unibo_inail` | verified complete |

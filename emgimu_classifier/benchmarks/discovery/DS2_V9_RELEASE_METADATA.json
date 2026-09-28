@@ -1,0 +1,12 @@
+{
+  "api_url": "https://www.kaggle.com/api/v1/datasets/view/cinthyazuniga/ds2-emg-signals-three-force-type",
+  "dataset_ref": "cinthyazuniga/ds2-emg-signals-three-force-type",
+  "observed_current_version": 9,
+  "pinned_version": 9,
+  "version_creation_date_utc": "2026-09-25T02:38:56.137Z",
+  "version_notes": "Update 2026-09-25",
+  "description_sha256": "85ced5818b83a3954eff2e2adfca94fa32fd26f268cfb743b6ef0fc6e5a2b0a5",
+  "force_label_description": "**LabelForces_All:**\nForce level type labels per window (1x332,108). \nForces are listed from 0 to 2 (Low, Average, High)\n\nThe matrix obtained by combi",
+  "dataset_license": "CC0: Public Domain",
+  "note": "This is a curated API metadata snapshot; the pinned downloaded MAT byte hashes are the source identity for the experiment."
+}

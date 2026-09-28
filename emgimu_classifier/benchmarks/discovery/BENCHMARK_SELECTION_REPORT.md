@@ -1,5 +1,12 @@
 # Benchmark selection report
 
+The publisher's 2026-09-25 [DS2 v9](https://www.kaggle.com/datasets/cinthyazuniga/ds2-emg-signals-three-force-type/versions/9)
+now provides exact public force codes for all 2,863 raw trials through a
+byte-identical MAV/gesture join to v8. The [new fixed force screen](public_ds2_force_v9/REPORT.md)
+uses 2,297 subject-verified active trials. This resolves the *public release's*
+v8 missing-label limitation described in dated sections below; it does not
+establish exact identity with the older B0/X1-H/X2 experiments.
+
 ## Decision
 
 The suite is a failure test bench rather than a dataset leaderboard. Tier 1 covers subjective
