@@ -3136,4 +3136,8 @@ F0+F1 concatenation does not inherit the F1-only gain. The canonical
 from this frozen study, with 0/40/80/200 seconds of recorded trial signal
 for the four-gesture budgets. These are subjective-force, three-channel,
 trial-level results; they do not set an eight-channel live recognition model
-or establish historical X1-H equivalence.
+or establish historical X1-H equivalence. A subsequent frozen-prediction
+paired analysis shows F0+F1 loses to F0 on validation at five shots in both
+force modes even while F1 alone improves; all three arms use identical
+native trial IDs. This [negative conditional-increment result](../benchmarks/discovery/public_ds2_force_v9/CALIBRATION_PAIRED_RESULTS.json)
+prevents interpreting F1's standalone gain as evidence for naive concatenation.

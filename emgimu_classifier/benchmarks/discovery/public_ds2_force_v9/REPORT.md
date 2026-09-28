@@ -59,3 +59,27 @@ zero probability difference between the 0-shot rows and the parent study.
 A complete second run reproduced the assignment CSV, predictions CSV and
 results JSON byte-for-byte. The source archive stays outside Git; its SHA-256
 is recorded in the results.
+
+### Matched family increment and error complementarity
+
+A post-hoc [paired analysis](CALIBRATION_PAIRED_RESULTS.json) compares the
+three frozen arms on identical trial IDs within each force mode, split,
+calibration budget, subject and force cell. It saves 200
+[F0-to-F0+F1 increment cells](CALIBRATION_PAIRED_INCREMENT.csv) and 400
+[error-complementarity cells](CALIBRATION_PAIRED_COMPLEMENTARITY.csv).
+Pooled and marginal cell scores independently match the saved calibration
+results, and a second execution reproduced all three outputs byte-for-byte.
+
+| Mode, five shots | Validation F0 / F1 alone / F0+F1 macro-F1 | Descriptive final F0 / F1 alone / F0+F1 macro-F1 |
+|---|---|---|
+| Unseen high force | .307 / .574 / .277 | .463 / .791 / .549 |
+| Product all force | .410 / .575 / .401 | .472 / .738 / .548 |
+
+The joint arm improves over F0 in the descriptive final users but loses to
+F0 on validation at five shots in both modes; it is far below F1 alone in
+all four cells above. This is a negative conditional-increment result for
+the fixed concatenation, not a reason to select F1 on previously inspected
+final users. The worst final-user F1 at five shots is .323 in unseen-high
+mode and .582 in product mode, so even F1 alone does not establish reliable
+high-force transfer for every person. All comparisons remain offline public
+three-channel evidence rather than current-device validation.

@@ -49,6 +49,15 @@ def refresh_table(path: Path, update_boundary: bool = False) -> int:
                 row["boundary"] += (" Public DS2 v9 F0/F1/F0+F1 personal curves now exist "
                                     "for both force modes, with substantial user heterogeneity; "
                                     "these are new families, not exact old-family comparisons.") if "Public DS2 v9 F0/F1" not in row["boundary"] else ""
+            elif requirement in ("GOAL-ST2", "GOAL-ART3", "QUESTION-B"):
+                row["boundary"] += (" Public DS2 v9 adds 200 matched, post-hoc F0 to F0+F1 "
+                                    "force/budget/user increment cells; validation five-shot "
+                                    "macro-F1 declines in both force modes.") if "Public DS2 v9 adds 200 matched" not in row["boundary"] else ""
+            elif requirement == "GOAL-ART4":
+                row["boundary"] += (" Public DS2 v9 adds 400 matched, post-hoc "
+                                    "error-complementarity cells with directly computed "
+                                    "prediction disagreement; named historical-family "
+                                    "coverage remains incomplete.") if "Public DS2 v9 adds 400 matched" not in row["boundary"] else ""
     output = io.StringIO(newline="")
     writer = csv.DictWriter(output, fieldnames=fields, lineterminator="\r\n")
     writer.writeheader()
