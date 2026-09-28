@@ -3154,3 +3154,17 @@ paired analysis shows F0+F1 loses to F0 on validation at five shots in both
 force modes even while F1 alone improves; all three arms use identical
 native trial IDs. This [negative conditional-increment result](../benchmarks/discovery/public_ds2_force_v9/CALIBRATION_PAIRED_RESULTS.json)
 prevents interpreting F1's standalone gain as evidence for naive concatenation.
+
+## New v2 eight-channel electrode-shift result
+
+A frozen new experiment uses native LibEMG CIILData at 200 Hz with each subject's
+unshifted trials as source and four shifted wearing domains as target. Subjects
+15–17 select the arm; subjects 18–20 evaluate that fixed choice. The selected
+F0v2+F2a+F3c reaches final macro-F1 0.6560 and worst-domain F1 0.6027,
+versus the exactly replayed prior F0 at 0.4912 and 0.3938. F0v2 alone also
+improves, while F2a does not consistently help on final users. The unselected
+F0v2+F3c arm reaches final macro-F1 0.7737; that final-only ranking cannot
+change the validation choice. All 1,200 native-trial predictions are saved,
+independently rescored and byte-reproducible. See the
+[new wearing report](../benchmarks/new_bank_v2/WEARING_REPORT.md). This is
+public-device, trial-level evidence, not a live own-device approval.

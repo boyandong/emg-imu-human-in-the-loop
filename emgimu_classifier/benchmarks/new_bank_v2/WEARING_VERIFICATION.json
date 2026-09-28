@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "prediction_rows": 1200,
+  "score_groups_recomputed": 10,
+  "baseline_max_probability_error": 7.005507285384738e-14,
+  "validation_selected_arm": "F0v2+F2a+F3c",
+  "paired_vs_F0": {
+    "validation": {
+      "corrected_F0_errors": 32,
+      "new_errors_vs_F0": 0
+    },
+    "final": {
+      "corrected_F0_errors": 29,
+      "new_errors_vs_F0": 11
+    }
+  }
+}
