@@ -1,0 +1,19 @@
+{
+  "protocol_version": "song_real8_prospective_gate_v1",
+  "frozen_date_local": "2026-09-28",
+  "purpose": "Only a later, newly recorded Song-format session may be treated as prospective evidence for the current live four-hand-state model.",
+  "model_relative_path": "collection/emg_meta/emg_meta/models/song_real8_f0_spd/song_f0_model.json",
+  "model_sha256": "ecbab44df4340991d9b02038f9508d0b4767686064c6a26cceeecffd1900d821",
+  "model_manifest_relative_path": "collection/emg_meta/emg_meta/models/song_real8_f0_spd/song_manifest.json",
+  "model_manifest_sha256": "6c4a6d8ddd4461f3311820becfb03337b9e24b08c0bcc66b52b7b7b9eba3dbff",
+  "protocol_name": "jilv_music_28_v2",
+  "existing_session_hdf5_sha256": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+    "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+    "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+  },
+  "required_hand_states": ["neutral", "index_pinch", "fist", "open_hand"],
+  "selection_rule": "No refitting, threshold tuning, or model choice on the candidate session before scoring; report four-state and 28-state endpoints separately.",
+  "scope": "Eligibility gate only. Passing does not prove electrode re-placement, a new participant, live accuracy, or independent gesture-onset labels."
+}

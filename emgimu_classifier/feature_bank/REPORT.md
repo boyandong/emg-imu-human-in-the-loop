@@ -3065,3 +3065,16 @@ quadratic-form test and rejects calibration sets with fewer than feature
 dimension + 2 samples in any class. The existing native 1/2/5-shot high-dimensional
 calibration protocols fail that eligibility rule, so this implementation adds
 formula coverage without a native performance claim or a deployment change.
+
+## Prospective Song session eligibility gate (2026-09-28)
+
+The [frozen Song protocol](../benchmarks/song_real8/PROSPECTIVE_FREEZE.json)
+pins the current live F0+SPD bundle and all four previously inspected source
+session hashes. The [gate](../benchmarks/song_real8/prospective_gate.py) rejects
+an earlier or reused session, a modified model, incomplete collection readiness,
+or disagreement between HDF5 metadata and the sidecar records. It correctly
+rejects existing S04; a synthetic fresh-format session passes, and a changed
+model fails. A future session must be collected after the freeze date before
+this gate can be used for blind scoring. Passing is only an eligibility check:
+it does not itself validate live accuracy, new wearer generalization, measured
+gesture onset, or actual electrode re-placement.
