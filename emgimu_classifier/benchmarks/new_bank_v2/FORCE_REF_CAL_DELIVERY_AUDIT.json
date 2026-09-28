@@ -1,0 +1,9 @@
+{
+  "run_id": "feature_bank_new_v2_force_medium_reference_cal_20260928",
+  "rows": 156,
+  "source_results_sha256": "75b72133fe90a4b96eadd1d097991e96a7535744addb7937e28bcd47fc4ed263",
+  "source_predictions_sha256": "cb9c9ffcf3f91de85c7c118d197b5ddbd5257a8691c6b2aa1313b171fcd4384a",
+  "source_verification_sha256": "9e27c70bb92c443d5bd7ba26ad2409f03a54f298c1d5139f243b212a165c5ffb",
+  "source_table_sha256": "b1ab6b83b70cfddeeaaf17a76edd700a785f7fb60c951b87b4f2dbaff50dd748",
+  "boundary": "shared Medium calibration reused at ten conditions; public trial-level evidence"
+}

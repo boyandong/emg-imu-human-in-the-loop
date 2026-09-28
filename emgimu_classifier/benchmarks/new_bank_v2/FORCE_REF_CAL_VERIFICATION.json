@@ -1,0 +1,126 @@
+{
+  "status": "ok",
+  "prediction_rows": 3360,
+  "assignments": 4,
+  "score_groups_recomputed": 12,
+  "parent_zero_shot_replay": "within 1e-12 on identical native trials",
+  "per_user_reference_burden": {
+    "validation_7": {
+      "1": {
+        "trials": 7,
+        "recorded_signal_seconds": 21.12
+      },
+      "2": {
+        "trials": 14,
+        "recorded_signal_seconds": 42.24
+      }
+    },
+    "validation_8": {
+      "1": {
+        "trials": 7,
+        "recorded_signal_seconds": 21.12
+      },
+      "2": {
+        "trials": 14,
+        "recorded_signal_seconds": 42.368
+      }
+    },
+    "final_9": {
+      "1": {
+        "trials": 7,
+        "recorded_signal_seconds": 21.12
+      },
+      "2": {
+        "trials": 14,
+        "recorded_signal_seconds": 42.368
+      }
+    },
+    "final_10": {
+      "1": {
+        "trials": 7,
+        "recorded_signal_seconds": 20.992
+      },
+      "2": {
+        "trials": 14,
+        "recorded_signal_seconds": 42.176
+      }
+    }
+  },
+  "per_user_per_condition_parent_burden": {
+    "validation_7": {
+      "1": {
+        "trials": 70,
+        "recorded_signal_seconds": 211.136
+      },
+      "2": {
+        "trials": 140,
+        "recorded_signal_seconds": 422.272
+      }
+    },
+    "validation_8": {
+      "1": {
+        "trials": 70,
+        "recorded_signal_seconds": 211.2
+      },
+      "2": {
+        "trials": 140,
+        "recorded_signal_seconds": 423.04
+      }
+    },
+    "final_9": {
+      "1": {
+        "trials": 70,
+        "recorded_signal_seconds": 211.52
+      },
+      "2": {
+        "trials": 140,
+        "recorded_signal_seconds": 423.232
+      }
+    },
+    "final_10": {
+      "1": {
+        "trials": 70,
+        "recorded_signal_seconds": 211.648
+      },
+      "2": {
+        "trials": 140,
+        "recorded_signal_seconds": 423.36
+      }
+    }
+  },
+  "paired_vs_source_only": {
+    "validation_F0v2_one_shot": {
+      "corrected": 13,
+      "new_errors": 13
+    },
+    "validation_F0v2_two_shot": {
+      "corrected": 24,
+      "new_errors": 9
+    },
+    "validation_F0v2+F2a_one_shot": {
+      "corrected": 7,
+      "new_errors": 1
+    },
+    "validation_F0v2+F2a_two_shot": {
+      "corrected": 3,
+      "new_errors": 1
+    },
+    "final_F0v2_one_shot": {
+      "corrected": 17,
+      "new_errors": 3
+    },
+    "final_F0v2_two_shot": {
+      "corrected": 18,
+      "new_errors": 3
+    },
+    "final_F0v2+F2a_one_shot": {
+      "corrected": 8,
+      "new_errors": 4
+    },
+    "final_F0v2+F2a_two_shot": {
+      "corrected": 8,
+      "new_errors": 2
+    }
+  },
+  "boundary": "recorded signal only, excluding setup/transitions; public trial-level evidence"
+}

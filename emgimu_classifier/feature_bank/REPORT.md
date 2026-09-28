@@ -3207,3 +3207,15 @@ probabilities replay the frozen parent; 3,360 prediction rows and 40 nested
 assignments pass independent verification. MVC lacks enough native trials
 for the matched 2-shot protocol and is excluded. This does not establish
 new-day or own-device live reliability.
+
+A [frozen single-reference follow-up](../benchmarks/new_bank_v2/FORCE_REF_CAL_REPORT.md)
+tests the calibration burden directly. One/two labelled Medium trials per
+gesture cost about 21/42 seconds of recorded signal per user versus about
+211/423 seconds for separate calibration at all ten intensities. On the same
+final evaluation trials, F0v2 macro-F1 reaches only 0.5781/0.5794 with the
+shared reference versus 0.7254/0.7369 with per-condition prototypes. On
+validation, one shared shot lowers F1 below the 0-shot control. The 10×
+burden reduction therefore sacrifices much of the gain; it is not a validated
+short-calibration default. All 3,360 predictions and four nested assignments
+pass independent checks, and the 156 additional calibration-curve records
+are provenance-verified.

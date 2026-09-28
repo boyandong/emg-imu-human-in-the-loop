@@ -78,4 +78,13 @@ matched 0/1/2-shot pooled, subject and condition rows to
 hash audit is `../../benchmarks/new_bank_v2/FORCE_CAL_DELIVERY_AUDIT.json`.
 MVC is excluded because two repetitions per gesture cannot support the
 fixed two-shot calibration and held-out evaluation split. The current
-canonical provenance check covers 51,424 rows.
+canonical provenance check covered 51,424 rows at that export.
+
+The single-Medium-reference calibration comparison adds a further 156
+matched 0/1/2-shot rows to `calibration_curve.csv`. It reuses one set of
+7/14 labelled trials per user across all ten evaluation intensities, with
+source results from `../../benchmarks/new_bank_v2/FORCE_REF_CAL_REPORT.md`.
+The exporter and SHA audit are
+`../../benchmarks/new_bank_v2/export_force_ref_cal_delivery.py` and
+`../../benchmarks/new_bank_v2/FORCE_REF_CAL_DELIVERY_AUDIT.json`.
+The current canonical provenance check covers 51,580 rows.
