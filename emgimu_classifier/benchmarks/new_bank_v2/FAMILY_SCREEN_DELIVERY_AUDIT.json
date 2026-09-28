@@ -1,0 +1,9 @@
+{
+  "run_id": "feature_bank_new_v2_family_screen_20260928",
+  "rows": 256,
+  "source_screen_sha256": "3ccc6ae4db2ff7fd4273dc3e468dd90c31f87a90fabad3b37959ae93c4aac69b",
+  "source_robustness_vector_sha256": "dae2bdc7090e507365d21f2873705efaf8042621ee7d3a2195316f8c99b79a67",
+  "source_audit_sha256": "499b4cfef6db92ff22483a6928246e4465de307f63b9f04f9bde3e7cd44cb346",
+  "source_table_sha256": "b0130ef9a0b61fb586e1fc4b0259c71091406ee6edcafb4f906ce249c2df166c",
+  "boundary": "four heterogeneous datasets; three observed failure axes, four explicit N/A axes"
+}

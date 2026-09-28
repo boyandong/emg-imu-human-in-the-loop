@@ -1,0 +1,16 @@
+{
+  "status": "ok",
+  "protocol_sha256": "125339c1529f2800399a36ce8f6423934260490f9a8649fec1a04cbc49b26993",
+  "source_predictions_sha256": {
+    "force": "f021fb07317495326366502a5ae1018396df247f8e46b591432717b4b973997c",
+    "wearing": "bd2e0ac452ddab1de3eb17324c9447da10a47b2cca7a917becfc05a2c252d21f",
+    "day": "58401ac416aebc6e4ad059a0b98637c8e40c404c695780073a05fe666d66df75",
+    "Song_same_day": "916074bfbd7245e3ebd7fdb0521d04760fed317a62dd99c1cf052421a1f3b6c6"
+  },
+  "rows": {
+    "FAMILY_SCREEN.csv": 256,
+    "ROBUSTNESS_VECTOR.csv": 24
+  },
+  "saved_pooled_metric_groups_replayed": 32,
+  "boundary": "three observed axes, four explicit N/A axes; Song one-user/day supplemental"
+}

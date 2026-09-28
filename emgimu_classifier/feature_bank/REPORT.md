@@ -3228,3 +3228,14 @@ F1 by 0.1178, while F3c's inclusion lowers descriptive final force F1 by
 0.0560. The complete three-family concatenation is therefore not a stable
 common default. All 5,664 arm–trial predictions, 1,416 native trials, exact
 parent replays and 176 canonical ablation rows pass independent checks.
+
+The [new-v2 Stage-1 family screen](../benchmarks/new_bank_v2/FAMILY_SCREEN_REPORT.md)
+now consolidates four saved eight-channel prediction matrices. It records
+macro-F1, log loss, Brier, ten-bin ECE and per-class F1 in 256 pooled,
+subject and condition cells. The seven-axis robustness vector has direct
+new-v2 evidence for force, wearing and day; independent user, posture,
+speed and real quality remain N/A, while the one-person Song sessions are
+a separate same-day supplement. F3c is a wearing specialist candidate, not
+a general default; F2a is inconsistent across validation and descriptive
+final cohorts. The canonical family table and all 52,012 provenance rows
+pass the source-bound audit.

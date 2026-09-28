@@ -1,0 +1,25 @@
+family,axis,phase,dataset,status,delta_macro_f1,delta_logloss_improvement,delta_brier_improvement,boundary
+F2a,force,validation,libemg_contraction_intensity,observed,-0.06442272575802588,-0.5211298736406831,-0.08999843236351412,"LibEMG cross-user instructed intensity, confounded with held-out users"
+F2a,force,final,libemg_contraction_intensity,observed,0.041800997566139975,0.07077390874184752,-7.086335711514735e-05,"LibEMG cross-user instructed intensity, confounded with held-out users"
+F2a,wearing,validation,libemg_electrode_shift,observed,0.11850647544495874,0.21301113979476782,0.11099308499529914,LibEMG native electrode shift within users
+F2a,wearing,final,libemg_electrode_shift,observed,-0.01745993182383998,-0.006291744387314502,-0.012418665452155975,LibEMG native electrode shift within users
+F2a,day,validation,grabmyo_forearm8,observed,-0.02390051046923425,-0.036436454588984424,-0.025310854052016815,"GRABMyo eight-channel day 1 train, day 2 validation, day 3 descriptive final"
+F2a,day,final,grabmyo_forearm8,observed,-0.04723347574418213,-0.4611686636235309,-0.04813710497723789,"GRABMyo eight-channel day 1 train, day 2 validation, day 3 descriptive final"
+F2a,user,N/A,N/A,N/A,N/A,N/A,N/A,N/A independent user axis; force also changes user and cannot isolate a separate user effect
+F2a,posture,N/A,N/A,N/A,N/A,N/A,N/A,N/A matching new-v2 family comparison
+F2a,speed,N/A,N/A,N/A,N/A,N/A,N/A,N/A matching new-v2 family comparison
+F2a,quality,N/A,N/A,N/A,N/A,N/A,N/A,N/A real matching new-v2 quality comparison
+F2a,Song_same_day_supplement,validation,song_real8_one_user,exploratory,0.021941398233530807,0.1122105799209881,0.04388215361631276,"Song S03/S04 is one 250 Hz user and one date; report separately, never as independent day or user axis"
+F2a,Song_same_day_supplement,final,song_real8_one_user,exploratory,0.04481691735875004,0.172847868293206,0.0875148972743891,"Song S03/S04 is one 250 Hz user and one date; report separately, never as independent day or user axis"
+F3c,force,validation,libemg_contraction_intensity,observed,-0.06462761133398731,-0.6205108833814248,-0.1074733977012583,"LibEMG cross-user instructed intensity, confounded with held-out users"
+F3c,force,final,libemg_contraction_intensity,observed,-0.02361693879037219,0.04381998932179543,-0.026674530829441045,"LibEMG cross-user instructed intensity, confounded with held-out users"
+F3c,wearing,validation,libemg_electrode_shift,observed,0.10669289783310065,0.4173013100959596,0.17286222223113534,LibEMG native electrode shift within users
+F3c,wearing,final,libemg_electrode_shift,observed,0.15670015426632378,0.4064876517717909,0.18385158182728678,LibEMG native electrode shift within users
+F3c,day,validation,grabmyo_forearm8,observed,-0.03533877845163391,-0.020157508254208117,-0.023001443155581544,"GRABMyo eight-channel day 1 train, day 2 validation, day 3 descriptive final"
+F3c,day,final,grabmyo_forearm8,observed,-0.02437266344697364,-0.08406680124403926,-0.03237290475909846,"GRABMyo eight-channel day 1 train, day 2 validation, day 3 descriptive final"
+F3c,user,N/A,N/A,N/A,N/A,N/A,N/A,N/A independent user axis; force also changes user and cannot isolate a separate user effect
+F3c,posture,N/A,N/A,N/A,N/A,N/A,N/A,N/A matching new-v2 family comparison
+F3c,speed,N/A,N/A,N/A,N/A,N/A,N/A,N/A matching new-v2 family comparison
+F3c,quality,N/A,N/A,N/A,N/A,N/A,N/A,N/A real matching new-v2 quality comparison
+F3c,Song_same_day_supplement,validation,song_real8_one_user,exploratory,0.028908636492116835,0.07180766596485591,0.034699477619155955,"Song S03/S04 is one 250 Hz user and one date; report separately, never as independent day or user axis"
+F3c,Song_same_day_supplement,final,song_real8_one_user,exploratory,0.04478797048769789,0.11435012328360877,0.06450207071213432,"Song S03/S04 is one 250 Hz user and one date; report separately, never as independent day or user axis"

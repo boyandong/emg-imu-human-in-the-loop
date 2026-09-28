@@ -96,4 +96,14 @@ source study and exporter are
 `../../benchmarks/new_bank_v2/LOFO_REPORT.md` and
 `../../benchmarks/new_bank_v2/export_lofo_delivery.py`; the SHA audit is
 `../../benchmarks/new_bank_v2/LOFO_DELIVERY_AUDIT.json`. The current
-canonical provenance check covers 51,756 rows.
+canonical provenance check covered 51,756 rows at that export.
+
+The new-v2 Stage-1 screening export adds 256 pooled, subject and condition
+rows to `feature_family_results.csv`, including per-class F1 and ten-bin ECE
+recomputed from frozen trial probabilities. The corresponding seven-axis
+vector explicitly records four unavailable axes as N/A and keeps the
+one-person Song results separate. Source files are
+`../../benchmarks/new_bank_v2/FAMILY_SCREEN_REPORT.md` and
+`../../benchmarks/new_bank_v2/export_family_screen_delivery.py`; the hash
+record is `../../benchmarks/new_bank_v2/FAMILY_SCREEN_DELIVERY_AUDIT.json`.
+The current canonical provenance check covers 52,012 rows.

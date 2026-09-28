@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 
 import numpy as np
-from sklearn.metrics import f1_score, log_loss
+from sklearn.metrics import f1_score
 
 ROOT = Path(__file__).resolve().parent
 PROTOCOL_PATH = ROOT / "FAMILY_SCREEN_PROTOCOL.json"
@@ -47,6 +47,7 @@ def _score(rows: list[dict], classes: list[str]) -> dict:
     if not np.all(np.isfinite(p)) or np.any(p < 0) or not np.allclose(p.sum(axis=1), 1, atol=1e-12):
         raise ValueError("invalid saved class probability vector")
     labels = np.asarray(classes)
+    target_index = np.asarray([classes.index(label) for label in y])
     pred = labels[p.argmax(axis=1)]
     one_hot = y[:, None] == labels[None, :]
     confidence = p.max(axis=1)
@@ -60,7 +61,8 @@ def _score(rows: list[dict], classes: list[str]) -> dict:
     class_f1 = f1_score(y, pred, labels=labels, average=None, zero_division=0)
     return {"trials": len(rows), "accuracy": float(correct.mean()),
             "macro_f1": float(f1_score(y, pred, labels=labels, average="macro", zero_division=0)),
-            "log_loss": float(log_loss(y, p, labels=labels)),
+            "log_loss": float(np.mean(-np.log(np.clip(
+                p[np.arange(len(y)), target_index], np.finfo(float).eps, 1.0)))),
             "brier": float(np.mean(np.sum((p - one_hot) ** 2, axis=1))),
             "ece": ece,
             "per_class_f1_json": json.dumps({c: float(v) for c, v in zip(classes, class_f1)}, sort_keys=True)}
