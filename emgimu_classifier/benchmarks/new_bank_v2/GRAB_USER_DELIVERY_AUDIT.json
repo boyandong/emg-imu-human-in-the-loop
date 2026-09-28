@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_grab_user_spatial_v2_20260929",
+  "exports": {
+    "feature_family_results.csv": {
+      "rows": 24,
+      "source_sha256": "9f37bb432b910d82c5f0e89e131aeeacad4aaf10a62ad94e412586f814a566c1",
+      "output_sha256": "98c29427d15dcf2ef23d31deeaec5173706dc800fdfd9a9ebfa45372aa0ea603"
+    },
+    "conditional_incremental.csv": {
+      "rows": 12,
+      "source_sha256": "9706f3ab75faed3cd4d10d00e3fb29472ab8407ff342cc9b7c397ad178f966da",
+      "output_sha256": "d1d9e33dfab4e4d3ba03de2e62b735cf0c92a5f490fc42491881a1d84d194ea8"
+    },
+    "error_complementarity.csv": {
+      "rows": 6,
+      "source_sha256": "0a8ae2261e8f59d4291e47f8be657c79be78ca89015dc1517a052a5d6e2a7ede",
+      "output_sha256": "09269343dcc68f7c52c33071ccc988e5be74a72ce274c5a40f78aaba9c5f1c08"
+    }
+  },
+  "interaction_sha256": "6a944e8840051663a89fdf57462ecb3378d2023af3aa14c9a228e7f80a30f87f",
+  "envelope_sha256": "16e8e4b2c63f67dd0022e009ba1e47daa1b0bde82f868a93fb947fbb60a429dd",
+  "paired_audit_sha256": "d3fdf3e0adc8b4e6b859365767429a6c1458ca996145ab32ec58e2f7b84eea0b",
+  "boundary": "Post-hoc analysis of frozen same-day public cross-user predictions; final users were previously inspected and cannot select a feature arm; no own-device or live claim"
+}

@@ -1,0 +1,19 @@
+{
+  "status": "ok",
+  "protocol_sha256": "3d762bc6c75a5633072de647b260a2c039403d24d72c9e4db2b1d49fea76383d",
+  "old_family_screen_sha256": "3ccc6ae4db2ff7fd4273dc3e468dd90c31f87a90fabad3b37959ae93c4aac69b",
+  "new_user_screen_sha256": "9f37bb432b910d82c5f0e89e131aeeacad4aaf10a62ad94e412586f814a566c1",
+  "rows": 8,
+  "observed_axes": [
+    "force",
+    "wearing",
+    "day",
+    "user"
+  ],
+  "unobserved_axes": [
+    "posture",
+    "speed",
+    "quality"
+  ],
+  "boundary": "Day and user use different splits of the same GRABMyo subset and are correlated, not independent populations. Force changes users as well as intensity; other datasets have different labels/rates/devices. Four-axis mean is descriptive and not pooled accuracy. Own-device posture, speed and real quality remain unobserved for this exact bank."
+}

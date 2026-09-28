@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "prediction_rows": 448,
+  "native_target_records": 112,
+  "score_groups_checked": 8,
+  "validation_selected_arm": "F0v2",
+  "paired_correctness": {
+    "validation:F0v2+F2a": {
+      "base_correct_added_wrong": 6,
+      "base_wrong_added_correct": 3
+    },
+    "validation:F0v2+F3c": {
+      "base_correct_added_wrong": 5,
+      "base_wrong_added_correct": 1
+    },
+    "validation:F0v2+F2a+F3c": {
+      "base_correct_added_wrong": 6,
+      "base_wrong_added_correct": 2
+    },
+    "final:F0v2+F2a": {
+      "base_correct_added_wrong": 3,
+      "base_wrong_added_correct": 0
+    },
+    "final:F0v2+F3c": {
+      "base_correct_added_wrong": 1,
+      "base_wrong_added_correct": 1
+    },
+    "final:F0v2+F2a+F3c": {
+      "base_correct_added_wrong": 3,
+      "base_wrong_added_correct": 0
+    }
+  },
+  "result_sha256": "8ba1a3d7a42c0a1af7e9747f4f883aa1b5d3b5a59e5d73dc34db6cb86ae36969",
+  "prediction_sha256": "3f4b7d58df3296b4483fcd63187f13f8d3ff3f4dfc6024b9f2003f76a20065b5",
+  "boundary": "Same-day public eight-channel four-gesture cross-user transfer. Each user is disjoint across source, validation and descriptive final groups. Final users have appeared in prior project studies, so final is not a fresh project-wide holdout. Not user's 250 Hz device or live recognition."
+}

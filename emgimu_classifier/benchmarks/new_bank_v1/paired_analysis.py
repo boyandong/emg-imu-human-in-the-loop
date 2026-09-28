@@ -18,7 +18,8 @@ PROTOCOL = json.loads(PROTOCOL_PATH.read_text(encoding="utf-8"))
 SOURCE = ROOT / "TRIAL_PREDICTIONS.csv"
 DATASET_NAMES = {"force": "libemg_contraction_intensity",
                  "wearing": "libemg_electrode_shift",
-                 "manus": "semg_manus"}
+                 "manus": "semg_manus",
+                 "grab_user": "grabmyo_forearm8"}
 
 
 def csv_text(rows: list[dict]) -> str:

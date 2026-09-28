@@ -161,3 +161,13 @@ results are documented in
 `../../benchmarks/new_bank_v2/MANUS_SPATIAL_REPORT.md`; see
 `../../benchmarks/new_bank_v2/MANUS_SPATIAL_DELIVERY_AUDIT.json` for hashes.
 The canonical provenance check now covers 53,548 rows.
+
+The new-v2 same-day GRABMyo cross-user study adds 24 family, 12 conditional
+and six matched-error rows to the canonical tables. Its six F2a×F3c
+interaction rows and versioned four-axis robustness envelope remain
+separate source artifacts. The fixed source/validation/final user split,
+results and limitations are in
+`../../benchmarks/new_bank_v2/GRAB_USER_REPORT.md` and
+`../../benchmarks/new_bank_v2/ENVELOPE_USER_REPORT.md`; the source/output
+hashes are in `../../benchmarks/new_bank_v2/GRAB_USER_DELIVERY_AUDIT.json`.
+The canonical provenance check now covers 53,590 rows.

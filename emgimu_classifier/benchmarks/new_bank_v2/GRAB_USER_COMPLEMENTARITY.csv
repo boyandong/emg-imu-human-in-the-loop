@@ -1,0 +1,7 @@
+dataset,axis,phase,scope,subject,condition,calibration_budget,evaluation_unit,evaluation_trials,family_a,family_b,comparison_type,error_correlation,prediction_disagreement_rate,a_correct_b_wrong,a_wrong_b_correct,both_correct,both_wrong
+grabmyo_forearm8,grab_user,validation,pooled,ALL,Day1,0,whole_native_trial,56,F0v2+F2a,F0v2+F3c,matched_new_v1_single_additions,0.8613973647824801,0.125,2,1,40,13
+grabmyo_forearm8,grab_user,validation,subject,5,Day1,0,whole_native_trial,28,F0v2+F2a,F0v2+F3c,matched_new_v1_single_additions,0.9999999999999999,0.07142857142857142,0,0,18,10
+grabmyo_forearm8,grab_user,validation,subject,6,Day1,0,whole_native_trial,28,F0v2+F2a,F0v2+F3c,matched_new_v1_single_additions,0.6091095901015048,0.17857142857142858,2,1,22,3
+grabmyo_forearm8,grab_user,final,pooled,ALL,Day1,0,whole_native_trial,56,F0v2+F2a,F0v2+F3c,matched_new_v1_single_additions,0.6868028197434453,0.05357142857142857,0,3,50,3
+grabmyo_forearm8,grab_user,final,subject,7,Day1,0,whole_native_trial,28,F0v2+F2a,F0v2+F3c,matched_new_v1_single_additions,N/A,0.0,0,0,28,0
+grabmyo_forearm8,grab_user,final,subject,8,Day1,0,whole_native_trial,28,F0v2+F2a,F0v2+F3c,matched_new_v1_single_additions,0.6633249580710798,0.10714285714285714,0,3,22,3

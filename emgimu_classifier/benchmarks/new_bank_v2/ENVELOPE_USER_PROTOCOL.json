@@ -1,0 +1,12 @@
+{
+  "name": "new_v2_four_observed_axis_robustness_envelope_v2",
+  "version": 2,
+  "parent_three_axis_screen_sha256": "3ccc6ae4db2ff7fd4273dc3e468dd90c31f87a90fabad3b37959ae93c4aac69b",
+  "new_user_axis_screen_sha256": "9f37bb432b910d82c5f0e89e131aeeacad4aaf10a62ad94e412586f814a566c1",
+  "arms": ["F0v2", "F0v2+F2a", "F0v2+F3c", "F0v2+F2a+F3c"],
+  "observed_axes": ["force", "wearing", "day", "user"],
+  "unobserved_axes": ["posture", "speed", "quality"],
+  "aggregation": "unweighted mean and minimum of four axis-specific pooled native-trial macro-F1 values; preserve each observed axis and the minimum subject/condition cell separately",
+  "selection": "report all four arms and validation/final phases; do not select using final users or later descriptive ranking",
+  "boundary": "Day and user use different splits of the same GRABMyo subset and are correlated, not independent populations. Force changes users as well as intensity; other datasets have different labels/rates/devices. Four-axis mean is descriptive and not pooled accuracy. Own-device posture, speed and real quality remain unobserved for this exact bank."
+}

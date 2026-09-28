@@ -1,0 +1,14 @@
+{
+  "status": "ok",
+  "analysis_protocol_sha256": "5f1be70277a91dc7fa3db778c58bb05e1e807eebcca9205e47fab1429a807e11",
+  "parent_prediction_sha256": "3f4b7d58df3296b4483fcd63187f13f8d3ff3f4dfc6024b9f2003f76a20065b5",
+  "parent_score_groups_replayed": 24,
+  "matched_cells": 6,
+  "rows": {
+    "GRAB_USER_SCREEN.csv": 24,
+    "GRAB_USER_CONDITIONAL.csv": 12,
+    "GRAB_USER_COMPLEMENTARITY.csv": 6,
+    "GRAB_USER_INTERACTION.csv": 6
+  },
+  "boundary": "Post-hoc analysis of frozen same-day public cross-user predictions; final users were previously inspected and cannot select a feature arm; no own-device or live claim"
+}

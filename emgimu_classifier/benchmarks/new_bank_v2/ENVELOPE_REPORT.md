@@ -37,6 +37,11 @@ speed-stratified public eight-channel cross-session check of F2a/F3c, but
 MANUS has no Rest and cannot fit F0v2. It therefore does not replace the
 `N/A` speed cell of this exact four-arm envelope.
 
+A later [versioned four-axis envelope](ENVELOPE_USER_REPORT.md) separately
+adds a same-day, subject-disjoint GRABMyo user-axis result for the exact
+F0v2/F2a/F3c candidates. This three-axis frozen table is retained for
+comparison.
+
 This index averages three *different classification tasks* with different
 gestures, devices, users and sample rates. It is an explicit, transparent
 summary requested by the protocol, not a pooled accuracy estimate or a

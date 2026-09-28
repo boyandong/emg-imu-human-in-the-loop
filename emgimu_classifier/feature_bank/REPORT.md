@@ -3326,3 +3326,25 @@ loss worsens from 1.5920 to 1.7900 and the minimum-user F1 falls from
 loss/F1 directions in several cells. All 864 saved native-trial predictions,
 80 score groups, 20 paired analysis cells, and the updated 53,548-row
 canonical provenance are independently checked. No live-model change follows.
+
+## Same-day GRABMyo cross-user new-v2 axis
+
+The [frozen subject-disjoint study](../benchmarks/new_bank_v2/GRAB_USER_REPORT.md)
+now evaluates the exact F0v2/F2a/F3c four-arm candidate set on Day1 of
+the verified GRABMyo eight-channel subset: users 1–4 train, 5–6 validate,
+7–8 provide descriptive final scores. F0v2 thresholds use only 560 Rest
+windows from source users. The validation rule selects F0v2 at 0.8054
+macro-F1 versus 0.7485/0.7350/0.7256 for the other three arms. F3c's
+0.0004 final F1 edge is final-only, has worse log loss, and cannot alter
+the choice. The 448 saved predictions, eight source-score groups, 24
+pooled/user family cells and six matched error/interaction cells are
+reproducible and independently checked.
+
+The [versioned four-axis envelope](../benchmarks/new_bank_v2/ENVELOPE_USER_REPORT.md)
+adds the separately identified user axis to force, wearing and day while
+retaining the frozen three-axis table. F0v2 has the highest validation
+four-axis mean (0.7419) and minimum (0.5775). Day and user are correlated
+because they use different splits of the same public subset; posture,
+speed and real quality remain unobserved for this exact bank. The
+canonical provenance check now covers 53,590 records. None of this
+validates the user's 250 Hz live device.

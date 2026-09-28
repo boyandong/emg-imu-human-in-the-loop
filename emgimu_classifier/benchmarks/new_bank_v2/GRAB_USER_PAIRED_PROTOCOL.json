@@ -1,0 +1,14 @@
+{
+  "name": "new_v2_grab_same_day_cross_user_matched_analysis_v1",
+  "version": 1,
+  "parent_protocol_sha256": "ffb8c5111a02d2b336966c3214c0e3e72f793c1799a794b48ac5b884e8172827",
+  "parent_result_sha256": "8ba1a3d7a42c0a1af7e9747f4f883aa1b5d3b5a59e5d73dc34db6cb86ae36969",
+  "parent_prediction_sha256": "3f4b7d58df3296b4483fcd63187f13f8d3ff3f4dfc6024b9f2003f76a20065b5",
+  "arms": ["F0v2", "F0v2+F2a", "F0v2+F3c", "F0v2+F2a+F3c"],
+  "classes": [4, 15, 16, 17],
+  "cells": "validation and descriptive final separately; pooled and each of two target users; same native Day1 recording IDs and labels across four arms",
+  "conditional": "Add F2a given F0v2+F3c and F3c given F0v2+F2a; positive delta_log_loss means lower loss",
+  "complementarity": "F0v2+F2a versus F0v2+F3c matched correctness and predicted-label disagreement",
+  "interaction": "P(F0v2+F2a+F3c)-P(F0v2+F2a)-P(F0v2+F3c)+P(F0v2), P=-held-out log loss",
+  "boundary": "Post-hoc analysis of frozen same-day public cross-user predictions; final users were previously inspected and cannot select a feature arm; no own-device or live claim"
+}

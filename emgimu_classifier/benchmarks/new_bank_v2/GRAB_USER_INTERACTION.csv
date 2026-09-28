@@ -1,0 +1,7 @@
+dataset,axis,phase,scope,subject,condition,calibration_budget,evaluation_unit,evaluation_trials,base_arm,family_a_arm,family_b_arm,joint_arm,interaction_neg_log_loss,interaction_macro_f1,joint_minus_core_macro_f1,joint_minus_core_neg_log_loss
+grabmyo_forearm8,grab_user,validation,pooled,ALL,Day1,0,whole_native_trial,56,F0v2,F0v2+F2a,F0v2+F3c,F0v2+F2a+F3c,0.17898904234268526,0.04749944754267188,-0.07978532727771015,-0.3664539955200085
+grabmyo_forearm8,grab_user,validation,subject,5,Day1,0,whole_native_trial,28,F0v2,F0v2+F2a,F0v2+F3c,F0v2+F2a+F3c,0.3411797773545785,0.15879953379953382,-0.09251165501165504,-0.6173578704039923
+grabmyo_forearm8,grab_user,validation,subject,6,Day1,0,whole_native_trial,28,F0v2,F0v2+F2a,F0v2+F3c,F0v2+F2a+F3c,0.016798307330791684,-0.01523692810457511,-0.0986111111111111,-0.11555012063602477
+grabmyo_forearm8,grab_user,final,pooled,ALL,Day1,0,whole_native_trial,56,F0v2,F0v2+F2a,F0v2+F3c,F0v2+F2a+F3c,0.09822207906953803,-0.00041616357522922254,-0.05591301449307928,-0.13043633648150585
+grabmyo_forearm8,grab_user,final,subject,7,Day1,0,whole_native_trial,28,F0v2,F0v2+F2a,F0v2+F3c,F0v2+F2a+F3c,-0.042482230151852166,0.0,0.0,0.05830379141753224
+grabmyo_forearm8,grab_user,final,subject,8,Day1,0,whole_native_trial,28,F0v2,F0v2+F2a,F0v2+F3c,F0v2+F2a+F3c,0.23892638829092816,-0.0034853626765392054,-0.1282763332298935,-0.3191764643805439
