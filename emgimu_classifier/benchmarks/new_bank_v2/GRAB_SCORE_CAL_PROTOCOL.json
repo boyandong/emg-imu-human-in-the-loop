@@ -1,0 +1,19 @@
+{
+  "name": "new_bank_v2_grabmyo_score_space_personal_anchor",
+  "version": 1,
+  "parent_protocol_sha256": "79defa347f03c10696967f49040692f676ee41201d186baa1072ce7546d01acc",
+  "prediction_sha256": "58401ac416aebc6e4ad059a0b98637c8e40c404c695780073a05fe666d66df75",
+  "arms": ["F0", "F0+F2a", "F0+F3c", "F0+F2a+F3c"],
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8],
+  "classes": [4, 15, 16, 17],
+  "phases": ["validation", "final"],
+  "budgets": [0, 1, 2, 5],
+  "calibration_repetitions": "for budget N use native repetitions 1..N of every class, same subject and phase",
+  "evaluation_repetitions": [6, 7],
+  "calibration": "For each gesture h, mean its source-trained class-probability vectors from labelled target calibration repetitions; q(h|x)=softmax(-squared Euclidean distance(query probability, prototype_h)/0.1). For N>0, final probability=0.5*source_probability+0.5*q; N=0 exactly replays source probability.",
+  "temperature": 0.1,
+  "anchor_weight": 0.5,
+  "selection": "fixed rule for all arms, phases and budgets; no hyperparameter or model selection from validation/final scores",
+  "scope": "same-user score-space prototype follow-up on public 2048 Hz recordings; not raw-EMG F7 feature anchors, not own 250 Hz device, not live recognition",
+  "boundary": "Day2 and Day3 target calibration labels are allowed only for repetitions 1..N; trials 6 and 7 never fit anchors; final Day3 cohort previously inspected"
+}
