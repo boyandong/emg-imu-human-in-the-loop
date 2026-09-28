@@ -33,6 +33,14 @@ def score(rows: list[dict]) -> dict:
     labels = np.asarray([row["label"] for row in rows], dtype=int)
     probability = np.asarray([[row[f"p_{c}"] for c in CLASSES] for row in rows], dtype=float)
     predicted = np.asarray(CLASSES)[probability.argmax(axis=1)]
+    confidence = probability.max(axis=1)
+    correct = predicted == labels
+    ece = 0.0
+    for index in range(10):
+        left, right = index / 10, (index + 1) / 10
+        mask = (confidence >= left) & ((confidence <= right) if index == 9 else (confidence < right))
+        if mask.any():
+            ece += float(mask.mean() * abs(correct[mask].mean() - confidence[mask].mean()))
     positions = np.asarray([CLASSES.index(value) for value in labels])
     one_hot = labels[:, None] == np.asarray(CLASSES)[None, :]
     return {"trials": len(rows), "macro_f1": float(f1_score(labels, predicted, labels=CLASSES,
@@ -41,6 +49,7 @@ def score(rows: list[dict]) -> dict:
             "log_loss": float(np.mean(-np.log(np.clip(
                 probability[np.arange(len(rows)), positions], np.finfo(float).eps, 1.0)))),
             "brier": float(np.mean(np.sum((probability - one_hot) ** 2, axis=1))),
+            "ece": ece,
             "per_class_f1": {str(c): float(v) for c, v in zip(CLASSES, f1_score(
                 labels, predicted, labels=CLASSES, average=None, zero_division=0))}}
 

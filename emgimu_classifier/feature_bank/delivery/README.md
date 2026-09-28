@@ -126,3 +126,11 @@ reproducer and hash records are
 `../../benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json`, and
 `../../benchmarks/new_bank_v2/CONDITIONAL_DELIVERY_AUDIT.json`.
 The current canonical provenance check covers 52,524 rows.
+
+The new-v2 GRABMyo same-user score-anchor follow-up adds 288 pooled and
+subject calibration-curve cells at 0/1/2/5 shots per class. The full
+native-trial split, probability-space method, and limitations are in
+`../../benchmarks/new_bank_v2/GRAB_SCORE_CAL_REPORT.md`; the source and
+delivery hash records are `../../benchmarks/new_bank_v2/GRAB_SCORE_CAL_AUDIT.json`
+and `../../benchmarks/new_bank_v2/GRAB_SCORE_CAL_DELIVERY_AUDIT.json`.
+The current canonical provenance check covers 52,812 rows.

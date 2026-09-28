@@ -1,0 +1,9 @@
+{
+  "run_id": "feature_bank_new_v2_grab_score_anchor_20260928",
+  "rows": 288,
+  "source_curve_sha256": "a983f090633b0c4d336c8c967183341d2a63cca0406efeb44bc3e5efe3e00f70",
+  "source_prediction_sha256": "a3e085d3c9476ab8161db57da8a87e36dd8db295c48b4932c8659fa9d5e32bf2",
+  "source_audit_sha256": "8f84b00b45256cb85d472f7240c3bc6dbc8dd7ea01df995e495f51f47e9f32f6",
+  "source_table_sha256": "d4ed8fbb628f51cb284eb08074b4f4b4d9fb3a151d2468509e1ade5856d77ae0",
+  "boundary": "Day2 and Day3 target calibration labels are allowed only for repetitions 1..N; trials 6 and 7 never fit anchors; final Day3 cohort previously inspected"
+}

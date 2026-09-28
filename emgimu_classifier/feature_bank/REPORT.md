@@ -3270,3 +3270,14 @@ each candidate and phase. The full arm's validation equal-axis mean is
 therefore does not establish a raised robustness floor. Independent user,
 posture, speed and real quality remain N/A for this exact candidate set;
 Song is separately identified as a same-day one-person supplement.
+
+A frozen [new-v2 GRABMyo score-anchor calibration curve](../benchmarks/new_bank_v2/GRAB_SCORE_CAL_REPORT.md)
+tests a minimal same-user correction without retraining: 0/1/2/5 labelled
+recordings per gesture calibrate a probability-space prototype, and the
+same repetitions 6–7 remain held out for every budget. On descriptive
+Day3 F0v2, 1 shot raises macro-F1 from 0.9210 to 0.9686, while the full
+bank and F3c curves are non-monotonic. This is evidence that short labelled
+calibration can repair some public cross-day score drift; it is not a
+raw-feature F7 test or evidence for own-device live deployment. All 2,048
+predictions and 288 canonical curve cells pass independent replay and
+source-bound verification, now covering 52,812 canonical records.
