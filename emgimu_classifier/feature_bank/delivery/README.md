@@ -67,6 +67,15 @@ matched frozen native-trial predictions. The exporter is
 `../../benchmarks/new_bank_v2/export_force_delivery.py`; its SHA-bound audit
 is `../../benchmarks/new_bank_v2/FORCE_DELIVERY_AUDIT.json`. Paired
 interactions are retained in the standalone force study because the five
-canonical schemas have no interaction field. All 51,268 current canonical
-records pass provenance verification; the scientific evidence status remains
+canonical schemas have no interaction field. At that export, 51,268 canonical
+records passed provenance verification; the scientific evidence status remains
 partial.
+
+The separate new-v2 eight-channel force calibration study appends 156
+matched 0/1/2-shot pooled, subject and condition rows to
+`calibration_curve.csv`. Its exporter is
+`../../benchmarks/new_bank_v2/export_force_cal_delivery.py`, and its source
+hash audit is `../../benchmarks/new_bank_v2/FORCE_CAL_DELIVERY_AUDIT.json`.
+MVC is excluded because two repetitions per gesture cannot support the
+fixed two-shot calibration and held-out evaluation split. The current
+canonical provenance check covers 51,424 rows.

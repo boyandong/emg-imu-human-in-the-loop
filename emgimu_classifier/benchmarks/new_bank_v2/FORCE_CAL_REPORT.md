@@ -46,6 +46,11 @@ all 12 pooled arm–budget score groups plus subject/condition cells. The
 [verification audit](FORCE_CAL_VERIFICATION.json) contains paired error counts.
 The protocol's expected row-count assertion was corrected from 1,680 to
 3,360 after the first execution; no split, model, fusion or endpoint changed.
+The [idempotent delivery exporter](export_force_cal_delivery.py) appends 156
+pooled, subject and condition cells to the canonical calibration curve. Its
+[source audit](FORCE_CAL_DELIVERY_AUDIT.json) binds the published rows to the
+verified results and probabilities. All 51,424 canonical source records and
+original values pass provenance verification.
 
 This is public-device, native-trial recognition under instructed intensity
 conditions, with calibration gestures supplied by label. It does not measure

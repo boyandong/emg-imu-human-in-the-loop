@@ -1,0 +1,9 @@
+{
+  "run_id": "feature_bank_new_v2_force_cal_20260928",
+  "rows": 156,
+  "source_results_sha256": "f0757f52b64e3be105e50fc4cb83cde502a46d51742604fbc00b5bdfed0aa145",
+  "source_predictions_sha256": "a0d8291e85a3abab3245f8965c85438e5e33a8d4c00baeeab23384bf42aca5b1",
+  "source_verification_sha256": "854b7f7534f0a2587a3de0d3b9c27f6aeb028a02dbc305fb4d95baaaa3d1ae4a",
+  "source_table_sha256": "f88b14b1ce8ce5a3e6e52c9295eb337e1e6f406e9fcf06bae3aca260a1d6b2eb",
+  "boundary": "matched native public-device intensity trials; MVC and own-device live performance excluded"
+}
