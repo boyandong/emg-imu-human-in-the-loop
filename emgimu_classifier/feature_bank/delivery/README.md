@@ -60,3 +60,13 @@ These three-channel public scores are descriptive and do not replace own-device
 validation or the unavailable historical X1-H experiment.
 The existing 402 legacy disagreement recoveries retain their original row
 indices and hashes; the new DS2 rows record disagreement directly.
+
+The new-v2 public eight-channel cross-user intensity analysis adds 84
+`conditional_incremental.csv` and 28 `error_complementarity.csv` rows from
+matched frozen native-trial predictions. The exporter is
+`../../benchmarks/new_bank_v2/export_force_delivery.py`; its SHA-bound audit
+is `../../benchmarks/new_bank_v2/FORCE_DELIVERY_AUDIT.json`. Paired
+interactions are retained in the standalone force study because the five
+canonical schemas have no interaction field. All 51,268 current canonical
+records pass provenance verification; the scientific evidence status remains
+partial.

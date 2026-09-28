@@ -70,6 +70,12 @@ change the validation-selected F0v2 arm. The [audit](FORCE_PAIRED_AUDIT.json)
 records the source prediction SHA-256 and row counts. Run
 `python -m benchmarks.new_bank_v2.force_paired_analysis --verify` to check
 that every published table is byte-identical to a fresh derivation.
+The [idempotent exporter](export_force_delivery.py) also places 84 matched
+conditional increments and 28 error-complementarity cells in the five-schema
+canonical delivery. Its [delivery audit](FORCE_DELIVERY_AUDIT.json) records
+source hashes. Canonical provenance verification checks all 51,268 records;
+the 28 interaction cells remain in their explicit standalone table because the
+five-schema delivery has no interaction column.
 
 Reproduce from `emgimu_classifier` with `PYTHONPATH=src;.` using
 `python -m benchmarks.new_bank_v2.force_run` followed by

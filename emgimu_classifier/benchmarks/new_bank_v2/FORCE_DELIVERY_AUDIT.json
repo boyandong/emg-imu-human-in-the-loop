@@ -1,0 +1,15 @@
+{
+  "run_id": "feature_bank_new_v2_force_paired_20260928",
+  "rows_added": {
+    "conditional_incremental.csv": 84,
+    "error_complementarity.csv": 28
+  },
+  "source_predictions_sha256": "f021fb07317495326366502a5ae1018396df247f8e46b591432717b4b973997c",
+  "source_conditional_sha256": "0b9899cdb44ccea32953f0c94558357757e98c6a642937b56f8db94d9c3fd641",
+  "source_complementarity_sha256": "1cdd8f54d8100515721f2fa8709a62c0136f3278d21d6d20c73706e741df8862",
+  "source_tables_sha256": {
+    "conditional_incremental.csv": "8a72b55c6c3ccd1cf340e1fd75a9c812805a425d8849fabae786087217a3ec3c",
+    "error_complementarity.csv": "80b509e749d00e708ee358f30912669e684949488acf29da0b30566e77cdfff5"
+  },
+  "boundary": "public cross-user intensity; final comparisons descriptive; no target fit"
+}
