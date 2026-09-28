@@ -18,3 +18,44 @@ The [protocol](PROTOCOL.json) fixes source subject folders 1–12, validation 13
 F1 improves validation high-force macro-F1 in both modes. In the unseen-high final users, its high-force score is essentially tied with F0 and the concatenated arm is only slightly higher; hence the screen does not establish a stable historical backbone effect. In product mode, F1 alone improves pooled final macro-F1 and log loss versus F0, but the fixed F0+F1 concatenation does not retain the same gain. Results vary strongly by user and force condition; see [all scores](RESULTS.json). All 5,454 saved trial/arm probabilities were independently [rescored](VERIFICATION.json), and a second complete runner execution reproduced the result JSON and prediction CSV byte-for-byte.
 
 These are instructed subjective force levels, not measured mechanical force. The public source has three EMG channels at 1500 Hz; it is not the user's eight-channel 250 Hz device. The final subjects were inspected by earlier gesture-only experiments, making this a descriptive follow-up rather than a pristine blind test. The v9 force mapping resolves the *public candidate's* missing-label problem, but exact historical B0/X1-H/X2 input identity, code and results remain unavailable. Nothing here changes the live model.
+
+## Fixed 0/1/2/5-shot personal calibration follow-up
+
+The [calibration protocol](CALIBRATION_PROTOCOL.json) freezes nested, per-gesture
+trial selection before scoring. In `unseen_high`, all calibration examples come
+from low/average force and every evaluated trial has high force. In
+`product_all`, five trials per gesture are reserved before any budget, so the
+same remaining trials are evaluated at 0, 1, 2 and 5 shots. Each shot means
+one native ten-second trial per gesture (four gestures); this is 0/40/80/200
+seconds of recorded trial signal, excluding pauses, setup and preparation.
+The source models and scalers are unchanged. Source-only variance scales a
+personal prototype distribution; its fixed mixing weight is
+`shots / (shots + 5)`. No target evaluation label is used to fit it.
+
+| Mode and arm | Validation macro-F1, 0/1/2/5 | Descriptive final macro-F1, 0/1/2/5 |
+|---|---|---|
+| Unseen high, F0 | .278 / .346 / .339 / .307 | .477 / .521 / .532 / .463 |
+| Unseen high, F1 | .366 / .505 / .521 / .574 | .473 / .691 / .703 / .791 |
+| Unseen high, F0+F1 | .290 / .323 / .352 / .277 | .485 / .490 / .499 / .549 |
+| Product all, F0 | .329 / .357 / .358 / .410 | .393 / .438 / .463 / .472 |
+| Product all, F1 | .354 / .407 / .468 / .576 | .461 / .624 / .667 / .738 |
+| Product all, F0+F1 | .298 / .325 / .320 / .401 | .417 / .446 / .478 / .548 |
+
+All 48 pooled score cells, per-force and per-subject detail, log loss and Brier
+are in [results](CALIBRATION_RESULTS.json) and the compact
+[curve](CALIBRATION_CURVE.csv). F1's largest descriptive final improvement is
+for unseen high force, but it is uneven across the four final subjects: one
+subject remains near .32 macro-F1 at five shots. The concatenated arm does not
+inherit F1's gain. Product mode uses high-force target calibration and must not
+be presented as high-force zero-shot transfer. These are offline, trial-level,
+three-channel public-data results, not a deployment setting for the current
+eight-channel device.
+
+The independent [verification](CALIBRATION_VERIFICATION.json) recomputes 336
+pooled/force/subject score groups from all 12,576 saved probability rows,
+checks the 320 calibration assignments against the frozen hash schedule,
+confirms disjoint evaluation and identical trial sets across budgets, and finds
+zero probability difference between the 0-shot rows and the parent study.
+A complete second run reproduced the assignment CSV, predictions CSV and
+results JSON byte-for-byte. The source archive stays outside Git; its SHA-256
+is recorded in the results.

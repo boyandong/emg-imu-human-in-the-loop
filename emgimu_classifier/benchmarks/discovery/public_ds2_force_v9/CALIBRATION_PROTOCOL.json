@@ -1,0 +1,23 @@
+{
+  "name": "public_ds2_v9_personal_force_calibration_v0",
+  "status": "frozen_before_calibration_scoring",
+  "parent_protocol": "PROTOCOL.json",
+  "source_training_and_subject_splits": "identical to the fixed zero-shot DS2 v9 force screen; validate zero-shot probabilities against its saved trial rows before any calibrated score",
+  "eligibility": "only four active gesture codes 0-3, verified subject folder and uniform gesture/force trial labels; exclude Rest, mixed gesture and subject-unmatched trials",
+  "budgets_per_gesture": [0, 1, 2, 5],
+  "calibration_schedule": {
+    "unseen_high": [1, 0, 1, 0, 1],
+    "product_all": [1, 0, 2, 1, 0]
+  },
+  "calibration_selection": "for each target subject and gesture, choose the lowest SHA-256 of '20260928|subject|gesture|trial' within each scheduled force bucket; without replacement; prefixes define nested 1/2/5-shot sets",
+  "evaluation": {
+    "unseen_high": "all target-subject force-code-2 active trials at every budget; no high-force calibration or target evaluation labels used for adaptation",
+    "product_all": "all active target trials except the five reserved calibration trials per gesture; identical evaluation trials at budgets 0/1/2/5"
+  },
+  "feature_spaces": ["F0", "F1", "F0_plus_F1"],
+  "population_model": "source-subject StandardScaler and balanced logistic model from the prior fixed screen; predictions must exactly replay before calibration",
+  "prototype_model": "mean of source-scaled, equal-trial-mass three-window feature vectors per target calibration gesture; local probabilities softmax of negative squared Euclidean distances divided by twice feature dimension and a source-only within-class trial variance median",
+  "blend": "p=(1-alpha)*p_population+alpha*p_personal; alpha=shots/(shots+5), fixed for all subjects/arms/force modes; no target test tuning",
+  "metrics": ["trial-level macro-F1", "trial-level log loss", "trial-level Brier", "per-force macro-F1", "per-subject macro-F1"],
+  "boundaries": ["Protocol A personal calibration only; no same-user cross-session profile exists in public DS2", "force categories are subjective, not measured mechanical force", "previously inspected final subjects make this descriptive", "new F1 is not historical X1-H", "no own-device or deployment inference"]
+}

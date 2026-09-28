@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "assignment_rows": 320,
+  "prediction_rows": 12576,
+  "score_cells_recomputed": 336,
+  "curve_rows": 48,
+  "zero_shot_max_probability_error_vs_parent": 0.0,
+  "budget_evaluation_trial_sets_identical": true,
+  "force_safe_and_nested_hash_schedule": true,
+  "input_sha256": {
+    "CALIBRATION_PROTOCOL.json": "611cf101cad324eb5c379e56db5a8aef239f3656867937b0c29021a6ac0906b6",
+    "CALIBRATION_RESULTS.json": "fa181949c13a6d09515c486aa02fb24381f32bbda6077fc4472f567dadc8c592",
+    "CALIBRATION_ASSIGNMENT.csv": "ab311e97dc3c2b27f39dad463c835cb2066172c2b72f889bc7ba38f9c482c360",
+    "CALIBRATION_TRIAL_PREDICTIONS.csv": "0d5d6792839681c0439db94ee82dcfa78c14f4e0c8e91f7c3238471df030f5f3"
+  }
+}
