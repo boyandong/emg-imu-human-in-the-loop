@@ -1,0 +1,20 @@
+{
+  "name": "new_bank_v2_cross_user_intensity_8ch",
+  "version": 1,
+  "dataset": "LibEMG ContractionIntensity native eight-channel 1000 Hz",
+  "dataset_classes": ["no_motion", "wrist_flexion", "wrist_extension", "wrist_pronation", "wrist_supination", "chuck_grip", "hand_open"],
+  "class_source": "https://libemg.github.io/libemg/documentation/data/data.html#ds3-contraction-intensity",
+  "source_subjects": [1, 2, 3, 4, 5, 6],
+  "source_conditions": ["Ramp"],
+  "validation_subjects": [7, 8],
+  "final_subjects": [9, 10],
+  "target_conditions": ["20P", "30P", "40P", "50P", "60P", "70P", "80P", "MVC", "Light", "Medium", "Hard"],
+  "rest_label": 0,
+  "arms": ["F0", "F0v2", "F0v2+F2a", "F0v2+F3c", "F0v2+F2a+F3c"],
+  "feature_contract": "200 ms nonoverlapping 8-channel 1000 Hz; F0v2 thresholds only from source no-motion; F2a centered fixed-0.05-shrinkage trace covariance; F3c circular-lag summaries and half-window drift",
+  "classifier": "source-trial StandardScaler plus balanced LogisticRegression C=1 max_iter=2000 random_state=20260924",
+  "aggregation": "mean of at most eight nonoverlapping native 200 ms windows per trial",
+  "selection": "maximize pooled validation macro-F1, break ties by lower pooled validation log loss; final subjects cannot alter arm choice",
+  "primary_metrics": ["pooled_macro_f1", "pooled_log_loss", "pooled_brier", "minimum_subject_macro_f1", "worst_condition_macro_f1"],
+  "scope": "new eight-channel public-device zero-target-calibration cross-user intensity screen; instructed force/intensity, not measured mechanical force or own-device live recognition"
+}
