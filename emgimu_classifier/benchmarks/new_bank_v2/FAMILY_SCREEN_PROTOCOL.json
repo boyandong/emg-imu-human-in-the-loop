@@ -1,0 +1,28 @@
+{
+  "name": "new_bank_v2_saved_prediction_family_screen_and_robustness_vector",
+  "version": 1,
+  "prediction_sha256": {
+    "force": "f021fb07317495326366502a5ae1018396df247f8e46b591432717b4b973997c",
+    "wearing": "bd2e0ac452ddab1de3eb17324c9447da10a47b2cca7a917becfc05a2c252d21f",
+    "day": "58401ac416aebc6e4ad059a0b98637c8e40c404c695780073a05fe666d66df75",
+    "Song_same_day": "916074bfbd7245e3ebd7fdb0521d04760fed317a62dd99c1cf052421a1f3b6c6"
+  },
+  "baseline_family": "F0v2; GRABMyo names the same RestNoiseDetailV2 implementation F0",
+  "candidate_families": ["F2a", "F3c"],
+  "arms": ["F0v2", "F0v2+F2a", "F0v2+F3c", "F0v2+F2a+F3c"],
+  "metrics": ["macro_f1", "accuracy", "log_loss", "brier", "ece", "per_class_f1", "subject", "condition"],
+  "ece": "ten equal-width confidence bins [0,0.1),...,[0.9,1]; sum bin_fraction * absolute(mean_accuracy-minus-mean_confidence)",
+  "robustness_axes": ["force", "wearing", "day", "user", "posture", "speed", "quality"],
+  "axis_evidence": {
+    "force": "LibEMG cross-user instructed intensity, confounded with held-out users",
+    "wearing": "LibEMG native electrode shift within users",
+    "day": "GRABMyo eight-channel day 1 train, day 2 validation, day 3 descriptive final",
+    "user": "N/A independent user axis; force also changes user and cannot isolate a separate user effect",
+    "posture": "N/A matching new-v2 family comparison",
+    "speed": "N/A matching new-v2 family comparison",
+    "quality": "N/A real matching new-v2 quality comparison"
+  },
+  "supplemental": "Song S03/S04 is one 250 Hz user and one date; report separately, never as independent day or user axis",
+  "selection": "summary only from saved held-out predictions; no retraining, model selection or pooling of incompatible class sets",
+  "boundary": "different devices, class taxonomies, rates and task definitions; final subjects/days/sessions descriptive where previously inspected"
+}
