@@ -3262,3 +3262,11 @@ addition improves pooled force log loss in both phases; F2a's cross-day
 conditional loss also worsens. These contrasts support a wearing-specialist
 interpretation for F3c, not a universal concatenated bank. The canonical
 conditional table and all 52,524 records pass source-bound verification.
+
+The [new-v2 robustness envelope](../benchmarks/new_bank_v2/ENVELOPE_REPORT.md)
+adds the requested mean of the three observed axes and their minimum for
+each candidate and phase. The full arm's validation equal-axis mean is
+0.7424, but its worst axis is 0.5671 versus F0v2's 0.5775. A mean gain
+therefore does not establish a raised robustness floor. Independent user,
+posture, speed and real quality remain N/A for this exact candidate set;
+Song is separately identified as a same-day one-person supplement.

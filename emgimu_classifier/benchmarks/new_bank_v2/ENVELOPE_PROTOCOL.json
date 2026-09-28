@@ -1,0 +1,12 @@
+{
+  "name": "new_bank_v2_three_observed_axis_robustness_envelope",
+  "version": 1,
+  "parent_family_screen_protocol_sha256": "125339c1529f2800399a36ce8f6423934260490f9a8649fec1a04cbc49b26993",
+  "arms": ["F0v2", "F0v2+F2a", "F0v2+F3c", "F0v2+F2a+F3c"],
+  "observed_axes": ["force", "wearing", "day"],
+  "unobserved_axes": ["user", "posture", "speed", "quality"],
+  "supplement": "Song_same_day is separate; one subject/date, not a fourth independent robustness axis",
+  "summary": "unweighted mean and minimum of three dataset-specific pooled trial macro-F1 values; minimum single observed condition cell reported separately",
+  "selection": "report all arms and both phases; no final-set arm selection",
+  "boundary": "descriptive cross-task index with different labels, users, rates and devices; not a pooled subject-level performance estimate; force confounds intensity and user"
+}

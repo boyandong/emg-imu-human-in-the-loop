@@ -1,0 +1,18 @@
+{
+  "status": "ok",
+  "protocol_sha256": "5da3f8c0b0ba1c0f97a8914e7dc57ed9b40d10d2dcca3421a984dd3b28420aae",
+  "family_screen_sha256": "3ccc6ae4db2ff7fd4273dc3e468dd90c31f87a90fabad3b37959ae93c4aac69b",
+  "rows": 8,
+  "observed_axes": [
+    "force",
+    "wearing",
+    "day"
+  ],
+  "unobserved_axes": [
+    "user",
+    "posture",
+    "speed",
+    "quality"
+  ],
+  "boundary": "descriptive cross-task index with different labels, users, rates and devices; not a pooled subject-level performance estimate; force confounds intensity and user"
+}

@@ -63,3 +63,8 @@ differ. The Song S04, GRABMyo Day3, wearing final users and force final users
 have been examined by other project studies and are descriptive here. No
 current 250 Hz live-device, cross-person/day or real-quality claim follows
 from this vector.
+
+The subsequent [observed-axis robustness envelope](ENVELOPE_REPORT.md)
+reports the explicitly requested equal-axis mean and minimum across the
+three measured axes for all four arms and both phases. It keeps the four
+unobserved axes as `N/A` and Song outside the system-level average.
