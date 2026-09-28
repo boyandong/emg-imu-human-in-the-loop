@@ -1,0 +1,28 @@
+{
+  "name": "independent_new_v1_matched_scale_frequency_and_ring_spectrum_analysis",
+  "version": 1,
+  "parent_protocol_sha256": "6b099bb9e4ac7ca7c2239b6e16089ebf3d85f792ab8597004693f3c142f4b8cf",
+  "parent_prediction_sha256": "78487ea42b89552209d991151d9fbd58ac20ba5c1a2fefe1b3cac52f01b93e77",
+  "parent_result_sha256": "f7d533ca4fc1491b56b723210d3fd991fdc4d73c2f4ed5e7b1f4da145f408f07",
+  "comparisons": {
+    "force": {
+      "baseline": "F0",
+      "family_a": "scale_pattern",
+      "family_b": "frequency_direction",
+      "classes": [0, 1, 2, 3, 4, 5, 6]
+    },
+    "wearing": {
+      "baseline": "F0",
+      "family_a": "ring_lag",
+      "family_b": "correlation_spectrum",
+      "classes": [0, 1, 2, 3, 4]
+    }
+  },
+  "cells": "validation and final separately; pooled, subject and controlled-condition groups; exact matching native trial IDs and labels",
+  "conditional": "joint arm minus each base-plus-other arm in log loss, Brier and macro-F1; positive delta_log_loss means the addition lowers held-out loss",
+  "error_complementarity": "selected single-addition pair per dataset: error correlation, predicted-label disagreement and exact four-way correctness contingency",
+  "interaction": "P(base+a+b)-P(base+a)-P(base+b)+P(base), P=-held-out log loss; macro-F1 auxiliary",
+  "selection": "pure saved-prediction post-hoc analysis; no classifier fitting or final-set model selection",
+  "scope": "new independently implemented 8-channel candidate families, not exact historical X1-H, RLCS, CES or frequency-code reproduction",
+  "boundary": "different devices and class sets; validation/final separate; final users inspected in earlier project studies"
+}

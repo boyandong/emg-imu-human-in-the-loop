@@ -143,3 +143,12 @@ trial-split and source-model replay evidence are in
 `../../benchmarks/new_bank_v2/GRAB_FEATURE_CAL_AUDIT.json`; output hashes
 are in `../../benchmarks/new_bank_v2/GRAB_FEATURE_CAL_DELIVERY_AUDIT.json`.
 The current canonical provenance check covers 53,100 rows.
+
+The independent new-v1 matched-pair analysis adds 176 family-screen,
+88 conditional, and 44 error-complementarity rows from the original frozen
+LibEMG force/wearing trial probabilities. Its 44 scale×frequency and
+ring×correlation-spectrum interaction cells stay in the separately
+versioned source table. See `../../benchmarks/new_bank_v1/PAIRED_REPORT.md`
+and `../../benchmarks/new_bank_v1/PAIRED_DELIVERY_AUDIT.json` for the
+native-trial pairing, hashes and interpretation. The current canonical
+provenance check covers 53,408 rows.

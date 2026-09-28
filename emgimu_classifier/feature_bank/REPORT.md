@@ -3295,3 +3295,15 @@ official checksums, source-fitted transforms, and 53,100 canonical rows
 are auditable. The fresh source classifier replays every top-1 label but
 has at most 2.72×10⁻⁵ probability difference on the F3c arm; the saved
 population probabilities remain authoritative for the calibration test.
+
+The earlier independent [new-v1 scale×frequency and ring×correlation-spectrum
+paired study](../benchmarks/new_bank_v1/PAIRED_REPORT.md) now fills the
+same finite Stage-2–4 analysis for the freshly implemented F1/F4-like and
+ring/global-coordination candidates. On force validation, frequency
+direction conditionally improves log loss by 0.0261 and F1 by 0.0256,
+but on descriptive final users those additions are −0.2420 and −0.0105.
+On wearing, each ring candidate conditionally lowers log loss in both
+phases, but each reduces final F1. Forty-four exact-trial error cells and
+forty-four interaction cells show why single-metric promotion would be
+unsafe. This is forward new-family evidence, not historical formula
+equivalence. The canonical provenance check now covers 53,408 rows.

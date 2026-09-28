@@ -2,6 +2,12 @@
 
 This is a new implementation, not a reconstruction of unavailable historical code. The four opt-in families live in [`new_bank_v1.py`](../../src/emgimu/feature_bank/new_bank_v1.py) and are available through `new_bank_v1_registry()`. Existing default or deployed model definitions were not altered. The [protocol](PROTOCOL.json) was committed as `606050d` before outcome inspection.
 
+The subsequent [matched family analysis](PAIRED_REPORT.md) reuses frozen
+trial probabilities to quantify new-v1 conditional log-loss value, paired
+errors and finite scale×frequency and ring×correlation-spectrum interactions
+without retraining. Its final-user contrasts are descriptive; they do not
+change the original validation-selected arms.
+
 To use one family in another experiment, construct `FeatureBatch(source_windows, 250.0)`, call `FrequencyDirectionV1().fit(source_batch)`, then call the fitted object's `transform(query_batch)`. `feature_names` gives the ordered output schema. The same contract applies to the other three families; the source fit must be persisted alongside a downstream classifier.
 
 The input contract is finite `[window, sample, 8]` EMG with an explicit sampling rate. All families fit only source metadata and reject different channel count, rate or window length at transform time. The module uses no historical/reference feature transform. Scale pattern is eight per-channel RMS values divided by their global RMS (no amplitude coordinate). Ring lag gives the mean and standard deviation of 25 ms moving-RMS envelope correlations for circular lags 1–4 (eight values). Correlation spectrum gives eight descending nonnegative envelope-correlation eigenvalues normalized to sum one. Frequency direction gives four Hann-FFT bandwise channel-power vectors, each normalized to unit L2 norm (32 values); band limits are clipped below Nyquist, including at 250 Hz. Zero signals stay finite. The property tests verify global-gain invariance, circular rotation, arbitrary channel permutation, band-specific responses and rate/channel mismatch rejection.

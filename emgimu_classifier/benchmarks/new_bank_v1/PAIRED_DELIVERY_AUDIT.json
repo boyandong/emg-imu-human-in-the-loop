@@ -1,0 +1,23 @@
+{
+  "run_id": "feature_bank_new_v1_matched_pairs_20260928",
+  "exports": {
+    "feature_family_results.csv": {
+      "rows": 176,
+      "sha256": "668948bab7df953e55e22fe252509fa94d8ce85e284a117b91345c4ffa4aae62",
+      "source_sha256": "2e73400fb44371d9e619ec5b3f72db31b0cce2c15d9779e4fd6e636bae6530f7"
+    },
+    "conditional_incremental.csv": {
+      "rows": 88,
+      "sha256": "1b0e849ade4353c5c7fd98f2f5903c4d43559e8e8d28648ad46571fe6eb5cbbc",
+      "source_sha256": "4aef579ed845fc1a7a913c58a5a5ac4bc51eb51a644bb05d19c99287f1d02e43"
+    },
+    "error_complementarity.csv": {
+      "rows": 44,
+      "sha256": "57bbf88a01a52c9e1e34537a7deb8bfa21d3a2a35d9092c304e3936145360f87",
+      "source_sha256": "6ac57611b0af8a3d67da0568a9da68346185d11dcaef1d1824ec839d44298dd0"
+    }
+  },
+  "source_interaction_sha256": "fe8fa079f735938b3c9a7c1caff16d8f3094a14cbca8a0b85f132557e187d7c9",
+  "source_audit_sha256": "1acb06bb2ef06bfb5e40bc9cf63cb8b7170149e39c0cd8d332e0f85a0a9b7d97",
+  "boundary": "different devices and class sets; validation/final separate; final users inspected in earlier project studies"
+}

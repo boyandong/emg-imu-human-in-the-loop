@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "protocol_sha256": "1325a5425dfb8a900e3e84063d3c089aff3b99c0a073e0d9ec38d3aa5a9a3d10",
+  "source_predictions_sha256": "78487ea42b89552209d991151d9fbd58ac20ba5c1a2fefe1b3cac52f01b93e77",
+  "saved_pooled_metric_groups_replayed": 16,
+  "matched_cells_by_axis": {
+    "force": 28,
+    "wearing": 16
+  },
+  "rows": {
+    "PAIRED_SCREEN.csv": 176,
+    "PAIRED_CONDITIONAL.csv": 88,
+    "PAIRED_COMPLEMENTARITY.csv": 44,
+    "PAIRED_INTERACTION.csv": 44
+  },
+  "boundary": "different devices and class sets; validation/final separate; final users inspected in earlier project studies"
+}
