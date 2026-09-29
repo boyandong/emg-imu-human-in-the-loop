@@ -1,0 +1,17 @@
+{
+  "name": "new_v2_independent_ring_frequency_full_candidate_leave_one_family_out_v1",
+  "version": 1,
+  "parent_interaction_protocol_sha256": "8107b37caf1356fde1c015819811d7d5f22e5cc2e73d6c41c6fc2936e97949c8",
+  "parent_interaction_predictions_sha256": "fc6703fbe5586042faa7420907b05c8b8381832c1edf91aa386ce6d5bc944a07",
+  "candidate_full_bank": "F0v2+ring_lag+frequency_direction",
+  "removals": {
+    "F0v2": "ring_lag+frequency_direction",
+    "ring_lag": "F0v2+frequency_direction",
+    "frequency_direction": "F0v2+ring_lag"
+  },
+  "data_splits": "Exact three ROAM posture, GRAB unseen-user and GRAB cross-day source/validation/final partitions from frozen ring × frequency interaction. Previously saved full and two removal arms must replay byte-identical target probabilities; only ring_lag+frequency_direction is newly source-fitted.",
+  "classifier": "Same source-only StandardScaler and LogisticRegression C=1 max_iter=2000, balanced for ROAM only, fixed study-specific seeds as parent",
+  "metric_direction": "Full minus removed: positive macro-F1 and positive removed-minus-full log loss/Brier means retained family helped the candidate full bank",
+  "selection": "Diagnostic leave-one-family-out for a candidate full bank that failed all three parent validation splits; do not treat it as a selected deployment bank. Keep validation and descriptive final separate.",
+  "scope": "Eight-channel public 200/2048 Hz native bout/trial ablation. These three split results are correlated public evidence; no historical formula, own-device, or live-performance claim."
+}
