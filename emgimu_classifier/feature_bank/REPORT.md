@@ -3645,6 +3645,13 @@ path length, alongside its frozen complete-bout UniBo replay. This scope
 table does not convert fixture dimensions or public proxy data into full
 formula or live-device acceptance.
 
+The [MANUS F4d session diagnostic](../benchmarks/new_bank_v2/F4D_MANUS_SESSION_REPORT.md)
+now computes equal-trial long/current log-band references for six users
+with 108 long-term, 72 current-calibration and 144 held-out native trials.
+Its session-relative vectors are finite and trial-disjoint. Medium-speed
+calibration versus slow/fast evaluation confounds speed with session, so
+this is context evidence, not a verified predictive or fatigue effect.
+
 The [complete new-v1 bank LOFO](../benchmarks/new_bank_v2/FULL_V1_LOFO_REPORT.md)
 now tests F0v2 plus all four independent additions and every
 leave-one-family-out arm on all seven public axes. The [readback audit](../benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json)

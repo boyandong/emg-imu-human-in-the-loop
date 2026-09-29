@@ -65,7 +65,7 @@ REVIEWS = (
  ('F4c','F4c. Cepstral / CCA-like candidate','families.py','SpectralStateFamily','candidate_formula',
   'Non-DC low-order unnormalized DCT-II mean/std across channels, K=4 prespecified; cepstral summary not reproduction of paper CCA.','2K block'),
  ('F4d','F4d. Personal/session-relative spectral shift','relative_spectrum.py','PersonalSessionSpectralShift','candidate_native_context_only',
-  'Separate equal-trial-mass long and current-session log-band references, disjoint trial IDs and both requested difference vectors implemented. Song one-person/day rest-calibration and held-out still-neutral diagnostic exists; no fatigue, cross-day or predictive-value claim.','BC'),
+  'Separate equal-trial-mass long and current-session log-band references, disjoint trial IDs and both requested difference vectors implemented. Song one-person/day and public MANUS six-user three-session held-out diagnostics exist; MANUS medium-speed calibration versus slow/fast evaluation is speed-confounded. No fatigue, calendar-day or predictive-value claim.','BC'),
  ('F5a','F5a. Existing G5','validated_unibo.py','ValidatedUniBoFamily','validated_reuse_narrow',
   'Calls unchanged native UniBo G5 at 4ch/processed200Hz: early-minus-late and raw waveform slope; different from new TemporalFormFamily late-minus-early/envelope slope.','5C native G5'),
  ('F5_reference','F5. Temporal Form','families.py','TemporalFormFamily','reference_only',

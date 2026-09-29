@@ -1,0 +1,19 @@
+{
+  "name": "new_v1_f4d_manus_multiuser_session_context_v1",
+  "version": 1,
+  "parent_protocol": "MANUS_REST_TRANSFER_PROTOCOL.json",
+  "parent_protocol_sha256": "e8e7e4c014069afc4e91d371bb7505eaa604f15396dff8d7ea7101eeb18e31ba",
+  "archive": "D:/emg-imu-benchmarks/data/raw/semg_manus/semg-manus-dataset-v1.zip",
+  "archive_sha256": "2D9E1DF613485B9A4AFE9A5A71010CA84E75A521B596F836A195B5EAF3DC1F29",
+  "users": [3, 4, 5, 6, 7, 8],
+  "long_term_session": 1,
+  "validation_session": 2,
+  "final_session": 3,
+  "current_calibration_speed": "medium",
+  "held_out_evaluation_speeds": ["slow", "fast"],
+  "window_ms": 200,
+  "maximum_windows_per_trial": 8,
+  "family": "LogBandEnergyFamily + PersonalSessionSpectralShift",
+  "source_state": "Each user's session-1 trials fit fixed bands and an equal-trial-weighted long spectral reference. In session 2/3, only the six medium-speed gesture trials set the equal-trial-weighted current reference; distinct slow/fast trials are evaluation-only. No target evaluation update.",
+  "scope": "Public same-user, multi-session, eight-channel 200 Hz F4d context diagnostic. Speed and session are confounded; the current reference is gesture-balanced but medium-speed-specific. This is neither a fatigue measurement nor a predictive accuracy or own-device calendar-day claim."
+}
