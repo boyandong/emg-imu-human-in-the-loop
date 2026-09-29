@@ -3458,3 +3458,12 @@ final-only with worse log loss. All 2,240 saved target probability rows
 pass read-back metric replay; frozen baseline probabilities differ by at
 most `1.62e-9` across floating-point reruns. This further weakens a claim
 that ring lag should be in the default full bank.
+
+The [matched extension analysis](../benchmarks/new_bank_v2/V1_EXTENSION_PAIRED_REPORT.md)
+replays 176 pooled, subject and ROAM-posture cells from all three saved
+prediction sets. Ring lag improves both GRAB validation splits but worsens
+both GRAB final splits, with corrected/created error counts reversing.
+Other additions also show task- and objective-dependent directions. This
+supports a specialist/redundant screening interpretation, not an automatic
+full-bank inclusion. The analysis is descriptive and does not refit or
+select models using final labels.

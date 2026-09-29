@@ -70,3 +70,36 @@ def test_saved_extension_replays_scores_and_frozen_baseline(
                     for key in ("macro_f1", "log_loss", "brier"):
                         assert posture_replay[key] == pytest.approx(
                             recorded["by_posture"][posture][key], abs=1e-12)
+
+
+def test_cross_study_paired_cells_have_matched_error_accounting():
+    audit = json.loads((ROOT / "V1_EXTENSION_PAIRED_AUDIT.json").read_text(encoding="utf-8"))
+    path = ROOT / "V1_EXTENSION_PAIRED.csv"
+    with path.open(newline="", encoding="utf-8") as stream:
+        rows = list(csv.DictReader(stream))
+    assert audit["status"] == "ok"
+    assert audit["paired_csv_sha256"] == sha256(path)
+    assert len(rows) == audit["rows"] == 176
+    assert audit["group_counts"] == {"roam_posture": 80, "grab_user": 24, "grab_day": 72}
+    for study, prefix in (("roam_posture", "ROAM_V1_EXTENSION"),
+                          ("grab_user", "GRAB_V1_EXTENSION"),
+                          ("grab_day", "GRAB_DAY_V1_EXTENSION")):
+        assert audit["source_hashes"][study]["prediction_sha256"] == sha256(
+            ROOT / f"{prefix}_PREDICTIONS.csv")
+        assert audit["source_hashes"][study]["result_sha256"] == sha256(
+            ROOT / f"{prefix}_RESULTS.json")
+    for row in rows:
+        n = int(row["n_trials"])
+        corrected = int(row["base_wrong_added_right"])
+        created = int(row["base_right_added_wrong"])
+        both_wrong = int(row["both_wrong"])
+        both_right = int(row["both_right"])
+        disagreement = int(row["prediction_disagreement"])
+        assert n == corrected + created + both_wrong + both_right
+        assert corrected + created <= disagreement <= n
+        assert float(row["delta_macro_f1"]) == pytest.approx(
+            float(row["added_macro_f1"]) - float(row["base_macro_f1"]), abs=1e-12)
+        assert float(row["log_loss_improvement"]) == pytest.approx(
+            float(row["base_log_loss"]) - float(row["added_log_loss"]), abs=1e-12)
+        assert float(row["brier_improvement"]) == pytest.approx(
+            float(row["base_brier"]) - float(row["added_brier"]), abs=1e-12)

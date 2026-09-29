@@ -1,0 +1,26 @@
+{
+  "status": "ok",
+  "analysis": "post_hoc_saved_prediction_readback",
+  "source_hashes": {
+    "roam_posture": {
+      "prediction_sha256": "3316a02106fe1c35ae39c0927ef5a8f1f19ce19f7d240e0fed2dd22ece5bee60",
+      "result_sha256": "25ba50178c1ea71e8ed455c06f34bd0e98b49f6fe23d6baf225211acf875ebd5"
+    },
+    "grab_user": {
+      "prediction_sha256": "47b1d12ab43f00418381be7de948bc4a7c0f04af7ec6969c176d731b9d20f669",
+      "result_sha256": "cdfbdadba6c359958637fa1306b5d928222353803fa5310b5102e9b0600b562c"
+    },
+    "grab_day": {
+      "prediction_sha256": "321c84d4c73379cfcc7fa994e142c4943de6249631adec214ffac29ffca7dcad",
+      "result_sha256": "7662651bbbabc208283672546fc56d9eb1536fb45344f5069c24642d7473bbeb"
+    }
+  },
+  "rows": 176,
+  "group_counts": {
+    "roam_posture": 80,
+    "grab_user": 24,
+    "grab_day": 72
+  },
+  "paired_csv_sha256": "0e30827ed28d588aea1462bb41d19469791c2992d5e3dd0f0d273b2f935c2ebc",
+  "scope": "Conditional/add-on and error-complementarity descriptions of three frozen public screens; validation/final remain separate. Shared recordings are not independent replications."
+}
