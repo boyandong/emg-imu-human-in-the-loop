@@ -1,0 +1,26 @@
+{
+  "status": "ok",
+  "analysis": "post_hoc_five_arm_saved_prediction_readback",
+  "sources": {
+    "roam_posture": {
+      "result_sha256": "25ba50178c1ea71e8ed455c06f34bd0e98b49f6fe23d6baf225211acf875ebd5",
+      "prediction_sha256": "3316a02106fe1c35ae39c0927ef5a8f1f19ce19f7d240e0fed2dd22ece5bee60"
+    },
+    "grab_user": {
+      "result_sha256": "cdfbdadba6c359958637fa1306b5d928222353803fa5310b5102e9b0600b562c",
+      "prediction_sha256": "47b1d12ab43f00418381be7de948bc4a7c0f04af7ec6969c176d731b9d20f669"
+    },
+    "grab_day": {
+      "result_sha256": "7662651bbbabc208283672546fc56d9eb1536fb45344f5069c24642d7473bbeb",
+      "prediction_sha256": "321c84d4c73379cfcc7fa994e142c4943de6249631adec214ffac29ffca7dcad"
+    }
+  },
+  "rows": 220,
+  "table_sha256": "a40b64222ae5405381317e3bbf44f979e2ed9947a2fc70a607ae3e781c9f602a",
+  "study_rows": {
+    "roam_posture": 100,
+    "grab_user": 30,
+    "grab_day": 90
+  },
+  "boundary": "Same split as each frozen experiment, no refit or final-based promotion; GRAB studies share recordings."
+}

@@ -3489,3 +3489,11 @@ four-arm interaction test, so the ablation identifies contributions within
 a failed candidate rather than selecting a deployment bank. All 3,680
 saved predictions and 176 pooled/subject/posture LOFO cells are verified;
 the required canonical ablation delivery now covers 56,106 records overall.
+
+The [five-arm family-screen delivery](../benchmarks/new_bank_v2/V1_EXTENSION_FAMILY_REPORT.md)
+replays pooled and per-subject/posture metrics, ten-bin ECE and per-class F1
+for the four additional independent formulas on all three public splits.
+All 220 native-target cells are now in the required feature-family table;
+canonical provenance verification covers 56,326 records. Ring lag is a
+conditional research candidate, while no addition demonstrates a stable
+pooled validation advantage across all three studies.

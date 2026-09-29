@@ -191,3 +191,35 @@ def test_ring_frequency_full_bank_lofo_replays_and_delivers():
     with source.open(newline="", encoding="utf-8") as stream:
         exported = [r for r in csv.DictReader(stream) if r["run_id"] == delivery["run_id"]]
     assert len(exported) == 176
+
+
+def test_three_study_independent_family_screen_is_delivered():
+    audit = json.loads((ROOT / "V1_EXTENSION_FAMILY_AUDIT.json").read_text(encoding="utf-8"))
+    delivery = json.loads((ROOT / "V1_EXTENSION_FAMILY_DELIVERY_AUDIT.json").read_text(
+        encoding="utf-8"))
+    table = ROOT / "V1_EXTENSION_FAMILY_SCREEN.csv"
+    assert audit["status"] == delivery["status"] == "ok"
+    assert audit["table_sha256"] == delivery["screen_sha256"] == sha256(table)
+    assert delivery["screen_audit_sha256"] == sha256(ROOT / "V1_EXTENSION_FAMILY_AUDIT.json")
+    assert audit["rows"] == delivery["rows"] == 220
+    assert audit["study_rows"] == {"roam_posture": 100, "grab_user": 30, "grab_day": 90}
+    for study, prefix in (("roam_posture", "ROAM_V1_EXTENSION"),
+                          ("grab_user", "GRAB_V1_EXTENSION"),
+                          ("grab_day", "GRAB_DAY_V1_EXTENSION")):
+        assert audit["sources"][study]["result_sha256"] == sha256(ROOT / f"{prefix}_RESULTS.json")
+        assert audit["sources"][study]["prediction_sha256"] == sha256(
+            ROOT / f"{prefix}_PREDICTIONS.csv")
+    with table.open(newline="", encoding="utf-8") as stream:
+        rows = list(csv.DictReader(stream))
+    assert len({(r["study"], r["phase"], r["scope"], r["subject"],
+                 r["condition"], r["feature_family"]) for r in rows}) == 220
+    for row in rows:
+        assert 0 <= float(row["ece"]) <= 1
+        assert int(row["feature_dimension"]) > 0 and int(row["evaluation_trials"]) > 0
+        classes = {"0", "1", "2"} if row["study"] == "roam_posture" else {"4", "15", "16", "17"}
+        assert set(json.loads(row["per_class_f1_json"])) == classes
+    source = ROOT.parents[1] / "feature_bank" / "results" / "feature_family_results.csv"
+    assert delivery["output_sha256"] == sha256(source)
+    with source.open(newline="", encoding="utf-8") as stream:
+        exported = [r for r in csv.DictReader(stream) if r["run_id"] == delivery["run_id"]]
+    assert len(exported) == 220

@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_v1_extension_family_screen_20260929",
+  "rows": 220,
+  "screen_sha256": "a40b64222ae5405381317e3bbf44f979e2ed9947a2fc70a607ae3e781c9f602a",
+  "screen_audit_sha256": "75041bf334321bab9bbab2f4587fbc2a01423f782d2d892a2093bf82629800b4",
+  "output_sha256": "8f1af23afa91a361bdb7c87935968dab57b80aa5d91a6d0076233f7894d78acd",
+  "boundary": "Three correlated public screens with validation/final separation; descriptive screening, not own-device model selection."
+}

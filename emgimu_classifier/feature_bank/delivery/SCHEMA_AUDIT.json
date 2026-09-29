@@ -3,7 +3,7 @@
   "prediction_disagreement_recovery_sha256": "a39e135d9b6a017f65413b1a83eb486cb4c1f0f05c368c9202bf168fddbffa98",
   "artifacts": {
     "feature_family_results.csv": {
-      "rows": 6647,
+      "rows": 6867,
       "required_fields": [
         "dataset",
         "subject",
@@ -59,8 +59,8 @@
           "session/domain": 6
         }
       },
-      "source_csv_sha256": "f46363761bdaa8a485295443b7209b29c16ae93235e4fbfca0113fa93efd3e90",
-      "canonical_csv_sha256": "689a3880115e25005b7daf8ff7fa330db8111acc83f5ca3ecefd4c3d4bf7e8b5"
+      "source_csv_sha256": "8f1af23afa91a361bdb7c87935968dab57b80aa5d91a6d0076233f7894d78acd",
+      "canonical_csv_sha256": "210b89abb99f9f7c68b612776019e913c5da186db081bb357fa1ff4980d762f6"
     },
     "conditional_incremental.csv": {
       "rows": 7089,
