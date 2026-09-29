@@ -1,0 +1,22 @@
+{
+  "name": "new_v1_family_same_user_electrode_shift_extension_v1",
+  "version": 1,
+  "parent_protocol_sha256": "0d875dbce6d4a4f3c5075993b2c28bcd59397aee90b5a0cf98683fafd549e8b6",
+  "parent_result_sha256": "2e1ad17b36c4b3bec579fe7280cec515e713b2c3065390be1035db36f37c07b5",
+  "parent_prediction_sha256": "bd2e0ac452ddab1de3eb17324c9447da10a47b2cca7a917becfc05a2c252d21f",
+  "source_domain": "training",
+  "target_domains": ["trial_1", "trial_2", "trial_3", "trial_4"],
+  "validation_subjects": [15, 16, 17],
+  "final_subjects": [18, 19, 20],
+  "classes": [0, 1, 2, 3, 4],
+  "rest_label": 2,
+  "sample_rate_hz": 200,
+  "channels": 8,
+  "window_samples": 40,
+  "candidate_families": ["scale_pattern", "ring_lag", "correlation_spectrum", "frequency_direction"],
+  "arms": ["F0v2", "F0v2+scale_pattern", "F0v2+ring_lag", "F0v2+correlation_spectrum", "F0v2+frequency_direction"],
+  "source_fit": "For each subject separately, fit F0v2 Rest thresholds, all new-v1 family metadata, StandardScaler and balanced LogisticRegression C=1 max_iter=2000 random_state=20260924 on that subject's training domain only.",
+  "aggregation": "Mean of at most eight 40-sample windows within each native trial; preserve frozen parent trial identities and held wearing domains.",
+  "selection": "Maximize pooled validation-subject macro-F1, tie break by lower validation log loss; subjects 18-20 never select an arm and have been inspected in earlier project runs.",
+  "scope": "Independent eight-channel 200 Hz public-device same-user wearing-domain screen; not cross-user transfer, calendar-day session transfer or own-device 250 Hz live recognition."
+}
