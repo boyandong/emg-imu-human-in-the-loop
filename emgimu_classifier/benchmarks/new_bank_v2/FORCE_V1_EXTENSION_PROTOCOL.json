@@ -1,0 +1,22 @@
+{
+  "name": "new_v1_family_cross_user_force_intensity_extension_v1",
+  "version": 1,
+  "parent_protocol_sha256": "73a1c1b200ea3249cb658d60bfd5a8f24596d0bb0e1838fd784ee653a358afe8",
+  "parent_result_sha256": "67f08616650138ace096e92bb3d19c127d670ea3c90e0375a283622b9d4a7981",
+  "parent_prediction_sha256": "f021fb07317495326366502a5ae1018396df247f8e46b591432717b4b973997c",
+  "source_subjects": [1, 2, 3, 4, 5, 6],
+  "source_conditions": ["Ramp"],
+  "validation_subjects": [7, 8],
+  "final_subjects": [9, 10],
+  "target_conditions": ["20P", "30P", "40P", "50P", "60P", "70P", "80P", "MVC", "Light", "Medium", "Hard"],
+  "classes": [0, 1, 2, 3, 4, 5, 6],
+  "sample_rate_hz": 1000,
+  "channels": 8,
+  "window_samples": 200,
+  "candidate_families": ["scale_pattern", "ring_lag", "correlation_spectrum", "frequency_direction"],
+  "arms": ["F0v2", "F0v2+scale_pattern", "F0v2+ring_lag", "F0v2+correlation_spectrum", "F0v2+frequency_direction"],
+  "source_fit": "F0v2 Rest thresholds and new-v1 metadata on Ramp source subjects 1-6 only; source-trial StandardScaler and class-balanced LogisticRegression C=1 max_iter=2000 random_state=20260924, exactly the frozen parent training algorithm.",
+  "aggregation": "Mean over at most eight disjoint native 200 ms windows per trial, exactly matching the parent native-trial screen.",
+  "selection": "Maximize pooled validation-user macro-F1; tie break by lower validation log loss. Final users 9-10 cannot tune or select models; their previously inspected outcomes are descriptive.",
+  "scope": "Four independent eight-channel new-v1 family formulas added one at a time to F0v2 on public 1000 Hz LibEMG instructed intensity conditions. Conditions are not measured mechanical force; no own-device 250 Hz live claim."
+}
