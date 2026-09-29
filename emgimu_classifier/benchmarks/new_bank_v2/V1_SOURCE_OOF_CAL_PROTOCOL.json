@@ -1,0 +1,16 @@
+{
+  "name": "independent_v1_family_source_only_oof_temperature_calibration_v1",
+  "version": 1,
+  "parent_studies": ["ROAM_V1_EXTENSION", "GRAB_V1_EXTENSION", "GRAB_DAY_V1_EXTENSION"],
+  "parent_sha256": {
+    "ROAM_V1_EXTENSION": {"protocol": "9ccbe6b1986f05b5c9906848114fc44643c311e4185f01fe19565f89fc73b95c", "results": "25ba50178c1ea71e8ed455c06f34bd0e98b49f6fe23d6baf225211acf875ebd5", "predictions": "3316a02106fe1c35ae39c0927ef5a8f1f19ce19f7d240e0fed2dd22ece5bee60"},
+    "GRAB_V1_EXTENSION": {"protocol": "117b529c8c779c8db8eb7c924ea33134825deaccbb2641ac16b1abe6d980add4", "results": "cdfbdadba6c359958637fa1306b5d928222353803fa5310b5102e9b0600b562c", "predictions": "47b1d12ab43f00418381be7de948bc4a7c0f04af7ec6969c176d731b9d20f669"},
+    "GRAB_DAY_V1_EXTENSION": {"protocol": "d9332af94159a06f707bedb0fe2d2ea6f74db3369d1e4347b401b4637a9a9a9c", "results": "7662651bbbabc208283672546fc56d9eb1536fb45344f5069c24642d7473bbeb", "predictions": "321c84d4c73379cfcc7fa994e142c4943de6249631adec214ffac29ffca7dcad"}
+  },
+  "source_splits": "Exact parent source trials only. Leave one source subject out per OOF fold: ROAM subjects 1-18, GRAB same-day source subjects 1-4, GRAB cross-day Day1 subjects 1-8. Each fold refits F0v2 Rest thresholds, StandardScaler and LogisticRegression on other source subjects; candidate feature metadata depend only on channel count, sample rate and window length.",
+  "candidate_arms": ["F0v2", "F0v2+scale_pattern", "F0v2+ring_lag", "F0v2+correlation_spectrum", "F0v2+frequency_direction"],
+  "classifier": "Same C=1 max_iter=2000 and study-specific class weights/seeds as frozen parent screens",
+  "calibrator": "One positive scalar temperature per study/arm, fitted on source subject-held-out OOF probabilities only; grid {1.0} union geomspace(0.5,5.0,61), minimize source OOF log loss with tie-break toward 1.0. Clip input probabilities to 1e-12 and renormalize softmax(log(p)/T). Target labels never select T.",
+  "evaluation": "Apply source-selected T to the five frozen validation/final arm probability vectors on exactly matched native targets. Compare log loss, Brier and ten-bin ECE against uncalibrated; macro-F1 is mathematically invariant for positive scalar T and is checked. Validation selects no new classifier arm after seeing final.",
+  "scope": "Public zero-target-shot probability calibration on three correlated ROAM/GRAB screens. This tests calibration sensitivity of independently defined families; it is not personal 0/1/2/5-shot calibration and not own-device validation."
+}
