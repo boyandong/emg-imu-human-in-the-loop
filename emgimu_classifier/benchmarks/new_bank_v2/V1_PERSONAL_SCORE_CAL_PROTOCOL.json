@@ -1,0 +1,31 @@
+{
+  "name": "new_v1_family_personal_score_anchor_grab_user_and_day_v1",
+  "version": 1,
+  "parent_sha256": {
+    "GRAB_V1_EXTENSION": {
+      "protocol": "117b529c8c779c8db8eb7c924ea33134825deaccbb2641ac16b1abe6d980add4",
+      "results": "cdfbdadba6c359958637fa1306b5d928222353803fa5310b5102e9b0600b562c",
+      "predictions": "47b1d12ab43f00418381be7de948bc4a7c0f04af7ec6969c176d731b9d20f669"
+    },
+    "GRAB_DAY_V1_EXTENSION": {
+      "protocol": "d9332af94159a06f707bedb0fe2d2ea6f74db3369d1e4347b401b4637a9a9a9c",
+      "results": "7662651bbbabc208283672546fc56d9eb1536fb45344f5069c24642d7473bbeb",
+      "predictions": "321c84d4c73379cfcc7fa994e142c4943de6249631adec214ffac29ffca7dcad"
+    }
+  },
+  "arms": ["F0v2", "F0v2+scale_pattern", "F0v2+ring_lag", "F0v2+correlation_spectrum", "F0v2+frequency_direction"],
+  "classes": [4, 15, 16, 17],
+  "budgets": [0, 1, 2, 5],
+  "evaluation_repetitions": [6, 7],
+  "calibration_repetitions": "For N shots per class, use native repetitions 1..N of each class from the same held-out subject and day; trials 6 and 7 always evaluate.",
+  "studies": {
+    "grab_user": {"parent": "GRAB_V1_EXTENSION", "days": {"validation": 1, "final": 1}, "subjects": {"validation": [5, 6], "final": [7, 8]}},
+    "grab_day": {"parent": "GRAB_DAY_V1_EXTENSION", "days": {"validation": 2, "final": 3}, "subjects": {"validation": [1, 2, 3, 4, 5, 6, 7, 8], "final": [1, 2, 3, 4, 5, 6, 7, 8]}}
+  },
+  "score_anchor_temperature": 0.1,
+  "population_weight": 0.5,
+  "rule": "For each class, mean the frozen source-model four-class probability vectors of its allowed labelled calibration trials. Softmax the negative squared Euclidean distance of the query source probability to class prototypes divided by fixed temperature 0.1; mix equal weights with the untouched source probability. Zero shots exactly reuse frozen source probability.",
+  "selection": "All formulas, budgets, repetitions and weights frozen before results. No validation/final labels tune temperature, weight or arms. Day3 and previously inspected users are descriptive rather than new confirmatory cohorts.",
+  "recording_seconds": 5,
+  "scope": "Public eight-channel 2048 Hz GRABMyo personal score-space follow-up for four independent new-v1 feature families against F0v2. Tests whether family ranking changes after one fixed personal score correction; not feature-space F7 anchors, per-channel normalization, physical-device performance or 250 Hz live recognition."
+}
