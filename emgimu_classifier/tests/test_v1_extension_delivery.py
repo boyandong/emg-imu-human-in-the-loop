@@ -153,3 +153,41 @@ def test_ring_frequency_four_arm_interaction_replays_and_exports():
     with source.open(newline="", encoding="utf-8") as stream:
         exported = [r for r in csv.DictReader(stream) if r["run_id"] == delivery["run_id"]]
     assert len(exported) == 44
+
+
+def test_ring_frequency_full_bank_lofo_replays_and_delivers():
+    result = json.loads((ROOT / "RING_FREQ_LOFO_RESULTS.json").read_text(encoding="utf-8"))
+    verify = json.loads((ROOT / "RING_FREQ_LOFO_VERIFICATION.json").read_text(encoding="utf-8"))
+    delivery = json.loads((ROOT / "RING_FREQ_LOFO_DELIVERY_AUDIT.json").read_text(encoding="utf-8"))
+    predictions = ROOT / "RING_FREQ_LOFO_PREDICTIONS.csv"
+    cells = ROOT / "RING_FREQ_LOFO_CELLS.csv"
+    parent = ROOT / "RING_FREQ_INTERACTION_PREDICTIONS.csv"
+    assert result["protocol_sha256"] == verify["protocol_sha256"] == sha256(
+        ROOT / "RING_FREQ_LOFO_PROTOCOL.json")
+    assert result["prediction_sha256"] == verify["prediction_sha256"] == sha256(predictions)
+    assert result["parent_prediction_sha256"] == verify["parent_prediction_sha256"] == sha256(parent)
+    assert verify["cell_sha256"] == delivery["source_sha256"] == sha256(cells)
+    assert verify["prediction_rows"] == result["prediction_rows"] == 3680
+    assert verify["parent_copied_rows"] == 2760
+    assert verify["score_cells"] == delivery["rows"] == 176
+    with predictions.open(newline="", encoding="utf-8") as stream:
+        rows = list(csv.DictReader(stream))
+    assert len({(r["study"], r["arm"], r["phase"], r["trial_id"]) for r in rows}) == 3680
+    with cells.open(newline="", encoding="utf-8") as stream:
+        scored = list(csv.DictReader(stream))
+    full = {(r["study"], r["phase"], r["group_type"], r["group"]): r
+            for r in scored if r["removed_family"] == "NONE"}
+    assert len(full) == 44
+    for row in scored:
+        reference = full[(row["study"], row["phase"], row["group_type"], row["group"])]
+        assert float(row["full_minus_removed_macro_f1"]) == pytest.approx(
+            float(reference["macro_f1"]) - float(row["macro_f1"]), abs=1e-12)
+        assert float(row["removed_minus_full_log_loss"]) == pytest.approx(
+            float(row["log_loss"]) - float(reference["log_loss"]), abs=1e-12)
+        assert float(row["removed_minus_full_brier"]) == pytest.approx(
+            float(row["brier"]) - float(reference["brier"]), abs=1e-12)
+    source = ROOT.parents[1] / "feature_bank" / "results" / "ablation_full_bank.csv"
+    assert delivery["output_sha256"] == sha256(source)
+    with source.open(newline="", encoding="utf-8") as stream:
+        exported = [r for r in csv.DictReader(stream) if r["run_id"] == delivery["run_id"]]
+    assert len(exported) == 176

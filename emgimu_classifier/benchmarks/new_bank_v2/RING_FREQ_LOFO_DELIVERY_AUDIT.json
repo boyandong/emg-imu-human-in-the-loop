@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_ring_freq_lofo_20260929",
+  "rows": 176,
+  "source_sha256": "d29f518894db1a2a7f21cca51e8ee6822dc8c0e0474ae377e9d67bf58d3ae591",
+  "verification_sha256": "79d49b36089e99c01e1cbf8a27ba8ff2f099cf4a61d2988d730a4bca7127b007",
+  "output_sha256": "723a82314bf65c959041daade0d18ca5efe13329fe42956232d6a9fca60383c8",
+  "boundary": "Fixed candidate full bank failed prior validation, final descriptive; not a selected product bank."
+}

@@ -347,7 +347,7 @@
       "canonical_csv_sha256": "9c1161e61842c91ec06e022c699e322db78151a31bdf7158f7ea639886bff733"
     },
     "ablation_full_bank.csv": {
-      "rows": 14799,
+      "rows": 14975,
       "required_fields": [
         "dataset",
         "subject",
@@ -467,8 +467,8 @@
           "method": 20
         }
       },
-      "source_csv_sha256": "93eba6db7a553929eeb08d9ad3640da99cb005508cdf3ff03e83f661180d65b8",
-      "canonical_csv_sha256": "a3a734f6c09094faa7465348c7f8eb81f287c9fc971f72fda4e7034f6b413611"
+      "source_csv_sha256": "723a82314bf65c959041daade0d18ca5efe13329fe42956232d6a9fca60383c8",
+      "canonical_csv_sha256": "97653af7dce471606f03c1aa616dcc58c8f1c1f8b4195a6a649613440b592dba"
     }
   },
   "scope": "five required schemas; exact source record identities; no invented metrics/session IDs; N/A requires source repair or capability boundary",

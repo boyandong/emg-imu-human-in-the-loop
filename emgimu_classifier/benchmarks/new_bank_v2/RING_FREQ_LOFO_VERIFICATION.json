@@ -1,0 +1,12 @@
+{
+  "status": "ok",
+  "prediction_rows": 3680,
+  "parent_copied_rows": 2760,
+  "score_cells": 176,
+  "protocol_sha256": "e46b17913368089bbe144f36d11287430534ec4112f3d511f234e17947ce92af",
+  "result_sha256": "a5bff7b2fa51e1f5329565f9c08ab659dec66da62e2158387d148e3262e5f9f9",
+  "prediction_sha256": "7c56c7355c8c420d15db8bf05cc71f7e729a7fd377d76e145f7926c564ec56f3",
+  "parent_prediction_sha256": "fc6703fbe5586042faa7420907b05c8b8381832c1edf91aa386ce6d5bc944a07",
+  "cell_sha256": "d29f518894db1a2a7f21cca51e8ee6822dc8c0e0474ae377e9d67bf58d3ae591",
+  "boundary": "Fixed rejected candidate full bank; final results descriptive; repeated-subject and shared-recording correlations remain."
+}

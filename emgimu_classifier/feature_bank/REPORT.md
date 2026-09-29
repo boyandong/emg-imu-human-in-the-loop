@@ -3479,3 +3479,13 @@ held-out probability rows exactly replay the earlier single-arm screens;
 interaction in one descriptive final split still coincides with a much
 worse absolute joint arm. This combination is rejected as a default bank
 addition under the frozen validation rule.
+
+The [independent candidate full-bank LOFO](../benchmarks/new_bank_v2/RING_FREQ_LOFO_REPORT.md)
+uses the same three splits and removes F0v2, ring lag or frequency direction
+from `F0v2+ring_lag+frequency_direction`. Keeping F0v2 improves validation
+F1 and log loss on all three tasks; removing either added family improves
+validation F1 on all three. The full arm was already rejected by the
+four-arm interaction test, so the ablation identifies contributions within
+a failed candidate rather than selecting a deployment bank. All 3,680
+saved predictions and 176 pooled/subject/posture LOFO cells are verified;
+the required canonical ablation delivery now covers 56,106 records overall.
