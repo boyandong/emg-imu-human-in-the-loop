@@ -1,0 +1,21 @@
+{
+  "name": "new_v2_grabmyo_cross_day_independent_v1_family_extension_v1",
+  "version": 1,
+  "parent_day_protocol_sha256": "79defa347f03c10696967f49040692f676ee41201d186baa1072ce7546d01acc",
+  "parent_day_prediction_sha256": "58401ac416aebc6e4ad059a0b98637c8e40c404c695780073a05fe666d66df75",
+  "data_root": "D:/emg-imu-benchmarks/data/raw/grabmyo_crossday_subset_v1",
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8],
+  "sessions": {"train": 1, "validation": 2, "final": 3},
+  "gesture_codes": [4, 15, 16, 17],
+  "rest_code": 17,
+  "channels": ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8"],
+  "sample_rate_hz": 2048,
+  "window_samples": 512,
+  "candidate_families": ["scale_pattern", "ring_lag", "correlation_spectrum", "frequency_direction"],
+  "arms": ["F0v2", "F0v2+scale_pattern", "F0v2+ring_lag", "F0v2+correlation_spectrum", "F0v2+frequency_direction"],
+  "source_state": "F0v2 Rest thresholds and four candidate metadata states fit Day1 Rest only; scaler/classifier fit all Day1 recordings. Day2 and Day3 never fit state.",
+  "classifier": "StandardScaler plus LogisticRegression C=1 max_iter=2000 random_state=20260924, identical to frozen GRAB day study",
+  "aggregation": "mean and standard deviation of twenty disjoint 250 ms windows per native recording",
+  "selection": "Maximize pooled Day2 macro-F1, break ties by lower Day2 log loss. Day3 never selects arms; report minimum-user F1.",
+  "scope": "Independent first-stage screening of four additional eight-channel feature families on public three-day GRABMyo. Same 672 official-hash-verified recordings and native day partitions as frozen parent. Repeated subjects across days, no unseen-person inference. No historical formula or own-device/live claim."
+}
