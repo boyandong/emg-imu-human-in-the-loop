@@ -3585,3 +3585,24 @@ regression on every available axis. The selected default within this
 finite candidate set is therefore F0v2. The 70-row validation/final
 table and source hashes are audited; final rows are descriptive only.
 This is a public-data bank decision, not 250 Hz own-device acceptance.
+
+### New-version answers to research questions A–H
+
+These answers apply to the seven public-data new-v1 screens and the
+separate fixed calibration controls. The [decision table](../benchmarks/new_bank_v2/V1_CROSS_AXIS_DECISION_CELLS.csv)
+holds 70 matched axis–phase–arm cells, and the
+[subject audit](../benchmarks/new_bank_v2/V1_CROSS_AXIS_SUBJECT_AUDIT.json)
+holds 310 individual subject cells. The older seven-axis historical-bank
+vector above uses different model compositions and must not be merged
+numerically with this newer comparison.
+
+| Question | New-version finding | Limit |
+| --- | --- | --- |
+| A. Missing information or organization? | The frozen F0v2 features remain the most consistent default; simply adding four distinct feature families does not fix all shifts. Feature organization and calibration can change results, but a single causal bottleneck is not isolated. | No physical diagnosis of the current 250 Hz device or proof that additional information is unnecessary. |
+| B. Conditional increments? | Ring lag improves validation pooled F1 on unseen-user, cross-day and observed-speed splits; correlation spectrum improves wearing and observed-speed. Gains often cost log loss or reverse in final splits. | These are matched predictive increments, not measured mutual information or universal additions. |
+| C. Specialists? | Ring lag is a task-specific GRAB/speed research candidate; correlation spectrum is a wearing/speed validation candidate. The independent force and synthetic-quality screens do not support either as a general default. | GRAB splits and ROAM posture/quality reuse recordings; specialist promotion needs a new independent validation cohort. |
+| D. Only after personal calibration? | No new-v1 family has a consistent advantage *only* after the fixed score-space 0/1/2/5-shot correction. The fixed feature-space anchor worsens pooled log loss at every nonzero budget for every arm on both tested days. | Other personalization rules remain untested. |
+| E. Personal Anchor and cross-user variation? | The tested feature-space rule is not promoted; the earlier EPN personal-anchor branch can lower mean/minimum F1 and increase user variation. | This does not reject all anchors or establish own-device cross-user effects. |
+| F. Session Signature for day/re-donning? | A native wearing-domain test found no final F1 benefit from the fixed signature routing, although local prototypes can improve F1 with worse loss. | Wearing domains are not documented calendar sessions or physical re-donning on this device. |
+| G. Worst scenario R_min? | No candidate addition passes all seven validation axes. Ring lag's quality minimum subject fault-family mean falls from .816 to .632, despite gains in other axes. Keeping F0v2 preserves the tested baseline minimum rather than claiming a new recovery. | Axes have unlike tasks and correlated recordings; synthetic quality is not real fault prevalence. |
+| H. Calibration needed in product? | The public GRAB 1/2/5-shot protocols consume 20/40/100 seconds of labelled signal, excluding setup and rest; no budget supplies a reliable all-axis recovery. The selected public-data default is zero target shots. | Actual setup time, cross-session benefit and live 250 Hz device accuracy cannot be prescribed without hardware and suitable recordings. |

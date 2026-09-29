@@ -45,6 +45,17 @@ final F1 by .056, while correlation spectrum improves wearing validation
 F1 by .035 but lowers final F1 by .073. Those final rows did not enter
 selection.
 
+The [paired subject audit](V1_CROSS_AXIS_SUBJECT_AUDIT.json) adds 310
+individual subject–arm–phase cells and 70 summary cells. It shows why a
+pooled gain alone is not sufficient: ring lag improves unseen-user
+validation pooled F1, yet improves one of two users and worsens the
+other; its minimum user F1 falls from .710 to .702. Correlation spectrum
+improves wearing pooled validation F1, but only one of three users
+improves, and the minimum remains .429. On synthetic quality, ring lag
+lowers the minimum *subject fault-family mean* from .816 to .632.
+Per-subject cells use the same saved public predictions and the same
+fixed six-coordinate quality aggregation, without model refitting.
+
 The selected public-data default is a **zero-target-shot F0v2** model.
 The existing [source-subject OOF temperature test](V1_SOURCE_OOF_CAL_REPORT.md)
 does not support a universal reliability transform: target F0v2 log loss

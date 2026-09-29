@@ -1,0 +1,15 @@
+{
+  "status": "ok",
+  "source_sha256": {
+    "V1_EXTENSION_FAMILY_SCREEN.csv": "a40b64222ae5405381317e3bbf44f979e2ed9947a2fc70a607ae3e781c9f602a",
+    "FORCE_V1_EXTENSION_FAMILY.csv": "a71419ff8b26a29a18fe8add23750fab9a78a938da8bf74ecc014739cde522e4",
+    "WEARING_V1_EXTENSION_FAMILY.csv": "b4bd74f7342eb1ea9c0ca8e72ae537d70d3389b0cf3337ffc040093f98910c2a",
+    "MANUS_V1_SPEED_FAMILY.csv": "8084912efc1f59dafcbbc08da34810e300c1d889570048011cbe791fcecf7224",
+    "ROAM_V1_QUALITY_FAMILY.csv": "b7022eb087576e38bb3ecaa3348fdc9839e2bbb51e4fa404232b673d6f2811f0"
+  },
+  "subject_cells": 310,
+  "summary_cells": 70,
+  "subject_cells_sha256": "67509636d7fce17bf0e424c96574f096df4c4f7293549579a42863119b919e6d",
+  "summary_cells_sha256": "03a18506d8236321aeea2458194aa985a9f8311ded12fe5046bc594fe90384fa",
+  "boundary": "Subjects are paired within each axis and phase. ROAM quality uses the fixed six-coordinate mean per subject. Axis populations and GRAB/ROAM recordings overlap; no cross-dataset inference or own-device population claim."
+}
