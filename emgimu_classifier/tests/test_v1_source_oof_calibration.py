@@ -79,9 +79,19 @@ def test_source_oof_calibration_delivery_matches_readback():
         ROOT / "V1_SOURCE_OOF_CAL_VERIFICATION.json")
     assert verification["target_score_cells"] == delivery["rows"] == 440
     source = ROOT.parents[1] / "feature_bank" / "results" / "calibration_curve.csv"
-    assert delivery["output_sha256"] == sha256(source)
+    # The delivery hash is a snapshot of the whole source table at export time.
+    # Later independent experiments append rows, so verify this run's actual
+    # canonical source rows against its immutable cells instead.
     with source.open(newline="", encoding="utf-8") as stream:
         exported = [r for r in csv.DictReader(stream) if r["run_id"] == delivery["run_id"]]
     assert len(exported) == 440
     assert {r["shots_per_class"] for r in exported} == {"0"}
     assert {r["method"] for r in exported} == {"uncalibrated", "source_oof_temperature"}
+    with cells.open(newline="", encoding="utf-8") as stream:
+        expected = list(csv.DictReader(stream))
+    def key(row):
+        return (row["phase"], row["subject"], row["feature_bank"] if "feature_bank" in row else row["arm"],
+                row["method"], row["aggregation"] if "aggregation" in row else row["scope"],
+                row["macro_f1"], row["log_loss"], row["brier"], row["ece"])
+    assert len({key(row) for row in exported}) == 440
+    assert {key(row) for row in exported} == {key(row) for row in expected}

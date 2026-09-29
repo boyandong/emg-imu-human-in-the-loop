@@ -25,8 +25,8 @@ from source evidence, validation evidence or prespecified controls; final scores
 Seed: 20260915. Classical logistic regression runs use CPU; no neural training is needed
 for these representation comparisons.
 The dated `results/validation.json` log records 224 tests (223 passed, one
-skipped). The current classifier suite was rerun after the new-v2 feature
-calibration delivery: 247 passed, one skipped and 14 subtests passed.
+skipped). The current classifier suite was rerun after the new-v1 personal
+score calibration delivery: 264 passed, one skipped and 14 subtests passed.
 Older section-local test counts below are dated snapshots. The collection application's documented
 default `collection/emg_meta/emg_meta/data` directory did not contain a session
 at that earlier review. The user has since supplied four Song sessions at a
@@ -3509,3 +3509,16 @@ validation splits. The 7,090 saved source/target predictions and 440 target
 score cells are audited and delivered as zero-shot calibration comparisons;
 canonical provenance verification covers 56,766 records. Personal
 calibration and own-device performance remain separate evidence questions.
+
+The [new-v1 personal score-anchor follow-up](../benchmarks/new_bank_v2/V1_PERSONAL_SCORE_CAL_REPORT.md)
+now evaluates the same five frozen arms at 0/1/2/5 labelled native trials
+per class on GRAB unseen-user and cross-day splits. Repetitions 1..N form
+each held-subject calibration set; repetitions 6/7 are fixed evaluation.
+Ring lag remains a validation specialist but fails to beat calibrated F0v2
+on descriptive Day3 F1 at any budget. Other apparent improvements likewise
+vary by phase and objective; no added family earns a general personal-
+calibration promotion. All 3,200 predictions, 400 assignments, 480 pooled/
+subject score cells and 800 exact zero-shot replays pass read-back checks.
+The required calibration curve and canonical provenance now cover 57,246
+records. This fixed score-space correction is distinct from F7 feature-
+space Personal Anchor or a device calibration workflow.

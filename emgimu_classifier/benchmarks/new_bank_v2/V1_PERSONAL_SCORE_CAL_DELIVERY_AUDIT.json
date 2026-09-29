@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_v1_personal_score_anchor_20260929",
+  "rows": 480,
+  "source_curve_sha256": "5629e7ede99c4f207bd0a46e3427a799fc365f4a9e26d68805d9684f33464540",
+  "source_predictions_sha256": "4872bc163dadfada303f62f39ba543961cde48ecc878f8165afa5adcea55fee1",
+  "source_verification_sha256": "38606dff38c8ebec52ba18f81218ef8ae019d30646d3dbe8e2847792f8d9def9",
+  "output_sha256": "e293071edf55ac060bdcb77da85226f3df31855fd73b8b9034e9e4fc0e7cdbf6",
+  "boundary": "Public eight-channel 2048 Hz GRABMyo personal score-space follow-up for four independent new-v1 feature families against F0v2. Tests whether family ranking changes after one fixed personal score correction; not feature-space F7 anchors, per-channel normalization, physical-device performance or 250 Hz live recognition."
+}
