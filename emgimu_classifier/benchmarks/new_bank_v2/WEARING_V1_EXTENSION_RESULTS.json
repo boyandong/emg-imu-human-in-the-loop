@@ -1,0 +1,1701 @@
+{
+  "protocol": {
+    "name": "new_v1_family_same_user_electrode_shift_extension_v1",
+    "version": 1,
+    "parent_protocol_sha256": "0d875dbce6d4a4f3c5075993b2c28bcd59397aee90b5a0cf98683fafd549e8b6",
+    "parent_result_sha256": "2e1ad17b36c4b3bec579fe7280cec515e713b2c3065390be1035db36f37c07b5",
+    "parent_prediction_sha256": "bd2e0ac452ddab1de3eb17324c9447da10a47b2cca7a917becfc05a2c252d21f",
+    "source_domain": "training",
+    "target_domains": [
+      "trial_1",
+      "trial_2",
+      "trial_3",
+      "trial_4"
+    ],
+    "validation_subjects": [
+      15,
+      16,
+      17
+    ],
+    "final_subjects": [
+      18,
+      19,
+      20
+    ],
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "rest_label": 2,
+    "sample_rate_hz": 200,
+    "channels": 8,
+    "window_samples": 40,
+    "candidate_families": [
+      "scale_pattern",
+      "ring_lag",
+      "correlation_spectrum",
+      "frequency_direction"
+    ],
+    "arms": [
+      "F0v2",
+      "F0v2+scale_pattern",
+      "F0v2+ring_lag",
+      "F0v2+correlation_spectrum",
+      "F0v2+frequency_direction"
+    ],
+    "source_fit": "For each subject separately, fit F0v2 Rest thresholds, all new-v1 family metadata, StandardScaler and balanced LogisticRegression C=1 max_iter=2000 random_state=20260924 on that subject's training domain only.",
+    "aggregation": "Mean of at most eight 40-sample windows within each native trial; preserve frozen parent trial identities and held wearing domains.",
+    "selection": "Maximize pooled validation-subject macro-F1, tie break by lower validation log loss; subjects 18-20 never select an arm and have been inspected in earlier project runs.",
+    "scope": "Independent eight-channel 200 Hz public-device same-user wearing-domain screen; not cross-user transfer, calendar-day session transfer or own-device 250 Hz live recognition."
+  },
+  "protocol_sha256": "0cc0e3b2a1a4556d925b40a16e3e23688efdf20342328131add05bc36cebcea9",
+  "archive_sha256": "4cfa9a4861193f230179fa87d53eda7503e66b5cfedeae81c81e476f53f6b2b6",
+  "prediction_sha256": "52f7494ad1e851bdeb25cbd4b260248f8c09356d599a768d6490885a3223b636",
+  "feature_dimensions": {
+    "F0v2": 48,
+    "scale_pattern": 8,
+    "ring_lag": 8,
+    "correlation_spectrum": 8,
+    "frequency_direction": 32
+  },
+  "split_trial_ids": {
+    "validation_15": {
+      "source": [
+        "CIILData-main/ElectrodeShift/subject15/training/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_2_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_2_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_2_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_2_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_2_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_3_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_3_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_3_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_3_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_3_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_4_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_4_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_4_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_4_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject15/training/R_4_C_4.csv"
+      ],
+      "target": [
+        "CIILData-main/ElectrodeShift/subject15/trial_1/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_1/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_1/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_1/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_1/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_1/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_1/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_1/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_1/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_1/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_2/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_2/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_2/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_2/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_2/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_2/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_2/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_2/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_2/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_2/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_3/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_3/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_3/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_3/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_3/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_3/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_3/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_3/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_3/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_3/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_4/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_4/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_4/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_4/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_4/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_4/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_4/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_4/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_4/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject15/trial_4/R_1_C_4.csv"
+      ]
+    },
+    "validation_16": {
+      "source": [
+        "CIILData-main/ElectrodeShift/subject16/training/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_2_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_2_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_2_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_2_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_2_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_3_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_3_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_3_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_3_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_3_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_4_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_4_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_4_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_4_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject16/training/R_4_C_4.csv"
+      ],
+      "target": [
+        "CIILData-main/ElectrodeShift/subject16/trial_1/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_1/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_1/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_1/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_1/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_1/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_1/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_1/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_1/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_1/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_2/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_2/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_2/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_2/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_2/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_2/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_2/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_2/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_2/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_2/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_3/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_3/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_3/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_3/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_3/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_3/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_3/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_3/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_3/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_3/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_4/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_4/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_4/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_4/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_4/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_4/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_4/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_4/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_4/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject16/trial_4/R_1_C_4.csv"
+      ]
+    },
+    "validation_17": {
+      "source": [
+        "CIILData-main/ElectrodeShift/subject17/training/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_2_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_2_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_2_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_2_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_2_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_3_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_3_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_3_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_3_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_3_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_4_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_4_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_4_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_4_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject17/training/R_4_C_4.csv"
+      ],
+      "target": [
+        "CIILData-main/ElectrodeShift/subject17/trial_1/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_1/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_1/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_1/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_1/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_1/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_1/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_1/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_1/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_1/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_2/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_2/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_2/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_2/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_2/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_2/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_2/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_2/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_2/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_2/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_3/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_3/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_3/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_3/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_3/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_3/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_3/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_3/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_3/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_3/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_4/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_4/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_4/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_4/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_4/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_4/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_4/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_4/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_4/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject17/trial_4/R_1_C_4.csv"
+      ]
+    },
+    "final_18": {
+      "source": [
+        "CIILData-main/ElectrodeShift/subject18/training/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_2_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_2_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_2_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_2_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_2_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_3_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_3_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_3_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_3_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_3_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_4_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_4_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_4_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_4_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject18/training/R_4_C_4.csv"
+      ],
+      "target": [
+        "CIILData-main/ElectrodeShift/subject18/trial_1/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_1/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_1/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_1/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_1/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_1/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_2/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_2/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_2/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_2/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_2/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_2/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_2/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_2/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_2/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_2/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_3/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_3/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_3/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_3/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_3/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_3/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_3/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_3/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_3/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_3/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_4/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_4/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_4/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_4/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_4/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_4/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_4/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_4/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_4/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject18/trial_4/R_1_C_4.csv"
+      ]
+    },
+    "final_19": {
+      "source": [
+        "CIILData-main/ElectrodeShift/subject19/training/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_2_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_2_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_2_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_2_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_2_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_3_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_3_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_3_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_3_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_3_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_4_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_4_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_4_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_4_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject19/training/R_4_C_4.csv"
+      ],
+      "target": [
+        "CIILData-main/ElectrodeShift/subject19/trial_1/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_1/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_1/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_1/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_1/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_1/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_1/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_1/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_1/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_1/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_2/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_2/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_2/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_2/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_2/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_2/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_2/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_2/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_2/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_2/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_3/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_3/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_3/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_3/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_3/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_3/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_3/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_3/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_3/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_3/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_4/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_4/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_4/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_4/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_4/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_4/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_4/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_4/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_4/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject19/trial_4/R_1_C_4.csv"
+      ]
+    },
+    "final_20": {
+      "source": [
+        "CIILData-main/ElectrodeShift/subject20/training/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_2_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_2_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_2_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_2_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_2_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_3_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_3_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_3_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_3_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_3_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_4_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_4_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_4_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_4_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject20/training/R_4_C_4.csv"
+      ],
+      "target": [
+        "CIILData-main/ElectrodeShift/subject20/trial_1/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_1/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_1/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_1/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_1/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_1/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_1/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_1/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_1/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_1/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_2/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_2/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_2/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_2/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_2/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_2/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_2/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_2/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_2/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_2/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_3/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_3/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_3/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_3/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_3/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_3/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_3/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_3/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_3/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_3/R_1_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_4/R_0_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_4/R_0_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_4/R_0_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_4/R_0_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_4/R_0_C_4.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_4/R_1_C_0.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_4/R_1_C_1.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_4/R_1_C_2.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_4/R_1_C_3.csv",
+        "CIILData-main/ElectrodeShift/subject20/trial_4/R_1_C_4.csv"
+      ]
+    }
+  },
+  "baseline_replay_max_abs_error": 0.0,
+  "validation_selected_arm": "F0v2+correlation_spectrum",
+  "scores": {
+    "validation": {
+      "F0v2": {
+        "pooled": {
+          "trials": 120,
+          "accuracy": 0.5916666666666667,
+          "macro_f1": 0.5774608569088894,
+          "log_loss": 1.2916277523624473,
+          "brier": 0.615854505727747,
+          "per_class_recall": {
+            "0": 0.4166666666666667,
+            "1": 0.5,
+            "2": 1.0,
+            "3": 0.625,
+            "4": 0.4166666666666667
+          }
+        },
+        "by_subject": {
+          "15": {
+            "trials": 40,
+            "accuracy": 0.6,
+            "macro_f1": 0.4666666666666666,
+            "log_loss": 1.5084845477194564,
+            "brier": 0.579466862469101,
+            "per_class_recall": {
+              "0": 1.0,
+              "1": 0.0,
+              "2": 1.0,
+              "3": 1.0,
+              "4": 0.0
+            }
+          },
+          "16": {
+            "trials": 40,
+            "accuracy": 0.65,
+            "macro_f1": 0.6325238095238095,
+            "log_loss": 0.8315014910115813,
+            "brier": 0.45822425286503615,
+            "per_class_recall": {
+              "0": 0.25,
+              "1": 0.5,
+              "2": 1.0,
+              "3": 0.875,
+              "4": 0.625
+            }
+          },
+          "17": {
+            "trials": 40,
+            "accuracy": 0.525,
+            "macro_f1": 0.42857142857142855,
+            "log_loss": 1.5348972183563032,
+            "brier": 0.809872401849104,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 1.0,
+              "3": 0.0,
+              "4": 0.625
+            }
+          }
+        },
+        "by_domain": {
+          "trial_1": {
+            "trials": 30,
+            "accuracy": 0.6,
+            "macro_f1": 0.5951048951048951,
+            "log_loss": 1.0318297780529004,
+            "brier": 0.5603788581526903,
+            "per_class_recall": {
+              "0": 0.5,
+              "1": 0.5,
+              "2": 1.0,
+              "3": 0.5,
+              "4": 0.5
+            }
+          },
+          "trial_2": {
+            "trials": 30,
+            "accuracy": 0.5666666666666667,
+            "macro_f1": 0.5433333333333333,
+            "log_loss": 1.5070220874198603,
+            "brier": 0.6854433484545636,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.3333333333333333,
+              "2": 1.0,
+              "3": 0.6666666666666666,
+              "4": 0.5
+            }
+          },
+          "trial_3": {
+            "trials": 30,
+            "accuracy": 0.6,
+            "macro_f1": 0.5876923076923076,
+            "log_loss": 1.3363074905916326,
+            "brier": 0.5942364312993821,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.6666666666666666,
+              "2": 1.0,
+              "3": 0.6666666666666666,
+              "4": 0.3333333333333333
+            }
+          },
+          "trial_4": {
+            "trials": 30,
+            "accuracy": 0.6,
+            "macro_f1": 0.5824242424242424,
+            "log_loss": 1.2913516533853948,
+            "brier": 0.6233593850043524,
+            "per_class_recall": {
+              "0": 0.5,
+              "1": 0.5,
+              "2": 1.0,
+              "3": 0.6666666666666666,
+              "4": 0.3333333333333333
+            }
+          }
+        },
+        "minimum_subject_macro_f1": 0.42857142857142855,
+        "worst_domain_macro_f1": 0.5433333333333333
+      },
+      "F0v2+scale_pattern": {
+        "pooled": {
+          "trials": 120,
+          "accuracy": 0.575,
+          "macro_f1": 0.5616248196248196,
+          "log_loss": 1.3172847581271903,
+          "brier": 0.6400765673245556,
+          "per_class_recall": {
+            "0": 0.4166666666666667,
+            "1": 0.5833333333333334,
+            "2": 1.0,
+            "3": 0.5416666666666666,
+            "4": 0.3333333333333333
+          }
+        },
+        "by_subject": {
+          "15": {
+            "trials": 40,
+            "accuracy": 0.6,
+            "macro_f1": 0.4666666666666666,
+            "log_loss": 1.5925111405857977,
+            "brier": 0.6034397528834081,
+            "per_class_recall": {
+              "0": 1.0,
+              "1": 0.0,
+              "2": 1.0,
+              "3": 1.0,
+              "4": 0.0
+            }
+          },
+          "16": {
+            "trials": 40,
+            "accuracy": 0.675,
+            "macro_f1": 0.6563099219620959,
+            "log_loss": 0.6973151506355957,
+            "brier": 0.40867786839796827,
+            "per_class_recall": {
+              "0": 0.25,
+              "1": 0.75,
+              "2": 1.0,
+              "3": 0.625,
+              "4": 0.75
+            }
+          },
+          "17": {
+            "trials": 40,
+            "accuracy": 0.45,
+            "macro_f1": 0.37777777777777777,
+            "log_loss": 1.6620279831601779,
+            "brier": 0.9081120806922904,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 1.0,
+              "3": 0.0,
+              "4": 0.25
+            }
+          }
+        },
+        "by_domain": {
+          "trial_1": {
+            "trials": 30,
+            "accuracy": 0.6333333333333333,
+            "macro_f1": 0.6261738261738261,
+            "log_loss": 1.0707170082424329,
+            "brier": 0.5787293854374113,
+            "per_class_recall": {
+              "0": 0.5,
+              "1": 0.6666666666666666,
+              "2": 1.0,
+              "3": 0.5,
+              "4": 0.5
+            }
+          },
+          "trial_2": {
+            "trials": 30,
+            "accuracy": 0.5,
+            "macro_f1": 0.48121212121212126,
+            "log_loss": 1.4892564999299922,
+            "brier": 0.6972859233360219,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.3333333333333333,
+              "2": 1.0,
+              "3": 0.5,
+              "4": 0.3333333333333333
+            }
+          },
+          "trial_3": {
+            "trials": 30,
+            "accuracy": 0.6,
+            "macro_f1": 0.5906759906759907,
+            "log_loss": 1.3717051011381538,
+            "brier": 0.6206578665381265,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.6666666666666666,
+              "2": 1.0,
+              "3": 0.6666666666666666,
+              "4": 0.3333333333333333
+            }
+          },
+          "trial_4": {
+            "trials": 30,
+            "accuracy": 0.5666666666666667,
+            "macro_f1": 0.5403485403485404,
+            "log_loss": 1.3374604231981826,
+            "brier": 0.6636330939866631,
+            "per_class_recall": {
+              "0": 0.5,
+              "1": 0.6666666666666666,
+              "2": 1.0,
+              "3": 0.5,
+              "4": 0.16666666666666666
+            }
+          }
+        },
+        "minimum_subject_macro_f1": 0.37777777777777777,
+        "worst_domain_macro_f1": 0.48121212121212126
+      },
+      "F0v2+ring_lag": {
+        "pooled": {
+          "trials": 120,
+          "accuracy": 0.6,
+          "macro_f1": 0.5836591478696741,
+          "log_loss": 1.068184896620017,
+          "brier": 0.5486073299953501,
+          "per_class_recall": {
+            "0": 0.4166666666666667,
+            "1": 0.4166666666666667,
+            "2": 1.0,
+            "3": 0.7083333333333334,
+            "4": 0.4583333333333333
+          }
+        },
+        "by_subject": {
+          "15": {
+            "trials": 40,
+            "accuracy": 0.6,
+            "macro_f1": 0.46713043478260874,
+            "log_loss": 1.2531652998138754,
+            "brier": 0.5410899027358644,
+            "per_class_recall": {
+              "0": 1.0,
+              "1": 0.0,
+              "2": 1.0,
+              "3": 1.0,
+              "4": 0.0
+            }
+          },
+          "16": {
+            "trials": 40,
+            "accuracy": 0.625,
+            "macro_f1": 0.582481658692185,
+            "log_loss": 0.8159926969508661,
+            "brier": 0.4608334271913517,
+            "per_class_recall": {
+              "0": 0.25,
+              "1": 0.25,
+              "2": 1.0,
+              "3": 1.0,
+              "4": 0.625
+            }
+          },
+          "17": {
+            "trials": 40,
+            "accuracy": 0.575,
+            "macro_f1": 0.49266578831796226,
+            "log_loss": 1.1353966930953088,
+            "brier": 0.643898660058834,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 1.0,
+              "3": 0.125,
+              "4": 0.75
+            }
+          }
+        },
+        "by_domain": {
+          "trial_1": {
+            "trials": 30,
+            "accuracy": 0.6,
+            "macro_f1": 0.5898101898101898,
+            "log_loss": 0.9927725104178093,
+            "brier": 0.5388947834899518,
+            "per_class_recall": {
+              "0": 0.5,
+              "1": 0.3333333333333333,
+              "2": 1.0,
+              "3": 0.6666666666666666,
+              "4": 0.5
+            }
+          },
+          "trial_2": {
+            "trials": 30,
+            "accuracy": 0.5666666666666667,
+            "macro_f1": 0.5433333333333333,
+            "log_loss": 1.231219539543371,
+            "brier": 0.5986404475559082,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.3333333333333333,
+              "2": 1.0,
+              "3": 0.6666666666666666,
+              "4": 0.5
+            }
+          },
+          "trial_3": {
+            "trials": 30,
+            "accuracy": 0.6333333333333333,
+            "macro_f1": 0.6240093240093241,
+            "log_loss": 1.057618027541636,
+            "brier": 0.5292541043954954,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.6666666666666666,
+              "2": 1.0,
+              "3": 0.6666666666666666,
+              "4": 0.5
+            }
+          },
+          "trial_4": {
+            "trials": 30,
+            "accuracy": 0.6,
+            "macro_f1": 0.5750427350427351,
+            "log_loss": 0.9911295089772509,
+            "brier": 0.5276399845400448,
+            "per_class_recall": {
+              "0": 0.5,
+              "1": 0.3333333333333333,
+              "2": 1.0,
+              "3": 0.8333333333333334,
+              "4": 0.3333333333333333
+            }
+          }
+        },
+        "minimum_subject_macro_f1": 0.46713043478260874,
+        "worst_domain_macro_f1": 0.5433333333333333
+      },
+      "F0v2+correlation_spectrum": {
+        "pooled": {
+          "trials": 120,
+          "accuracy": 0.625,
+          "macro_f1": 0.6129562984111958,
+          "log_loss": 1.050044329040861,
+          "brier": 0.5285011716288969,
+          "per_class_recall": {
+            "0": 0.5,
+            "1": 0.5416666666666666,
+            "2": 1.0,
+            "3": 0.6666666666666666,
+            "4": 0.4166666666666667
+          }
+        },
+        "by_subject": {
+          "15": {
+            "trials": 40,
+            "accuracy": 0.6,
+            "macro_f1": 0.4666666666666666,
+            "log_loss": 1.2709661685886369,
+            "brier": 0.5413890238916912,
+            "per_class_recall": {
+              "0": 1.0,
+              "1": 0.0,
+              "2": 1.0,
+              "3": 1.0,
+              "4": 0.0
+            }
+          },
+          "16": {
+            "trials": 40,
+            "accuracy": 0.75,
+            "macro_f1": 0.7523809523809524,
+            "log_loss": 0.6300856792795297,
+            "brier": 0.3576946608290322,
+            "per_class_recall": {
+              "0": 0.5,
+              "1": 0.625,
+              "2": 1.0,
+              "3": 1.0,
+              "4": 0.625
+            }
+          },
+          "17": {
+            "trials": 40,
+            "accuracy": 0.525,
+            "macro_f1": 0.42857142857142855,
+            "log_loss": 1.2490811392544166,
+            "brier": 0.6864198301659675,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 1.0,
+              "2": 1.0,
+              "3": 0.0,
+              "4": 0.625
+            }
+          }
+        },
+        "by_domain": {
+          "trial_1": {
+            "trials": 30,
+            "accuracy": 0.6666666666666666,
+            "macro_f1": 0.6592074592074593,
+            "log_loss": 0.8972776810338694,
+            "brier": 0.4976429659900944,
+            "per_class_recall": {
+              "0": 0.5,
+              "1": 0.6666666666666666,
+              "2": 1.0,
+              "3": 0.6666666666666666,
+              "4": 0.5
+            }
+          },
+          "trial_2": {
+            "trials": 30,
+            "accuracy": 0.5666666666666667,
+            "macro_f1": 0.5433333333333333,
+            "log_loss": 1.2363277061573357,
+            "brier": 0.5910737304565223,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.3333333333333333,
+              "2": 1.0,
+              "3": 0.6666666666666666,
+              "4": 0.5
+            }
+          },
+          "trial_3": {
+            "trials": 30,
+            "accuracy": 0.6333333333333333,
+            "macro_f1": 0.6235897435897435,
+            "log_loss": 1.058524367119859,
+            "brier": 0.5123837413064861,
+            "per_class_recall": {
+              "0": 0.5,
+              "1": 0.6666666666666666,
+              "2": 1.0,
+              "3": 0.6666666666666666,
+              "4": 0.3333333333333333
+            }
+          },
+          "trial_4": {
+            "trials": 30,
+            "accuracy": 0.6333333333333333,
+            "macro_f1": 0.6169297369297368,
+            "log_loss": 1.00804756185238,
+            "brier": 0.5129042487624853,
+            "per_class_recall": {
+              "0": 0.6666666666666666,
+              "1": 0.5,
+              "2": 1.0,
+              "3": 0.6666666666666666,
+              "4": 0.3333333333333333
+            }
+          }
+        },
+        "minimum_subject_macro_f1": 0.42857142857142855,
+        "worst_domain_macro_f1": 0.5433333333333333
+      },
+      "F0v2+frequency_direction": {
+        "pooled": {
+          "trials": 120,
+          "accuracy": 0.5,
+          "macro_f1": 0.496734740407791,
+          "log_loss": 1.5665047588244079,
+          "brier": 0.7439838314281014,
+          "per_class_recall": {
+            "0": 0.375,
+            "1": 0.375,
+            "2": 1.0,
+            "3": 0.4166666666666667,
+            "4": 0.3333333333333333
+          }
+        },
+        "by_subject": {
+          "15": {
+            "trials": 40,
+            "accuracy": 0.6,
+            "macro_f1": 0.4666666666666666,
+            "log_loss": 1.8234887541779479,
+            "brier": 0.6450709428984795,
+            "per_class_recall": {
+              "0": 1.0,
+              "1": 0.0,
+              "2": 1.0,
+              "3": 1.0,
+              "4": 0.0
+            }
+          },
+          "16": {
+            "trials": 40,
+            "accuracy": 0.675,
+            "macro_f1": 0.6025009823636827,
+            "log_loss": 0.6966356609018323,
+            "brier": 0.4179308329991165,
+            "per_class_recall": {
+              "0": 0.125,
+              "1": 1.0,
+              "2": 1.0,
+              "3": 0.25,
+              "4": 1.0
+            }
+          },
+          "17": {
+            "trials": 40,
+            "accuracy": 0.225,
+            "macro_f1": 0.2235294117647059,
+            "log_loss": 2.1793898613934433,
+            "brier": 1.1689497183867081,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 0.125,
+              "2": 1.0,
+              "3": 0.0,
+              "4": 0.0
+            }
+          }
+        },
+        "by_domain": {
+          "trial_1": {
+            "trials": 30,
+            "accuracy": 0.5,
+            "macro_f1": 0.49998001998002,
+            "log_loss": 1.407816466345671,
+            "brier": 0.7212068624023057,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.5,
+              "2": 1.0,
+              "3": 0.3333333333333333,
+              "4": 0.3333333333333333
+            }
+          },
+          "trial_2": {
+            "trials": 30,
+            "accuracy": 0.4666666666666667,
+            "macro_f1": 0.4611521811521812,
+            "log_loss": 1.6187038104288496,
+            "brier": 0.754975720447621,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.3333333333333333,
+              "2": 1.0,
+              "3": 0.3333333333333333,
+              "4": 0.3333333333333333
+            }
+          },
+          "trial_3": {
+            "trials": 30,
+            "accuracy": 0.5333333333333333,
+            "macro_f1": 0.5278188478188478,
+            "log_loss": 1.6025702488010907,
+            "brier": 0.7241608391675153,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.3333333333333333,
+              "2": 1.0,
+              "3": 0.6666666666666666,
+              "4": 0.3333333333333333
+            }
+          },
+          "trial_4": {
+            "trials": 30,
+            "accuracy": 0.5,
+            "macro_f1": 0.4912820512820513,
+            "log_loss": 1.6369285097220199,
+            "brier": 0.775591903694964,
+            "per_class_recall": {
+              "0": 0.5,
+              "1": 0.3333333333333333,
+              "2": 1.0,
+              "3": 0.3333333333333333,
+              "4": 0.3333333333333333
+            }
+          }
+        },
+        "minimum_subject_macro_f1": 0.2235294117647059,
+        "worst_domain_macro_f1": 0.4611521811521812
+      }
+    },
+    "final": {
+      "F0v2": {
+        "pooled": {
+          "trials": 120,
+          "accuracy": 0.625,
+          "macro_f1": 0.6170443624082707,
+          "log_loss": 1.0838154416309824,
+          "brier": 0.5484020756633305,
+          "per_class_recall": {
+            "0": 0.2916666666666667,
+            "1": 0.6666666666666666,
+            "2": 0.8333333333333334,
+            "3": 0.5416666666666666,
+            "4": 0.7916666666666666
+          }
+        },
+        "by_subject": {
+          "18": {
+            "trials": 40,
+            "accuracy": 0.525,
+            "macro_f1": 0.44534412955465585,
+            "log_loss": 1.240066730768828,
+            "brier": 0.6356699096843728,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 0.625,
+              "2": 1.0,
+              "3": 0.0,
+              "4": 1.0
+            }
+          },
+          "19": {
+            "trials": 40,
+            "accuracy": 0.85,
+            "macro_f1": 0.8444444444444444,
+            "log_loss": 0.5585816534869921,
+            "brier": 0.2893441493061763,
+            "per_class_recall": {
+              "0": 0.875,
+              "1": 1.0,
+              "2": 0.5,
+              "3": 0.875,
+              "4": 1.0
+            }
+          },
+          "20": {
+            "trials": 40,
+            "accuracy": 0.5,
+            "macro_f1": 0.45055900621118006,
+            "log_loss": 1.4527979406371276,
+            "brier": 0.7201921679994424,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 0.375,
+              "2": 1.0,
+              "3": 0.75,
+              "4": 0.375
+            }
+          }
+        },
+        "by_domain": {
+          "trial_1": {
+            "trials": 30,
+            "accuracy": 0.5666666666666667,
+            "macro_f1": 0.5505128205128205,
+            "log_loss": 1.1197631152381073,
+            "brier": 0.5813481365659631,
+            "per_class_recall": {
+              "0": 0.16666666666666666,
+              "1": 0.6666666666666666,
+              "2": 0.8333333333333334,
+              "3": 0.5,
+              "4": 0.6666666666666666
+            }
+          },
+          "trial_2": {
+            "trials": 30,
+            "accuracy": 0.6,
+            "macro_f1": 0.5827350427350427,
+            "log_loss": 1.124378403039213,
+            "brier": 0.590761027027786,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.6666666666666666,
+              "2": 0.8333333333333334,
+              "3": 0.3333333333333333,
+              "4": 0.8333333333333334
+            }
+          },
+          "trial_3": {
+            "trials": 30,
+            "accuracy": 0.7,
+            "macro_f1": 0.6984848484848485,
+            "log_loss": 0.9848600359115437,
+            "brier": 0.4540749848191086,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.6666666666666666,
+              "2": 0.8333333333333334,
+              "3": 0.6666666666666666,
+              "4": 1.0
+            }
+          },
+          "trial_4": {
+            "trials": 30,
+            "accuracy": 0.6333333333333333,
+            "macro_f1": 0.6291086691086691,
+            "log_loss": 1.1062602123350662,
+            "brier": 0.5674241542404646,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.6666666666666666,
+              "2": 0.8333333333333334,
+              "3": 0.6666666666666666,
+              "4": 0.6666666666666666
+            }
+          }
+        },
+        "minimum_subject_macro_f1": 0.44534412955465585,
+        "worst_domain_macro_f1": 0.5505128205128205
+      },
+      "F0v2+scale_pattern": {
+        "pooled": {
+          "trials": 120,
+          "accuracy": 0.6333333333333333,
+          "macro_f1": 0.6263154492566259,
+          "log_loss": 1.1116711269018862,
+          "brier": 0.5490372508349426,
+          "per_class_recall": {
+            "0": 0.3333333333333333,
+            "1": 0.75,
+            "2": 0.8333333333333334,
+            "3": 0.4583333333333333,
+            "4": 0.7916666666666666
+          }
+        },
+        "by_subject": {
+          "18": {
+            "trials": 40,
+            "accuracy": 0.55,
+            "macro_f1": 0.4523076923076923,
+            "log_loss": 1.3643065265718477,
+            "brier": 0.6640255942257289,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 0.75,
+              "2": 1.0,
+              "3": 0.0,
+              "4": 1.0
+            }
+          },
+          "19": {
+            "trials": 40,
+            "accuracy": 0.825,
+            "macro_f1": 0.8263099219620959,
+            "log_loss": 0.5359615810223722,
+            "brier": 0.28100330253517336,
+            "per_class_recall": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 0.5,
+              "3": 0.625,
+              "4": 1.0
+            }
+          },
+          "20": {
+            "trials": 40,
+            "accuracy": 0.525,
+            "macro_f1": 0.4768831168831168,
+            "log_loss": 1.4347452731114385,
+            "brier": 0.7020828557439257,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 0.5,
+              "2": 1.0,
+              "3": 0.75,
+              "4": 0.375
+            }
+          }
+        },
+        "by_domain": {
+          "trial_1": {
+            "trials": 30,
+            "accuracy": 0.6,
+            "macro_f1": 0.597020757020757,
+            "log_loss": 1.1629785180111862,
+            "brier": 0.590373273071805,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.6666666666666666,
+              "2": 0.8333333333333334,
+              "3": 0.5,
+              "4": 0.6666666666666666
+            }
+          },
+          "trial_2": {
+            "trials": 30,
+            "accuracy": 0.6333333333333333,
+            "macro_f1": 0.5929824561403508,
+            "log_loss": 1.1564920865068704,
+            "brier": 0.583391476286239,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 1.0,
+              "2": 0.8333333333333334,
+              "3": 0.16666666666666666,
+              "4": 0.8333333333333334
+            }
+          },
+          "trial_3": {
+            "trials": 30,
+            "accuracy": 0.6666666666666666,
+            "macro_f1": 0.6692691622103387,
+            "log_loss": 1.0149080971902653,
+            "brier": 0.4581323618439013,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.6666666666666666,
+              "2": 0.8333333333333334,
+              "3": 0.5,
+              "4": 1.0
+            }
+          },
+          "trial_4": {
+            "trials": 30,
+            "accuracy": 0.6333333333333333,
+            "macro_f1": 0.6317460317460317,
+            "log_loss": 1.112305805899223,
+            "brier": 0.5642518921378255,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.6666666666666666,
+              "2": 0.8333333333333334,
+              "3": 0.6666666666666666,
+              "4": 0.6666666666666666
+            }
+          }
+        },
+        "minimum_subject_macro_f1": 0.4523076923076923,
+        "worst_domain_macro_f1": 0.5929824561403508
+      },
+      "F0v2+ring_lag": {
+        "pooled": {
+          "trials": 120,
+          "accuracy": 0.6,
+          "macro_f1": 0.5868481852088409,
+          "log_loss": 1.0086901598508846,
+          "brier": 0.5402518373940628,
+          "per_class_recall": {
+            "0": 0.25,
+            "1": 0.7083333333333334,
+            "2": 0.7916666666666666,
+            "3": 0.5,
+            "4": 0.75
+          }
+        },
+        "by_subject": {
+          "18": {
+            "trials": 40,
+            "accuracy": 0.525,
+            "macro_f1": 0.4357142857142858,
+            "log_loss": 0.956732454981692,
+            "brier": 0.5311366714828338,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 0.625,
+              "2": 1.0,
+              "3": 0.0,
+              "4": 1.0
+            }
+          },
+          "19": {
+            "trials": 40,
+            "accuracy": 0.75,
+            "macro_f1": 0.7468337510442773,
+            "log_loss": 0.7404249230958937,
+            "brier": 0.41113474611359385,
+            "per_class_recall": {
+              "0": 0.75,
+              "1": 1.0,
+              "2": 0.375,
+              "3": 0.75,
+              "4": 0.875
+            }
+          },
+          "20": {
+            "trials": 40,
+            "accuracy": 0.525,
+            "macro_f1": 0.4700361303941866,
+            "log_loss": 1.3289131014750684,
+            "brier": 0.6784840945857609,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 0.5,
+              "2": 1.0,
+              "3": 0.75,
+              "4": 0.375
+            }
+          }
+        },
+        "by_domain": {
+          "trial_1": {
+            "trials": 30,
+            "accuracy": 0.5666666666666667,
+            "macro_f1": 0.5671794871794872,
+            "log_loss": 1.0385099845504402,
+            "brier": 0.5554536274301451,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.5,
+              "2": 0.8333333333333334,
+              "3": 0.5,
+              "4": 0.6666666666666666
+            }
+          },
+          "trial_2": {
+            "trials": 30,
+            "accuracy": 0.5,
+            "macro_f1": 0.4385994397759104,
+            "log_loss": 1.0994650523853997,
+            "brier": 0.6232120725164131,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 0.8333333333333334,
+              "2": 0.6666666666666666,
+              "3": 0.3333333333333333,
+              "4": 0.6666666666666666
+            }
+          },
+          "trial_3": {
+            "trials": 30,
+            "accuracy": 0.7333333333333333,
+            "macro_f1": 0.7375446775446776,
+            "log_loss": 0.9483882934426732,
+            "brier": 0.4453173890726321,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.8333333333333334,
+              "2": 0.8333333333333334,
+              "3": 0.6666666666666666,
+              "4": 1.0
+            }
+          },
+          "trial_4": {
+            "trials": 30,
+            "accuracy": 0.6,
+            "macro_f1": 0.5929181929181928,
+            "log_loss": 0.9483973090250256,
+            "brier": 0.537024260557061,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.6666666666666666,
+              "2": 0.8333333333333334,
+              "3": 0.5,
+              "4": 0.6666666666666666
+            }
+          }
+        },
+        "minimum_subject_macro_f1": 0.4357142857142858,
+        "worst_domain_macro_f1": 0.4385994397759104
+      },
+      "F0v2+correlation_spectrum": {
+        "pooled": {
+          "trials": 120,
+          "accuracy": 0.5666666666666667,
+          "macro_f1": 0.5439135654261704,
+          "log_loss": 1.1212762759953412,
+          "brier": 0.5836093296805259,
+          "per_class_recall": {
+            "0": 0.3333333333333333,
+            "1": 0.75,
+            "2": 0.75,
+            "3": 0.20833333333333334,
+            "4": 0.7916666666666666
+          }
+        },
+        "by_subject": {
+          "18": {
+            "trials": 40,
+            "accuracy": 0.55,
+            "macro_f1": 0.4483809523809524,
+            "log_loss": 1.0943253351054507,
+            "brier": 0.5912371883467674,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 0.75,
+              "2": 1.0,
+              "3": 0.0,
+              "4": 1.0
+            }
+          },
+          "19": {
+            "trials": 40,
+            "accuracy": 0.65,
+            "macro_f1": 0.5669395711500974,
+            "log_loss": 0.7644813456024508,
+            "brier": 0.43554759546674066,
+            "per_class_recall": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 0.25,
+              "3": 0.0,
+              "4": 1.0
+            }
+          },
+          "20": {
+            "trials": 40,
+            "accuracy": 0.5,
+            "macro_f1": 0.44853214418431814,
+            "log_loss": 1.5050221472781222,
+            "brier": 0.7240432052280695,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 0.5,
+              "2": 1.0,
+              "3": 0.625,
+              "4": 0.375
+            }
+          }
+        },
+        "by_domain": {
+          "trial_1": {
+            "trials": 30,
+            "accuracy": 0.5333333333333333,
+            "macro_f1": 0.5047619047619047,
+            "log_loss": 1.1635088758424084,
+            "brier": 0.6051076842173784,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.8333333333333334,
+              "2": 0.6666666666666666,
+              "3": 0.16666666666666666,
+              "4": 0.6666666666666666
+            }
+          },
+          "trial_2": {
+            "trials": 30,
+            "accuracy": 0.5666666666666667,
+            "macro_f1": 0.5349206349206349,
+            "log_loss": 1.2125845620372349,
+            "brier": 0.6240033683010947,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.8333333333333334,
+              "2": 0.6666666666666666,
+              "3": 0.16666666666666666,
+              "4": 0.8333333333333334
+            }
+          },
+          "trial_3": {
+            "trials": 30,
+            "accuracy": 0.6333333333333333,
+            "macro_f1": 0.6259358288770054,
+            "log_loss": 1.0246136333275284,
+            "brier": 0.49770051235569723,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.6666666666666666,
+              "2": 0.8333333333333334,
+              "3": 0.3333333333333333,
+              "4": 1.0
+            }
+          },
+          "trial_4": {
+            "trials": 30,
+            "accuracy": 0.5333333333333333,
+            "macro_f1": 0.5060834590246355,
+            "log_loss": 1.0843980327741929,
+            "brier": 0.6076257538479333,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.6666666666666666,
+              "2": 0.8333333333333334,
+              "3": 0.16666666666666666,
+              "4": 0.6666666666666666
+            }
+          }
+        },
+        "minimum_subject_macro_f1": 0.4483809523809524,
+        "worst_domain_macro_f1": 0.5047619047619047
+      },
+      "F0v2+frequency_direction": {
+        "pooled": {
+          "trials": 120,
+          "accuracy": 0.5916666666666667,
+          "macro_f1": 0.5827398557587237,
+          "log_loss": 1.218233155244575,
+          "brier": 0.5890075887952186,
+          "per_class_recall": {
+            "0": 0.3333333333333333,
+            "1": 0.75,
+            "2": 0.75,
+            "3": 0.3333333333333333,
+            "4": 0.7916666666666666
+          }
+        },
+        "by_subject": {
+          "18": {
+            "trials": 40,
+            "accuracy": 0.55,
+            "macro_f1": 0.4523076923076923,
+            "log_loss": 1.3928921013218833,
+            "brier": 0.6304792514473267,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 0.75,
+              "2": 1.0,
+              "3": 0.0,
+              "4": 1.0
+            }
+          },
+          "19": {
+            "trials": 40,
+            "accuracy": 0.7,
+            "macro_f1": 0.6797970656794187,
+            "log_loss": 0.9096729967219419,
+            "brier": 0.48097121392194186,
+            "per_class_recall": {
+              "0": 1.0,
+              "1": 1.0,
+              "2": 0.25,
+              "3": 0.375,
+              "4": 0.875
+            }
+          },
+          "20": {
+            "trials": 40,
+            "accuracy": 0.525,
+            "macro_f1": 0.48400488400488406,
+            "log_loss": 1.3521343676899007,
+            "brier": 0.6555723010163874,
+            "per_class_recall": {
+              "0": 0.0,
+              "1": 0.5,
+              "2": 1.0,
+              "3": 0.625,
+              "4": 0.5
+            }
+          }
+        },
+        "by_domain": {
+          "trial_1": {
+            "trials": 30,
+            "accuracy": 0.5333333333333333,
+            "macro_f1": 0.5276190476190475,
+            "log_loss": 1.3032224302954012,
+            "brier": 0.6517581554082325,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.6666666666666666,
+              "2": 0.6666666666666666,
+              "3": 0.3333333333333333,
+              "4": 0.6666666666666666
+            }
+          },
+          "trial_2": {
+            "trials": 30,
+            "accuracy": 0.5666666666666667,
+            "macro_f1": 0.537997557997558,
+            "log_loss": 1.26101637481943,
+            "brier": 0.6158629766868308,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.8333333333333334,
+              "2": 0.8333333333333334,
+              "3": 0.16666666666666666,
+              "4": 0.6666666666666666
+            }
+          },
+          "trial_3": {
+            "trials": 30,
+            "accuracy": 0.6666666666666666,
+            "macro_f1": 0.677948717948718,
+            "log_loss": 1.1200212628761095,
+            "brier": 0.5166947732520973,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.8333333333333334,
+              "2": 0.6666666666666666,
+              "3": 0.5,
+              "4": 1.0
+            }
+          },
+          "trial_4": {
+            "trials": 30,
+            "accuracy": 0.6,
+            "macro_f1": 0.5855921855921855,
+            "log_loss": 1.1886725529873605,
+            "brier": 0.5717144498337141,
+            "per_class_recall": {
+              "0": 0.3333333333333333,
+              "1": 0.6666666666666666,
+              "2": 0.8333333333333334,
+              "3": 0.3333333333333333,
+              "4": 0.8333333333333334
+            }
+          }
+        },
+        "minimum_subject_macro_f1": 0.4523076923076923,
+        "worst_domain_macro_f1": 0.5276190476190475
+      }
+    }
+  },
+  "scope": "Independent eight-channel 200 Hz public-device same-user wearing-domain screen; not cross-user transfer, calendar-day session transfer or own-device 250 Hz live recognition."
+}

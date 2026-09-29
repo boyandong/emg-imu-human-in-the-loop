@@ -1,9 +1,9 @@
 {
   "status": "schema_complete_evidence_partial",
-  "prediction_disagreement_recovery_sha256": "d2a03d6f80c1b5e496623bf6a60ac1e30b024ccbc715db7054d21e98d48b9241",
+  "prediction_disagreement_recovery_sha256": "141764a18a89c5e066fade8c7b041b19a2c5b68bce1964231183d596033480bb",
   "artifacts": {
     "feature_family_results.csv": {
-      "rows": 7007,
+      "rows": 7087,
       "required_fields": [
         "dataset",
         "subject",
@@ -59,11 +59,11 @@
           "session/domain": 6
         }
       },
-      "source_csv_sha256": "fa56ac744f8f843056e40de01767edd4ae4894b4c21e2ce8b259fd5d4bf8a9b0",
-      "canonical_csv_sha256": "3e6e7c46e49becec1756daec5ecc971980b2732e9a773f3eefaf7dc521d6264b"
+      "source_csv_sha256": "cf455ecf64fc2c45cbe008d38b55eed8ee03f04451acc62d322755b6cc25c8ce",
+      "canonical_csv_sha256": "5327a19ccd8d60ab1f91395a37b5cf33a969c47c94f29547ea6415ab855ee263"
     },
     "conditional_incremental.csv": {
-      "rows": 7201,
+      "rows": 7265,
       "required_fields": [
         "dataset",
         "subject",
@@ -111,11 +111,11 @@
           "condition": 12
         }
       },
-      "source_csv_sha256": "e25ce67dddacb96b8e30875252d758186cfeee257daa34195cd52088c4ad3042",
-      "canonical_csv_sha256": "8a729d21d75e821ed0905b3f2c5fbc5f6c1a045dae797a0d7ed4d682ebce37d8"
+      "source_csv_sha256": "a7a0bc29927a78ca04abf7c28549f3eb9a5a2cfe91696da4eec91eb80f373581",
+      "canonical_csv_sha256": "eb67c49ef8d19cc1a00f50f2abb1b23b19c40d8ce3ced090add97cec1991430c"
     },
     "error_complementarity.csv": {
-      "rows": 6351,
+      "rows": 6511,
       "required_fields": [
         "dataset",
         "subject",
@@ -186,8 +186,8 @@
           "error_correlation": 56
         }
       },
-      "source_csv_sha256": "4700db7add4e42530b691270e0fb8a8eaedc808b256854ed575ea693c9cee789",
-      "canonical_csv_sha256": "57a85212e08f520ad4d27f7823be7c7e365464e803a33a0c531e281458c3e887"
+      "source_csv_sha256": "a6e7fe2e5140e15d3858d61ea059a0fd2f0cdfe2249a6a28ec23bc81adb12419",
+      "canonical_csv_sha256": "4a4838bee1a10f42b60b42d6d2199aa07144640628869bee63bdadcfea3e677c"
     },
     "calibration_curve.csv": {
       "rows": 22604,

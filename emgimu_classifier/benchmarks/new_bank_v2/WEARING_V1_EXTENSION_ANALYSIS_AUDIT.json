@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "parent_result_sha256": "99bb0fb1bd72537a9f0456fb54e227badb2d480b6f9b74badad4641111b49878",
+  "parent_prediction_sha256": "52f7494ad1e851bdeb25cbd4b260248f8c09356d599a768d6490885a3223b636",
+  "native_target_trials": 240,
+  "rows": {
+    "FAMILY": 80,
+    "CONDITIONAL": 64,
+    "ERROR": 160
+  },
+  "sha256": {
+    "FAMILY": "b4bd74f7342eb1ea9c0ca8e72ae537d70d3389b0cf3337ffc040093f98910c2a",
+    "CONDITIONAL": "81b8d27b1430e93d9e9d52370da23bc22c6d67981c984e64d28102cdf5d096b0",
+    "ERROR": "5fc088c9b6d3efbf14e4a3700b5e08013ea58b7bcd26e97abb1d043f9c18e8ec"
+  },
+  "boundary": "Same-user public electrode-shift trial predictions, validation and previously inspected descriptive final users; source domain only fits state."
+}

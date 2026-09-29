@@ -26,7 +26,7 @@ Seed: 20260915. Classical logistic regression runs use CPU; no neural training i
 for these representation comparisons.
 The dated `results/validation.json` log records 224 tests (223 passed, one
 skipped). The current classifier suite was rerun after the independent
-new-v1 force-family delivery: 268 passed, one skipped and 14 subtests passed.
+new-v1 wearing-family delivery: 270 passed, one skipped and 14 subtests passed.
 Older section-local test counts below are dated snapshots. The collection application's documented
 default `collection/emg_meta/emg_meta/data` directory did not contain a session
 at that earlier review. The user has since supplied four Song sessions at a
@@ -3544,3 +3544,14 @@ Correlation spectrum's pooled gain appears only on descriptive final
 users. All 5,880 saved probabilities support 140 family-screen, 112
 conditional-increment and 280 full pairwise-error cells. They are
 delivered in the required canonical tables, now 58,138 verified records.
+
+The [independent new-v1 wearing extension](../benchmarks/new_bank_v2/WEARING_V1_EXTENSION_REPORT.md)
+fits each public subject's source `training` domain and evaluates all four
+shifted electrode domains with the exact frozen F0v2 baseline. Correlation
+spectrum wins pooled validation F1, yet lowers descriptive final F1 by
+.0731 and worsens final log loss; its four corrected/zero created errors
+reverse to three corrected/ten created. Ring lag improves log loss but loses
+final F1 and worst-domain F1. The 1,200 held-domain probabilities support
+80 family, 64 conditional and 160 complete pairwise-error cells in the
+canonical delivery, now 58,442 verified records. Neither new-v1 addition
+is promoted as a general wearing improvement.

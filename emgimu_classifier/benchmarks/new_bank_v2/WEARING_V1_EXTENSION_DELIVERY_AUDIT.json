@@ -1,0 +1,21 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_v1_wearing_extension_20260929",
+  "rows": {
+    "feature_family_results.csv": 80,
+    "conditional_incremental.csv": 64,
+    "error_complementarity.csv": 160
+  },
+  "source_analysis_sha256": "568bad4c6266ca7bf61a2ebb00d63ba93d896b291d7166f76d0881b6936340cc",
+  "source_table_sha256": {
+    "FAMILY": "b4bd74f7342eb1ea9c0ca8e72ae537d70d3389b0cf3337ffc040093f98910c2a",
+    "CONDITIONAL": "81b8d27b1430e93d9e9d52370da23bc22c6d67981c984e64d28102cdf5d096b0",
+    "ERROR": "5fc088c9b6d3efbf14e4a3700b5e08013ea58b7bcd26e97abb1d043f9c18e8ec"
+  },
+  "output_sha256": {
+    "feature_family_results.csv": "cf455ecf64fc2c45cbe008d38b55eed8ee03f04451acc62d322755b6cc25c8ce",
+    "conditional_incremental.csv": "a7a0bc29927a78ca04abf7c28549f3eb9a5a2cfe91696da4eec91eb80f373581",
+    "error_complementarity.csv": "a6e7fe2e5140e15d3858d61ea059a0fd2f0cdfe2249a6a28ec23bc81adb12419"
+  },
+  "boundary": "Same-user public electrode-shift trial predictions, validation and previously inspected descriptive final users; source domain only fits state."
+}
