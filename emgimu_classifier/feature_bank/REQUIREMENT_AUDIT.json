@@ -1,6 +1,6 @@
 {
   "completion_proven": false,
-  "scope": "triage of primary requirements and A-H questions; not exhaustive numbered/formula completion audit",
+  "scope": "triage of primary requirements and A-H questions; not exhaustive numbered/formula completion audit. Forward work uses versioned independent implementations; missing historical B0/X1-H/X2 source is no longer a prerequisite by user direction",
   "requirements": 28,
   "all_evidence_files_present": true,
   "documents": {
@@ -9,11 +9,13 @@
   },
   "locator_warning": "line ranges are search regions in extracted text; final audit must verify exact document clauses and formulas",
   "next_required_work": [
-    "identify exact historical DS2 B0/X1-H/X2 input identity, model formulas and run states before old-result reproduction; public v9 force codes are now verified",
-    "remaining exact historical family equivalence and named interactions, if original implementations become available",
-    "continue single-participant Song real 8-channel software and offline evaluation within its one-day evidence boundary",
-    "physical-device live behavior and cross-person/cross-day generalization require recordings or device access not currently available",
-    "finish requirement-by-requirement acceptance audit and synchronize reviewed commits to GitHub"
+    "complete comparable new-version family screens on available force, wearing, speed and quality axes, retaining N/A where the dataset cannot support a claim",
+    "evaluate independent new-version candidate families under matched feature-space personal calibration, beyond the completed fixed score-space 0/1/2/5-shot control",
+    "use validation-only evidence to finalize the finite interaction shortlist and a deployment/research full-bank decision; if additions fail, explicitly retain the frozen baseline",
+    "consolidate seven-axis robustness, per-subject effects, calibration costs and A-H answers with stated public-data boundaries",
+    "perform exact requirement-by-requirement acceptance and reproducibility audit of the versioned new experiments",
+    "physical-device live behavior and new own-device cross-person/cross-day generalization remain deferred until recordings or hardware exist",
+    "synchronize committed local results to the authorized GitHub branch when the connection is available"
   ],
   "own_device_data_scope": {
     "available": "Four Song sessions S01-S04 from one participant on 2026-09-18, nominal 8-channel EMG at 250 Hz; user confirmed this is currently the only real 8-channel dataset",
@@ -104,7 +106,7 @@
     "repetition_boundaries": null,
     "not_historical_DS2": true
   },
-  "test_count": 202,
+  "test_count": 264,
   "wearing_configuration_boundary": "New executions explicitly persist preprocessing/model/seed fields and reject invalid phases before loading final users. Existing saved experiments remain historical manifests; no retraining or retroactive configuration claim.",
   "reproducibility_metadata_inventory": {
     "artifact": "feature_bank/REPRODUCIBILITY_METADATA_AUDIT.json",
