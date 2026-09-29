@@ -42,6 +42,16 @@ class NewBankV1Tests(unittest.TestCase):
         np.testing.assert_allclose(spectrum.transform(batch), spectrum.transform(swapped), atol=1e-6)
         np.testing.assert_allclose(spectrum.transform(batch).sum(axis=1), 1.0, atol=1e-6)
 
+    def test_identical_channel_envelopes_have_unit_ring_lags_and_rank_one_spectrum(self):
+        time = np.arange(80) / 200.0
+        waveform = np.sin(2 * np.pi * 12.5 * time) + 0.4 * np.sin(2 * np.pi * 25 * time)
+        signal = np.broadcast_to(waveform[None, :, None], (1, 80, 8)).copy()
+        batch = FeatureBatch(signal, 200.0)
+        ring = RingLagV1().fit(batch).transform(batch)[0]
+        spectrum = CorrelationSpectrumV1().fit(batch).transform(batch)[0]
+        np.testing.assert_allclose(ring, np.tile([1.0, 0.0], 4), atol=1e-6)
+        np.testing.assert_allclose(spectrum, [1.0, 0, 0, 0, 0, 0, 0, 0], atol=1e-6)
+
     def test_frequency_direction_is_gain_invariant_and_band_specific_at_250_hz(self):
         time = np.arange(50) / 250.0
         signal = np.zeros((3, 50, 8))
@@ -55,6 +65,18 @@ class NewBankV1Tests(unittest.TestCase):
         np.testing.assert_allclose(vector, family.transform(FeatureBatch(signal * 11, 250.0)), atol=1e-6)
         self.assertEqual(int(vector[0, :8].argmax()), 0)
         self.assertEqual(int(vector[0, 8:16].argmax()), 1)
+
+    def test_frequency_direction_places_four_known_tones_in_four_sub_nyquist_bands(self):
+        time = np.arange(50) / 250.0
+        signal = np.zeros((1, 50, 8))
+        for channel, frequency in enumerate((25, 50, 75, 100)):
+            signal[0, :, channel] = np.sin(2 * np.pi * frequency * time)
+        batch = FeatureBatch(signal, 250.0)
+        family = FrequencyDirectionV1().fit(batch)
+        values = family.transform(batch)[0].reshape(4, 8)
+        self.assertLess(family.band_edges_hz_[-1], 125.0)
+        np.testing.assert_array_equal(values.argmax(axis=1), np.arange(4))
+        np.testing.assert_allclose(np.linalg.norm(values, axis=1), 1.0, atol=1e-6)
 
     def test_fit_contract_and_degenerate_windows(self):
         batch = FeatureBatch(np.zeros((2, 200, 8)), 1000.0)

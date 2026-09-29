@@ -3619,7 +3619,9 @@ source-Rest-fitted F0v2 backbone and four independent new-v1 family classes
 beside the older reference candidates, including exact source symbol spans,
 dimensions, an analytical six-block F0 fixture, and the explicit boundary
 that they do not reproduce unavailable historical X1-H/RLCS/CES/Frequency
-code. The [new-v1 canonical schema check](../benchmarks/new_bank_v2/V1_CANONICAL_SCHEMA_AUDIT.json)
+code. Identical-channel rank-one and four known-tone tests additionally
+check the new F3 lag/spectrum and F4 sub-Nyquist formulas. The
+[new-v1 canonical schema check](../benchmarks/new_bank_v2/V1_CANONICAL_SCHEMA_AUDIT.json)
 finds no missing required values in 5,312 seven-axis family, conditional
 and error rows. The global delivery still contains older evidence with
 honest N/A fields; new-v1 completeness does not repair those records.

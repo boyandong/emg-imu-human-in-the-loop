@@ -105,11 +105,11 @@ REVIEWS = (
  ('NEW_V1_F1','F1. Scale–Pattern / X1-H','new_bank_v1.py','ScalePatternV1','new_version_native_screen',
   'Independent eight-channel RMS/global-RMS formula; seven public validation axes and descriptive finals tested. Not historical X1-H identity; no universal default gain.','C'),
  ('NEW_V1_F3A','F3a. RLCS','new_bank_v1.py','RingLagV1','new_version_native_screen',
-  'Independent 25 ms envelope-correlation circular-lag mean/std; seven public axes and matched errors tested. Not historical RLCS identity; GRAB/speed validation gains reverse in final splits.','2 floor(C/2)'),
+  'Independent 25 ms envelope-correlation circular-lag mean/std; identical-channel known-signal oracle and rotation/permutation contract pass. Seven public axes and matched errors tested. Not historical RLCS identity; GRAB/speed validation gains reverse in final splits.','2 floor(C/2)'),
  ('NEW_V1_F3B','F3b. CES','new_bank_v1.py','CorrelationSpectrumV1','new_version_native_screen',
-  'Independent nonnegative sorted envelope-correlation eigenvalues normalized by their sum; wearing/speed validation gains do not establish general default value. Not historical CES identity.','C'),
+  'Independent nonnegative sorted envelope-correlation eigenvalues normalized by their sum; rank-one known-signal and permutation oracles pass. Wearing/speed validation gains do not establish general default value. Not historical CES identity.','C'),
  ('NEW_V1_F4A','F4a. Frequency coordination','new_bank_v1.py','FrequencyDirectionV1','new_version_native_screen',
-  'Independent four source-fixed sub-Nyquist bands of Hann tapered channel power, L2 normalized by band; seven public axes tested. Not historical Frequency identity.','4C'),
+  'Independent four source-fixed sub-Nyquist bands of Hann tapered channel power, L2 normalized by band; four-tone 250 Hz known-signal oracle and seven public axes tested. Not historical Frequency identity.','4C'),
 )
 
 
