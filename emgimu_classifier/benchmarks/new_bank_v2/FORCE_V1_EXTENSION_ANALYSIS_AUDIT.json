@@ -1,0 +1,18 @@
+{
+  "status": "ok",
+  "parent_result_sha256": "a3a0760dc57a5da9cc5cb6fbe544797c5e69c68281f9aa2c2e5a1fdf0efbc852",
+  "parent_prediction_sha256": "d6b0bacd2433e79fb091a8cb991e78676e9a5f13719ce7320dce7f1a435c6210",
+  "source_trial_count": 168,
+  "native_target_trials": 1176,
+  "rows": {
+    "FAMILY": 140,
+    "CONDITIONAL": 112,
+    "ERROR": 280
+  },
+  "sha256": {
+    "FAMILY": "a71419ff8b26a29a18fe8add23750fab9a78a938da8bf74ecc014739cde522e4",
+    "CONDITIONAL": "e33e54a4ed157ce461cb52fb639ad0ff4c8cb8f4fe44592b4477418eb00b0bd6",
+    "ERROR": "f9e6b81724d2e1a9da74ee6b259e3f5f05c7d1b88b2116e41cf20662b7c1d760"
+  },
+  "boundary": "Public instructed intensity, source-trained models, held-user native trial comparisons; final users previously inspected and descriptive."
+}

@@ -25,8 +25,8 @@ from source evidence, validation evidence or prespecified controls; final scores
 Seed: 20260915. Classical logistic regression runs use CPU; no neural training is needed
 for these representation comparisons.
 The dated `results/validation.json` log records 224 tests (223 passed, one
-skipped). The current classifier suite was rerun after the new-v1 personal
-feature-anchor delivery: 266 passed, one skipped and 14 subtests passed.
+skipped). The current classifier suite was rerun after the independent
+new-v1 force-family delivery: 268 passed, one skipped and 14 subtests passed.
 Older section-local test counts below are dated snapshots. The collection application's documented
 default `collection/emg_meta/emg_meta/data` directory did not contain a session
 at that earlier review. The user has since supplied four Song sessions at a
@@ -3534,3 +3534,13 @@ arm/day/budget worsens pooled log loss versus its zero-shot source model,
 although isolated F1 cells improve. This rule is rejected as a default;
 it does not establish that all personal calibration methods fail. The
 canonical delivery now verifies 57,606 records.
+
+The [independent new-v1 force/intensity extension](../benchmarks/new_bank_v2/FORCE_V1_EXTENSION_REPORT.md)
+screens all four candidate families against F0v2 on the exact frozen
+LibEMG cross-user source/validation/final trials. Baseline probabilities
+replay exactly. F0v2 remains the pooled validation-F1 choice; ring lag
+improves validation worst-condition F1 but loses pooled F1 and log loss.
+Correlation spectrum's pooled gain appears only on descriptive final
+users. All 5,880 saved probabilities support 140 family-screen, 112
+conditional-increment and 280 full pairwise-error cells. They are
+delivered in the required canonical tables, now 58,138 verified records.

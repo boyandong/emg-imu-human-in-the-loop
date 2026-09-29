@@ -1,0 +1,21 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_v1_force_intensity_extension_20260929",
+  "rows": {
+    "feature_family_results.csv": 140,
+    "conditional_incremental.csv": 112,
+    "error_complementarity.csv": 280
+  },
+  "source_analysis_sha256": "2b2856ada9ca6bc98cca017e0a2ccc58a14d3b15afb6c748ebf7992775650456",
+  "source_table_sha256": {
+    "FAMILY": "a71419ff8b26a29a18fe8add23750fab9a78a938da8bf74ecc014739cde522e4",
+    "CONDITIONAL": "e33e54a4ed157ce461cb52fb639ad0ff4c8cb8f4fe44592b4477418eb00b0bd6",
+    "ERROR": "f9e6b81724d2e1a9da74ee6b259e3f5f05c7d1b88b2116e41cf20662b7c1d760"
+  },
+  "output_sha256": {
+    "feature_family_results.csv": "fa56ac744f8f843056e40de01767edd4ae4894b4c21e2ce8b259fd5d4bf8a9b0",
+    "conditional_incremental.csv": "e25ce67dddacb96b8e30875252d758186cfeee257daa34195cd52088c4ad3042",
+    "error_complementarity.csv": "4700db7add4e42530b691270e0fb8a8eaedc808b256854ed575ea693c9cee789"
+  },
+  "boundary": "Public instructed intensity, source-trained models, held-user native trial comparisons; final users previously inspected and descriptive."
+}

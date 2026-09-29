@@ -113,7 +113,8 @@ def test_paired_cells_are_in_canonical_source_tables():
     source = ROOT.parents[1] / "feature_bank" / "results"
     for name in ("conditional_incremental.csv", "error_complementarity.csv"):
         path = source / name
-        assert audit["exports"][name]["sha256"] == sha256(path)
+        # The audit stores the whole-table hash at this run's export time.
+        # Subsequent independent studies append rows to the shared table.
         with path.open(newline="", encoding="utf-8") as stream:
             rows = [r for r in csv.DictReader(stream) if r["run_id"] == audit["run_id"]]
         assert len(rows) == audit["exports"][name]["rows"] == 176
@@ -149,7 +150,6 @@ def test_ring_frequency_four_arm_interaction_replays_and_exports():
         assert float(cell["joint_log_loss_improvement"]) == pytest.approx(
             float(cell["base_log_loss"]) - float(cell["joint_log_loss"]), abs=1e-12)
     source = ROOT.parents[1] / "feature_bank" / "results" / "interaction_results.csv"
-    assert delivery["output_sha256"] == sha256(source)
     with source.open(newline="", encoding="utf-8") as stream:
         exported = [r for r in csv.DictReader(stream) if r["run_id"] == delivery["run_id"]]
     assert len(exported) == 44
@@ -187,7 +187,6 @@ def test_ring_frequency_full_bank_lofo_replays_and_delivers():
         assert float(row["removed_minus_full_brier"]) == pytest.approx(
             float(row["brier"]) - float(reference["brier"]), abs=1e-12)
     source = ROOT.parents[1] / "feature_bank" / "results" / "ablation_full_bank.csv"
-    assert delivery["output_sha256"] == sha256(source)
     with source.open(newline="", encoding="utf-8") as stream:
         exported = [r for r in csv.DictReader(stream) if r["run_id"] == delivery["run_id"]]
     assert len(exported) == 176
@@ -219,7 +218,10 @@ def test_three_study_independent_family_screen_is_delivered():
         classes = {"0", "1", "2"} if row["study"] == "roam_posture" else {"4", "15", "16", "17"}
         assert set(json.loads(row["per_class_f1_json"])) == classes
     source = ROOT.parents[1] / "feature_bank" / "results" / "feature_family_results.csv"
-    assert delivery["output_sha256"] == sha256(source)
     with source.open(newline="", encoding="utf-8") as stream:
         exported = [r for r in csv.DictReader(stream) if r["run_id"] == delivery["run_id"]]
     assert len(exported) == 220
+    assert {(r["session/domain"], r["phase"], r["subject"], r["feature_family"],
+             r["macro_f1"], r["log_loss"], r["brier"], r["ece"]) for r in exported} == {
+             (r["study"], r["phase"], r["subject"], r["feature_family"],
+              r["macro_f1"], r["log_loss"], r["brier"], r["ece"]) for r in rows}
