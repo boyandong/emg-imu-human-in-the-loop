@@ -3435,3 +3435,15 @@ direction improve only the descriptive final outcomes. All 360 baseline
 predictions exactly replay the frozen posture experiment within `1e-10`.
 This is one independent Stage 1 axis, not a complete multi-dataset family
 screen or a historical formula reproduction.
+
+The [frozen GRAB user extension](../benchmarks/new_bank_v2/GRAB_V1_EXTENSION_REPORT.md)
+screens the same four independent new-v1 families at 2048 Hz on a separate
+same-day, subject-disjoint public dataset. Ring lag is the validation-selected
+arm at 0.8360 pooled F1 versus F0v2's 0.8054 and corrects two parent errors
+without introducing a validation error. On descriptive final users it loses
+0.0559 F1 and introduces three errors, so this gain does not justify a live
+model switch. Frequency direction improves minimum validation-user F1 but
+lowers pooled F1. Saved baseline probabilities replay the frozen GRAB study,
+and the independent read-back test checks both extension studies. The ROAM
+and GRAB effects together support condition-specific investigation, not a
+universal addition to the bank.
