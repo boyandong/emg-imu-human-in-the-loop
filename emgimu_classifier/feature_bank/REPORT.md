@@ -3665,6 +3665,12 @@ controls. Full bank loses macro-F1 against F0v2 on six of seven validation
 axes, so the generic F0v2 default remains unchanged. Positive final-only
 results are descriptive rather than a basis for promotion.
 
+An independent [F4b/F4c known-signal check](../tests/test_f4_spectral_known_signal.py)
+computes the periodogram from direct Fourier sums, then verifies total power,
+centroid, median frequency, entropy and four non-DC cepstral mean/std pairs,
+including a zero-signal channel. It verifies the implemented numerical
+convention; it does not establish historical CCA identity or native benefit.
+
 The optional F5c order-two path signature now requires a producer-certified
 complete sequence with a native duration of at least one second, like F5b.
 A [known three-point path test](../tests/test_f5c_complete_signature.py)
