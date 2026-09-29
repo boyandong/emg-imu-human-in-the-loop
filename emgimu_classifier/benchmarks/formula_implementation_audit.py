@@ -26,11 +26,14 @@ from emgimu.feature_bank.reconstructed_ring import ReconstructedRlcs
 from emgimu.feature_bank.new_bank_v1 import (
     ScalePatternV1, RingLagV1, CorrelationSpectrumV1, FrequencyDirectionV1,
 )
+from emgimu.feature_bank.new_bank_v2 import RestNoiseDetailV2
 from emgimu.feature_bank.calibration import PersonalAnchor
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
 # Exact historical mandatory reuse cannot be replaced by a conceptual candidate.
 REVIEWS = (
+ ('NEW_V1_F0','F0. Local / Traditional Signal Detail','new_bank_v2.py','RestNoiseDetailV2','new_version_native_screen',
+  'Independent eight-channel RMS/MAV/WL/ZC/SSC/WAMP with per-channel thresholds fixed from source Rest adjacent-difference median and MAD. Exact six-block analytical fixture and seven public validation axes plus complete-bank LOFO exist. No nonexistent historical extra R0 features or own-device generalization are asserted.','6C'),
  ('F6_calibrated_candidate','F6a. IMU body-frame context','body_frame.py','CalibratedBodyContextFamily','candidate_api_native_unavailable',
   'Explicit neutral gravity and guided/measured forward axis establish fixed calibration-relative frame; real IMU rate/units and trial provenance required. Causal gravity EMA and linear acceleration RMS present. Calibration trials rejected in held-out evaluation. Public native calibrated frame evaluation unavailable; no absolute yaw.','15'),
  ('F0_noise_candidate','F0. Local / Traditional Signal Detail','document_signal.py','RestNoiseLocalDetailFamily','candidate_formula',
@@ -121,7 +124,8 @@ def build(document, output):
                     lambda:RawRingCovarianceFamily(ring_topology=True),
                     lambda:QualityObservabilityFamily(ring_topology=True),
                     lambda:RestNoiseLocalDetailFamily(rest_label=2),DocumentCspFamily,
-                    ScalePatternV1,RingLagV1,CorrelationSpectrumV1,FrequencyDirectionV1):
+                    ScalePatternV1,RingLagV1,CorrelationSpectrumV1,FrequencyDirectionV1,
+                    lambda: RestNoiseDetailV2(rest_label=0)):
         family = factory().fit(batch,labels); before = pickle.dumps(family)
         values = family.transform(batch)
         if values.shape!=(16,len(family.feature_names)) or not np.isfinite(values).all():

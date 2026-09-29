@@ -36,6 +36,22 @@ def test_rest_noise_detail_requires_rest_and_uses_only_rest_thresholds():
         family.transform(FeatureBatch(source.emg, 999.0))
 
 
+def test_rest_noise_detail_six_document_formulas_on_known_waveform():
+    # Source Rest fixes the noise floor; the held waveform exercises all counts.
+    rest = np.zeros((1, 4, 8), dtype=np.float64)
+    active = np.broadcast_to(np.array([-2.0, -1.0, 1.0, 0.0])[None, :, None],
+                             (1, 4, 8)).copy()
+    batch = FeatureBatch(np.concatenate((rest, active)), 20.0)
+    family = RestNoiseDetailV2(rest_label=0).fit(batch, np.array([0, 1]))
+    output = family.transform(batch)
+    np.testing.assert_allclose(output[0], 0.0, atol=0)
+    expected = (np.sqrt(1.5), 1.0, 4.0, 1.0, 1.0, 3.0)
+    for block, value in enumerate(expected):
+        np.testing.assert_allclose(output[1, block * 8:(block + 1) * 8],
+                                   value, atol=1e-6)
+    np.testing.assert_array_equal(family.thresholds_, np.full(8, 1e-12))
+
+
 def test_trace_covariance_matches_formula_and_is_gain_invariant():
     rng = np.random.default_rng(113)
     x = rng.normal(size=(3, 250, 8)) * np.arange(1, 9)

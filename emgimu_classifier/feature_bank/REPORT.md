@@ -3614,9 +3614,10 @@ separation, eight-channel sample contracts and explicit classifier seeds.
 It checks saved evidence, not a full raw-archive rerun of every experiment
 or a physical-device test.
 
-The [formula audit](FORMULA_IMPLEMENTATION_AUDIT.csv) now records the four
-independent new-v1 family classes beside the older reference candidates,
-including exact source symbol spans, dimensions and the explicit boundary
+The [formula audit](FORMULA_IMPLEMENTATION_AUDIT.csv) now records the
+source-Rest-fitted F0v2 backbone and four independent new-v1 family classes
+beside the older reference candidates, including exact source symbol spans,
+dimensions, an analytical six-block F0 fixture, and the explicit boundary
 that they do not reproduce unavailable historical X1-H/RLCS/CES/Frequency
 code. The [new-v1 canonical schema check](../benchmarks/new_bank_v2/V1_CANONICAL_SCHEMA_AUDIT.json)
 finds no missing required values in 5,312 seven-axis family, conditional
