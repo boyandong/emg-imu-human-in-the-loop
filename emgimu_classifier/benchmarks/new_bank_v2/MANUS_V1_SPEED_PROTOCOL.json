@@ -1,0 +1,23 @@
+{
+  "name": "new_v1_family_manus_speed_external_rest_extension_v1",
+  "version": 1,
+  "parent_protocol_sha256": "e8e7e4c014069afc4e91d371bb7505eaa604f15396dff8d7ea7101eeb18e31ba",
+  "parent_result_sha256": "10c20b5ce8599e9403ef1aeda6be8117bb62a0789de819b13769aea5773f7b24",
+  "parent_prediction_sha256": "dd0f09bf73abe9620a8d1d71395784bba185d77c6391cbc92d6314bc87ce27da",
+  "source_session": 1,
+  "validation_session": 2,
+  "final_session": 3,
+  "users": [3, 4, 5, 6, 7, 8],
+  "speeds": ["slow", "medium", "fast"],
+  "classes": [0, 1, 2, 3, 4, 5],
+  "channels": 8,
+  "sample_rate_hz": 200,
+  "window_samples": 40,
+  "candidate_families": ["scale_pattern", "ring_lag", "correlation_spectrum", "frequency_direction"],
+  "arms": ["F0v2", "F0v2+scale_pattern", "F0v2+ring_lag", "F0v2+correlation_spectrum", "F0v2+frequency_direction"],
+  "rest_prior": "MANUS has no labelled Rest. Reuse exactly the frozen 1,828 ROAM source-subject Rest windows to fit F0v2 thresholds. New-v1 family fit stores only channel/rate/window metadata from the same source batch; it does not estimate target signal statistics.",
+  "classifier": "Same Day1 MANUS native-trial StandardScaler plus balanced LogisticRegression C=1 max_iter=2000 random_state=20260924 as the parent; no Session2/3 fit.",
+  "aggregation": "Mean of at most eight disjoint 200 ms windows per native MANUS recording.",
+  "selection": "Maximize Session2 pooled macro-F1, tie break by lower Session2 log loss. Session3 is descriptive and never selects an arm.",
+  "scope": "Qualified public 200 Hz same-user session-transfer screen stratified by slow/medium/fast observed in every session. External cross-dataset Rest prior, no previously unseen speed, own-device 250 Hz or live claim."
+}
