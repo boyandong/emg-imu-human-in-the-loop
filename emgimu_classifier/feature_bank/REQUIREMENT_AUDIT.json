@@ -9,7 +9,7 @@
   },
   "locator_warning": "line ranges are search regions in extracted text; final audit must verify exact document clauses and formulas",
   "next_required_work": [
-    "complete the remaining comparable new-version family screen on the synthetic quality axis; force, wearing and qualified observed-speed screens are delivered, retaining N/A where a dataset cannot support a claim",
+    "integrate the completed new-version force, wearing, qualified observed-speed and synthetic-quality family screens into a validation-only full-bank decision, retaining N/A where a dataset cannot support a claim",
     "integrate the completed independent new-version candidate-family feature-space personal calibration with the full-bank decision; its tested fixed prior rule is rejected, while broader calibration generality remains unproven",
     "use validation-only evidence to finalize the finite interaction shortlist and a deployment/research full-bank decision; if additions fail, explicitly retain the frozen baseline",
     "consolidate seven-axis robustness, per-subject effects, calibration costs and A-H answers with stated public-data boundaries",
@@ -106,7 +106,7 @@
     "repetition_boundaries": null,
     "not_historical_DS2": true
   },
-  "test_count": 272,
+  "test_count": 274,
   "wearing_configuration_boundary": "New executions explicitly persist preprocessing/model/seed fields and reject invalid phases before loading final users. Existing saved experiments remain historical manifests; no retraining or retroactive configuration claim.",
   "reproducibility_metadata_inventory": {
     "artifact": "feature_bank/REPRODUCIBILITY_METADATA_AUDIT.json",

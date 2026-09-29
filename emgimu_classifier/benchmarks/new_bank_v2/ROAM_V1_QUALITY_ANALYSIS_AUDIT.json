@@ -1,0 +1,19 @@
+{
+  "status": "ok",
+  "parent_result_sha256": "5c0aeab4df601c44c613e2a1277a995a632616c5ccdad51b6aa72a0194ee62d9",
+  "parent_prediction_sha256": "db8ccc67e64d248ff29c7eb05c738cc3b4dd2d5655d291ad7c133aa86a31bd48",
+  "saved_score_groups_replayed": 840,
+  "native_target_bouts": 90,
+  "paired_fault_evaluations": 1260,
+  "rows": {
+    "FAMILY": 840,
+    "CONDITIONAL": 672,
+    "ERROR": 1680
+  },
+  "sha256": {
+    "FAMILY": "b7022eb087576e38bb3ecaa3348fdc9839e2bbb51e4fa404232b673d6f2811f0",
+    "CONDITIONAL": "6f3223455cbb6dd6205617141fed03ab91dd8f7a3100dd8b37517eac41250f97",
+    "ERROR": "b1e672f6cfceb497929184e6546e2b8904f1d90186ecbeab595a1c78bdb2345f"
+  },
+  "boundary": "Fixed synthetic corruptions of public Myo 8-channel 200 Hz static resting bouts, paired across every arm and fault. No real hardware fault, fault prevalence, unseen shift, 250 Hz device or live transition claim."
+}

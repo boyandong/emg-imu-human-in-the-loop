@@ -1,0 +1,21 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_v1_roam_synthetic_quality_20260929",
+  "rows": {
+    "feature_family_results.csv": 840,
+    "conditional_incremental.csv": 672,
+    "error_complementarity.csv": 1680
+  },
+  "source_analysis_sha256": "b1a0d879d1c6bf17e331d9b4dacc5a30820daf7695602e9c41dd494fc5ab8078",
+  "source_table_sha256": {
+    "FAMILY": "b7022eb087576e38bb3ecaa3348fdc9839e2bbb51e4fa404232b673d6f2811f0",
+    "CONDITIONAL": "6f3223455cbb6dd6205617141fed03ab91dd8f7a3100dd8b37517eac41250f97",
+    "ERROR": "b1e672f6cfceb497929184e6546e2b8904f1d90186ecbeab595a1c78bdb2345f"
+  },
+  "output_sha256": {
+    "feature_family_results.csv": "70ef537e7d6c887e12ab8f644d309f2e17dc4bfbcd1cdd36d5fbf4264aa4442e",
+    "conditional_incremental.csv": "dec74bbc9ecd910fe95dbbb751ebcf81613e853e2f2423069e644d25f14aaa1e",
+    "error_complementarity.csv": "542c2cb881f11de91868b3829f0e3f924aeff03122fa4b6b7442785ce620f6b7"
+  },
+  "boundary": "Fixed synthetic corruptions of public Myo 8-channel 200 Hz static resting bouts, paired across every arm and fault. No real hardware fault, fault prevalence, unseen shift, 250 Hz device or live transition claim."
+}

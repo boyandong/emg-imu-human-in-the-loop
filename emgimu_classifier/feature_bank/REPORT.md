@@ -3566,3 +3566,13 @@ final-only scale-pattern F1 gain cannot drive selection. No addition earns
 a general speed-robust promotion. All 1,080 native-trial probabilities and
 1,064 family, conditional and pairwise-error cells are checked; canonical
 provenance verification covers 59,506 records.
+
+The [independent new-v1 synthetic-quality extension](../benchmarks/new_bank_v2/ROAM_V1_QUALITY_REPORT.md)
+tests the same four candidate additions on the frozen ROAM 13-fault grid.
+F0v2 probabilities replay the parent across every matched native bout and
+fault exactly. F0v2 leads the prespecified validation fault-family mean
+F1, .9110; scale pattern reaches .9089 but has worse clean and minimum-
+fault F1. Several additions improve descriptive final cells, but no
+addition earns validation-backed general quality promotion. All 6,300
+predictions support 840 family, 672 conditional and 1,680 pairwise-error
+cells; canonical provenance verification now covers 62,698 records.
