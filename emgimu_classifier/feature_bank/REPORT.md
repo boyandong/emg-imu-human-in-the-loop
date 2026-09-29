@@ -3636,6 +3636,15 @@ Formula-level analytical checks, source-only fitting, trial identity and
 saved probability readback are separately recorded. This single wearing
 axis does not establish a universal F2 candidate.
 
+The [F0–F9 public-evidence scope table](FORMULA_FAMILY_SCOPE_AUDIT.csv)
+separates native screens, bounded context/calibration evidence, synthetic
+quality controls and unavailable device conditions for all ten families.
+It also records the exact remaining boundary for each family. A known-path
+DTW test checks Euclidean local cost, warp-band behavior and division by
+path length, alongside its frozen complete-bout UniBo replay. This scope
+table does not convert fixture dimensions or public proxy data into full
+formula or live-device acceptance.
+
 The [complete new-v1 bank LOFO](../benchmarks/new_bank_v2/FULL_V1_LOFO_REPORT.md)
 now tests F0v2 plus all four independent additions and every
 leave-one-family-out arm on all seven public axes. The [readback audit](../benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json)

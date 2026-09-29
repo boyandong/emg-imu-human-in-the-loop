@@ -1,12 +1,21 @@
 import unittest
 import numpy as np
 from emgimu.feature_bank.core import FeatureBatch
-from emgimu.feature_bank.temporal import CompleteSequenceBatch, TemporalTemplateFamily
+from emgimu.feature_bank.temporal import CompleteSequenceBatch, TemporalTemplateFamily, dtw_distance
 from emgimu.feature_bank.template_study import run
 from pathlib import Path
 
 
 class CompleteSequenceContractTests(unittest.TestCase):
+    def test_dtw_euclidean_cost_warp_band_and_path_length_on_known_sequences(self):
+        first = np.array([[0.0], [1.0], [2.0]])
+        identical = first.copy()
+        changed = np.array([[0.0], [1.0], [3.0]])
+        self.assertEqual(dtw_distance(first, identical, band=0), 0.0)
+        self.assertAlmostEqual(dtw_distance(first, changed, band=0), 1.0 / 3.0)
+        stretched = np.array([[0.0], [1.0], [1.0], [2.0]])
+        self.assertEqual(dtw_distance(first, stretched, band=1), 0.0)
+
     def test_short_and_sparse_batches_cannot_fit_or_predict(self):
         x = np.random.default_rng(2).normal(size=(4,8,4))
         for rate in (200., 1.):
