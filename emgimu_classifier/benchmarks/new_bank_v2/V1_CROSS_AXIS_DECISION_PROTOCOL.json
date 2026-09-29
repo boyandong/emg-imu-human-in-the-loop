@@ -1,0 +1,18 @@
+{
+  "name": "new_v1_seven_axis_validation_only_full_bank_decision_v1",
+  "version": 1,
+  "source_results_sha256": {
+    "ROAM_V1_EXTENSION": "25ba50178c1ea71e8ed455c06f34bd0e98b49f6fe23d6baf225211acf875ebd5",
+    "GRAB_V1_EXTENSION": "cdfbdadba6c359958637fa1306b5d928222353803fa5310b5102e9b0600b562c",
+    "GRAB_DAY_V1_EXTENSION": "7662651bbbabc208283672546fc56d9eb1536fb45344f5069c24642d7473bbeb",
+    "FORCE_V1_EXTENSION": "a3a0760dc57a5da9cc5cb6fbe544797c5e69c68281f9aa2c2e5a1fdf0efbc852",
+    "WEARING_V1_EXTENSION": "99bb0fb1bd72537a9f0456fb54e227badb2d480b6f9b74badad4641111b49878",
+    "MANUS_V1_SPEED": "6a91b5374d91cd8679dc4dce84c44cb938eeb53571c3d9f0e478cbadf8387ed3",
+    "ROAM_V1_QUALITY": "5c0aeab4df601c44c613e2a1277a995a632616c5ccdad51b6aa72a0194ee62d9"
+  },
+  "axes": ["posture", "unseen_user", "cross_day", "force_intensity", "wearing_shift", "observed_speed", "synthetic_quality"],
+  "arms": ["F0v2", "F0v2+scale_pattern", "F0v2+ring_lag", "F0v2+correlation_spectrum", "F0v2+frequency_direction"],
+  "decision_rule": "Retain F0v2 unless one independently defined addition has nondecreasing pooled validation macro-F1 and nonincreasing validation log loss on every available axis, with strict improvement on at least one axis. For synthetic quality use prespecified six-coordinate fault-family mean macro-F1 and mean named-fault log loss; require nondecreasing clean and minimum named-fault macro-F1 as an additional guard. Compare each arm only with the matched F0v2 baseline within the same axis, never raw scores across datasets. Do not consult final metrics for selection.",
+  "tolerance": 1e-10,
+  "interpretation": "A conservative deployment-default gate, not a claim that every public axis is independent or that conditional specialists have no value. ROAM posture and quality share recordings; GRAB unseen-user and cross-day share recordings. No hardware or own-device acceptance claim."
+}
