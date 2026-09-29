@@ -3447,3 +3447,14 @@ lowers pooled F1. Saved baseline probabilities replay the frozen GRAB study,
 and the independent read-back test checks both extension studies. The ROAM
 and GRAB effects together support condition-specific investigation, not a
 universal addition to the bank.
+
+The [frozen GRAB cross-day extension](../benchmarks/new_bank_v2/GRAB_DAY_V1_EXTENSION_REPORT.md)
+tests the same four additions with Day1 source, Day2 validation and Day3
+descriptive final sessions on eight repeated public subjects. Ring lag wins
+Day2 F1, 0.9686 versus 0.9551 for F0v2, but loses Day3 F1, 0.8862 versus
+0.9008. Its matched error balance reverses from six corrected/three created
+to three corrected/six created. Frequency direction's Day3 F1 edge is
+final-only with worse log loss. All 2,240 saved target probability rows
+pass read-back metric replay; frozen baseline probabilities differ by at
+most `1.62e-9` across floating-point reruns. This further weakens a claim
+that ring lag should be in the default full bank.

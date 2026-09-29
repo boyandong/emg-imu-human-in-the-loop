@@ -13,11 +13,13 @@ from benchmarks.new_bank_v2.roam_posture_run import sha256
 ROOT = Path(__file__).resolve().parents[1] / "benchmarks" / "new_bank_v2"
 
 
-@pytest.mark.parametrize("prefix,parent,count,classes,label", [
-    ("ROAM_V1_EXTENSION", "ROAM_POSTURE", 1800, [0, 1, 2], "label"),
-    ("GRAB_V1_EXTENSION", "GRAB_USER", 560, [4, 15, 16, 17], "gesture"),
+@pytest.mark.parametrize("prefix,parent,count,classes,label,parent_arm,parent_phase,tolerance", [
+    ("ROAM_V1_EXTENSION", "ROAM_POSTURE", 1800, [0, 1, 2], "label", "F0v2", "phase", 1e-10),
+    ("GRAB_V1_EXTENSION", "GRAB_USER", 560, [4, 15, 16, 17], "gesture", "F0v2", "phase", 1e-10),
+    ("GRAB_DAY_V1_EXTENSION", "GRABMYO_TRIAL", 2240, [4, 15, 16, 17], "gesture", "F0", "split", 1e-8),
 ])
-def test_saved_extension_replays_scores_and_frozen_baseline(prefix, parent, count, classes, label):
+def test_saved_extension_replays_scores_and_frozen_baseline(
+        prefix, parent, count, classes, label, parent_arm, parent_phase, tolerance):
     result = json.loads((ROOT / f"{prefix}_RESULTS.json").read_text(encoding="utf-8"))
     protocol = json.loads((ROOT / f"{prefix}_PROTOCOL.json").read_text(encoding="utf-8"))
     with (ROOT / f"{prefix}_PREDICTIONS.csv").open(newline="", encoding="utf-8") as stream:
@@ -31,9 +33,11 @@ def test_saved_extension_replays_scores_and_frozen_baseline(prefix, parent, coun
     assert len(set(keys)) == count
     assert not (set(result["source_trial_ids"]) &
                 (set(result["validation_trial_ids"]) | set(result["final_trial_ids"])))
-    with (ROOT / f"{parent}_PREDICTIONS.csv").open(newline="", encoding="utf-8") as stream:
-        old = {(r["phase"], r["trial_id"]): r for r in csv.DictReader(stream)
-               if r["arm"] == "F0v2"}
+    parent_file = ("GRABMYO_TRIAL_PREDICTIONS.csv" if parent == "GRABMYO_TRIAL"
+                   else f"{parent}_PREDICTIONS.csv")
+    with (ROOT / parent_file).open(newline="", encoding="utf-8") as stream:
+        old = {(r[parent_phase], r["trial_id"]): r for r in csv.DictReader(stream)
+               if r["arm"] == parent_arm}
     baseline = [r for r in rows if r["arm"] == "F0v2"]
     assert len(baseline) == count // len(protocol["arms"]) == len(old)
     for row in baseline:
@@ -41,7 +45,7 @@ def test_saved_extension_replays_scores_and_frozen_baseline(prefix, parent, coun
         assert int(row[label]) == int(prior[label])
         np.testing.assert_allclose([float(row[f"p_{c}"]) for c in classes],
                                    [float(prior[f"p_{c}"]) for c in classes],
-                                   atol=1e-10, rtol=0)
+                                   atol=tolerance, rtol=0)
     for arm in protocol["arms"]:
         for phase in ("validation", "final"):
             group = [r for r in rows if r["arm"] == arm and r["phase"] == phase]
