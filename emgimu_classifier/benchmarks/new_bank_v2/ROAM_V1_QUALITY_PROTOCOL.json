@@ -1,0 +1,22 @@
+{
+  "name": "new_v1_family_roam_synthetic_quality_extension_v1",
+  "version": 1,
+  "parent_protocol_sha256": "784e2ffcaace2f8bf031905e40a332f12bd41a49033202e68d759a1fcc7e6cc8",
+  "parent_result_sha256": "1243d75e4e123e833e30893a1caded0993d0be4dc27ef0f6d7e58674af9432d0",
+  "parent_prediction_sha256": "2d9ae2e2c5a36dc8d746bc5b247160208cab47e21b6d828bdc99d29f96f6b338",
+  "source_subjects": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+  "validation_subjects": [19, 20, 21, 22, 23],
+  "final_subjects": [24, 25, 26, 27, 28],
+  "posture": "resting",
+  "sample_rate_hz": 200,
+  "window_samples": 40,
+  "classes": [0, 1, 2],
+  "candidate_families": ["scale_pattern", "ring_lag", "correlation_spectrum", "frequency_direction"],
+  "arms": ["F0v2", "F0v2+scale_pattern", "F0v2+ring_lag", "F0v2+correlation_spectrum", "F0v2+frequency_direction"],
+  "source_state": "F0v2 Rest thresholds, fault amplitude q95/RMS, family metadata, scaler and classifier use only resting-posture source subjects 1-18. Target corruptions are independent copies of the identical native bouts. No validation/final target state fit.",
+  "classifier": "Source-only StandardScaler plus balanced LogisticRegression C=1 max_iter=2000 random_state=20260929; frozen parent F0v2 probabilities must replay across all faults.",
+  "conditions": ["clean", "dropout_ch0", "dropout_ch1", "dropout_ch2", "dropout_ch3", "dropout_ch4", "dropout_ch5", "dropout_ch6", "dropout_ch7", "gain_half_all", "clip_q95_all", "line50_half_rms_all", "baseline_ramp_half_rms_all", "burst_ch0_2q95"],
+  "quality_summary": "Equal mean of six coordinates: mean of eight dropout-channel macro-F1 values, plus each of five other named-fault macro-F1 values. Clean excluded. Also report minimum individual fault and minimum subject-by-fault F1.",
+  "selection": "Select arm by highest validation synthetic-quality family mean macro-F1; tie break by highest validation minimum individual-fault macro-F1, then lower validation mean fault log loss. Final subjects are descriptive only. No arm promoted without checking clean and minimum-fault regressions.",
+  "scope": "Fixed synthetic corruptions of public Myo 8-channel 200 Hz static resting bouts, paired across every arm and fault. No real hardware fault, fault prevalence, unseen shift, 250 Hz device or live transition claim."
+}
