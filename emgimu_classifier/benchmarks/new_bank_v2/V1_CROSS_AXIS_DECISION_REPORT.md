@@ -35,6 +35,19 @@ combined candidate failed validation and its added families had
 negative validation contributions. Conditional specialists can still be
 investigated with separate task-specific validation.
 
+| Family | Role in this versioned screen | Reason |
+| --- | --- | --- |
+| F0v2 | Backbone | Only default that clears the seven-axis validation gate. |
+| Scale pattern | Screened-out generic addition | Validation F1 falls on all seven axes; a final-only speed gain remains a hypothesis, not proof of redundancy or harmful invariance. |
+| Ring lag | Research specialist | Validation gains on unseen user, cross day and speed, but losses in posture, force and quality and reversal on held-out final splits. |
+| Correlation spectrum | Research specialist | Wearing and speed validation gains; lower validation performance on posture, force and quality and a wearing final reversal. |
+| Frequency direction | Screened-out generic addition | No pooled validation F1 win; final-only gains do not justify a complementary-expert or calibration-amplifier claim. |
+
+No added family meets the evidence bar for a universal calibration
+amplifier or complementary expert. These labels describe observed
+predictive roles, not a physiological cause; an F1 loss alone does not
+prove that a feature is over-invariant.
+
 The 70-row [matched table](V1_CROSS_AXIS_DECISION_CELLS.csv) contains
 validation and descriptive-final F1, loss, baseline changes and the
 quality guards for five arms on seven axes. It is regenerated only after

@@ -9,7 +9,9 @@
   },
   "locator_warning": "line ranges are search regions in extracted text; final audit must verify exact document clauses and formulas",
   "next_required_work": [
-    "perform exact requirement-by-requirement acceptance and reproducibility audit of the versioned new experiments",
+    "complete the full four-addition new-v1 bank and all leave-one-family-out arms on eligible public axes; the existing two-addition LOFO is a narrower diagnostic, not full Stage 5 acceptance",
+    "resolve remaining applicable F0-F9 formula/native-eligibility acceptance clauses, distinguishing user-superseded historical equivalence from current candidate gaps",
+    "continue exact requirement-by-requirement acceptance beyond the new 32-major-clause audit and existing 78-section source audit",
     "physical-device live behavior and new own-device cross-person/cross-day generalization remain deferred until recordings or hardware exist",
     "synchronize committed local results to the authorized GitHub branch when the connection is available"
   ],
@@ -102,7 +104,7 @@
     "repetition_boundaries": null,
     "not_historical_DS2": true
   },
-  "test_count": 278,
+  "test_count": 280,
   "wearing_configuration_boundary": "New executions explicitly persist preprocessing/model/seed fields and reject invalid phases before loading final users. Existing saved experiments remain historical manifests; no retraining or retroactive configuration claim.",
   "reproducibility_metadata_inventory": {
     "artifact": "feature_bank/REPRODUCIBILITY_METADATA_AUDIT.json",

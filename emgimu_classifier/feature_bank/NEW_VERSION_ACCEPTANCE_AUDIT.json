@@ -1,0 +1,22 @@
+{
+  "completion_proven": false,
+  "clauses": 32,
+  "status_counts": {
+    "superseded_history": 3,
+    "verified_scoped": 25,
+    "partial_active": 3,
+    "deferred_data_device": 1
+  },
+  "open_items": [
+    "GOAL-03",
+    "GOAL-10",
+    "GOAL-20",
+    "GOAL-22"
+  ],
+  "csv_sha256": "256ff569df41abfbdfe8736e9915e0f5d403472949eb9892b8e9676f6914cad5",
+  "documents": {
+    "docx_pre.txt": "9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8",
+    "docx_goal.txt": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0"
+  },
+  "boundary": "A reviewed major-clause audit of the user-authorized versioned replacement. It does not override the lossless 2,586-line source queue or the 78-section audit; precise formula and native-device gaps remain explicitly open. Historical-code absence and original run chronology are superseded, not retroactively proved."
+}

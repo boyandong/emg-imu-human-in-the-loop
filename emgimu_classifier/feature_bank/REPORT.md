@@ -3613,3 +3613,22 @@ checks all seven screen packages: protocol/result/prediction hashes,
 separation, eight-channel sample contracts and explicit classifier seeds.
 It checks saved evidence, not a full raw-archive rerun of every experiment
 or a physical-device test.
+
+The [formula audit](FORMULA_IMPLEMENTATION_AUDIT.csv) now records the four
+independent new-v1 family classes beside the older reference candidates,
+including exact source symbol spans, dimensions and the explicit boundary
+that they do not reproduce unavailable historical X1-H/RLCS/CES/Frequency
+code. The [new-v1 canonical schema check](../benchmarks/new_bank_v2/V1_CANONICAL_SCHEMA_AUDIT.json)
+finds no missing required values in 5,312 seven-axis family, conditional
+and error rows. The global delivery still contains older evidence with
+honest N/A fields; new-v1 completeness does not repair those records.
+
+The [versioned major-clause acceptance matrix](NEW_VERSION_ACCEPTANCE_AUDIT.csv)
+separates completed scoped evidence, superseded historical-source demands,
+and genuine open work. In particular, the earlier two-addition LOFO is
+**not** a full four-addition new-v1 bank ablation. That larger candidate
+and its leave-one-family-out arms, along with remaining applicable
+F0–F9 formula/native-eligibility checks, remain open. Own-device
+session/physical validation is explicitly deferred by data availability.
+The matrix does not replace the separate 78-section source audit or
+claim full specification acceptance.

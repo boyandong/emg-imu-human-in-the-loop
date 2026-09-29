@@ -23,6 +23,9 @@ from emgimu.feature_bank.document_signal import RestNoiseLocalDetailFamily,Docum
 from emgimu.feature_bank.body_frame import CalibratedBodyContextFamily
 from emgimu.feature_bank.spd_anchor import SpdTangentPersonalAnchor
 from emgimu.feature_bank.reconstructed_ring import ReconstructedRlcs
+from emgimu.feature_bank.new_bank_v1 import (
+    ScalePatternV1, RingLagV1, CorrelationSpectrumV1, FrequencyDirectionV1,
+)
 from emgimu.feature_bank.calibration import PersonalAnchor
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
@@ -94,6 +97,14 @@ REVIEWS = (
   'Nonnegative weighted probabilities and clipped quality renormalization; reject-all fallback retains a valid scoreable distribution. Decision and rejection are exposed by a separate API. Empirical source probability calibration is audited for specified runs only.','H output probabilities'),
  ('FUSION_DECISION','八、Late Fusion：精确定义','calibration.py','late_fusion_decision','candidate_api',
   'Explicit Unknown decision for all-quality-rejected or source/validation-prespecified confidence rejection, with original scoreable probabilities and reason retained. Saved corruption replay does not establish an effective hardware quality detector.','H probabilities + one decision/reason per window'),
+ ('NEW_V1_F1','F1. Scale–Pattern / X1-H','new_bank_v1.py','ScalePatternV1','new_version_native_screen',
+  'Independent eight-channel RMS/global-RMS formula; seven public validation axes and descriptive finals tested. Not historical X1-H identity; no universal default gain.','C'),
+ ('NEW_V1_F3A','F3a. RLCS','new_bank_v1.py','RingLagV1','new_version_native_screen',
+  'Independent 25 ms envelope-correlation circular-lag mean/std; seven public axes and matched errors tested. Not historical RLCS identity; GRAB/speed validation gains reverse in final splits.','2 floor(C/2)'),
+ ('NEW_V1_F3B','F3b. CES','new_bank_v1.py','CorrelationSpectrumV1','new_version_native_screen',
+  'Independent nonnegative sorted envelope-correlation eigenvalues normalized by their sum; wearing/speed validation gains do not establish general default value. Not historical CES identity.','C'),
+ ('NEW_V1_F4A','F4a. Frequency coordination','new_bank_v1.py','FrequencyDirectionV1','new_version_native_screen',
+  'Independent four source-fixed sub-Nyquist bands of Hann tapered channel power, L2 normalized by band; seven public axes tested. Not historical Frequency identity.','4C'),
 )
 
 
@@ -109,7 +120,8 @@ def build(document, output):
                     BodyContextFamily,QualityFamily,PathSignatureFamily,LogBandEnergyFamily,
                     lambda:RawRingCovarianceFamily(ring_topology=True),
                     lambda:QualityObservabilityFamily(ring_topology=True),
-                    lambda:RestNoiseLocalDetailFamily(rest_label=2),DocumentCspFamily):
+                    lambda:RestNoiseLocalDetailFamily(rest_label=2),DocumentCspFamily,
+                    ScalePatternV1,RingLagV1,CorrelationSpectrumV1,FrequencyDirectionV1):
         family = factory().fit(batch,labels); before = pickle.dumps(family)
         values = family.transform(batch)
         if values.shape!=(16,len(family.feature_names)) or not np.isfinite(values).all():

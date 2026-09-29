@@ -1,6 +1,6 @@
 {
   "completion_proven": false,
-  "reviewed_rows": 33,
+  "reviewed_rows": 37,
   "scope": "reviewed selected formula/API boundaries with exact source hashes and symbol spans; not exhaustive document acceptance",
   "fixture": "synthetic16 windows,40 samples,8channels,200Hz,4classes; IMU10samples and2 oracle postures only for dimension checks",
   "warning": "whole-class fixture dimensions are not subblock dimensions; synthetic dimension/immutability checks do not prove native topology or scientific validity",
@@ -773,6 +773,90 @@
         "F2b.csp.14",
         "F2b.csp.15",
         "F2b.csp.16"
+      ],
+      "finite": true,
+      "source_immutable": true
+    },
+    "ScalePatternV1": {
+      "fixture_dimension": 8,
+      "names": [
+        "scale_pattern.ch1",
+        "scale_pattern.ch2",
+        "scale_pattern.ch3",
+        "scale_pattern.ch4",
+        "scale_pattern.ch5",
+        "scale_pattern.ch6",
+        "scale_pattern.ch7",
+        "scale_pattern.ch8"
+      ],
+      "finite": true,
+      "source_immutable": true
+    },
+    "RingLagV1": {
+      "fixture_dimension": 8,
+      "names": [
+        "ring_lag.lag1.mean",
+        "ring_lag.lag1.std",
+        "ring_lag.lag2.mean",
+        "ring_lag.lag2.std",
+        "ring_lag.lag3.mean",
+        "ring_lag.lag3.std",
+        "ring_lag.lag4.mean",
+        "ring_lag.lag4.std"
+      ],
+      "finite": true,
+      "source_immutable": true
+    },
+    "CorrelationSpectrumV1": {
+      "fixture_dimension": 8,
+      "names": [
+        "correlation_spectrum.eigen1",
+        "correlation_spectrum.eigen2",
+        "correlation_spectrum.eigen3",
+        "correlation_spectrum.eigen4",
+        "correlation_spectrum.eigen5",
+        "correlation_spectrum.eigen6",
+        "correlation_spectrum.eigen7",
+        "correlation_spectrum.eigen8"
+      ],
+      "finite": true,
+      "source_immutable": true
+    },
+    "FrequencyDirectionV1": {
+      "fixture_dimension": 32,
+      "names": [
+        "frequency_direction.band1.ch1",
+        "frequency_direction.band1.ch2",
+        "frequency_direction.band1.ch3",
+        "frequency_direction.band1.ch4",
+        "frequency_direction.band1.ch5",
+        "frequency_direction.band1.ch6",
+        "frequency_direction.band1.ch7",
+        "frequency_direction.band1.ch8",
+        "frequency_direction.band2.ch1",
+        "frequency_direction.band2.ch2",
+        "frequency_direction.band2.ch3",
+        "frequency_direction.band2.ch4",
+        "frequency_direction.band2.ch5",
+        "frequency_direction.band2.ch6",
+        "frequency_direction.band2.ch7",
+        "frequency_direction.band2.ch8",
+        "frequency_direction.band3.ch1",
+        "frequency_direction.band3.ch2",
+        "frequency_direction.band3.ch3",
+        "frequency_direction.band3.ch4",
+        "frequency_direction.band3.ch5",
+        "frequency_direction.band3.ch6",
+        "frequency_direction.band3.ch7",
+        "frequency_direction.band3.ch8",
+        "frequency_direction.band4.ch1",
+        "frequency_direction.band4.ch2",
+        "frequency_direction.band4.ch3",
+        "frequency_direction.band4.ch4",
+        "frequency_direction.band4.ch5",
+        "frequency_direction.band4.ch6",
+        "frequency_direction.band4.ch7",
+        "frequency_direction.band4.ch8"
       ],
       "finite": true,
       "source_immutable": true

@@ -1,0 +1,108 @@
+{
+  "status": "new_v1_required_fields_complete",
+  "artifacts": {
+    "feature_family_results.csv": {
+      "rows": 1560,
+      "required_fields": [
+        "dataset",
+        "subject",
+        "session/domain",
+        "feature_family",
+        "calibration_budget",
+        "condition",
+        "macro_f1",
+        "accuracy",
+        "log_loss",
+        "brier",
+        "ece"
+      ],
+      "missing_field_counts": {
+        "dataset": 0,
+        "subject": 0,
+        "session/domain": 0,
+        "feature_family": 0,
+        "calibration_budget": 0,
+        "condition": 0,
+        "macro_f1": 0,
+        "accuracy": 0,
+        "log_loss": 0,
+        "brier": 0,
+        "ece": 0
+      },
+      "source_sha256": "70ef537e7d6c887e12ab8f644d309f2e17dc4bfbcd1cdd36d5fbf4264aa4442e",
+      "run_ids": [
+        "feature_bank_v1_extension_family_screen_20260929",
+        "feature_bank_v1_force_intensity_extension_20260929",
+        "feature_bank_v1_manus_speed_external_rest_20260929",
+        "feature_bank_v1_roam_synthetic_quality_20260929",
+        "feature_bank_v1_wearing_extension_20260929"
+      ]
+    },
+    "conditional_incremental.csv": {
+      "rows": 1072,
+      "required_fields": [
+        "dataset",
+        "subject",
+        "session/domain",
+        "core_bank",
+        "added_family",
+        "condition",
+        "delta_logloss",
+        "delta_macro_f1",
+        "delta_brier"
+      ],
+      "missing_field_counts": {
+        "dataset": 0,
+        "subject": 0,
+        "session/domain": 0,
+        "core_bank": 0,
+        "added_family": 0,
+        "condition": 0,
+        "delta_logloss": 0,
+        "delta_macro_f1": 0,
+        "delta_brier": 0
+      },
+      "source_sha256": "dec74bbc9ecd910fe95dbbb751ebcf81613e853e2f2423069e644d25f14aaa1e",
+      "run_ids": [
+        "feature_bank_v1_force_intensity_extension_20260929",
+        "feature_bank_v1_manus_speed_external_rest_20260929",
+        "feature_bank_v1_roam_synthetic_quality_20260929",
+        "feature_bank_v1_wearing_extension_20260929"
+      ]
+    },
+    "error_complementarity.csv": {
+      "rows": 2680,
+      "required_fields": [
+        "dataset",
+        "subject",
+        "session/domain",
+        "family_a",
+        "family_b",
+        "error_correlation",
+        "disagreement_rate",
+        "a_correct_b_wrong",
+        "a_wrong_b_correct"
+      ],
+      "missing_field_counts": {
+        "dataset": 0,
+        "subject": 0,
+        "session/domain": 0,
+        "family_a": 0,
+        "family_b": 0,
+        "error_correlation": 0,
+        "disagreement_rate": 0,
+        "a_correct_b_wrong": 0,
+        "a_wrong_b_correct": 0
+      },
+      "source_sha256": "542c2cb881f11de91868b3829f0e3f924aeff03122fa4b6b7442785ce620f6b7",
+      "run_ids": [
+        "feature_bank_v1_force_intensity_extension_20260929",
+        "feature_bank_v1_manus_speed_external_rest_20260929",
+        "feature_bank_v1_roam_synthetic_quality_20260929",
+        "feature_bank_v1_wearing_extension_20260929"
+      ]
+    }
+  },
+  "total_checked_rows": 5312,
+  "boundary": "Only the versioned new-v1 seven-axis family/conditional/error delivery is assessed. Older canonical rows retain explicit N/A fields and are not silently filled with inferred values. Calibration and ablation tables have separate source audits."
+}
