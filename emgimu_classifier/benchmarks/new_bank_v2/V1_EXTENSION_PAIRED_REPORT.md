@@ -36,3 +36,10 @@ identities, source hashes, exact error-accounting partitions and delta
 arithmetic. Native bouts/trials from the same person or recording are
 correlated; the GRAB splits reuse parts of the same public subset. This
 analysis does not provide independent replications or own-device evidence.
+
+The [idempotent exporter](export_v1_extension_delivery.py) adds 176 matched
+conditional and 176 matched error rows to the canonical source tables, with
+source hashes in its [audit](V1_EXTENSION_DELIVERY_AUDIT.json). The canonical
+builder and verifier now cover 55,930 provenance-preserving records. The
+delivery still reports `schema_complete_evidence_partial`: this added study
+does not close every scientific requirement in the full feature-bank plan.

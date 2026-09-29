@@ -22,9 +22,11 @@ STUDIES = {
 }
 FIELDS = ["study", "phase", "group_type", "group", "family", "n_trials",
           "base_macro_f1", "added_macro_f1", "delta_macro_f1",
+          "base_per_class_f1_json", "added_per_class_f1_json",
           "base_log_loss", "added_log_loss", "log_loss_improvement",
           "base_brier", "added_brier", "brier_improvement",
-          "prediction_disagreement", "base_wrong_added_right", "base_right_added_wrong",
+          "prediction_disagreement", "error_correlation",
+          "base_wrong_added_right", "base_right_added_wrong",
           "both_wrong", "both_right"]
 
 
@@ -81,15 +83,24 @@ def analyze() -> dict:
                     f0, ll0, br0 = metrics(y, p0, classes)
                     f1, ll1, br1 = metrics(y, p1, classes)
                     d0, d1 = classes[np.argmax(p0, axis=1)], classes[np.argmax(p1, axis=1)]
+                    wrong0, wrong1 = (d0 != y).astype(float), (d1 != y).astype(float)
+                    error_correlation = (float(np.corrcoef(wrong0, wrong1)[0, 1])
+                                         if np.std(wrong0) > 0 and np.std(wrong1) > 0 else "")
+                    class_f1 = lambda decision: json.dumps({str(c): float(v) for c, v in zip(
+                        classes, f1_score(y, decision, labels=classes,
+                                          average=None, zero_division=0))}, sort_keys=True)
                     output.append({"study": study, "phase": phase, "group_type": group_type,
                                    "group": group, "family": family, "n_trials": len(y),
                                    "base_macro_f1": f0, "added_macro_f1": f1,
                                    "delta_macro_f1": f1 - f0,
+                                   "base_per_class_f1_json": class_f1(d0),
+                                   "added_per_class_f1_json": class_f1(d1),
                                    "base_log_loss": ll0, "added_log_loss": ll1,
                                    "log_loss_improvement": ll0 - ll1,
                                    "base_brier": br0, "added_brier": br1,
                                    "brier_improvement": br0 - br1,
                                    "prediction_disagreement": int(np.sum(d0 != d1)),
+                                   "error_correlation": error_correlation,
                                    "base_wrong_added_right": int(np.sum((d0 != y) & (d1 == y))),
                                    "base_right_added_wrong": int(np.sum((d0 == y) & (d1 != y))),
                                    "both_wrong": int(np.sum((d0 != y) & (d1 != y))),

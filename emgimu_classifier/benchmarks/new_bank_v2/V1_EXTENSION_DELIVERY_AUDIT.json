@@ -1,0 +1,17 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_v1_extension_paired_20260929",
+  "paired_csv_sha256": "1c23e9385855395c8e41b1f16fb6a5ae0822b17974c0dd7aa19582cfb1e418bb",
+  "paired_audit_sha256": "ace0cc7e4be1ef38d87f720faed0cb3292ac66a6818648912a5b8cf3fe3049ec",
+  "exports": {
+    "conditional_incremental.csv": {
+      "rows": 176,
+      "sha256": "7efad7d8bfbcd1801835317e5e955e262b7aeb9da31c4a6dfa35161a7d401b36"
+    },
+    "error_complementarity.csv": {
+      "rows": 176,
+      "sha256": "5e39625fb0ae86cc1c4a2a0d7594525354eae852a41d487316f395e2f7d0ef63"
+    }
+  },
+  "boundary": "Source tables contain 176 post-hoc matched cells per artifact; no full-bank interaction or own-device claim."
+}

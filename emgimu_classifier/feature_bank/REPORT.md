@@ -3467,3 +3467,5 @@ Other additions also show task- and objective-dependent directions. This
 supports a specialist/redundant screening interpretation, not an automatic
 full-bank inclusion. The analysis is descriptive and does not refit or
 select models using final labels.
+The 176 matched conditional and 176 error cells are also in the canonical
+delivery; its provenance verification now covers 55,930 source records.

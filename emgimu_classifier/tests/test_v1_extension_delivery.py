@@ -103,3 +103,20 @@ def test_cross_study_paired_cells_have_matched_error_accounting():
             float(row["base_log_loss"]) - float(row["added_log_loss"]), abs=1e-12)
         assert float(row["brier_improvement"]) == pytest.approx(
             float(row["base_brier"]) - float(row["added_brier"]), abs=1e-12)
+
+
+def test_paired_cells_are_in_canonical_source_tables():
+    audit = json.loads((ROOT / "V1_EXTENSION_DELIVERY_AUDIT.json").read_text(encoding="utf-8"))
+    assert audit["status"] == "ok"
+    assert audit["paired_csv_sha256"] == sha256(ROOT / "V1_EXTENSION_PAIRED.csv")
+    assert audit["paired_audit_sha256"] == sha256(ROOT / "V1_EXTENSION_PAIRED_AUDIT.json")
+    source = ROOT.parents[1] / "feature_bank" / "results"
+    for name in ("conditional_incremental.csv", "error_complementarity.csv"):
+        path = source / name
+        assert audit["exports"][name]["sha256"] == sha256(path)
+        with path.open(newline="", encoding="utf-8") as stream:
+            rows = [r for r in csv.DictReader(stream) if r["run_id"] == audit["run_id"]]
+        assert len(rows) == audit["exports"][name]["rows"] == 176
+        assert len({(r["dataset"], r["session/domain"], r["phase"], r["scope"], r["subject"],
+                     r["condition"], r.get("added_family", r.get("family_b")))
+                    for r in rows}) == 176
