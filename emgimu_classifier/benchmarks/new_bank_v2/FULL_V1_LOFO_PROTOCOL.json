@@ -1,0 +1,44 @@
+{
+  "name": "new_v1_five_family_full_bank_leave_one_out_v1",
+  "version": 1,
+  "parent_results_sha256": {
+    "ROAM_V1_EXTENSION": "25ba50178c1ea71e8ed455c06f34bd0e98b49f6fe23d6baf225211acf875ebd5",
+    "GRAB_V1_EXTENSION": "cdfbdadba6c359958637fa1306b5d928222353803fa5310b5102e9b0600b562c",
+    "GRAB_DAY_V1_EXTENSION": "7662651bbbabc208283672546fc56d9eb1536fb45344f5069c24642d7473bbeb",
+    "FORCE_V1_EXTENSION": "a3a0760dc57a5da9cc5cb6fbe544797c5e69c68281f9aa2c2e5a1fdf0efbc852",
+    "WEARING_V1_EXTENSION": "99bb0fb1bd72537a9f0456fb54e227badb2d480b6f9b74badad4641111b49878",
+    "MANUS_V1_SPEED": "6a91b5374d91cd8679dc4dce84c44cb938eeb53571c3d9f0e478cbadf8387ed3",
+    "ROAM_V1_QUALITY": "5c0aeab4df601c44c613e2a1277a995a632616c5ccdad51b6aa72a0194ee62d9"
+  },
+  "parent_predictions_sha256": {
+    "ROAM_V1_EXTENSION": "3316a02106fe1c35ae39c0927ef5a8f1f19ce19f7d240e0fed2dd22ece5bee60",
+    "GRAB_V1_EXTENSION": "47b1d12ab43f00418381be7de948bc4a7c0f04af7ec6969c176d731b9d20f669",
+    "GRAB_DAY_V1_EXTENSION": "321c84d4c73379cfcc7fa994e142c4943de6249631adec214ffac29ffca7dcad",
+    "FORCE_V1_EXTENSION": "d6b0bacd2433e79fb091a8cb991e78676e9a5f13719ce7320dce7f1a435c6210",
+    "WEARING_V1_EXTENSION": "52f7494ad1e851bdeb25cbd4b260248f8c09356d599a768d6490885a3223b636",
+    "MANUS_V1_SPEED": "068a4bae8def9863c5ff9f45abda499b40fccf0414aaa1480779f73d24276b51",
+    "ROAM_V1_QUALITY": "db8ccc67e64d248ff29c7eb05c738cc3b4dd2d5655d291ad7c133aa86a31bd48"
+  },
+  "axes": {
+    "posture": "ROAM_V1_EXTENSION",
+    "unseen_user": "GRAB_V1_EXTENSION",
+    "cross_day": "GRAB_DAY_V1_EXTENSION",
+    "force_intensity": "FORCE_V1_EXTENSION",
+    "wearing_shift": "WEARING_V1_EXTENSION",
+    "observed_speed": "MANUS_V1_SPEED",
+    "synthetic_quality": "ROAM_V1_QUALITY"
+  },
+  "families": ["F0v2", "scale_pattern", "ring_lag", "correlation_spectrum", "frequency_direction"],
+  "arms": {
+    "F0v2": ["F0v2"],
+    "full": ["F0v2", "scale_pattern", "ring_lag", "correlation_spectrum", "frequency_direction"],
+    "minus_F0v2": ["scale_pattern", "ring_lag", "correlation_spectrum", "frequency_direction"],
+    "minus_scale_pattern": ["F0v2", "ring_lag", "correlation_spectrum", "frequency_direction"],
+    "minus_ring_lag": ["F0v2", "scale_pattern", "correlation_spectrum", "frequency_direction"],
+    "minus_correlation_spectrum": ["F0v2", "scale_pattern", "ring_lag", "frequency_direction"],
+    "minus_frequency_direction": ["F0v2", "scale_pattern", "ring_lag", "correlation_spectrum"]
+  },
+  "source_model": "Reuse each frozen axis source/validation/final native split, source Rest prior, trial aggregation and classifier hyperparameters. Fit a new source-only scaler and logistic classifier for full and each ablation; replay the frozen F0v2 control exactly. No target model fit.",
+  "selection": "Use validation evidence only to assess full versus F0v2 and the signed contribution of each retained family. Final rows are descriptive and never select a bank. This is a diagnostic full candidate, not an automatic deployment promotion.",
+  "boundary": "Five finite independent families on public tasks with overlapping GRAB/ROAM recordings, synthetic quality and an external Rest prior for MANUS. No historical-family equivalence, own-device 250 Hz or live claim."
+}
