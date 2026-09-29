@@ -1,0 +1,18 @@
+{
+  "status": "ok",
+  "parent_result_sha256": "6a91b5374d91cd8679dc4dce84c44cb938eeb53571c3d9f0e478cbadf8387ed3",
+  "parent_prediction_sha256": "068a4bae8def9863c5ff9f45abda499b40fccf0414aaa1480779f73d24276b51",
+  "native_target_trials": 216,
+  "saved_score_groups_replayed": 100,
+  "rows": {
+    "FAMILY": 280,
+    "CONDITIONAL": 224,
+    "ERROR": 560
+  },
+  "sha256": {
+    "FAMILY": "8084912efc1f59dafcbbc08da34810e300c1d889570048011cbe791fcecf7224",
+    "CONDITIONAL": "12b04484da538f529116c0fa28ea38c252416ac21b87a527f6f02df60ea78853",
+    "ERROR": "08937a5e37f032a82fe5666b179bef0d300f8cb143f7f9df99479c6171544eb0"
+  },
+  "boundary": "Observed speed strata in every same-user MANUS session with external ROAM source Rest prior; final session descriptive; not unseen-speed or own-device evidence."
+}

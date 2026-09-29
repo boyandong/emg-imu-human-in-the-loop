@@ -3555,3 +3555,14 @@ final F1 and worst-domain F1. The 1,200 held-domain probabilities support
 80 family, 64 conditional and 160 complete pairwise-error cells in the
 canonical delivery, now 58,442 verified records. Neither new-v1 addition
 is promoted as a general wearing improvement.
+
+The [qualified MANUS observed-speed extension](../benchmarks/new_bank_v2/MANUS_V1_SPEED_REPORT.md)
+compares the same four new-v1 additions with F0v2 on six users, three
+observed speeds and source/validation/final sessions. MANUS has no labelled
+Rest, so all arms share the frozen external ROAM source Rest prior. Ring lag
+wins validation pooled F1 but reverses on the descriptive final session,
+where its F1 is .4136 versus .4600 for F0v2 and log loss worsens. The
+final-only scale-pattern F1 gain cannot drive selection. No addition earns
+a general speed-robust promotion. All 1,080 native-trial probabilities and
+1,064 family, conditional and pairwise-error cells are checked; canonical
+provenance verification covers 59,506 records.

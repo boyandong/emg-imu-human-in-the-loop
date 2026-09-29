@@ -1,0 +1,21 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_v1_manus_speed_external_rest_20260929",
+  "rows": {
+    "feature_family_results.csv": 280,
+    "conditional_incremental.csv": 224,
+    "error_complementarity.csv": 560
+  },
+  "source_analysis_sha256": "28e8fe90c518406f37b2ade0f375a58c8a301b3fa6367d361c6e09d5c0dd971d",
+  "source_table_sha256": {
+    "FAMILY": "8084912efc1f59dafcbbc08da34810e300c1d889570048011cbe791fcecf7224",
+    "CONDITIONAL": "12b04484da538f529116c0fa28ea38c252416ac21b87a527f6f02df60ea78853",
+    "ERROR": "08937a5e37f032a82fe5666b179bef0d300f8cb143f7f9df99479c6171544eb0"
+  },
+  "output_sha256": {
+    "feature_family_results.csv": "7b03a4d072a7076dd40c10a4f1e2919608b13f65d418fe9819af85ce1d51eb22",
+    "conditional_incremental.csv": "789d19ade23cf2c33bf01e81035d076f3cefc7c17f1f751c93c0f433b4f0059b",
+    "error_complementarity.csv": "adc8473e8faafabfbbcc65b865fb3a524c167d1a0b792f4b73168b9c314f5a9b"
+  },
+  "boundary": "Observed speed strata in every same-user MANUS session with external ROAM source Rest prior; final session descriptive; not unseen-speed or own-device evidence."
+}
