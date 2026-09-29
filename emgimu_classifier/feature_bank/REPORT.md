@@ -26,7 +26,7 @@ Seed: 20260915. Classical logistic regression runs use CPU; no neural training i
 for these representation comparisons.
 The dated `results/validation.json` log records 224 tests (223 passed, one
 skipped). The current classifier suite was rerun after the new-v1 personal
-score calibration delivery: 264 passed, one skipped and 14 subtests passed.
+feature-anchor delivery: 266 passed, one skipped and 14 subtests passed.
 Older section-local test counts below are dated snapshots. The collection application's documented
 default `collection/emg_meta/emg_meta/data` directory did not contain a session
 at that earlier review. The user has since supplied four Song sessions at a
@@ -3522,3 +3522,15 @@ subject score cells and 800 exact zero-shot replays pass read-back checks.
 The required calibration curve and canonical provenance now cover 57,246
 records. This fixed score-space correction is distinct from F7 feature-
 space Personal Anchor or a device calibration workflow.
+
+The [new-v1 feature-space anchor test](../benchmarks/new_bank_v2/V1_FEATURE_ANCHOR_REPORT.md)
+now fits each arm's source scaler/classifier on GRAB Day1 only, then builds
+same-user Day2/Day3 standardized feature prototypes from held-target
+0/1/2/5-shot native trials. Its source probabilities replay the frozen
+parent exactly and its 2,560 evaluated probabilities, 320 disjoint
+calibration/evaluation assignments and 360 score cells are independently
+checked. Under the fixed prior feature-anchor rule, **every** nonzero
+arm/day/budget worsens pooled log loss versus its zero-shot source model,
+although isolated F1 cells improve. This rule is rejected as a default;
+it does not establish that all personal calibration methods fail. The
+canonical delivery now verifies 57,606 records.

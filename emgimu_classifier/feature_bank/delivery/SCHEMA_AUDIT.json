@@ -190,7 +190,7 @@
       "canonical_csv_sha256": "c8e70caadcf78b81cecde4fb076b72faafa4a3a1830b95222732391f22682d2d"
     },
     "calibration_curve.csv": {
-      "rows": 22244,
+      "rows": 22604,
       "required_fields": [
         "dataset",
         "subject",
@@ -343,8 +343,8 @@
           "log_loss": 7
         }
       },
-      "source_csv_sha256": "e293071edf55ac060bdcb77da85226f3df31855fd73b8b9034e9e4fc0e7cdbf6",
-      "canonical_csv_sha256": "5dcd5222df918b8b51d3d25ad38ed237e7fcb9c713e93307ac20511e732eb66e"
+      "source_csv_sha256": "e3f0e6df72f136e93dfb5eca08567d51341814230c1ae97bece45fd775fd710c",
+      "canonical_csv_sha256": "2c4290cdc742648c4adc6239032bc98c08a6a23336bd8baca7cf3f9a5a54e66f"
     },
     "ablation_full_bank.csv": {
       "rows": 14975,

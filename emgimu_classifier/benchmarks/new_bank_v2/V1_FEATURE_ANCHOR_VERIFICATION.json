@@ -1,0 +1,12 @@
+{
+  "status": "ok",
+  "protocol_sha256": "1eeeb1daeed5f2f3d22cd6bc4e4e7e1ba0ba1d1ff1209570273475ae49ff35e7",
+  "result_sha256": "2ae157c39eeab1464fbfac54119b890d02162d7dad3b165f6e2b273b252108b2",
+  "prediction_sha256": "bd55c2f877213aacb783fb8f55fc8376c036b04fee1b405a13913a078bdd21a0",
+  "curve_sha256": "8b43939fff74251ee0768acc17ed5f514b42b98a01f0627df27e8d0f1673c4c0",
+  "verified_predictions": 2560,
+  "verified_score_cells": 360,
+  "verified_assignments": 320,
+  "zero_shot_exact_parent_replays": 640,
+  "maximum_absolute_probability_error": 0.0
+}

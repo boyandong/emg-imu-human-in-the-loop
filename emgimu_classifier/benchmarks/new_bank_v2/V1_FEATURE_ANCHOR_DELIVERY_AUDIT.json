@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_v1_grab_feature_anchor_20260929",
+  "rows": 360,
+  "source_curve_sha256": "8b43939fff74251ee0768acc17ed5f514b42b98a01f0627df27e8d0f1673c4c0",
+  "source_verification_sha256": "8e6fe81f142d92fc9944726ed48dbbcdb4d1c52c5b0cff81068e737c0203988b",
+  "output_sha256": "e3f0e6df72f136e93dfb5eca08567d51341814230c1ae97bece45fd775fd710c",
+  "boundary": "Public official-hash-verified GRABMyo eight-channel 2048 Hz feature-space Personal Anchor follow-up for independent new-v1 formulas. Not own-device 250 Hz live performance, raw per-channel normalization or real setup wall time."
+}
