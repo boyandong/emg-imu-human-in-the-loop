@@ -48,7 +48,7 @@ class FeatureFamilyTests(unittest.TestCase):
         families = [
             LocalDetailFamily(), ScalePatternFamily(), TraceCovarianceFamily(),
             CspSpatialFamily(), SpdTangentFamily(), RingGeometryFamily(),
-            SpectralStateFamily(), TemporalFormFamily(), PathSignatureFamily(),
+            SpectralStateFamily(), TemporalFormFamily(),
             BodyContextFamily(), QualityFamily(adc_min=-4, adc_max=4),
         ]
         for family in families:

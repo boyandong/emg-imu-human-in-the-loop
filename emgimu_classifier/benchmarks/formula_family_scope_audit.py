@@ -30,7 +30,7 @@ REVIEWS = (
      "MANUS F4d session-centering helps pooled validation and final F1 but final minimum-user F1 declines; medium-speed calibration versus slow/fast evaluation is speed-confounded. No measured-fatigue validation."),
     ("F5", "public_bout_screened", "feature_bank/results/manifests/feature_bank_unibo_sequence_temporal_final_20260928__replay_audit.json",
      "Validated G5 and complete-bout DTW have frozen native UniBo replay; DTW cost/warp/path length has a known-sequence check.",
-     "The optional low-order path signature has no native promotion evidence; live onset/bout segmentation is unavailable."),
+     "The optional low-order path signature now rejects unverified short windows and has an exact known-path oracle, but no native promotion evidence; live onset/bout segmentation is unavailable."),
     ("F6", "public_context_limited", "feature_bank/results/manifests/feature_bank_manus_full_fusion_final_20260915_v2__replay_audit.json|feature_bank/EXPERIMENT_CAPABILITIES.md",
      "Real public IMU and oracle posture contexts have bounded native results; calibrated body-frame API has a synthetic contract check.",
      "No native calibrated forward-axis/neutral-trial metadata support the proposed gravity-relative body-frame evaluation."),

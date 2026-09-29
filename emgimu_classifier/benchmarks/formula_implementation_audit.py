@@ -16,7 +16,7 @@ from emgimu.feature_bank.families import (
 )
 from emgimu.feature_bank.ring_covariance import RawRingCovarianceFamily
 from emgimu.feature_bank.quality_observability import QualityObservabilityFamily
-from emgimu.feature_bank.temporal import PathSignatureFamily
+from emgimu.feature_bank.temporal import CompleteSequenceBatch, PathSignatureFamily
 from emgimu.feature_bank.relative_spectrum import LogBandEnergyFamily,PersonalSessionSpectralShift
 from emgimu.feature_bank.validated_unibo import ValidatedUniBoFamily
 from emgimu.feature_bank.document_signal import RestNoiseLocalDetailFamily,DocumentCspFamily
@@ -73,7 +73,7 @@ REVIEWS = (
  ('F5b','F5b. DTW / template distance','temporal.py','TemporalTemplateFamily','partial',
   'Euclidean local cost, constrained warp and path-length division pass a known-sequence oracle. DTW requires CompleteSequenceBatch, explicit full coverage and finite native durations >=1s; compressed bin rate cannot prove completeness. Legacy sparse MANUS runner refuses new execution; full UniBo bout replay preserved. Live stream segmentation remains separate.','H'),
  ('F5c','F5c. Low-order path signature（可选）','temporal.py','PathSignatureFamily','optional_candidate',
-  'Per-time L2 rectified path; centered start, levels1/2, no absolute time; scale-normalized raw rectification rather than smoothed envelope.','C+C squared'),
+  'Requires producer-certified complete native-duration sequence; per-time L2 rectified input path, centered start, levels1/2 and no absolute time. Known three-point polygon and duplicate-point oracle pass. For raw EMG this uses scale-normalized rectification rather than a smoothed envelope; precomputed complete envelope paths are eligible. No native promotion evidence.','C+C squared'),
  ('F6a','F6a. IMU body-frame context','families.py','BodyContextFamily','partial',
   'Real accel/gyro magnitude summaries and mean gravity direction present; calibration body-frame transform, gravity lowpass and linear acceleration RMS absent. No stable absolute yaw claimed.','13 IMU block'),
  ('F6b','F6b. Public dataset posture context','families.py','BodyContextFamily','candidate_formula',
@@ -122,7 +122,7 @@ def build(document, output):
     measured = {}
     for factory in (LocalDetailFamily,ScalePatternFamily,TraceCovarianceFamily,CspSpatialFamily,
                     SpdTangentFamily,RingGeometryFamily,ReconstructedRlcs,SpectralStateFamily,TemporalFormFamily,
-                    BodyContextFamily,QualityFamily,PathSignatureFamily,LogBandEnergyFamily,
+                    BodyContextFamily,QualityFamily,LogBandEnergyFamily,
                     lambda:RawRingCovarianceFamily(ring_topology=True),
                     lambda:QualityObservabilityFamily(ring_topology=True),
                     lambda:RestNoiseLocalDetailFamily(rest_label=2),DocumentCspFamily,
@@ -140,6 +140,16 @@ def build(document, output):
     values = family.transform(native)
     measured['ValidatedUniBoFamily'] = {'fixture_dimension':values.shape[1], 'names':list(family.feature_names),
                                       'fixture_override':'native four-channel processed200Hz G5'}
+    complete = CompleteSequenceBatch(x, 32., durations_seconds=np.full(len(x), 1.25), full_coverage=True)
+    path_signature = PathSignatureFamily().fit(complete)
+    before = pickle.dumps(path_signature)
+    values = path_signature.transform(complete)
+    if (values.shape != (16, len(path_signature.feature_names)) or
+            not np.isfinite(values).all() or before != pickle.dumps(path_signature)):
+        raise AssertionError('Complete F5c signature fixture failed')
+    measured['PathSignatureFamily'] = {'fixture_dimension':values.shape[1],
+        'names':list(path_signature.feature_names), 'source_immutable':True,
+        'fixture_override':'producer-certified synthetic complete sequences; not native performance evidence'}
     neutral=np.zeros((50,6));neutral[:,2]=9.81
     body=CalibratedBodyContextFamily(imu_sample_rate_hz=50,acceleration_unit='synthetic acceleration units',
         angular_velocity_unit='synthetic angular velocity units').fit(batch,neutral_calibration_imu=neutral,

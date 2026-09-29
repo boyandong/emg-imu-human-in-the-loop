@@ -3665,6 +3665,13 @@ controls. Full bank loses macro-F1 against F0v2 on six of seven validation
 axes, so the generic F0v2 default remains unchanged. Positive final-only
 results are descriptive rather than a basis for promotion.
 
+The optional F5c order-two path signature now requires a producer-certified
+complete sequence with a native duration of at least one second, like F5b.
+A [known three-point path test](../tests/test_f5c_complete_signature.py)
+checks both tensor levels, repeated-vertex invariance, scale invariance and
+short-window rejection. This is formula/interface evidence only; no native
+incremental recognition benefit is asserted for F5c.
+
 The [versioned major-clause acceptance matrix](NEW_VERSION_ACCEPTANCE_AUDIT.csv)
 separates completed scoped evidence, superseded historical-source demands,
 and genuine open work. Remaining applicable F0–F9 formula/native-eligibility

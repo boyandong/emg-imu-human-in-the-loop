@@ -25,7 +25,7 @@ class CompleteSequenceBatch(FeatureBatch):
         if not self.full_coverage or durations.shape != (self.windows,):
             raise ValueError('Complete sequence coverage and per-sequence native durations are required')
         if not np.isfinite(durations).all() or np.any(durations < 1.):
-            raise ValueError('Complete DTW sequences must have native duration >=1 second')
+            raise ValueError('Complete temporal sequences must have native duration >=1 second')
 
     def take(self, indices):
         index = np.asarray(indices)
@@ -37,7 +37,7 @@ class CompleteSequenceBatch(FeatureBatch):
 
 def require_complete_sequences(batch):
     if not isinstance(batch, CompleteSequenceBatch):
-        raise ValueError('DTW requires explicit complete sequences; short or sparse windows are ineligible')
+        raise ValueError('Temporal path features require explicit complete sequences; short or sparse windows are ineligible')
     # Recheck mutable arrays at the use boundary, not only at construction.
     batch.__post_init__()
 
@@ -116,12 +116,14 @@ class PathSignatureFamily(FeatureFamily):
         self.channels_: int | None = None
 
     def fit(self, batch: FeatureBatch, labels: np.ndarray | None = None) -> "PathSignatureFamily":
+        require_complete_sequences(batch)
         self.channels_ = batch.channels
         self.fitted_ = True
         return self
 
     def transform(self, batch: FeatureBatch) -> np.ndarray:
         self._check()
+        require_complete_sequences(batch)
         if batch.channels != self.channels_:
             raise ValueError("channel count differs from fitted signature")
         paths = np.stack([_normalize_path(window) for window in batch.emg])
