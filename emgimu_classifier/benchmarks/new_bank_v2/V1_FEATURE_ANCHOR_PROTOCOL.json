@@ -1,0 +1,22 @@
+{
+  "name": "new_v1_family_grab_crossday_feature_space_personal_anchor_v1",
+  "version": 1,
+  "parent_protocol_sha256": "d9332af94159a06f707bedb0fe2d2ea6f74db3369d1e4347b401b4637a9a9a9c",
+  "parent_result_sha256": "7662651bbbabc208283672546fc56d9eb1536fb45344f5069c24642d7473bbeb",
+  "parent_prediction_sha256": "321c84d4c73379cfcc7fa994e142c4943de6249631adec214ffac29ffca7dcad",
+  "source_day": 1,
+  "target_days": {"validation": 2, "final": 3},
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8],
+  "classes": [4, 15, 16, 17],
+  "arms": ["F0v2", "F0v2+scale_pattern", "F0v2+ring_lag", "F0v2+correlation_spectrum", "F0v2+frequency_direction"],
+  "budgets": [0, 1, 2, 5],
+  "calibration_repetitions": "For N shots/class use the first N distinct native recordings of each class from the same target subject and day.",
+  "evaluation_repetitions": [6, 7],
+  "source_fit": "Fit F0v2 Rest thresholds on Day1 Rest windows and new-v1 family metadata on Day1 only; fit StandardScaler plus LogisticRegression C=1 max_iter=2000 random_state=20260924 on Day1 trial aggregates only. No target trial fits the scaler or classifier.",
+  "feature_aggregation": "Mean and standard deviation over the twenty disjoint 250 ms windows of a native five-second recording; exactly match the frozen parent arm composition.",
+  "anchor_rule": "For each arm, transform all target trial aggregates by its Day1-fitted StandardScaler. Mean each class's allowed target calibration vectors; compute squared Euclidean distances per feature dimension and softmax their negatives divided by the median positive pairwise squared prototype distance per dimension (floor 1e-12). Mix 0.5 frozen population probability and 0.5 anchor probability; zero shots use frozen population probability exactly.",
+  "anchor_weight": 0.5,
+  "selection": "The same source-frozen rule, budgets and evaluation repetitions apply to every arm and phase. No validation or final labels select weights, prototypes for other users, hyperparameters or arms. Day3 is descriptive because inspected earlier.",
+  "recording_seconds": 5,
+  "scope": "Public official-hash-verified GRABMyo eight-channel 2048 Hz feature-space Personal Anchor follow-up for independent new-v1 formulas. Not own-device 250 Hz live performance, raw per-channel normalization or real setup wall time."
+}
