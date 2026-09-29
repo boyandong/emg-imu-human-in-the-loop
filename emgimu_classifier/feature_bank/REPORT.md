@@ -3576,3 +3576,12 @@ fault F1. Several additions improve descriptive final cells, but no
 addition earns validation-backed general quality promotion. All 6,300
 predictions support 840 family, 672 conditional and 1,680 pairwise-error
 cells; canonical provenance verification now covers 62,698 records.
+
+The [seven-axis new-v1 decision](../benchmarks/new_bank_v2/V1_CROSS_AXIS_DECISION_REPORT.md)
+binds posture, unseen-user, cross-day, intensity, wearing, observed-speed
+and synthetic-quality validation results under one conservative rule.
+None of the four independent additions avoids both F1 and log-loss
+regression on every available axis. The selected default within this
+finite candidate set is therefore F0v2. The 70-row validation/final
+table and source hashes are audited; final rows are descriptive only.
+This is a public-data bank decision, not 250 Hz own-device acceptance.
