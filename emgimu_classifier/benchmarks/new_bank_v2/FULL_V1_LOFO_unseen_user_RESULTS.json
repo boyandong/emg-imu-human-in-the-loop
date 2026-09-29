@@ -1,0 +1,504 @@
+{
+  "axis": "unseen_user",
+  "protocol_sha256": "f6f3f1827384a3597e65266bd07b615e358750080cada2d242b64ca143597690",
+  "parent_result_sha256": "cdfbdadba6c359958637fa1306b5d928222353803fa5310b5102e9b0600b562c",
+  "parent_prediction_sha256": "47b1d12ab43f00418381be7de948bc4a7c0f04af7ec6969c176d731b9d20f669",
+  "prediction_sha256": "b1522f1e9c84bc5e2146c5b7eea9f4bb639ac36be521c80a097e44e4fee2f502",
+  "prediction_rows": 784,
+  "source_rest_windows": 560,
+  "feature_dimensions": {
+    "F0v2": 96,
+    "scale_pattern": 16,
+    "ring_lag": 16,
+    "correlation_spectrum": 16,
+    "frequency_direction": 64
+  },
+  "source_trial_ids": [
+    "session1_participant1_gesture4_trial1",
+    "session1_participant1_gesture4_trial2",
+    "session1_participant1_gesture4_trial3",
+    "session1_participant1_gesture4_trial4",
+    "session1_participant1_gesture4_trial5",
+    "session1_participant1_gesture4_trial6",
+    "session1_participant1_gesture4_trial7",
+    "session1_participant1_gesture15_trial1",
+    "session1_participant1_gesture15_trial2",
+    "session1_participant1_gesture15_trial3",
+    "session1_participant1_gesture15_trial4",
+    "session1_participant1_gesture15_trial5",
+    "session1_participant1_gesture15_trial6",
+    "session1_participant1_gesture15_trial7",
+    "session1_participant1_gesture16_trial1",
+    "session1_participant1_gesture16_trial2",
+    "session1_participant1_gesture16_trial3",
+    "session1_participant1_gesture16_trial4",
+    "session1_participant1_gesture16_trial5",
+    "session1_participant1_gesture16_trial6",
+    "session1_participant1_gesture16_trial7",
+    "session1_participant1_gesture17_trial1",
+    "session1_participant1_gesture17_trial2",
+    "session1_participant1_gesture17_trial3",
+    "session1_participant1_gesture17_trial4",
+    "session1_participant1_gesture17_trial5",
+    "session1_participant1_gesture17_trial6",
+    "session1_participant1_gesture17_trial7",
+    "session1_participant2_gesture4_trial1",
+    "session1_participant2_gesture4_trial2",
+    "session1_participant2_gesture4_trial3",
+    "session1_participant2_gesture4_trial4",
+    "session1_participant2_gesture4_trial5",
+    "session1_participant2_gesture4_trial6",
+    "session1_participant2_gesture4_trial7",
+    "session1_participant2_gesture15_trial1",
+    "session1_participant2_gesture15_trial2",
+    "session1_participant2_gesture15_trial3",
+    "session1_participant2_gesture15_trial4",
+    "session1_participant2_gesture15_trial5",
+    "session1_participant2_gesture15_trial6",
+    "session1_participant2_gesture15_trial7",
+    "session1_participant2_gesture16_trial1",
+    "session1_participant2_gesture16_trial2",
+    "session1_participant2_gesture16_trial3",
+    "session1_participant2_gesture16_trial4",
+    "session1_participant2_gesture16_trial5",
+    "session1_participant2_gesture16_trial6",
+    "session1_participant2_gesture16_trial7",
+    "session1_participant2_gesture17_trial1",
+    "session1_participant2_gesture17_trial2",
+    "session1_participant2_gesture17_trial3",
+    "session1_participant2_gesture17_trial4",
+    "session1_participant2_gesture17_trial5",
+    "session1_participant2_gesture17_trial6",
+    "session1_participant2_gesture17_trial7",
+    "session1_participant3_gesture4_trial1",
+    "session1_participant3_gesture4_trial2",
+    "session1_participant3_gesture4_trial3",
+    "session1_participant3_gesture4_trial4",
+    "session1_participant3_gesture4_trial5",
+    "session1_participant3_gesture4_trial6",
+    "session1_participant3_gesture4_trial7",
+    "session1_participant3_gesture15_trial1",
+    "session1_participant3_gesture15_trial2",
+    "session1_participant3_gesture15_trial3",
+    "session1_participant3_gesture15_trial4",
+    "session1_participant3_gesture15_trial5",
+    "session1_participant3_gesture15_trial6",
+    "session1_participant3_gesture15_trial7",
+    "session1_participant3_gesture16_trial1",
+    "session1_participant3_gesture16_trial2",
+    "session1_participant3_gesture16_trial3",
+    "session1_participant3_gesture16_trial4",
+    "session1_participant3_gesture16_trial5",
+    "session1_participant3_gesture16_trial6",
+    "session1_participant3_gesture16_trial7",
+    "session1_participant3_gesture17_trial1",
+    "session1_participant3_gesture17_trial2",
+    "session1_participant3_gesture17_trial3",
+    "session1_participant3_gesture17_trial4",
+    "session1_participant3_gesture17_trial5",
+    "session1_participant3_gesture17_trial6",
+    "session1_participant3_gesture17_trial7",
+    "session1_participant4_gesture4_trial1",
+    "session1_participant4_gesture4_trial2",
+    "session1_participant4_gesture4_trial3",
+    "session1_participant4_gesture4_trial4",
+    "session1_participant4_gesture4_trial5",
+    "session1_participant4_gesture4_trial6",
+    "session1_participant4_gesture4_trial7",
+    "session1_participant4_gesture15_trial1",
+    "session1_participant4_gesture15_trial2",
+    "session1_participant4_gesture15_trial3",
+    "session1_participant4_gesture15_trial4",
+    "session1_participant4_gesture15_trial5",
+    "session1_participant4_gesture15_trial6",
+    "session1_participant4_gesture15_trial7",
+    "session1_participant4_gesture16_trial1",
+    "session1_participant4_gesture16_trial2",
+    "session1_participant4_gesture16_trial3",
+    "session1_participant4_gesture16_trial4",
+    "session1_participant4_gesture16_trial5",
+    "session1_participant4_gesture16_trial6",
+    "session1_participant4_gesture16_trial7",
+    "session1_participant4_gesture17_trial1",
+    "session1_participant4_gesture17_trial2",
+    "session1_participant4_gesture17_trial3",
+    "session1_participant4_gesture17_trial4",
+    "session1_participant4_gesture17_trial5",
+    "session1_participant4_gesture17_trial6",
+    "session1_participant4_gesture17_trial7"
+  ],
+  "target_trial_ids": {
+    "validation": [
+      "session1_participant5_gesture4_trial1",
+      "session1_participant5_gesture4_trial2",
+      "session1_participant5_gesture4_trial3",
+      "session1_participant5_gesture4_trial4",
+      "session1_participant5_gesture4_trial5",
+      "session1_participant5_gesture4_trial6",
+      "session1_participant5_gesture4_trial7",
+      "session1_participant5_gesture15_trial1",
+      "session1_participant5_gesture15_trial2",
+      "session1_participant5_gesture15_trial3",
+      "session1_participant5_gesture15_trial4",
+      "session1_participant5_gesture15_trial5",
+      "session1_participant5_gesture15_trial6",
+      "session1_participant5_gesture15_trial7",
+      "session1_participant5_gesture16_trial1",
+      "session1_participant5_gesture16_trial2",
+      "session1_participant5_gesture16_trial3",
+      "session1_participant5_gesture16_trial4",
+      "session1_participant5_gesture16_trial5",
+      "session1_participant5_gesture16_trial6",
+      "session1_participant5_gesture16_trial7",
+      "session1_participant5_gesture17_trial1",
+      "session1_participant5_gesture17_trial2",
+      "session1_participant5_gesture17_trial3",
+      "session1_participant5_gesture17_trial4",
+      "session1_participant5_gesture17_trial5",
+      "session1_participant5_gesture17_trial6",
+      "session1_participant5_gesture17_trial7",
+      "session1_participant6_gesture4_trial1",
+      "session1_participant6_gesture4_trial2",
+      "session1_participant6_gesture4_trial3",
+      "session1_participant6_gesture4_trial4",
+      "session1_participant6_gesture4_trial5",
+      "session1_participant6_gesture4_trial6",
+      "session1_participant6_gesture4_trial7",
+      "session1_participant6_gesture15_trial1",
+      "session1_participant6_gesture15_trial2",
+      "session1_participant6_gesture15_trial3",
+      "session1_participant6_gesture15_trial4",
+      "session1_participant6_gesture15_trial5",
+      "session1_participant6_gesture15_trial6",
+      "session1_participant6_gesture15_trial7",
+      "session1_participant6_gesture16_trial1",
+      "session1_participant6_gesture16_trial2",
+      "session1_participant6_gesture16_trial3",
+      "session1_participant6_gesture16_trial4",
+      "session1_participant6_gesture16_trial5",
+      "session1_participant6_gesture16_trial6",
+      "session1_participant6_gesture16_trial7",
+      "session1_participant6_gesture17_trial1",
+      "session1_participant6_gesture17_trial2",
+      "session1_participant6_gesture17_trial3",
+      "session1_participant6_gesture17_trial4",
+      "session1_participant6_gesture17_trial5",
+      "session1_participant6_gesture17_trial6",
+      "session1_participant6_gesture17_trial7"
+    ],
+    "final": [
+      "session1_participant7_gesture4_trial1",
+      "session1_participant7_gesture4_trial2",
+      "session1_participant7_gesture4_trial3",
+      "session1_participant7_gesture4_trial4",
+      "session1_participant7_gesture4_trial5",
+      "session1_participant7_gesture4_trial6",
+      "session1_participant7_gesture4_trial7",
+      "session1_participant7_gesture15_trial1",
+      "session1_participant7_gesture15_trial2",
+      "session1_participant7_gesture15_trial3",
+      "session1_participant7_gesture15_trial4",
+      "session1_participant7_gesture15_trial5",
+      "session1_participant7_gesture15_trial6",
+      "session1_participant7_gesture15_trial7",
+      "session1_participant7_gesture16_trial1",
+      "session1_participant7_gesture16_trial2",
+      "session1_participant7_gesture16_trial3",
+      "session1_participant7_gesture16_trial4",
+      "session1_participant7_gesture16_trial5",
+      "session1_participant7_gesture16_trial6",
+      "session1_participant7_gesture16_trial7",
+      "session1_participant7_gesture17_trial1",
+      "session1_participant7_gesture17_trial2",
+      "session1_participant7_gesture17_trial3",
+      "session1_participant7_gesture17_trial4",
+      "session1_participant7_gesture17_trial5",
+      "session1_participant7_gesture17_trial6",
+      "session1_participant7_gesture17_trial7",
+      "session1_participant8_gesture4_trial1",
+      "session1_participant8_gesture4_trial2",
+      "session1_participant8_gesture4_trial3",
+      "session1_participant8_gesture4_trial4",
+      "session1_participant8_gesture4_trial5",
+      "session1_participant8_gesture4_trial6",
+      "session1_participant8_gesture4_trial7",
+      "session1_participant8_gesture15_trial1",
+      "session1_participant8_gesture15_trial2",
+      "session1_participant8_gesture15_trial3",
+      "session1_participant8_gesture15_trial4",
+      "session1_participant8_gesture15_trial5",
+      "session1_participant8_gesture15_trial6",
+      "session1_participant8_gesture15_trial7",
+      "session1_participant8_gesture16_trial1",
+      "session1_participant8_gesture16_trial2",
+      "session1_participant8_gesture16_trial3",
+      "session1_participant8_gesture16_trial4",
+      "session1_participant8_gesture16_trial5",
+      "session1_participant8_gesture16_trial6",
+      "session1_participant8_gesture16_trial7",
+      "session1_participant8_gesture17_trial1",
+      "session1_participant8_gesture17_trial2",
+      "session1_participant8_gesture17_trial3",
+      "session1_participant8_gesture17_trial4",
+      "session1_participant8_gesture17_trial5",
+      "session1_participant8_gesture17_trial6",
+      "session1_participant8_gesture17_trial7"
+    ]
+  },
+  "f0v2_parent_replay_max_abs_error": 0.0,
+  "scores": {
+    "F0v2": {
+      "validation": {
+        "accuracy": 0.8035714285714286,
+        "macro_f1": 0.8053814002089864,
+        "log_loss": 0.46503153809726666,
+        "brier": 0.2854191405619953,
+        "per_class_recall": {
+          "4": 0.7857142857142857,
+          "15": 0.5714285714285714,
+          "16": 0.8571428571428571,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "5": 0.7099358974358975,
+          "6": 0.8541666666666666
+        },
+        "minimum_subject_macro_f1": 0.7099358974358975
+      },
+      "final": {
+        "accuracy": 0.9464285714285714,
+        "macro_f1": 0.9458064516129032,
+        "log_loss": 0.1993845815246529,
+        "brier": 0.10737778306003766,
+        "per_class_recall": {
+          "4": 0.7857142857142857,
+          "15": 1.0,
+          "16": 1.0,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "7": 1.0,
+          "8": 0.8877005347593583
+        },
+        "minimum_subject_macro_f1": 0.8877005347593583
+      }
+    },
+    "full": {
+      "validation": {
+        "accuracy": 0.7678571428571429,
+        "macro_f1": 0.7672619047619047,
+        "log_loss": 0.5855564690647201,
+        "brier": 0.3432747093600339,
+        "per_class_recall": {
+          "4": 0.5,
+          "15": 0.7142857142857143,
+          "16": 0.8571428571428571,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "5": 0.8148567119155354,
+          "6": 0.6398601398601399
+        },
+        "minimum_subject_macro_f1": 0.6398601398601399
+      },
+      "final": {
+        "accuracy": 0.8571428571428571,
+        "macro_f1": 0.8564416886579336,
+        "log_loss": 0.39366430451640805,
+        "brier": 0.2143458200516297,
+        "per_class_recall": {
+          "4": 0.6428571428571429,
+          "15": 1.0,
+          "16": 0.9285714285714286,
+          "17": 0.8571428571428571
+        },
+        "per_subject_macro_f1": {
+          "7": 0.9641025641025642,
+          "8": 0.7311660561660562
+        },
+        "minimum_subject_macro_f1": 0.7311660561660562
+      }
+    },
+    "minus_F0v2": {
+      "validation": {
+        "accuracy": 0.5535714285714286,
+        "macro_f1": 0.5726184164015553,
+        "log_loss": 1.665167859120756,
+        "brier": 0.7157624302344198,
+        "per_class_recall": {
+          "4": 0.5,
+          "15": 0.7142857142857143,
+          "16": 0.6428571428571429,
+          "17": 0.35714285714285715
+        },
+        "per_subject_macro_f1": {
+          "5": 0.6929015837104072,
+          "6": 0.29472140762463345
+        },
+        "minimum_subject_macro_f1": 0.29472140762463345
+      },
+      "final": {
+        "accuracy": 0.6964285714285714,
+        "macro_f1": 0.6566646860764508,
+        "log_loss": 1.0320876003447992,
+        "brier": 0.4583045797478754,
+        "per_class_recall": {
+          "4": 0.7142857142857143,
+          "15": 0.9285714285714286,
+          "16": 0.9285714285714286,
+          "17": 0.21428571428571427
+        },
+        "per_subject_macro_f1": {
+          "7": 0.7536450477626948,
+          "8": 0.5570261437908497
+        },
+        "minimum_subject_macro_f1": 0.5570261437908497
+      }
+    },
+    "minus_scale_pattern": {
+      "validation": {
+        "accuracy": 0.7678571428571429,
+        "macro_f1": 0.7672619047619047,
+        "log_loss": 0.5577053581060771,
+        "brier": 0.32781456104558443,
+        "per_class_recall": {
+          "4": 0.5,
+          "15": 0.7142857142857143,
+          "16": 0.8571428571428571,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "5": 0.8148567119155354,
+          "6": 0.6398601398601399
+        },
+        "minimum_subject_macro_f1": 0.6398601398601399
+      },
+      "final": {
+        "accuracy": 0.875,
+        "macro_f1": 0.8771133167907361,
+        "log_loss": 0.3157722752364184,
+        "brier": 0.1783838926707634,
+        "per_class_recall": {
+          "4": 0.7857142857142857,
+          "15": 0.9285714285714286,
+          "16": 0.9285714285714286,
+          "17": 0.8571428571428571
+        },
+        "per_subject_macro_f1": {
+          "7": 0.9302884615384617,
+          "8": 0.8213175713175713
+        },
+        "minimum_subject_macro_f1": 0.8213175713175713
+      }
+    },
+    "minus_ring_lag": {
+      "validation": {
+        "accuracy": 0.7857142857142857,
+        "macro_f1": 0.783842383107089,
+        "log_loss": 0.5759525052131969,
+        "brier": 0.3256464530712297,
+        "per_class_recall": {
+          "4": 0.5,
+          "15": 0.7857142857142857,
+          "16": 0.8571428571428571,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "5": 0.8148567119155354,
+          "6": 0.6666666666666666
+        },
+        "minimum_subject_macro_f1": 0.6666666666666666
+      },
+      "final": {
+        "accuracy": 0.8571428571428571,
+        "macro_f1": 0.8564416886579336,
+        "log_loss": 0.4065007233894923,
+        "brier": 0.21383431857315113,
+        "per_class_recall": {
+          "4": 0.6428571428571429,
+          "15": 1.0,
+          "16": 0.9285714285714286,
+          "17": 0.8571428571428571
+        },
+        "per_subject_macro_f1": {
+          "7": 0.9641025641025642,
+          "8": 0.7311660561660562
+        },
+        "minimum_subject_macro_f1": 0.7311660561660562
+      }
+    },
+    "minus_correlation_spectrum": {
+      "validation": {
+        "accuracy": 0.7857142857142857,
+        "macro_f1": 0.783842383107089,
+        "log_loss": 0.5742116838767851,
+        "brier": 0.3241811971533773,
+        "per_class_recall": {
+          "4": 0.5,
+          "15": 0.7857142857142857,
+          "16": 0.8571428571428571,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "5": 0.8148567119155354,
+          "6": 0.6666666666666666
+        },
+        "minimum_subject_macro_f1": 0.6666666666666666
+      },
+      "final": {
+        "accuracy": 0.8392857142857143,
+        "macro_f1": 0.8400577683186379,
+        "log_loss": 0.5067060381181979,
+        "brier": 0.24888729632049075,
+        "per_class_recall": {
+          "4": 0.6428571428571429,
+          "15": 0.9285714285714286,
+          "16": 0.9285714285714286,
+          "17": 0.8571428571428571
+        },
+        "per_subject_macro_f1": {
+          "7": 0.9302884615384617,
+          "8": 0.7311660561660562
+        },
+        "minimum_subject_macro_f1": 0.7311660561660562
+      }
+    },
+    "minus_frequency_direction": {
+      "validation": {
+        "accuracy": 0.7678571428571429,
+        "macro_f1": 0.7595238095238095,
+        "log_loss": 0.6483984198210578,
+        "brier": 0.35491178270782864,
+        "per_class_recall": {
+          "4": 0.7857142857142857,
+          "15": 0.42857142857142855,
+          "16": 0.8571428571428571,
+          "17": 1.0
+        },
+        "per_subject_macro_f1": {
+          "5": 0.6174242424242424,
+          "6": 0.857031857031857
+        },
+        "minimum_subject_macro_f1": 0.6174242424242424
+      },
+      "final": {
+        "accuracy": 0.8928571428571429,
+        "macro_f1": 0.8898934371198239,
+        "log_loss": 0.3254385325792292,
+        "brier": 0.15128059504668187,
+        "per_class_recall": {
+          "4": 0.6428571428571429,
+          "15": 1.0,
+          "16": 1.0,
+          "17": 0.9285714285714286
+        },
+        "per_subject_macro_f1": {
+          "7": 1.0,
+          "8": 0.7594242015294648
+        },
+        "minimum_subject_macro_f1": 0.7594242015294648
+      }
+    }
+  },
+  "scope": "Five finite independent families on public tasks with overlapping GRAB/ROAM recordings, synthetic quality and an external Rest prior for MANUS. No historical-family equivalence, own-device 250 Hz or live claim."
+}

@@ -1,0 +1,97 @@
+{
+  "protocol_sha256": "f6f3f1827384a3597e65266bd07b615e358750080cada2d242b64ca143597690",
+  "cells_sha256": "92d0722180085c6cc11ed5f0d1cd1b43df670ac13158712c3e745aab32f24a17",
+  "cells": 98,
+  "axis_audits": {
+    "posture": {
+      "prediction_sha256": "5fe395cf4af7281cc67dace14a53ece108b47d129cbec27599dbe6c639ededc5",
+      "result_sha256": "54e75e2855d09f244fbd9704f38ccc14e40c9be04df7152cdf99f51f965e0c52",
+      "prediction_rows": 2520,
+      "native_targets_per_phase": {
+        "validation": 180,
+        "final": 180
+      },
+      "f0v2_parent_replay_max_abs_error": 0.0
+    },
+    "unseen_user": {
+      "prediction_sha256": "b1522f1e9c84bc5e2146c5b7eea9f4bb639ac36be521c80a097e44e4fee2f502",
+      "result_sha256": "06221f393c4ba86f96fd19b27159b5bec84b7d64848b261319fca2047891a58b",
+      "prediction_rows": 784,
+      "native_targets_per_phase": {
+        "validation": 56,
+        "final": 56
+      },
+      "f0v2_parent_replay_max_abs_error": 0.0
+    },
+    "cross_day": {
+      "prediction_sha256": "5b91c4455c592266a4e2210640ba42eb85a534345c1e5bea6cafe1b4aacf8c22",
+      "result_sha256": "9e0f5d3b293520525d9dc9433f5ead08f73158988da668fe4ebe12620663c03d",
+      "prediction_rows": 3136,
+      "native_targets_per_phase": {
+        "validation": 224,
+        "final": 224
+      },
+      "f0v2_parent_replay_max_abs_error": 0.0
+    },
+    "force_intensity": {
+      "prediction_sha256": "8ec50093fb97d11033f8a36e85d21618521450b9acb1acde83f26ba815b3fd74",
+      "result_sha256": "6672ede068c7e721878207c91f5199197d3a7dd6d9363169d78b110fd78adb49",
+      "prediction_rows": 8232,
+      "native_targets_per_phase": {
+        "validation": 588,
+        "final": 588
+      },
+      "f0v2_parent_replay_max_abs_error": 0.0
+    },
+    "wearing_shift": {
+      "prediction_sha256": "2676b160660418a6ee2322b0e2162dd52152dfaaf9afd112b29174a162f4ec96",
+      "result_sha256": "3748837c4ef93e9b421db347e0d8a4b59ec27b1887eb3de1e77169fcb22f614f",
+      "prediction_rows": 1680,
+      "native_targets_per_phase": {
+        "validation": 120,
+        "final": 120
+      },
+      "f0v2_parent_replay_max_abs_error": 0.0
+    },
+    "observed_speed": {
+      "prediction_sha256": "c5666183a0819d75bf1327ecbda6a8da94689fbfcf67a4f10094ba06f59dc27c",
+      "result_sha256": "7227579ff567162264880e0f7fd961036067e98e8126bd41ec4ed8851a5fc6f5",
+      "prediction_rows": 1512,
+      "native_targets_per_phase": {
+        "validation": 108,
+        "final": 108
+      },
+      "f0v2_parent_replay_max_abs_error": 0.0
+    },
+    "synthetic_quality": {
+      "prediction_sha256": "df198991ba030fb04c3e2302c3e6740d576de4f4d886f48281de9ba6e8e38b5e",
+      "result_sha256": "fed010cb8b3a151f82467eed8d5c2deab29e48956b999575d1eab19a303e6e8a",
+      "prediction_rows": 8820,
+      "native_targets_per_phase": {
+        "validation": 630,
+        "final": 630
+      },
+      "f0v2_parent_replay_max_abs_error": 0.0
+    }
+  },
+  "validation_full_minus_F0v2": {
+    "posture": -0.04685493753483816,
+    "unseen_user": -0.03811949544708171,
+    "cross_day": -0.01768503382260045,
+    "force_intensity": -0.05389871243347599,
+    "wearing_shift": -0.045004991196891386,
+    "observed_speed": 0.0314504098572726,
+    "synthetic_quality": -0.054471084879017306
+  },
+  "final_full_minus_F0v2": {
+    "posture": 0.0429761969469149,
+    "unseen_user": -0.08936476295496965,
+    "cross_day": 0.00361110773961415,
+    "force_intensity": 0.0008032979366489612,
+    "wearing_shift": -0.08094822712501659,
+    "observed_speed": 0.0018202177873193337,
+    "synthetic_quality": 0.005803471474523092
+  },
+  "validation_full_positive_axes": 1,
+  "scope": "Five finite independent families on public tasks with overlapping GRAB/ROAM recordings, synthetic quality and an external Rest prior for MANUS. No historical-family equivalence, own-device 250 Hz or live claim."
+}
