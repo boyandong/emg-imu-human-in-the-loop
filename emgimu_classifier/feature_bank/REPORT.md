@@ -3648,9 +3648,14 @@ formula or live-device acceptance.
 The [MANUS F4d session diagnostic](../benchmarks/new_bank_v2/F4D_MANUS_SESSION_REPORT.md)
 now computes equal-trial long/current log-band references for six users
 with 108 long-term, 72 current-calibration and 144 held-out native trials.
-Its session-relative vectors are finite and trial-disjoint. Medium-speed
-calibration versus slow/fast evaluation confounds speed with session, so
-this is context evidence, not a verified predictive or fatigue effect.
+Its session-relative vectors are finite and trial-disjoint. The
+[matched F4d predictive control](../benchmarks/new_bank_v2/F4D_MANUS_PREDICTIVE_REPORT.md)
+compares F0v2, long-centered and session-centered spectra on 432 saved
+predictions. Session-centering improves validation pooled macro F1 from
+0.3898 to 0.4764, but final minimum-user F1 falls from 0.1111 to 0.0952.
+Medium-speed calibration versus slow/fast evaluation confounds speed with
+session, so this is bounded predictive evidence, not a default promotion
+or a verified fatigue effect.
 
 The [complete new-v1 bank LOFO](../benchmarks/new_bank_v2/FULL_V1_LOFO_REPORT.md)
 now tests F0v2 plus all four independent additions and every

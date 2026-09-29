@@ -1,0 +1,576 @@
+{
+  "protocol_sha256": "6e26b28866422e7222a0cab6e3ad3264304a51827e4dbc82c27abd4960b7c39f",
+  "parent_protocol_sha256": "ff1814fe0062342d99714a9d296812361c78358d6780c03f8e41ca2c1173111a",
+  "parent_result_sha256": "62d0154ba98efec95452c756e97879a9a4b4ab502eeaea549a1f1bb88edbbee4",
+  "archive_sha256": "2d9e1df613485b9a4afe9a5a71010ca84e75a521b596f836a195b5eaf3dc1f29",
+  "rest_windows": 1828,
+  "prediction_sha256": "cd9c55c5120e5bc8beba6ced778aead615a50208a0134a05750b82dbd20c8045",
+  "prediction_rows": 432,
+  "source_trial_ids": {
+    "3": [
+      "data/u_3/s_1/g_flexext_fist/recording_fast_27_03_2024_16_25_32.csv",
+      "data/u_3/s_1/g_flexext_fist/recording_medium_27_03_2024_16_25_09.csv",
+      "data/u_3/s_1/g_flexext_fist/recording_slow_27_03_2024_16_24_38.csv",
+      "data/u_3/s_1/g_flexext_index/recording_fast_27_03_2024_16_28_47.csv",
+      "data/u_3/s_1/g_flexext_index/recording_medium_27_03_2024_16_28_28.csv",
+      "data/u_3/s_1/g_flexext_index/recording_slow_27_03_2024_16_27_53.csv",
+      "data/u_3/s_1/g_flexext_middle/recording_fast_27_03_2024_16_31_18.csv",
+      "data/u_3/s_1/g_flexext_middle/recording_medium_27_03_2024_16_30_39.csv",
+      "data/u_3/s_1/g_flexext_middle/recording_slow_27_03_2024_16_30_04.csv",
+      "data/u_3/s_1/g_flexext_pinky/recording_fast_27_03_2024_16_36_05.csv",
+      "data/u_3/s_1/g_flexext_pinky/recording_medium_27_03_2024_16_35_34.csv",
+      "data/u_3/s_1/g_flexext_pinky/recording_slow_27_03_2024_16_34_50.csv",
+      "data/u_3/s_1/g_flexext_ring/recording_fast_27_03_2024_16_33_32.csv",
+      "data/u_3/s_1/g_flexext_ring/recording_medium_27_03_2024_16_33_12.csv",
+      "data/u_3/s_1/g_flexext_ring/recording_slow_27_03_2024_16_32_53.csv",
+      "data/u_3/s_1/g_flexext_thumb/recording_fast_27_03_2024_16_27_08.csv",
+      "data/u_3/s_1/g_flexext_thumb/recording_medium_27_03_2024_16_26_48.csv",
+      "data/u_3/s_1/g_flexext_thumb/recording_slow_27_03_2024_16_26_26.csv"
+    ],
+    "4": [
+      "data/u_4/s_1/g_flexext_fist/recording_fast_10_04_2024_14_29_02.csv",
+      "data/u_4/s_1/g_flexext_fist/recording_medium_10_04_2024_14_28_39.csv",
+      "data/u_4/s_1/g_flexext_fist/recording_slow_10_04_2024_14_28_16.csv",
+      "data/u_4/s_1/g_flexext_index/recording_fast_10_04_2024_14_32_18.csv",
+      "data/u_4/s_1/g_flexext_index/recording_medium_10_04_2024_14_31_57.csv",
+      "data/u_4/s_1/g_flexext_index/recording_slow_10_04_2024_14_31_35.csv",
+      "data/u_4/s_1/g_flexext_middle/recording_fast_10_04_2024_14_33_48.csv",
+      "data/u_4/s_1/g_flexext_middle/recording_medium_10_04_2024_14_33_16.csv",
+      "data/u_4/s_1/g_flexext_middle/recording_slow_10_04_2024_14_32_46.csv",
+      "data/u_4/s_1/g_flexext_pinky/recording_fast_10_04_2024_14_36_56.csv",
+      "data/u_4/s_1/g_flexext_pinky/recording_medium_10_04_2024_14_36_33.csv",
+      "data/u_4/s_1/g_flexext_pinky/recording_slow_10_04_2024_14_36_07.csv",
+      "data/u_4/s_1/g_flexext_ring/recording_fast_10_04_2024_14_35_40.csv",
+      "data/u_4/s_1/g_flexext_ring/recording_medium_10_04_2024_14_35_17.csv",
+      "data/u_4/s_1/g_flexext_ring/recording_slow_10_04_2024_14_34_54.csv",
+      "data/u_4/s_1/g_flexext_thumb/recording_fast_10_04_2024_14_30_41.csv",
+      "data/u_4/s_1/g_flexext_thumb/recording_medium_10_04_2024_14_30_16.csv",
+      "data/u_4/s_1/g_flexext_thumb/recording_slow_10_04_2024_14_29_52.csv"
+    ],
+    "5": [
+      "data/u_5/s_1/g_flexext_fist/recording_fast_12_04_2024_11_34_01.csv",
+      "data/u_5/s_1/g_flexext_fist/recording_medium_12_04_2024_11_29_48.csv",
+      "data/u_5/s_1/g_flexext_fist/recording_slow_12_04_2024_11_29_16.csv",
+      "data/u_5/s_1/g_flexext_index/recording_fast_12_04_2024_11_36_43.csv",
+      "data/u_5/s_1/g_flexext_index/recording_medium_12_04_2024_11_36_14.csv",
+      "data/u_5/s_1/g_flexext_index/recording_slow_12_04_2024_11_35_49.csv",
+      "data/u_5/s_1/g_flexext_middle/recording_fast_12_04_2024_11_37_55.csv",
+      "data/u_5/s_1/g_flexext_middle/recording_medium_12_04_2024_11_37_29.csv",
+      "data/u_5/s_1/g_flexext_middle/recording_slow_12_04_2024_11_37_06.csv",
+      "data/u_5/s_1/g_flexext_pinky/recording_fast_12_04_2024_11_40_50.csv",
+      "data/u_5/s_1/g_flexext_pinky/recording_medium_12_04_2024_11_40_25.csv",
+      "data/u_5/s_1/g_flexext_pinky/recording_slow_12_04_2024_11_40_03.csv",
+      "data/u_5/s_1/g_flexext_ring/recording_fast_12_04_2024_11_39_10.csv",
+      "data/u_5/s_1/g_flexext_ring/recording_medium_12_04_2024_11_38_46.csv",
+      "data/u_5/s_1/g_flexext_ring/recording_slow_12_04_2024_11_38_23.csv",
+      "data/u_5/s_1/g_flexext_thumb/recording_fast_12_04_2024_11_35_19.csv",
+      "data/u_5/s_1/g_flexext_thumb/recording_medium_12_04_2024_11_34_55.csv",
+      "data/u_5/s_1/g_flexext_thumb/recording_slow_12_04_2024_11_34_30.csv"
+    ],
+    "6": [
+      "data/u_6/s_1/g_flexext_fist/recording_fast_12_04_2024_15_45_33.csv",
+      "data/u_6/s_1/g_flexext_fist/recording_medium_12_04_2024_15_45_02.csv",
+      "data/u_6/s_1/g_flexext_fist/recording_slow_12_04_2024_15_44_27.csv",
+      "data/u_6/s_1/g_flexext_index/recording_fast_12_04_2024_15_52_40.csv",
+      "data/u_6/s_1/g_flexext_index/recording_medium_12_04_2024_15_51_06.csv",
+      "data/u_6/s_1/g_flexext_index/recording_slow_12_04_2024_15_50_35.csv",
+      "data/u_6/s_1/g_flexext_middle/recording_fast_12_04_2024_15_54_35.csv",
+      "data/u_6/s_1/g_flexext_middle/recording_medium_12_04_2024_15_54_13.csv",
+      "data/u_6/s_1/g_flexext_middle/recording_slow_12_04_2024_15_53_49.csv",
+      "data/u_6/s_1/g_flexext_pinky/recording_fast_12_04_2024_15_59_07.csv",
+      "data/u_6/s_1/g_flexext_pinky/recording_medium_12_04_2024_15_58_45.csv",
+      "data/u_6/s_1/g_flexext_pinky/recording_slow_12_04_2024_15_58_21.csv",
+      "data/u_6/s_1/g_flexext_ring/recording_fast_12_04_2024_15_57_58.csv",
+      "data/u_6/s_1/g_flexext_ring/recording_medium_12_04_2024_15_57_36.csv",
+      "data/u_6/s_1/g_flexext_ring/recording_slow_12_04_2024_15_55_13.csv",
+      "data/u_6/s_1/g_flexext_thumb/recording_fast_12_04_2024_15_48_48.csv",
+      "data/u_6/s_1/g_flexext_thumb/recording_medium_12_04_2024_15_47_30.csv",
+      "data/u_6/s_1/g_flexext_thumb/recording_slow_12_04_2024_15_47_06.csv"
+    ],
+    "7": [
+      "data/u_7/s_1/g_flexext_fist/recording_fast_16_04_2024_14_16_24.csv",
+      "data/u_7/s_1/g_flexext_fist/recording_medium_16_04_2024_14_16_01.csv",
+      "data/u_7/s_1/g_flexext_fist/recording_slow_16_04_2024_14_15_39.csv",
+      "data/u_7/s_1/g_flexext_index/recording_fast_16_04_2024_14_19_18.csv",
+      "data/u_7/s_1/g_flexext_index/recording_medium_16_04_2024_14_18_54.csv",
+      "data/u_7/s_1/g_flexext_index/recording_slow_16_04_2024_14_18_30.csv",
+      "data/u_7/s_1/g_flexext_middle/recording_fast_16_04_2024_14_20_37.csv",
+      "data/u_7/s_1/g_flexext_middle/recording_medium_16_04_2024_14_20_10.csv",
+      "data/u_7/s_1/g_flexext_middle/recording_slow_16_04_2024_14_19_46.csv",
+      "data/u_7/s_1/g_flexext_pinky/recording_fast_16_04_2024_14_23_03.csv",
+      "data/u_7/s_1/g_flexext_pinky/recording_medium_16_04_2024_14_22_39.csv",
+      "data/u_7/s_1/g_flexext_pinky/recording_slow_16_04_2024_14_22_15.csv",
+      "data/u_7/s_1/g_flexext_ring/recording_fast_16_04_2024_14_21_52.csv",
+      "data/u_7/s_1/g_flexext_ring/recording_medium_16_04_2024_14_21_28.csv",
+      "data/u_7/s_1/g_flexext_ring/recording_slow_16_04_2024_14_21_03.csv",
+      "data/u_7/s_1/g_flexext_thumb/recording_fast_16_04_2024_14_17_45.csv",
+      "data/u_7/s_1/g_flexext_thumb/recording_medium_16_04_2024_14_17_20.csv",
+      "data/u_7/s_1/g_flexext_thumb/recording_slow_16_04_2024_14_16_57.csv"
+    ],
+    "8": [
+      "data/u_8/s_1/g_flexext_fist/recording_fast_17_04_2024_14_48_16.csv",
+      "data/u_8/s_1/g_flexext_fist/recording_medium_17_04_2024_14_47_48.csv",
+      "data/u_8/s_1/g_flexext_fist/recording_slow_17_04_2024_14_47_17.csv",
+      "data/u_8/s_1/g_flexext_index/recording_fast_17_04_2024_14_52_46.csv",
+      "data/u_8/s_1/g_flexext_index/recording_medium_17_04_2024_14_52_19.csv",
+      "data/u_8/s_1/g_flexext_index/recording_slow_17_04_2024_14_51_52.csv",
+      "data/u_8/s_1/g_flexext_middle/recording_fast_17_04_2024_14_54_19.csv",
+      "data/u_8/s_1/g_flexext_middle/recording_medium_17_04_2024_14_53_49.csv",
+      "data/u_8/s_1/g_flexext_middle/recording_slow_17_04_2024_14_53_25.csv",
+      "data/u_8/s_1/g_flexext_pinky/recording_fast_17_04_2024_14_57_16.csv",
+      "data/u_8/s_1/g_flexext_pinky/recording_medium_17_04_2024_14_56_47.csv",
+      "data/u_8/s_1/g_flexext_pinky/recording_slow_17_04_2024_14_56_24.csv",
+      "data/u_8/s_1/g_flexext_ring/recording_fast_17_04_2024_14_55_52.csv",
+      "data/u_8/s_1/g_flexext_ring/recording_medium_17_04_2024_14_55_28.csv",
+      "data/u_8/s_1/g_flexext_ring/recording_slow_17_04_2024_14_55_01.csv",
+      "data/u_8/s_1/g_flexext_thumb/recording_fast_17_04_2024_14_50_47.csv",
+      "data/u_8/s_1/g_flexext_thumb/recording_medium_17_04_2024_14_49_54.csv",
+      "data/u_8/s_1/g_flexext_thumb/recording_slow_17_04_2024_14_49_20.csv"
+    ]
+  },
+  "scores": {
+    "validation": {
+      "F0v2": {
+        "pooled": {
+          "accuracy": 0.3888888888888889,
+          "macro_f1": 0.3897953897953898,
+          "log_loss": 2.2393900047609683,
+          "brier": 0.859704276147959,
+          "per_class_recall": {
+            "0": 0.75,
+            "1": 0.4166666666666667,
+            "2": 0.16666666666666666,
+            "3": 0.5833333333333334,
+            "4": 0.25,
+            "5": 0.16666666666666666
+          },
+          "per_subject_macro_f1": {
+            "3": 0.242063492063492,
+            "4": 0.3095238095238095,
+            "5": 0.49444444444444446,
+            "6": 0.30277777777777776,
+            "7": 0.27777777777777773,
+            "8": 0.2698412698412698
+          },
+          "minimum_subject_macro_f1": 0.242063492063492
+        },
+        "by_speed": {
+          "slow": {
+            "accuracy": 0.3611111111111111,
+            "macro_f1": 0.3675435675435675,
+            "log_loss": 2.3512661875781755,
+            "brier": 0.9259497778228799,
+            "per_class_recall": {
+              "0": 0.5,
+              "1": 0.5,
+              "2": 0.3333333333333333,
+              "3": 0.5,
+              "4": 0.16666666666666666,
+              "5": 0.16666666666666666
+            },
+            "per_subject_macro_f1": {
+              "3": 0.17777777777777778,
+              "4": 0.3611111111111111,
+              "5": 0.39999999999999997,
+              "6": 0.17777777777777778,
+              "7": 0.27777777777777773,
+              "8": 0.08333333333333333
+            },
+            "minimum_subject_macro_f1": 0.08333333333333333
+          },
+          "fast": {
+            "accuracy": 0.4166666666666667,
+            "macro_f1": 0.40034965034965037,
+            "log_loss": 2.1275138219437597,
+            "brier": 0.7934587744730378,
+            "per_class_recall": {
+              "0": 1.0,
+              "1": 0.3333333333333333,
+              "2": 0.0,
+              "3": 0.6666666666666666,
+              "4": 0.3333333333333333,
+              "5": 0.16666666666666666
+            },
+            "per_subject_macro_f1": {
+              "3": 0.2333333333333333,
+              "4": 0.25,
+              "5": 0.5555555555555555,
+              "6": 0.27777777777777773,
+              "7": 0.27777777777777773,
+              "8": 0.4166666666666667
+            },
+            "minimum_subject_macro_f1": 0.2333333333333333
+          }
+        }
+      },
+      "F0v2+F4d_long": {
+        "pooled": {
+          "accuracy": 0.4027777777777778,
+          "macro_f1": 0.3911913091073511,
+          "log_loss": 2.375683200955946,
+          "brier": 0.9000829816814248,
+          "per_class_recall": {
+            "0": 0.8333333333333334,
+            "1": 0.4166666666666667,
+            "2": 0.16666666666666666,
+            "3": 0.5833333333333334,
+            "4": 0.25,
+            "5": 0.16666666666666666
+          },
+          "per_subject_macro_f1": {
+            "3": 0.242063492063492,
+            "4": 0.42857142857142855,
+            "5": 0.4555555555555555,
+            "6": 0.3531746031746032,
+            "7": 0.24074074074074073,
+            "8": 0.2698412698412698
+          },
+          "minimum_subject_macro_f1": 0.24074074074074073
+        },
+        "by_speed": {
+          "slow": {
+            "accuracy": 0.3611111111111111,
+            "macro_f1": 0.3597402597402597,
+            "log_loss": 2.5118846606700957,
+            "brier": 0.940672855396483,
+            "per_class_recall": {
+              "0": 0.6666666666666666,
+              "1": 0.3333333333333333,
+              "2": 0.3333333333333333,
+              "3": 0.5,
+              "4": 0.16666666666666666,
+              "5": 0.16666666666666666
+            },
+            "per_subject_macro_f1": {
+              "3": 0.17777777777777778,
+              "4": 0.3611111111111111,
+              "5": 0.2222222222222222,
+              "6": 0.3333333333333333,
+              "7": 0.2333333333333333,
+              "8": 0.08333333333333333
+            },
+            "minimum_subject_macro_f1": 0.08333333333333333
+          },
+          "fast": {
+            "accuracy": 0.4444444444444444,
+            "macro_f1": 0.4116114821997175,
+            "log_loss": 2.239481741241798,
+            "brier": 0.8594931079663665,
+            "per_class_recall": {
+              "0": 1.0,
+              "1": 0.5,
+              "2": 0.0,
+              "3": 0.6666666666666666,
+              "4": 0.3333333333333333,
+              "5": 0.16666666666666666
+            },
+            "per_subject_macro_f1": {
+              "3": 0.2333333333333333,
+              "4": 0.4166666666666667,
+              "5": 0.5833333333333334,
+              "6": 0.27777777777777773,
+              "7": 0.25,
+              "8": 0.4166666666666667
+            },
+            "minimum_subject_macro_f1": 0.2333333333333333
+          }
+        }
+      },
+      "F0v2+F4d_session": {
+        "pooled": {
+          "accuracy": 0.5,
+          "macro_f1": 0.476392380313949,
+          "log_loss": 1.723380388329476,
+          "brier": 0.7265573417264457,
+          "per_class_recall": {
+            "0": 0.9166666666666666,
+            "1": 0.5833333333333334,
+            "2": 0.08333333333333333,
+            "3": 0.6666666666666666,
+            "4": 0.5,
+            "5": 0.25
+          },
+          "per_subject_macro_f1": {
+            "3": 0.3277777777777778,
+            "4": 0.5,
+            "5": 0.688888888888889,
+            "6": 0.3333333333333333,
+            "7": 0.4166666666666667,
+            "8": 0.38095238095238093
+          },
+          "minimum_subject_macro_f1": 0.3277777777777778
+        },
+        "by_speed": {
+          "slow": {
+            "accuracy": 0.5,
+            "macro_f1": 0.4846153846153846,
+            "log_loss": 1.7901507939402503,
+            "brier": 0.7457037030454242,
+            "per_class_recall": {
+              "0": 0.8333333333333334,
+              "1": 0.6666666666666666,
+              "2": 0.16666666666666666,
+              "3": 0.5,
+              "4": 0.5,
+              "5": 0.3333333333333333
+            },
+            "per_subject_macro_f1": {
+              "3": 0.38888888888888884,
+              "4": 0.5833333333333334,
+              "5": 0.5833333333333334,
+              "6": 0.3333333333333333,
+              "7": 0.3333333333333333,
+              "8": 0.25
+            },
+            "minimum_subject_macro_f1": 0.25
+          },
+          "fast": {
+            "accuracy": 0.5,
+            "macro_f1": 0.4702454408336761,
+            "log_loss": 1.6566099827187017,
+            "brier": 0.7074109804074673,
+            "per_class_recall": {
+              "0": 1.0,
+              "1": 0.5,
+              "2": 0.0,
+              "3": 0.8333333333333334,
+              "4": 0.5,
+              "5": 0.16666666666666666
+            },
+            "per_subject_macro_f1": {
+              "3": 0.2333333333333333,
+              "4": 0.4166666666666667,
+              "5": 0.7777777777777777,
+              "6": 0.2222222222222222,
+              "7": 0.5,
+              "8": 0.4166666666666667
+            },
+            "minimum_subject_macro_f1": 0.2222222222222222
+          }
+        }
+      }
+    },
+    "final": {
+      "F0v2": {
+        "pooled": {
+          "accuracy": 0.4166666666666667,
+          "macro_f1": 0.44708215760847336,
+          "log_loss": 2.724941721257972,
+          "brier": 0.9318784101785401,
+          "per_class_recall": {
+            "0": 0.6666666666666666,
+            "1": 0.3333333333333333,
+            "2": 0.25,
+            "3": 0.3333333333333333,
+            "4": 0.4166666666666667,
+            "5": 0.5
+          },
+          "per_subject_macro_f1": {
+            "3": 0.1111111111111111,
+            "4": 0.37222222222222223,
+            "5": 0.6,
+            "6": 0.37407407407407406,
+            "7": 0.38888888888888884,
+            "8": 0.31851851851851853
+          },
+          "minimum_subject_macro_f1": 0.1111111111111111
+        },
+        "by_speed": {
+          "slow": {
+            "accuracy": 0.3611111111111111,
+            "macro_f1": 0.38577441077441077,
+            "log_loss": 2.774997694837736,
+            "brier": 0.9589675278144267,
+            "per_class_recall": {
+              "0": 0.5,
+              "1": 0.3333333333333333,
+              "2": 0.3333333333333333,
+              "3": 0.3333333333333333,
+              "4": 0.16666666666666666,
+              "5": 0.5
+            },
+            "per_subject_macro_f1": {
+              "3": 0.047619047619047616,
+              "4": 0.17777777777777778,
+              "5": 0.3611111111111111,
+              "6": 0.39999999999999997,
+              "7": 0.16666666666666666,
+              "8": 0.4166666666666667
+            },
+            "minimum_subject_macro_f1": 0.047619047619047616
+          },
+          "fast": {
+            "accuracy": 0.4722222222222222,
+            "macro_f1": 0.4942113442113442,
+            "log_loss": 2.6748857476782066,
+            "brier": 0.9047892925426532,
+            "per_class_recall": {
+              "0": 0.8333333333333334,
+              "1": 0.3333333333333333,
+              "2": 0.16666666666666666,
+              "3": 0.3333333333333333,
+              "4": 0.6666666666666666,
+              "5": 0.5
+            },
+            "per_subject_macro_f1": {
+              "3": 0.1111111111111111,
+              "4": 0.39999999999999997,
+              "5": 0.7777777777777777,
+              "6": 0.3611111111111111,
+              "7": 0.5,
+              "8": 0.17777777777777778
+            },
+            "minimum_subject_macro_f1": 0.1111111111111111
+          }
+        }
+      },
+      "F0v2+F4d_long": {
+        "pooled": {
+          "accuracy": 0.3888888888888889,
+          "macro_f1": 0.4131191116087188,
+          "log_loss": 2.959444839465807,
+          "brier": 0.9697106015995848,
+          "per_class_recall": {
+            "0": 0.6666666666666666,
+            "1": 0.4166666666666667,
+            "2": 0.25,
+            "3": 0.3333333333333333,
+            "4": 0.25,
+            "5": 0.4166666666666667
+          },
+          "per_subject_macro_f1": {
+            "3": 0.13888888888888887,
+            "4": 0.27777777777777773,
+            "5": 0.6,
+            "6": 0.32407407407407407,
+            "7": 0.3194444444444444,
+            "8": 0.31851851851851853
+          },
+          "minimum_subject_macro_f1": 0.13888888888888887
+        },
+        "by_speed": {
+          "slow": {
+            "accuracy": 0.3888888888888889,
+            "macro_f1": 0.4042929292929293,
+            "log_loss": 3.137185145776127,
+            "brier": 1.0019107982099114,
+            "per_class_recall": {
+              "0": 0.5,
+              "1": 0.5,
+              "2": 0.3333333333333333,
+              "3": 0.3333333333333333,
+              "4": 0.16666666666666666,
+              "5": 0.5
+            },
+            "per_subject_macro_f1": {
+              "3": 0.047619047619047616,
+              "4": 0.19444444444444442,
+              "5": 0.3611111111111111,
+              "6": 0.39999999999999997,
+              "7": 0.2333333333333333,
+              "8": 0.4166666666666667
+            },
+            "minimum_subject_macro_f1": 0.047619047619047616
+          },
+          "fast": {
+            "accuracy": 0.3888888888888889,
+            "macro_f1": 0.41642154142154136,
+            "log_loss": 2.7817045331554877,
+            "brier": 0.9375104049892582,
+            "per_class_recall": {
+              "0": 0.8333333333333334,
+              "1": 0.3333333333333333,
+              "2": 0.16666666666666666,
+              "3": 0.3333333333333333,
+              "4": 0.3333333333333333,
+              "5": 0.3333333333333333
+            },
+            "per_subject_macro_f1": {
+              "3": 0.16666666666666666,
+              "4": 0.25,
+              "5": 0.7777777777777777,
+              "6": 0.25,
+              "7": 0.3333333333333333,
+              "8": 0.17777777777777778
+            },
+            "minimum_subject_macro_f1": 0.16666666666666666
+          }
+        }
+      },
+      "F0v2+F4d_session": {
+        "pooled": {
+          "accuracy": 0.4583333333333333,
+          "macro_f1": 0.461060606060606,
+          "log_loss": 2.1811517085415,
+          "brier": 0.8129164977826556,
+          "per_class_recall": {
+            "0": 0.75,
+            "1": 0.3333333333333333,
+            "2": 0.16666666666666666,
+            "3": 0.5833333333333334,
+            "4": 0.3333333333333333,
+            "5": 0.5833333333333334
+          },
+          "per_subject_macro_f1": {
+            "3": 0.09523809523809523,
+            "4": 0.3111111111111111,
+            "5": 0.6,
+            "6": 0.6230158730158729,
+            "7": 0.4555555555555555,
+            "8": 0.4507936507936508
+          },
+          "minimum_subject_macro_f1": 0.09523809523809523
+        },
+        "by_speed": {
+          "slow": {
+            "accuracy": 0.3888888888888889,
+            "macro_f1": 0.3940836940836941,
+            "log_loss": 2.181679614352243,
+            "brier": 0.8367042754691582,
+            "per_class_recall": {
+              "0": 0.6666666666666666,
+              "1": 0.3333333333333333,
+              "2": 0.3333333333333333,
+              "3": 0.3333333333333333,
+              "4": 0.16666666666666666,
+              "5": 0.5
+            },
+            "per_subject_macro_f1": {
+              "3": 0.08333333333333333,
+              "4": 0.1111111111111111,
+              "5": 0.3611111111111111,
+              "6": 0.5833333333333334,
+              "7": 0.16666666666666666,
+              "8": 0.611111111111111
+            },
+            "minimum_subject_macro_f1": 0.08333333333333333
+          },
+          "fast": {
+            "accuracy": 0.5277777777777778,
+            "macro_f1": 0.5193602693602694,
+            "log_loss": 2.1806238027307585,
+            "brier": 0.789128720096153,
+            "per_class_recall": {
+              "0": 0.8333333333333334,
+              "1": 0.3333333333333333,
+              "2": 0.0,
+              "3": 0.8333333333333334,
+              "4": 0.5,
+              "5": 0.6666666666666666
+            },
+            "per_subject_macro_f1": {
+              "3": 0.1111111111111111,
+              "4": 0.4166666666666667,
+              "5": 0.7777777777777777,
+              "6": 0.5555555555555555,
+              "7": 0.611111111111111,
+              "8": 0.19444444444444442
+            },
+            "minimum_subject_macro_f1": 0.1111111111111111
+          }
+        }
+      }
+    }
+  },
+  "scope": "Same-user public MANUS session/speed diagnostic with external Rest prior and only one native trial per gesture/speed/session. Medium-speed calibration versus slow/fast evaluation is speed-confounded. No new-user, true calendar-day, 250 Hz own-device or live claim."
+}

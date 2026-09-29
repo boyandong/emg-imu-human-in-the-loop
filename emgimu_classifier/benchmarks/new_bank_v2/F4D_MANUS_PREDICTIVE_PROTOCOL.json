@@ -1,0 +1,10 @@
+{
+  "name": "new_v1_f4d_manus_session_correction_predictive_v1",
+  "version": 1,
+  "parent_protocol_sha256": "ff1814fe0062342d99714a9d296812361c78358d6780c03f8e41ca2c1173111a",
+  "parent_result_sha256": "62d0154ba98efec95452c756e97879a9a4b4ab502eeaea549a1f1bb88edbbee4",
+  "arms": ["F0v2", "F0v2+F4d_long", "F0v2+F4d_session"],
+  "source_fit": "For each user separately, session-1 native trials train source-only F0v2 and F0v2+long-centered log-band scalers/classifiers. F0v2 Rest thresholds use the same frozen external ROAM source Rest prior as the MANUS new-v1 speed screen. Session-2/3 medium-speed trials only set an equal-trial spectral reference; no target classifier fit or label use.",
+  "evaluation": "The same held slow/fast trials are scored for F0v2, raw long-centered F4d and current-session-centered F4d. The two F4d arms share one frozen source classifier, differing only in the target spectral subtraction. Select conclusions on session 2 validation only; session 3 is descriptive.",
+  "boundary": "Same-user public MANUS session/speed diagnostic with external Rest prior and only one native trial per gesture/speed/session. Medium-speed calibration versus slow/fast evaluation is speed-confounded. No new-user, true calendar-day, 250 Hz own-device or live claim."
+}
