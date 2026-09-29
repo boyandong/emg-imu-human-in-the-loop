@@ -1,0 +1,16 @@
+{
+  "name": "new_v1_document_csp_wearing_increment_v1",
+  "version": 1,
+  "parent": "WEARING_V1_EXTENSION",
+  "parent_result_sha256": "99bb0fb1bd72537a9f0456fb54e227badb2d480b6f9b74badad4641111b49878",
+  "parent_prediction_sha256": "52f7494ad1e851bdeb25cbd4b260248f8c09356d599a768d6490885a3223b636",
+  "source_domain": "training",
+  "target_domains": ["trial_1", "trial_2", "trial_3", "trial_4"],
+  "validation_subjects": [15, 16, 17],
+  "final_subjects": [18, 19, 20],
+  "classes": [0, 1, 2, 3, 4],
+  "arms": ["F0v2", "F0v2+F2b_document"],
+  "source_fit": "For each user independently, fit F0v2 source Rest thresholds and uncentered document F2b one-vs-rest CSP filters on training-domain windows only. Aggregate each native trial, then fit source-only StandardScaler and balanced LogisticRegression C=1 max_iter=2000 random_state=20260924. No target fitting.",
+  "selection": "Use pooled validation-subject macro-F1 and log loss. Final subjects are descriptive only; no default promotion from an isolated wearing result.",
+  "boundary": "Eight-channel 200 Hz public same-user wearing-domain F2b formula increment. This isolates the document CSP addition from the F0v2 backbone but does not establish cross-user/day, 250 Hz own-device, or historical-CSP equivalence."
+}

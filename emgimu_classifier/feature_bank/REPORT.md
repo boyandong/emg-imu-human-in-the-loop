@@ -3624,6 +3624,14 @@ finds no missing required values in 5,312 seven-axis family, conditional
 and error rows. The global delivery still contains older evidence with
 honest N/A fields; new-v1 completeness does not repair those records.
 
+The [document F2b wearing screen](../benchmarks/new_bank_v2/F2B_WEARING_REPORT.md)
+separately adds uncentered CSP to F0v2 on matched same-user public
+wearing-domain trials. Its validation macro-F1 falls 0.5775→0.5444 and
+log loss rises 1.2916→1.3655; a favorable descriptive final split does
+not promote the candidate. The exact generalized-eigenvector formula has
+an analytical fixture, and source-only fitting plus frozen-baseline replay
+are checked on the native trial study.
+
 The [complete new-v1 bank LOFO](../benchmarks/new_bank_v2/FULL_V1_LOFO_REPORT.md)
 now tests F0v2 plus all four independent additions and every
 leave-one-family-out arm on all seven public axes. The [readback audit](../benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json)
