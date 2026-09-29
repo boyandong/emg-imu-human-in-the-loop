@@ -3497,3 +3497,15 @@ All 220 native-target cells are now in the required feature-family table;
 canonical provenance verification covers 56,326 records. Ring lag is a
 conditional research candidate, while no addition demonstrates a stable
 pooled validation advantage across all three studies.
+
+The [source-subject OOF temperature study](../benchmarks/new_bank_v2/V1_SOURCE_OOF_CAL_REPORT.md)
+fits each of the five arms on held-source-subject folds, chooses one
+temperature from source OOF predictions, and applies it to frozen public
+targets without target shots. Source OOF log loss improves by construction,
+but target log loss improves in only 10 of 30 arm–phase groups; F0v2 gets
+worse in five of six. Brier and ECE improve in only 6 and 8 groups.
+No additional family becomes a stable calibration amplifier across the three
+validation splits. The 7,090 saved source/target predictions and 440 target
+score cells are audited and delivered as zero-shot calibration comparisons;
+canonical provenance verification covers 56,766 records. Personal
+calibration and own-device performance remain separate evidence questions.

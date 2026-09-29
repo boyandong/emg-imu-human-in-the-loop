@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_v1_source_oof_temperature_20260929",
+  "rows": 440,
+  "source_cells_sha256": "7198d7e2a5c9a3fac3b2a20206f205d3bec26b128c4122e6a863ab9eb836574f",
+  "source_verification_sha256": "4c85432255a8e20c495523978e33d5e4f53cc847b2d72a5d659252ad0cd6d622",
+  "output_sha256": "4de1809d06f2be777aa2d0afe9a631e3c8e8a3d9aa6de9d240f5c1352c7214fc",
+  "boundary": "Zero target shots only, source-subject OOF-selected temperature; not personal 1/2/5-shot calibration or device setup time."
+}

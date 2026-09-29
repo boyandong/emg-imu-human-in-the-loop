@@ -1,0 +1,14 @@
+{
+  "status": "ok",
+  "prediction_rows": 7090,
+  "target_score_cells": 440,
+  "source_result_sha256": "0b07df88f3ef438bfebb1b367ca538a43cd5366024d58d864f30b38e20083202",
+  "source_prediction_sha256": "968e59aaa7d0bdb7b414a6f8d66e9da0143876cb1c9745fc453b6c39565a3cc5",
+  "parent_prediction_sha256": {
+    "roam_posture": "3316a02106fe1c35ae39c0927ef5a8f1f19ce19f7d240e0fed2dd22ece5bee60",
+    "grab_user": "47b1d12ab43f00418381be7de948bc4a7c0f04af7ec6969c176d731b9d20f669",
+    "grab_day": "321c84d4c73379cfcc7fa994e142c4943de6249631adec214ffac29ffca7dcad"
+  },
+  "cell_sha256": "7198d7e2a5c9a3fac3b2a20206f205d3bec26b128c4122e6a863ab9eb836574f",
+  "boundary": "Subject-held source OOF chooses zero-target-shot temperature. Target user/day labels never tune it; public shifts remain and personal shots are not modeled."
+}

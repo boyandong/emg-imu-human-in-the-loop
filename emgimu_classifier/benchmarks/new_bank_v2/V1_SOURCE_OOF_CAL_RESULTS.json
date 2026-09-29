@@ -1,0 +1,2284 @@
+{
+  "protocol": {
+    "name": "independent_v1_family_source_only_oof_temperature_calibration_v1",
+    "version": 1,
+    "parent_studies": [
+      "ROAM_V1_EXTENSION",
+      "GRAB_V1_EXTENSION",
+      "GRAB_DAY_V1_EXTENSION"
+    ],
+    "parent_sha256": {
+      "ROAM_V1_EXTENSION": {
+        "protocol": "9ccbe6b1986f05b5c9906848114fc44643c311e4185f01fe19565f89fc73b95c",
+        "results": "25ba50178c1ea71e8ed455c06f34bd0e98b49f6fe23d6baf225211acf875ebd5",
+        "predictions": "3316a02106fe1c35ae39c0927ef5a8f1f19ce19f7d240e0fed2dd22ece5bee60"
+      },
+      "GRAB_V1_EXTENSION": {
+        "protocol": "117b529c8c779c8db8eb7c924ea33134825deaccbb2641ac16b1abe6d980add4",
+        "results": "cdfbdadba6c359958637fa1306b5d928222353803fa5310b5102e9b0600b562c",
+        "predictions": "47b1d12ab43f00418381be7de948bc4a7c0f04af7ec6969c176d731b9d20f669"
+      },
+      "GRAB_DAY_V1_EXTENSION": {
+        "protocol": "d9332af94159a06f707bedb0fe2d2ea6f74db3369d1e4347b401b4637a9a9a9c",
+        "results": "7662651bbbabc208283672546fc56d9eb1536fb45344f5069c24642d7473bbeb",
+        "predictions": "321c84d4c73379cfcc7fa994e142c4943de6249631adec214ffac29ffca7dcad"
+      }
+    },
+    "source_splits": "Exact parent source trials only. Leave one source subject out per OOF fold: ROAM subjects 1-18, GRAB same-day source subjects 1-4, GRAB cross-day Day1 subjects 1-8. Each fold refits F0v2 Rest thresholds, StandardScaler and LogisticRegression on other source subjects; candidate feature metadata depend only on channel count, sample rate and window length.",
+    "candidate_arms": [
+      "F0v2",
+      "F0v2+scale_pattern",
+      "F0v2+ring_lag",
+      "F0v2+correlation_spectrum",
+      "F0v2+frequency_direction"
+    ],
+    "classifier": "Same C=1 max_iter=2000 and study-specific class weights/seeds as frozen parent screens",
+    "calibrator": "One positive scalar temperature per study/arm, fitted on source subject-held-out OOF probabilities only; grid {1.0} union geomspace(0.5,5.0,61), minimize source OOF log loss with tie-break toward 1.0. Clip input probabilities to 1e-12 and renormalize softmax(log(p)/T). Target labels never select T.",
+    "evaluation": "Apply source-selected T to the five frozen validation/final arm probability vectors on exactly matched native targets. Compare log loss, Brier and ten-bin ECE against uncalibrated; macro-F1 is mathematically invariant for positive scalar T and is checked. Validation selects no new classifier arm after seeing final.",
+    "scope": "Public zero-target-shot probability calibration on three correlated ROAM/GRAB screens. This tests calibration sensitivity of independently defined families; it is not personal 0/1/2/5-shot calibration and not own-device validation."
+  },
+  "protocol_sha256": "f4fcaf98812e72a4e130d128995f2a39f9e2ac8a707fe06eb6886a7ebe7fb0e2",
+  "prediction_sha256": "968e59aaa7d0bdb7b414a6f8d66e9da0143876cb1c9745fc453b6c39565a3cc5",
+  "prediction_rows": 7090,
+  "temperature_candidates": [
+    0.5,
+    0.5195611519175846,
+    0.5398875811638548,
+    0.5610092271509817,
+    0.5829572005899158,
+    0.6057638293142942,
+    0.6294627058970836,
+    0.6540887371300971,
+    0.6796781954392628,
+    0.7062687723113772,
+    0.7338996338110347,
+    0.7626114782695095,
+    0.7924465962305568,
+    0.8234489327414343,
+    0.8556641520808904,
+    0.8891397050194614,
+    0.9239248987111455,
+    0.9600709693194008,
+    0.9976311574844398,
+    1.0,
+    1.0366607867429776,
+    1.077217345015942,
+    1.1193605692841697,
+    1.163152533576813,
+    1.2086577404020518,
+    1.25594321575479,
+    1.3050786078412684,
+    1.356136289666014,
+    1.4091914656322269,
+    1.4643222823126183,
+    1.5216099435538608,
+    1.5811388300841898,
+    1.642996623800327,
+    1.7072744369168007,
+    1.7740669461678775,
+    1.8434725322597876,
+    1.915593424778644,
+    1.9905358527674861,
+    2.068410201194254,
+    2.1493311735411385,
+    2.233417960754816,
+    2.320794416806389,
+    2.4115892411196533,
+    2.505936168136361,
+    2.603974164297732,
+    2.705847632732318,
+    2.8117066259517456,
+    2.9217070668675875,
+    3.0360109784549425,
+    3.1547867224009667,
+    3.278209247089894,
+    3.406460345289807,
+    3.5397289219206898,
+    3.6782112722982063,
+    3.8221113712630004,
+    3.9716411736214083,
+    4.1270209263400925,
+    4.28847949295447,
+    4.456254690668727,
+    4.630593640643968,
+    4.811753131990443,
+    5.0
+  ],
+  "studies": {
+    "roam_posture": {
+      "source_trials": 162,
+      "source_subjects": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "source_folds": [
+        {
+          "held_subject": 1,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1728,
+          "train_subjects": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s1_static_resting_bout1",
+            "s1_static_resting_bout2",
+            "s1_static_resting_bout3",
+            "s1_static_resting_bout4",
+            "s1_static_resting_bout5",
+            "s1_static_resting_bout6",
+            "s1_static_resting_bout7",
+            "s1_static_resting_bout8",
+            "s1_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 2,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1723,
+          "train_subjects": [
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s2_static_resting_bout1",
+            "s2_static_resting_bout2",
+            "s2_static_resting_bout3",
+            "s2_static_resting_bout4",
+            "s2_static_resting_bout5",
+            "s2_static_resting_bout6",
+            "s2_static_resting_bout7",
+            "s2_static_resting_bout8",
+            "s2_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 3,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1732,
+          "train_subjects": [
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s3_static_resting_bout1",
+            "s3_static_resting_bout2",
+            "s3_static_resting_bout3",
+            "s3_static_resting_bout4",
+            "s3_static_resting_bout5",
+            "s3_static_resting_bout6",
+            "s3_static_resting_bout7",
+            "s3_static_resting_bout8",
+            "s3_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 4,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1723,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s4_static_resting_bout1",
+            "s4_static_resting_bout2",
+            "s4_static_resting_bout3",
+            "s4_static_resting_bout4",
+            "s4_static_resting_bout5",
+            "s4_static_resting_bout6",
+            "s4_static_resting_bout7",
+            "s4_static_resting_bout8",
+            "s4_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 5,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1730,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s5_static_resting_bout1",
+            "s5_static_resting_bout2",
+            "s5_static_resting_bout3",
+            "s5_static_resting_bout4",
+            "s5_static_resting_bout5",
+            "s5_static_resting_bout6",
+            "s5_static_resting_bout7",
+            "s5_static_resting_bout8",
+            "s5_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 6,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1741,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s6_static_resting_bout1",
+            "s6_static_resting_bout2",
+            "s6_static_resting_bout3",
+            "s6_static_resting_bout4",
+            "s6_static_resting_bout5",
+            "s6_static_resting_bout6",
+            "s6_static_resting_bout7",
+            "s6_static_resting_bout8",
+            "s6_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 7,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1739,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s7_static_resting_bout1",
+            "s7_static_resting_bout2",
+            "s7_static_resting_bout3",
+            "s7_static_resting_bout4",
+            "s7_static_resting_bout5",
+            "s7_static_resting_bout6",
+            "s7_static_resting_bout7",
+            "s7_static_resting_bout8",
+            "s7_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 8,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1725,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s8_static_resting_bout1",
+            "s8_static_resting_bout2",
+            "s8_static_resting_bout3",
+            "s8_static_resting_bout4",
+            "s8_static_resting_bout5",
+            "s8_static_resting_bout6",
+            "s8_static_resting_bout7",
+            "s8_static_resting_bout8",
+            "s8_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 9,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1721,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s9_static_resting_bout1",
+            "s9_static_resting_bout2",
+            "s9_static_resting_bout3",
+            "s9_static_resting_bout4",
+            "s9_static_resting_bout5",
+            "s9_static_resting_bout6",
+            "s9_static_resting_bout7",
+            "s9_static_resting_bout8",
+            "s9_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 10,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1720,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s10_static_resting_bout1",
+            "s10_static_resting_bout2",
+            "s10_static_resting_bout3",
+            "s10_static_resting_bout4",
+            "s10_static_resting_bout5",
+            "s10_static_resting_bout6",
+            "s10_static_resting_bout7",
+            "s10_static_resting_bout8",
+            "s10_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 11,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1710,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s11_static_resting_bout1",
+            "s11_static_resting_bout2",
+            "s11_static_resting_bout3",
+            "s11_static_resting_bout4",
+            "s11_static_resting_bout5",
+            "s11_static_resting_bout6",
+            "s11_static_resting_bout7",
+            "s11_static_resting_bout8",
+            "s11_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 12,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1731,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s12_static_resting_bout1",
+            "s12_static_resting_bout2",
+            "s12_static_resting_bout3",
+            "s12_static_resting_bout4",
+            "s12_static_resting_bout5",
+            "s12_static_resting_bout6",
+            "s12_static_resting_bout7",
+            "s12_static_resting_bout8",
+            "s12_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 13,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1725,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s13_static_resting_bout1",
+            "s13_static_resting_bout2",
+            "s13_static_resting_bout3",
+            "s13_static_resting_bout4",
+            "s13_static_resting_bout5",
+            "s13_static_resting_bout6",
+            "s13_static_resting_bout7",
+            "s13_static_resting_bout8",
+            "s13_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 14,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1712,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            15,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s14_static_resting_bout1",
+            "s14_static_resting_bout2",
+            "s14_static_resting_bout3",
+            "s14_static_resting_bout4",
+            "s14_static_resting_bout5",
+            "s14_static_resting_bout6",
+            "s14_static_resting_bout7",
+            "s14_static_resting_bout8",
+            "s14_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 15,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1734,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s15_static_resting_bout1",
+            "s15_static_resting_bout2",
+            "s15_static_resting_bout3",
+            "s15_static_resting_bout4",
+            "s15_static_resting_bout5",
+            "s15_static_resting_bout6",
+            "s15_static_resting_bout7",
+            "s15_static_resting_bout8",
+            "s15_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 16,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1723,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            17,
+            18
+          ],
+          "held_trial_ids": [
+            "s16_static_resting_bout1",
+            "s16_static_resting_bout2",
+            "s16_static_resting_bout3",
+            "s16_static_resting_bout4",
+            "s16_static_resting_bout5",
+            "s16_static_resting_bout6",
+            "s16_static_resting_bout7",
+            "s16_static_resting_bout8",
+            "s16_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 17,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1733,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            18
+          ],
+          "held_trial_ids": [
+            "s17_static_resting_bout1",
+            "s17_static_resting_bout2",
+            "s17_static_resting_bout3",
+            "s17_static_resting_bout4",
+            "s17_static_resting_bout5",
+            "s17_static_resting_bout6",
+            "s17_static_resting_bout7",
+            "s17_static_resting_bout8",
+            "s17_static_resting_bout9"
+          ]
+        },
+        {
+          "held_subject": 18,
+          "train_trials": 153,
+          "held_trials": 9,
+          "train_rest_windows": 1726,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "held_trial_ids": [
+            "s18_static_resting_bout1",
+            "s18_static_resting_bout2",
+            "s18_static_resting_bout3",
+            "s18_static_resting_bout4",
+            "s18_static_resting_bout5",
+            "s18_static_resting_bout6",
+            "s18_static_resting_bout7",
+            "s18_static_resting_bout8",
+            "s18_static_resting_bout9"
+          ]
+        }
+      ],
+      "arms": {
+        "F0v2": {
+          "temperature": 1.5811388300841898,
+          "source_oof_raw": {
+            "trials": 162,
+            "accuracy": 0.8765432098765432,
+            "macro_f1": 0.8663274972048974,
+            "log_loss": 0.3231456442378951,
+            "brier": 0.1860153255795451,
+            "ece": 0.07115837967801648,
+            "per_class_f1_json": "{\"0\": 0.9264705882352942, \"1\": 0.8623853211009175, \"2\": 0.810126582278481}"
+          },
+          "source_oof_calibrated": {
+            "trials": 162,
+            "accuracy": 0.8765432098765432,
+            "macro_f1": 0.8663274972048974,
+            "log_loss": 0.2914504095457315,
+            "brier": 0.175326956881343,
+            "ece": 0.028571000768845077,
+            "per_class_f1_json": "{\"0\": 0.9264705882352942, \"1\": 0.8623853211009175, \"2\": 0.810126582278481}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 180,
+                "accuracy": 0.9611111111111111,
+                "macro_f1": 0.9630324989020641,
+                "log_loss": 0.1917971539301428,
+                "brier": 0.07663633301121987,
+                "ece": 0.041102049425466615,
+                "per_class_f1_json": "{\"0\": 0.9575757575757575, \"1\": 0.9565217391304348, \"2\": 0.975}"
+              },
+              "calibrated": {
+                "trials": 180,
+                "accuracy": 0.9611111111111111,
+                "macro_f1": 0.9630324989020641,
+                "log_loss": 0.1953449011475625,
+                "brier": 0.08963116449953329,
+                "ece": 0.05226661654534313,
+                "per_class_f1_json": "{\"0\": 0.9575757575757575, \"1\": 0.9565217391304348, \"2\": 0.975}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 180,
+                "accuracy": 0.9222222222222223,
+                "macro_f1": 0.9161920857507796,
+                "log_loss": 0.2058905481033883,
+                "brier": 0.11467334520664853,
+                "ece": 0.035299941806279676,
+                "per_class_f1_json": "{\"0\": 0.9506172839506173, \"1\": 0.8990825688073395, \"2\": 0.898876404494382}"
+              },
+              "calibrated": {
+                "trials": 180,
+                "accuracy": 0.9222222222222223,
+                "macro_f1": 0.9161920857507796,
+                "log_loss": 0.19786219605003347,
+                "brier": 0.11274306741856126,
+                "ece": 0.022118265219356,
+                "per_class_f1_json": "{\"0\": 0.9506172839506173, \"1\": 0.8990825688073395, \"2\": 0.898876404494382}"
+              }
+            }
+          }
+        },
+        "F0v2+scale_pattern": {
+          "temperature": 1.163152533576813,
+          "source_oof_raw": {
+            "trials": 162,
+            "accuracy": 0.9012345679012346,
+            "macro_f1": 0.8924375778006204,
+            "log_loss": 0.2113461490488674,
+            "brier": 0.1276912909965133,
+            "ece": 0.04532497742412678,
+            "per_class_f1_json": "{\"0\": 0.9343065693430657, \"1\": 0.9009009009009009, \"2\": 0.8421052631578947}"
+          },
+          "source_oof_calibrated": {
+            "trials": 162,
+            "accuracy": 0.9012345679012346,
+            "macro_f1": 0.8924375778006204,
+            "log_loss": 0.20930451831578126,
+            "brier": 0.12649178971315952,
+            "ece": 0.043493837350419375,
+            "per_class_f1_json": "{\"0\": 0.9343065693430657, \"1\": 0.9009009009009009, \"2\": 0.8421052631578947}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 180,
+                "accuracy": 0.95,
+                "macro_f1": 0.9509410964079194,
+                "log_loss": 0.1982944837752552,
+                "brier": 0.08585791346443876,
+                "ece": 0.036020051160670696,
+                "per_class_f1_json": "{\"0\": 0.9518072289156626, \"1\": 0.9380530973451328, \"2\": 0.9629629629629629}"
+              },
+              "calibrated": {
+                "trials": 180,
+                "accuracy": 0.95,
+                "macro_f1": 0.9509410964079194,
+                "log_loss": 0.18963308087635358,
+                "brier": 0.08745890478668612,
+                "ece": 0.03797316099550116,
+                "per_class_f1_json": "{\"0\": 0.9518072289156626, \"1\": 0.9380530973451328, \"2\": 0.9629629629629629}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 180,
+                "accuracy": 0.95,
+                "macro_f1": 0.9451540366857287,
+                "log_loss": 0.14330819874856243,
+                "brier": 0.08065129599878666,
+                "ece": 0.025877049734713803,
+                "per_class_f1_json": "{\"0\": 0.9685534591194969, \"1\": 0.9473684210526315, \"2\": 0.9195402298850575}"
+              },
+              "calibrated": {
+                "trials": 180,
+                "accuracy": 0.95,
+                "macro_f1": 0.9451540366857287,
+                "log_loss": 0.13820417524653553,
+                "brier": 0.07958360250240143,
+                "ece": 0.02276776854313941,
+                "per_class_f1_json": "{\"0\": 0.9685534591194969, \"1\": 0.9473684210526315, \"2\": 0.9195402298850575}"
+              }
+            }
+          }
+        },
+        "F0v2+ring_lag": {
+          "temperature": 1.4091914656322269,
+          "source_oof_raw": {
+            "trials": 162,
+            "accuracy": 0.8703703703703703,
+            "macro_f1": 0.8604861271527938,
+            "log_loss": 0.2784358165397941,
+            "brier": 0.17493226530564915,
+            "ece": 0.05918973847393776,
+            "per_class_f1_json": "{\"0\": 0.9037037037037037, \"1\": 0.8828828828828829, \"2\": 0.7948717948717948}"
+          },
+          "source_oof_calibrated": {
+            "trials": 162,
+            "accuracy": 0.8703703703703703,
+            "macro_f1": 0.8604861271527938,
+            "log_loss": 0.2605449063674029,
+            "brier": 0.16301769726424303,
+            "ece": 0.039525763552002297,
+            "per_class_f1_json": "{\"0\": 0.9037037037037037, \"1\": 0.8828828828828829, \"2\": 0.7948717948717948}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 180,
+                "accuracy": 0.95,
+                "macro_f1": 0.9500008692779778,
+                "log_loss": 0.1920324693706218,
+                "brier": 0.0935462768518419,
+                "ece": 0.03734434814374574,
+                "per_class_f1_json": "{\"0\": 0.9575757575757575, \"1\": 0.9285714285714286, \"2\": 0.963855421686747}"
+              },
+              "calibrated": {
+                "trials": 180,
+                "accuracy": 0.95,
+                "macro_f1": 0.9500008692779778,
+                "log_loss": 0.19756740737169917,
+                "brier": 0.1009940573785758,
+                "ece": 0.05808855522054123,
+                "per_class_f1_json": "{\"0\": 0.9575757575757575, \"1\": 0.9285714285714286, \"2\": 0.963855421686747}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 180,
+                "accuracy": 0.9388888888888889,
+                "macro_f1": 0.9358743981385492,
+                "log_loss": 0.17377183987478678,
+                "brier": 0.09768701094380873,
+                "ece": 0.038685684291127634,
+                "per_class_f1_json": "{\"0\": 0.9559748427672956, \"1\": 0.9230769230769231, \"2\": 0.9285714285714286}"
+              },
+              "calibrated": {
+                "trials": 180,
+                "accuracy": 0.9388888888888889,
+                "macro_f1": 0.9358743981385492,
+                "log_loss": 0.1756811683080417,
+                "brier": 0.10019661424388511,
+                "ece": 0.03193617807170237,
+                "per_class_f1_json": "{\"0\": 0.9559748427672956, \"1\": 0.9230769230769231, \"2\": 0.9285714285714286}"
+              }
+            }
+          }
+        },
+        "F0v2+correlation_spectrum": {
+          "temperature": 1.7072744369168007,
+          "source_oof_raw": {
+            "trials": 162,
+            "accuracy": 0.8518518518518519,
+            "macro_f1": 0.8361109414343794,
+            "log_loss": 0.3570846587810535,
+            "brier": 0.21038251693984245,
+            "ece": 0.07915660600819166,
+            "per_class_f1_json": "{\"0\": 0.9264705882352942, \"1\": 0.8411214953271028, \"2\": 0.7407407407407407}"
+          },
+          "source_oof_calibrated": {
+            "trials": 162,
+            "accuracy": 0.8518518518518519,
+            "macro_f1": 0.8361109414343794,
+            "log_loss": 0.30656786000503367,
+            "brier": 0.18865404166094543,
+            "ece": 0.048087028767840684,
+            "per_class_f1_json": "{\"0\": 0.9264705882352942, \"1\": 0.8411214953271028, \"2\": 0.7407407407407407}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 180,
+                "accuracy": 0.9388888888888889,
+                "macro_f1": 0.9387487385150596,
+                "log_loss": 0.2198706145761771,
+                "brier": 0.1054617045688713,
+                "ece": 0.03492531824245061,
+                "per_class_f1_json": "{\"0\": 0.9461077844311377, \"1\": 0.918918918918919, \"2\": 0.9512195121951219}"
+              },
+              "calibrated": {
+                "trials": 180,
+                "accuracy": 0.9388888888888889,
+                "macro_f1": 0.9387487385150596,
+                "log_loss": 0.22803608678531365,
+                "brier": 0.1151395322067525,
+                "ece": 0.06055529212026386,
+                "per_class_f1_json": "{\"0\": 0.9461077844311377, \"1\": 0.918918918918919, \"2\": 0.9512195121951219}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 180,
+                "accuracy": 0.8888888888888888,
+                "macro_f1": 0.8748014037560754,
+                "log_loss": 0.26018882544315086,
+                "brier": 0.15220729541384934,
+                "ece": 0.05025308988018244,
+                "per_class_f1_json": "{\"0\": 0.9565217391304348, \"1\": 0.8380952380952381, \"2\": 0.8297872340425532}"
+              },
+              "calibrated": {
+                "trials": 180,
+                "accuracy": 0.8888888888888888,
+                "macro_f1": 0.8748014037560754,
+                "log_loss": 0.24281314599144949,
+                "brier": 0.14430923660150816,
+                "ece": 0.03199095977566316,
+                "per_class_f1_json": "{\"0\": 0.9565217391304348, \"1\": 0.8380952380952381, \"2\": 0.8297872340425532}"
+              }
+            }
+          }
+        },
+        "F0v2+frequency_direction": {
+          "temperature": 1.5811388300841898,
+          "source_oof_raw": {
+            "trials": 162,
+            "accuracy": 0.9012345679012346,
+            "macro_f1": 0.8941798941798943,
+            "log_loss": 0.2914203172674848,
+            "brier": 0.15634495527509895,
+            "ece": 0.054488824340216915,
+            "per_class_f1_json": "{\"0\": 0.9285714285714286, \"1\": 0.8928571428571429, \"2\": 0.8611111111111112}"
+          },
+          "source_oof_calibrated": {
+            "trials": 162,
+            "accuracy": 0.9012345679012346,
+            "macro_f1": 0.8941798941798943,
+            "log_loss": 0.2627909233296748,
+            "brier": 0.14903649351164336,
+            "ece": 0.028585874283692553,
+            "per_class_f1_json": "{\"0\": 0.9285714285714286, \"1\": 0.8928571428571429, \"2\": 0.8611111111111112}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 180,
+                "accuracy": 0.9444444444444444,
+                "macro_f1": 0.9447542780876114,
+                "log_loss": 0.21245103591715436,
+                "brier": 0.0963019040537648,
+                "ece": 0.02934103056827974,
+                "per_class_f1_json": "{\"0\": 0.9523809523809523, \"1\": 0.918918918918919, \"2\": 0.9629629629629629}"
+              },
+              "calibrated": {
+                "trials": 180,
+                "accuracy": 0.9444444444444444,
+                "macro_f1": 0.9447542780876114,
+                "log_loss": 0.20043973056977585,
+                "brier": 0.1007816682536521,
+                "ece": 0.03847082169517475,
+                "per_class_f1_json": "{\"0\": 0.9523809523809523, \"1\": 0.918918918918919, \"2\": 0.9629629629629629}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 180,
+                "accuracy": 0.95,
+                "macro_f1": 0.9460290951570629,
+                "log_loss": 0.11936516003162612,
+                "brier": 0.06646089513224343,
+                "ece": 0.023707006166397617,
+                "per_class_f1_json": "{\"0\": 0.9620253164556962, \"1\": 0.9565217391304348, \"2\": 0.9195402298850575}"
+              },
+              "calibrated": {
+                "trials": 180,
+                "accuracy": 0.95,
+                "macro_f1": 0.9460290951570629,
+                "log_loss": 0.12337191787905487,
+                "brier": 0.06656793963593789,
+                "ece": 0.025504023171366828,
+                "per_class_f1_json": "{\"0\": 0.9620253164556962, \"1\": 0.9565217391304348, \"2\": 0.9195402298850575}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "grab_user": {
+      "source_trials": 112,
+      "source_subjects": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "source_folds": [
+        {
+          "held_subject": 1,
+          "train_trials": 84,
+          "held_trials": 28,
+          "train_rest_windows": 420,
+          "train_subjects": [
+            2,
+            3,
+            4
+          ],
+          "held_trial_ids": [
+            "session1_participant1_gesture4_trial1",
+            "session1_participant1_gesture4_trial2",
+            "session1_participant1_gesture4_trial3",
+            "session1_participant1_gesture4_trial4",
+            "session1_participant1_gesture4_trial5",
+            "session1_participant1_gesture4_trial6",
+            "session1_participant1_gesture4_trial7",
+            "session1_participant1_gesture15_trial1",
+            "session1_participant1_gesture15_trial2",
+            "session1_participant1_gesture15_trial3",
+            "session1_participant1_gesture15_trial4",
+            "session1_participant1_gesture15_trial5",
+            "session1_participant1_gesture15_trial6",
+            "session1_participant1_gesture15_trial7",
+            "session1_participant1_gesture16_trial1",
+            "session1_participant1_gesture16_trial2",
+            "session1_participant1_gesture16_trial3",
+            "session1_participant1_gesture16_trial4",
+            "session1_participant1_gesture16_trial5",
+            "session1_participant1_gesture16_trial6",
+            "session1_participant1_gesture16_trial7",
+            "session1_participant1_gesture17_trial1",
+            "session1_participant1_gesture17_trial2",
+            "session1_participant1_gesture17_trial3",
+            "session1_participant1_gesture17_trial4",
+            "session1_participant1_gesture17_trial5",
+            "session1_participant1_gesture17_trial6",
+            "session1_participant1_gesture17_trial7"
+          ]
+        },
+        {
+          "held_subject": 2,
+          "train_trials": 84,
+          "held_trials": 28,
+          "train_rest_windows": 420,
+          "train_subjects": [
+            1,
+            3,
+            4
+          ],
+          "held_trial_ids": [
+            "session1_participant2_gesture4_trial1",
+            "session1_participant2_gesture4_trial2",
+            "session1_participant2_gesture4_trial3",
+            "session1_participant2_gesture4_trial4",
+            "session1_participant2_gesture4_trial5",
+            "session1_participant2_gesture4_trial6",
+            "session1_participant2_gesture4_trial7",
+            "session1_participant2_gesture15_trial1",
+            "session1_participant2_gesture15_trial2",
+            "session1_participant2_gesture15_trial3",
+            "session1_participant2_gesture15_trial4",
+            "session1_participant2_gesture15_trial5",
+            "session1_participant2_gesture15_trial6",
+            "session1_participant2_gesture15_trial7",
+            "session1_participant2_gesture16_trial1",
+            "session1_participant2_gesture16_trial2",
+            "session1_participant2_gesture16_trial3",
+            "session1_participant2_gesture16_trial4",
+            "session1_participant2_gesture16_trial5",
+            "session1_participant2_gesture16_trial6",
+            "session1_participant2_gesture16_trial7",
+            "session1_participant2_gesture17_trial1",
+            "session1_participant2_gesture17_trial2",
+            "session1_participant2_gesture17_trial3",
+            "session1_participant2_gesture17_trial4",
+            "session1_participant2_gesture17_trial5",
+            "session1_participant2_gesture17_trial6",
+            "session1_participant2_gesture17_trial7"
+          ]
+        },
+        {
+          "held_subject": 3,
+          "train_trials": 84,
+          "held_trials": 28,
+          "train_rest_windows": 420,
+          "train_subjects": [
+            1,
+            2,
+            4
+          ],
+          "held_trial_ids": [
+            "session1_participant3_gesture4_trial1",
+            "session1_participant3_gesture4_trial2",
+            "session1_participant3_gesture4_trial3",
+            "session1_participant3_gesture4_trial4",
+            "session1_participant3_gesture4_trial5",
+            "session1_participant3_gesture4_trial6",
+            "session1_participant3_gesture4_trial7",
+            "session1_participant3_gesture15_trial1",
+            "session1_participant3_gesture15_trial2",
+            "session1_participant3_gesture15_trial3",
+            "session1_participant3_gesture15_trial4",
+            "session1_participant3_gesture15_trial5",
+            "session1_participant3_gesture15_trial6",
+            "session1_participant3_gesture15_trial7",
+            "session1_participant3_gesture16_trial1",
+            "session1_participant3_gesture16_trial2",
+            "session1_participant3_gesture16_trial3",
+            "session1_participant3_gesture16_trial4",
+            "session1_participant3_gesture16_trial5",
+            "session1_participant3_gesture16_trial6",
+            "session1_participant3_gesture16_trial7",
+            "session1_participant3_gesture17_trial1",
+            "session1_participant3_gesture17_trial2",
+            "session1_participant3_gesture17_trial3",
+            "session1_participant3_gesture17_trial4",
+            "session1_participant3_gesture17_trial5",
+            "session1_participant3_gesture17_trial6",
+            "session1_participant3_gesture17_trial7"
+          ]
+        },
+        {
+          "held_subject": 4,
+          "train_trials": 84,
+          "held_trials": 28,
+          "train_rest_windows": 420,
+          "train_subjects": [
+            1,
+            2,
+            3
+          ],
+          "held_trial_ids": [
+            "session1_participant4_gesture4_trial1",
+            "session1_participant4_gesture4_trial2",
+            "session1_participant4_gesture4_trial3",
+            "session1_participant4_gesture4_trial4",
+            "session1_participant4_gesture4_trial5",
+            "session1_participant4_gesture4_trial6",
+            "session1_participant4_gesture4_trial7",
+            "session1_participant4_gesture15_trial1",
+            "session1_participant4_gesture15_trial2",
+            "session1_participant4_gesture15_trial3",
+            "session1_participant4_gesture15_trial4",
+            "session1_participant4_gesture15_trial5",
+            "session1_participant4_gesture15_trial6",
+            "session1_participant4_gesture15_trial7",
+            "session1_participant4_gesture16_trial1",
+            "session1_participant4_gesture16_trial2",
+            "session1_participant4_gesture16_trial3",
+            "session1_participant4_gesture16_trial4",
+            "session1_participant4_gesture16_trial5",
+            "session1_participant4_gesture16_trial6",
+            "session1_participant4_gesture16_trial7",
+            "session1_participant4_gesture17_trial1",
+            "session1_participant4_gesture17_trial2",
+            "session1_participant4_gesture17_trial3",
+            "session1_participant4_gesture17_trial4",
+            "session1_participant4_gesture17_trial5",
+            "session1_participant4_gesture17_trial6",
+            "session1_participant4_gesture17_trial7"
+          ]
+        }
+      ],
+      "arms": {
+        "F0v2": {
+          "temperature": 1.8434725322597876,
+          "source_oof_raw": {
+            "trials": 112,
+            "accuracy": 0.7678571428571429,
+            "macro_f1": 0.7666729821902236,
+            "log_loss": 0.8454481367618636,
+            "brier": 0.35733301533018874,
+            "ece": 0.1097502905007659,
+            "per_class_f1_json": "{\"15\": 0.6896551724137931, \"16\": 0.8275862068965517, \"17\": 0.8571428571428571, \"4\": 0.6923076923076923}"
+          },
+          "source_oof_calibrated": {
+            "trials": 112,
+            "accuracy": 0.7678571428571429,
+            "macro_f1": 0.7666729821902236,
+            "log_loss": 0.7227231516624407,
+            "brier": 0.35193004261740995,
+            "ece": 0.05693632494391583,
+            "per_class_f1_json": "{\"15\": 0.6896551724137931, \"16\": 0.8275862068965517, \"17\": 0.8571428571428571, \"4\": 0.6923076923076923}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 56,
+                "accuracy": 0.8035714285714286,
+                "macro_f1": 0.8053814002089864,
+                "log_loss": 0.46503153809726666,
+                "brier": 0.2854191405619953,
+                "ece": 0.10398676589970349,
+                "per_class_f1_json": "{\"15\": 0.7272727272727273, \"16\": 0.8275862068965517, \"17\": 1.0, \"4\": 0.6666666666666666}"
+              },
+              "calibrated": {
+                "trials": 56,
+                "accuracy": 0.8035714285714286,
+                "macro_f1": 0.8053814002089864,
+                "log_loss": 0.5090296541970388,
+                "brier": 0.289585600477349,
+                "ece": 0.1047507992951483,
+                "per_class_f1_json": "{\"15\": 0.7272727272727273, \"16\": 0.8275862068965517, \"17\": 1.0, \"4\": 0.6666666666666666}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 56,
+                "accuracy": 0.9464285714285714,
+                "macro_f1": 0.9458064516129032,
+                "log_loss": 0.1993845815246529,
+                "brier": 0.10737778306003766,
+                "ece": 0.10538136638937791,
+                "per_class_f1_json": "{\"15\": 0.9032258064516129, \"16\": 1.0, \"17\": 1.0, \"4\": 0.88}"
+              },
+              "calibrated": {
+                "trials": 56,
+                "accuracy": 0.9464285714285714,
+                "macro_f1": 0.9458064516129032,
+                "log_loss": 0.2982078842584905,
+                "brier": 0.14126482207691887,
+                "ece": 0.16678568120315074,
+                "per_class_f1_json": "{\"15\": 0.9032258064516129, \"16\": 1.0, \"17\": 1.0, \"4\": 0.88}"
+              }
+            }
+          }
+        },
+        "F0v2+scale_pattern": {
+          "temperature": 2.320794416806389,
+          "source_oof_raw": {
+            "trials": 112,
+            "accuracy": 0.7410714285714286,
+            "macro_f1": 0.743110593110593,
+            "log_loss": 1.0293740364518669,
+            "brier": 0.4149807251150158,
+            "ece": 0.12948189405359417,
+            "per_class_f1_json": "{\"15\": 0.6666666666666666, \"16\": 0.8727272727272727, \"17\": 0.6923076923076923, \"4\": 0.7407407407407407}"
+          },
+          "source_oof_calibrated": {
+            "trials": 112,
+            "accuracy": 0.7410714285714286,
+            "macro_f1": 0.743110593110593,
+            "log_loss": 0.7740621340706356,
+            "brier": 0.39299397848489953,
+            "ece": 0.07300371144431385,
+            "per_class_f1_json": "{\"15\": 0.6666666666666666, \"16\": 0.8727272727272727, \"17\": 0.6923076923076923, \"4\": 0.7407407407407407}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 56,
+                "accuracy": 0.75,
+                "macro_f1": 0.7480790854572714,
+                "log_loss": 0.5477741681000242,
+                "brier": 0.3325495250153053,
+                "ece": 0.13204461150544605,
+                "per_class_f1_json": "{\"15\": 0.6086956521739131, \"16\": 0.7586206896551724, \"17\": 1.0, \"4\": 0.625}"
+              },
+              "calibrated": {
+                "trials": 56,
+                "accuracy": 0.75,
+                "macro_f1": 0.7480790854572714,
+                "log_loss": 0.5229698567934719,
+                "brier": 0.29704298203601526,
+                "ece": 0.10824454611208785,
+                "per_class_f1_json": "{\"15\": 0.6086956521739131, \"16\": 0.7586206896551724, \"17\": 1.0, \"4\": 0.625}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 56,
+                "accuracy": 0.8928571428571429,
+                "macro_f1": 0.8884762479871176,
+                "log_loss": 0.4035950450358551,
+                "brier": 0.16200698531105304,
+                "ece": 0.07929705173732149,
+                "per_class_f1_json": "{\"15\": 0.875, \"16\": 0.9333333333333333, \"17\": 0.9629629629629629, \"4\": 0.782608695652174}"
+              },
+              "calibrated": {
+                "trials": 56,
+                "accuracy": 0.8928571428571429,
+                "macro_f1": 0.8884762479871176,
+                "log_loss": 0.408196132874055,
+                "brier": 0.18886038376450434,
+                "ece": 0.12457717178215097,
+                "per_class_f1_json": "{\"15\": 0.875, \"16\": 0.9333333333333333, \"17\": 0.9629629629629629, \"4\": 0.782608695652174}"
+              }
+            }
+          }
+        },
+        "F0v2+ring_lag": {
+          "temperature": 2.233417960754816,
+          "source_oof_raw": {
+            "trials": 112,
+            "accuracy": 0.7589285714285714,
+            "macro_f1": 0.7604498488932451,
+            "log_loss": 1.0429519116514059,
+            "brier": 0.37547164963009,
+            "ece": 0.08932935716020947,
+            "per_class_f1_json": "{\"15\": 0.6333333333333333, \"16\": 0.8928571428571429, \"17\": 0.8363636363636363, \"4\": 0.6792452830188679}"
+          },
+          "source_oof_calibrated": {
+            "trials": 112,
+            "accuracy": 0.7589285714285714,
+            "macro_f1": 0.7604498488932451,
+            "log_loss": 0.8139193650429216,
+            "brier": 0.3779353008786221,
+            "ece": 0.12231406417869861,
+            "per_class_f1_json": "{\"15\": 0.6333333333333333, \"16\": 0.8928571428571429, \"17\": 0.8363636363636363, \"4\": 0.6792452830188679}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 56,
+                "accuracy": 0.8392857142857143,
+                "macro_f1": 0.8359848484848484,
+                "log_loss": 0.4274099735510623,
+                "brier": 0.24187512377188042,
+                "ece": 0.06539002225182952,
+                "per_class_f1_json": "{\"15\": 0.7272727272727273, \"16\": 0.8666666666666667, \"17\": 1.0, \"4\": 0.75}"
+              },
+              "calibrated": {
+                "trials": 56,
+                "accuracy": 0.8392857142857143,
+                "macro_f1": 0.8359848484848484,
+                "log_loss": 0.49253754964743013,
+                "brier": 0.25892937482615397,
+                "ece": 0.125113984735576,
+                "per_class_f1_json": "{\"15\": 0.7272727272727273, \"16\": 0.8666666666666667, \"17\": 1.0, \"4\": 0.75}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 56,
+                "accuracy": 0.8928571428571429,
+                "macro_f1": 0.8898934371198239,
+                "log_loss": 0.29889940284773936,
+                "brier": 0.1619298690387946,
+                "ece": 0.04945445182247645,
+                "per_class_f1_json": "{\"15\": 0.8484848484848485, \"16\": 0.9655172413793104, \"17\": 0.9629629629629629, \"4\": 0.782608695652174}"
+              },
+              "calibrated": {
+                "trials": 56,
+                "accuracy": 0.8928571428571429,
+                "macro_f1": 0.8898934371198239,
+                "log_loss": 0.3759290238580006,
+                "brier": 0.1850124440812431,
+                "ece": 0.13686604152984105,
+                "per_class_f1_json": "{\"15\": 0.8484848484848485, \"16\": 0.9655172413793104, \"17\": 0.9629629629629629, \"4\": 0.782608695652174}"
+              }
+            }
+          }
+        },
+        "F0v2+correlation_spectrum": {
+          "temperature": 2.320794416806389,
+          "source_oof_raw": {
+            "trials": 112,
+            "accuracy": 0.7946428571428571,
+            "macro_f1": 0.7977262536584571,
+            "log_loss": 1.045391102810892,
+            "brier": 0.34640479948364433,
+            "ece": 0.10423526867145522,
+            "per_class_f1_json": "{\"15\": 0.6779661016949152, \"16\": 0.9259259259259259, \"17\": 0.8727272727272727, \"4\": 0.7142857142857143}"
+          },
+          "source_oof_calibrated": {
+            "trials": 112,
+            "accuracy": 0.7946428571428571,
+            "macro_f1": 0.7977262536584571,
+            "log_loss": 0.8054815758209388,
+            "brier": 0.36580448866815857,
+            "ece": 0.12280535189075624,
+            "per_class_f1_json": "{\"15\": 0.6779661016949152, \"16\": 0.9259259259259259, \"17\": 0.8727272727272727, \"4\": 0.7142857142857143}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 56,
+                "accuracy": 0.7857142857142857,
+                "macro_f1": 0.7784313725490196,
+                "log_loss": 0.5753909825223776,
+                "brier": 0.3139967315491569,
+                "ece": 0.11053042836769883,
+                "per_class_f1_json": "{\"15\": 0.6, \"16\": 0.8666666666666667, \"17\": 1.0, \"4\": 0.6470588235294118}"
+              },
+              "calibrated": {
+                "trials": 56,
+                "accuracy": 0.7857142857142857,
+                "macro_f1": 0.7784313725490196,
+                "log_loss": 0.5511668690868049,
+                "brier": 0.3026308783657112,
+                "ece": 0.07862880226655862,
+                "per_class_f1_json": "{\"15\": 0.6, \"16\": 0.8666666666666667, \"17\": 1.0, \"4\": 0.6470588235294118}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 56,
+                "accuracy": 0.9285714285714286,
+                "macro_f1": 0.927014652014652,
+                "log_loss": 0.2149958744785861,
+                "brier": 0.11553418003931457,
+                "ece": 0.06559394944830221,
+                "per_class_f1_json": "{\"15\": 0.9285714285714286, \"16\": 0.9333333333333333, \"17\": 1.0, \"4\": 0.8461538461538461}"
+              },
+              "calibrated": {
+                "trials": 56,
+                "accuracy": 0.9285714285714286,
+                "macro_f1": 0.927014652014652,
+                "log_loss": 0.34647625884251604,
+                "brier": 0.1687514584154687,
+                "ece": 0.1881265801629644,
+                "per_class_f1_json": "{\"15\": 0.9285714285714286, \"16\": 0.9333333333333333, \"17\": 1.0, \"4\": 0.8461538461538461}"
+              }
+            }
+          }
+        },
+        "F0v2+frequency_direction": {
+          "temperature": 2.705847632732318,
+          "source_oof_raw": {
+            "trials": 112,
+            "accuracy": 0.6875,
+            "macro_f1": 0.6820790901905377,
+            "log_loss": 1.159376039636161,
+            "brier": 0.5043493872482802,
+            "ece": 0.19641038823795068,
+            "per_class_f1_json": "{\"15\": 0.647887323943662, \"16\": 0.8620689655172413, \"17\": 0.6274509803921569, \"4\": 0.5909090909090909}"
+          },
+          "source_oof_calibrated": {
+            "trials": 112,
+            "accuracy": 0.6875,
+            "macro_f1": 0.6820790901905377,
+            "log_loss": 0.8153041686506113,
+            "brier": 0.46060504176202055,
+            "ece": 0.108106010773305,
+            "per_class_f1_json": "{\"15\": 0.647887323943662, \"16\": 0.8620689655172413, \"17\": 0.6274509803921569, \"4\": 0.5909090909090909}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 56,
+                "accuracy": 0.8035714285714286,
+                "macro_f1": 0.8002298850574713,
+                "log_loss": 0.47186930280726946,
+                "brier": 0.29139284085198636,
+                "ece": 0.12117267022739622,
+                "per_class_f1_json": "{\"15\": 0.8275862068965517, \"16\": 0.7333333333333333, \"17\": 1.0, \"4\": 0.64}"
+              },
+              "calibrated": {
+                "trials": 56,
+                "accuracy": 0.8035714285714286,
+                "macro_f1": 0.8002298850574713,
+                "log_loss": 0.568206344399611,
+                "brier": 0.3137514118911779,
+                "ece": 0.15559456204576225,
+                "per_class_f1_json": "{\"15\": 0.8275862068965517, \"16\": 0.7333333333333333, \"17\": 1.0, \"4\": 0.64}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 56,
+                "accuracy": 0.8392857142857143,
+                "macro_f1": 0.8400577683186379,
+                "log_loss": 0.40480785245178313,
+                "brier": 0.2357055000591987,
+                "ece": 0.08979746516207163,
+                "per_class_f1_json": "{\"15\": 0.7878787878787878, \"16\": 0.8666666666666667, \"17\": 0.9230769230769231, \"4\": 0.782608695652174}"
+              },
+              "calibrated": {
+                "trials": 56,
+                "accuracy": 0.8392857142857143,
+                "macro_f1": 0.8400577683186379,
+                "log_loss": 0.4537215512261246,
+                "brier": 0.2414433270266252,
+                "ece": 0.10929330645808188,
+                "per_class_f1_json": "{\"15\": 0.7878787878787878, \"16\": 0.8666666666666667, \"17\": 0.9230769230769231, \"4\": 0.782608695652174}"
+              }
+            }
+          }
+        }
+      }
+    },
+    "grab_day": {
+      "source_trials": 224,
+      "source_subjects": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "source_folds": [
+        {
+          "held_subject": 1,
+          "train_trials": 196,
+          "held_trials": 28,
+          "train_rest_windows": 980,
+          "train_subjects": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "held_trial_ids": [
+            "session1_participant1_gesture4_trial1",
+            "session1_participant1_gesture4_trial2",
+            "session1_participant1_gesture4_trial3",
+            "session1_participant1_gesture4_trial4",
+            "session1_participant1_gesture4_trial5",
+            "session1_participant1_gesture4_trial6",
+            "session1_participant1_gesture4_trial7",
+            "session1_participant1_gesture15_trial1",
+            "session1_participant1_gesture15_trial2",
+            "session1_participant1_gesture15_trial3",
+            "session1_participant1_gesture15_trial4",
+            "session1_participant1_gesture15_trial5",
+            "session1_participant1_gesture15_trial6",
+            "session1_participant1_gesture15_trial7",
+            "session1_participant1_gesture16_trial1",
+            "session1_participant1_gesture16_trial2",
+            "session1_participant1_gesture16_trial3",
+            "session1_participant1_gesture16_trial4",
+            "session1_participant1_gesture16_trial5",
+            "session1_participant1_gesture16_trial6",
+            "session1_participant1_gesture16_trial7",
+            "session1_participant1_gesture17_trial1",
+            "session1_participant1_gesture17_trial2",
+            "session1_participant1_gesture17_trial3",
+            "session1_participant1_gesture17_trial4",
+            "session1_participant1_gesture17_trial5",
+            "session1_participant1_gesture17_trial6",
+            "session1_participant1_gesture17_trial7"
+          ]
+        },
+        {
+          "held_subject": 2,
+          "train_trials": 196,
+          "held_trials": 28,
+          "train_rest_windows": 980,
+          "train_subjects": [
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "held_trial_ids": [
+            "session1_participant2_gesture4_trial1",
+            "session1_participant2_gesture4_trial2",
+            "session1_participant2_gesture4_trial3",
+            "session1_participant2_gesture4_trial4",
+            "session1_participant2_gesture4_trial5",
+            "session1_participant2_gesture4_trial6",
+            "session1_participant2_gesture4_trial7",
+            "session1_participant2_gesture15_trial1",
+            "session1_participant2_gesture15_trial2",
+            "session1_participant2_gesture15_trial3",
+            "session1_participant2_gesture15_trial4",
+            "session1_participant2_gesture15_trial5",
+            "session1_participant2_gesture15_trial6",
+            "session1_participant2_gesture15_trial7",
+            "session1_participant2_gesture16_trial1",
+            "session1_participant2_gesture16_trial2",
+            "session1_participant2_gesture16_trial3",
+            "session1_participant2_gesture16_trial4",
+            "session1_participant2_gesture16_trial5",
+            "session1_participant2_gesture16_trial6",
+            "session1_participant2_gesture16_trial7",
+            "session1_participant2_gesture17_trial1",
+            "session1_participant2_gesture17_trial2",
+            "session1_participant2_gesture17_trial3",
+            "session1_participant2_gesture17_trial4",
+            "session1_participant2_gesture17_trial5",
+            "session1_participant2_gesture17_trial6",
+            "session1_participant2_gesture17_trial7"
+          ]
+        },
+        {
+          "held_subject": 3,
+          "train_trials": 196,
+          "held_trials": 28,
+          "train_rest_windows": 980,
+          "train_subjects": [
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "held_trial_ids": [
+            "session1_participant3_gesture4_trial1",
+            "session1_participant3_gesture4_trial2",
+            "session1_participant3_gesture4_trial3",
+            "session1_participant3_gesture4_trial4",
+            "session1_participant3_gesture4_trial5",
+            "session1_participant3_gesture4_trial6",
+            "session1_participant3_gesture4_trial7",
+            "session1_participant3_gesture15_trial1",
+            "session1_participant3_gesture15_trial2",
+            "session1_participant3_gesture15_trial3",
+            "session1_participant3_gesture15_trial4",
+            "session1_participant3_gesture15_trial5",
+            "session1_participant3_gesture15_trial6",
+            "session1_participant3_gesture15_trial7",
+            "session1_participant3_gesture16_trial1",
+            "session1_participant3_gesture16_trial2",
+            "session1_participant3_gesture16_trial3",
+            "session1_participant3_gesture16_trial4",
+            "session1_participant3_gesture16_trial5",
+            "session1_participant3_gesture16_trial6",
+            "session1_participant3_gesture16_trial7",
+            "session1_participant3_gesture17_trial1",
+            "session1_participant3_gesture17_trial2",
+            "session1_participant3_gesture17_trial3",
+            "session1_participant3_gesture17_trial4",
+            "session1_participant3_gesture17_trial5",
+            "session1_participant3_gesture17_trial6",
+            "session1_participant3_gesture17_trial7"
+          ]
+        },
+        {
+          "held_subject": 4,
+          "train_trials": 196,
+          "held_trials": 28,
+          "train_rest_windows": 980,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8
+          ],
+          "held_trial_ids": [
+            "session1_participant4_gesture4_trial1",
+            "session1_participant4_gesture4_trial2",
+            "session1_participant4_gesture4_trial3",
+            "session1_participant4_gesture4_trial4",
+            "session1_participant4_gesture4_trial5",
+            "session1_participant4_gesture4_trial6",
+            "session1_participant4_gesture4_trial7",
+            "session1_participant4_gesture15_trial1",
+            "session1_participant4_gesture15_trial2",
+            "session1_participant4_gesture15_trial3",
+            "session1_participant4_gesture15_trial4",
+            "session1_participant4_gesture15_trial5",
+            "session1_participant4_gesture15_trial6",
+            "session1_participant4_gesture15_trial7",
+            "session1_participant4_gesture16_trial1",
+            "session1_participant4_gesture16_trial2",
+            "session1_participant4_gesture16_trial3",
+            "session1_participant4_gesture16_trial4",
+            "session1_participant4_gesture16_trial5",
+            "session1_participant4_gesture16_trial6",
+            "session1_participant4_gesture16_trial7",
+            "session1_participant4_gesture17_trial1",
+            "session1_participant4_gesture17_trial2",
+            "session1_participant4_gesture17_trial3",
+            "session1_participant4_gesture17_trial4",
+            "session1_participant4_gesture17_trial5",
+            "session1_participant4_gesture17_trial6",
+            "session1_participant4_gesture17_trial7"
+          ]
+        },
+        {
+          "held_subject": 5,
+          "train_trials": 196,
+          "held_trials": 28,
+          "train_rest_windows": 980,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8
+          ],
+          "held_trial_ids": [
+            "session1_participant5_gesture4_trial1",
+            "session1_participant5_gesture4_trial2",
+            "session1_participant5_gesture4_trial3",
+            "session1_participant5_gesture4_trial4",
+            "session1_participant5_gesture4_trial5",
+            "session1_participant5_gesture4_trial6",
+            "session1_participant5_gesture4_trial7",
+            "session1_participant5_gesture15_trial1",
+            "session1_participant5_gesture15_trial2",
+            "session1_participant5_gesture15_trial3",
+            "session1_participant5_gesture15_trial4",
+            "session1_participant5_gesture15_trial5",
+            "session1_participant5_gesture15_trial6",
+            "session1_participant5_gesture15_trial7",
+            "session1_participant5_gesture16_trial1",
+            "session1_participant5_gesture16_trial2",
+            "session1_participant5_gesture16_trial3",
+            "session1_participant5_gesture16_trial4",
+            "session1_participant5_gesture16_trial5",
+            "session1_participant5_gesture16_trial6",
+            "session1_participant5_gesture16_trial7",
+            "session1_participant5_gesture17_trial1",
+            "session1_participant5_gesture17_trial2",
+            "session1_participant5_gesture17_trial3",
+            "session1_participant5_gesture17_trial4",
+            "session1_participant5_gesture17_trial5",
+            "session1_participant5_gesture17_trial6",
+            "session1_participant5_gesture17_trial7"
+          ]
+        },
+        {
+          "held_subject": 6,
+          "train_trials": 196,
+          "held_trials": 28,
+          "train_rest_windows": 980,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ],
+          "held_trial_ids": [
+            "session1_participant6_gesture4_trial1",
+            "session1_participant6_gesture4_trial2",
+            "session1_participant6_gesture4_trial3",
+            "session1_participant6_gesture4_trial4",
+            "session1_participant6_gesture4_trial5",
+            "session1_participant6_gesture4_trial6",
+            "session1_participant6_gesture4_trial7",
+            "session1_participant6_gesture15_trial1",
+            "session1_participant6_gesture15_trial2",
+            "session1_participant6_gesture15_trial3",
+            "session1_participant6_gesture15_trial4",
+            "session1_participant6_gesture15_trial5",
+            "session1_participant6_gesture15_trial6",
+            "session1_participant6_gesture15_trial7",
+            "session1_participant6_gesture16_trial1",
+            "session1_participant6_gesture16_trial2",
+            "session1_participant6_gesture16_trial3",
+            "session1_participant6_gesture16_trial4",
+            "session1_participant6_gesture16_trial5",
+            "session1_participant6_gesture16_trial6",
+            "session1_participant6_gesture16_trial7",
+            "session1_participant6_gesture17_trial1",
+            "session1_participant6_gesture17_trial2",
+            "session1_participant6_gesture17_trial3",
+            "session1_participant6_gesture17_trial4",
+            "session1_participant6_gesture17_trial5",
+            "session1_participant6_gesture17_trial6",
+            "session1_participant6_gesture17_trial7"
+          ]
+        },
+        {
+          "held_subject": 7,
+          "train_trials": 196,
+          "held_trials": 28,
+          "train_rest_windows": 980,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            8
+          ],
+          "held_trial_ids": [
+            "session1_participant7_gesture4_trial1",
+            "session1_participant7_gesture4_trial2",
+            "session1_participant7_gesture4_trial3",
+            "session1_participant7_gesture4_trial4",
+            "session1_participant7_gesture4_trial5",
+            "session1_participant7_gesture4_trial6",
+            "session1_participant7_gesture4_trial7",
+            "session1_participant7_gesture15_trial1",
+            "session1_participant7_gesture15_trial2",
+            "session1_participant7_gesture15_trial3",
+            "session1_participant7_gesture15_trial4",
+            "session1_participant7_gesture15_trial5",
+            "session1_participant7_gesture15_trial6",
+            "session1_participant7_gesture15_trial7",
+            "session1_participant7_gesture16_trial1",
+            "session1_participant7_gesture16_trial2",
+            "session1_participant7_gesture16_trial3",
+            "session1_participant7_gesture16_trial4",
+            "session1_participant7_gesture16_trial5",
+            "session1_participant7_gesture16_trial6",
+            "session1_participant7_gesture16_trial7",
+            "session1_participant7_gesture17_trial1",
+            "session1_participant7_gesture17_trial2",
+            "session1_participant7_gesture17_trial3",
+            "session1_participant7_gesture17_trial4",
+            "session1_participant7_gesture17_trial5",
+            "session1_participant7_gesture17_trial6",
+            "session1_participant7_gesture17_trial7"
+          ]
+        },
+        {
+          "held_subject": 8,
+          "train_trials": 196,
+          "held_trials": 28,
+          "train_rest_windows": 980,
+          "train_subjects": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "held_trial_ids": [
+            "session1_participant8_gesture4_trial1",
+            "session1_participant8_gesture4_trial2",
+            "session1_participant8_gesture4_trial3",
+            "session1_participant8_gesture4_trial4",
+            "session1_participant8_gesture4_trial5",
+            "session1_participant8_gesture4_trial6",
+            "session1_participant8_gesture4_trial7",
+            "session1_participant8_gesture15_trial1",
+            "session1_participant8_gesture15_trial2",
+            "session1_participant8_gesture15_trial3",
+            "session1_participant8_gesture15_trial4",
+            "session1_participant8_gesture15_trial5",
+            "session1_participant8_gesture15_trial6",
+            "session1_participant8_gesture15_trial7",
+            "session1_participant8_gesture16_trial1",
+            "session1_participant8_gesture16_trial2",
+            "session1_participant8_gesture16_trial3",
+            "session1_participant8_gesture16_trial4",
+            "session1_participant8_gesture16_trial5",
+            "session1_participant8_gesture16_trial6",
+            "session1_participant8_gesture16_trial7",
+            "session1_participant8_gesture17_trial1",
+            "session1_participant8_gesture17_trial2",
+            "session1_participant8_gesture17_trial3",
+            "session1_participant8_gesture17_trial4",
+            "session1_participant8_gesture17_trial5",
+            "session1_participant8_gesture17_trial6",
+            "session1_participant8_gesture17_trial7"
+          ]
+        }
+      ],
+      "arms": {
+        "F0v2": {
+          "temperature": 1.3050786078412684,
+          "source_oof_raw": {
+            "trials": 224,
+            "accuracy": 0.8169642857142857,
+            "macro_f1": 0.8202078002418244,
+            "log_loss": 0.4388401404809098,
+            "brier": 0.24518124209068784,
+            "ece": 0.09107461915090802,
+            "per_class_f1_json": "{\"15\": 0.7454545454545455, \"16\": 0.8867924528301887, \"17\": 0.9272727272727272, \"4\": 0.7213114754098361}"
+          },
+          "source_oof_calibrated": {
+            "trials": 224,
+            "accuracy": 0.8169642857142857,
+            "macro_f1": 0.8202078002418244,
+            "log_loss": 0.42198662901734074,
+            "brier": 0.23694220383302808,
+            "ece": 0.07970271163942565,
+            "per_class_f1_json": "{\"15\": 0.7454545454545455, \"16\": 0.8867924528301887, \"17\": 0.9272727272727272, \"4\": 0.7213114754098361}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 224,
+                "accuracy": 0.9553571428571429,
+                "macro_f1": 0.9551079403053087,
+                "log_loss": 0.150671479305565,
+                "brier": 0.07947227249183722,
+                "ece": 0.05202232665588236,
+                "per_class_f1_json": "{\"15\": 0.9464285714285714, \"16\": 0.9649122807017544, \"17\": 1.0, \"4\": 0.9090909090909091}"
+              },
+              "calibrated": {
+                "trials": 224,
+                "accuracy": 0.9553571428571429,
+                "macro_f1": 0.9551079403053087,
+                "log_loss": 0.18565816550587938,
+                "brier": 0.09180120321886863,
+                "ece": 0.08566693233567857,
+                "per_class_f1_json": "{\"15\": 0.9464285714285714, \"16\": 0.9649122807017544, \"17\": 1.0, \"4\": 0.9090909090909091}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 224,
+                "accuracy": 0.9017857142857143,
+                "macro_f1": 0.9008139284917354,
+                "log_loss": 0.3007410074072626,
+                "brier": 0.1552428951056694,
+                "ece": 0.054581568528085225,
+                "per_class_f1_json": "{\"15\": 0.8672566371681416, \"16\": 0.9724770642201835, \"17\": 0.9333333333333333, \"4\": 0.8301886792452831}"
+              },
+              "calibrated": {
+                "trials": 224,
+                "accuracy": 0.9017857142857143,
+                "macro_f1": 0.9008139284917354,
+                "log_loss": 0.3176553273471752,
+                "brier": 0.1644538400600179,
+                "ece": 0.07119452319801176,
+                "per_class_f1_json": "{\"15\": 0.8672566371681416, \"16\": 0.9724770642201835, \"17\": 0.9333333333333333, \"4\": 0.8301886792452831}"
+              }
+            }
+          }
+        },
+        "F0v2+scale_pattern": {
+          "temperature": 1.7740669461678775,
+          "source_oof_raw": {
+            "trials": 224,
+            "accuracy": 0.8214285714285714,
+            "macro_f1": 0.8245732004594396,
+            "log_loss": 0.554176319010256,
+            "brier": 0.25580077078283836,
+            "ece": 0.0874125850637244,
+            "per_class_f1_json": "{\"15\": 0.7521367521367521, \"16\": 0.9158878504672897, \"17\": 0.8888888888888888, \"4\": 0.7413793103448276}"
+          },
+          "source_oof_calibrated": {
+            "trials": 224,
+            "accuracy": 0.8214285714285714,
+            "macro_f1": 0.8245732004594396,
+            "log_loss": 0.4712053971918492,
+            "brier": 0.24045958253901706,
+            "ece": 0.051590404721987816,
+            "per_class_f1_json": "{\"15\": 0.7521367521367521, \"16\": 0.9158878504672897, \"17\": 0.8888888888888888, \"4\": 0.7413793103448276}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 224,
+                "accuracy": 0.9285714285714286,
+                "macro_f1": 0.9266264564009652,
+                "log_loss": 0.15151182624675638,
+                "brier": 0.08763302750572952,
+                "ece": 0.02114601082591276,
+                "per_class_f1_json": "{\"15\": 0.8983050847457628, \"16\": 0.9739130434782609, \"17\": 0.9911504424778761, \"4\": 0.8431372549019608}"
+              },
+              "calibrated": {
+                "trials": 224,
+                "accuracy": 0.9285714285714286,
+                "macro_f1": 0.9266264564009652,
+                "log_loss": 0.21152004362558424,
+                "brier": 0.10518806061150496,
+                "ece": 0.07409527152750017,
+                "per_class_f1_json": "{\"15\": 0.8983050847457628, \"16\": 0.9739130434782609, \"17\": 0.9911504424778761, \"4\": 0.8431372549019608}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 224,
+                "accuracy": 0.9017857142857143,
+                "macro_f1": 0.89990798724853,
+                "log_loss": 0.4437344553467137,
+                "brier": 0.15370634113411782,
+                "ece": 0.03133995743403012,
+                "per_class_f1_json": "{\"15\": 0.8869565217391304, \"16\": 0.9285714285714286, \"17\": 0.9491525423728814, \"4\": 0.8349514563106796}"
+              },
+              "calibrated": {
+                "trials": 224,
+                "accuracy": 0.9017857142857143,
+                "macro_f1": 0.89990798724853,
+                "log_loss": 0.4129501845139704,
+                "brier": 0.18027350370573827,
+                "ece": 0.08719027092880209,
+                "per_class_f1_json": "{\"15\": 0.8869565217391304, \"16\": 0.9285714285714286, \"17\": 0.9491525423728814, \"4\": 0.8349514563106796}"
+              }
+            }
+          }
+        },
+        "F0v2+ring_lag": {
+          "temperature": 1.4091914656322269,
+          "source_oof_raw": {
+            "trials": 224,
+            "accuracy": 0.8169642857142857,
+            "macro_f1": 0.8200164596765065,
+            "log_loss": 0.4394370327924116,
+            "brier": 0.24133771035119533,
+            "ece": 0.0822963612361002,
+            "per_class_f1_json": "{\"15\": 0.7433628318584071, \"16\": 0.9074074074074074, \"17\": 0.9174311926605505, \"4\": 0.711864406779661}"
+          },
+          "source_oof_calibrated": {
+            "trials": 224,
+            "accuracy": 0.8169642857142857,
+            "macro_f1": 0.8200164596765065,
+            "log_loss": 0.4126007872609861,
+            "brier": 0.2277124695811368,
+            "ece": 0.053266286229475976,
+            "per_class_f1_json": "{\"15\": 0.7433628318584071, \"16\": 0.9074074074074074, \"17\": 0.9174311926605505, \"4\": 0.711864406779661}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 224,
+                "accuracy": 0.96875,
+                "macro_f1": 0.9685870080606922,
+                "log_loss": 0.1421740120688713,
+                "brier": 0.07326184504297029,
+                "ece": 0.06093169356500186,
+                "per_class_f1_json": "{\"15\": 0.954954954954955, \"16\": 0.9824561403508771, \"17\": 1.0, \"4\": 0.9369369369369369}"
+              },
+              "calibrated": {
+                "trials": 224,
+                "accuracy": 0.96875,
+                "macro_f1": 0.9685870080606922,
+                "log_loss": 0.186113736490638,
+                "brier": 0.09061593847587554,
+                "ece": 0.10229775342320464,
+                "per_class_f1_json": "{\"15\": 0.954954954954955, \"16\": 0.9824561403508771, \"17\": 1.0, \"4\": 0.9369369369369369}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 224,
+                "accuracy": 0.8883928571428571,
+                "macro_f1": 0.8861578911698856,
+                "log_loss": 0.3397294525729806,
+                "brier": 0.17739190183044892,
+                "ece": 0.04236361587376306,
+                "per_class_f1_json": "{\"15\": 0.8793103448275862, \"16\": 0.9357798165137615, \"17\": 0.9256198347107438, \"4\": 0.803921568627451}"
+              },
+              "calibrated": {
+                "trials": 224,
+                "accuracy": 0.8883928571428571,
+                "macro_f1": 0.8861578911698856,
+                "log_loss": 0.33996102042445747,
+                "brier": 0.1788164450546723,
+                "ece": 0.03591786640109581,
+                "per_class_f1_json": "{\"15\": 0.8793103448275862, \"16\": 0.9357798165137615, \"17\": 0.9256198347107438, \"4\": 0.803921568627451}"
+              }
+            }
+          }
+        },
+        "F0v2+correlation_spectrum": {
+          "temperature": 1.4091914656322269,
+          "source_oof_raw": {
+            "trials": 224,
+            "accuracy": 0.8482142857142857,
+            "macro_f1": 0.8502060499349907,
+            "log_loss": 0.44732710523217795,
+            "brier": 0.2419988556456579,
+            "ece": 0.07056509978902752,
+            "per_class_f1_json": "{\"15\": 0.7592592592592593, \"16\": 0.9454545454545454, \"17\": 0.9357798165137615, \"4\": 0.7603305785123967}"
+          },
+          "source_oof_calibrated": {
+            "trials": 224,
+            "accuracy": 0.8482142857142857,
+            "macro_f1": 0.8502060499349907,
+            "log_loss": 0.41859973604559136,
+            "brier": 0.23175469321259354,
+            "ece": 0.03121687070685885,
+            "per_class_f1_json": "{\"15\": 0.7592592592592593, \"16\": 0.9454545454545454, \"17\": 0.9357798165137615, \"4\": 0.7603305785123967}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 224,
+                "accuracy": 0.9553571428571429,
+                "macro_f1": 0.9551379565256407,
+                "log_loss": 0.13673179581739833,
+                "brier": 0.06790606992105705,
+                "ece": 0.04781295235391075,
+                "per_class_f1_json": "{\"15\": 0.9473684210526315, \"16\": 0.9557522123893806, \"17\": 1.0, \"4\": 0.9174311926605505}"
+              },
+              "calibrated": {
+                "trials": 224,
+                "accuracy": 0.9553571428571429,
+                "macro_f1": 0.9551379565256407,
+                "log_loss": 0.18034124986901717,
+                "brier": 0.08533471869093587,
+                "ece": 0.08412026540000707,
+                "per_class_f1_json": "{\"15\": 0.9473684210526315, \"16\": 0.9557522123893806, \"17\": 1.0, \"4\": 0.9174311926605505}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 224,
+                "accuracy": 0.8392857142857143,
+                "macro_f1": 0.8363218297797737,
+                "log_loss": 0.47417920404688946,
+                "brier": 0.24053952327115274,
+                "ece": 0.06226612608586793,
+                "per_class_f1_json": "{\"15\": 0.780952380952381, \"16\": 0.9090909090909091, \"17\": 0.8888888888888888, \"4\": 0.7663551401869159}"
+              },
+              "calibrated": {
+                "trials": 224,
+                "accuracy": 0.8392857142857143,
+                "macro_f1": 0.8363218297797737,
+                "log_loss": 0.44757305347650966,
+                "brier": 0.23689311541840288,
+                "ece": 0.02879645321080376,
+                "per_class_f1_json": "{\"15\": 0.780952380952381, \"16\": 0.9090909090909091, \"17\": 0.8888888888888888, \"4\": 0.7663551401869159}"
+              }
+            }
+          }
+        },
+        "F0v2+frequency_direction": {
+          "temperature": 1.642996623800327,
+          "source_oof_raw": {
+            "trials": 224,
+            "accuracy": 0.8660714285714286,
+            "macro_f1": 0.866931491931492,
+            "log_loss": 0.4660865490550489,
+            "brier": 0.22634449765402614,
+            "ece": 0.08905147258773433,
+            "per_class_f1_json": "{\"15\": 0.8034188034188035, \"16\": 0.9285714285714286, \"17\": 0.8888888888888888, \"4\": 0.8468468468468469}"
+          },
+          "source_oof_calibrated": {
+            "trials": 224,
+            "accuracy": 0.8660714285714286,
+            "macro_f1": 0.866931491931492,
+            "log_loss": 0.4095890567576673,
+            "brier": 0.22168396546571106,
+            "ece": 0.05129386549913186,
+            "per_class_f1_json": "{\"15\": 0.8034188034188035, \"16\": 0.9285714285714286, \"17\": 0.8888888888888888, \"4\": 0.8468468468468469}"
+          },
+          "target": {
+            "validation": {
+              "raw": {
+                "trials": 224,
+                "accuracy": 0.9464285714285714,
+                "macro_f1": 0.9464055748538508,
+                "log_loss": 0.16497735339127678,
+                "brier": 0.08150335766519796,
+                "ece": 0.03136897163075332,
+                "per_class_f1_json": "{\"15\": 0.9454545454545454, \"16\": 0.9482758620689655, \"17\": 0.990990990990991, \"4\": 0.9009009009009009}"
+              },
+              "calibrated": {
+                "trials": 224,
+                "accuracy": 0.9464285714285714,
+                "macro_f1": 0.9464055748538508,
+                "log_loss": 0.1930045567561711,
+                "brier": 0.09285014299474163,
+                "ece": 0.061260233068847536,
+                "per_class_f1_json": "{\"15\": 0.9454545454545454, \"16\": 0.9482758620689655, \"17\": 0.990990990990991, \"4\": 0.9009009009009009}"
+              }
+            },
+            "final": {
+              "raw": {
+                "trials": 224,
+                "accuracy": 0.9107142857142857,
+                "macro_f1": 0.9089014797499961,
+                "log_loss": 0.47326017864970066,
+                "brier": 0.14429570487700522,
+                "ece": 0.039699890525329226,
+                "per_class_f1_json": "{\"15\": 0.8828828828828829, \"16\": 0.9734513274336283, \"17\": 0.9411764705882353, \"4\": 0.8380952380952381}"
+              },
+              "calibrated": {
+                "trials": 224,
+                "accuracy": 0.9107142857142857,
+                "macro_f1": 0.9089014797499961,
+                "log_loss": 0.39898106580281384,
+                "brier": 0.15543084482262143,
+                "ece": 0.055867067028033235,
+                "per_class_f1_json": "{\"15\": 0.8828828828828829, \"16\": 0.9734513274336283, \"17\": 0.9411764705882353, \"4\": 0.8380952380952381}"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "scope": "Public zero-target-shot probability calibration on three correlated ROAM/GRAB screens. This tests calibration sensitivity of independently defined families; it is not personal 0/1/2/5-shot calibration and not own-device validation."
+}
