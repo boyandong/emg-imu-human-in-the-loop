@@ -1,0 +1,15 @@
+{
+  "name": "new_v2_independent_ring_lag_by_frequency_direction_interaction_v1",
+  "version": 1,
+  "hypothesis": "Ring-lag envelope coupling and bandwise spectral direction may carry complementary information beyond either single addition to F0v2; evaluate a finite four-arm interaction on native matched ROAM posture, GRAB unseen-user and GRAB cross-day targets.",
+  "parent_studies": {
+    "roam_posture": {"protocol": "ROAM_V1_EXTENSION_PROTOCOL.json", "protocol_sha256": "9ccbe6b1986f05b5c9906848114fc44643c311e4185f01fe19565f89fc73b95c", "results_sha256": "25ba50178c1ea71e8ed455c06f34bd0e98b49f6fe23d6baf225211acf875ebd5"},
+    "grab_user": {"protocol": "GRAB_V1_EXTENSION_PROTOCOL.json", "protocol_sha256": "117b529c8c779c8db8eb7c924ea33134825deaccbb2641ac16b1abe6d980add4", "results_sha256": "cdfbdadba6c359958637fa1306b5d928222353803fa5310b5102e9b0600b562c"},
+    "grab_day": {"protocol": "GRAB_DAY_V1_EXTENSION_PROTOCOL.json", "protocol_sha256": "d9332af94159a06f707bedb0fe2d2ea6f74db3369d1e4347b401b4637a9a9a9c", "results_sha256": "7662651bbbabc208283672546fc56d9eb1536fb45344f5069c24642d7473bbeb"}
+  },
+  "arms": ["F0v2", "F0v2+ring_lag", "F0v2+frequency_direction", "F0v2+ring_lag+frequency_direction"],
+  "source_fit": "Exactly the parent source subjects/Rest windows, trial splits and classifier hyperparameters for each study; all parent single-arm held-out probabilities must replay within absolute 1e-8.",
+  "interaction_metric": "For any matched target group, positive loss interaction is log_loss(ring)+log_loss(frequency)-log_loss(joint)-log_loss(F0v2), with corresponding F1 interaction equal F1(joint)-F1(ring)-F1(frequency)+F1(F0v2). Report absolute joint-versus-base benefit separately.",
+  "selection": "Validation only: require positive interaction and absolute joint improvement in both F1 and log loss on more than one dataset before calling a general combination useful; final scores are descriptive and cannot select.",
+  "scope": "Finite theory-motivated interaction of independent new-family definitions. These three studies are correlated public evidence, not three independent population replications; no historical formula or own-device claim."
+}
