@@ -1,0 +1,12 @@
+{
+  "name": "new_v1_trace_and_spd_wearing_increment_v1",
+  "version": 1,
+  "parent": "F2B_WEARING",
+  "parent_protocol_sha256": "0641cc1eef869454a5f26a07eeff4e1f2a39266338be17d017f2e09fc9bd8c02",
+  "parent_result_sha256": "a5471518f0f5f242270f2a382b5a941dc3f601dd5f0dc53f7056e9742c0c7488",
+  "parent_prediction_sha256": "79410eb76341f237003a1eda4f9cfd85a9395af819456d997d3f07884a21983f",
+  "arms": ["F0v2+F2a_trace", "F0v2+F2c_spd"],
+  "source_fit": "For each subject, source training-domain windows fit F0v2 Rest thresholds, fixed-shrinkage trace covariance and log-Euclidean SPD reference. Source native trials alone fit each scaler and balanced LogisticRegression C=1 max_iter=2000 random_state=20260924; target wearing domains are transform-only.",
+  "selection": "Compare F0v2, F0v2+document F2b, F0v2+F2a and F0v2+F2c only on matched validation-subject trials; final subjects are descriptive. Do not promote from a single wearing axis.",
+  "boundary": "Public eight-channel 200 Hz same-user wearing-domain spatial family screen. F2a and F2c use centered, shrunken source-frozen covariance; F2b uses the separate uncentered CSP equation. No historical-family, own-device or cross-day claim."
+}

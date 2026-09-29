@@ -26,7 +26,7 @@ from emgimu.feature_bank.reconstructed_ring import ReconstructedRlcs
 from emgimu.feature_bank.new_bank_v1 import (
     ScalePatternV1, RingLagV1, CorrelationSpectrumV1, FrequencyDirectionV1,
 )
-from emgimu.feature_bank.new_bank_v2 import RestNoiseDetailV2
+from emgimu.feature_bank.new_bank_v2 import RestNoiseDetailV2, TraceCovarianceV2
 from emgimu.feature_bank.calibration import PersonalAnchor
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
@@ -34,6 +34,8 @@ from emgimu.feature_bank.calibration import PersonalAnchor
 REVIEWS = (
  ('NEW_V1_F0','F0. Local / Traditional Signal Detail','new_bank_v2.py','RestNoiseDetailV2','new_version_native_screen',
   'Independent eight-channel RMS/MAV/WL/ZC/SSC/WAMP with per-channel thresholds fixed from source Rest adjacent-difference median and MAD. Exact six-block analytical fixture and seven public validation axes plus complete-bank LOFO exist. No nonexistent historical extra R0 features or own-device generalization are asserted.','6C'),
+ ('NEW_V1_F2A','F2a. Trace-normalized covariance','new_bank_v2.py','TraceCovarianceV2','new_version_native_screen',
+  'Independent centered, fixed-.05-shrinkage trace covariance with sqrt(2) off-diagonal vectorization. Exact formula fixture and matched public wearing F0v2 increment exist. Validation improves, final pooled F1 declines, so no general default promotion.','C(C+1)/2'),
  ('F6_calibrated_candidate','F6a. IMU body-frame context','body_frame.py','CalibratedBodyContextFamily','candidate_api_native_unavailable',
   'Explicit neutral gravity and guided/measured forward axis establish fixed calibration-relative frame; real IMU rate/units and trial provenance required. Causal gravity EMA and linear acceleration RMS present. Calibration trials rejected in held-out evaluation. Public native calibrated frame evaluation unavailable; no absolute yaw.','15'),
  ('F0_noise_candidate','F0. Local / Traditional Signal Detail','document_signal.py','RestNoiseLocalDetailFamily','candidate_formula',
@@ -49,7 +51,7 @@ REVIEWS = (
  ('F2b','F2b. CSP-like spatial feature','families.py','CspSpatialFamily','partial',
   'Source-only one-vs-rest generalized eigensystem; uses centered/shrunk covariance instead of stated uncentered XX transpose. Default one tail component versus suggested two.','2 H min(tails,floor(C/2))'),
  ('F2c','F2c. SPD / Riemannian tangent feature','families.py','SpdTangentFamily','candidate_formula',
-  'Explicit permitted log-Euclidean training reference; whitened matrix log and sqrt(2) vech; not geometric-mean claim. Exploratory one-person Song four-state trial and causal-stream gains coexist with pre-prompt-rest false-active cost; the 28-state F0+IMU+F2c final macro-F1 declines despite mean accuracy gain. Formal own-device generalization remains unproven.','C(C+1)/2'),
+  'Explicit permitted log-Euclidean training reference; whitened matrix log and sqrt(2) vech; not geometric-mean claim. A matched public wearing F0v2 increment gains validation F1/loss but loses final pooled F1 and validation minimum-subject F1. Exploratory one-person Song gains coexist with false-active cost and 28-state final F1 decline. Formal own-device generalization remains unproven.','C(C+1)/2'),
  ('F3a','F3a. RLCS','reconstructed_ring.py','ReconstructedRlcs','candidate_native_reconstruction',
   'New wrapper selects 25ms smoothed-rectification circular-lag correlation mean/std block. Source-only EPN users1-15 and native validation16-18/descriptive final19-21 at 1/2/5-shot PersonalAnchor have exact frozen replay; no stable final F1/log-loss gain. Historical validated envelope, aggregation, and RLCS identity remain unavailable.','2 floor(C/2) block'),
  ('F3b','F3b. CES','families.py','RingGeometryFamily','reference_only',
@@ -125,7 +127,7 @@ def build(document, output):
                     lambda:QualityObservabilityFamily(ring_topology=True),
                     lambda:RestNoiseLocalDetailFamily(rest_label=2),DocumentCspFamily,
                     ScalePatternV1,RingLagV1,CorrelationSpectrumV1,FrequencyDirectionV1,
-                    lambda: RestNoiseDetailV2(rest_label=0)):
+                    lambda: RestNoiseDetailV2(rest_label=0), TraceCovarianceV2):
         family = factory().fit(batch,labels); before = pickle.dumps(family)
         values = family.transform(batch)
         if values.shape!=(16,len(family.feature_names)) or not np.isfinite(values).all():

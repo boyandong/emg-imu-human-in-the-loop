@@ -3624,13 +3624,15 @@ finds no missing required values in 5,312 seven-axis family, conditional
 and error rows. The global delivery still contains older evidence with
 honest N/A fields; new-v1 completeness does not repair those records.
 
-The [document F2b wearing screen](../benchmarks/new_bank_v2/F2B_WEARING_REPORT.md)
-separately adds uncentered CSP to F0v2 on matched same-user public
-wearing-domain trials. Its validation macro-F1 falls 0.5775→0.5444 and
-log loss rises 1.2916→1.3655; a favorable descriptive final split does
-not promote the candidate. The exact generalized-eigenvector formula has
-an analytical fixture, and source-only fitting plus frozen-baseline replay
-are checked on the native trial study.
+The [matched F2 wearing comparison](../benchmarks/new_bank_v2/F2_WEARING_CANDIDATES_REPORT.md)
+separately adds trace covariance, uncentered document CSP, or SPD tangent
+coordinates to F0v2 on identical public wearing-domain trials. Validation
+macro-F1 is 0.5775 for F0v2, 0.6960 for F2a, 0.5444 for F2b and 0.6110
+for F2c. The favorable F2a and F2c validation results reverse on pooled
+final F1; the favorable F2b final result cannot retroactively select it.
+Formula-level analytical checks, source-only fitting, trial identity and
+saved probability readback are separately recorded. This single wearing
+axis does not establish a universal F2 candidate.
 
 The [complete new-v1 bank LOFO](../benchmarks/new_bank_v2/FULL_V1_LOFO_REPORT.md)
 now tests F0v2 plus all four independent additions and every
