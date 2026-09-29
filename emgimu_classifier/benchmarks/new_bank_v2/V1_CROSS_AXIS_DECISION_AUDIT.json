@@ -21,6 +21,142 @@
     "observed_speed",
     "synthetic_quality"
   ],
+  "robustness_vectors": {
+    "validation": {
+      "F0v2": {
+        "axis_macro_f1": {
+          "posture": 0.9630324989020641,
+          "unseen_user": 0.8053814002089864,
+          "cross_day": 0.9551079403053087,
+          "force_intensity": 0.6294897887558891,
+          "wearing_shift": 0.5774608569088894,
+          "observed_speed": 0.3913744923084004,
+          "synthetic_quality": 0.9110238460845409
+        },
+        "mean_available_macro_f1": 0.7475529747820113,
+        "minimum_available_macro_f1": 0.3913744923084004
+      },
+      "F0v2+scale_pattern": {
+        "axis_macro_f1": {
+          "posture": 0.9509410964079194,
+          "unseen_user": 0.7480790854572714,
+          "cross_day": 0.9266264564009652,
+          "force_intensity": 0.6200780989177835,
+          "wearing_shift": 0.5616248196248196,
+          "observed_speed": 0.375127231161714,
+          "synthetic_quality": 0.9089475269553252
+        },
+        "mean_available_macro_f1": 0.7273463307036855,
+        "minimum_available_macro_f1": 0.375127231161714
+      },
+      "F0v2+ring_lag": {
+        "axis_macro_f1": {
+          "posture": 0.9500008692779778,
+          "unseen_user": 0.8359848484848484,
+          "cross_day": 0.9685870080606922,
+          "force_intensity": 0.6124730097166512,
+          "wearing_shift": 0.5836591478696741,
+          "observed_speed": 0.42642218394906567,
+          "synthetic_quality": 0.8381869823134899
+        },
+        "mean_available_macro_f1": 0.7450448642389141,
+        "minimum_available_macro_f1": 0.42642218394906567
+      },
+      "F0v2+correlation_spectrum": {
+        "axis_macro_f1": {
+          "posture": 0.9387487385150596,
+          "unseen_user": 0.7784313725490196,
+          "cross_day": 0.9551379565256407,
+          "force_intensity": 0.6077888620644615,
+          "wearing_shift": 0.6129562984111958,
+          "observed_speed": 0.4122945096299735,
+          "synthetic_quality": 0.8745459408879753
+        },
+        "mean_available_macro_f1": 0.739986239797618,
+        "minimum_available_macro_f1": 0.4122945096299735
+      },
+      "F0v2+frequency_direction": {
+        "axis_macro_f1": {
+          "posture": 0.9447542780876114,
+          "unseen_user": 0.8002298850574713,
+          "cross_day": 0.9464055748538508,
+          "force_intensity": 0.6202386590894757,
+          "wearing_shift": 0.496734740407791,
+          "observed_speed": 0.3459419720354519,
+          "synthetic_quality": 0.8785844405142301
+        },
+        "mean_available_macro_f1": 0.7189842214351261,
+        "minimum_available_macro_f1": 0.3459419720354519
+      }
+    },
+    "final": {
+      "F0v2": {
+        "axis_macro_f1": {
+          "posture": 0.9161920857507796,
+          "unseen_user": 0.9458064516129032,
+          "cross_day": 0.9008139284917354,
+          "force_intensity": 0.493901429224576,
+          "wearing_shift": 0.6170443624082707,
+          "observed_speed": 0.46004396907686756,
+          "synthetic_quality": 0.9190129463459377
+        },
+        "mean_available_macro_f1": 0.7504021675587244,
+        "minimum_available_macro_f1": 0.46004396907686756
+      },
+      "F0v2+scale_pattern": {
+        "axis_macro_f1": {
+          "posture": 0.9451540366857287,
+          "unseen_user": 0.8884762479871176,
+          "cross_day": 0.89990798724853,
+          "force_intensity": 0.47795808775257637,
+          "wearing_shift": 0.6263154492566259,
+          "observed_speed": 0.5299766303736809,
+          "synthetic_quality": 0.9415411909020657
+        },
+        "mean_available_macro_f1": 0.7584756614580465,
+        "minimum_available_macro_f1": 0.47795808775257637
+      },
+      "F0v2+ring_lag": {
+        "axis_macro_f1": {
+          "posture": 0.9358743981385492,
+          "unseen_user": 0.8898934371198239,
+          "cross_day": 0.8861578911698856,
+          "force_intensity": 0.4934808060227551,
+          "wearing_shift": 0.5868481852088409,
+          "observed_speed": 0.4135742507705424,
+          "synthetic_quality": 0.8626979616454732
+        },
+        "mean_available_macro_f1": 0.7240752757251243,
+        "minimum_available_macro_f1": 0.4135742507705424
+      },
+      "F0v2+correlation_spectrum": {
+        "axis_macro_f1": {
+          "posture": 0.8748014037560754,
+          "unseen_user": 0.927014652014652,
+          "cross_day": 0.8363218297797737,
+          "force_intensity": 0.5046842184864967,
+          "wearing_shift": 0.5439135654261704,
+          "observed_speed": 0.46621277780317544,
+          "synthetic_quality": 0.9012161983945578
+        },
+        "mean_available_macro_f1": 0.7220235208087002,
+        "minimum_available_macro_f1": 0.46621277780317544
+      },
+      "F0v2+frequency_direction": {
+        "axis_macro_f1": {
+          "posture": 0.9460290951570629,
+          "unseen_user": 0.8400577683186379,
+          "cross_day": 0.9089014797499961,
+          "force_intensity": 0.4988462498383737,
+          "wearing_shift": 0.5827398557587237,
+          "observed_speed": 0.4958004588439371,
+          "synthetic_quality": 0.9507262301675112
+        },
+        "mean_available_macro_f1": 0.7461573054048918,
+        "minimum_available_macro_f1": 0.4958004588439371
+      }
+    }
+  },
   "validation_violations": {
     "F0v2+scale_pattern": [
       {

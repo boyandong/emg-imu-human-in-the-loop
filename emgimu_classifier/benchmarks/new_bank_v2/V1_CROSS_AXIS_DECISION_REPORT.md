@@ -45,6 +45,24 @@ final F1 by .056, while correlation spectrum improves wearing validation
 F1 by .035 but lowers final F1 by .073. Those final rows did not enter
 selection.
 
+For the requested seven-coordinate robustness vector, the following
+unweighted mean and minimum summarize the **available axis F1 values**.
+Each axis remains visible in the matched table; these unlike tasks are
+not pooled into one classifier accuracy.
+
+| Arm | Validation mean(R) | Validation R_min | Descriptive final mean(R) | Descriptive final R_min |
+| --- | ---: | ---: | ---: | ---: |
+| F0v2 | **.7476** | .3914 | .7504 | .4600 |
+| + scale pattern | .7273 | .3751 | .7585 | .4780 |
+| + ring lag | .7450 | **.4264** | .7241 | .4136 |
+| + correlation spectrum | .7400 | .4123 | .7220 | .4662 |
+| + frequency direction | .7190 | .3459 | .7462 | **.4958** |
+
+Ring lag raises the validation minimum because the observed-speed axis
+is the lowest baseline coordinate, but lowers mean F1 and fails the
+per-axis F1/loss guard. Its final minimum falls below F0v2. Final-only
+mean or minimum gains cannot override the validation decision.
+
 The [paired subject audit](V1_CROSS_AXIS_SUBJECT_AUDIT.json) adds 310
 individual subject–arm–phase cells and 70 summary cells. It shows why a
 pooled gain alone is not sufficient: ring lag improves unseen-user

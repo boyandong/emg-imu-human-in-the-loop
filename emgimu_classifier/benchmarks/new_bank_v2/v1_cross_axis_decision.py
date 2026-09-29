@@ -80,6 +80,14 @@ def build() -> dict:
                         violations[arm].append({"axis": axis, "metric": metric})
     if len(rows) != 70:
         raise AssertionError("seven-axis arm-phase coverage changed")
+    robustness = {phase: {arm: {
+        "axis_macro_f1": {row["axis"]: row["macro_f1"] for row in rows
+                          if row["phase"] == phase and row["arm"] == arm},
+        "mean_available_macro_f1": sum(row["macro_f1"] for row in rows
+                                       if row["phase"] == phase and row["arm"] == arm) / 7,
+        "minimum_available_macro_f1": min(row["macro_f1"] for row in rows
+                                          if row["phase"] == phase and row["arm"] == arm)}
+        for arm in PROTOCOL["arms"]} for phase in ("validation", "final")}
     eligible = []
     for arm in PROTOCOL["arms"][1:]:
         improved = any(row["phase"] == "validation" and row["arm"] == arm
@@ -99,6 +107,7 @@ def build() -> dict:
              "source_results_sha256": PROTOCOL["source_results_sha256"],
              "saved_cells_sha256": sha256(path), "cells": len(rows),
              "validation_axes": PROTOCOL["axes"],
+             "robustness_vectors": robustness,
              "validation_violations": violations, "eligible_additions": eligible,
              "deployment_default": decision,
              "selection_uses_final": False,

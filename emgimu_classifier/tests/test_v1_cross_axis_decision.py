@@ -22,6 +22,10 @@ def test_v1_cross_axis_saved_source_and_decision() -> None:
         "F0v2+scale_pattern", "F0v2+ring_lag",
         "F0v2+correlation_spectrum", "F0v2+frequency_direction"}
     assert all(audit["validation_violations"].values())
+    vector = audit["robustness_vectors"]["validation"]
+    assert len(vector["F0v2"]["axis_macro_f1"]) == 7
+    assert abs(vector["F0v2"]["mean_available_macro_f1"] - 0.7475529747820113) < 1e-12
+    assert abs(vector["F0v2"]["minimum_available_macro_f1"] - 0.3913744923084004) < 1e-12
     protocol = json.loads((ROOT / "V1_CROSS_AXIS_DECISION_PROTOCOL.json").read_text(encoding="utf-8"))
     assert audit["protocol_sha256"] == sha256(ROOT / "V1_CROSS_AXIS_DECISION_PROTOCOL.json")
     for source, digest in protocol["source_results_sha256"].items():

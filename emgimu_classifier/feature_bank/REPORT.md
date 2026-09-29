@@ -3604,5 +3604,12 @@ numerically with this newer comparison.
 | D. Only after personal calibration? | No new-v1 family has a consistent advantage *only* after the fixed score-space 0/1/2/5-shot correction. The fixed feature-space anchor worsens pooled log loss at every nonzero budget for every arm on both tested days. | Other personalization rules remain untested. |
 | E. Personal Anchor and cross-user variation? | The tested feature-space rule is not promoted; the earlier EPN personal-anchor branch can lower mean/minimum F1 and increase user variation. | This does not reject all anchors or establish own-device cross-user effects. |
 | F. Session Signature for day/re-donning? | A native wearing-domain test found no final F1 benefit from the fixed signature routing, although local prototypes can improve F1 with worse loss. | Wearing domains are not documented calendar sessions or physical re-donning on this device. |
-| G. Worst scenario R_min? | No candidate addition passes all seven validation axes. Ring lag's quality minimum subject fault-family mean falls from .816 to .632, despite gains in other axes. Keeping F0v2 preserves the tested baseline minimum rather than claiming a new recovery. | Axes have unlike tasks and correlated recordings; synthetic quality is not real fault prevalence. |
+| G. Worst scenario R_min? | Ring lag raises the descriptive seven-axis validation minimum from .3914 to .4264 by improving the lowest speed coordinate, but lowers the seven-axis mean from .7476 to .7450, has eight per-axis F1/loss guard violations and falls below F0v2 on final R_min (.4136 versus .4600). It also lowers the quality minimum subject fault-family mean from .816 to .632. No robust overall envelope gain is established. | Axes have unlike tasks and correlated recordings; synthetic quality is not real fault prevalence. |
 | H. Calibration needed in product? | The public GRAB 1/2/5-shot protocols consume 20/40/100 seconds of labelled signal, excluding setup and rest; no budget supplies a reliable all-axis recovery. The selected public-data default is zero target shots. | Actual setup time, cross-session benefit and live 250 Hz device accuracy cannot be prescribed without hardware and suitable recordings. |
+
+The [new-version reproducibility audit](../benchmarks/new_bank_v2/V1_REPRODUCIBILITY_AUDIT.json)
+checks all seven screen packages: protocol/result/prediction hashes,
+19,060 saved prediction rows, source/validation/final native-trial
+separation, eight-channel sample contracts and explicit classifier seeds.
+It checks saved evidence, not a full raw-archive rerun of every experiment
+or a physical-device test.
