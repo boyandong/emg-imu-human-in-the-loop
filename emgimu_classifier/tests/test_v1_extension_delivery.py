@@ -120,3 +120,36 @@ def test_paired_cells_are_in_canonical_source_tables():
         assert len({(r["dataset"], r["session/domain"], r["phase"], r["scope"], r["subject"],
                      r["condition"], r.get("added_family", r.get("family_b")))
                     for r in rows}) == 176
+
+
+def test_ring_frequency_four_arm_interaction_replays_and_exports():
+    result = json.loads((ROOT / "RING_FREQ_INTERACTION_RESULTS.json").read_text(encoding="utf-8"))
+    audit = json.loads((ROOT / "RING_FREQ_INTERACTION_AUDIT.json").read_text(encoding="utf-8"))
+    delivery = json.loads((ROOT / "RING_FREQ_INTERACTION_DELIVERY_AUDIT.json").read_text(encoding="utf-8"))
+    predictions = ROOT / "RING_FREQ_INTERACTION_PREDICTIONS.csv"
+    table = ROOT / "RING_FREQ_INTERACTION.csv"
+    assert result["protocol_sha256"] == sha256(ROOT / "RING_FREQ_INTERACTION_PROTOCOL.json")
+    assert result["prediction_sha256"] == audit["prediction_sha256"] == sha256(predictions)
+    assert audit["result_sha256"] == sha256(ROOT / "RING_FREQ_INTERACTION_RESULTS.json")
+    assert audit["table_sha256"] == delivery["source_sha256"] == sha256(table)
+    assert audit["rows"] == delivery["rows"] == 44
+    with predictions.open(newline="", encoding="utf-8") as stream:
+        rows = list(csv.DictReader(stream))
+    with table.open(newline="", encoding="utf-8") as stream:
+        cells = list(csv.DictReader(stream))
+    assert len(rows) == result["prediction_rows"] == 3680
+    assert len({(r["study"], r["arm"], r["phase"], r["trial_id"]) for r in rows}) == 3680
+    for cell in cells:
+        assert float(cell["S_macro_f1"]) == pytest.approx(
+            float(cell["joint_macro_f1"]) - float(cell["ring_macro_f1"])
+            - float(cell["frequency_macro_f1"]) + float(cell["base_macro_f1"]), abs=1e-12)
+        assert float(cell["S_negative_logloss"]) == pytest.approx(
+            float(cell["ring_log_loss"]) + float(cell["frequency_log_loss"])
+            - float(cell["joint_log_loss"]) - float(cell["base_log_loss"]), abs=1e-12)
+        assert float(cell["joint_log_loss_improvement"]) == pytest.approx(
+            float(cell["base_log_loss"]) - float(cell["joint_log_loss"]), abs=1e-12)
+    source = ROOT.parents[1] / "feature_bank" / "results" / "interaction_results.csv"
+    assert delivery["output_sha256"] == sha256(source)
+    with source.open(newline="", encoding="utf-8") as stream:
+        exported = [r for r in csv.DictReader(stream) if r["run_id"] == delivery["run_id"]]
+    assert len(exported) == 44

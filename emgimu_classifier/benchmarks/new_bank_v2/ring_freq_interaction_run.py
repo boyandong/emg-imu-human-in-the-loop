@@ -57,8 +57,10 @@ def load_roam() -> tuple[dict, np.ndarray, list[dict], dict, int]:
                 "ring_lag": RingLagV1().fit(rest_batch),
                 "frequency_direction": FrequencyDirectionV1().fit(rest_batch)}
     from benchmarks.grabmyo_crossday.run import aggregate
-    vectors = {name: np.stack([aggregate(family.transform(batch)[a:b]) for a, b in slices])
-               for name, family in families.items()}
+    vectors = {}
+    for name, family in families.items():
+        window_features = family.transform(batch)
+        vectors[name] = np.stack([aggregate(window_features[a:b]) for a, b in slices])
     masks = {phase: np.isin(subjects, parent[f"{phase}_subjects"])
              for phase in ("validation", "final")}
     if any(mask.sum() != 180 or np.any(mask & source) for mask in masks.values()):

@@ -1,0 +1,9 @@
+{
+  "status": "ok",
+  "run_id": "feature_bank_ring_freq_interaction_20260929",
+  "rows": 44,
+  "source_sha256": "78e6bc47c681eeca4a6059076c04ed73d009102f38ac6f1d2a93f16c51b2192c",
+  "source_audit_sha256": "eb77f5ec5b87f6edd43dbcfda73ff5edd14f127cd92db88ebb7c575fb9283559",
+  "output_sha256": "9ef53257864cf3678ecec36c207a63f7a5ee2bb86a2cd9c1d388dbab06434b84",
+  "boundary": "Positive synergy is separate from absolute joint-versus-base gain; final-only evidence cannot select."
+}

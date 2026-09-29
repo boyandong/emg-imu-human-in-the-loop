@@ -3469,3 +3469,13 @@ full-bank inclusion. The analysis is descriptive and does not refit or
 select models using final labels.
 The 176 matched conditional and 176 error cells are also in the canonical
 delivery; its provenance verification now covers 55,930 source records.
+
+The [frozen ring-lag × frequency-direction four-arm interaction](../benchmarks/new_bank_v2/RING_FREQ_INTERACTION_REPORT.md)
+tests one finite theory-motivated combination across the same three public
+splits. All three validation groups show negative F1 and log-loss
+interaction and absolute joint F1/loss regressions versus F0v2. The 3,680
+held-out probability rows exactly replay the earlier single-arm screens;
+44 matched pooled/subject/posture interaction cells are exported. A positive
+interaction in one descriptive final split still coincides with a much
+worse absolute joint arm. This combination is rejected as a default bank
+addition under the frozen validation rule.
