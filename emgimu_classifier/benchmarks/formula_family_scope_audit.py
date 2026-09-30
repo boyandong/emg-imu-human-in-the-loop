@@ -40,9 +40,9 @@ REVIEWS = (
     ("F8", "public_session_limited", "feature_bank/results/family_specific_session_shift_audit.json",
      "Long-versus-current family-specific summaries are derived from source/calibration trials; public wearing and MANUS context controls exist.",
      "Own-device true later-day/re-donning validation and a universally beneficial routing rule are unavailable."),
-    ("F9", "synthetic_quality_only", "benchmarks/new_bank_v2/ROAM_V1_QUALITY_ANALYSIS_AUDIT.json|feature_bank/results/quality_unknown_replay.json",
-     "Availability-aware quality observations, synthetic corruption controls and explicit Unknown decision replay exist.",
-     "Unknown ADC range and absent pre-highpass signal are masked; measured hardware-fault prevalence and safe live gating remain unverified."),
+    ("F9", "one_person_quality_candidate", "benchmarks/new_bank_v2/ROAM_V1_QUALITY_ANALYSIS_AUDIT.json|feature_bank/results/quality_unknown_replay.json|benchmarks/song_real8/QUALITY_MASK_V1.json",
+     "Availability-aware quality observations, explicit Unknown replay and a source-frozen mask checked on Song held-out raw-ADC windows with synthetic constant-channel corruption exist.",
+     "The one-person candidate has no physical-fault ground truth or matched classifier increment; unknown ADC metadata and safe live gating remain unresolved."),
 )
 
 

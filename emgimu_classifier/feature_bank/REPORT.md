@@ -3705,3 +3705,13 @@ and genuine open work. Remaining applicable F0–F9 formula/native-eligibility
 checks are still open. Own-device session/physical validation is explicitly
 deferred by data availability. The matrix does not replace the separate
 78-section source audit or claim full specification acceptance.
+
+An optional [source-calibrated F9 quality-mask candidate](../benchmarks/song_real8/QUALITY_MASK_V1.json)
+now combines the F9v2 zero, flatline, ADC-clipping, amplitude, correlation,
+line-noise and low-frequency observations into eight channel scores plus four
+summaries. S01/S02 alone fix the thresholds; S03/S04 are read-only. Their
+mean candidate quality is 0.998/0.982, and setting channel 1 to a constant
+in every held-out window yields zero channel-1 quality in both sessions.
+This is a synthetic-fault detection check on one person's same-day raw ADC
+recordings, not a measured hardware-fault rate or a selected live gate. The
+existing deployed quality and Unknown decisions remain unchanged.

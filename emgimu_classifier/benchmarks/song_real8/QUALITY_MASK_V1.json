@@ -1,0 +1,183 @@
+{
+  "status": "one_person_raw_adc_f9_candidate_not_deployed",
+  "source_sessions": [
+    "S01",
+    "S02"
+  ],
+  "validation_session": "S03",
+  "descriptive_final_session": "S04",
+  "source_windows": 849,
+  "source_sha256": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479"
+  },
+  "target_sha256": {
+    "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+    "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+  },
+  "source_state_sha256": "3f4f586afc2fa567a6b864da81f6489cd404fe912439bf462bcac33b04860b5b",
+  "availability": {
+    "adc_clipping": true,
+    "line_noise": true,
+    "low_frequency_pre_highpass": true
+  },
+  "thresholds": {
+    "zero": [
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "flat": [
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "clip": [
+      0.01,
+      0.01,
+      0.01,
+      0.01,
+      0.01,
+      0.01,
+      0.01,
+      0.01
+    ],
+    "amplitude": [
+      10.76149387359619,
+      10.426010513305652,
+      6.0,
+      7.341169128417967,
+      8.624952087402342,
+      12.649665527343744,
+      8.712914009094238,
+      14.319206542968747
+    ],
+    "correlation": [
+      6.0,
+      6.0,
+      6.0,
+      6.0,
+      6.0,
+      6.0,
+      6.0,
+      6.0
+    ],
+    "line": [
+      14.648476600646969,
+      10.0,
+      10.0,
+      10.0,
+      11.286615600585908,
+      11.939517364501947,
+      10.0,
+      10.0
+    ],
+    "low_frequency": [
+      145.20691833496053,
+      186.67776245117182,
+      47.16733917236325,
+      268.1945947265614,
+      218.54763854980456,
+      47.1580709838867,
+      27.69178909301754,
+      50.74329803466792
+    ]
+  },
+  "quality_feature_names": [
+    "F9cal.quality.ch1",
+    "F9cal.quality.ch2",
+    "F9cal.quality.ch3",
+    "F9cal.quality.ch4",
+    "F9cal.quality.ch5",
+    "F9cal.quality.ch6",
+    "F9cal.quality.ch7",
+    "F9cal.quality.ch8",
+    "F9cal.bad_channel_count",
+    "F9cal.mean_quality",
+    "F9cal.min_quality",
+    "F9cal.quality_variance"
+  ],
+  "sessions": {
+    "S03": {
+      "windows": 416,
+      "readiness": "failed",
+      "observed_mean_quality": 0.9979893565177917,
+      "observed_min_quality_median": 1.0,
+      "observed_any_bad_channel_fraction": 0.009615384615384616,
+      "hypothetical_min_quality_below_0_5_fraction": 0.009615384615384616,
+      "by_hand": {
+        "fist": {
+          "windows": 94,
+          "mean_quality": 0.9983627796173096,
+          "hypothetical_min_quality_below_0_5_fraction": 0.010638297872340425
+        },
+        "index_pinch": {
+          "windows": 107,
+          "mean_quality": 0.999066174030304,
+          "hypothetical_min_quality_below_0_5_fraction": 0.0
+        },
+        "neutral": {
+          "windows": 107,
+          "mean_quality": 0.9993686676025391,
+          "hypothetical_min_quality_below_0_5_fraction": 0.0
+        },
+        "open_hand": {
+          "windows": 108,
+          "mean_quality": 0.9952311515808105,
+          "hypothetical_min_quality_below_0_5_fraction": 0.027777777777777776
+        }
+      },
+      "synthetic_ch1_constant": {
+        "channel_quality_zero_fraction": 1.0,
+        "any_bad_channel_fraction": 1.0,
+        "minimum_quality_below_0_5_fraction": 1.0
+      }
+    },
+    "S04": {
+      "windows": 431,
+      "readiness": "passed",
+      "observed_mean_quality": 0.9815914630889893,
+      "observed_min_quality_median": 1.0,
+      "observed_any_bad_channel_fraction": 0.09280742459396751,
+      "hypothetical_min_quality_below_0_5_fraction": 0.09280742459396751,
+      "by_hand": {
+        "fist": {
+          "windows": 108,
+          "mean_quality": 0.9958229064941406,
+          "hypothetical_min_quality_below_0_5_fraction": 0.009259259259259259
+        },
+        "index_pinch": {
+          "windows": 108,
+          "mean_quality": 0.9846489429473877,
+          "hypothetical_min_quality_below_0_5_fraction": 0.07407407407407407
+        },
+        "neutral": {
+          "windows": 107,
+          "mean_quality": 0.9946700930595398,
+          "hypothetical_min_quality_below_0_5_fraction": 0.037383177570093455
+        },
+        "open_hand": {
+          "windows": 108,
+          "mean_quality": 0.9513450264930725,
+          "hypothetical_min_quality_below_0_5_fraction": 0.25
+        }
+      },
+      "synthetic_ch1_constant": {
+        "channel_quality_zero_fraction": 1.0,
+        "any_bad_channel_fraction": 1.0,
+        "minimum_quality_below_0_5_fraction": 1.0
+      }
+    }
+  },
+  "scope": "Source S01/S02-only F9v2 thresholds; S03/S04 read-only. Raw ADC metadata and pre-highpass input are available for this one-person/day recording. The rule and 0.5 illustrative quality flag are candidates, not selected or deployed. S03 collection readiness failed; S04 was previously inspected. Constant-channel corruption is synthetic, not observed hardware-fault prevalence. No new-user, new-day, re-donning or live safety claim."
+}
