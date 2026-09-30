@@ -1,0 +1,38 @@
+{
+  "status": "one_person_exploratory_structural_rule_not_deployed",
+  "protocol_sha256": "1a60d9a711ef5f24e1460033565213c7deaaec881f4e3f801ebc88fa640c6cee",
+  "parent_quality_result_sha256": "0b85309d7ace128b698955f799e03c6fcb183420fab84f88cefdbab81ecdcb12",
+  "frozen_f0_predictions_sha256": "4b4a9b03ad9dcfc61d1c0554dfd3a78037556af5f55c4f22055b4c86f9042972",
+  "reconstructed_source_state_sha256": "bbec8a1af9be9259885cfc7242555fa25e5329bc74cdb07ad32c8788f01e7e4f",
+  "parent_source_state_sha256": "3f4f586afc2fa567a6b864da81f6489cd404fe912439bf462bcac33b04860b5b",
+  "source_windows": 849,
+  "availability": {
+    "adc_clipping": true,
+    "line_noise": true,
+    "low_frequency_pre_highpass": true
+  },
+  "trial_rows_sha256": "b91563a21103502ab13cc1fe0d5fd236895b1762b1092c2173eeb781f552a0ea",
+  "sessions": {
+    "S03": {
+      "trials": 140,
+      "accepted": 140,
+      "rejected": 0,
+      "coverage": 1.0,
+      "baseline_errors": 9,
+      "errors_rejected": 0,
+      "correct_rejected": 0,
+      "synthetic_constant_channel_trials_detected": 140
+    },
+    "S04": {
+      "trials": 144,
+      "accepted": 144,
+      "rejected": 0,
+      "coverage": 1.0,
+      "baseline_errors": 13,
+      "errors_rejected": 0,
+      "correct_rejected": 0,
+      "synthetic_constant_channel_trials_detected": 144
+    }
+  },
+  "scope": "Single person and one calendar day, no validated re-donning, uncertain original packet bytes and cue onset. Both target sessions and the earlier quality mask were inspected before this rule. This is exploratory, not physical-fault sensitivity, independent final validation or live deployment."
+}

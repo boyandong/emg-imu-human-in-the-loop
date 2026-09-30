@@ -3792,3 +3792,12 @@ but catches none of the 14 existing F0 errors. Synthetic constant channels
 and known-rail saturation are detected in tests. Both GRAB target groups had
 already been inspected, and physical-fault labels are absent, so this rule
 also remains diagnostic and is not a promoted Unknown gate.
+
+The same severe rule was replayed on the available one-person, 250 Hz
+[Song raw-ADC sessions](../benchmarks/song_real8/F9_STRUCTURAL_SONG_REPORT.md).
+S03/S04 retain all 140/144 formal trials, so the parent mask's 4/29
+rejections disappear; none of the 9/13 original F0 errors is detected.
+Holding channel 1 constant in copied windows triggers the rule for every
+trial. Exact parent source thresholds and frozen F0 trial identities are
+checked. This is same-day, previously inspected, readiness-limited evidence,
+not live fault sensitivity or a new-person validation.
