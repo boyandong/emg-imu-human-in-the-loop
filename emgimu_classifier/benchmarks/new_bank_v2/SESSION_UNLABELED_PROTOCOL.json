@@ -1,0 +1,11 @@
+{
+  "name": "session_pipeline_unlabeled_native_parity_v1",
+  "dataset": "LibEMG Electrode Shift eight-channel 200Hz source subject 15",
+  "parent_wearing_protocol_sha256": "0d875dbce6d4a4f3c5075993b2c28bcd59397aee90b5a0cf98683fafd549e8b6",
+  "archive_sha256": "4cfa9a4861193f230179fa87d53eda7503e66b5cfedeae81c81e476f53f6b2b6",
+  "long_term_source": "subject 15 training domain, all 25 native trials",
+  "session_calibration": "subject 15 trial_1 domain, repetition R_0, one native trial per five classes including Rest",
+  "evaluation": "subject 15 trial_1 domain, repetition R_1, five disjoint native trials",
+  "comparison": "Fit the source and session state once; compare all six branch/two-family native trial probabilities from unlabeled evaluation with the offline labelled wrapper, and with the same wrapper given deliberately wrong but trial-consistent labels. Check source/session byte immutability and identity partitions. No target labels enter the unlabeled path.",
+  "boundary": "API parity and leakage guard only, not a new classifier accuracy result, physical session change, independent subject test or live device validation."
+}
