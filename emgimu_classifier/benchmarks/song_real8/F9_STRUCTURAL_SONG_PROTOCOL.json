@@ -1,9 +1,11 @@
 {
   "name": "f9_structural_song_raw_adc_exploratory_v1",
+  "version": 2,
+  "correction": "The current F9 class includes an availability attribute added after the parent Song result, so byte-identical Python object pickle is not a valid cross-version check. The first run stopped at that assertion before computing or reading target quality/outcome. Reconstruct from the same source S01/S02 raw windows and require exact parent source window count, availability, quality feature names and per-component thresholds before target replay.",
   "parent_quality_result_sha256": "0b85309d7ace128b698955f799e03c6fcb183420fab84f88cefdbab81ecdcb12",
   "frozen_f0_predictions_sha256": "4b4a9b03ad9dcfc61d1c0554dfd3a78037556af5f55c4f22055b4c86f9042972",
   "frozen_f0_manifest_sha256": "cae76be89d30a12a8a45ea51c63712e301349abf2624fbab47ab389b4a8db9df",
-  "source": "Song S01/S02 raw-ADC formal windows, source-fitted F9v2 and mask at 250Hz",
+  "source": "Song S01/S02 raw-ADC formal windows, reconstructed source-fitted F9v2 and mask at 250Hz with exact parent rule/threshold checks",
   "validation": "Song S03 formal trials; session readiness failed",
   "descriptive_final": "Song S04 formal trials; previously inspected",
   "rule": "Reject a native trial only if any formal window has any channel zero fraction >=0.50, longest flatline ratio >=0.50, or known-ADC clip fraction >=0.10. Use the actual signed 24-bit ADC rails -8388608 and 8388607 and the previously fixed source state. Do not use soft amplitude, correlation, line or low-frequency shifts for rejection.",
