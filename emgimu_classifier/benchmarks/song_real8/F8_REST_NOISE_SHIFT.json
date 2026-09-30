@@ -1,0 +1,135 @@
+{
+  "status": "one_person_same_day_f8_rest_noise_observation_not_deployed",
+  "source_sessions": [
+    "S01",
+    "S02"
+  ],
+  "validation_session": "S03",
+  "descriptive_final_session": "S04",
+  "filter_mode": "causal_continuous",
+  "hdf5_sha256": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+    "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+    "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+  },
+  "source_state_sha256": "ad983fdb38331821d37cbb28eb35d0f343a7d6ebe970b450f7b1e7bc0965b803",
+  "source_formal_windows": 849,
+  "source_neutral_adjacent_diff_median_counts": [
+    38.76013962020752,
+    31.78680095404248,
+    38.8377809893271,
+    38.71517741845713,
+    46.80574750320778,
+    53.8611637665459,
+    65.50074596530584,
+    66.05081923892376
+  ],
+  "target": {
+    "S03": {
+      "1": {
+        "calibration_trial_ids": [
+          "S03:cal:1:fist",
+          "S03:cal:1:index_pinch",
+          "S03:cal:1:neutral",
+          "S03:cal:1:open_hand"
+        ],
+        "calibration_windows": 12,
+        "formal_evaluation_windows_used": 0,
+        "readiness": "failed",
+        "rest_noise_log_ratio_per_channel": [
+          -0.40209016293576205,
+          -0.25981853040057673,
+          -0.15233248502641253,
+          -0.349915717979746,
+          -0.24724376353206964,
+          0.02569782710227206,
+          0.2354028558726005,
+          -0.0743555506425145
+        ],
+        "rest_noise_shift_norm": 0.7053803746493338,
+        "direct_readback_max_abs_error": 3.885780586188048e-16
+      },
+      "2": {
+        "calibration_trial_ids": [
+          "S03:cal:1:fist",
+          "S03:cal:1:index_pinch",
+          "S03:cal:1:neutral",
+          "S03:cal:1:open_hand",
+          "S03:cal:2:fist",
+          "S03:cal:2:index_pinch",
+          "S03:cal:2:neutral",
+          "S03:cal:2:open_hand"
+        ],
+        "calibration_windows": 24,
+        "formal_evaluation_windows_used": 0,
+        "readiness": "failed",
+        "rest_noise_log_ratio_per_channel": [
+          -0.6149589293239505,
+          -0.46539535715326974,
+          -0.4528180843901418,
+          -0.59250726221867,
+          -0.5762833658404801,
+          -0.39696648740929685,
+          -0.2777609563907372,
+          -0.5393405203211888
+        ],
+        "rest_noise_shift_norm": 1.4172510900237953,
+        "direct_readback_max_abs_error": 6.661338147750939e-16
+      }
+    },
+    "S04": {
+      "1": {
+        "calibration_trial_ids": [
+          "S04:cal:1:fist",
+          "S04:cal:1:index_pinch",
+          "S04:cal:1:neutral",
+          "S04:cal:1:open_hand"
+        ],
+        "calibration_windows": 12,
+        "formal_evaluation_windows_used": 0,
+        "readiness": "passed",
+        "rest_noise_log_ratio_per_channel": [
+          -0.5252103419087643,
+          -0.35363913941893077,
+          -0.5590738196913059,
+          0.6067205213937259,
+          -0.009398841457922545,
+          0.4115223681030249,
+          -0.31017933358669714,
+          -0.08028623811735851
+        ],
+        "rest_noise_shift_norm": 1.1634758131592517,
+        "direct_readback_max_abs_error": 4.440892098500626e-16
+      },
+      "2": {
+        "calibration_trial_ids": [
+          "S04:cal:1:fist",
+          "S04:cal:1:index_pinch",
+          "S04:cal:1:neutral",
+          "S04:cal:1:open_hand",
+          "S04:cal:2:fist",
+          "S04:cal:2:index_pinch",
+          "S04:cal:2:neutral",
+          "S04:cal:2:open_hand"
+        ],
+        "calibration_windows": 24,
+        "formal_evaluation_windows_used": 0,
+        "readiness": "passed",
+        "rest_noise_log_ratio_per_channel": [
+          -0.5269038517213549,
+          -0.5312542130338406,
+          -0.7707201342959682,
+          0.13674658229180495,
+          -0.3474731122251199,
+          0.01763638529497881,
+          -0.5896743773922605,
+          -0.3506348068202063
+        ],
+        "rest_noise_shift_norm": 1.3282609329176125,
+        "direct_readback_max_abs_error": 7.771561172376096e-16
+      }
+    }
+  },
+  "boundary": "Only source S01/S02 formal windows fit the long-term reference. S03/S04 summaries use their separately recorded labeled calibration blocks at 1 or 2 shots per class, never formal evaluation windows. Same participant and calendar day, source/S03 readiness failures and prior S04 inspection make this exploratory. The result is a session descriptor, not predictive value, measured force, re-donning evidence or a deployed adaptation rule."
+}

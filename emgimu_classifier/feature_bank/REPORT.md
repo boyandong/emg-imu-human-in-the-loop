@@ -3727,3 +3727,13 @@ an independently calculated gravity-filter trajectory. The existing
 rotation-invariance and held-out-calibration guards also pass. This verifies
 the numerical formula, while native evaluation of this calibrated body frame
 still needs a dataset with explicit neutral/forward calibration provenance.
+
+The F8 family-specific session summary now emits an actual per-channel Rest
+noise log ratio when a Rest class is explicitly available, using median
+absolute adjacent differences and equal trial mass. An isolated
+[Song calibration-block audit](../benchmarks/song_real8/F8_REST_NOISE_SHIFT.json)
+fits its long-term reference on S01/S02 formal trials and reads S03/S04's
+separate 1/2-shot calibration blocks only. Direct trial-balanced recalculation
+agrees to numerical precision; the shift norms are 0.7054/1.4173 for S03
+and 1.1635/1.3283 for S04 at 1/2 shots. These same-day observations do not
+establish a later-day domain shift or predictive benefit.
