@@ -3817,3 +3817,10 @@ to obtain personal session probabilities. On native public eight-channel,
 families exactly match the offline scoring wrapper. Deliberately wrong
 offline truth labels do not change predictions, and source/session state is
 immutable. This is software parity, not an own-device session result.
+
+An independent F4d numerical check now recomputes native eight-channel,
+200 Hz log-band energy with direct Fourier sums. Unequal numbers of windows
+per trial also check equal-trial-mass long/session references and immutable
+held-out evaluation. This verifies the stated formula on a known signal; it
+does not change the negative MANUS final minimum-user result or establish a
+cross-day effect.
