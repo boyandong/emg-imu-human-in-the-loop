@@ -91,7 +91,7 @@ REVIEWS = (
  ('F9v2','F9. Quality / Observability','quality_observability.py','QualityObservabilityFamily','partial',
   'Adds longest consecutive flat edges/T, source thresholds, correlation anomaly, availability masks and conditional pre-highpass ratio. Legacy quality mask remains unchanged: new observation not automatically a validated fusion gate.','9C+8'),
  ('F9_source_mask_candidate','F9. Quality / Observability','quality_mask_v1.py','SourceCalibratedQualityMask','candidate_native_context_only',
-  'Seven nonnegative F9v2 observations combine into source-quantile-frozen per-channel scores and four summaries. S01/S02 source and S03/S04 held-out Song raw-ADC windows have a synthetic constant-channel detection control. The 0.5 bad-channel threshold is illustrative; no physical fault-rate, classifier increment or live-gate promotion is established.','C+4'),
+  'Seven nonnegative F9v2 observations combine into source-quantile-frozen per-channel scores and four summaries. S01/S02 source and S03/S04 held-out Song raw-ADC windows have a synthetic constant-channel detection control. Native-trial joining to frozen F0 predictions shows the illustrative 0.5 gate rejects mostly correct trials; no physical fault-rate or live-gate promotion is established.','C+4'),
  ('CAL_A','A. Personal normalization','calibration.py','PersonalNormalizer','candidate_formula',
   'Explicit rest median and active absolute Q95; raw/cal branches retained in integrated runs, source/current normalization comparison can decline.','C centers+C scales; output EMG unchanged shape'),
  ('CAL_C','C. Personal natural force envelope','activation_profile.py','PersonalActivationProfile','candidate_formula',

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
 import pickle
@@ -14,6 +15,57 @@ from benchmarks.song_real8_study import load_session
 from emgimu.feature_bank.core import FeatureBatch
 from emgimu.feature_bank.quality_mask_v1 import SourceCalibratedQualityMask
 from emgimu.feature_bank.quality_observability import QualityObservabilityFamily
+
+
+CLASSES = ("fist", "index_pinch", "neutral", "open_hand")
+
+
+def frozen_f0_gate_control(trial_ids: np.ndarray, labels: np.ndarray,
+                           minimum_quality: np.ndarray, prediction_rows: list[dict],
+                           session: str) -> dict:
+    """Join source-frozen quality to an already-frozen F0 trial prediction."""
+    if not (len(trial_ids) == len(labels) == len(minimum_quality)):
+        raise ValueError("quality windows are not aligned")
+    grouped: dict[str, list[float]] = {}
+    truth: dict[str, str] = {}
+    for ident, label, quality in zip(trial_ids, labels, minimum_quality):
+        ident, label = str(ident), str(label)
+        if ident in truth and truth[ident] != label:
+            raise ValueError("inconsistent window truth")
+        truth[ident] = label
+        grouped.setdefault(ident, []).append(float(quality))
+    selected = [row for row in prediction_rows if row["session"] == session and row["arm"] == "F0"]
+    if len(selected) != len(grouped) or {row["trial_id"] for row in selected} != set(grouped):
+        raise ValueError("frozen F0 and F9 trial identities differ")
+    accepted_correct = rejected_correct = accepted_error = rejected_error = 0
+    rejection_by_hand = {label: 0 for label in CLASSES}
+    for row in selected:
+        ident = row["trial_id"]
+        if row["truth"] != truth[ident]:
+            raise ValueError("frozen F0 and F9 labels differ")
+        probabilities = np.asarray([float(row[f"p_{label}"]) for label in CLASSES])
+        if not np.isfinite(probabilities).all() or abs(probabilities.sum() - 1.) > 1e-5:
+            raise ValueError("frozen F0 probabilities are invalid")
+        correct = CLASSES[int(np.argmax(probabilities))] == truth[ident]
+        rejected = min(grouped[ident]) < .5
+        if rejected:
+            rejection_by_hand[truth[ident]] += 1
+        if rejected and correct:
+            rejected_correct += 1
+        elif rejected:
+            rejected_error += 1
+        elif correct:
+            accepted_correct += 1
+        else:
+            accepted_error += 1
+    total = len(selected)
+    accepted = accepted_correct + accepted_error
+    return {"trials": total, "accepted": accepted, "rejected": total - accepted,
+            "coverage": accepted / total, "baseline_errors": accepted_error + rejected_error,
+            "errors_rejected": rejected_error, "correct_rejected": rejected_correct,
+            "accepted_error_rate": accepted_error / accepted if accepted else None,
+            "rejection_by_hand": rejection_by_hand,
+            "rule": "reject trial if any of its complete frozen formal windows has minimum channel quality < 0.5"}
 
 
 def evaluate(source: Path, output: Path) -> dict:
@@ -32,6 +84,19 @@ def evaluate(source: Path, output: Path) -> dict:
     mask = SourceCalibratedQualityMask(source_quantile=.995).fit(
         source_features, family.feature_names)
     frozen = pickle.dumps((family, mask))
+    prediction_path = Path("benchmarks/song_real8/F4_INCREMENT_TRIAL_PREDICTIONS.csv")
+    prediction_manifest = json.loads(Path("benchmarks/song_real8/F4_INCREMENT_RESULTS.json").read_text(encoding="utf-8"))
+    prediction_sha = hashlib.sha256(prediction_path.read_bytes()).hexdigest()
+    if (prediction_manifest["source_sessions"] != ["S01", "S02"]
+            or prediction_manifest["validation_session"] != "S03"
+            or prediction_manifest["final_session"] != "S04"
+            or tuple(prediction_manifest["classes"]) != CLASSES
+            or prediction_manifest["trial_predictions_sha256"] != prediction_sha
+            or prediction_manifest["source_hdf5_sha256"] !=
+            {session: data[session]["audit"]["sha256"] for session in data}):
+        raise ValueError("frozen F0 prediction provenance differs from F9 protocol")
+    with prediction_path.open(encoding="utf-8", newline="") as stream:
+        prediction_rows = list(csv.DictReader(stream))
     result = {
         "status": "one_person_raw_adc_f9_candidate_not_deployed",
         "source_sessions": ["S01", "S02"],
@@ -45,8 +110,9 @@ def evaluate(source: Path, output: Path) -> dict:
         "availability": mask.available_,
         "thresholds": {key: values.tolist() for key, values in mask.thresholds_.items()},
         "quality_feature_names": list(mask.feature_names),
+        "frozen_f0_prediction_sha256": prediction_sha,
         "sessions": {},
-        "scope": "Source S01/S02-only F9v2 thresholds; S03/S04 read-only. Raw ADC metadata and pre-highpass input are available for this one-person/day recording. The rule and 0.5 illustrative quality flag are candidates, not selected or deployed. S03 collection readiness failed; S04 was previously inspected. Constant-channel corruption is synthetic, not observed hardware-fault prevalence. No new-user, new-day, re-donning or live safety claim.",
+        "scope": "Source S01/S02-only F9v2 thresholds; S03/S04 read-only. Raw ADC metadata and pre-highpass input are available for this one-person/day recording. The rule and 0.5 illustrative quality flag are candidates, not selected or deployed. A preexisting source-S01/S02 F0 trial prediction file is joined by native trial identity without refitting. S03 collection readiness failed; S04 was previously inspected. Constant-channel corruption is synthetic, not observed hardware-fault prevalence. No new-user, new-day, re-donning or live safety claim.",
     }
     for session in ("S03", "S04"):
         batch = FeatureBatch(raw[session], 250.)
@@ -75,6 +141,8 @@ def evaluate(source: Path, output: Path) -> dict:
                 "any_bad_channel_fraction": float(np.mean(synthetic[:, -4] >= 1)),
                 "minimum_quality_below_0_5_fraction": float(np.mean(synthetic[:, -2] < .5)),
             },
+            "frozen_f0_trial_gate_control": frozen_f0_gate_control(
+                data[session]["trial"], labels, clean[:, -2], prediction_rows, session),
         }
     if frozen != pickle.dumps((family, mask)):
         raise AssertionError("target quality transform mutated source state")

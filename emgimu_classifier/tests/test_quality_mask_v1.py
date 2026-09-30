@@ -7,6 +7,7 @@ import pytest
 from emgimu.feature_bank.core import FeatureBatch
 from emgimu.feature_bank.quality_mask_v1 import SourceCalibratedQualityMask
 from emgimu.feature_bank.quality_observability import QualityObservabilityFamily
+from benchmarks.song_quality_mask_v1 import frozen_f0_gate_control
 
 
 def test_constant_channel_is_rejected_without_target_refit():
@@ -60,3 +61,23 @@ def test_degraded_source_cannot_define_safe_flatline_threshold():
     family = QualityObservabilityFamily().fit(batch)
     with pytest.raises(ValueError, match="too degraded"):
         SourceCalibratedQualityMask().fit(family.transform(batch), family.feature_names)
+
+
+def test_frozen_trial_gate_counts_errors_and_correct_rejections():
+    rows = [
+        {"session": "S03", "arm": "F0", "trial_id": "S03:1", "truth": "fist",
+         "p_fist": ".9", "p_index_pinch": ".05", "p_neutral": ".03", "p_open_hand": ".02"},
+        {"session": "S03", "arm": "F0", "trial_id": "S03:2", "truth": "neutral",
+         "p_fist": ".7", "p_index_pinch": ".1", "p_neutral": ".1", "p_open_hand": ".1"},
+    ]
+    result = frozen_f0_gate_control(
+        np.array(["S03:1", "S03:1", "S03:2"]),
+        np.array(["fist", "fist", "neutral"]), np.array([.9, .4, .8]), rows, "S03")
+    assert result["trials"] == 2
+    assert result["accepted"] == 1
+    assert result["correct_rejected"] == 1
+    assert result["errors_rejected"] == 0
+    assert result["accepted_error_rate"] == 1.
+    with pytest.raises(ValueError, match="identities"):
+        frozen_f0_gate_control(np.array(["S03:1"]), np.array(["fist"]),
+                               np.array([.9]), rows, "S03")

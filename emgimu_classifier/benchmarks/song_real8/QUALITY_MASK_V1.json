@@ -107,6 +107,7 @@
     "F9cal.min_quality",
     "F9cal.quality_variance"
   ],
+  "frozen_f0_prediction_sha256": "4b4a9b03ad9dcfc61d1c0554dfd3a78037556af5f55c4f22055b4c86f9042972",
   "sessions": {
     "S03": {
       "windows": 416,
@@ -141,6 +142,23 @@
         "channel_quality_zero_fraction": 1.0,
         "any_bad_channel_fraction": 1.0,
         "minimum_quality_below_0_5_fraction": 1.0
+      },
+      "frozen_f0_trial_gate_control": {
+        "trials": 140,
+        "accepted": 136,
+        "rejected": 4,
+        "coverage": 0.9714285714285714,
+        "baseline_errors": 9,
+        "errors_rejected": 0,
+        "correct_rejected": 4,
+        "accepted_error_rate": 0.0661764705882353,
+        "rejection_by_hand": {
+          "fist": 1,
+          "index_pinch": 0,
+          "neutral": 0,
+          "open_hand": 3
+        },
+        "rule": "reject trial if any of its complete frozen formal windows has minimum channel quality < 0.5"
       }
     },
     "S04": {
@@ -176,8 +194,25 @@
         "channel_quality_zero_fraction": 1.0,
         "any_bad_channel_fraction": 1.0,
         "minimum_quality_below_0_5_fraction": 1.0
+      },
+      "frozen_f0_trial_gate_control": {
+        "trials": 144,
+        "accepted": 115,
+        "rejected": 29,
+        "coverage": 0.7986111111111112,
+        "baseline_errors": 13,
+        "errors_rejected": 4,
+        "correct_rejected": 25,
+        "accepted_error_rate": 0.0782608695652174,
+        "rejection_by_hand": {
+          "fist": 1,
+          "index_pinch": 5,
+          "neutral": 4,
+          "open_hand": 19
+        },
+        "rule": "reject trial if any of its complete frozen formal windows has minimum channel quality < 0.5"
       }
     }
   },
-  "scope": "Source S01/S02-only F9v2 thresholds; S03/S04 read-only. Raw ADC metadata and pre-highpass input are available for this one-person/day recording. The rule and 0.5 illustrative quality flag are candidates, not selected or deployed. S03 collection readiness failed; S04 was previously inspected. Constant-channel corruption is synthetic, not observed hardware-fault prevalence. No new-user, new-day, re-donning or live safety claim."
+  "scope": "Source S01/S02-only F9v2 thresholds; S03/S04 read-only. Raw ADC metadata and pre-highpass input are available for this one-person/day recording. The rule and 0.5 illustrative quality flag are candidates, not selected or deployed. A preexisting source-S01/S02 F0 trial prediction file is joined by native trial identity without refitting. S03 collection readiness failed; S04 was previously inspected. Constant-channel corruption is synthetic, not observed hardware-fault prevalence. No new-user, new-day, re-donning or live safety claim."
 }

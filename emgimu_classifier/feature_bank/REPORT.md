@@ -3712,6 +3712,11 @@ line-noise and low-frequency observations into eight channel scores plus four
 summaries. S01/S02 alone fix the thresholds; S03/S04 are read-only. Their
 mean candidate quality is 0.998/0.982, and setting channel 1 to a constant
 in every held-out window yields zero channel-1 quality in both sessions.
+Joining the unchanged, source-S01/S02 F0 trial predictions by native trial ID
+gives an adverse selective-recognition control: a minimum-channel-quality
+cutoff of 0.5 rejects 4/140 S03 trials, all four previously correct, and
+29/144 S04 trials, including 25 previously correct and four errors. S04
+coverage falls to 79.9%; this rule does not justify a deployed Unknown gate.
 This is a synthetic-fault detection check on one person's same-day raw ADC
 recordings, not a measured hardware-fault rate or a selected live gate. The
 existing deployed quality and Unknown decisions remain unchanged.

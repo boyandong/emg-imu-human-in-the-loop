@@ -41,8 +41,8 @@ REVIEWS = (
      "Long-versus-current family-specific summaries are derived from source/calibration trials; public wearing and MANUS context controls exist.",
      "Own-device true later-day/re-donning validation and a universally beneficial routing rule are unavailable."),
     ("F9", "one_person_quality_candidate", "benchmarks/new_bank_v2/ROAM_V1_QUALITY_ANALYSIS_AUDIT.json|feature_bank/results/quality_unknown_replay.json|benchmarks/song_real8/QUALITY_MASK_V1.json",
-     "Availability-aware quality observations, explicit Unknown replay and a source-frozen mask checked on Song held-out raw-ADC windows with synthetic constant-channel corruption exist.",
-     "The one-person candidate has no physical-fault ground truth or matched classifier increment; unknown ADC metadata and safe live gating remain unresolved."),
+     "Availability-aware quality observations, explicit Unknown replay and a source-frozen mask checked on Song held-out raw-ADC windows with synthetic constant-channel corruption and frozen F0 trial-ID joining exist.",
+     "The illustrative 0.5 gate rejects mostly correct F0 trials on both held-out sessions; there is no physical-fault ground truth, and safe live gating remains unresolved."),
 )
 
 
