@@ -76,4 +76,15 @@ def test_amplitude_and_neighbor_correlation_use_only_source_reference():
                                expected_amplitude, rtol=1e-6)
     np.testing.assert_allclose(observed[names.index("F9v2.correlation_anomaly.ch1")],
                                expected_correlation, rtol=1e-6)
+    def trace_covariance(window):
+        covariance = np.cov(window, rowvar=False)
+        isotropic = np.trace(covariance) / 2.
+        regularized = .95 * covariance + .05 * isotropic * np.eye(2)
+        regularized += 1e-10 * np.eye(2)
+        return regularized / np.trace(regularized)
+
+    source_reference = np.mean([trace_covariance(window) for window in source_values], axis=0)
+    expected_covariance = np.linalg.norm(trace_covariance(target[0]) - source_reference)
+    np.testing.assert_allclose(observed[names.index("F9.covariance_anomaly")],
+                               expected_covariance, rtol=1e-6)
     assert before == pickle.dumps(family)

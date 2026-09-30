@@ -3751,6 +3751,7 @@ scientific acceptance of every equation or native operating condition.
 Independent F9 known-signal checks now recompute line-noise and low-frequency
 ratios with direct Fourier sums rather than the implementation's FFT, and
 recompute source-median/MAD amplitude and neighboring-channel correlation
-anomalies on held-out signals. All four agree with F9v2 numerically. Global
-covariance-anomaly math and physical-fault attribution retain separate
-verification boundaries; the adverse Song quality-gate decision is unchanged.
+anomalies on held-out signals. A separate direct trace-covariance calculation
+also checks the global Frobenius anomaly. These numerical checks agree with
+F9v2; physical-fault attribution remains unverified and the adverse Song
+quality-gate decision is unchanged.

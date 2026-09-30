@@ -32,5 +32,5 @@ section_start,section_end,title,mapping,review_item_ids,review_statuses,source_p
 2185,2204,F9c. Line-noise ratio,direct_source_review,F9c_line_noise_rule,analytical_metadata_conditional,src/emgimu/feature_bank/quality_observability.py,not_proven
 2205,2223,F9d. Low-frequency artifact,direct_source_review,F9d_low_frequency_rule,analytical_metadata_conditional,src/emgimu/feature_bank/quality_observability.py,not_proven
 2224,2243,F9e. Abnormal channel amplitude,direct_source_review,F9e_amplitude_rule,analytical_source_frozen,src/emgimu/feature_bank/families.py,not_proven
-2244,2270,F9f. Correlation/covariance anomaly,direct_source_review,F9f_covariance_rule,analytical_partial,src/emgimu/feature_bank/quality_observability.py,not_proven
+2244,2270,F9f. Correlation/covariance anomaly,direct_source_review,F9f_covariance_rule,analytical_source_frozen,src/emgimu/feature_bank/quality_observability.py,not_proven
 2271,2300,F9g. Quality mask,direct_source_review,F9g_mask_rule,candidate_negative_gate,src/emgimu/feature_bank/quality_mask_v1.py,not_proven
