@@ -3,16 +3,17 @@ import pytest
 
 from emgimu.feature_bank.core import FeatureBatch
 from emgimu.feature_bank.new_bank_v2 import (
-    RestNoiseDetailV2, RingRelativeCovarianceV2, TraceCovarianceV2,
+    DocumentTraceCovarianceV2, RestNoiseDetailV2, RingRelativeCovarianceV2, TraceCovarianceV2,
     new_bank_v2_registry,
 )
 
 
 def test_v2_registers_only_independent_v1_and_new_blocks():
     registry = new_bank_v2_registry()
-    assert len(registry.family_ids) == 7
+    assert len(registry.family_ids) == 8
     assert isinstance(registry.create("new_v2_rest_noise_detail"), RestNoiseDetailV2)
     assert isinstance(registry.create("new_v2_trace_covariance"), TraceCovarianceV2)
+    assert isinstance(registry.create("new_v2_document_trace_covariance"), DocumentTraceCovarianceV2)
     assert isinstance(registry.create("new_v2_ring_relative_covariance"), RingRelativeCovarianceV2)
 
 
@@ -68,6 +69,29 @@ def test_trace_covariance_matches_formula_and_is_gain_invariant():
     np.testing.assert_allclose(actual[0], expected, rtol=1e-6, atol=1e-7)
     np.testing.assert_allclose(actual, family.transform(FeatureBatch(x * 7, 1000.0)), atol=1e-7)
     assert actual.shape == (3, 36)
+
+
+def test_document_trace_covariance_matches_uncentered_formula_and_preserves_offset():
+    samples=40
+    signal=np.zeros((2,samples,8),dtype=float)
+    signal[0,:,0]=2.
+    signal[0,:,1]=1.
+    signal[1,:,0]=np.linspace(-1.,1.,samples)
+    batch=FeatureBatch(signal,200.)
+    family=DocumentTraceCovarianceV2(shrinkage=.05).fit(batch)
+    actual=family.transform(batch)
+    moment=signal[0].T@signal[0]/samples
+    shrunk=.95*moment+.05*np.trace(moment)/8*np.eye(8)
+    expected=shrunk/np.trace(shrunk)
+    i,j=np.triu_indices(8)
+    vector=expected[i,j].copy();vector[i!=j]*=np.sqrt(2.)
+    np.testing.assert_allclose(actual[0],vector,rtol=1e-6,atol=1e-7)
+    np.testing.assert_allclose(actual,family.transform(FeatureBatch(signal*7,200.)),atol=1e-7)
+    centered=TraceCovarianceV2(shrinkage=.05).fit(batch).transform(batch)
+    assert np.max(np.abs(actual[0]-centered[0]))>.1
+    assert actual.shape==(2,36)
+    with pytest.raises(ValueError,match='sample rate'):
+        family.transform(FeatureBatch(signal,250.))
 
 
 def test_ring_covariance_preserves_rotation_but_detects_nonring_swap():

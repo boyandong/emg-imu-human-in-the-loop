@@ -1,0 +1,17 @@
+{
+  "name": "f2a_uncentered_document_formula_wearing_v1",
+  "version": 1,
+  "status": "new_candidate_after_centered_f2a_screen",
+  "parent_result_sha256": "59cd0f846b48a368a836797a3027509f8d0ef5203ad36514f3aa7737db3d7e6a",
+  "parent_prediction_sha256": "90a9cf2f7d25c3948e2a3bcb0c4d1c6d298c2d9a0b7b630d48bb8a933490bd9a",
+  "archive_sha256": "4cfa9a4861193f230179fa87d53eda7503e66b5cfedeae81c81e476f53f6b2b6",
+  "subjects": {"validation": [15, 16, 17], "final": [18, 19, 20]},
+  "source_domain": "training",
+  "target_domains": ["trial_1", "trial_2", "trial_3", "trial_4"],
+  "classes": [0, 1, 2, 3, 4],
+  "candidate": "F0v2+F2a_uncentered",
+  "formula": "For each 40-sample, 8-channel native EMG window, compute M=X^T X/T without subtracting channel means; C=(1-.05)M+.05 trace(M)/8 I; divide by max(trace(C),1e-12), then vectorize the upper triangle with sqrt(2) on off-diagonals.",
+  "source_fit": "Fit the Rest-noise F0v2 source thresholds, feature input contract, source-trial StandardScaler and class-balanced LogisticRegression C=1 max_iter=2000 random_state=20260924 on the user's training domain only. Apply unchanged to four target wearing domains; never fit on target windows.",
+  "evaluation": "Match every source/target native trial identity to the frozen centered-F2a parent. Compare the uncentered candidate with frozen F0v2 and centered F2a on validation users; final users are descriptive only. Report pooled F1, log loss, minimum-user F1 and all saved probabilities. Do not promote from one axis.",
+  "boundary": "This is a document-formula correction candidate on public eight-channel 200 Hz wearing data, not an own-device 250 Hz result, a prospective independent cohort, or a claim that uncentered covariance is always better."
+}

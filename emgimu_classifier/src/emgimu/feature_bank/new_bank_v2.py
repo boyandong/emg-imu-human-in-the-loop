@@ -88,6 +88,39 @@ class TraceCovarianceV2(_EightChannelFamily):
         return vector.astype(np.float32)
 
 
+class DocumentTraceCovarianceV2(_EightChannelFamily):
+    """Document F2a: uncentered XX^T, trace normalization and fixed shrinkage.
+
+    This is a distinct opt-in view from the already screened centered F2a.
+    It retains channel DC/offset energy, so neither is silently substituted
+    for the other in saved experiments.
+    """
+    family_id = "new_v2_document_trace_covariance"
+
+    def __init__(self, shrinkage: float = 0.05) -> None:
+        super().__init__()
+        if not np.isfinite(shrinkage) or not 0 <= shrinkage < 1:
+            raise ValueError("shrinkage must be fixed in [0,1)")
+        self.shrinkage = float(shrinkage)
+
+    def _fit_metadata(self) -> None:
+        self._names = tuple(f"document_trace.ch{i + 1}.ch{j + 1}"
+                            for i, j in zip(*np.triu_indices(8)))
+
+    def transform(self, batch: FeatureBatch) -> np.ndarray:
+        self._validate(batch)
+        x = np.asarray(batch.emg, dtype=np.float64)
+        second_moment = np.einsum("ntc,ntd->ncd", x, x) / x.shape[1]
+        trace = np.trace(second_moment, axis1=1, axis2=2)
+        shrunk = ((1.0 - self.shrinkage) * second_moment
+                  + (self.shrinkage * trace / 8.0)[:, None, None] * np.eye(8))
+        normalized = shrunk / np.maximum(np.trace(shrunk, axis1=1, axis2=2)[:, None, None], EPS)
+        i, j = np.triu_indices(8)
+        vector = normalized[:, i, j].copy()
+        vector[:, i != j] *= np.sqrt(2.0)
+        return vector.astype(np.float32)
+
+
 class RingRelativeCovarianceV2(_EightChannelFamily):
     """Five robust ring-lag covariance summaries plus optional half-window drift."""
     family_id = "new_v2_ring_relative_covariance"
@@ -136,6 +169,7 @@ class RingRelativeCovarianceV2(_EightChannelFamily):
 NEW_BANK_V2_EXTENSION = {
     "rest_noise_detail": RestNoiseDetailV2,
     "trace_covariance": TraceCovarianceV2,
+    "document_trace_covariance": DocumentTraceCovarianceV2,
     "ring_relative_covariance": RingRelativeCovarianceV2,
 }
 
