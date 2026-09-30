@@ -3801,3 +3801,11 @@ Holding channel 1 constant in copied windows triggers the rule for every
 trial. Exact parent source thresholds and frozen F0 trial identities are
 checked. This is same-day, previously inspected, readiness-limited evidence,
 not live fault sensitivity or a new-person validation.
+
+A third [public re-wearing diagnostic](../benchmarks/new_bank_v2/F9_WEARING_STRUCTURAL_REPORT.md)
+fits the same severe rule per source subject and reads four after-wearing
+domains. All 120 validation and 120 descriptive-final native trials remain
+unflagged across six users, while a copied constant-channel signal is flagged
+in every trial. It catches none of the 49/45 frozen F0v2 errors. This bounds
+false structural alerts under this selected electrode-shift data; without
+measured physical-fault labels it does not validate live fault detection.
