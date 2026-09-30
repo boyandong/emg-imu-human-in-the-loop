@@ -1,0 +1,11 @@
+{
+  "name": "f9_structural_wearing_specificity_exploratory_v1",
+  "parent_protocol_sha256": "0d875dbce6d4a4f3c5075993b2c28bcd59397aee90b5a0cf98683fafd549e8b6",
+  "parent_results_sha256": "2e1ad17b36c4b3bec579fe7280cec515e713b2c3065390be1035db36f37c07b5",
+  "frozen_predictions_sha256": "bd2e0ac452ddab1de3eb17324c9447da10a47b2cca7a917becfc05a2c252d21f",
+  "source": "Per subject, source-fitted F9v2 plus availability-aware mask on LibEMG Electrode Shift training-domain eight-channel 200Hz native windows",
+  "targets": "The same six frozen validation/final subjects and four after-wearing target domains as WEARING_PROTOCOL.json",
+  "rule": "Reject a native trial only if any of its native windows has any channel zero fraction >=0.50 or longest flatline ratio >=0.50. Add clip fraction >=0.10 only when ADC rail metadata are attested; no rail is attested here. Mains and pre-highpass states are also unavailable. No soft amplitude, correlation, line or low-frequency score can reject.",
+  "control": "Read F0v2 probabilities unchanged from WEARING_TRIAL_PREDICTIONS.csv by exact native trial ID. Report coverage, correct and erroneous trials rejected, and after-wearing domain counts. Inject one copied constant channel to check an observable structural event separately.",
+  "limits": "All target domains and users were previously inspected in Feature Bank studies. This is a post-parent exploratory specificity diagnostic under electrode replacement, not new final validation, physical-fault sensitivity, 250Hz transfer or live deployment. Do not target-tune or promote automatically."
+}
