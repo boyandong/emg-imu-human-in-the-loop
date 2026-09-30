@@ -1,0 +1,11 @@
+{
+  "name": "new_v2_f2b_f2c_grab_cross_user_candidates_v1",
+  "version": 1,
+  "parent_protocol_sha256": "ffb8c5111a02d2b336966c3214c0e3e72f793c1799a794b48ac5b884e8172827",
+  "parent_result_sha256": "8ba1a3d7a42c0a1af7e9747f4f883aa1b5d3b5a59e5d73dc34db6cb86ae36969",
+  "parent_prediction_sha256": "3f4b7d58df3296b4483fcd63187f13f8d3ff3f4dfc6024b9f2003f76a20065b5",
+  "arms": ["F0v2", "F0v2+F2b_document", "F0v2+F2c_spd"],
+  "source_fit": "Verified GRABMyo Day1 native records; subjects1-4 source, 5-6 validation, 7-8 descriptive final. F0v2 uses source Rest windows only; document CSP and SPD tangent fit all source-user native windows only. Source classifiers use exactly the frozen parent trial aggregation and hyperparameters.",
+  "evaluation": "All three arms score the identical 112 unseen-user Day1 records. F0v2 probabilities must replay the frozen parent within 1e-8 for every target trial/class. Final users are descriptive and cannot select a candidate.",
+  "boundary": "Public 8-channel 2048 Hz same-day unseen-user transfer. Distinct from MANUS 200 Hz same-user session and wearing axes. Final users appeared in earlier project studies, so not project-wide fresh holdout. No 250 Hz own-device or live claim."
+}

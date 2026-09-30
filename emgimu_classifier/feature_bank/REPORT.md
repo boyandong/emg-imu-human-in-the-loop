@@ -3638,8 +3638,13 @@ saved probability readback are separately recorded. The
 adds a second public axis for all three candidates on 108 native trials in
 each target session. F0v2 probabilities replay the prior MANUS study
 exactly. All additions improve validation macro-F1 but worsen validation
-log loss; F2a has the strongest validation F1 and minimum-user F1. Neither
-axis establishes a universal F2 candidate.
+log loss; F2a has the strongest validation F1 and minimum-user F1. The
+[GRAB unseen-user comparison](../benchmarks/new_bank_v2/F2_GRAB_CANDIDATES_REPORT.md)
+adds a third public axis with a different 2048 Hz sensor and disjoint users.
+All three F2 additions lower its validation and descriptive final macro-F1,
+raise log loss and reduce minimum-user F1 against F0v2. These three axes
+therefore reject an unconditional F2 default while preserving their bounded
+condition-specific evidence.
 
 The [F0–F9 public-evidence scope table](FORMULA_FAMILY_SCOPE_AUDIT.csv)
 separates native screens, bounded context/calibration evidence, synthetic
