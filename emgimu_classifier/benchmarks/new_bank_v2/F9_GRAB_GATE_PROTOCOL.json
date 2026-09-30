@@ -1,0 +1,19 @@
+{
+  "name": "f9_source_frozen_grab_unseen_user_gate_v1",
+  "version": 1,
+  "parent_protocol_sha256": "ffb8c5111a02d2b336966c3214c0e3e72f793c1799a794b48ac5b884e8172827",
+  "parent_result_sha256": "8ba1a3d7a42c0a1af7e9747f4f883aa1b5d3b5a59e5d73dc34db6cb86ae36969",
+  "parent_prediction_sha256": "3f4b7d58df3296b4483fcd63187f13f8d3ff3f4dfc6024b9f2003f76a20065b5",
+  "source": "GRABMyo Day1 subjects 1-4, all native trials and five fixed 2048-sample windows per trial",
+  "validation": "GRABMyo Day1 unseen subjects 5-6",
+  "descriptive_final": "GRABMyo Day1 unseen subjects 7-8; previously inspected in other studies",
+  "source_quantile": 0.995,
+  "trial_gate": "Reject a native trial when any of its five frozen windows has minimum-channel quality below 0.5",
+  "source_only_metadata": {
+    "adc_clipping": "unavailable: physical mV per-channel gains do not provide one shared explicit rail",
+    "line_noise": "unavailable: recording mains frequency is not attested",
+    "low_frequency_pre_highpass": "unavailable: pre-highpass status is not attested"
+  },
+  "analysis": "Read frozen F0v2 trial probabilities by exact native trial ID. Report per-phase and per-subject coverage, errors rejected, correct trials rejected, and per-gesture rejection. Do not refit the classifier or select a threshold using target outcomes.",
+  "decision": "Diagnostic only. Do not promote the gate without acceptable validation coverage and measured physical-fault evidence."
+}

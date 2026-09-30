@@ -24,9 +24,11 @@ def mean_channel_correlation(x,ring):
 class QualityObservabilityFamily(QualityFamily):
     family_id='F9v2_quality_observability'
 
-    def __init__(self,*,pre_highpass_available=False,ring_topology=False,low_frequency_hz=10.,**kwargs):
+    def __init__(self,*,pre_highpass_available=False,ring_topology=False,
+                 line_frequency_available=True,low_frequency_hz=10.,**kwargs):
         super().__init__(**kwargs)
         self.pre_highpass_available=bool(pre_highpass_available);self.ring_topology=bool(ring_topology)
+        self.line_frequency_available=bool(line_frequency_available)
         self.low_frequency_hz=float(low_frequency_hz)
 
     def fit(self,batch,labels=None):
@@ -42,7 +44,7 @@ class QualityObservabilityFamily(QualityFamily):
         line=np.abs(frequency-self.line_frequency_hz)<=1
         neighbor=((frequency>=self.line_frequency_hz-6)&(frequency<=self.line_frequency_hz-3))|((frequency>=self.line_frequency_hz+3)&(frequency<=self.line_frequency_hz+6))
         self.availability_={'adc_clipping':self.adc_min is not None and self.adc_max is not None,
-            'line_noise':self.line_frequency_hz<self.rate_/2 and bool(line.any() and neighbor.any()),
+            'line_noise':self.line_frequency_available and self.line_frequency_hz<self.rate_/2 and bool(line.any() and neighbor.any()),
             'low_frequency_pre_highpass':self.pre_highpass_available and bool(((frequency>=20)&(frequency<=min(450,self.rate_*.475))).any())}
         appended=tuple(f'F9v2.{metric}.ch{c+1}' for metric in ('longest_flatline_ratio','correlation_anomaly','low_frequency_power_ratio') for c in range(batch.channels))
         self.names_v2_=super().feature_names+appended+tuple(f'F9v2.available.{k}' for k in self.availability_)
@@ -53,6 +55,10 @@ class QualityObservabilityFamily(QualityFamily):
         if batch.channels!=self.channels_v2_ or batch.sample_rate_hz!=self.rate_ or batch.emg.shape[1]!=self.samples_:
             raise ValueError('Quality observability sensor/window contract mismatch')
         legacy=super().transform(batch);x=np.asarray(batch.emg,dtype=float)
+        if not self.availability_['line_noise']:
+            line_columns=[super(QualityObservabilityFamily,self).feature_names.index(
+                f'F9.line_noise_ratio.ch{channel}') for channel in range(1,batch.channels+1)]
+            legacy[:,line_columns]=0.
         flat=longest_flatline_ratio(x,self.flat_tolerance_)
         correlation=np.abs(mean_channel_correlation(x,self.ring_topology)-self.correlation_median_)/self.correlation_mad_
         low=np.zeros_like(flat)

@@ -6,6 +6,20 @@ from emgimu.feature_bank.quality_observability import QualityObservabilityFamily
 
 
 class QualityObservabilityTests(unittest.TestCase):
+    def test_unknown_mains_frequency_is_masked_even_when_50hz_is_in_band(self):
+        rng=np.random.default_rng(83)
+        source=FeatureBatch(rng.normal(size=(5,250,2)),250.)
+        family=QualityObservabilityFamily(line_frequency_available=False).fit(source)
+        time=np.arange(250)/250.
+        target=np.stack((np.sin(2*np.pi*50*time),np.sin(2*np.pi*50*time)),axis=1)[None]
+        before=pickle.dumps(family)
+        result=family.transform(FeatureBatch(target,250.))
+        for channel in (1,2):
+            self.assertEqual(result[0,family.feature_names.index(f'F9.line_noise_ratio.ch{channel}')],0.)
+        self.assertEqual(result[0,family.feature_names.index('F9v2.available.line_noise')],0.)
+        self.assertFalse(family.availability_['line_noise'])
+        self.assertEqual(before,pickle.dumps(family))
+
     def test_longest_run_distinguishes_identical_flatline_fractions(self):
         a=np.array([0.,0.,0.,0.,1.,2.,3.,4.])[None,:,None]
         b=np.array([0.,0.,1.,1.,2.,2.,3.,4.])[None,:,None]
