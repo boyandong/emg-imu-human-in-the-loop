@@ -3759,7 +3759,7 @@ establish a later-day domain shift or predictive benefit.
 The [F0–F9 subsection coverage check](FORMULA_SUBSECTION_COVERAGE_AUDIT.csv)
 now binds all 32 formula-bearing appendix sections to exact reviewed source
 symbols; three additional headings are contextual. The formula inventory has
-53 source-review rows. A two-dimensional independent F7 oracle verifies
+54 source-review rows. A two-dimensional independent F7 oracle verifies
 Euclidean, robust-standardized and cosine coordinates, source-calibration
 similarity scales and margins. Individual F9a–F9g rules are now separately
 mapped, exposing where known-tone or measured-fault oracles remain missing.
@@ -3838,3 +3838,11 @@ family/classifier state hash as well as the OOF prediction hash before reusing
 its selected temperature, shrinkage and population weights. A changed source
 model can therefore no longer silently inherit an unrelated reliability
 policy. The source-user CV evidence remains limited to the selected protocols.
+
+The [document-exact F2a study](../benchmarks/new_bank_v2/F2A_DOCUMENT_REPORT.md)
+resolves a formula mismatch: the specification's uncentered `XX^T` second
+moment is now a separate candidate from the previously tested centered
+covariance. Its known-signal oracle passes, and matched wearing, MANUS and
+GRAB trials show validation gains under wearing but higher MANUS log loss and
+lower unseen-user GRAB F1. The existing public-data default remains F0v2;
+older centered-F2a results retain their original identity.
