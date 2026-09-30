@@ -3832,3 +3832,9 @@ both F1 loss and log-loss increase on every axis; F0v2 remains the public-data
 default for this candidate set. The 24 saved cells and six source-result hashes
 make the decision reproducible, but the reviewed public recordings are not a
 new independent holdout.
+
+The source-only personal reliability policy loader now verifies the fitted
+family/classifier state hash as well as the OOF prediction hash before reusing
+its selected temperature, shrinkage and population weights. A changed source
+model can therefore no longer silently inherit an unrelated reliability
+policy. The source-user CV evidence remains limited to the selected protocols.

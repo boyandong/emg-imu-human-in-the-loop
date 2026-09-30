@@ -100,8 +100,10 @@ def load_policy(path,dataset,source_trials,ids,oof):
         raise AssertionError('Reliability policy dataset/families differ')
     if set(policy['source_trials'])!=set(source_trials) or policy.get('target_data_opened') is not False:
         raise AssertionError('Reliability selection must use source trials only')
-    if oof is None or hashlib.sha256((oof/'oof_predictions.npz').read_bytes()).hexdigest()!=policy['source_oof_sha256']:
-        raise AssertionError('Reliability source OOF provenance differs')
+    if (oof is None or
+            hashlib.sha256((oof/'oof_predictions.npz').read_bytes()).hexdigest()!=policy['source_oof_sha256'] or
+            hashlib.sha256((oof/'fitted_states.pkl').read_bytes()).hexdigest()!=policy['source_state_sha256']):
+        raise AssertionError('Reliability source OOF or fitted-state provenance differs')
     w=np.asarray(policy['population_weights'],dtype=float);n0=float(selected['n0']);tau=float(selected['reliability_temperature'])
     if w.shape!=(len(ids),) or not np.all(np.isfinite(w)) or np.any(w<0) or not np.isclose(w.sum(),1):
         raise ValueError('Invalid reliability population weights')
