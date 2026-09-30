@@ -3688,6 +3688,12 @@ checks both tensor levels, repeated-vertex invariance, scale invariance and
 short-window rejection. This is formula/interface evidence only; no native
 incremental recognition benefit is asserted for F5c.
 
+The generic F8 session signature also has a
+[hand-computable three-class geometry check](../tests/test_f8_known_geometry.py)
+for residual norms, cosine agreement and every pairwise distance change.
+It verifies the frozen-source formula, not a predictive routing benefit or
+same-user acquisition provenance.
+
 The [versioned major-clause acceptance matrix](NEW_VERSION_ACCEPTANCE_AUDIT.csv)
 separates completed scoped evidence, superseded historical-source demands,
 and genuine open work. Remaining applicable F0–F9 formula/native-eligibility
