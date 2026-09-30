@@ -1,0 +1,11 @@
+{
+  "name": "new_v2_f2b_f2c_manus_session_candidates_v1",
+  "version": 1,
+  "parent_protocol_sha256": "e8e7e4c014069afc4e91d371bb7505eaa604f15396dff8d7ea7101eeb18e31ba",
+  "parent_result_sha256": "10c20b5ce8599e9403ef1aeda6be8117bb62a0789de819b13769aea5773f7b24",
+  "parent_prediction_sha256": "dd0f09bf73abe9620a8d1d71395784bba185d77c6391cbc92d6314bc87ce27da",
+  "arms": ["F0v2", "F0v2+F2b_document", "F0v2+F2c_spd"],
+  "source_fit": "Identical six MANUS users and Session1 native trials as frozen external-Rest parent. F0v2 uses frozen source ROAM Rest only. Document CSP and SPD tangent fit MANUS Session1 only. Trial-level balanced logistic scalers/models fit Session1 only.",
+  "evaluation": "Session2 validation and Session3 descriptive final on identical native trial IDs and same observed slow/medium/fast strata as frozen parent. F0v2 probabilities must replay parent within 1e-8 for every trial and class.",
+  "boundary": "Public Myo eight-channel 200 Hz same-user session shift with external source Rest prior. No independent new-user, own-device 250 Hz, live or measured force/quality claim. Session3 is descriptive and cannot select the arm."
+}

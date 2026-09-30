@@ -3633,8 +3633,13 @@ macro-F1 is 0.5775 for F0v2, 0.6960 for F2a, 0.5444 for F2b and 0.6110
 for F2c. The favorable F2a and F2c validation results reverse on pooled
 final F1; the favorable F2b final result cannot retroactively select it.
 Formula-level analytical checks, source-only fitting, trial identity and
-saved probability readback are separately recorded. This single wearing
-axis does not establish a universal F2 candidate.
+saved probability readback are separately recorded. The
+[matched MANUS session comparison](../benchmarks/new_bank_v2/F2_MANUS_CANDIDATES_REPORT.md)
+adds a second public axis for all three candidates on 108 native trials in
+each target session. F0v2 probabilities replay the prior MANUS study
+exactly. All additions improve validation macro-F1 but worsen validation
+log loss; F2a has the strongest validation F1 and minimum-user F1. Neither
+axis establishes a universal F2 candidate.
 
 The [F0–F9 public-evidence scope table](FORMULA_FAMILY_SCOPE_AUDIT.csv)
 separates native screens, bounded context/calibration evidence, synthetic
