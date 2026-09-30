@@ -12,6 +12,30 @@ def model(batch,neutral,axis):
 
 
 class BodyFrameTests(unittest.TestCase):
+    def test_all_fifteen_outputs_match_independent_constant_step_oracle(self):
+        emg = np.zeros((1, 40, 8))
+        imu = np.zeros((1, 10, 6))
+        imu[:, :, 0] = 1.0
+        imu[:, :, 2] = 9.81
+        imu[:, :, 4] = .3
+        neutral = np.zeros((50, 6))
+        neutral[:, 2] = 9.81
+        batch = FeatureBatch(emg, 200, imu)
+        fitted = model(batch, neutral, np.array([1., 0., 0.]))
+        actual = fitted.transform(batch, trial_ids=["held-out"])[0]
+        beta = np.exp(-1. / (50. * .5))
+        powers = beta ** np.arange(1, 11)
+        mean_gravity = np.array([1. - powers.mean(), 0., 9.81])
+        direction = mean_gravity / np.linalg.norm(mean_gravity)
+        accel_norm = np.hypot(1., 9.81)
+        expected = np.array([
+            accel_norm, 0., accel_norm, accel_norm, 0.,
+            .3, 0., .3, .3, 0.,
+            *direction,
+            np.sqrt(np.mean(powers ** 2)), .3,
+        ])
+        np.testing.assert_allclose(actual, expected, atol=1e-6, rtol=1e-6)
+
     def test_device_rotation_preserves_calibrated_body_context(self):
         rng=np.random.default_rng(31)
         imu=rng.normal(size=(3,10,6))*.1;imu[:,:,2]+=9.81

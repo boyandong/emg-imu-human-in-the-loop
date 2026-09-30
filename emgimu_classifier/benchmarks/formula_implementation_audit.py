@@ -37,7 +37,7 @@ REVIEWS = (
  ('NEW_V1_F2A','F2a. Trace-normalized covariance','new_bank_v2.py','TraceCovarianceV2','new_version_native_screen',
   'Independent centered, fixed-.05-shrinkage trace covariance with sqrt(2) off-diagonal vectorization. Exact formula fixture and matched public wearing F0v2 increment exist. Validation improves, final pooled F1 declines, so no general default promotion.','C(C+1)/2'),
  ('F6_calibrated_candidate','F6a. IMU body-frame context','body_frame.py','CalibratedBodyContextFamily','candidate_api_native_unavailable',
-  'Explicit neutral gravity and guided/measured forward axis establish fixed calibration-relative frame; real IMU rate/units and trial provenance required. Causal gravity EMA and linear acceleration RMS present. Calibration trials rejected in held-out evaluation. Public native calibrated frame evaluation unavailable; no absolute yaw.','15'),
+  'Explicit neutral gravity and guided/measured forward axis establish fixed calibration-relative frame; real IMU rate/units and trial provenance required. All 15 outputs pass an independent constant-step analytical oracle, with separate device-rotation invariance and calibration-trial exclusion checks. Public native calibrated frame evaluation unavailable; no absolute yaw.','15'),
  ('F0_noise_candidate','F0. Local / Traditional Signal Detail','document_signal.py','RestNoiseLocalDetailFamily','candidate_formula',
   'Six metrics with thresholds frozen exclusively from native Rest adjacent-difference noise; active contraction magnitude cannot set thresholds. Historical extra R0 features still unavailable.','6C'),
  ('F2b_document_candidate','F2b. CSP-like spatial feature','document_signal.py','DocumentCspFamily','candidate_formula',

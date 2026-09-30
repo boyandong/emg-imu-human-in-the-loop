@@ -3720,3 +3720,10 @@ coverage falls to 79.9%; this rule does not justify a deployed Unknown gate.
 This is a synthetic-fault detection check on one person's same-day raw ADC
 recordings, not a measured hardware-fault rate or a selected live gate. The
 existing deployed quality and Unknown decisions remain unchanged.
+
+For F6, a constant lateral-acceleration and constant-rotation oracle now
+checks every one of the 15 calibration-relative body-context outputs against
+an independently calculated gravity-filter trajectory. The existing
+rotation-invariance and held-out-calibration guards also pass. This verifies
+the numerical formula, while native evaluation of this calibrated body frame
+still needs a dataset with explicit neutral/forward calibration provenance.

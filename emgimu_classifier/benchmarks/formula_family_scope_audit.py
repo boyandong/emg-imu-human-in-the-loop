@@ -32,7 +32,7 @@ REVIEWS = (
      "Validated G5, complete-bout DTW and optional order-two F5c have frozen native UniBo evidence; F5c rejects short windows and has a known-path oracle.",
      "G5+F5c improves Day6 weighted macro F1 but worsens log loss; Days7-8 pooled F1 slips. Complete-bout oracle boundaries do not provide live onset/bout segmentation or eight-channel device transfer."),
     ("F6", "public_context_limited", "feature_bank/results/manifests/feature_bank_manus_full_fusion_final_20260915_v2__replay_audit.json|feature_bank/EXPERIMENT_CAPABILITIES.md",
-     "Real public IMU and oracle posture contexts have bounded native results; calibrated body-frame API has a synthetic contract check.",
+     "Real public IMU and oracle posture contexts have bounded native results; the calibrated body-frame API has rotation, trial-exclusion and independent 15-output analytical checks.",
      "No native calibrated forward-axis/neutral-trial metadata support the proposed gravity-relative body-frame evaluation."),
     ("F7", "public_calibration_screened", "benchmarks/new_bank_v2/V1_FEATURE_ANCHOR_VERIFICATION.json|feature_bank/results/epn_spd_anchor_trial_study.json",
      "Public 0/1/2/5-shot score- and feature-space anchors plus frozen-source SPD tangent prototypes have native trial-aware evidence.",
