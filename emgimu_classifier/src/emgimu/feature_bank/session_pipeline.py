@@ -85,13 +85,48 @@ class SessionCalibrationPipeline:
         return state
 
     def predict(self,target,session=None):
-        if set(target.trials.tolist())&self.source_trials_:
+        probabilities,trials=self.predict_unlabeled(target.batch,target.subjects,target.trials,session)
+        labels=np.asarray(target.labels)
+        identities=np.asarray(target.trials)
+        if labels.shape!=(target.batch.windows,):
+            raise ValueError('Held-out labels must align with native windows for offline scoring')
+        y=[]
+        for trial in trials:
+            values=np.unique(labels[identities==trial])
+            if len(values)!=1:
+                raise ValueError('One native evaluation trial must have one truth label')
+            y.append(values.item())
+        return probabilities,np.asarray(y),trials
+
+    def predict_unlabeled(self,batch,subjects,trial_ids,session=None):
+        """Predict native trials without evaluation labels or target fitting."""
+        if not hasattr(self,'models_'):
+            raise RuntimeError('Long-term source model must be fit first')
+        if batch.sample_rate_hz!=self.rate_ or batch.emg.shape[1:]!=(self.samples_,8):
+            raise ValueError('Session sensor/window contract differs from the source model')
+        users=np.asarray(subjects)
+        trials_by_window=np.asarray(trial_ids)
+        if (users.shape!=(batch.windows,) or trials_by_window.shape!=(batch.windows,)
+                or set(users.tolist())!={self.user_}):
+            raise ValueError('Aligned identities for one fitted personal user are required')
+        if any(not isinstance(value,str) or not value.strip() for value in trials_by_window):
+            raise ValueError('Explicit nonempty native trial identities are required')
+        trials=np.unique(trials_by_window)
+        if set(trials.tolist())&self.source_trials_:
             raise ValueError('Source-fit trials cannot become held-out evaluation')
-        if session is not None and set(target.trials.tolist())&set(session['calibration_trials']):
+        if session is not None and set(trials.tolist())&set(session['calibration_trials']):
             raise ValueError('Calibration trials cannot become held-out evaluation')
         before=pickle.dumps((self,session))
-        source,y,trials=self._features(target,self.normalizer_)
-        current=source if session is None else self._features(target,session['normalizer'])[0]
+        def features(normalizer):
+            normalized=normalizer.transform(batch)
+            output={}
+            for name in FAMILIES:
+                windows=self.families_[name].transform(normalized)
+                values=np.stack([windows[trials_by_window==trial].mean(0) for trial in trials])
+                output[name]=self.models_[name][0].transform(values)
+            return output
+        source=features(self.normalizer_)
+        current=source if session is None else features(session['normalizer'])
         probabilities={branch:{} for branch in BRANCHES}
         for name in FAMILIES:
             _,model=self.models_[name]
@@ -103,4 +138,4 @@ class SessionCalibrationPipeline:
                 anchor=long if session is None else session['anchors'][mode][name]
                 probabilities[f'session_{"long" if mode=="long_term" else mode}_anchor'][name]=anchor_probability(anchor,current[name])
         if before!=pickle.dumps((self,session)):raise AssertionError('Evaluation changed source or session state')
-        return probabilities,y,trials
+        return probabilities,trials

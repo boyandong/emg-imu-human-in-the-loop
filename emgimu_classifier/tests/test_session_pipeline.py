@@ -4,6 +4,7 @@ import numpy as np
 from emgimu.feature_bank.core import FeatureBatch
 from emgimu.feature_bank.force_nested_oof import SubjectWindows
 from emgimu.feature_bank.session_pipeline import SessionCalibrationPipeline
+from emgimu.feature_bank.force_full_fusion import aggregate
 
 
 def data(prefix,offset=0.,rate=200.):
@@ -38,6 +39,51 @@ class SessionPipelineTests(unittest.TestCase):
 
     def test_channel_count_does_not_prove_ring_geometry(self):
         with self.assertRaises(ValueError):SessionCalibrationPipeline(rest_label=2).fit_long_term(data('source'))
+
+    def test_unlabeled_predictions_match_independent_trial_aggregation(self):
+        pipeline=SessionCalibrationPipeline(rest_label=2,ring_topology=True).fit_long_term(data('source'))
+        state=pipeline.calibrate_session(data('cal',offset=20.))
+        target=data('target',offset=5.)
+        before=pickle.dumps((pipeline,state))
+        unlabeled,trials=pipeline.predict_unlabeled(target.batch,target.subjects,target.trials,state)
+        scored,truth,offline_trials=pipeline.predict(target,state)
+        np.testing.assert_array_equal(trials,offline_trials)
+        np.testing.assert_array_equal(truth,np.arange(5))
+        for branch in unlabeled:
+            for family in unlabeled[branch]:
+                np.testing.assert_allclose(unlabeled[branch][family],scored[branch][family],atol=1e-12)
+        for branch,normalizer in (('source_model',pipeline.normalizer_),
+                                  ('session_model',state['normalizer'])):
+            normalized=SubjectWindows(normalizer.transform(target.batch),target.labels,
+                                      target.subjects,target.trials)
+            family=pipeline.families_['F0']
+            values,_,_,expected_trials=aggregate(family.transform(normalized.batch),normalized)
+            np.testing.assert_array_equal(trials,expected_trials)
+            scaler,model=pipeline.models_['F0']
+            expected=model.predict_proba(scaler.transform(values))
+            np.testing.assert_allclose(unlabeled[branch]['F0'],expected,atol=1e-12)
+        fake_truth=SubjectWindows(target.batch,np.zeros_like(target.labels),
+                                  target.subjects,target.trials)
+        fake,reported,_=pipeline.predict(fake_truth,state)
+        np.testing.assert_array_equal(reported,np.zeros(5,int))
+        for branch in unlabeled:
+            for family in unlabeled[branch]:
+                np.testing.assert_allclose(unlabeled[branch][family],fake[branch][family],atol=1e-12)
+        self.assertEqual(before,pickle.dumps((pipeline,state)))
+
+    def test_unlabeled_path_rejects_bad_identity_and_calibration_overlap(self):
+        pipeline=SessionCalibrationPipeline(rest_label=2,ring_topology=True).fit_long_term(data('source'))
+        state=pipeline.calibrate_session(data('cal'))
+        target=data('target')
+        with self.assertRaisesRegex(ValueError,'Calibration trials'):
+            pipeline.predict_unlabeled(target.batch,target.subjects,data('cal').trials,state)
+        with self.assertRaisesRegex(ValueError,'Source-fit trials'):
+            pipeline.predict_unlabeled(target.batch,target.subjects,data('source').trials,state)
+        blank=target.trials.astype(object);blank[0]=None
+        with self.assertRaisesRegex(ValueError,'nonempty native trial'):
+            pipeline.predict_unlabeled(target.batch,target.subjects,blank,state)
+        with self.assertRaisesRegex(ValueError,'one fitted personal user'):
+            pipeline.predict_unlabeled(target.batch,np.full(10,2),target.trials,state)
 
 
 if __name__=='__main__':unittest.main()

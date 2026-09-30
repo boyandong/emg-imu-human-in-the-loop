@@ -1,0 +1,65 @@
+{
+  "status": "native_unlabeled_session_api_parity",
+  "protocol_sha256": "fed647b66464631675dd2b9afb887cd0efd652c0f7d9d0e4c495bcba66c9e20f",
+  "archive_sha256": "4cfa9a4861193f230179fa87d53eda7503e66b5cfedeae81c81e476f53f6b2b6",
+  "source_trial_ids": [
+    "CIILData-main/ElectrodeShift/subject15/training/R_0_C_0.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_0_C_1.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_0_C_2.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_0_C_3.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_0_C_4.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_1_C_0.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_1_C_1.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_1_C_2.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_1_C_3.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_1_C_4.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_2_C_0.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_2_C_1.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_2_C_2.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_2_C_3.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_2_C_4.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_3_C_0.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_3_C_1.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_3_C_2.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_3_C_3.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_3_C_4.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_4_C_0.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_4_C_1.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_4_C_2.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_4_C_3.csv",
+    "CIILData-main/ElectrodeShift/subject15/training/R_4_C_4.csv"
+  ],
+  "calibration_trial_ids": [
+    "CIILData-main/ElectrodeShift/subject15/trial_1/R_0_C_0.csv",
+    "CIILData-main/ElectrodeShift/subject15/trial_1/R_0_C_1.csv",
+    "CIILData-main/ElectrodeShift/subject15/trial_1/R_0_C_2.csv",
+    "CIILData-main/ElectrodeShift/subject15/trial_1/R_0_C_3.csv",
+    "CIILData-main/ElectrodeShift/subject15/trial_1/R_0_C_4.csv"
+  ],
+  "evaluation_trial_ids": [
+    "CIILData-main/ElectrodeShift/subject15/trial_1/R_1_C_0.csv",
+    "CIILData-main/ElectrodeShift/subject15/trial_1/R_1_C_1.csv",
+    "CIILData-main/ElectrodeShift/subject15/trial_1/R_1_C_2.csv",
+    "CIILData-main/ElectrodeShift/subject15/trial_1/R_1_C_3.csv",
+    "CIILData-main/ElectrodeShift/subject15/trial_1/R_1_C_4.csv"
+  ],
+  "fitted_state_sha256": "64a57eb03b7a3f0676dc760fcbd9132d193be594ee2a1bf1a41a810af47cd3dd",
+  "prediction_rows_sha256": "2bf874ecde21d17205bb518e7b3173e4abc5b678476905afba14147aec7ad4af",
+  "prediction_rows": 60,
+  "branches": [
+    "source_model",
+    "session_model",
+    "source_long_anchor",
+    "session_long_anchor",
+    "session_local_anchor",
+    "session_blended_anchor"
+  ],
+  "families": [
+    "F0",
+    "F3_Ring"
+  ],
+  "max_abs_probability_difference": 0.0,
+  "wrong_offline_truth_changed_predictions": false,
+  "source_and_session_immutable": true,
+  "scope": "API parity and leakage guard only, not a new classifier accuracy result, physical session change, independent subject test or live device validation."
+}

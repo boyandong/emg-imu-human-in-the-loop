@@ -3809,3 +3809,11 @@ unflagged across six users, while a copied constant-channel signal is flagged
 in every trial. It catches none of the 49/45 frozen F0v2 errors. This bounds
 false structural alerts under this selected electrode-shift data; without
 measured physical-fault labels it does not validate live fault detection.
+
+The [label-free session replay](../benchmarks/new_bank_v2/SESSION_UNLABELED_REPORT.md)
+closes a deployment API gap: target evaluation labels are no longer required
+to obtain personal session probabilities. On native public eight-channel,
+200 Hz electrode-shift trials, 60 predictions from six branches and two
+families exactly match the offline scoring wrapper. Deliberately wrong
+offline truth labels do not change predictions, and source/session state is
+immutable. This is software parity, not an own-device session result.
