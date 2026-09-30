@@ -1,0 +1,13 @@
+{
+  "name": "f9_structural_song_raw_adc_exploratory_v1",
+  "parent_quality_result_sha256": "0b85309d7ace128b698955f799e03c6fcb183420fab84f88cefdbab81ecdcb12",
+  "frozen_f0_predictions_sha256": "4b4a9b03ad9dcfc61d1c0554dfd3a78037556af5f55c4f22055b4c86f9042972",
+  "frozen_f0_manifest_sha256": "cae76be89d30a12a8a45ea51c63712e301349abf2624fbab47ab389b4a8db9df",
+  "source": "Song S01/S02 raw-ADC formal windows, source-fitted F9v2 and mask at 250Hz",
+  "validation": "Song S03 formal trials; session readiness failed",
+  "descriptive_final": "Song S04 formal trials; previously inspected",
+  "rule": "Reject a native trial only if any formal window has any channel zero fraction >=0.50, longest flatline ratio >=0.50, or known-ADC clip fraction >=0.10. Use the actual signed 24-bit ADC rails -8388608 and 8388607 and the previously fixed source state. Do not use soft amplitude, correlation, line or low-frequency shifts for rejection.",
+  "control": "Join unchanged source-S01/S02 F0 trial probabilities by native trial ID. Separately inject a constant channel into copied target windows to verify a structural event is observable; label this synthetic.",
+  "report": "Per S03/S04: native-trial coverage, previously correct trials rejected, errors rejected, baseline errors; window structural counts and synthetic constant-channel detection. No threshold tuning on either target session.",
+  "limits": "Single person and one calendar day, no validated re-donning, uncertain original packet bytes and cue onset. Both target sessions and the earlier quality mask were inspected before this rule. This is exploratory, not physical-fault sensitivity, independent final validation or live deployment."
+}
