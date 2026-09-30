@@ -1,7 +1,10 @@
 {
   "name": "f9_structural_grab_unseen_user_diagnostic_v1",
   "parent_protocol": "F9_GRAB_GATE_PROTOCOL.json",
+  "parent_protocol_sha256": "a89c44151c93464d5974bc205734fea6136e2512134564ae33e6f0bb90660412",
   "parent_results": "F9_GRAB_GATE_RESULTS.json",
+  "parent_results_sha256": "da4063671e525f2fb64e80eff450caa87be9c3827243dda3ee6b968994611ab9",
+  "frozen_f0_predictions_sha256": "3f4b7d58df3296b4483fcd63187f13f8d3ff3f4dfc6024b9f2003f76a20065b5",
   "dataset": "same checksum-verified GRABMyo Day1 source subjects 1-4, validation subjects 5-6, descriptive final subjects 7-8",
   "rule": "On any of twenty native 512-sample windows, reject a trial only when any channel has zero fraction >=0.50 or longest flatline ratio >=0.50. Include clip fraction >=0.10 only if explicit ADC rails are attested; GRAB physical-mV export has no such rails, so clipping is unavailable.",
   "fit": "Reuse source-fitted F9 family and quality-mask availability contract; severe structural cutoffs are fixed before target outcomes and are not target-fitted.",
