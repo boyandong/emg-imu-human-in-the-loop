@@ -1,0 +1,120 @@
+{
+  "status": "exploratory_structural_diagnostic_not_deployed",
+  "protocol_sha256": "48f057ab7ddee442a63c3ad617c69cc2358abcd8ed9070f3003af46e56a25c0b",
+  "parent_results_sha256": "da4063671e525f2fb64e80eff450caa87be9c3827243dda3ee6b968994611ab9",
+  "source_state_sha256": "0a19bc24bbefe2c0361bc6f5a02cf8262c6a10a63c38c4837106c47db6bd5818",
+  "official_sha256_manifest_sha256": "757ea64fa5134b7b3b84d9f79e30cfa1ac4d2c65a40ce9b427db11dd8258974e",
+  "availability": {
+    "adc_clipping": false,
+    "line_noise": false,
+    "low_frequency_pre_highpass": false
+  },
+  "trial_rows_sha256": "05f69dc602f3e9ee6bf6bbc8f15c2d4eb09e52e6d5077c6bd80b25cef81bfbb1",
+  "phases": {
+    "validation": {
+      "pooled": {
+        "trials": 56,
+        "accepted": 56,
+        "rejected": 0,
+        "coverage": 1.0,
+        "baseline_errors": 11,
+        "errors_rejected": 0,
+        "correct_rejected": 0,
+        "accepted_error_rate": 0.19642857142857142,
+        "rejection_by_gesture": {
+          "4": 0,
+          "15": 0,
+          "16": 0,
+          "17": 0
+        }
+      },
+      "subjects": {
+        "5": {
+          "trials": 28,
+          "accepted": 28,
+          "rejected": 0,
+          "coverage": 1.0,
+          "baseline_errors": 7,
+          "errors_rejected": 0,
+          "correct_rejected": 0,
+          "accepted_error_rate": 0.25,
+          "rejection_by_gesture": {
+            "4": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0
+          }
+        },
+        "6": {
+          "trials": 28,
+          "accepted": 28,
+          "rejected": 0,
+          "coverage": 1.0,
+          "baseline_errors": 4,
+          "errors_rejected": 0,
+          "correct_rejected": 0,
+          "accepted_error_rate": 0.14285714285714285,
+          "rejection_by_gesture": {
+            "4": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0
+          }
+        }
+      }
+    },
+    "final": {
+      "pooled": {
+        "trials": 56,
+        "accepted": 56,
+        "rejected": 0,
+        "coverage": 1.0,
+        "baseline_errors": 3,
+        "errors_rejected": 0,
+        "correct_rejected": 0,
+        "accepted_error_rate": 0.05357142857142857,
+        "rejection_by_gesture": {
+          "4": 0,
+          "15": 0,
+          "16": 0,
+          "17": 0
+        }
+      },
+      "subjects": {
+        "7": {
+          "trials": 28,
+          "accepted": 28,
+          "rejected": 0,
+          "coverage": 1.0,
+          "baseline_errors": 0,
+          "errors_rejected": 0,
+          "correct_rejected": 0,
+          "accepted_error_rate": 0.0,
+          "rejection_by_gesture": {
+            "4": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0
+          }
+        },
+        "8": {
+          "trials": 28,
+          "accepted": 28,
+          "rejected": 0,
+          "coverage": 1.0,
+          "baseline_errors": 3,
+          "errors_rejected": 0,
+          "correct_rejected": 0,
+          "accepted_error_rate": 0.10714285714285714,
+          "rejection_by_gesture": {
+            "4": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0
+          }
+        }
+      }
+    }
+  },
+  "scope": "Both target groups and the parent 0.5 gate results were previously inspected. This is a post-parent exploratory diagnostic, not a fresh held-out confirmation; no physical-fault labels, 250Hz transfer or live safety claim. Never promote automatically."
+}

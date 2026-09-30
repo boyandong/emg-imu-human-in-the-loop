@@ -3783,3 +3783,12 @@ the eleven errors was caught. Descriptive final coverage falls to 40/56;
 reinforces the decision not to deploy the fixed quality gate. Coarse
 frequency grids now return an unavailable line score without empty-bin
 warnings or fabricated zero-as-measurement claims.
+
+An exploratory [severe structural F9 replay](../benchmarks/new_bank_v2/F9_STRUCTURAL_GRAB_REPORT.md)
+then separated persistent zero/flat channels and known-rail clipping from
+soft amplitude/correlation shifts. It retains all 56 validation and all 56
+descriptive-final GRAB trials, avoiding the parent rule's false rejections,
+but catches none of the 14 existing F0 errors. Synthetic constant channels
+and known-rail saturation are detected in tests. Both GRAB target groups had
+already been inspected, and physical-fault labels are absent, so this rule
+also remains diagnostic and is not a promoted Unknown gate.

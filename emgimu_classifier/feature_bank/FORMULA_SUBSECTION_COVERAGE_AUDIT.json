@@ -5,8 +5,8 @@
   "context_headings": 3,
   "unmapped_formula_sections": [],
   "reviewed_source_rows": 53,
-  "formula_review_sha256": "5804d1738290cd15052ddabce19abc8a74fbd968efca219bdfa260cf916e8e15",
-  "section_inventory_sha256": "b2592a3a06e8ca81f24b2a9e385aed038d88d25ca164eed9cb42bc49560ea00e",
+  "formula_review_sha256": "8968b50509d1929a95586353d12d0eec0bf1203b5de3b029d886dedb3a31d1bb",
+  "section_inventory_sha256": "2924d9d289681a0805c51381a24b8e59b7a9feb7f2bae89316dd569693d04469",
   "csv_sha256": "e0cb090b99e08740c0d3bde4716c5aacf4d3f7e31007bf1f6e8b0c4b1b6822b4",
   "boundary": "A direct title-to-source review map, not a per-equation numerical proof or native-device acceptance. Reviewed statuses and evidence boundaries remain in FORMULA_IMPLEMENTATION_AUDIT.csv; every subsection retains scientific_completion=not_proven until its own formula and eligible native protocol pass."
 }
