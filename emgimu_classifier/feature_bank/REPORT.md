@@ -3755,3 +3755,13 @@ anomalies on held-out signals. A separate direct trace-covariance calculation
 also checks the global Frobenius anomaly. These numerical checks agree with
 F9v2; physical-fault attribution remains unverified and the adverse Song
 quality-gate decision is unchanged.
+
+An independent [GRABMyo unseen-user F9 gate replay](../benchmarks/new_bank_v2/F9_GRAB_GATE_REPORT.md)
+now tests the same source-frozen 0.5 trial rule with unknown ADC, mains and
+pre-highpass metadata masked. Against unchanged F0v2 predictions, validation
+coverage is 52/56; the four rejected trials were all correct, and none of
+the eleven errors was caught. Descriptive final coverage falls to 40/56;
+14 correct trials and two errors are rejected. This second public axis
+reinforces the decision not to deploy the fixed quality gate. Coarse
+frequency grids now return an unavailable line score without empty-bin
+warnings or fabricated zero-as-measurement claims.

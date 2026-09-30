@@ -487,7 +487,10 @@ class QualityFamily(FeatureFamily):
         else:
             line = np.abs(frequency - self.line_frequency_hz) <= 1.0
             neighbor = ((frequency >= self.line_frequency_hz - 6) & (frequency <= self.line_frequency_hz - 3)) | ((frequency >= self.line_frequency_hz + 3) & (frequency <= self.line_frequency_hz + 6))
-            line_ratio = psd[:, line].mean(axis=1) / np.maximum(psd[:, neighbor].mean(axis=1), EPS)
+            if line.any() and neighbor.any():
+                line_ratio = psd[:, line].mean(axis=1) / np.maximum(psd[:, neighbor].mean(axis=1), EPS)
+            else:
+                line_ratio = np.zeros_like(variance)
         activation = _rms(x)
         amplitude_z = (activation - self.reference_median_) / (1.4826 * self.reference_mad_)
         covariance_distance = np.linalg.norm(_covariances(x) - self.reference_covariance_[None, :, :], axis=(1, 2))[:, None]

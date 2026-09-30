@@ -1,4 +1,5 @@
 import pickle
+import warnings
 import unittest
 import numpy as np
 from emgimu.feature_bank.core import FeatureBatch
@@ -6,6 +7,17 @@ from emgimu.feature_bank.quality_observability import QualityObservabilityFamily
 
 
 class QualityObservabilityTests(unittest.TestCase):
+    def test_coarse_grab_frequency_grid_has_no_empty_band_warning(self):
+        rng=np.random.default_rng(84)
+        batch=FeatureBatch(rng.normal(size=(3,512,8)),2048.)
+        family=QualityObservabilityFamily().fit(batch)
+        with warnings.catch_warnings():
+            warnings.simplefilter('error',RuntimeWarning)
+            result=family.transform(batch)
+        self.assertFalse(family.availability_['line_noise'])
+        for channel in range(1,9):
+            self.assertEqual(result[0,family.feature_names.index(f'F9.line_noise_ratio.ch{channel}')],0.)
+
     def test_unknown_mains_frequency_is_masked_even_when_50hz_is_in_band(self):
         rng=np.random.default_rng(83)
         source=FeatureBatch(rng.normal(size=(5,250,2)),250.)

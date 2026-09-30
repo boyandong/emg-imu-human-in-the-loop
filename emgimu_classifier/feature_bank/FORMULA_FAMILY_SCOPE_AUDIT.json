@@ -1,9 +1,9 @@
 {
   "completion_proven": false,
   "families": 10,
-  "formula_review_sha256": "603fc50184951882b6aa92effcdb47376d5e1a48438e28b371dc1e157a56f810",
+  "formula_review_sha256": "2ce248fd37e8c1570efd8c7bbf69754081f85e78ea291b3351c96e86c601eb84",
   "formula_review_rows": 52,
-  "csv_sha256": "a2e6eeb348972a54f010e799c7dae0bd84f460e03253e8d1aa7779f319fecef0",
+  "csv_sha256": "08ff96e08f5ebe1c22e1eda9d82af5e17647ade6d4cba3bb5bb3c6eee5125d69",
   "scope_counts": {
     "public_screened": 3,
     "public_axis_limited": 1,
@@ -11,7 +11,7 @@
     "public_bout_screened": 1,
     "public_calibration_screened": 1,
     "public_session_limited": 1,
-    "one_person_quality_candidate": 1
+    "public_gate_negative": 1
   },
   "boundary": "Family-level public-data eligibility and limitation audit. It does not prove every subformula or every applicable native evaluation; measured own-device hardware/data claims remain separate."
 }

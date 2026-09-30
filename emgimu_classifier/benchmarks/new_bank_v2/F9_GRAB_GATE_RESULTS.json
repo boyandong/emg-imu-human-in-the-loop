@@ -1,0 +1,164 @@
+{
+  "status": "public_unseen_user_f9_diagnostic_gate_not_deployed",
+  "protocol_sha256": "a89c44151c93464d5974bc205734fea6136e2512134564ae33e6f0bb90660412",
+  "parent_prediction_sha256": "3f4b7d58df3296b4483fcd63187f13f8d3ff3f4dfc6024b9f2003f76a20065b5",
+  "official_sha256_manifest_sha256": "757ea64fa5134b7b3b84d9f79e30cfa1ac4d2c65a40ce9b427db11dd8258974e",
+  "source_state_sha256": "0a19bc24bbefe2c0361bc6f5a02cf8262c6a10a63c38c4837106c47db6bd5818",
+  "source_trials": 112,
+  "source_windows": 2240,
+  "availability": {
+    "adc_clipping": false,
+    "line_noise": false,
+    "low_frequency_pre_highpass": false
+  },
+  "thresholds": {
+    "zero": [
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "flat": [
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "amplitude": [
+      6.0,
+      6.0,
+      7.130348720550531,
+      8.851495809554981,
+      6.0,
+      6.0,
+      6.0,
+      6.0
+    ],
+    "correlation": [
+      6.0,
+      6.097043733596796,
+      6.0,
+      6.0,
+      6.0,
+      6.0,
+      6.0,
+      6.0
+    ]
+  },
+  "trial_rows_sha256": "4a2607ed707307b7058c21a5d887b1546849e76eba1d3bf8a7bcde1604e34914",
+  "phases": {
+    "validation": {
+      "pooled": {
+        "trials": 56,
+        "accepted": 52,
+        "rejected": 4,
+        "coverage": 0.9285714285714286,
+        "baseline_errors": 11,
+        "errors_rejected": 0,
+        "correct_rejected": 4,
+        "accepted_error_rate": 0.21153846153846154,
+        "rejection_by_gesture": {
+          "4": 0,
+          "15": 0,
+          "16": 4,
+          "17": 0
+        }
+      },
+      "subjects": {
+        "5": {
+          "trials": 28,
+          "accepted": 28,
+          "rejected": 0,
+          "coverage": 1.0,
+          "baseline_errors": 7,
+          "errors_rejected": 0,
+          "correct_rejected": 0,
+          "accepted_error_rate": 0.25,
+          "rejection_by_gesture": {
+            "4": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0
+          }
+        },
+        "6": {
+          "trials": 28,
+          "accepted": 24,
+          "rejected": 4,
+          "coverage": 0.8571428571428571,
+          "baseline_errors": 4,
+          "errors_rejected": 0,
+          "correct_rejected": 4,
+          "accepted_error_rate": 0.16666666666666666,
+          "rejection_by_gesture": {
+            "4": 0,
+            "15": 0,
+            "16": 4,
+            "17": 0
+          }
+        }
+      }
+    },
+    "final": {
+      "pooled": {
+        "trials": 56,
+        "accepted": 40,
+        "rejected": 16,
+        "coverage": 0.7142857142857143,
+        "baseline_errors": 3,
+        "errors_rejected": 2,
+        "correct_rejected": 14,
+        "accepted_error_rate": 0.025,
+        "rejection_by_gesture": {
+          "4": 2,
+          "15": 3,
+          "16": 5,
+          "17": 6
+        }
+      },
+      "subjects": {
+        "7": {
+          "trials": 28,
+          "accepted": 26,
+          "rejected": 2,
+          "coverage": 0.9285714285714286,
+          "baseline_errors": 0,
+          "errors_rejected": 0,
+          "correct_rejected": 2,
+          "accepted_error_rate": 0.0,
+          "rejection_by_gesture": {
+            "4": 0,
+            "15": 0,
+            "16": 2,
+            "17": 0
+          }
+        },
+        "8": {
+          "trials": 28,
+          "accepted": 14,
+          "rejected": 14,
+          "coverage": 0.5,
+          "baseline_errors": 3,
+          "errors_rejected": 2,
+          "correct_rejected": 12,
+          "accepted_error_rate": 0.07142857142857142,
+          "rejection_by_gesture": {
+            "4": 2,
+            "15": 3,
+            "16": 3,
+            "17": 6
+          }
+        }
+      }
+    }
+  },
+  "scope": "Public 8-channel 2048 Hz same-day unseen-user quality-gate diagnostic against unchanged F0v2 predictions. Unknown ADC rail, mains frequency and pre-highpass status are explicitly masked. No target refit or gate selection, 250 Hz own-device transfer, physical-fault labels or live safety claim; final subjects are descriptive."
+}
