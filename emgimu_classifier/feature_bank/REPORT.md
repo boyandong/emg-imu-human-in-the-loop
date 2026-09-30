@@ -3737,3 +3737,13 @@ separate 1/2-shot calibration blocks only. Direct trial-balanced recalculation
 agrees to numerical precision; the shift norms are 0.7054/1.4173 for S03
 and 1.1635/1.3283 for S04 at 1/2 shots. These same-day observations do not
 establish a later-day domain shift or predictive benefit.
+
+The [F0–F9 subsection coverage check](FORMULA_SUBSECTION_COVERAGE_AUDIT.csv)
+now binds all 32 formula-bearing appendix sections to exact reviewed source
+symbols; three additional headings are contextual. The formula inventory has
+52 source-review rows. A two-dimensional independent F7 oracle verifies
+Euclidean, robust-standardized and cosine coordinates, source-calibration
+similarity scales and margins. Individual F9a–F9g rules are now separately
+mapped, exposing where known-tone or measured-fault oracles remain missing.
+This is source coverage and selected numerical evidence, not complete
+scientific acceptance of every equation or native operating condition.

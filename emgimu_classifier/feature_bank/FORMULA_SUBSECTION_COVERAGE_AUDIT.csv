@@ -1,0 +1,36 @@
+section_start,section_end,title,mapping,review_item_ids,review_statuses,source_paths,scientific_completion
+1110,1273,五、Feature Bank：精确定义与计算方式,direct_source_review,NEW_V1_F0|F0_noise_candidate|F0|F1|NEW_V1_F1,new_version_native_screen|candidate_formula|partial|reference_only|new_version_native_screen,src/emgimu/feature_bank/new_bank_v2.py|src/emgimu/feature_bank/document_signal.py|src/emgimu/feature_bank/families.py|src/emgimu/feature_bank/new_bank_v1.py,not_proven
+1274,1313,F2a. Trace-normalized covariance,direct_source_review,NEW_V1_F2A|F2a,new_version_native_screen|candidate_formula,src/emgimu/feature_bank/new_bank_v2.py|src/emgimu/feature_bank/families.py,not_proven
+1314,1364,F2b. CSP-like spatial feature,direct_source_review,F2b_document_candidate|F2b,candidate_formula|partial,src/emgimu/feature_bank/document_signal.py|src/emgimu/feature_bank/families.py,not_proven
+1365,1400,F2c. SPD / Riemannian tangent feature,direct_source_review,F2c,candidate_formula,src/emgimu/feature_bank/families.py,not_proven
+1401,1404,F3. Ring Geometry / Wearing,context_heading,,,,not_proven
+1405,1443,F3a. RLCS,direct_source_review,F3a|NEW_V1_F3A,candidate_native_reconstruction|new_version_native_screen,src/emgimu/feature_bank/reconstructed_ring.py|src/emgimu/feature_bank/new_bank_v1.py,not_proven
+1444,1479,F3b. CES,direct_source_review,F3b|NEW_V1_F3B,reference_only|new_version_native_screen,src/emgimu/feature_bank/families.py|src/emgimu/feature_bank/new_bank_v1.py,not_proven
+1480,1534,F3c. Ring-relative covariance,direct_source_review,F3c,candidate_formula,src/emgimu/feature_bank/ring_covariance.py,not_proven
+1535,1550,F4. Spectral State,context_heading,,,,not_proven
+1551,1590,F4a. Frequency coordination,direct_source_review,F4a|NEW_V1_F4A,reference_only|new_version_native_screen,src/emgimu/feature_bank/families.py|src/emgimu/feature_bank/new_bank_v1.py,not_proven
+1591,1625,F4b. Spectral summary,direct_source_review,F4b,candidate_formula,src/emgimu/feature_bank/families.py,not_proven
+1626,1662,F4c. Cepstral / CCA-like candidate,direct_source_review,F4c,candidate_formula,src/emgimu/feature_bank/families.py,not_proven
+1663,1696,F4d. Personal/session-relative spectral shift,direct_source_review,F4d,candidate_native_context_only,src/emgimu/feature_bank/relative_spectrum.py,not_proven
+1697,1704,F5. Temporal Form,direct_source_review,F5_reference,reference_only,src/emgimu/feature_bank/families.py,not_proven
+1705,1776,F5a. Existing G5,direct_source_review,F5a,validated_reuse_narrow,src/emgimu/feature_bank/validated_unibo.py,not_proven
+1777,1825,F5b. DTW / template distance,direct_source_review,F5b,partial,src/emgimu/feature_bank/temporal.py,not_proven
+1826,1860,F5c. Low-order path signature（可选）,direct_source_review,F5c,optional_candidate,src/emgimu/feature_bank/temporal.py,not_proven
+1861,1866,F6. Body Context / IMU,context_heading,,,,not_proven
+1867,1922,F6a. IMU body-frame context,direct_source_review,F6_calibrated_candidate|F6a,candidate_api_native_unavailable|partial,src/emgimu/feature_bank/body_frame.py|src/emgimu/feature_bank/families.py,not_proven
+1923,1940,F6b. Public dataset posture context,direct_source_review,F6b,candidate_formula,src/emgimu/feature_bank/families.py,not_proven
+1941,1967,F7. Personal Anchor Coordinates,direct_source_review,F7|F7_SPD_tangent_candidate,partial|candidate_native_partial,src/emgimu/feature_bank/calibration.py|src/emgimu/feature_bank/spd_anchor.py,not_proven
+1968,1974,普通 Euclidean family,direct_source_review,F7_euclidean_rule,analytical_oracle,src/emgimu/feature_bank/calibration.py,not_proven
+1975,1984,Standardized Euclidean,direct_source_review,F7_standardized_rule,analytical_oracle,src/emgimu/feature_bank/calibration.py,not_proven
+1985,1992,Cosine,direct_source_review,F7_cosine_rule,analytical_oracle,src/emgimu/feature_bank/calibration.py,not_proven
+1993,2004,Shrinkage Mahalanobis（样本足够时）,direct_source_review,F7_mahalanobis_rule,analytical_budget_limited,src/emgimu/feature_bank/calibration.py,not_proven
+2005,2046,SPD feature,direct_source_review,F7_spd_distance_rule,analytical_native_limited,src/emgimu/feature_bank/spd_anchor.py,not_proven
+2047,2139,F8. Session Signature,direct_source_review,F8|F8_family_shift,partial|candidate_formula,src/emgimu/feature_bank/calibration.py|src/emgimu/feature_bank/session_shift_summary.py,not_proven
+2140,2145,F9. Quality / Observability,direct_source_review,F9_legacy|F9v2|F9_source_mask_candidate,reference_only|partial|candidate_native_context_only,src/emgimu/feature_bank/families.py|src/emgimu/feature_bank/quality_observability.py|src/emgimu/feature_bank/quality_mask_v1.py,not_proven
+2146,2168,F9a. Missing / zero / flatline,direct_source_review,F9a_zero_flat_rule,analytical_partial,src/emgimu/feature_bank/quality_observability.py,not_proven
+2169,2184,F9b. Clipping,direct_source_review,F9b_adc_clip_rule,metadata_conditional,src/emgimu/feature_bank/families.py,not_proven
+2185,2204,F9c. Line-noise ratio,direct_source_review,F9c_line_noise_rule,metadata_conditional,src/emgimu/feature_bank/quality_observability.py,not_proven
+2205,2223,F9d. Low-frequency artifact,direct_source_review,F9d_low_frequency_rule,metadata_conditional,src/emgimu/feature_bank/quality_observability.py,not_proven
+2224,2243,F9e. Abnormal channel amplitude,direct_source_review,F9e_amplitude_rule,source_frozen_partial,src/emgimu/feature_bank/families.py,not_proven
+2244,2270,F9f. Correlation/covariance anomaly,direct_source_review,F9f_covariance_rule,source_frozen_partial,src/emgimu/feature_bank/quality_observability.py,not_proven
+2271,2300,F9g. Quality mask,direct_source_review,F9g_mask_rule,candidate_negative_gate,src/emgimu/feature_bank/quality_mask_v1.py,not_proven

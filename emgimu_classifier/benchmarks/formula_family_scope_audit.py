@@ -35,7 +35,7 @@ REVIEWS = (
      "Real public IMU and oracle posture contexts have bounded native results; the calibrated body-frame API has rotation, trial-exclusion and independent 15-output analytical checks.",
      "No native calibrated forward-axis/neutral-trial metadata support the proposed gravity-relative body-frame evaluation."),
     ("F7", "public_calibration_screened", "benchmarks/new_bank_v2/V1_FEATURE_ANCHOR_VERIFICATION.json|feature_bank/results/epn_spd_anchor_trial_study.json",
-     "Public 0/1/2/5-shot score- and feature-space anchors plus frozen-source SPD tangent prototypes have native trial-aware evidence.",
+     "Public 0/1/2/5-shot score- and feature-space anchors plus frozen-source SPD tangent prototypes have native trial-aware evidence; Euclidean, standardized and cosine coordinates have an independent two-dimensional oracle.",
      "Some high-dimensional classwise Mahalanobis options cannot be estimated from these shot counts; no universal gain."),
     ("F8", "public_session_limited", "feature_bank/results/family_specific_session_shift_audit.json|benchmarks/song_real8/F8_REST_NOISE_SHIFT.json",
      "Long-versus-current family-specific summaries are derived from source/calibration trials; public wearing and MANUS context controls plus one-person Song calibration-only Rest-noise shifts exist.",
