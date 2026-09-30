@@ -1,0 +1,14 @@
+{
+  "name": "f2a_uncentered_document_formula_matched_transfer_v1",
+  "version": 1,
+  "status": "new_candidate_after_centered_f2a_screen",
+  "manus_parent_result_sha256": "34fca65e05c343edbb590897918079a139e75625e6dc8c2ac20937de9beb1701",
+  "manus_parent_prediction_sha256": "c7820a073a8912c405bb6bf46b5d86cf5a16134bcf4c970c69b1b8b92e650861",
+  "grab_parent_result_sha256": "046a7824a4296ba2e39aa6ee121621cdbe692679a19e666f1e6818a1a239e8ce",
+  "grab_parent_prediction_sha256": "c910686c0a3aa3ad434f68f218ad2a1140e52b665a4383b4124274d5cd1f74d0",
+  "candidate": "F0v2+F2a_uncentered",
+  "manus": "Use frozen six-user, eight-channel 200 Hz MANUS Session 1 source, Session 2 validation and Session 3 descriptive final. Retain the frozen external Rest prior. Source-only feature and classifier fitting uses the parent fit_predict rule on native trial-aggregated features.",
+  "grab": "Use frozen eight-channel native 2048 Hz GRABMyo Day1: users 1-4 source, 5-6 validation, 7-8 descriptive final. Reuse the verified official file-hash manifest and parent 20-window trial aggregation. Source-only StandardScaler/LogisticRegression C=1 max_iter=2000 random_state=20260924.",
+  "selection": "Compare each candidate on matched validation target trial IDs against frozen F0v2 and centered F2a. Report macro-F1, log loss and minimum-user F1; final is descriptive only. Apply the existing no-F1-loss/no-log-loss-increase cross-axis guard only after all three axes are saved. No promotion from a single axis.",
+  "boundary": "These public sessions and subjects were inspected by earlier project experiments. The new uncentered candidate is not a fresh independent cohort or an own-device 250 Hz validation."
+}
