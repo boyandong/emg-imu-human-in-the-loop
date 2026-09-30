@@ -27,6 +27,7 @@ from emgimu.feature_bank.new_bank_v1 import (
     ScalePatternV1, RingLagV1, CorrelationSpectrumV1, FrequencyDirectionV1,
 )
 from emgimu.feature_bank.new_bank_v2 import (
+    DocumentRingRelativeCovarianceV2, DocumentSpdTangentV2,
     DocumentTraceCovarianceV2, RestNoiseDetailV2, TraceCovarianceV2,
 )
 from emgimu.feature_bank.calibration import PersonalAnchor
@@ -40,6 +41,10 @@ REVIEWS = (
   'Independent centered, fixed-.05-shrinkage trace covariance with sqrt(2) off-diagonal vectorization. Exact formula fixture and matched public wearing F0v2 increment exist. Validation improves, final pooled F1 declines, so no general default promotion.','C(C+1)/2'),
  ('NEW_V2_F2A_DOCUMENT','F2a. Trace-normalized covariance','new_bank_v2.py','DocumentTraceCovarianceV2','new_version_native_screen',
   'Document-exact uncentered XX transpose/T with fixed .05 isotropic shrinkage and trace-normalized sqrt(2) upper triangle is a separate 36-coordinate candidate. Constant-offset and gain-invariance oracles distinguish it from centered F2a. Matched wearing, MANUS session and unseen-user GRAB screens retain frozen trial IDs; MANUS validation log loss and GRAB unseen-user F1/loss worsen, so no unconditional default promotion.','C(C+1)/2'),
+ ('NEW_V2_F2C_DOCUMENT','F2c. SPD / Riemannian tangent feature','new_bank_v2.py','DocumentSpdTangentV2','new_version_native_screen',
+  'Document-consistent uncentered F2a second moment with positive diagonal ridge, source-only log-Euclidean reference, whitened symmetric log and sqrt(2) upper triangle. Independent matrix oracle and matched wearing/MANUS/GRAB screens exist; MANUS validation log loss and GRAB unseen-user F1/loss worsen, so no universal promotion.','C(C+1)/2'),
+ ('NEW_V2_F3C_DOCUMENT','F3c. Ring-relative covariance','new_bank_v2.py','DocumentRingRelativeCovarianceV2','candidate_native_partial',
+  'Document-consistent uncentered F2a matrix with source-fitted eight-channel/200Hz contract and explicit ring-topology attestation; per-lag mean/median/std/q25/q75, with early/late drift only for long windows. Independent known-matrix and ring-rotation oracles plus matched six-user wearing screen show validation and descriptive-final F1/loss gains. Other public axes lack verified ring topology; no universal or own-device claim.','5 floor(C/2) plus optional floor(C/2)'),
  ('F6_calibrated_candidate','F6a. IMU body-frame context','body_frame.py','CalibratedBodyContextFamily','candidate_api_native_unavailable',
   'Explicit neutral gravity and guided/measured forward axis establish fixed calibration-relative frame; real IMU rate/units and trial provenance required. All 15 outputs pass an independent constant-step analytical oracle, with separate device-rotation invariance and calibration-trial exclusion checks. Public native calibrated frame evaluation unavailable; no absolute yaw.','15'),
  ('F0_noise_candidate','F0. Local / Traditional Signal Detail','document_signal.py','RestNoiseLocalDetailFamily','candidate_formula',
@@ -160,7 +165,8 @@ def build(document, output):
                     lambda:RestNoiseLocalDetailFamily(rest_label=2),DocumentCspFamily,
                     ScalePatternV1,RingLagV1,CorrelationSpectrumV1,FrequencyDirectionV1,
                     lambda: RestNoiseDetailV2(rest_label=0), TraceCovarianceV2,
-                    DocumentTraceCovarianceV2):
+                    DocumentTraceCovarianceV2, DocumentSpdTangentV2,
+                    lambda: DocumentRingRelativeCovarianceV2(ring_topology=True)):
         family = factory().fit(batch,labels); before = pickle.dumps(family)
         values = family.transform(batch)
         if values.shape!=(16,len(family.feature_names)) or not np.isfinite(values).all():

@@ -3759,7 +3759,7 @@ establish a later-day domain shift or predictive benefit.
 The [F0–F9 subsection coverage check](FORMULA_SUBSECTION_COVERAGE_AUDIT.csv)
 now binds all 32 formula-bearing appendix sections to exact reviewed source
 symbols; three additional headings are contextual. The formula inventory has
-54 source-review rows. A two-dimensional independent F7 oracle verifies
+56 source-review rows. A two-dimensional independent F7 oracle verifies
 Euclidean, robust-standardized and cosine coordinates, source-calibration
 similarity scales and margins. Individual F9a–F9g rules are now separately
 mapped, exposing where known-tone or measured-fault oracles remain missing.
@@ -3846,3 +3846,10 @@ covariance. Its known-signal oracle passes, and matched wearing, MANUS and
 GRAB trials show validation gains under wearing but higher MANUS log loss and
 lower unseen-user GRAB F1. The existing public-data default remains F0v2;
 older centered-F2a results retain their original identity.
+
+The [document-consistent F2c/F3c extension](../benchmarks/new_bank_v2/DOCUMENT_SPATIAL_REPORT.md)
+now derives both families from the same uncentered F2a matrix. F2c's matched
+wearing/MANUS/GRAB evidence still fails the cross-axis guard. F3c improves
+both F1 and log loss on public wearing validation and descriptive-final users,
+but its explicit ring-topology requirement has not been verified on the other
+public axes. It remains a wearing-specific research candidate, not a default.

@@ -2,11 +2,11 @@ section_start,section_end,title,mapping,review_item_ids,review_statuses,source_p
 1110,1273,五、Feature Bank：精确定义与计算方式,direct_source_review,NEW_V1_F0|F0_noise_candidate|F0|F1|NEW_V1_F1,new_version_native_screen|candidate_formula|partial|reference_only|new_version_native_screen,src/emgimu/feature_bank/new_bank_v2.py|src/emgimu/feature_bank/document_signal.py|src/emgimu/feature_bank/families.py|src/emgimu/feature_bank/new_bank_v1.py,not_proven
 1274,1313,F2a. Trace-normalized covariance,direct_source_review,NEW_V1_F2A|NEW_V2_F2A_DOCUMENT|F2a,new_version_native_screen|new_version_native_screen|candidate_formula,src/emgimu/feature_bank/new_bank_v2.py|src/emgimu/feature_bank/families.py,not_proven
 1314,1364,F2b. CSP-like spatial feature,direct_source_review,F2b_document_candidate|F2b,candidate_formula|partial,src/emgimu/feature_bank/document_signal.py|src/emgimu/feature_bank/families.py,not_proven
-1365,1400,F2c. SPD / Riemannian tangent feature,direct_source_review,F2c,candidate_formula,src/emgimu/feature_bank/families.py,not_proven
+1365,1400,F2c. SPD / Riemannian tangent feature,direct_source_review,NEW_V2_F2C_DOCUMENT|F2c,new_version_native_screen|candidate_formula,src/emgimu/feature_bank/new_bank_v2.py|src/emgimu/feature_bank/families.py,not_proven
 1401,1404,F3. Ring Geometry / Wearing,context_heading,,,,not_proven
 1405,1443,F3a. RLCS,direct_source_review,F3a|NEW_V1_F3A,candidate_native_reconstruction|new_version_native_screen,src/emgimu/feature_bank/reconstructed_ring.py|src/emgimu/feature_bank/new_bank_v1.py,not_proven
 1444,1479,F3b. CES,direct_source_review,F3b|NEW_V1_F3B,reference_only|new_version_native_screen,src/emgimu/feature_bank/families.py|src/emgimu/feature_bank/new_bank_v1.py,not_proven
-1480,1534,F3c. Ring-relative covariance,direct_source_review,F3c,candidate_formula,src/emgimu/feature_bank/ring_covariance.py,not_proven
+1480,1534,F3c. Ring-relative covariance,direct_source_review,NEW_V2_F3C_DOCUMENT|F3c,candidate_native_partial|candidate_formula,src/emgimu/feature_bank/new_bank_v2.py|src/emgimu/feature_bank/ring_covariance.py,not_proven
 1535,1550,F4. Spectral State,context_heading,,,,not_proven
 1551,1590,F4a. Frequency coordination,direct_source_review,F4a|NEW_V1_F4A,reference_only|new_version_native_screen,src/emgimu/feature_bank/families.py|src/emgimu/feature_bank/new_bank_v1.py,not_proven
 1591,1625,F4b. Spectral summary,direct_source_review,F4b,candidate_formula,src/emgimu/feature_bank/families.py,not_proven
