@@ -66,9 +66,9 @@ def decide() -> dict:
             "f2c_universal_default_eligible":not f2c_violations,
             "f3c_wearing_validation_f1_gain":f3c["delta_macro_f1"],
             "f3c_wearing_validation_loss_change":f3c["delta_log_loss"],
-            "f3c_role":"wearing-only research specialist; other axes lack verified ring topology",
+            "f3c_role":"wearing-only exploratory candidate under assumed saved-column circular order; dataset column-to-electrode adjacency unverified",
             "three_axis_default":"F0v2" if f2c_violations else "F0v2+F2c_document",
-            "boundary":"Public datasets were previously inspected. F2c uses the pre-existing three-axis validation guard; F3c has a wearing-only screen, not a universal selection. Finals are descriptive and own-device validation is absent."}
+            "boundary":"Public datasets were previously inspected. F2c uses the pre-existing three-axis validation guard. The Myo armband is physically circular, but this dataset does not attest that saved columns follow physical adjacency; F3c is therefore an index-order exploratory screen, not verified anatomical ring evidence. Finals are descriptive and own-device validation is absent."}
     AUDIT.write_text(json.dumps(result,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({"cells":len(rows),"three_axis_default":result["three_axis_default"],
                       "f3c_wearing_validation_f1_gain":f3c["delta_macro_f1"]}))

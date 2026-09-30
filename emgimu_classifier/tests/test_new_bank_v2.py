@@ -104,6 +104,17 @@ def test_document_spd_uses_uncentered_source_reference_without_target_refit():
     source=rng.normal(size=(4,40,8))*.2+np.arange(1,9)[None,None,:]
     target=rng.normal(size=(2,40,8))*.2+np.arange(8,0,-1)[None,None,:]
     family=DocumentSpdTangentV2(shrinkage=.05).fit(FeatureBatch(source,200.))
+    source_logs=[]
+    for window in source:
+        moment=window.T@window/len(window)
+        matrix=.95*moment+.05*np.trace(moment)/8*np.eye(8)+1e-12*np.eye(8)
+        matrix/=np.trace(matrix)
+        values,vectors=np.linalg.eigh(matrix)
+        source_logs.append((vectors*np.log(values))@vectors.T)
+    mean_log=np.mean(source_logs,axis=0)
+    values,vectors=np.linalg.eigh(mean_log)
+    expected_reference=(vectors*np.exp(values))@vectors.T
+    np.testing.assert_allclose(family.reference_,expected_reference,rtol=1e-9,atol=1e-9)
     frozen=pickle.dumps(family)
     observed=family.transform(FeatureBatch(target,200.))
     expected=[]
@@ -174,3 +185,35 @@ def test_document_ring_covariance_requires_topology_and_matches_uncentered_lags(
     centered=RingRelativeCovarianceV2().fit(batch).transform(batch)
     assert np.max(np.abs(observed-centered))>.01
     assert observed.shape==(2,20)
+
+
+def test_document_ring_long_window_temporal_drift_matches_uncentered_halves():
+    rng=np.random.default_rng(1201)
+    x=rng.normal(scale=.15,size=(2,120,8))
+    x[:,:60,:]+=np.arange(1,9)[None,None,:]
+    x[:,60:,:]+=np.arange(8,0,-1)[None,None,:]
+    x[:,60:,0]+=4.
+    batch=FeatureBatch(x,200.)
+    family=DocumentRingRelativeCovarianceV2(ring_topology=True).fit(batch)
+    observed=family.transform(batch)
+    assert observed.shape==(2,24)
+    assert family.with_temporal_
+
+    def moment(window):
+        matrix=window.T@window/len(window)
+        matrix=.95*matrix+.05*np.trace(matrix)/8*np.eye(8)+1e-12*np.eye(8)
+        return matrix/np.trace(matrix)
+
+    for row,window in enumerate(x):
+        early=moment(window[:60])
+        late=moment(window[60:])
+        for lag in range(1,5):
+            indices=np.arange(8)
+            early_mean=np.mean(early[indices,(indices+lag)%8])
+            late_mean=np.mean(late[indices,(indices+lag)%8])
+            np.testing.assert_allclose(observed[row,6*(lag-1)+5],
+                                       abs(late_mean-early_mean),atol=1e-7)
+    np.testing.assert_allclose(observed,
+                               family.transform(FeatureBatch(np.roll(x,3,axis=2),200.)),
+                               atol=1e-7)
+    assert np.max(observed[:,[5,11,17,23]])>.01

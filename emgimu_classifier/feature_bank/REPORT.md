@@ -3851,5 +3851,6 @@ The [document-consistent F2c/F3c extension](../benchmarks/new_bank_v2/DOCUMENT_S
 now derives both families from the same uncentered F2a matrix. F2c's matched
 wearing/MANUS/GRAB evidence still fails the cross-axis guard. F3c improves
 both F1 and log loss on public wearing validation and descriptive-final users,
-but its explicit ring-topology requirement has not been verified on the other
-public axes. It remains a wearing-specific research candidate, not a default.
+but the published data do not establish that saved channel columns follow the
+Myo's physical circular order. Its result is conditional on that ordering
+assumption and remains exploratory, not a default.
