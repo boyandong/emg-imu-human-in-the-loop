@@ -41,7 +41,7 @@ REVIEWS = (
      "Long-versus-current family-specific summaries are derived from source/calibration trials; public wearing and MANUS context controls plus one-person Song calibration-only Rest-noise shifts exist.",
      "Song is same-person/same-day, S03 readiness failed and the Rest-noise descriptor has no matched predictive-routing increment; true later-day/re-donning validation is unavailable."),
     ("F9", "one_person_quality_candidate", "benchmarks/new_bank_v2/ROAM_V1_QUALITY_ANALYSIS_AUDIT.json|feature_bank/results/quality_unknown_replay.json|benchmarks/song_real8/QUALITY_MASK_V1.json",
-     "Availability-aware quality observations, explicit Unknown replay and a source-frozen mask checked on Song held-out raw-ADC windows with synthetic constant-channel corruption and frozen F0 trial-ID joining exist.",
+     "Availability-aware quality observations have direct-Fourier line/low-band, robust amplitude and neighbor-correlation oracles; explicit Unknown replay and a source-frozen Song mask with synthetic constant-channel corruption and frozen F0 trial-ID joining exist.",
      "The illustrative 0.5 gate rejects mostly correct F0 trials on both held-out sessions; there is no physical-fault ground truth, and safe live gating remains unresolved."),
 )
 
