@@ -1,0 +1,11 @@
+{
+  "name": "document_uncentered_f2c_matched_manus_grab_transfer_v1",
+  "version": 1,
+  "parent_result_sha256": "819ec52792d1f1c6df3d602ad67d95bb036013fa0ed67ee7b61b19dfc77b8e01",
+  "parent_prediction_sha256": "f3cdb6cd5a038f17feb5c168b4906e8b34f409ac1c4846f35bd19b61e9625d61",
+  "candidate": "F0v2+F2c_document",
+  "manus": "Frozen MANUS Session 1 source, Session 2 validation and Session 3 descriptive final; six users, 8 channels, 200 Hz, external source-only Rest prior. The parent native trial IDs, source-only fit_predict rule and class order remain fixed.",
+  "grab": "Frozen GRABMyo Day1 users 1-4 source, 5-6 validation, 7-8 descriptive final; native 8 channels at 2048 Hz, official file hashes and exact parent 20-window aggregation. Source-only StandardScaler/LogisticRegression C=1 max_iter=2000 random_state=20260924.",
+  "decision": "Compare matched validation F1 and log loss with F0v2 and previously screened centered F2c. Final is descriptive. Apply the existing three-axis public default guard only after the separate wearing arm and both transfer axes are saved.",
+  "boundary": "The public source recordings have been inspected before. This candidate test is not a new independent cohort or the user's own-device 250 Hz validation."
+}

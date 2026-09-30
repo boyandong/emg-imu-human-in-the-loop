@@ -1,0 +1,13 @@
+{
+  "name": "document_uncentered_f2c_f3c_native_wearing_v1",
+  "version": 1,
+  "parent_result_sha256": "f03a4351daa04b12620955dd726c301759fb47dbf01086bf2494ecd1e3bbb75b",
+  "parent_prediction_sha256": "a6034f41b95de9ba7d7fe48591b0354bf7a3479b5b3dc232ccf7cb3a00a3509a",
+  "archive_sha256": "4cfa9a4861193f230179fa87d53eda7503e66b5cfedeae81c81e476f53f6b2b6",
+  "arms": ["F0v2+F2c_document", "F0v2+F3c_document"],
+  "source": "Six public eight-channel 200 Hz users' training-domain trials, source-only F0v2 Rest thresholds, uncentered F2c log-Euclidean reference and explicit verified-ring F3c input contract.",
+  "target": "Exact frozen four after-wearing domains and native trial identities of the parent. Validation users 15-17 and descriptive-final users 18-20.",
+  "classifier": "Per user and arm, source-only native trial means, StandardScaler and balanced LogisticRegression C=1 max_iter=2000 random_state=20260924; target transform only.",
+  "decision": "Compare each arm with matched frozen F0v2 and previous centered F2c/F3c scores on validation subjects; finals are descriptive. Do not promote from one wearing axis.",
+  "boundary": "Ring topology is asserted only for this public electrode-shift ordering. These candidate formulas are not an independent cohort, own-device validation or automatic default."
+}

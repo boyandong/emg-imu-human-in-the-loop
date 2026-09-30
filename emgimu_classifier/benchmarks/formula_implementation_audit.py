@@ -26,7 +26,9 @@ from emgimu.feature_bank.reconstructed_ring import ReconstructedRlcs
 from emgimu.feature_bank.new_bank_v1 import (
     ScalePatternV1, RingLagV1, CorrelationSpectrumV1, FrequencyDirectionV1,
 )
-from emgimu.feature_bank.new_bank_v2 import RestNoiseDetailV2, TraceCovarianceV2
+from emgimu.feature_bank.new_bank_v2 import (
+    DocumentTraceCovarianceV2, RestNoiseDetailV2, TraceCovarianceV2,
+)
 from emgimu.feature_bank.calibration import PersonalAnchor
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
@@ -157,7 +159,8 @@ def build(document, output):
                     lambda:QualityObservabilityFamily(ring_topology=True),
                     lambda:RestNoiseLocalDetailFamily(rest_label=2),DocumentCspFamily,
                     ScalePatternV1,RingLagV1,CorrelationSpectrumV1,FrequencyDirectionV1,
-                    lambda: RestNoiseDetailV2(rest_label=0), TraceCovarianceV2):
+                    lambda: RestNoiseDetailV2(rest_label=0), TraceCovarianceV2,
+                    DocumentTraceCovarianceV2):
         family = factory().fit(batch,labels); before = pickle.dumps(family)
         values = family.transform(batch)
         if values.shape!=(16,len(family.feature_names)) or not np.isfinite(values).all():

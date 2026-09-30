@@ -2,18 +2,22 @@ import numpy as np
 import pytest
 
 from emgimu.feature_bank.core import FeatureBatch
+from emgimu.feature_bank.families import SpdTangentFamily
 from emgimu.feature_bank.new_bank_v2 import (
-    DocumentTraceCovarianceV2, RestNoiseDetailV2, RingRelativeCovarianceV2, TraceCovarianceV2,
+    DocumentRingRelativeCovarianceV2, DocumentSpdTangentV2, DocumentTraceCovarianceV2, RestNoiseDetailV2,
+    RingRelativeCovarianceV2, TraceCovarianceV2,
     new_bank_v2_registry,
 )
 
 
 def test_v2_registers_only_independent_v1_and_new_blocks():
     registry = new_bank_v2_registry()
-    assert len(registry.family_ids) == 8
+    assert len(registry.family_ids) == 10
     assert isinstance(registry.create("new_v2_rest_noise_detail"), RestNoiseDetailV2)
     assert isinstance(registry.create("new_v2_trace_covariance"), TraceCovarianceV2)
     assert isinstance(registry.create("new_v2_document_trace_covariance"), DocumentTraceCovarianceV2)
+    assert isinstance(registry.create("new_v2_document_spd_tangent"), DocumentSpdTangentV2)
+    assert isinstance(registry.create("new_v2_document_ring_relative_covariance"), DocumentRingRelativeCovarianceV2)
     assert isinstance(registry.create("new_v2_ring_relative_covariance"), RingRelativeCovarianceV2)
 
 
@@ -94,6 +98,37 @@ def test_document_trace_covariance_matches_uncentered_formula_and_preserves_offs
         family.transform(FeatureBatch(signal,250.))
 
 
+def test_document_spd_uses_uncentered_source_reference_without_target_refit():
+    import pickle
+    rng=np.random.default_rng(20261001)
+    source=rng.normal(size=(4,40,8))*.2+np.arange(1,9)[None,None,:]
+    target=rng.normal(size=(2,40,8))*.2+np.arange(8,0,-1)[None,None,:]
+    family=DocumentSpdTangentV2(shrinkage=.05).fit(FeatureBatch(source,200.))
+    frozen=pickle.dumps(family)
+    observed=family.transform(FeatureBatch(target,200.))
+    expected=[]
+    reference=family.reference_
+    eigen,rotation=np.linalg.eigh(reference)
+    inverse_root=(rotation*eigen**-.5)@rotation.T
+    for window in target:
+        moment=window.T@window/len(window)
+        regularized=.95*moment+.05*np.trace(moment)/8*np.eye(8)+1e-12*np.eye(8)
+        covariance=regularized/np.trace(regularized)
+        whitened=inverse_root@covariance@inverse_root
+        values,vectors=np.linalg.eigh((whitened+whitened.T)/2)
+        tangent=(vectors*np.log(values))@vectors.T
+        i,j=np.triu_indices(8)
+        coordinates=tangent[i,j].copy();coordinates[i!=j]*=np.sqrt(2)
+        expected.append(coordinates)
+    np.testing.assert_allclose(observed,expected,rtol=1e-5,atol=1e-5)
+    assert pickle.dumps(family)==frozen
+    assert observed.shape==(2,36)
+    centered=SpdTangentFamily().fit(FeatureBatch(source,200.)).transform(FeatureBatch(target,200.))
+    assert np.max(np.abs(observed-centered))>.01
+    with pytest.raises(ValueError,match='sample rate'):
+        family.transform(FeatureBatch(target,250.))
+
+
 def test_ring_covariance_preserves_rotation_but_detects_nonring_swap():
     rng = np.random.default_rng(114)
     x = rng.normal(size=(5, 200, 8))
@@ -117,3 +152,25 @@ def test_ring_covariance_short_window_omits_unstable_temporal_block():
     np.testing.assert_array_equal(family.transform(short), np.zeros((2, 20)))
     with pytest.raises(ValueError, match="window samples"):
         family.transform(FeatureBatch(np.zeros((2, 51, 8)), 250.0))
+
+
+def test_document_ring_covariance_requires_topology_and_matches_uncentered_lags():
+    rng=np.random.default_rng(1130)
+    x=rng.normal(scale=.1,size=(2,40,8))+np.array([2.,1.,0.,0.,0.,0.,0.,0.])
+    batch=FeatureBatch(x,200.)
+    with pytest.raises(ValueError,match='topology'):
+        DocumentRingRelativeCovarianceV2().fit(batch)
+    family=DocumentRingRelativeCovarianceV2(ring_topology=True).fit(batch)
+    observed=family.transform(batch)
+    moment=x[0].T@x[0]/40
+    matrix=.95*moment+.05*np.trace(moment)/8*np.eye(8)+1e-12*np.eye(8)
+    matrix/=np.trace(matrix)
+    values=np.array([matrix[i,(i+1)%8] for i in range(8)])
+    np.testing.assert_allclose(observed[0,:5],
+                               [values.mean(),np.median(values),values.std(),
+                                np.quantile(values,.25),np.quantile(values,.75)],atol=1e-7)
+    rotated=family.transform(FeatureBatch(np.roll(x,2,axis=2),200.))
+    np.testing.assert_allclose(observed,rotated,atol=1e-7)
+    centered=RingRelativeCovarianceV2().fit(batch).transform(batch)
+    assert np.max(np.abs(observed-centered))>.01
+    assert observed.shape==(2,20)
