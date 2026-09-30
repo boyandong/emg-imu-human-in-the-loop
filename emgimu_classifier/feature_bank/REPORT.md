@@ -3824,3 +3824,11 @@ per trial also check equal-trial-mass long/session references and immutable
 held-out evaluation. This verifies the stated formula on a known signal; it
 does not change the negative MANUS final minimum-user result or establish a
 cross-day effect.
+
+A [retrospective F2 three-axis decision](../benchmarks/new_bank_v2/F2_CROSS_AXIS_REVIEW_REPORT.md)
+now applies the existing validation-only default-bank guard to F2a, F2b and
+F2c on matched wearing, MANUS session and unseen-user GRAB trials. None avoids
+both F1 loss and log-loss increase on every axis; F0v2 remains the public-data
+default for this candidate set. The 24 saved cells and six source-result hashes
+make the decision reproducible, but the reviewed public recordings are not a
+new independent holdout.

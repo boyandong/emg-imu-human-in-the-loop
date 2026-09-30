@@ -1,0 +1,36 @@
+{
+  "status": "retrospective_frozen_f2_review",
+  "protocol_sha256": "17f02be3a43ab29bd1c1a97559a9b0b4b4602cfe5ae488aafcd2f25769bd1b44",
+  "source_results_sha256": {
+    "F2_AC_WEARING_RESULTS.json": "59cd0f846b48a368a836797a3027509f8d0ef5203ad36514f3aa7737db3d7e6a",
+    "F2B_WEARING_RESULTS.json": "a5471518f0f5f242270f2a382b5a941dc3f601dd5f0dc53f7056e9742c0c7488",
+    "F2_MANUS_CANDIDATES_RESULTS.json": "34fca65e05c343edbb590897918079a139e75625e6dc8c2ac20937de9beb1701",
+    "MANUS_REST_TRANSFER_RESULTS.json": "10c20b5ce8599e9403ef1aeda6be8117bb62a0789de819b13769aea5773f7b24",
+    "F2_GRAB_CANDIDATES_RESULTS.json": "046a7824a4296ba2e39aa6ee121621cdbe692679a19e666f1e6818a1a239e8ce",
+    "GRAB_USER_RESULTS.json": "8ba1a3d7a42c0a1af7e9747f4f883aa1b5d3b5a59e5d73dc34db6cb86ae36969"
+  },
+  "cells_sha256": "ac0f92a32ba5c9626660650851eafd375e4e02c0ceb802bc41efccaddf334eb6",
+  "cells": 24,
+  "validation_violations": {
+    "F0v2+F2a": [
+      "manus_session:log_loss",
+      "grab_unseen_user:macro_f1",
+      "grab_unseen_user:log_loss"
+    ],
+    "F0v2+F2b": [
+      "wearing_shift:macro_f1",
+      "wearing_shift:log_loss",
+      "manus_session:log_loss",
+      "grab_unseen_user:macro_f1",
+      "grab_unseen_user:log_loss"
+    ],
+    "F0v2+F2c": [
+      "manus_session:log_loss",
+      "grab_unseen_user:macro_f1",
+      "grab_unseen_user:log_loss"
+    ]
+  },
+  "eligible_additions": [],
+  "three_axis_default": "F0v2",
+  "scope": "The axes reuse inspected public recordings and overlap other project studies. This three-axis F2 review does not replace the earlier seven-axis decision, prove independent generalization, or evaluate the user's 250 Hz device."
+}
