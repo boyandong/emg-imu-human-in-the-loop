@@ -1,0 +1,22 @@
+{
+  "name": "new_v1_f5c_unibo_complete_bout_increment_v1",
+  "version": 1,
+  "dataset_root": "D:/emg-imu-benchmarks/data/processed/unibo_benchmark_20260915",
+  "frozen_parent_source": "D:/emg-imu-benchmarks/data/processed/feature_bank_unibo_sequence_temporal_validation_20260916",
+  "frozen_parent_final": "D:/emg-imu-benchmarks/data/processed/feature_bank_unibo_sequence_temporal_final_20260928",
+  "parent_state_sha256": "8d26130260b26802a06aa2e7593c73b879e08d37bf65f52a922c9d1667d9a658",
+  "parent_validation_prediction_sha256": "06b6a76f9d2529b9eb28b01f7ff6f03998299d4706e65e88e4f3b2e04a04de93",
+  "parent_validation_bout_metadata_sha256": "6d0d7a1792bdd2e92631a6f39aa4092a6e4ace14d91a28185fb360acc3e45b4b",
+  "parent_final_prediction_sha256": "e33cb3651bff9b7c437cc58146f3185c69dc26cb098f77e544a87ffcc6dd4b89",
+  "parent_final_bout_metadata_sha256": "a03e722a7a1d528b744add3dfcebe839a09f00b275a7f983a6e81ac8fb4597c9",
+  "source_days": [1, 2, 3, 4, 5],
+  "inner_fit_days": [1, 2, 3, 4],
+  "source_temperature_day": 5,
+  "validation_day": 6,
+  "final_days": [7, 8],
+  "arms": ["G5", "F5c", "G5+F5c"],
+  "path": "Oracle-labelled complete native gesture bouts >=1 second, each entire bout compressed to 32 equal-duration multichannel RMS envelope bins, then L2-normalized per time and centered at start. Only order-one and order-two signatures, no time channel.",
+  "training": "Per-user source-only balanced trial weights. Day1-4 fits inner classifier and Day5 fits its temperature; Day1-5 refits classifier. G5 feature extractors and G5 parent probabilities come from frozen parent. F5c and combined classifiers use identical fixed logistic settings C=1, balanced classes and frozen source-only standardization.",
+  "evaluation": "Day6 is validation; Days7-8 are descriptive final. All arms score identical complete held bouts. G5 predictions must reproduce both frozen parent arrays, including ordered bout IDs, within numerical tolerance.",
+  "boundary": "Offline oracle-segmented complete UniBo four-muscle, processed-200 Hz bouts. Not short-window detection, automatic onset/offset segmentation, live device behavior, or the user's 250 Hz eight-channel hardware. Do not promote F5c from final-only gains."
+}

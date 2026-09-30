@@ -3681,12 +3681,17 @@ centroid, median frequency, entropy and four non-DC cepstral mean/std pairs,
 including a zero-signal channel. It verifies the implemented numerical
 convention; it does not establish historical CCA identity or native benefit.
 
-The optional F5c order-two path signature now requires a producer-certified
+The optional F5c order-two path signature requires a producer-certified
 complete sequence with a native duration of at least one second, like F5b.
 A [known three-point path test](../tests/test_f5c_complete_signature.py)
 checks both tensor levels, repeated-vertex invariance, scale invariance and
-short-window rejection. This is formula/interface evidence only; no native
-incremental recognition benefit is asserted for F5c.
+short-window rejection. A separate
+[full-bout UniBo comparison](../benchmarks/new_bank_v2/F5C_UNIBO_BOUT_REPORT.md)
+uses the entire oracle-labelled RMS-envelope trajectory, with 15,273 saved
+matched predictions and exact replay of frozen G5 parent arrays. G5+F5c
+raises Day6 macro F1 from 0.7713 to 0.8297 but worsens log loss; Days7-8
+pooled F1 slips from 0.7538 to 0.7504. F5c remains optional, with no
+live-segmentation or eight-channel transfer claim.
 
 The generic F8 session signature also has a
 [hand-computable three-class geometry check](../tests/test_f8_known_geometry.py)
