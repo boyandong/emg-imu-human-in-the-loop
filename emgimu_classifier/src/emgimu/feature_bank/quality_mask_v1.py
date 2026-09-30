@@ -69,16 +69,7 @@ class SourceCalibratedQualityMask:
         return self
 
     def transform(self, features: np.ndarray, feature_names: tuple[str, ...]) -> np.ndarray:
-        if self.names_ is None:
-            raise RuntimeError("quality mask must be fit on source observations")
-        x = np.asarray(features, dtype=np.float64)
-        if (tuple(feature_names) != self.names_ or x.ndim != 2 or x.shape[1] != len(self.names_)
-                or not np.isfinite(x).all()):
-            raise ValueError("target F9v2 features differ from frozen source contract")
-        for key, expected in self.available_.items():
-            values = x[:, self.names_.index(f"F9v2.available.{key}")]
-            if not np.all(values == float(expected)):
-                raise ValueError("target availability differs from frozen source contract")
+        x = self._validated_target(features, feature_names)
         quality = np.ones((len(x), self.channels_), dtype=np.float64)
         for key, threshold in self.thresholds_.items():
             value = x[:, self.indices_[key]]
@@ -89,6 +80,33 @@ class SourceCalibratedQualityMask:
         bad = (quality < 0.5).sum(axis=1)
         return np.column_stack((quality, bad, quality.mean(axis=1),
                                 quality.min(axis=1), quality.var(axis=1))).astype(np.float32)
+
+    def structural_invalid(self, features: np.ndarray, feature_names: tuple[str, ...]) -> np.ndarray:
+        """Diagnostic severe zero/flat/known-rail events; never infer a fault type.
+
+        The fixed thresholds are the severe limits used by COMPONENTS, not
+        target-tuned cutoffs. Soft distribution shifts remain measurements only.
+        """
+        x = self._validated_target(features, feature_names)
+        invalid = ((x[:, self.indices_["zero"]] >= 0.50) |
+                   (x[:, self.indices_["flat"]] >= 0.50))
+        if self.available_["adc_clipping"]:
+            invalid |= x[:, self.indices_["clip"]] >= 0.10
+        return invalid
+
+    def _validated_target(self, features: np.ndarray,
+                          feature_names: tuple[str, ...]) -> np.ndarray:
+        if self.names_ is None:
+            raise RuntimeError("quality mask must be fit on source observations")
+        x = np.asarray(features, dtype=np.float64)
+        if (tuple(feature_names) != self.names_ or x.ndim != 2 or x.shape[1] != len(self.names_)
+                or not np.isfinite(x).all()):
+            raise ValueError("target F9v2 features differ from frozen source contract")
+        for key, expected in self.available_.items():
+            values = x[:, self.names_.index(f"F9v2.available.{key}")]
+            if not np.all(values == float(expected)):
+                raise ValueError("target availability differs from frozen source contract")
+        return x
 
     @property
     def feature_names(self) -> tuple[str, ...]:

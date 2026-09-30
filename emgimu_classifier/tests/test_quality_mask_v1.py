@@ -31,6 +31,10 @@ def test_constant_channel_is_rejected_without_target_refit():
     assert float(np.mean(clean_quality[:, 0])) > float(np.mean(fault_quality[:, 0]))
     assert mask.available_ == {"adc_clipping": False, "line_noise": True,
                                "low_frequency_pre_highpass": False}
+    assert not np.any(mask.structural_invalid(family.transform(FeatureBatch(clean, 1000.)),
+                                              family.feature_names))
+    assert np.all(mask.structural_invalid(family.transform(FeatureBatch(fault, 1000.)),
+                                          family.feature_names)[:, 0])
     assert frozen == pickle.dumps(mask)
 
 
@@ -45,12 +49,16 @@ def test_known_adc_clip_and_unknown_adc_are_not_confused():
                             family.feature_names)
     assert mask.available_["adc_clipping"] is True
     assert np.all(scored[:, 2] == 0.)
+    assert np.all(mask.structural_invalid(family.transform(FeatureBatch(target, 1000.)),
+                                          family.feature_names)[:, 2])
     unknown_family = QualityObservabilityFamily().fit(source)
     unknown_mask = SourceCalibratedQualityMask().fit(unknown_family.transform(source),
                                                      unknown_family.feature_names)
     assert unknown_mask.available_["adc_clipping"] is False
     with pytest.raises(ValueError, match="availability"):
         mask.transform(unknown_family.transform(source), family.feature_names)
+    with pytest.raises(ValueError, match="availability"):
+        mask.structural_invalid(unknown_family.transform(source), family.feature_names)
 
 
 def test_degraded_source_cannot_define_safe_flatline_threshold():

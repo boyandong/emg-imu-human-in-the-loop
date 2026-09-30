@@ -1,0 +1,11 @@
+{
+  "name": "f9_structural_grab_unseen_user_diagnostic_v1",
+  "parent_protocol": "F9_GRAB_GATE_PROTOCOL.json",
+  "parent_results": "F9_GRAB_GATE_RESULTS.json",
+  "dataset": "same checksum-verified GRABMyo Day1 source subjects 1-4, validation subjects 5-6, descriptive final subjects 7-8",
+  "rule": "On any of twenty native 512-sample windows, reject a trial only when any channel has zero fraction >=0.50 or longest flatline ratio >=0.50. Include clip fraction >=0.10 only if explicit ADC rails are attested; GRAB physical-mV export has no such rails, so clipping is unavailable.",
+  "fit": "Reuse source-fitted F9 family and quality-mask availability contract; severe structural cutoffs are fixed before target outcomes and are not target-fitted.",
+  "classifier": "Read unchanged F0v2 probabilities from GRAB_USER_PREDICTIONS.csv by exact trial ID; no retraining.",
+  "metrics": "Per phase and subject: coverage, correct trials rejected, errors rejected, baseline errors. Report synthetic constant-channel/known-rail oracle separately.",
+  "limits": "Both target groups and the parent 0.5 gate results were previously inspected. This is a post-parent exploratory diagnostic, not a fresh held-out confirmation; no physical-fault labels, 250Hz transfer or live safety claim. Never promote automatically."
+}
