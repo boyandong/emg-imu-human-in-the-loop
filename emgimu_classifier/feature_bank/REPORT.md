@@ -3728,6 +3728,24 @@ rotation-invariance and held-out-calibration guards also pass. This verifies
 the numerical formula, while native evaluation of this calibrated body frame
 still needs a dataset with explicit neutral/forward calibration provenance.
 
+The versioned formula implementations must be distinguished from retained
+reference families. `RestNoiseDetailV2` implements the source-Rest F0 threshold
+rule; `DocumentCspFamily` implements the uncentered top-two/bottom-two F2b
+rule and has matched public-data increments; and `CalibratedBodyContextFamily`
+implements the 15-dimensional F6a body-frame rule above. The older
+`LocalDetailFamily`, `CspSpatialFamily` and `BodyContextFamily` remain separate
+reference/context paths and their formula differences do not erase the new
+implementations. None of the three versioned paths is thereby proven as a
+universal default, and the calibrated F6a path lacks eligible native metadata.
+
+For F5b, `CuedSequenceAssembler` now accepts only an explicitly named bout
+with contiguous native sample indices from marked start to marked end. It
+rejects gaps, overlaps, a wrong end marker, invalid samples and bouts shorter
+than one second before constructing `CompleteSequenceBatch`. This makes
+complete-bout DTW input auditable when a producer supplies trustworthy cue
+boundaries. It does not infer biological onset/offset or establish streaming
+recognition accuracy.
+
 The F8 family-specific session summary now emits an actual per-channel Rest
 noise log ratio when a Rest class is explicitly available, using median
 absolute adjacent differences and equal trial mass. An isolated
@@ -3741,7 +3759,7 @@ establish a later-day domain shift or predictive benefit.
 The [F0–F9 subsection coverage check](FORMULA_SUBSECTION_COVERAGE_AUDIT.csv)
 now binds all 32 formula-bearing appendix sections to exact reviewed source
 symbols; three additional headings are contextual. The formula inventory has
-52 source-review rows. A two-dimensional independent F7 oracle verifies
+53 source-review rows. A two-dimensional independent F7 oracle verifies
 Euclidean, robust-standardized and cosine coordinates, source-calibration
 similarity scales and margins. Individual F9a–F9g rules are now separately
 mapped, exposing where known-tone or measured-fault oracles remain missing.

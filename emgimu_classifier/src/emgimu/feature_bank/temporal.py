@@ -35,6 +35,76 @@ class CompleteSequenceBatch(FeatureBatch):
             np.asarray(self.durations_seconds)[index], self.full_coverage)
 
 
+class CuedSequenceAssembler:
+    """Build a complete native bout only from explicit, contiguous cue boundaries.
+
+    This does not detect biological onset/offset. A caller must attest that the
+    start/end markers cover the whole gesture; missing samples invalidate it.
+    """
+
+    def __init__(self, sample_rate_hz: float, channels: int, *, max_duration_s: float = 30.) -> None:
+        if not np.isfinite(sample_rate_hz) or sample_rate_hz <= 0:
+            raise ValueError("finite positive sample rate required")
+        if isinstance(channels, bool) or not isinstance(channels, int) or channels < 1:
+            raise ValueError("positive integer channel count required")
+        if not np.isfinite(max_duration_s) or max_duration_s < 1.:
+            raise ValueError("maximum native duration must be at least one second")
+        self.sample_rate_hz = float(sample_rate_hz)
+        self.channels = channels
+        self.max_samples = int(np.floor(self.sample_rate_hz * max_duration_s))
+        self.reset()
+
+    def reset(self) -> None:
+        self._trial_id: str | None = None
+        self._next_index: int | None = None
+        self._parts: list[np.ndarray] = []
+        self._samples = 0
+
+    def begin(self, trial_id: str, first_sample_index: int) -> None:
+        if self._trial_id is not None:
+            raise RuntimeError("finish or reset the current bout before beginning another")
+        if not isinstance(trial_id, str) or not trial_id.strip():
+            raise ValueError("explicit nonempty trial identity required")
+        if isinstance(first_sample_index, bool) or not isinstance(first_sample_index, int) or first_sample_index < 0:
+            raise ValueError("nonnegative native first-sample index required")
+        self._trial_id = trial_id
+        self._next_index = first_sample_index
+
+    def append(self, samples: np.ndarray, first_sample_index: int) -> None:
+        if self._trial_id is None:
+            raise RuntimeError("explicit bout start required")
+        values = np.asarray(samples, dtype=np.float64)
+        if values.ndim != 2 or values.shape[1] != self.channels or not len(values) or not np.isfinite(values).all():
+            self.reset()
+            raise ValueError("finite nonempty native samples with the fitted channel count required")
+        if (isinstance(first_sample_index, bool) or not isinstance(first_sample_index, int)
+                or first_sample_index != self._next_index):
+            self.reset()
+            raise ValueError("native sample gap, overlap or reordering invalidates complete coverage")
+        if self._samples + len(values) > self.max_samples:
+            self.reset()
+            raise ValueError("native bout exceeds the source-fixed maximum duration")
+        self._parts.append(values.copy())
+        self._samples += len(values)
+        self._next_index += len(values)
+
+    def finish(self, trial_id: str, end_sample_index: int) -> CompleteSequenceBatch:
+        if self._trial_id is None:
+            raise RuntimeError("explicit bout start required")
+        if (trial_id != self._trial_id or isinstance(end_sample_index, bool)
+                or not isinstance(end_sample_index, int) or end_sample_index != self._next_index):
+            self.reset()
+            raise ValueError("explicit end marker must match the trial and final native sample index")
+        duration = self._samples / self.sample_rate_hz
+        if duration < 1.:
+            self.reset()
+            raise ValueError("complete native bout must last at least one second")
+        values = np.concatenate(self._parts, axis=0)
+        self.reset()
+        return CompleteSequenceBatch(values[None], self.sample_rate_hz,
+                                     durations_seconds=np.array([duration]), full_coverage=True)
+
+
 def require_complete_sequences(batch):
     if not isinstance(batch, CompleteSequenceBatch):
         raise ValueError('Temporal path features require explicit complete sequences; short or sparse windows are ineligible')

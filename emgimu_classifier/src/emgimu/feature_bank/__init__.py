@@ -16,7 +16,7 @@ from .calibration import (
     FusionDecision, PersonalAnchor, PersonalNormalizer, ReliabilityWeights,
     SessionSignature, late_fusion, late_fusion_decision,
 )
-from .temporal import PathSignatureFamily, TemporalTemplateFamily, CompleteSequenceBatch, dtw_distance
+from .temporal import CuedSequenceAssembler, PathSignatureFamily, TemporalTemplateFamily, CompleteSequenceBatch, dtw_distance
 from .body_frame import CalibratedBodyContextFamily
 from .spd_anchor import SpdTangentPersonalAnchor
 from .new_bank_v1 import (
@@ -29,6 +29,7 @@ __all__ = [
     "CorrelationSpectrumV1",
     "CalibratedBodyContextFamily",
     "CspSpatialFamily",
+    "CuedSequenceAssembler",
     "FeatureBatch",
     "FeatureFamily",
     "FeatureRegistry",
