@@ -40,6 +40,31 @@ class PersonalNormalizer:
         return FeatureBatch(emg, batch.sample_rate_hz, batch.imu, batch.posture)
 
 
+class DocumentPersonalNormalizerV2(PersonalNormalizer):
+    """Opt-in exact personal-normalization denominator from the specification.
+
+    The original candidate floors Q95 before division. This version retains
+    the raw calibration Q95 and adds epsilon in the denominator, so frozen
+    legacy experiments keep their original identity.
+    """
+
+    def fit(self, batch: FeatureBatch, labels: np.ndarray) -> "DocumentPersonalNormalizerV2":
+        super().fit(batch, labels)
+        active = np.asarray(batch.emg, dtype=np.float64)[np.asarray(labels) != self.rest_label]
+        magnitude = np.abs(active - self.center_[None, None, :]).reshape(-1, batch.channels)
+        self.scale_ = np.quantile(magnitude, 0.95, axis=0)
+        return self
+
+    def transform(self, batch: FeatureBatch) -> FeatureBatch:
+        if self.center_ is None or self.scale_ is None:
+            raise RuntimeError("personal normalizer must be fit first")
+        if batch.channels != len(self.center_):
+            raise ValueError("channel count differs from calibration")
+        emg = ((np.asarray(batch.emg, dtype=np.float64) - self.center_[None, None, :])
+               / (self.scale_[None, None, :] + EPS))
+        return FeatureBatch(emg, batch.sample_rate_hz, batch.imu, batch.posture)
+
+
 class PersonalAnchor:
     """Gesture-relative coordinates fit only from explicitly supplied calibration rows."""
 

@@ -470,6 +470,12 @@ at two and 0.4509/0.4355 at five. This normalization rule is not suitable as a d
 The experiment changes source normalization as well as target normalization, so it measures
 the complete normalization protocol rather than isolating a single target-side transformation.
 
+The detailed formula divides by `Q95 + ε`, while those frozen runs use a
+`max(Q95, ε)` floor. A separate opt-in `DocumentPersonalNormalizerV2` now
+implements the stated denominator and passes a near-zero known-signal test;
+the older normalization results keep their original identity. This numerical
+correction has no separate native performance screen or default promotion.
+
 ## Ordered-RMS DTW follow-up
 
 Each trial becomes an ordered sequence of channel RMS values from its eight sampled windows.

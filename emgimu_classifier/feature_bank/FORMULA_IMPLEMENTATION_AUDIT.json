@@ -1,6 +1,6 @@
 {
   "completion_proven": false,
-  "reviewed_rows": 56,
+  "reviewed_rows": 57,
   "scope": "reviewed selected formula/API boundaries with exact source hashes and symbol spans; not exhaustive document acceptance",
   "fixture": "synthetic16 windows,40 samples,8channels,200Hz,4classes; IMU10samples and2 oracle postures only for dimension checks",
   "warning": "whole-class fixture dimensions are not subblock dimensions; synthetic dimension/immutability checks do not prove native topology or scientific validity",
@@ -1149,6 +1149,12 @@
       "fixture_dimension": 32,
       "source_immutable": true,
       "fixture_override": "synthetic disjoint long8/session4/evaluation4 trial identities; no native performance claim"
+    },
+    "DocumentPersonalNormalizerV2": {
+      "fixture_dimension": 8,
+      "source_immutable": true,
+      "native_evaluation": "N/A",
+      "fixture_override": "synthetic Rest/active windows; exact epsilon oracle is separate from this shape check"
     }
   }
 }

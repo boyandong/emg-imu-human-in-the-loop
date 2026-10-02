@@ -13,7 +13,7 @@ from .families import (
     default_registry,
 )
 from .calibration import (
-    FusionDecision, PersonalAnchor, PersonalNormalizer, ReliabilityWeights,
+    DocumentPersonalNormalizerV2, FusionDecision, PersonalAnchor, PersonalNormalizer, ReliabilityWeights,
     SessionSignature, late_fusion, late_fusion_decision,
 )
 from .temporal import CuedSequenceAssembler, PathSignatureFamily, TemporalTemplateFamily, CompleteSequenceBatch, dtw_distance
@@ -30,6 +30,7 @@ __all__ = [
     "CalibratedBodyContextFamily",
     "CspSpatialFamily",
     "CuedSequenceAssembler",
+    "DocumentPersonalNormalizerV2",
     "FeatureBatch",
     "FeatureFamily",
     "FeatureRegistry",

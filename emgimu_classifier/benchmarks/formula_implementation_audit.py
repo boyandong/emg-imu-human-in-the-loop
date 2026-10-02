@@ -30,7 +30,7 @@ from emgimu.feature_bank.new_bank_v2 import (
     DocumentRingRelativeCovarianceV2, DocumentSpdTangentV2,
     DocumentTraceCovarianceV2, RestNoiseDetailV2, TraceCovarianceV2,
 )
-from emgimu.feature_bank.calibration import PersonalAnchor
+from emgimu.feature_bank.calibration import DocumentPersonalNormalizerV2, PersonalAnchor
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
 # Exact historical mandatory reuse cannot be replaced by a conceptual candidate.
@@ -127,8 +127,10 @@ REVIEWS = (
   'Held-out neighbor-correlation robust deviation and global source-reference trace-covariance Frobenius distance pass independent two-channel numerical oracles. Ring-neighbor mode requires verified topology; no native hardware-fault attribution.','C channel scores plus one global covariance score'),
  ('F9g_mask_rule','F9g. Quality mask','quality_mask_v1.py','SourceCalibratedQualityMask','candidate_negative_gate',
   'Source-only component thresholds yield C bounded scores and bad-count/mean/min/variance. Known flatline gives zero channel quality, but matched frozen-F0 Song and unseen-user GRAB replays reject many correct trials at the illustrative 0.5 cutoff. Fixed severe structural events avoid those false rejections, remain quiet on public re-wearing, detect copied flatlines, but catch no natural F0 errors; neither gate is promoted.','C+4'),
+ ('NEW_V2_CAL_A_DOCUMENT','A. Personal normalization','calibration.py','DocumentPersonalNormalizerV2','candidate_formula',
+  'Opt-in document-exact Rest median and raw active absolute Q95 followed by division through Q95+epsilon. A near-zero known-signal oracle distinguishes it from the frozen historical Q95-floor candidate and verifies immutable target transform. No new native performance or default-promotion claim.','C centers+C scales; output EMG unchanged shape'),
  ('CAL_A','A. Personal normalization','calibration.py','PersonalNormalizer','candidate_formula',
-  'Explicit rest median and active absolute Q95; raw/cal branches retained in integrated runs, source/current normalization comparison can decline.','C centers+C scales; output EMG unchanged shape'),
+  'Frozen earlier candidate uses Rest median and a floor max(Q95,epsilon) before division, rather than the detailed formula Q95+epsilon. Raw/cal branches are retained in integrated runs and source/current normalization can decline; the exact denominator is provided separately by DocumentPersonalNormalizerV2.','C centers+C scales; output EMG unchanged shape'),
  ('CAL_C','C. Personal natural force envelope','activation_profile.py','PersonalActivationProfile','candidate_formula',
   'Raw global RMS q10/q50/q90 equal-trial empirical CDF plus within-gesture pattern spread; exclude Rest, archive signal units, not measured force.','3 quantiles plus C pattern mean and spread per native gesture'),
  ('CAL_D_E','D. Personal feature reliability','calibration.py','ReliabilityWeights','partial',
@@ -229,6 +231,14 @@ def build(document, output):
     measured['PersonalSessionSpectralShift']={'fixture_dimension':spectrum.shape[1],
         'source_immutable':True,
         'fixture_override':'synthetic disjoint long8/session4/evaluation4 trial identities; no native performance claim'}
+    normalizer=DocumentPersonalNormalizerV2(rest_label=0).fit(batch,labels)
+    before=pickle.dumps(normalizer)
+    normalized=normalizer.transform(batch)
+    if normalized.emg.shape != batch.emg.shape or not np.isfinite(normalized.emg).all() or before!=pickle.dumps(normalizer):
+        raise AssertionError('Document personal normalization fixture failed')
+    measured['DocumentPersonalNormalizerV2']={'fixture_dimension':batch.channels,
+        'source_immutable':True,'native_evaluation':'N/A',
+        'fixture_override':'synthetic Rest/active windows; exact epsilon oracle is separate from this shape check'}
     rows = []
     for item_id,heading,filename,symbol,status,boundary,dimension in REVIEWS:
         matches = [i+1 for i,text in enumerate(lines) if i+1>=1120 and text.strip()==heading]
