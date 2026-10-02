@@ -1,0 +1,14 @@
+{
+  "name": "document_normalizer_denominator_epn_native_readback_v1",
+  "version": 1,
+  "archive": "D:/emg-imu-benchmarks/data/raw/epn612/EMG-EPN612-Dataset.zip",
+  "archive_sha256_from_verified_manifest": "4ee8db037385e7bbee1e6ac6f9e9eea4f0869e25f7825f5eb7e5be0dff4f93c21",
+  "archive_size_bytes": 5483385161,
+  "source_users": "1-15",
+  "target_validation_users": [16, 17, 18],
+  "target_descriptive_final_users": [19, 20, 21],
+  "target_shots_per_class": [0, 1, 2, 5],
+  "selection_seed": 20260915,
+  "comparison": "Existing per-user source and target calibration windows from the frozen EPN normalization protocol. Compare legacy max(Q95,epsilon) with document Q95+epsilon denominators per channel; do not train or score a classifier.",
+  "boundary": "Numerical native-input sensitivity only. Archive SHA comes from the verified discovery manifest and is not rehashed by this run. Previously examined public users are not a new independent cohort. Small denominator differences do not prove identical predictions or deployment benefit."
+}

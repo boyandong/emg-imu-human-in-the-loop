@@ -1,0 +1,7 @@
+# Exact personal-normalization denominator on native EPN inputs
+
+The detailed calibration formula uses `Q95 + ε` in the denominator. Earlier frozen experiments use `max(Q95, ε)`; their negative performance results retain that identity. A separate opt-in `DocumentPersonalNormalizerV2` implements the stated expression and passes a near-zero known-signal oracle.
+
+The [versioned native-input audit](DOCUMENT_NORMALIZER_EPN_PROTOCOL.json) compares both denominators on the source-population state, 15 source-user states and 18 target-user 1/2/5-shot calibration states, using the original EPN trial-selection seed. The 34 [saved cells](DOCUMENT_NORMALIZER_EPN_CELLS.csv) bind a sorted trial-ID digest and report per-channel sensitivity; the [audit](DOCUMENT_NORMALIZER_EPN_AUDIT.json) records protocol and result hashes. No classifier is trained or scored.
+
+Across those states, the smallest active Q95 is **2.0** in the archive's signal units. No channel has Q95 at or below `ε = 10⁻¹⁰`. The maximum relative denominator change is **5.01 × 10⁻¹¹**, and the maximum difference on calibration signals after normalization is **8.01 × 10⁻¹⁰**. Thus the exact expression repairs an edge-case formula discrepancy, while its native-input numerical effect on this inspected EPN cohort is tiny. This does not establish identical downstream predictions, improved accuracy, or behavior on a quiet/faulty own-device channel.

@@ -476,6 +476,12 @@ implements the stated denominator and passes a near-zero known-signal test;
 the older normalization results keep their original identity. This numerical
 correction has no separate native performance screen or default promotion.
 
+A [native EPN input audit](../benchmarks/new_bank_v2/DOCUMENT_NORMALIZER_EPN_REPORT.md)
+compares 34 source and target calibration states without retraining. Every
+active Q95 exceeds 2.0 archive units; the largest relative denominator
+difference is 5.01 × 10⁻¹¹. This bounds the numerical effect on those
+inspected inputs, without claiming identical model predictions.
+
 ## Ordered-RMS DTW follow-up
 
 Each trial becomes an ordered sequence of channel RMS values from its eight sampled windows.

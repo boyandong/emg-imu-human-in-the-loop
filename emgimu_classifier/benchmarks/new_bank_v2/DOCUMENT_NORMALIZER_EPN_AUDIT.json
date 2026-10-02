@@ -1,0 +1,13 @@
+{
+  "protocol_sha256": "ced64e890a7a3d180ade6de5d9271d6c00d8abb2db8edf6f91271bb3fbe0e856",
+  "archive_sha256_from_verified_manifest": "4ee8db037385e7bbee1e6ac6f9e9eea4f0869e25f7825f5eb7e5be0dff4f93c21",
+  "cells_sha256": "4802029467a73e3b0d873161b7fbd0a02eebc57ce1a8feb40b0131a15ea938a7",
+  "cells": 34,
+  "source_cells": 16,
+  "target_cells": 18,
+  "minimum_q95": 2.0,
+  "channels_q95_at_or_below_epsilon": 0,
+  "maximum_relative_denominator_difference": 5.000000413701855e-11,
+  "maximum_calibration_signal_difference": 8.000000661922968e-10,
+  "scope": "Numerical native-input sensitivity only. Archive SHA comes from the verified discovery manifest and is not rehashed by this run. Previously examined public users are not a new independent cohort. Small denominator differences do not prove identical predictions or deployment benefit."
+}
