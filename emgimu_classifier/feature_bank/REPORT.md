@@ -3898,3 +3898,12 @@ wearing domains, all 1,440 paired provider probabilities match the frozen
 legacy route after feature conversion; the smallest calibration Q95 is 4.
 This verifies integration and the absence of a numerical effect on those
 inspected inputs, not general equivalence on quiet or faulty channels.
+
+The [document F3c GRAB cross-day follow-up](../benchmarks/new_bank_v2/F3C_DOCUMENT_GRAB_REPORT.md)
+adds a public ring1 electrode diagram and 448 saved trial-level candidate
+probabilities to the topology audit. The visible 8–1–2 neighbors support only
+part of the full circular numbering assumption. Against the same frozen F0,
+document-consistent F3c lowers macro-F1 and raises log loss on both Day2
+validation and descriptive Day3; all 448 decisions match the earlier centered
+F3c arm despite changed probabilities. F3c remains a research candidate,
+not a cross-day or own-device default.
