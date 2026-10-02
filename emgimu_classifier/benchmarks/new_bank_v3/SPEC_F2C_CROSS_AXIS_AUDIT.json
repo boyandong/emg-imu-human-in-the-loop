@@ -1,0 +1,18 @@
+{
+  "status": "centered_v3_f2c_matched_public_guard",
+  "protocol_sha256": "4b299cd3e44d212b8b8f797476334b56f2c7aa7ceaf16aedc6f90f171b9e9c52",
+  "source_results_sha256": {
+    "SPEC_F2C_WEARING_RESULTS.json": "eb4834e186b1138a22532b6b6adb7c5f22555c4e47ca6be08c2b48360546c60f",
+    "SPEC_F2C_TRANSFER_RESULTS.json": "065cf91bb0a9b270e81eee734d1634e98e92eabdd1f09c32224d3fcad3c3598c"
+  },
+  "cells_sha256": "ec96e7378e8a46516927d09abcfd3b9513cd8fe4451c809ae51b34a04e92006b",
+  "cells": 6,
+  "validation_violations": [
+    "manus_session:log_loss",
+    "grab_unseen_user:macro_f1",
+    "grab_unseen_user:log_loss"
+  ],
+  "candidate_eligible_for_public_default": false,
+  "three_axis_default": "F0v2",
+  "boundary": "Previously inspected public data, validation guard only; finals descriptive. No prospective, own-device or live-recognition claim."
+}

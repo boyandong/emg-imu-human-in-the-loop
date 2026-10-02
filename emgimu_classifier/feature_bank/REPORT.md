@@ -3918,3 +3918,12 @@ macro-F1 and increase log loss against F0. A separate
 improves Day2 F1/loss but reverses on descriptive Day3 (seven corrected F0
 errors versus eleven new errors). Earlier uncentered V2 probabilities remain
 archived as distinct alternative-feature results.
+
+# Centered V3 F2c public-axis addendum (2026-10-03)
+
+The [formula-correct centered F2c replay](../benchmarks/new_bank_v3/SPEC_F2C_CROSS_AXIS_REPORT.md)
+uses matched held-out native trials for wearing shift, MANUS session transfer and
+GRAB unseen-user transfer. It improves wearing validation F1 and log loss, but
+MANUS validation log loss rises and GRAB unseen-user F1 and log loss worsen.
+The frozen three-axis guard therefore retains F0v2 as default. The earlier
+uncentered V2 F2c experiments remain separate alternative-feature evidence.

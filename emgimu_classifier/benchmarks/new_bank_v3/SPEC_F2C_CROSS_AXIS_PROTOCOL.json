@@ -1,0 +1,23 @@
+{
+  "name": "goal_centered_f2c_matched_public_axes_v3",
+  "frozen_before_run": "2026-10-03",
+  "candidate": "F0v2+F2c_spec",
+  "goal_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
+  "goal_f2a_lines": [1274, 1313],
+  "goal_f2c_lines": [1365, 1400],
+  "parent_result_sha256": {
+    "wearing_shift": "f03a4351daa04b12620955dd726c301759fb47dbf01086bf2494ecd1e3bbb75b",
+    "manus_session": "34fca65e05c343edbb590897918079a139e75625e6dc8c2ac20937de9beb1701",
+    "grab_unseen_user": "046a7824a4296ba2e39aa6ee121621cdbe692679a19e666f1e6818a1a239e8ce"
+  },
+  "f0_parent_prediction_sha256": {
+    "wearing_shift": "bd2e0ac452ddab1de3eb17324c9447da10a47b2cca7a917becfc05a2c252d21f",
+    "manus_session": "c7820a073a8912c405bb6bf46b5d86cf5a16134bcf4c970c69b1b8b92e650861",
+    "grab_unseen_user": "c910686c0a3aa3ad434f68f218ad2a1140e52b665a4383b4124274d5cd1f74d0"
+  },
+  "wearing_shift": "Six users: source training domain; four held-out wearing domains. Validation users 15-17, descriptive final users 18-20. Native 8 channels at 200 Hz, 40 samples/window. Source-only Rest F0 and centered F2c reference; class-balanced logistic classifier per subject.",
+  "manus_session": "Six users: Session1 source, Session2 validation, Session3 descriptive final. Native 8 channels at 200 Hz, 40 samples/window. Source-only external Rest prior and centered F2c reference; fixed fit_predict classifier.",
+  "grab_unseen_user": "Day1 subjects 1-4 source, 5-6 validation, 7-8 descriptive final. Native 8 forearm channels at 2048 Hz, 512 samples/window; official checksums. Source-only Rest F0 and centered F2c reference; fixed logistic classifier.",
+  "decision": "Use only matched validation trial-level F1 and log loss on all three axes for the existing default-bank guard. Final groups are descriptive; prior public inspection forbids an independent confirmation claim.",
+  "boundary": "Public-data scope; no own-device 250 Hz, anatomical ring-order or live-recognition claim."
+}
