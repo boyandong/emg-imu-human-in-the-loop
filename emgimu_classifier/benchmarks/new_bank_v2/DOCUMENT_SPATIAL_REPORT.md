@@ -16,3 +16,10 @@ A separate [fixed channel-order sensitivity screen](F3C_CHANNEL_ORDER_REPORT.md)
 finds native-order validation F1/loss ranks of 2/13 and 1/13 against 12
 non-equivalent cyclic-index reorderings; descriptive-final ranks are 1/13 for
 both. The result is order-sensitive but still cannot certify physical adjacency.
+
+The [official GRABMyo forearm-ring follow-up](F3C_DOCUMENT_GRAB_REPORT.md)
+provides a stronger topology source: the published diagram visibly places
+8–1–2 as neighbors, and the dataset maps F1–F8 to that ring. Complete hidden-
+side adjacency remains an explicit numbering inference. On frozen Day1→Day2/3
+trials, document-consistent F3c worsens F1 and log loss on both days relative
+to F0, so the wearing-specific result still does not support default promotion.

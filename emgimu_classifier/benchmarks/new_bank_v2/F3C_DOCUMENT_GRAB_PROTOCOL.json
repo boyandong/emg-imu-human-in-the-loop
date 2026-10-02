@@ -1,0 +1,15 @@
+{
+  "name": "f3c_document_grab_ring1_crossday_v1",
+  "frozen_before_run": "2026-10-03",
+  "parent_protocol": "GRABMYO_PROTOCOL.json",
+  "parent_prediction_sha256": "58401ac416aebc6e4ad059a0b98637c8e40c404c695780073a05fe666d66df75",
+  "electrode_source": "https://physionet.org/files/grabmyo/1.1.0/Electrodelocation.pdf",
+  "electrode_source_sha256": "08d83b812c8bba2dcace803f3b9fe9c99c44b38d1605d8838bf927708d3ebb21",
+  "electrode_evidence": "Official text places F1-F8 in forearm ring1 and diagram shows 8-1-2 as neighboring positions. Full hidden-side 1-8 adjacency is inferred from numbering, not directly depicted.",
+  "arms": ["F0", "F0+F3c_document"],
+  "sessions": {"train": 1, "validation": 2, "final": 3},
+  "feature": "DocumentRingRelativeCovarianceV2 with uncentered F2a matrix, shrinkage=0.05, ring_topology=True",
+  "classifier": "StandardScaler plus LogisticRegression C=1 max_iter=2000 random_state=20260924",
+  "decision": "Report validation and descriptive final without changing the prior default or selecting an arm from final results.",
+  "boundary": "Public 2048 Hz GRAB forearm ring; circular ordering beyond visible 8-1-2 is inferred. Not own-device or live validation."
+}
