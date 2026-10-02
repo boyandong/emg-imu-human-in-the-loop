@@ -3780,7 +3780,7 @@ establish a later-day domain shift or predictive benefit.
 The [F0–F9 subsection coverage check](FORMULA_SUBSECTION_COVERAGE_AUDIT.csv)
 now binds all 32 formula-bearing appendix sections to exact reviewed source
 symbols; three additional headings are contextual. The formula inventory has
-57 source-review rows. A two-dimensional independent F7 oracle verifies
+58 source-review rows. A two-dimensional independent F7 oracle verifies
 Euclidean, robust-standardized and cosine coordinates, source-calibration
 similarity scales and margins. Individual F9a–F9g rules are now separately
 mapped, exposing where known-tone or measured-fault oracles remain missing.
@@ -3890,3 +3890,11 @@ per subject/day. On 192 Day2 and 192 Day3 held-out trials, F8 changes no
 gesture decisions. Log loss falls only 0.000219 and 0.000525. The result does
 not support promoting the rule as a meaningful session recovery method; the
 one-person Song Rest-noise descriptor remains calibration-only evidence.
+
+The [document-exact session-normalization replay](../benchmarks/new_bank_v2/DOCUMENT_SESSION_REPORT.md)
+now carries the specification's Q95+epsilon denominator through both the
+long-term and session fits in a separate V2 pipeline. On six users and four
+wearing domains, all 1,440 paired provider probabilities match the frozen
+legacy route after feature conversion; the smallest calibration Q95 is 4.
+This verifies integration and the absence of a numerical effect on those
+inspected inputs, not general equivalence on quiet or faulty channels.

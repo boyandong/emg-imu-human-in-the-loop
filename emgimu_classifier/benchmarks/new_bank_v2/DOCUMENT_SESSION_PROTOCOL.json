@@ -1,0 +1,18 @@
+{
+  "name": "document_exact_session_normalization_native_wearing_v1",
+  "archive_sha256": "4cfa9a4861193f230179fa87d53eda7503e66b5cfedeae81c81e476f53f6b2b6",
+  "parent_unlabeled_protocol_sha256": "fed647b66464631675dd2b9afb887cd0efd652c0f7d9d0e4c495bcba66c9e20f",
+  "parent_unlabeled_predictions_sha256": "2bf874ecde21d17205bb518e7b3173e4abc5b678476905afba14147aec7ad4af",
+  "validation_users": [15, 16, 17],
+  "descriptive_final_users": [18, 19, 20],
+  "source_domain": "training",
+  "target_domains": ["trial_1", "trial_2", "trial_3", "trial_4"],
+  "calibration_repetition": 0,
+  "evaluation_repetition": 1,
+  "normalizers": {
+    "frozen_legacy": "subtract Rest median; divide by max(active absolute Q95, epsilon)",
+    "document_exact_v2": "subtract Rest median; divide by active absolute Q95 plus epsilon"
+  },
+  "comparison": "Fit separate source models using the corresponding source normalizer, then fit each same-user session normalizer and anchors only on R_0. Compare all six branches and two provider families on identical unlabeled R_1 native trials. No target evaluation trial enters fit; no model or rule is selected from these results.",
+  "scope": "Retrospective numerical-sensitivity experiment on six previously inspected public users at eight channels and 200 Hz; not a new accuracy holdout, verified physical re-donning, or own-device 250 Hz result."
+}

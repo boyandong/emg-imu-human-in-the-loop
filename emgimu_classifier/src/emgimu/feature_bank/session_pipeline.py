@@ -2,7 +2,7 @@
 import hashlib
 import pickle
 import numpy as np
-from .calibration import PersonalNormalizer,SessionSignature
+from .calibration import DocumentPersonalNormalizerV2,PersonalNormalizer,SessionSignature
 from .session_anchor import SessionPrototypeAnchor
 from .quality_observability import QualityObservabilityFamily
 from .screening import FAMILY_FACTORIES
@@ -22,6 +22,8 @@ class SessionCalibrationPipeline:
     Prediction rejects both source-fit and session-calibration trial identities.
     Current rest/scale/quality/signatures/prototypes never replace the long profile.
     """
+    normalizer_type=PersonalNormalizer
+
     def __init__(self,*,rest_label,ring_topology=False):
         self.rest_label=rest_label
         self.ring_topology=bool(ring_topology)
@@ -33,7 +35,7 @@ class SessionCalibrationPipeline:
         self.rate_=source.batch.sample_rate_hz;self.samples_=source.batch.emg.shape[1]
         self.source_trials_=tuple(sorted(set(source.trials.tolist())))
         self.classes_=tuple(sorted(set(source.labels.tolist())))
-        self.normalizer_=PersonalNormalizer(rest_label=self.rest_label).fit(source.batch,source.labels)
+        self.normalizer_=self.normalizer_type(rest_label=self.rest_label).fit(source.batch,source.labels)
         self.quality_=QualityObservabilityFamily(ring_topology=True).fit(source.batch)
         self.quality_reference_=self.quality_.transform(source.batch).mean(0)
         normalized=SubjectWindows(self.normalizer_.transform(source.batch),source.labels,source.subjects,source.trials)
@@ -70,7 +72,7 @@ class SessionCalibrationPipeline:
         if set(calibration.labels.tolist())!=set(self.classes_):
             raise ValueError('Complete native gesture coverage including explicit Rest is required')
         before=pickle.dumps(self)
-        normalizer=PersonalNormalizer(rest_label=self.rest_label).fit(calibration.batch,calibration.labels)
+        normalizer=self.normalizer_type(rest_label=self.rest_label).fit(calibration.batch,calibration.labels)
         features,y,trials=self._features(calibration,normalizer)
         signature={};anchors={mode:{} for mode in ('long_term','local','blended')};beta={};weights=np.ones(2)
         for i,name in enumerate(FAMILIES):
@@ -149,3 +151,12 @@ class SessionCalibrationPipeline:
                 probabilities[f'session_{"long" if mode=="long_term" else mode}_anchor'][name]=anchor_probability(anchor,current[name])
         if before!=pickle.dumps((self,session)):raise AssertionError('Evaluation changed source or session state')
         return probabilities,trials
+
+
+class DocumentSessionCalibrationPipelineV2(SessionCalibrationPipeline):
+    """Opt-in session flow using the appendix's Q95+epsilon denominator.
+
+    The original pipeline retains its frozen max(Q95,epsilon) semantics, so
+    historical experiment results are not changed by the exact-formula path.
+    """
+    normalizer_type=DocumentPersonalNormalizerV2

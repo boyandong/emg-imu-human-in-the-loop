@@ -3,7 +3,9 @@ import unittest
 import numpy as np
 from emgimu.feature_bank.core import FeatureBatch
 from emgimu.feature_bank.force_nested_oof import SubjectWindows
-from emgimu.feature_bank.session_pipeline import SessionCalibrationPipeline
+from emgimu.feature_bank.session_pipeline import (
+    DocumentSessionCalibrationPipelineV2,SessionCalibrationPipeline,
+)
 from emgimu.feature_bank.force_full_fusion import aggregate
 
 
@@ -100,6 +102,24 @@ class SessionPipelineTests(unittest.TestCase):
         restored=pickle.loads(pickle.dumps(first))
         self.assertEqual(restored.profile_id_,first.profile_id_)
         restored.predict_unlabeled(target.batch,target.subjects,target.trials,state)
+
+    def test_document_exact_session_normalization_is_separate_from_legacy(self):
+        source=data('source')
+        calibration=data('cal',offset=20.)
+        legacy=SessionCalibrationPipeline(rest_label=2,ring_topology=True).fit_long_term(source)
+        exact=DocumentSessionCalibrationPipelineV2(rest_label=2,ring_topology=True).fit_long_term(source)
+        legacy_state=legacy.calibrate_session(calibration)
+        exact_state=exact.calibrate_session(calibration)
+        self.assertNotEqual(legacy.profile_id_,exact.profile_id_)
+        self.assertEqual(type(legacy.normalizer_).__name__,'PersonalNormalizer')
+        self.assertEqual(type(exact.normalizer_).__name__,'DocumentPersonalNormalizerV2')
+        np.testing.assert_allclose(exact.normalizer_.scale_,legacy.normalizer_.scale_)
+        target=data('target')
+        exact.predict_unlabeled(target.batch,target.subjects,target.trials,exact_state)
+        with self.assertRaisesRegex(ValueError,'different long-term profile'):
+            exact.predict_unlabeled(target.batch,target.subjects,target.trials,legacy_state)
+        with self.assertRaisesRegex(ValueError,'different long-term profile'):
+            legacy.predict_unlabeled(target.batch,target.subjects,target.trials,exact_state)
 
 
 if __name__=='__main__':unittest.main()
