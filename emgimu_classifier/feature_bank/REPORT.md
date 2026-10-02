@@ -3880,3 +3880,11 @@ The [F3c channel-order control](../benchmarks/new_bank_v2/F3C_CHANNEL_ORDER_REPO
 compares the saved order with 12 fixed non-equivalent reorderings on the same
 public wearing split. Its strong native-order ranks show the cyclic-index
 statistic is order-sensitive; they do not prove an anatomical column mapping.
+
+The [public GRAB cross-day F8 control](../benchmarks/new_bank_v2/F8_GRAB_DAY_REPORT.md)
+replays two frozen Day1 providers exactly and evaluates a previously fixed
+cosine-agreement routing rule after four disjoint session-calibration trials
+per subject/day. On 192 Day2 and 192 Day3 held-out trials, F8 changes no
+gesture decisions. Log loss falls only 0.000219 and 0.000525. The result does
+not support promoting the rule as a meaningful session recovery method; the
+one-person Song Rest-noise descriptor remains calibration-only evidence.

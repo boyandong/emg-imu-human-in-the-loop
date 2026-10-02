@@ -1,0 +1,16 @@
+{
+  "name": "f8_grab_crossday_fixed_cosine_routing_v1",
+  "parent_protocol_sha256": "d9332af94159a06f707bedb0fe2d2ea6f74db3369d1e4347b401b4637a9a9a9c",
+  "parent_predictions_sha256": "321c84d4c73379cfcc7fa994e142c4943de6249631adec214ffac29ffca7dcad",
+  "official_sha256_manifest_sha256": "757ea64fa5134b7b3b84d9f79e30cfa1ac4d2c65a40ce9b427db11dd8258974e",
+  "source_day": 1,
+  "validation_day": 2,
+  "descriptive_final_day": 3,
+  "providers": ["F0v2", "F0v2+frequency_direction"],
+  "population_weights": [0.5, 0.5],
+  "calibration_trial_number_per_class": 1,
+  "evaluation_trial_numbers_per_class": [2, 3, 4, 5, 6, 7],
+  "session_rule": "For each provider, fit a separate source-day, same-user SessionSignature in source StandardScaler coordinates. From the four class-matched calibration trials take the mean of the four cosine-agreement entries, map (mean+1)/2, clip to [0.05,1], multiply the fixed 0.5 population weight and renormalize.",
+  "score_rule": "Compare fixed uniform fusion with fixed F8 routing on identical native held-out trials; macro-F1, log loss, Brier and minimum-user macro-F1. Day 3 never selects a rule.",
+  "scope": "Retrospective public cross-day diagnostic using previously inspected subjects and days. Source classifiers are refitted only to replay frozen parent probabilities. No target labels or evaluation windows fit a state, and no new model selection or own-device claim is made."
+}
