@@ -43,7 +43,9 @@
     "CIILData-main/ElectrodeShift/subject15/trial_1/R_1_C_3.csv",
     "CIILData-main/ElectrodeShift/subject15/trial_1/R_1_C_4.csv"
   ],
-  "fitted_state_sha256": "64a57eb03b7a3f0676dc760fcbd9132d193be594ee2a1bf1a41a810af47cd3dd",
+  "fitted_state_sha256": "4c2b68ae399cfbd6771115f559e574d6f58c884f48cb8e4cd32397e8536f2b15",
+  "source_profile_id": "fadb9e13a8ed9f59c10f109b01fadc56ef148397944d8c890ed6bba0c24e7e3c",
+  "session_bound_to_source_profile": true,
   "prediction_rows_sha256": "2bf874ecde21d17205bb518e7b3173e4abc5b678476905afba14147aec7ad4af",
   "prediction_rows": 60,
   "branches": [

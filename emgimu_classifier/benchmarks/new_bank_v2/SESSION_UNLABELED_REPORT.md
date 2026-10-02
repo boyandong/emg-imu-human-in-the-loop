@@ -2,6 +2,8 @@
 
 The versioned session pipeline now accepts evaluation windows, user identity and native trial IDs without evaluation labels. Its offline scoring wrapper uses the same prediction path and reads labels only after prediction. Source-fit and calibration trial IDs are rejected at the prediction boundary.
 
+The session state now also carries a deterministic identity of its fitted long-term user, sensor contract, source trials and model/profile state. Prediction rejects a state generated from another fitted profile, even when the target user and input dimensions otherwise match. A serialization round trip retains the binding. This prevents accidental cross-profile session reuse; it is not a cryptographic authorization mechanism.
+
 The [frozen protocol](SESSION_UNLABELED_PROTOCOL.json) uses subject 15 of the public LibEMG Electrode Shift data at its native eight-channel, 200 Hz rate: 25 training trials fit the long-term profile, five `trial_1/R_0` trials calibrate the session (one per class), and five separate `trial_1/R_1` trials are evaluated. The [machine-readable result](SESSION_UNLABELED_RESULTS.json) and [60 prediction rows](SESSION_UNLABELED_PREDICTIONS.csv) cover six branches and two feature families for each evaluation trial.
 
 Across all rows, label-free probabilities equal the offline wrapper probabilities exactly (`max_abs_probability_difference = 0`). Replacing every offline truth label with an incorrect label also leaves all probabilities unchanged. Serialized source and session state are unchanged after prediction. A separate readback test verifies the saved row hash, trial partition, complete branch/family/trial Cartesian product, per-row probability simplex and offline truth IDs.

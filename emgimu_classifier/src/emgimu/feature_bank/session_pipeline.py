@@ -1,4 +1,5 @@
 """Source-fitted personal profile with calibration-only session updates."""
+import hashlib
 import pickle
 import numpy as np
 from .calibration import PersonalNormalizer,SessionSignature
@@ -30,8 +31,8 @@ class SessionCalibrationPipeline:
             raise ValueError('Require one personal source and verified native eight-channel ring')
         self.user_=np.unique(source.subjects).item()
         self.rate_=source.batch.sample_rate_hz;self.samples_=source.batch.emg.shape[1]
-        self.source_trials_=set(source.trials.tolist())
-        self.classes_=set(source.labels.tolist())
+        self.source_trials_=tuple(sorted(set(source.trials.tolist())))
+        self.classes_=tuple(sorted(set(source.labels.tolist())))
         self.normalizer_=PersonalNormalizer(rest_label=self.rest_label).fit(source.batch,source.labels)
         self.quality_=QualityObservabilityFamily(ring_topology=True).fit(source.batch)
         self.quality_reference_=self.quality_.transform(source.batch).mean(0)
@@ -45,6 +46,10 @@ class SessionCalibrationPipeline:
             self.families_[name]=family;self.models_[name]=(scaler,model)
             self.profiles_[name]=SessionPrototypeAnchor().fit_long_term(scaled,y)
             self.signatures_[name]=SessionSignature().fit_long_term(scaled,y)
+        self.profile_id_=hashlib.sha256(pickle.dumps((
+            self.user_,self.rate_,self.samples_,self.source_trials_,
+            self.normalizer_,self.families_,self.models_,self.profiles_,self.signatures_
+        ))).hexdigest()
         return self
 
     def _features(self,data,normalizer):
@@ -60,9 +65,9 @@ class SessionCalibrationPipeline:
         return values,y,trials
 
     def calibrate_session(self,calibration):
-        if set(calibration.trials.tolist())&self.source_trials_:
+        if set(calibration.trials.tolist())&set(self.source_trials_):
             raise ValueError('Session calibration must be disjoint from long-term source trials')
-        if set(calibration.labels.tolist())!=self.classes_:
+        if set(calibration.labels.tolist())!=set(self.classes_):
             raise ValueError('Complete native gesture coverage including explicit Rest is required')
         before=pickle.dumps(self)
         normalizer=PersonalNormalizer(rest_label=self.rest_label).fit(calibration.batch,calibration.labels)
@@ -76,7 +81,8 @@ class SessionCalibrationPipeline:
                 anchor,b=self.profiles_[name].from_calibration(features[name],y,mode=mode)
                 anchors[mode][name]=anchor;beta[f'{name}_{mode}']=b.tolist()
         quality=self.quality_.transform(calibration.batch).mean(0)
-        state=dict(normalizer=normalizer,calibration_trials=trials.tolist(),anchors=anchors,
+        state=dict(profile_id=self.profile_id_,user=self.user_,
+            normalizer=normalizer,calibration_trials=trials.tolist(),anchors=anchors,
             descriptor=dict(rest_center=normalizer.center_.tolist(),channel_scale_q95=normalizer.scale_.tolist(),
                 source_rest_center=self.normalizer_.center_.tolist(),source_channel_scale_q95=self.normalizer_.scale_.tolist(),
                 quality_availability=self.quality_.availability_,quality_shift=(quality-self.quality_reference_).tolist(),
@@ -111,8 +117,12 @@ class SessionCalibrationPipeline:
             raise ValueError('Aligned identities for one fitted personal user are required')
         if any(not isinstance(value,str) or not value.strip() for value in trials_by_window):
             raise ValueError('Explicit nonempty native trial identities are required')
+        if session is not None and (not isinstance(session,dict)
+                                    or session.get('profile_id')!=self.profile_id_
+                                    or session.get('user')!=self.user_):
+            raise ValueError('Session calibration belongs to a different long-term profile')
         trials=np.unique(trials_by_window)
-        if set(trials.tolist())&self.source_trials_:
+        if set(trials.tolist())&set(self.source_trials_):
             raise ValueError('Source-fit trials cannot become held-out evaluation')
         if session is not None and set(trials.tolist())&set(session['calibration_trials']):
             raise ValueError('Calibration trials cannot become held-out evaluation')

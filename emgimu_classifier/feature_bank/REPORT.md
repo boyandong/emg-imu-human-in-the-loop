@@ -3837,7 +3837,9 @@ to obtain personal session probabilities. On native public eight-channel,
 200 Hz electrode-shift trials, 60 predictions from six branches and two
 families exactly match the offline scoring wrapper. Deliberately wrong
 offline truth labels do not change predictions, and source/session state is
-immutable. This is software parity, not an own-device session result.
+immutable. Session states now carry their fitted source-profile identity;
+cross-profile reuse is rejected, and the native result hash is stable across
+two fresh-process replays. This is software parity, not an own-device session result.
 
 An independent F4d numerical check now recomputes native eight-channel,
 200 Hz log-band energy with direct Fourier sums. Unequal numbers of windows

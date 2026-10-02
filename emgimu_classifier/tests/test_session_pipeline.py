@@ -85,5 +85,21 @@ class SessionPipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'one fitted personal user'):
             pipeline.predict_unlabeled(target.batch,np.full(10,2),target.trials,state)
 
+    def test_session_state_is_bound_to_source_profile(self):
+        first=SessionCalibrationPipeline(rest_label=2,ring_topology=True).fit_long_term(data('source'))
+        state=first.calibrate_session(data('cal'))
+        target=data('target')
+        second=SessionCalibrationPipeline(rest_label=2,ring_topology=True).fit_long_term(
+            data('other_source',offset=10.))
+        self.assertNotEqual(first.profile_id_,second.profile_id_)
+        with self.assertRaisesRegex(ValueError,'different long-term profile'):
+            second.predict_unlabeled(target.batch,target.subjects,target.trials,state)
+        wrong_user=dict(state,user=2)
+        with self.assertRaisesRegex(ValueError,'different long-term profile'):
+            first.predict_unlabeled(target.batch,target.subjects,target.trials,wrong_user)
+        restored=pickle.loads(pickle.dumps(first))
+        self.assertEqual(restored.profile_id_,first.profile_id_)
+        restored.predict_unlabeled(target.batch,target.subjects,target.trials,state)
+
 
 if __name__=='__main__':unittest.main()

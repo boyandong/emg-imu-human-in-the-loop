@@ -47,6 +47,8 @@ def evaluate() -> dict:
     print("Session parity: fit one long-term source profile", flush=True)
     pipeline = SessionCalibrationPipeline(rest_label=2, ring_topology=True).fit_long_term(source)
     state = pipeline.calibrate_session(calibration)
+    if state["profile_id"] != pipeline.profile_id_ or state["user"] != pipeline.user_:
+        raise AssertionError("session calibration is not bound to its source profile")
     frozen = pickle.dumps((pipeline, state))
     print("Session parity: compare unlabeled and offline predictions", flush=True)
     unlabeled, trial_ids = pipeline.predict_unlabeled(
@@ -88,6 +90,8 @@ def evaluate() -> dict:
               "calibration_trial_ids": sorted(cal_trials),
               "evaluation_trial_ids": sorted(eval_trials),
               "fitted_state_sha256": hashlib.sha256(frozen).hexdigest(),
+              "source_profile_id": pipeline.profile_id_,
+              "session_bound_to_source_profile": True,
               "prediction_rows_sha256": sha(PREDICTIONS),
               "prediction_rows": len(rows),
               "branches": list(BRANCHES), "families": list(FAMILIES),

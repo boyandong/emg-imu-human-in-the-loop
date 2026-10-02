@@ -42,5 +42,7 @@ def test_native_session_prediction_rows_match_frozen_protocol():
         assert (probabilities >= 0).all()
         np.testing.assert_allclose(probabilities.sum(), 1., atol=1e-12)
     assert result["max_abs_probability_difference"] <= 1e-12
+    assert len(result["source_profile_id"]) == 64
+    assert result["session_bound_to_source_profile"] is True
     assert result["wrong_offline_truth_changed_predictions"] is False
     assert result["source_and_session_immutable"] is True
