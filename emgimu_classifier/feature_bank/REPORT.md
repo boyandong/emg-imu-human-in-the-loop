@@ -3913,6 +3913,8 @@ now implements the goal file's actual F2a covariance and derives F2c/F3c
 from that same matrix. Independent oracles verify centering, `T−1`, shrinkage,
 `trace+epsilon`, source-only tangent reference, and circular-lag summaries.
 On the frozen GRAB split, exact-formula F2a and F3c both reduce Day2/Day3
-macro-F1 and increase log loss against F0. F2c's V3 formula has an analytical
-oracle but no new native V3 increment yet. Earlier uncentered V2 probabilities
-remain archived as distinct alternative-feature results.
+macro-F1 and increase log loss against F0. A separate
+[V3 F2c cross-day increment](../benchmarks/new_bank_v3/SPEC_F2C_GRAB_REPORT.md)
+improves Day2 F1/loss but reverses on descriptive Day3 (seven corrected F0
+errors versus eleven new errors). Earlier uncentered V2 probabilities remain
+archived as distinct alternative-feature results.

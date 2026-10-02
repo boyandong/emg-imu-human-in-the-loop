@@ -1,0 +1,58 @@
+{
+  "protocol_sha256": "1f15fb21d3e444288123cc6738e7131246f773eadfedc7248b3578cedae897e5",
+  "parent_prediction_sha256": "1630b3f360ae2cc65b1b1c2baae888502d4e5f75500a8ac34c54b37352c15a6b",
+  "prediction_sha256": "c72af52f1f1697bbc8b18898f87c4607b52fba34356f1800a44ccec4455f07ba",
+  "official_manifest_sha256": "757ea64fa5134b7b3b84d9f79e30cfa1ac4d2c65a40ce9b427db11dd8258974e",
+  "source_reference_windows": 4480,
+  "prediction_rows": 448,
+  "feature_dimension": 168,
+  "scores": {
+    "validation": {
+      "accuracy": 0.96875,
+      "macro_f1": 0.9687275628240926,
+      "log_loss": 0.09904106563414856,
+      "brier": 0.05129394840381629,
+      "per_class_recall": {
+        "4": 0.9107142857142857,
+        "15": 0.9642857142857143,
+        "16": 1.0,
+        "17": 1.0
+      },
+      "per_subject_macro_f1": {
+        "1": 1.0,
+        "2": 0.9270833333333334,
+        "3": 1.0,
+        "4": 0.9641025641025641,
+        "5": 0.9641025641025641,
+        "6": 0.8877005347593583,
+        "7": 1.0,
+        "8": 1.0
+      },
+      "minimum_subject_macro_f1": 0.8877005347593583
+    },
+    "final": {
+      "accuracy": 0.8839285714285714,
+      "macro_f1": 0.8813804664241364,
+      "log_loss": 0.32875264067748156,
+      "brier": 0.1705048666508492,
+      "per_class_recall": {
+        "4": 0.7321428571428571,
+        "15": 0.8214285714285714,
+        "16": 0.9821428571428571,
+        "17": 1.0
+      },
+      "per_subject_macro_f1": {
+        "1": 0.9641025641025642,
+        "2": 0.7953216374269005,
+        "3": 0.9270833333333334,
+        "4": 0.8911858974358975,
+        "5": 0.736111111111111,
+        "6": 0.9302884615384616,
+        "7": 0.9641025641025641,
+        "8": 0.7953216374269005
+      },
+      "minimum_subject_macro_f1": 0.736111111111111
+    }
+  },
+  "boundary": "Previously inspected public GRAB subjects; no own-device or live-recognition claim."
+}

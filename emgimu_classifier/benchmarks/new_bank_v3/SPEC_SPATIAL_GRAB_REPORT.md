@@ -14,8 +14,9 @@ provides centered F2a and source-only log-Euclidean F2c and ring F3c based on
 the same covariance. Direct matrix, tangent-reference and ring-lag/half-window
 oracles check the equations, DC-shift invariance and version separation.
 F2c adds a declared minimal positive ridge for singular zero-signal windows;
-its reference is fitted only on source windows. This turn's native comparison
-tests F2a and F3c; F2c has no new V3 native increment yet.
+its reference is fitted only on source windows. This first native comparison
+tests F2a and F3c; a [separate frozen F2c follow-up](SPEC_F2C_GRAB_REPORT.md)
+now provides the V3 F2c native increment.
 
 The [frozen GRAB protocol](SPEC_SPATIAL_GRAB_PROTOCOL.json) reuses the official
 checksum-verified 672-trial, eight-subject, three-day, 2048 Hz ring1 split.

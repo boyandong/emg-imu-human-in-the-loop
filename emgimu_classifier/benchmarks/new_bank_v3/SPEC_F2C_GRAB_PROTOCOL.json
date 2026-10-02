@@ -1,0 +1,20 @@
+{
+  "name": "goal_centered_f2c_grab_crossday_v3",
+  "frozen_before_run": "2026-10-03",
+  "goal_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
+  "goal_f2a_lines": [1274, 1313],
+  "goal_f2c_lines": [1365, 1400],
+  "parent_spatial_protocol_sha256": "c4d26a9a348cecda76fc8fdcac9b934830bed2a7ad2c6fdb6a240042c96b8646",
+  "parent_spatial_prediction_sha256": "1630b3f360ae2cc65b1b1c2baae888502d4e5f75500a8ac34c54b37352c15a6b",
+  "arm": "F0+F2c_spec",
+  "source_reference": "log-Euclidean mean of all Day1 training windows only; F2a centered sample covariance, fixed shrinkage .05, trace+epsilon, explicit epsilon SPD ridge",
+  "sessions": {"train": 1, "validation": 2, "final": 3},
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8],
+  "channels": ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8"],
+  "sample_rate_hz": 2048,
+  "window_samples": 512,
+  "feature_aggregation": "per-trial mean and std over 20 non-overlapping windows",
+  "classifier": "Day1 StandardScaler plus LogisticRegression C=1 max_iter=2000 random_state=20260924",
+  "selection_rule": "Report the predeclared Day2 and Day3 cells descriptively; no candidate or hyperparameter selection from either split.",
+  "boundary": "Previously inspected public GRAB subjects; no own-device or live-recognition claim."
+}
