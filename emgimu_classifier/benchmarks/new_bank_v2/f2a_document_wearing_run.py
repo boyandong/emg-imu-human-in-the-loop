@@ -1,4 +1,4 @@
-"""Frozen native wearing test of the document-exact uncentered F2a candidate."""
+"""Frozen native wearing test of the historical uncentered F2a alternative."""
 from __future__ import annotations
 
 import csv

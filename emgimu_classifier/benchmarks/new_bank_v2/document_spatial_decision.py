@@ -1,4 +1,4 @@
-"""Validation-only public eligibility of document-consistent F2c/F3c."""
+"""Frozen validation-only eligibility of historical uncentered F2c/F3c alternatives."""
 from __future__ import annotations
 
 import csv

@@ -1,0 +1,19 @@
+{
+  "name": "goal_centered_f2a_f3c_grab_crossday_v3",
+  "frozen_before_run": "2026-10-03",
+  "goal_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
+  "goal_lines": {"F2a": [1274, 1313], "F2c": [1365, 1400], "F3c": [1480, 1534]},
+  "parent_grab_protocol_sha256": "79defa347f03c10696967f49040692f676ee41201d186baa1072ce7546d01acc",
+  "parent_f0_prediction_sha256": "58401ac416aebc6e4ad059a0b98637c8e40c404c695780073a05fe666d66df75",
+  "prior_uncentered_f3c_prediction_sha256": "f9426e020e552e354102ea5f085edbb4f3cae842dc8853624137075f6a8604dd",
+  "arms": ["F0", "F0+F2a_spec", "F0+F3c_spec"],
+  "sessions": {"train": 1, "validation": 2, "final": 3},
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8],
+  "channels": ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8"],
+  "sample_rate_hz": 2048,
+  "window_samples": 512,
+  "feature_aggregation": "per-trial mean and std over 20 non-overlapping windows",
+  "classifier": "source-Day1 StandardScaler plus LogisticRegression C=1 max_iter=2000 random_state=20260924",
+  "selection_rule": "No final-set selection. This revisits previously inspected public subjects and reports Day2/Day3 descriptively for formula correction only.",
+  "boundary": "Official ring1 diagram directly shows 8-1-2 adjacency but not all hidden-side positions; full circular order is inferred. Public 2048 Hz GRAB, not own-device transfer."
+}

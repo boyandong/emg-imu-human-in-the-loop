@@ -1,6 +1,12 @@
-# Document-consistent F2c and F3c spatial candidates
+# Historical uncentered F2c and F3c spatial alternatives
 
-The detailed formulas specify that F2c's SPD matrix and F3c's ring-relative entries come from F2a. The earlier F2c/F3c candidates used a **centered** covariance; their frozen results retain that identity. Two separate candidates now use the document-exact **uncentered** second moment, fixed 0.05 shrinkage and a minimal positive diagonal ridge for the SPD log map. F2c fits a log-Euclidean source reference and outputs the whitened symmetric matrix log. F3c takes ring-lag mean, median, spread and quartiles from the same matrix; it requires a caller assertion that saved channels follow the physical circular order and omits the unstable early/late block on short windows. Independent source-reference, matrix, long-window drift and ring-rotation tests distinguish these from centered counterparts.
+**Formula correction (V3):** The goal file actually specifies a *centered*
+F2a covariance. This V2 study used an uncentered second moment and must be
+read as an alternative-feature experiment, not an exact-F2a/F2c/F3c test.
+The separate [centered V3 implementation and native replay](../new_bank_v3/SPEC_SPATIAL_GRAB_REPORT.md)
+retain all V2 probabilities under their original names.
+
+The detailed formulas specify that F2c's SPD matrix and F3c's ring-relative entries come from F2a, which is **centered** in the goal file. The earlier F2c/F3c candidates used centered covariance; their frozen results retain that identity. These two V2 alternatives instead use an **uncentered** second moment, fixed 0.05 shrinkage and a minimal positive diagonal ridge for the SPD log map. F2c fits a log-Euclidean source reference and outputs the whitened symmetric matrix log. F3c takes ring-lag mean, median, spread and quartiles from the same matrix; it requires a caller assertion that saved channels follow the physical circular order and omits the unstable early/late block on short windows. Independent source-reference, matrix, long-window drift and ring-rotation tests distinguish these alternatives from centered counterparts.
 
 The [wearing protocol](DOCUMENT_SPATIAL_WEARING_PROTOCOL.json) pins the public eight-channel, 200 Hz source and four target domains for six users. The [transfer protocol](F2C_DOCUMENT_TRANSFER_PROTOCOL.json) pins matched six-user MANUS sessions and GRABMyo unseen users at native 200 and 2048 Hz respectively. All feature/reference/classifier fitting uses source trials; probabilities and native identities are saved in the [wearing results](DOCUMENT_SPATIAL_WEARING_RESULTS.json) and [transfer results](F2C_DOCUMENT_TRANSFER_RESULTS.json), with independent readback tests.
 
@@ -21,5 +27,5 @@ The [official GRABMyo forearm-ring follow-up](F3C_DOCUMENT_GRAB_REPORT.md)
 provides a stronger topology source: the published diagram visibly places
 8–1–2 as neighbors, and the dataset maps F1–F8 to that ring. Complete hidden-
 side adjacency remains an explicit numbering inference. On frozen Day1→Day2/3
-trials, document-consistent F3c worsens F1 and log loss on both days relative
+trials, the V2 uncentered F3c alternative worsens F1 and log loss on both days relative
 to F0, so the wearing-specific result still does not support default promotion.

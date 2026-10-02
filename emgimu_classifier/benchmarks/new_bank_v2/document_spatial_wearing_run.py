@@ -1,4 +1,4 @@
-"""Matched wearing screen for document-consistent uncentered F2c and F3c."""
+"""Matched wearing screen for historical uncentered F2c/F3c alternatives."""
 from __future__ import annotations
 
 import csv

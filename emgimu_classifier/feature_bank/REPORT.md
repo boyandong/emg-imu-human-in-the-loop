@@ -3862,17 +3862,17 @@ its selected temperature, shrinkage and population weights. A changed source
 model can therefore no longer silently inherit an unrelated reliability
 policy. The source-user CV evidence remains limited to the selected protocols.
 
-The [document-exact F2a study](../benchmarks/new_bank_v2/F2A_DOCUMENT_REPORT.md)
-resolves a formula mismatch: the specification's uncentered `XX^T` second
-moment is now a separate candidate from the previously tested centered
-covariance. Its known-signal oracle passes, and matched wearing, MANUS and
-GRAB trials show validation gains under wearing but higher MANUS log loss and
-lower unseen-user GRAB F1. The existing public-data default remains F0v2;
-older centered-F2a results retain their original identity.
+The [historical uncentered F2a study](../benchmarks/new_bank_v2/F2A_DOCUMENT_REPORT.md)
+compares an alternative second-moment candidate with the centered F2a arm.
+Its earlier claim that uncentered F2a is the document's exact equation was
+incorrect: the goal document explicitly subtracts channel time means. The
+saved alternative's wearing gains, MANUS log-loss increase and unseen-user
+GRAB decline retain their original experimental identity; F0v2 remains the
+public-data default.
 
-The [document-consistent F2c/F3c extension](../benchmarks/new_bank_v2/DOCUMENT_SPATIAL_REPORT.md)
-now derives both families from the same uncentered F2a matrix. F2c's matched
-wearing/MANUS/GRAB evidence still fails the cross-axis guard. F3c improves
+The [historical uncentered F2c/F3c extension](../benchmarks/new_bank_v2/DOCUMENT_SPATIAL_REPORT.md)
+derives both alternative features from the same uncentered matrix. Its F2c
+matched wearing/MANUS/GRAB evidence fails the cross-axis guard. Its F3c improves
 both F1 and log loss on public wearing validation and descriptive-final users,
 but the published data do not establish that saved channel columns follow the
 Myo's physical circular order. Its result is conditional on that ordering
@@ -3903,7 +3903,16 @@ The [document F3c GRAB cross-day follow-up](../benchmarks/new_bank_v2/F3C_DOCUME
 adds a public ring1 electrode diagram and 448 saved trial-level candidate
 probabilities to the topology audit. The visible 8–1–2 neighbors support only
 part of the full circular numbering assumption. Against the same frozen F0,
-document-consistent F3c lowers macro-F1 and raises log loss on both Day2
+the V2 uncentered F3c alternative lowers macro-F1 and raises log loss on both Day2
 validation and descriptive Day3; all 448 decisions match the earlier centered
 F3c arm despite changed probabilities. F3c remains a research candidate,
 not a cross-day or own-device default.
+
+The [centered V3 formula correction](../benchmarks/new_bank_v3/SPEC_SPATIAL_GRAB_REPORT.md)
+now implements the goal file's actual F2a covariance and derives F2c/F3c
+from that same matrix. Independent oracles verify centering, `T−1`, shrinkage,
+`trace+epsilon`, source-only tangent reference, and circular-lag summaries.
+On the frozen GRAB split, exact-formula F2a and F3c both reduce Day2/Day3
+macro-F1 and increase log loss against F0. F2c's V3 formula has an analytical
+oracle but no new native V3 increment yet. Earlier uncentered V2 probabilities
+remain archived as distinct alternative-feature results.

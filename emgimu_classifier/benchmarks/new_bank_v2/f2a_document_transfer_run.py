@@ -1,4 +1,4 @@
-"""Matched MANUS/GRAB native transfer of the document-exact uncentered F2a."""
+"""Matched MANUS/GRAB native transfer of the historical uncentered F2a alternative."""
 from __future__ import annotations
 
 import argparse

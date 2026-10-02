@@ -1,4 +1,4 @@
-"""Matched MANUS/GRAB transfer of uncentered document-consistent F2c."""
+"""Matched MANUS/GRAB transfer of the historical uncentered F2c alternative."""
 from __future__ import annotations
 
 import argparse

@@ -1,4 +1,10 @@
-# Document-consistent F3c on the GRABMyo forearm ring
+# Historical uncentered F3c on the GRABMyo forearm ring
+
+**Formula correction (V3):** The goal file's F2a is centered before F3c
+summarizes its matrix. This V2 run used an uncentered second moment; its
+probabilities remain a valid alternative-feature result, but “document-
+consistent” in the historical title is not an exact-formula claim. See the
+[separate centered V3 replay](../new_bank_v3/SPEC_SPATIAL_GRAB_REPORT.md).
 
 The [official dataset description](https://physionet.org/content/grabmyo/1.1.0/)
 states that forearm F1–F8 are the eight channels of ring 1, sampled at 2048 Hz.
@@ -11,7 +17,7 @@ visible. The topology assertion in this experiment therefore has a stronger
 physical basis than the Myo CSV study but is still conditional on that full
 ordering inference.
 
-The [frozen protocol](F3C_DOCUMENT_GRAB_PROTOCOL.json) adds document-consistent,
+The [frozen protocol](F3C_DOCUMENT_GRAB_PROTOCOL.json) adds V2 uncentered,
 uncentered F3c to the existing public GRAB three-day, eight-subject, four-class
 trial split. It uses 512-sample disjoint windows, source-Day1 Rest thresholds,
 source-only feature and classifier fitting, and the prior classifier settings.
@@ -27,7 +33,7 @@ log loss, per-class recall and per-subject F1.
 | F0 | 0.9551 | 0.1507 | 0.9008 | 0.3007 |
 | F0 + document F3c | 0.9198 | 0.1712 | 0.8764 | 0.3873 |
 
-Compared with the earlier centered-F3c GRAB probabilities, the document-exact
+Compared with the earlier centered-F3c GRAB probabilities, the V2 uncentered
 arm changes probability values by at most 0.014665 but changes none of the 448
 held-out decisions. The document candidate worsens both selected metrics on
 Day2 and Day3. Thus the positive wearing-shift result does not generalize to
