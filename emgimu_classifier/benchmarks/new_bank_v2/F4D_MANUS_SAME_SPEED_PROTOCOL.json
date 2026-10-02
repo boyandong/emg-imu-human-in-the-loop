@@ -1,0 +1,10 @@
+{
+  "name": "new_v2_f4d_manus_same_speed_leave_one_trial_out",
+  "version": 1,
+  "parent_predictive_protocol": "F4D_MANUS_PREDICTIVE_PROTOCOL.json",
+  "parent_predictive_protocol_sha256": "6e26b28866422e7222a0cab6e3ad3264304a51827e4dbc82c27abd4960b7c39f",
+  "source": "For each of six users, train F0v2 and F0v2+long-centered spectral classifiers on all 18 session-1 trials, exactly as in the frozen predictive study.",
+  "calibration": "For each held session-2/3 slow/fast trial, fit the target session reference on the other five gesture trials from the same user, session and speed. Use no target labels, evaluation samples or target classifier fit. Refit this reference separately for each held trial.",
+  "evaluation": "Score the one excluded trial with F0v2, frozen long-centered F4d and same-speed session-centered F4d. Session 2 is validation; session 3 is descriptive final.",
+  "boundary": "Offline leave-one-native-trial-out diagnostic. Calibration covers five of six gestures and knows the held trial identity, so it is not a practical online protocol. It removes the calibration/evaluation speed mismatch but cannot isolate session correction from calibration gesture composition or certify new-day/device performance. Previously inspected users and final session remain descriptive."
+}

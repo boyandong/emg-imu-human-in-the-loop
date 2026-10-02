@@ -41,3 +41,8 @@ and scored at slow/fast speed, so speed and session effects cannot be
 separated. The cohort has only six previously seen users and one native trial
 per gesture/speed/session. The data do not certify separate calendar days,
 measured fatigue, new-user transfer, or own-device 250 Hz performance.
+
+A separate [same-speed leave-one-trial-out control](F4D_MANUS_SAME_SPEED_REPORT.md)
+removes the calibration/evaluation speed mismatch while retaining frozen
+source models. It improves pooled validation F1 and loss, but its five-gesture
+reference and declining final minimum-user F1 retain important limits.

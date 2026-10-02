@@ -3667,6 +3667,15 @@ Medium-speed calibration versus slow/fast evaluation confounds speed with
 session, so this is bounded predictive evidence, not a default promotion
 or a verified fatigue effect.
 
+The [matched-speed F4d control](../benchmarks/new_bank_v2/F4D_MANUS_SAME_SPEED_REPORT.md)
+uses the other five gesture trials of the same user, session and speed as
+calibration for each excluded native trial. On the same frozen classifiers,
+validation pooled F1 rises from 0.3898 to 0.4852 and loss falls from 2.2394
+to 1.7187. Final minimum-user F1 still falls from 0.1111 to 0.0952. This
+removes the medium-versus-slow/fast mismatch, but the reference omits the
+held gesture and requires offline leave-one-out selection; it is not a live
+calibration result or default promotion.
+
 The [complete new-v1 bank LOFO](../benchmarks/new_bank_v2/FULL_V1_LOFO_REPORT.md)
 now tests F0v2 plus all four independent additions and every
 leave-one-family-out arm on all seven public axes. The [readback audit](../benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json)
