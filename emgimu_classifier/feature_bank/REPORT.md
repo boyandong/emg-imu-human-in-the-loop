@@ -3780,7 +3780,7 @@ establish a later-day domain shift or predictive benefit.
 The [F0–F9 subsection coverage check](FORMULA_SUBSECTION_COVERAGE_AUDIT.csv)
 now binds all 32 formula-bearing appendix sections to exact reviewed source
 symbols; three additional headings are contextual. The formula inventory has
-56 source-review rows. A two-dimensional independent F7 oracle verifies
+57 source-review rows. A two-dimensional independent F7 oracle verifies
 Euclidean, robust-standardized and cosine coordinates, source-calibration
 similarity scales and margins. Individual F9a–F9g rules are now separately
 mapped, exposing where known-tone or measured-fault oracles remain missing.
@@ -3875,3 +3875,8 @@ both F1 and log loss on public wearing validation and descriptive-final users,
 but the published data do not establish that saved channel columns follow the
 Myo's physical circular order. Its result is conditional on that ordering
 assumption and remains exploratory, not a default.
+
+The [F3c channel-order control](../benchmarks/new_bank_v2/F3C_CHANNEL_ORDER_REPORT.md)
+compares the saved order with 12 fixed non-equivalent reorderings on the same
+public wearing split. Its strong native-order ranks show the cyclic-index
+statistic is order-sensitive; they do not prove an anatomical column mapping.

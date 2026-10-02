@@ -11,3 +11,8 @@ The [wearing protocol](DOCUMENT_SPATIAL_WEARING_PROTOCOL.json) pins the public e
 | GRAB unseen user | .8054 / .4650 | .7371 / .6968 | Not eligible: ring topology unverified |
 
 The [eight-cell decision](DOCUMENT_SPATIAL_CROSS_AXIS_AUDIT.json) applies the existing validation-only rule. Document F2c worsens MANUS log loss and both GRAB measures, so it is not a universal default. Document F3c improves wearing validation F1 by .1054 and log loss by .3440; the descriptive final users also improve F1 (.6170 → .7113) and log loss (1.0838 → .8020). This is an **exploratory circular-index result**, not a verified anatomical ring result or deployed model. [LibEMG identifies the device as an eight-channel Myo armband](https://libemg.github.io/libemg/documentation/data/data.html), and [the Myo electrodes are physically circular](https://pmc.ncbi.nlm.nih.gov/articles/PMC9458587/), but the [released dataset](https://github.com/LibEMG/CIILData/tree/main/ElectrodeShift) does not document that saved column order follows physical adjacency. The caller's `ring_topology=True` is an assumption, not independent dataset proof. The public domains and users have appeared in prior studies; no other confirmed ring-order axis or own-device evidence is available. F0v2 remains the cross-axis public-data default.
+
+A separate [fixed channel-order sensitivity screen](F3C_CHANNEL_ORDER_REPORT.md)
+finds native-order validation F1/loss ranks of 2/13 and 1/13 against 12
+non-equivalent cyclic-index reorderings; descriptive-final ranks are 1/13 for
+both. The result is order-sensitive but still cannot certify physical adjacency.

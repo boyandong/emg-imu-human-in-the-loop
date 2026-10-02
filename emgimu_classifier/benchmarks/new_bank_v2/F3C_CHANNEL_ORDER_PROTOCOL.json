@@ -1,0 +1,14 @@
+{
+  "name": "document_f3c_public_wearing_channel_order_sensitivity_v1",
+  "version": 1,
+  "parent_result_sha256": "3f1cb30a103070ae7409eb39e02123d46828c6db82899c52184bcc93846f1844",
+  "parent_prediction_sha256": "994b3d88ef3983010302b520cae6b3707909b3189d832a107f8d6f82960c4053",
+  "archive_sha256": "4cfa9a4861193f230179fa87d53eda7503e66b5cfedeae81c81e476f53f6b2b6",
+  "source": "Reuse the parent's six same-user training domains and frozen source/target native trial identities. F0v2 remains in native channel order; only F3c cyclic-index adjacency changes. Fit the same scaler and balanced logistic classifier on source trials for each order, then score target trials.",
+  "permutations": "Identity plus 12 deterministic eight-channel orders from different rotation/reflection equivalence classes, excluding the identity class; seed 20261002. The same order is applied to each user's source and target F3c input.",
+  "random_seed": 20261002,
+  "random_permutations": 12,
+  "validation": "Users 15-17; compare identity's pooled macro F1 and log loss ranks against the 12 counterfactual orders. No model/order is selected from the random controls.",
+  "descriptive_final": "Users 18-20 were previously examined and are descriptive only.",
+  "boundary": "This is a post-hoc order-sensitivity/falsification diagnostic, not a physical electrode mapping, permutation significance test, independent cohort or model-selection exercise. Nonphysical permutations deliberately use the same cyclic-index statistic as a counterfactual; they must never be treated as topology-attested deployment inputs."
+}
