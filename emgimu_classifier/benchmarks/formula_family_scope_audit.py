@@ -13,9 +13,9 @@ OUT = ROOT / "feature_bank"
 # This is a human-reviewed scope table. Evidence presence/hash does not turn a
 # scientific judgement into proof of complete specification acceptance.
 REVIEWS = (
-    ("F0", "public_screened", "benchmarks/new_bank_v2/V1_CROSS_AXIS_DECISION_AUDIT.json|benchmarks/song_real8/F0_REST_NOISE_RESULTS.json|benchmarks/song_real8/F0_REST_NOISE_REPORT.md",
-     "Rest-fitted eight-channel F0v2 has seven public-axis native screens and an exact six-block known-waveform test. A separate source-frozen Song 250 Hz replay proves that Rest-only threshold selection changes native F0 counts relative to pooled-source thresholds.",
-     "The Song feature-only comparison does not establish a classifier gain; its single user and same-day sessions limit generalization. Historical R0 extras are user-superseded; own-device independent cohort remains unavailable."),
+    ("F0", "public_screened", "benchmarks/new_bank_v2/V1_CROSS_AXIS_DECISION_AUDIT.json|benchmarks/song_real8/F0_REST_NOISE_RESULTS.json|benchmarks/song_real8/F0_REST_NOISE_REPORT.md|benchmarks/song_real8/F0_REST_MODEL_RESULTS.json|benchmarks/song_real8/F0_REST_MODEL_REPORT.md",
+     "Rest-fitted eight-channel F0v2 has seven public-axis native screens and an exact six-block known-waveform test. A source-frozen Song 250 Hz replay proves that Rest-only threshold selection changes native F0 counts. Matched source-trained classifiers test the corresponding predictive change on the same native trials.",
+     "Rest-only thresholds worsen S03 trial F1/loss/Brier and S04 F1 against pooled-source thresholds; no default promotion. The single user, same-day sessions, failed readiness and prior S04 inspection limit generalization. Historical R0 extras are user-superseded; own-device independent cohort remains unavailable."),
     ("F1", "public_screened", "benchmarks/new_bank_v2/V1_CROSS_AXIS_DECISION_AUDIT.json",
      "Independent scale-pattern formula is tested across seven public axes and in the complete-bank LOFO.",
      "This is not the missing historical X1-H source or a universally winning addition."),

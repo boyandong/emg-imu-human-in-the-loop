@@ -3983,3 +3983,10 @@ windows. About 92.5% of windows have changed threshold-sensitive counts; the
 threshold-free RMS/MAV/WL coordinates are identical. This is feature-only
 evidence on one participant and one day. It does not establish a recognition
 gain or change the default F0 route.
+
+The [matched source-trained classifier replay](../benchmarks/song_real8/F0_REST_MODEL_REPORT.md)
+now compares the two threshold rules on the same 140 S03 and 144 S04 native
+trials. Rest-only thresholds lose S03 macro F1, log loss and Brier, and lose S04
+macro F1 despite a small S04 probability-score gain. No target session selected
+the fixed classifier settings; the single-person, same-day and previously
+inspected-session limits still prevent default promotion.

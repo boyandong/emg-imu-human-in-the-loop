@@ -1,0 +1,12 @@
+{
+  "name": "song_f0_rest_threshold_matched_source_model_v1",
+  "frozen_before_run": "2026-10-03",
+  "parent_f0_protocol_sha256": "0e60760c580774c4eb9078f1ce77035979853ab9192fc763144577b1f2275d9c",
+  "source_sessions": ["S01", "S02"],
+  "read_only_sessions": ["S03", "S04"],
+  "classes": ["neutral", "index_pinch", "fist", "open_hand"],
+  "arms": ["pooled_source_threshold", "rest_only_threshold"],
+  "classifier": "StandardScaler then LogisticRegression(C=1.0,class_weight=balanced,max_iter=2000,random_state=0); each arm separately fitted on the same S01/S02 formal windows; no target calibration or hyperparameter choice",
+  "scoring": "Average window probabilities within a native formal trial; compare paired 4-class macro F1, log loss and Brier on the same S03/S04 trials. No arm selected on target scores.",
+  "boundary": "One participant and one calendar day; S01/S02/S03 failed collection readiness, S04 previously inspected. This is a retrospective paired local study, not independent or prospective evidence and not a default-model promotion gate."
+}

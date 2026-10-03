@@ -1,0 +1,71 @@
+{
+  "status": "retrospective_paired_local_only",
+  "protocol_sha256": "02ed82e695cf040869fa7ce1325c3fb1f28e7bf271d3b1790ee5cff18019e3a6",
+  "parent_f0_protocol_sha256": "0e60760c580774c4eb9078f1ce77035979853ab9192fc763144577b1f2275d9c",
+  "source_hdf5_sha256": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479"
+  },
+  "sklearn_version": "1.8.0",
+  "source_state_sha256": {
+    "pooled_source_threshold": "224f6ac440c4afbe0e864184306dd0d2f0c8489a652fb3984905aec93fabd736",
+    "rest_only_threshold": "4ff578f9dfb0896ba4d626a60fc64669e52c3c13e404c9b3cc841ae5b2480ffb"
+  },
+  "prediction_rows": 568,
+  "prediction_csv_sha256": "31fa57ee7f205f916d934461304f63667b3670dd6760e3fd4aa912e2f9e8e10e",
+  "metrics": {
+    "S03": {
+      "pooled_source_threshold": {
+        "trials": 140,
+        "macro_f1": 0.935935362695926,
+        "log_loss": 0.3108983605238427,
+        "brier": 0.14158474960794984,
+        "recall": {
+          "neutral": 0.9166666666666666,
+          "index_pinch": 0.9166666666666666,
+          "fist": 0.9375,
+          "open_hand": 0.9722222222222222
+        }
+      },
+      "rest_only_threshold": {
+        "trials": 140,
+        "macro_f1": 0.9277061588442663,
+        "log_loss": 0.3182949129527081,
+        "brier": 0.1447076258172218,
+        "recall": {
+          "neutral": 0.8611111111111112,
+          "index_pinch": 0.8611111111111112,
+          "fist": 1.0,
+          "open_hand": 1.0
+        }
+      }
+    },
+    "S04": {
+      "pooled_source_threshold": {
+        "trials": 144,
+        "macro_f1": 0.9068393441879964,
+        "log_loss": 0.4271641962099889,
+        "brier": 0.21314015529410327,
+        "recall": {
+          "neutral": 0.9444444444444444,
+          "index_pinch": 0.7222222222222222,
+          "fist": 1.0,
+          "open_hand": 0.9722222222222222
+        }
+      },
+      "rest_only_threshold": {
+        "trials": 144,
+        "macro_f1": 0.8919442162444888,
+        "log_loss": 0.42074697618815965,
+        "brier": 0.21214748815252213,
+        "recall": {
+          "neutral": 0.8888888888888888,
+          "index_pinch": 0.6944444444444444,
+          "fist": 1.0,
+          "open_hand": 1.0
+        }
+      }
+    }
+  },
+  "boundary": "One participant and one calendar day; S01/S02/S03 failed collection readiness, S04 previously inspected. This is a retrospective paired local study, not independent or prospective evidence and not a default-model promotion gate."
+}
