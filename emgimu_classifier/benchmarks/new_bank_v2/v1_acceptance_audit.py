@@ -64,6 +64,10 @@ def build(pre: Path, goal: Path) -> dict:
     rows = []
     for ident, doc, start, end, title, status, evidence, boundary in CLAUSES:
         if ident in ("GOAL-03", "GOAL-20"):
+            evidence += "|tests/test_f3a_rlcs_direct_oracle.py"
+            boundary += (" A direct Pearson F3a circular-lag oracle and a fitted "
+                         "ring sample-rate guard verify the new-version geometry; "
+                         "older serialized fits retain legacy compatibility.")
             evidence += "|tests/test_f4a_frequency_coord_oracle.py"
             boundary += (" A direct-complex-DFT 250 Hz F4a oracle and a fitted "
                          "sample-rate mismatch guard verify sub-Nyquist band coordinates; "

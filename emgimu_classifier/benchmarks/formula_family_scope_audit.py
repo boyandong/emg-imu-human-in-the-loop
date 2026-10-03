@@ -66,6 +66,12 @@ def build() -> dict:
             unresolved += (" Persisted older spectral fits predate the new "
                            "sample-rate field and retain legacy compatibility.")
         if family == "F3":
+            evidence += "|tests/test_f3a_rlcs_direct_oracle.py"
+            supported += (" A direct Pearson known-envelope F3a test confirms "
+                          "circular-lag means/standard deviations and new fits "
+                          "reject a different sampling rate.")
+            unresolved += (" Persisted older ring fits predate the rate field; "
+                           "historical RLCS identity remains user-superseded.")
             evidence += ("|benchmarks/new_bank_v3/F3B_CES_GRAB_RESULTS.json"
                          "|benchmarks/new_bank_v3/F3B_CES_GRAB_REPORT.md"
                          "|tests/test_document_ces_v3.py")

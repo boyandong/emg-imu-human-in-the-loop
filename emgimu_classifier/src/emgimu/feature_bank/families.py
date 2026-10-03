@@ -237,12 +237,14 @@ class RingGeometryFamily(FeatureFamily):
     def __init__(self, envelope_ms: float = 25.0) -> None:
         self.envelope_ms = float(envelope_ms)
         self.channels_: int | None = None
+        self.sample_rate_hz_: float | None = None
         self._names: tuple[str, ...] = ()
 
     def fit(self, batch: FeatureBatch, labels: np.ndarray | None = None) -> "RingGeometryFamily":
         if batch.channels < 4:
             raise ValueError("ring geometry requires at least four circularly ordered channels")
         self.channels_ = batch.channels
+        self.sample_rate_hz_ = float(batch.sample_rate_hz)
         lags = range(1, batch.channels // 2 + 1)
         names = []
         for lag in lags:
@@ -266,6 +268,11 @@ class RingGeometryFamily(FeatureFamily):
         self._check()
         if batch.channels != self.channels_:
             raise ValueError("channel count differs from fitted ring state")
+        # Legacy serialized states have no recorded rate; new fits enforce
+        # the source frequency grid and fixed 25 ms envelope sample count.
+        fitted_rate = getattr(self, "sample_rate_hz_", None)
+        if fitted_rate is not None and not np.isclose(batch.sample_rate_hz, fitted_rate, rtol=0, atol=1e-9):
+            raise ValueError("sample rate differs from fitted ring state")
         width = max(1, round(batch.sample_rate_hz * self.envelope_ms / 1000.0))
         envelope = _envelope(batch.emg, width)
         correlation = self._correlation(envelope)
