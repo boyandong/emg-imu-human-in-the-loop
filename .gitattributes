@@ -73,3 +73,4 @@ emgimu_classifier/benchmarks/new_bank_v3/SPEC_F2C_TRANSFER_* -text -eol whitespa
 emgimu_classifier/benchmarks/new_bank_v3/SPEC_F2C_WEARING_* -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/F7_DOCUMENT_ANCHOR_* -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_* -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/F9_DOCUMENT_V3_* -text -eol whitespace=cr-at-eol

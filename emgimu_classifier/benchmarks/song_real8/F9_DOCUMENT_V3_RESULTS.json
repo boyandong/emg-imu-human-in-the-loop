@@ -1,0 +1,48 @@
+{
+  "status": "native_observation_only",
+  "protocol_sha256": "519d3afb0ef6cfcd350c6e7f73737d1e07c6ef74607fe0e339e6b9b83ee942f6",
+  "parent_quality_result_sha256": "3d3ac9ad1e998d9636881a7897a1622aa565a99b490d8a2a6e0b3f818acfe6ef",
+  "source_sessions": [
+    "S01",
+    "S02"
+  ],
+  "evaluation_sessions": {
+    "S03": {
+      "formal_windows": 416,
+      "feature_dimension": 69,
+      "availability": {
+        "adc": 1.0,
+        "line": 0.0,
+        "low_frequency": 1.0,
+        "ring": 0.0
+      },
+      "median_zero_fraction": 0.0,
+      "median_longest_flatline_ratio": 0.019999999552965164,
+      "median_absolute_robust_amplitude_z": 0.7087146043777466,
+      "median_covariance_distance": 1386654.375,
+      "synthetic_constant_ch1_median_flatline": 0.9800000190734863,
+      "synthetic_constant_ch1_detected_fraction_at_0_9": 1.0,
+      "natural_ch1_above_0_9_fraction": 0.0
+    },
+    "S04": {
+      "formal_windows": 431,
+      "feature_dimension": 69,
+      "availability": {
+        "adc": 1.0,
+        "line": 0.0,
+        "low_frequency": 1.0,
+        "ring": 0.0
+      },
+      "median_zero_fraction": 0.0,
+      "median_longest_flatline_ratio": 0.019999999552965164,
+      "median_absolute_robust_amplitude_z": 1.3748795986175537,
+      "median_covariance_distance": 1413847.5,
+      "synthetic_constant_ch1_median_flatline": 0.9800000190734863,
+      "synthetic_constant_ch1_detected_fraction_at_0_9": 1.0,
+      "natural_ch1_above_0_9_fraction": 0.0
+    }
+  },
+  "source_formal_windows": 849,
+  "feature_dimension": 69,
+  "boundary": "One participant, four sessions on one date. No observed physical-fault labels, independent user/day, verified ring order or recorded mains-frequency metadata. No live gate or gesture-accuracy claim."
+}

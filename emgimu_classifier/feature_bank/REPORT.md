@@ -3953,3 +3953,10 @@ with explicit ADC, mains, pre-highpass and ring-topology availability. Hand-comp
 boundary, Fourier, covariance and ring-neighbor tests pass. It is an observation
 interface, not a new quality gate; the earlier Song/GRAB false-rejection evidence
 continues to block default F9 gating.
+
+The [Song native F9 V3 replay](../benchmarks/song_real8/F9_DOCUMENT_V3_REPORT.md)
+freezes its references on 849 S01/S02 raw windows and reads 416 S03 plus 431
+S04 windows without updating source state. The 69 observations per window are
+finite. Unknown mains and ring geometry stay explicitly unavailable. A
+copied constant channel is detected in the synthetic check; no naturally
+labelled hardware fault or safe rejection threshold is established.

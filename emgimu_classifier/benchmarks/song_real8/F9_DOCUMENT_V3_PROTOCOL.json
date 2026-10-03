@@ -1,0 +1,23 @@
+{
+  "name": "song_real8_document_quality_observations_v3",
+  "frozen_before_run": "2026-10-03",
+  "parent_quality_result_sha256": "3d3ac9ad1e998d9636881a7897a1622aa565a99b490d8a2a6e0b3f818acfe6ef",
+  "source_sessions": ["S01", "S02"],
+  "evaluation_sessions": ["S03", "S04"],
+  "expected_session_sha256": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+    "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+    "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+  },
+  "expected_formal_windows": {"S01": 426, "S02": 423, "S03": 416, "S04": 431},
+  "emg_sample_rate_hz": 250,
+  "window_samples": 50,
+  "channels": 8,
+  "adc_range_counts": [-8388608, 8388607],
+  "line_frequency_hz": null,
+  "pre_highpass_available": true,
+  "ring_order": null,
+  "selection": "Use exactly the already-audited IMU-eligible formal stable raw windows. Fit only S01/S02. Read S03/S04 without updating source state. Report descriptive observation distributions and a separate synthetic constant-channel check, without selecting a rejection threshold.",
+  "boundary": "One participant, four sessions on one date. No observed physical-fault labels, independent user/day, verified ring order or recorded mains-frequency metadata. No live gate or gesture-accuracy claim."
+}
