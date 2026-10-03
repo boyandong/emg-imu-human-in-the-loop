@@ -63,6 +63,11 @@ def build(pre: Path, goal: Path) -> dict:
         lines[name] = path.read_text(encoding="utf-8-sig").splitlines()
     rows = []
     for ident, doc, start, end, title, status, evidence, boundary in CLAUSES:
+        if ident in ("GOAL-03", "GOAL-20"):
+            evidence += "|benchmarks/new_bank_v3/F5B_CUED_REPLAY_RESULTS.json|tests/test_cued_replay.py"
+            boundary += (" A fixed-cue irregular-chunk replay exactly reconstructs all 3,391 "
+                         "retained UniBo Day7/8 bouts and their envelope paths; it does not "
+                         "detect biological onset or measure streaming accuracy.")
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

@@ -1,0 +1,16 @@
+{
+  "scope": "fixed-cue chunked input parity; no onset detection or accuracy claim",
+  "metadata_sha256": "a03e722a7a1d528b744add3dfcebe839a09f00b275a7f983a6e81ac8fb4597c9",
+  "trial_count": 1696,
+  "bout_count": 3391,
+  "native_sample_count": 2120712,
+  "chunk_pattern_samples": [
+    17,
+    31,
+    40,
+    73,
+    11
+  ],
+  "max_envelope_path_abs_error": 0.0,
+  "all_native_samples_exact": true
+}
