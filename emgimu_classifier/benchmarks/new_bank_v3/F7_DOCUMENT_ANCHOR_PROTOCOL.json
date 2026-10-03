@@ -1,0 +1,19 @@
+{
+  "name": "goal_exact_f7_standardized_anchor_frozen_grab_trial_v1",
+  "frozen_before_run": "2026-10-03",
+  "parent_feature_protocol_sha256": "1eeeb1daeed5f2f3d22cd6bc4e4e7e1ba0ba1d1ff1209570273475ae49ff35e7",
+  "parent_feature_result_sha256": "2ae157c39eeab1464fbfac54119b890d02162d7dad3b165f6e2b273b252108b2",
+  "source_fitted_f0_feature_sha256": "e0fbe467369a78be81a0747ce5ff7636a99107e43c3fe6209a8ed49c93b47bce",
+  "frozen_f0_prediction_sha256": "321c84d4c73379cfcc7fa994e142c4943de6249631adec214ffac29ffca7dcad",
+  "feature": "Frozen Day1-fitted StandardScaler output for F0v2 native trial aggregates; target days never refit source state.",
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8],
+  "classes": [4, 15, 16, 17],
+  "target_days": {"validation": 2, "final": 3},
+  "shots_per_class": [1, 2, 5],
+  "calibration_repetitions": "Native repetitions 1..N per user, day and class; class labels used only for those calibration trials.",
+  "evaluation_repetitions": [6, 7],
+  "metric": "DocumentPersonalAnchorV2 standardized Euclidean: raw calibration MAD scale plus epsilon in each coordinate denominator; fixed source/calibration-only similarity temperature.",
+  "probability": "Normalize exp(-class distance / calibration-fitted tau) stably; also evaluate fixed 0.5 F0v2 + 0.5 F7 mixture, matching the prior mixture weight. No classifier refit.",
+  "selection": "Validation and previously inspected descriptive final are reported for every frozen budget. No arm, weight or threshold is selected from target labels; F7 is not promoted as a default from this screen.",
+  "boundary": "Public eight-channel GRABMyo 2048 Hz same-user/day calibration; not own-device 250 Hz, unseen-person calibration or independent prospective confirmation."
+}

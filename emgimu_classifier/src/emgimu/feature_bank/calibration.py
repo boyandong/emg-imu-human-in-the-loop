@@ -163,6 +163,46 @@ class PersonalAnchor:
         ) + ("F7.margin", "F7.normalized_margin")
 
 
+class DocumentPersonalAnchorV2(PersonalAnchor):
+    """Opt-in F7 denominator formulas without changing saved legacy anchors."""
+
+    def fit(self, features: np.ndarray, labels: np.ndarray) -> "DocumentPersonalAnchorV2":
+        super().fit(features, labels)
+        if self.metric == "standardized_euclidean":
+            x = np.asarray(features, dtype=np.float64)
+            center = np.median(x, axis=0)
+            self.scale_ = 1.4826 * np.median(np.abs(x - center), axis=0)
+            self.similarity_scale_ = max(float(np.median(self._distances(x))), EPS)
+        return self
+
+    def _distances(self, features: np.ndarray) -> np.ndarray:
+        if self.prototypes_ is None:
+            raise RuntimeError("anchor must be fit from calibration first")
+        x = np.asarray(features, dtype=np.float64)
+        if x.ndim != 2 or x.shape[1] != self.prototypes_.shape[1] or not np.isfinite(x).all():
+            raise ValueError("anchor feature dimension mismatch")
+        if self.metric == "standardized_euclidean":
+            delta = x[:, None, :] - self.prototypes_[None, :, :]
+            return np.linalg.norm(delta / (self.scale_[None, None, :] + EPS), axis=2)
+        if self.metric == "cosine":
+            dot = x @ self.prototypes_.T
+            norms = (np.linalg.norm(x, axis=1, keepdims=True)
+                     * np.linalg.norm(self.prototypes_, axis=1)[None, :])
+            return 1.0 - dot / (norms + EPS)
+        return super()._distances(x)
+
+    def transform(self, features: np.ndarray) -> np.ndarray:
+        distances = self._distances(features)
+        ordered = np.sort(distances, axis=1)
+        margin = ordered[:, 1] - ordered[:, 0]
+        normalized_margin = margin / (distances.mean(axis=1) + EPS)
+        similarity = np.exp(-distances / self.similarity_scale_)
+        output = np.column_stack((distances, similarity, margin, normalized_margin))
+        if not np.isfinite(output).all():
+            raise ValueError("anchor coordinates must be finite")
+        return output.astype(np.float32)
+
+
 @dataclass(frozen=True, slots=True)
 class ReliabilityWeights:
     classes: tuple[int | str, ...]
