@@ -6,6 +6,10 @@ calibration trials. Missing calibration metadata is N/A for native body-frame
 evaluation. Current EPN/MANUS reference IMU results are not re-labelled as calibrated
 body-frame results. EMG and IMU window durations must match at their separate rates;
 frame calibration trials cannot become held-out evaluation. No absolute yaw claim.
+The [public F6 eligibility review](F6_PUBLIC_ELIGIBILITY.md) separates raw
+six-axis signals and per-session anatomical-axis calibration from orientation,
+gesture direction and approximate mounting descriptions. No reviewed public
+candidate is yet verified as eligible for calibrated body-frame recognition.
 
 DTW now requires explicit complete contiguous sequences with native duration
 >=1 second and full-coverage metadata. Compressed-path sample rate and sparse
