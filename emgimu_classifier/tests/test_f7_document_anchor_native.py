@@ -9,6 +9,8 @@ from pathlib import Path
 import numpy as np
 import pytest
 
+from emgimu.feature_bank.calibration import DocumentPersonalAnchorV2
+
 
 ROOT = Path(__file__).resolve().parents[1]
 HERE = ROOT / "benchmarks" / "new_bank_v3"
@@ -23,6 +25,8 @@ def test_f7_document_anchor_trial_delivery():
         pytest.fail("protocol changed after native replay")
     if result["prediction_sha256"] != hashlib.sha256(prediction_path.read_bytes()).hexdigest():
         pytest.fail("predictions changed after native replay")
+    feature_path = HERE / "F7_DOCUMENT_ANCHOR_F0v2.npy"
+    assert hashlib.sha256(feature_path.read_bytes()).hexdigest() == protocol["source_fitted_f0_feature_sha256"]
     with prediction_path.open(newline="", encoding="utf-8") as handle:
         rows = list(csv.DictReader(handle))
     assert len(rows) == result["row_count"] == 1152
@@ -54,3 +58,21 @@ def test_f7_document_anchor_trial_delivery():
                 p7 = np.array([float(same["F7_document"][f"p_{label}"]) for label in classes])
                 mix = np.array([float(same["F0v2+F7_document"][f"p_{label}"]) for label in classes])
                 np.testing.assert_allclose(mix, 0.5 * (p0 + p7), atol=1e-12)
+
+    parent = json.loads((ROOT / "benchmarks" / "new_bank_v2" / "V1_FEATURE_ANCHOR_RESULTS.json").read_text(encoding="utf-8"))
+    x = np.load(feature_path, allow_pickle=False)
+    by_id = dict(zip(parent["target_trial_ids"], x))
+    first = result["calibration_cells"][0]
+    cal_ids, eval_ids = first["calibration_trial_ids"], first["evaluation_trial_ids"]
+    anchor = DocumentPersonalAnchorV2().fit(
+        np.stack([by_id[trial_id] for trial_id in cal_ids]),
+        np.array([int(trial_id.split("_gesture")[-1].split("_trial")[0]) for trial_id in cal_ids]),
+    )
+    logits = -anchor._distances(np.stack([by_id[trial_id] for trial_id in eval_ids])) / anchor.similarity_scale_
+    logits -= logits.max(axis=1, keepdims=True)
+    p = np.exp(logits)
+    p /= p.sum(axis=1, keepdims=True)
+    saved = {(r["phase"], int(r["subject"]), int(r["budget"]), r["arm"], r["trial_id"]): r for r in rows}
+    for trial_id, expected in zip(eval_ids, p):
+        row = saved[first["phase"], first["subject"], first["budget"], "F7_document", trial_id]
+        np.testing.assert_allclose([float(row[f"p_{label}"]) for label in classes], expected, atol=1e-12)

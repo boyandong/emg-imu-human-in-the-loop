@@ -19,7 +19,7 @@ section_start,section_end,title,mapping,review_item_ids,review_statuses,source_p
 1861,1866,F6. Body Context / IMU,context_heading,,,,not_proven
 1867,1922,F6a. IMU body-frame context,direct_source_review,F6_calibrated_candidate|F6a,candidate_api_native_unavailable|partial,src/emgimu/feature_bank/body_frame.py|src/emgimu/feature_bank/families.py,not_proven
 1923,1940,F6b. Public dataset posture context,direct_source_review,F6b,candidate_formula,src/emgimu/feature_bank/families.py,not_proven
-1941,1967,F7. Personal Anchor Coordinates,direct_source_review,F7|F7_SPD_tangent_candidate,partial|candidate_native_partial,src/emgimu/feature_bank/calibration.py|src/emgimu/feature_bank/spd_anchor.py,not_proven
+1941,1967,F7. Personal Anchor Coordinates,direct_source_review,F7|F7_document_exact_v2|F7_SPD_tangent_candidate,partial|analytical_native_negative|candidate_native_partial,src/emgimu/feature_bank/calibration.py|src/emgimu/feature_bank/spd_anchor.py,not_proven
 1968,1974,普通 Euclidean family,direct_source_review,F7_euclidean_rule,analytical_oracle,src/emgimu/feature_bank/calibration.py,not_proven
 1975,1984,Standardized Euclidean,direct_source_review,F7_standardized_rule,analytical_oracle,src/emgimu/feature_bank/calibration.py,not_proven
 1985,1992,Cosine,direct_source_review,F7_cosine_rule,analytical_oracle,src/emgimu/feature_bank/calibration.py,not_proven

@@ -56,7 +56,7 @@ def run() -> None:
     assets = {
         "parent_feature_protocol_sha256": SOURCE / "V1_FEATURE_ANCHOR_PROTOCOL.json",
         "parent_feature_result_sha256": SOURCE / "V1_FEATURE_ANCHOR_RESULTS.json",
-        "source_fitted_f0_feature_sha256": SOURCE / "V1_FEATURE_ANCHOR_F0v2.npy",
+        "source_fitted_f0_feature_sha256": HERE / "F7_DOCUMENT_ANCHOR_F0v2.npy",
         "frozen_f0_prediction_sha256": SOURCE / "GRAB_DAY_V1_EXTENSION_PREDICTIONS.csv",
     }
     for key, path in assets.items():

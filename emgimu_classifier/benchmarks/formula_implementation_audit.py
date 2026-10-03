@@ -33,7 +33,7 @@ from emgimu.feature_bank.new_bank_v2 import (
 from emgimu.feature_bank.spec_spatial_v3 import (
     SpecTraceCovarianceV3, SpecSpdTangentV3, SpecRingRelativeCovarianceV3,
 )
-from emgimu.feature_bank.calibration import DocumentPersonalNormalizerV2, PersonalAnchor
+from emgimu.feature_bank.calibration import DocumentPersonalAnchorV2, DocumentPersonalNormalizerV2, PersonalAnchor
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
 # Exact historical mandatory reuse cannot be replaced by a conceptual candidate.
@@ -100,6 +100,8 @@ REVIEWS = (
   'Training-fixed posture one-hot, unseen category rejection; explicit oracle context, never fabricated IMU.','P posture block'),
  ('F7','F7. Personal Anchor Coordinates','calibration.py','PersonalAnchor','partial',
   'Mean/median prototypes, Euclidean/source-or-cal standardized/cosine distances, fixed-cal similarity and margins. Optional classwise shrinkage Mahalanobis is implemented only with at least feature dimension + 2 calibration samples per class; present 1/2/5-shot native high-dimensional budgets are ineligible. Separate frozen-source SPD tangent candidate below is not an affine-invariant geodesic.','2H+2'),
+ ('F7_document_exact_v2','F7. Personal Anchor Coordinates','calibration.py','DocumentPersonalAnchorV2','analytical_native_negative',
+  'Opt-in additive-epsilon standardized/cosine denominators and normalized margin pass near-zero-scale independent oracles. Frozen GRABMyo 1/2/5-shot target-day trial replay uses source-fitted 96-dimensional F0v2 coordinates and calibration-only prototypes/temperature; the fixed 0.5 mixture preserves Day2 F1 but worsens log loss. The probability readout is exploratory, not prescribed by the coordinate formula or eligible as a default.','2H+2'),
  ('F7_SPD_tangent_candidate','F7. Personal Anchor Coordinates','spd_anchor.py','SpdTangentPersonalAnchor','candidate_native_partial',
   'Frozen source-fitted F2c log-tangent reference; one equal-weight mean per native calibration trial, calibration-only class prototypes and Frobenius-equivalent tangent Euclidean distances. EPN 1/2/5-shot native trials and exploratory one-person Song 1/2-block calibrations show limited standalone/mixed incremental value; no0-shot personal anchor. Newly fitted concatenated-Core value, affine-invariant geodesic, historical equivalence and formal own-device validity remain unproven.','2H+2'),
  ('F7_euclidean_rule','普通 Euclidean family','calibration.py','PersonalAnchor','analytical_oracle',
@@ -233,6 +235,14 @@ def build(document, output):
     measured['PersonalAnchor']={'fixture_dimension':values.shape[1],
         'source_immutable':True,'fixture_override':'synthetic two-class, two-feature, six calibration samples per class; no native eligible 1/2/5-shot high-dimensional result',
         'native_evaluation':'N/A'}
+    exact_anchor=DocumentPersonalAnchorV2(metric='standardized_euclidean').fit(small_cal,small_labels)
+    before=pickle.dumps(exact_anchor)
+    exact_values=exact_anchor.transform(rng.normal(size=(3,2)))
+    if exact_values.shape!=(3,6) or not np.isfinite(exact_values).all() or before!=pickle.dumps(exact_anchor):
+        raise AssertionError('Document-exact F7 anchor fixture failed')
+    measured['DocumentPersonalAnchorV2']={'fixture_dimension':exact_values.shape[1],
+        'source_immutable':True,
+        'fixture_override':'synthetic shape/immutability fixture; independent epsilon oracle and frozen GRAB native results are separate'}
     spectrum=LogBandEnergyFamily().fit(batch).transform(batch)
     shift=PersonalSessionSpectralShift().fit_long_term(spectrum[:8],[f'long-{i}' for i in range(8)])
     shift.fit_session_calibration(spectrum[8:12],[f'cal-{i}' for i in range(4)])
