@@ -6,6 +6,10 @@ source-only log-Euclidean reference. Earlier V2 experiments used uncentered
 moments; their results remain alternative-feature evidence, not the goal-exact
 F2c result. This [frozen protocol](SPEC_F2C_CROSS_AXIS_PROTOCOL.json) replays
 V3 F2c on the same held-out native trials as the saved F0v2 probabilities.
+Its numerical revision uses a `1e-10` SPD ridge matching the matrix eigensystem
+floor, so a zero-variance source window maps to its own tangent origin. The
+earlier `1e-12` ridge and results remain recoverable at Git commit `1f1a2bf`;
+this revision changes no trials, classifier or decision rule.
 The [six-cell table](SPEC_F2C_CROSS_AXIS_CELLS.csv), [guard audit](SPEC_F2C_CROSS_AXIS_AUDIT.json), and saved [wearing](SPEC_F2C_WEARING_PREDICTIONS.csv) and [transfer](SPEC_F2C_TRANSFER_PREDICTIONS.csv) probabilities permit independent trial-level readback.
 
 | Axis and phase | Trials | F0 F1 | F0+F2c F1 | F0 loss | F0+F2c loss |

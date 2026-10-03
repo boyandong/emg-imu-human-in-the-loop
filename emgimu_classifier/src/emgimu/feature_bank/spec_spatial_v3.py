@@ -8,8 +8,14 @@ from __future__ import annotations
 import numpy as np
 
 from .core import FeatureBatch, FeatureRegistry
-from .families import _sym_log, _sym_power, _vech
+from .families import EPS as MATRIX_EIGEN_FLOOR, _sym_log, _sym_power, _vech
 from .new_bank_v1 import EPS, _EightChannelFamily
+
+
+# The shared matrix-log/inverse-root helpers floor eigenvalues at 1e-10.
+# A smaller ridge would make a zero-variance source window map away from its
+# own fitted reference, violating the tangent origin invariant.
+SPD_RIDGE = max(EPS, MATRIX_EIGEN_FLOOR)
 
 
 def centered_f2a_matrix(windows: np.ndarray, shrinkage: float) -> np.ndarray:
@@ -55,7 +61,7 @@ class SpecSpdTangentV3(SpecTraceCovarianceV3):
 
     def fit(self, batch: FeatureBatch, labels: np.ndarray | None = None):
         super().fit(batch)
-        matrix = centered_f2a_matrix(batch.emg, self.shrinkage) + EPS * np.eye(8)
+        matrix = centered_f2a_matrix(batch.emg, self.shrinkage) + SPD_RIDGE * np.eye(8)
         mean_log = np.mean(np.stack([_sym_log(item) for item in matrix]), axis=0)
         values, vectors = np.linalg.eigh((mean_log + mean_log.T) * .5)
         self.reference_ = (vectors * np.exp(values)) @ vectors.T
@@ -64,7 +70,7 @@ class SpecSpdTangentV3(SpecTraceCovarianceV3):
     def transform(self, batch: FeatureBatch) -> np.ndarray:
         self._validate(batch)
         inverse_root = _sym_power(self.reference_, -.5)
-        matrix = centered_f2a_matrix(batch.emg, self.shrinkage) + EPS * np.eye(8)
+        matrix = centered_f2a_matrix(batch.emg, self.shrinkage) + SPD_RIDGE * np.eye(8)
         tangent = np.stack([_sym_log(inverse_root @ item @ inverse_root)
                             for item in matrix])
         return _vech(tangent).astype(np.float32)

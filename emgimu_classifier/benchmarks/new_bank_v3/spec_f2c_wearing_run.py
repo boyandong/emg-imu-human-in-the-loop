@@ -14,7 +14,7 @@ from benchmarks.new_bank_v2 import wearing_v1_extension_run as wearing
 from benchmarks.new_bank_v2.roam_posture_run import sha256
 from emgimu.datasets.electrode_shift import PATH_RE
 from emgimu.feature_bank.new_bank_v2 import RestNoiseDetailV2
-from emgimu.feature_bank.spec_spatial_v3 import SpecSpdTangentV3
+from emgimu.feature_bank.spec_spatial_v3 import SPD_RIDGE, SpecSpdTangentV3
 
 
 ROOT = Path(__file__).resolve().parent
@@ -26,6 +26,8 @@ RESULT = ROOT / "SPEC_F2C_WEARING_RESULTS.json"
 
 def evaluate() -> dict:
     protocol = json.loads(PROTOCOL_PATH.read_text(encoding="utf-8"))
+    if protocol["f2c_spd_ridge"] != SPD_RIDGE:
+        raise AssertionError("Frozen F2c numerical ridge differs from implementation")
     if (sha256(V2 / "F2A_DOCUMENT_WEARING_RESULTS.json") !=
             protocol["parent_result_sha256"]["wearing_shift"] or
             sha256(V2 / "WEARING_TRIAL_PREDICTIONS.csv") !=

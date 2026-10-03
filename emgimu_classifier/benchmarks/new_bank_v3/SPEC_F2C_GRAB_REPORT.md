@@ -11,6 +11,12 @@ probability table; individual F2c probabilities are [saved](SPEC_F2C_GRAB_PREDIC
 and independently read back for class counts, probability sums, F1, log loss,
 recall and paired errors.
 
+Numerical revision (2026-10-03): the SPD ridge is fixed at `1e-10`, matching
+the matrix eigensystem floor. The previous `1e-12` ridge made an all-zero
+source window map to a nonzero tangent at its own fitted reference. The saved
+predictions below were rerun with the corrected ridge and unchanged trials,
+classifier and decision rule; the prior bytes remain in Git commit `1f1a2bf`.
+
 | Arm | Day2 macro-F1 | Day2 log loss | Day3 macro-F1 | Day3 log loss |
 | --- | ---: | ---: | ---: | ---: |
 | F0 | 0.9551 | 0.1507 | 0.9008 | 0.3007 |

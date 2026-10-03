@@ -15,7 +15,7 @@ from benchmarks.grabmyo_crossday import run as grab
 from benchmarks.new_bank_v1.grabmyo_run import aggregate
 from emgimu.feature_bank.core import FeatureBatch
 from emgimu.feature_bank.new_bank_v2 import RestNoiseDetailV2
-from emgimu.feature_bank.spec_spatial_v3 import SpecSpdTangentV3
+from emgimu.feature_bank.spec_spatial_v3 import SPD_RIDGE, SpecSpdTangentV3
 
 
 ROOT = Path(__file__).resolve().parent
@@ -33,6 +33,8 @@ def sha256(path: Path) -> str:
 
 
 def evaluate(data_root: Path) -> dict:
+    if PROTOCOL["f2c_spd_ridge"] != SPD_RIDGE:
+        raise AssertionError("Frozen F2c numerical ridge differs from implementation")
     if (sha256(PARENT_PROTOCOL) != PROTOCOL["parent_spatial_protocol_sha256"]
             or sha256(PARENT_PREDICTIONS) != PROTOCOL["parent_spatial_prediction_sha256"]):
         raise AssertionError("Frozen V3 parent protocol or probabilities changed")

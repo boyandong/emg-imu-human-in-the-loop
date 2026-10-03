@@ -16,5 +16,7 @@
   "feature_aggregation": "per-trial mean and std over 20 non-overlapping windows",
   "classifier": "Day1 StandardScaler plus LogisticRegression C=1 max_iter=2000 random_state=20260924",
   "selection_rule": "Report the predeclared Day2 and Day3 cells descriptively; no candidate or hyperparameter selection from either split.",
-  "boundary": "Previously inspected public GRAB subjects; no own-device or live-recognition claim."
+  "boundary": "Previously inspected public GRAB subjects; no own-device or live-recognition claim.",
+  "f2c_spd_ridge": 1e-10,
+  "numerical_revision": "2026-10-03: align the SPD ridge with the matrix eigensystem floor; source zero-variance windows map to tangent zero. Frozen trials and decision rule unchanged."
 }

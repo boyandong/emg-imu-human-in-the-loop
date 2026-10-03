@@ -10,7 +10,7 @@ from emgimu.feature_bank.core import FeatureBatch
 from emgimu.feature_bank.new_bank_v2 import DocumentTraceCovarianceV2
 from emgimu.feature_bank.spec_spatial_v3 import (
     SpecRingRelativeCovarianceV3, SpecSpdTangentV3,
-    SpecTraceCovarianceV3, centered_f2a_matrix, spec_spatial_v3_registry,
+    SPD_RIDGE, SpecTraceCovarianceV3, centered_f2a_matrix, spec_spatial_v3_registry,
 )
 
 
@@ -50,7 +50,7 @@ def test_f2c_centered_source_reference_and_target_immutability() -> None:
     source = rng.normal(size=(4, 40, 8)) + np.arange(8)[None, None, :]
     target = rng.normal(size=(2, 40, 8)) + 20
     family = SpecSpdTangentV3().fit(FeatureBatch(source, 200))
-    source_matrices = centered_f2a_matrix(source, .05) + 1e-12 * np.eye(8)
+    source_matrices = centered_f2a_matrix(source, .05) + SPD_RIDGE * np.eye(8)
     # Direct eigendecompositions recompute the log-Euclidean source reference.
     logs = []
     for matrix in source_matrices:
@@ -65,6 +65,14 @@ def test_f2c_centered_source_reference_and_target_immutability() -> None:
     assert pickle.dumps(family) == before
     with pytest.raises(ValueError, match="sample rate"):
         family.transform(FeatureBatch(target, 250))
+
+
+def test_f2c_zero_variance_source_maps_to_its_own_tangent_origin() -> None:
+    for level in (0.0, 17.0):
+        source = FeatureBatch(np.full((3, 40, 8), level), 200)
+        family = SpecSpdTangentV3().fit(source)
+        np.testing.assert_allclose(np.diag(family.reference_), SPD_RIDGE, rtol=1e-12)
+        np.testing.assert_allclose(family.transform(source), 0, atol=1e-10)
 
 
 def test_f3c_centered_ring_lags_and_long_window_delta() -> None:

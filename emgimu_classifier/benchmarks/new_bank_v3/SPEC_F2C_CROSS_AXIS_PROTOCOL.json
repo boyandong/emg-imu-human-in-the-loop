@@ -19,5 +19,7 @@
   "manus_session": "Six users: Session1 source, Session2 validation, Session3 descriptive final. Native 8 channels at 200 Hz, 40 samples/window. Source-only external Rest prior and centered F2c reference; fixed fit_predict classifier.",
   "grab_unseen_user": "Day1 subjects 1-4 source, 5-6 validation, 7-8 descriptive final. Native 8 forearm channels at 2048 Hz, 512 samples/window; official checksums. Source-only Rest F0 and centered F2c reference; fixed logistic classifier.",
   "decision": "Use only matched validation trial-level F1 and log loss on all three axes for the existing default-bank guard. Final groups are descriptive; prior public inspection forbids an independent confirmation claim.",
-  "boundary": "Public-data scope; no own-device 250 Hz, anatomical ring-order or live-recognition claim."
+  "boundary": "Public-data scope; no own-device 250 Hz, anatomical ring-order or live-recognition claim.",
+  "f2c_spd_ridge": 1e-10,
+  "numerical_revision": "2026-10-03: align the SPD ridge with the matrix eigensystem floor; source zero-variance windows map to tangent zero. Frozen trials and decision rule unchanged."
 }

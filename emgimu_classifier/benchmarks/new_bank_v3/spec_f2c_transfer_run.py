@@ -20,7 +20,7 @@ from benchmarks.new_bank_v2.roam_posture_run import sha256
 from emgimu.datasets.semg_manus import PATH_RE, load_semg_manus_windows
 from emgimu.feature_bank.core import FeatureBatch
 from emgimu.feature_bank.new_bank_v2 import RestNoiseDetailV2
-from emgimu.feature_bank.spec_spatial_v3 import SpecSpdTangentV3
+from emgimu.feature_bank.spec_spatial_v3 import SPD_RIDGE, SpecSpdTangentV3
 
 
 ROOT=Path(__file__).resolve().parent
@@ -32,6 +32,8 @@ RESULT=ROOT/"SPEC_F2C_TRANSFER_RESULTS.json"
 
 def evaluate(data_root: Path) -> dict:
     protocol=json.loads(PROTOCOL_PATH.read_text(encoding="utf-8"))
+    if protocol["f2c_spd_ridge"] != SPD_RIDGE:
+        raise AssertionError("Frozen F2c numerical ridge differs from implementation")
     if (sha256(V2/"F2_MANUS_CANDIDATES_RESULTS.json")!=protocol["parent_result_sha256"]["manus_session"] or
             sha256(V2/"F2_GRAB_CANDIDATES_RESULTS.json")!=protocol["parent_result_sha256"]["grab_unseen_user"] or
             sha256(V2/"F2_MANUS_CANDIDATES_PREDICTIONS.csv")!=protocol["f0_parent_prediction_sha256"]["manus_session"] or

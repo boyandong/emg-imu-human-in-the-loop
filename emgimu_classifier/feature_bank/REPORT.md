@@ -3927,3 +3927,6 @@ GRAB unseen-user transfer. It improves wearing validation F1 and log loss, but
 MANUS validation log loss rises and GRAB unseen-user F1 and log loss worsen.
 The frozen three-axis guard therefore retains F0v2 as default. The earlier
 uncentered V2 F2c experiments remain separate alternative-feature evidence.
+The 2026-10-03 numerical replay also aligns F2c's `1e-10` SPD ridge with its
+eigenvalue floor. A zero-variance source window now maps to tangent zero;
+all saved F2c probabilities were rerun without changing their frozen splits.

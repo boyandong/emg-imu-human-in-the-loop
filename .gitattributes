@@ -68,5 +68,6 @@ emgimu_classifier/feature_bank/replay_assets/*/*.npz -text -eol
 emgimu_classifier/feature_bank/replay_assets/*/*.pkl -text -eol
 emgimu_classifier/benchmarks/reconstructed_rlcs_anchor_protocol.json -text -eol
 emgimu_classifier/benchmarks/new_bank_v3/SPEC_F2C_CROSS_AXIS_* -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/SPEC_F2C_GRAB_* -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/SPEC_F2C_TRANSFER_* -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/SPEC_F2C_WEARING_* -text -eol whitespace=cr-at-eol
