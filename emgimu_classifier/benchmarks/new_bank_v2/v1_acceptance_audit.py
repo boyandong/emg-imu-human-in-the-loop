@@ -68,6 +68,12 @@ def build(pre: Path, goal: Path) -> dict:
             boundary += (" A fixed-cue irregular-chunk replay exactly reconstructs all 3,391 "
                          "retained UniBo Day7/8 bouts and their envelope paths; it does not "
                          "detect biological onset or measure streaming accuracy.")
+            evidence += ("|benchmarks/new_bank_v3/F3B_CES_GRAB_RESULTS.json"
+                         "|benchmarks/new_bank_v3/F3B_CES_GRAB_REPORT.md"
+                         "|tests/test_document_ces_v3.py")
+            boundary += (" Independent V3 F3b CES has a known-spectrum oracle and "
+                         "frozen GRAB unseen-user matched-trial replay; both validation "
+                         "and descriptive final F1/log loss worsen, so it remains opt-in.")
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

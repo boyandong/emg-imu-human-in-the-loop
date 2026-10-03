@@ -1,6 +1,6 @@
 {
   "completion_proven": false,
-  "reviewed_rows": 66,
+  "reviewed_rows": 67,
   "scope": "reviewed selected formula/API boundaries with exact source hashes and symbol spans; not exhaustive document acceptance",
   "fixture": "synthetic16 windows,40 samples,8channels,200Hz,4classes; IMU10samples and2 oracle postures only for dimension checks",
   "warning": "whole-class fixture dimensions are not subblock dimensions; synthetic dimension/immutability checks do not prove native topology or scientific validity",
@@ -696,6 +696,21 @@
       "finite": true,
       "source_immutable": true,
       "fixture_override": "synthetic eight-channel shape/immutability only; exact threshold and direct-Fourier oracles are separate; no native gate claim"
+    },
+    "DocumentCesFamilyV3": {
+      "fixture_dimension": 8,
+      "names": [
+        "F3b.ces.p1",
+        "F3b.ces.p2",
+        "F3b.ces.p3",
+        "F3b.ces.p4",
+        "F3b.ces.p5",
+        "F3b.ces.p6",
+        "F3b.ces.p7",
+        "F3b.ces.p8"
+      ],
+      "finite": true,
+      "source_immutable": true
     },
     "RestNoiseLocalDetailFamily": {
       "fixture_dimension": 48,

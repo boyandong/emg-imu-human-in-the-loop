@@ -58,6 +58,15 @@ def build() -> dict:
         raise AssertionError("source formula review inventory is incomplete")
     rows = []
     for family, status, evidence, supported, unresolved in REVIEWS:
+        if family == "F3":
+            evidence += ("|benchmarks/new_bank_v3/F3B_CES_GRAB_RESULTS.json"
+                         "|benchmarks/new_bank_v3/F3B_CES_GRAB_REPORT.md"
+                         "|tests/test_document_ces_v3.py")
+            supported += (" A separate V3 F3b CES passes a known 3+1 spectrum and "
+                          "permutation oracle, with a frozen 112/56/56-trial GRAB "
+                          "unseen-user matched F0v2 increment.")
+            unresolved += (" The isolated V3 CES addition worsens validation and "
+                           "descriptive final F1 and log loss; no default promotion.")
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

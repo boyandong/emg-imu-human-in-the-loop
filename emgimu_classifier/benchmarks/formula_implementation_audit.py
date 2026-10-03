@@ -35,6 +35,7 @@ from emgimu.feature_bank.spec_spatial_v3 import (
 )
 from emgimu.feature_bank.calibration import DocumentPersonalAnchorV2, DocumentPersonalNormalizerV2, PersonalAnchor
 from emgimu.feature_bank.document_quality_v3 import DocumentQualityObservationsV3
+from emgimu.feature_bank.document_ces_v3 import DocumentCesFamilyV3
 from emgimu.feature_bank.document_reliability_v2 import DocumentReliabilityWeightsV2
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
@@ -76,6 +77,8 @@ REVIEWS = (
   'New wrapper selects 25ms smoothed-rectification circular-lag correlation mean/std block. Source-only EPN users1-15 and native validation16-18/descriptive final19-21 at 1/2/5-shot PersonalAnchor have exact frozen replay; no stable final F1/log-loss gain. Historical validated envelope, aggregation, and RLCS identity remain unavailable.','2 floor(C/2) block'),
  ('F3b','F3b. CES','families.py','RingGeometryFamily','reference_only',
   'Normalized sorted correlation eigenvalues are candidate CES block; validated old reuse missing; bundled with lag/ringcov blocks.','C block'),
+ ('NEW_V3_F3B_CES','F3b. CES','document_ces_v3.py','DocumentCesFamilyV3','candidate_native_negative',
+  'Independent fixed-25ms edge-extended envelope avoids synthetic boundary activity on constant channels. A known 3+1 correlation spectrum and channel-permutation oracle pass. Frozen GRAB Day1 unseen-user matched F0v2 increment exactly replays parent probabilities and worsens validation/final macro-F1 and log loss; no default promotion or historical CES identity.','C'),
  ('F3c','F3c. Ring-relative covariance','ring_covariance.py','RawRingCovarianceFamily','candidate_formula',
   'New independent raw F2a covariance block with caller-asserted ring-order contract; the public electrode-shift file does not itself attest saved-column physical adjacency. Legacy RingGeometryFamily uses envelope covariance and remains a distinct proxy.','6 floor(C/2)'),
  ('F4a','F4a. Frequency coordination','families.py','SpectralStateFamily','reference_only',
@@ -188,6 +191,7 @@ def build(document, output):
                     lambda:RawRingCovarianceFamily(ring_topology=True),
                     lambda:QualityObservabilityFamily(ring_topology=True),
                     lambda:DocumentQualityObservationsV3(),
+                    DocumentCesFamilyV3,
                     lambda:RestNoiseLocalDetailFamily(rest_label=2),DocumentCspFamily,
                     ScalePatternV1,RingLagV1,CorrelationSpectrumV1,FrequencyDirectionV1,
                     lambda: RestNoiseDetailV2(rest_label=0), TraceCovarianceV2,
