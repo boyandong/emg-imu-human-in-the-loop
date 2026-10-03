@@ -91,6 +91,17 @@ def build() -> dict:
             unresolved += (" The users were previously inspected; this is not "
                            "prospective validation, a learned concatenated Core, "
                            "or grounds for own-device default promotion.")
+            evidence += ("|benchmarks/new_bank_v3/F7_AFFINE_FRESH_PROTOCOL.md"
+                         "|benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json"
+                         "|benchmarks/new_bank_v3/F7_AFFINE_FRESH_REPORT.md"
+                         "|tests/test_f7_affine_fresh_protocol.py"
+                         "|tests/test_f7_affine_fresh_delivery.py")
+            supported += (" A separately precommitted first-read users22-31 cohort "
+                          "passes all five fixed five-shot guards on 1,200 held-out "
+                          "native trials, with 7/10 user log-loss gains.")
+            unresolved += (" The older inspected-cohort limitation does not apply "
+                           "to the fresh users22-31 readout, but public gesture transfer "
+                           "still does not establish own-device/live reliability.")
         if family == "F6":
             evidence += "|feature_bank/F6_PUBLIC_ELIGIBILITY.md"
             supported += (" A four-candidate public-source eligibility review "

@@ -94,6 +94,15 @@ def build(pre: Path, goal: Path) -> dict:
                          "increments beyond uniform softening; inspected subjects "
                          "prevent prospective default promotion. "
                          "Public F6 calibration metadata remain unverified.")
+            evidence += ("|benchmarks/new_bank_v3/F7_AFFINE_FRESH_PROTOCOL.md"
+                         "|benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json"
+                         "|benchmarks/new_bank_v3/F7_AFFINE_FRESH_REPORT.md"
+                         "|tests/test_f7_affine_fresh_protocol.py"
+                         "|tests/test_f7_affine_fresh_delivery.py")
+            boundary += (" A precommitted, first-read EPN users22-31 test passes all five "
+                         "five-shot primary guards for fixed Core+F7 on 1,200 disjoint trials; "
+                         "7/10 users gain log loss. This is public-cohort evidence only, "
+                         "and does not validate the user's montage or live deployment.")
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

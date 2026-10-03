@@ -105,3 +105,5 @@ emgimu_classifier/benchmarks/new_bank_v3/F7_AFFINE_FRESH_PROTOCOL.md -text -eol 
 emgimu_classifier/benchmarks/new_bank_v3/f7_affine_fresh_epn.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_f7_affine_fresh_protocol.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/F7_AFFINE_FRESH/* -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/F7_AFFINE_FRESH_REPORT.md -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_f7_affine_fresh_delivery.py -text -eol whitespace=cr-at-eol

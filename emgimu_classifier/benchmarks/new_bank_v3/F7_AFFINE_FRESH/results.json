@@ -1,0 +1,100 @@
+{
+  "study": "precommitted fresh EPN612 users22-31 frozen-Core/F7 trial-matched holdout",
+  "protocol": "F7_AFFINE_FRESH_PROTOCOL.md",
+  "fresh_users": [
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "source_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "prior_validation_users": [
+    16,
+    17,
+    18
+  ],
+  "budgets": [
+    1,
+    2,
+    5
+  ],
+  "weight": 0.5,
+  "validation_replay_maximum_probability_error": 0.0,
+  "primary_five_shot": {
+    "criteria": {
+      "pooled_logloss_lower": true,
+      "pooled_macro_f1_nonworse": true,
+      "pooled_brier_lower": true,
+      "logloss_better_than_uniform": true,
+      "at_least_7_of_10_user_logloss_wins": true
+    },
+    "conjunction_passed": true,
+    "user_logloss_wins": 7,
+    "delta_logloss": 0.22355473002248782,
+    "delta_macro_f1": 0.023996708577113668,
+    "delta_brier": 0.010914579824486764,
+    "delta_logloss_over_uniform": 0.09821153428395091
+  },
+  "error_complementarity": [
+    {
+      "shots_per_class": 1,
+      "trials": 1440,
+      "f7_correct_core_wrong": 297,
+      "core_correct_f7_wrong": 303,
+      "prediction_disagreement_rate": 0.6902777777777778
+    },
+    {
+      "shots_per_class": 2,
+      "trials": 1380,
+      "f7_correct_core_wrong": 336,
+      "core_correct_f7_wrong": 269,
+      "prediction_disagreement_rate": 0.6869565217391305
+    },
+    {
+      "shots_per_class": 5,
+      "trials": 1200,
+      "f7_correct_core_wrong": 307,
+      "core_correct_f7_wrong": 208,
+      "prediction_disagreement_rate": 0.67
+    }
+  ],
+  "source_sha256": {
+    "archive": "4ee8db037385e7bee1e6ac6f9e9eea4f0869e25f7825f5eb7e5be0dff4f93c21",
+    "run_manifest.json": "36d86cdb65d03936073b21295bb6db0d4d196c8f271dc82ffe45e01e098663db",
+    "fitted_states.pkl": "08e7e4e4af1644446911633411743306be33b3c6d08d584d5967252f4d199aef",
+    "heldout_predictions.npz": "8c2a9f8c616e7c836d788ba9b3dcbd5cff92d706741aed576efc33a8445f6b31",
+    "split_trial_ids.json": "0e31b7957b2dabd9e480704858b05ea313d995c6955b41081c21c2080143ae57",
+    "f7_affine_epn.py": "ee891ecba8d10b72eb4321d7e1dc596953061c4dca8ec49f3b35fa170643c45a",
+    "affine_spd_anchor.py": "4ddd02d2260448aad4f3ab98e013b7213b8ac2a31e93bd89975ec40049239808"
+  },
+  "script_sha256": "a0fa943bd537290a0d8b85064d3e97815dfbe6cecc8a0f017f4f3cf91b704776",
+  "protocol_sha256": "e25c877c21e0408fa7f5c1f64537a6ccde38c99f3103a0af5f39074ef9daadbc",
+  "output_sha256": {
+    "scores.csv": "54c49d0fa7df4e56d4fd38a4277907c8ff71e3af18a090107a80ef8603f4e574",
+    "trial_predictions.csv": "102d5dc94cae9747d52c2d921c48519446f0d17de76a04769ad7ab03081b19b7",
+    "calibration_trial_ids.csv": "14d054057c10ba2fc68bbceccfcb762e45231a31a4fa24202724eab93792aef2"
+  },
+  "boundary": "Fresh public heldout EPN subjects under precommitted protocol; not own-device/live-hardware evidence"
+}
