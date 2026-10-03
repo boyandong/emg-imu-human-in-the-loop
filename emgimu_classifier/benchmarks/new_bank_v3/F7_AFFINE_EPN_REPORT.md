@@ -24,9 +24,9 @@ model is run, and no zero-shot personal prototype exists.
 | Validation, three users | 0.3687 / 1.6728 | 0.4388 / 1.6119 | 0.5142 / 1.5714 |
 | Descriptive final, three users | 0.3007 / 1.7080 | 0.3371 / 1.6618 | 0.4078 / 1.6430 |
 
-This proves the formula is executable on eligible native trials, not that
-it improves the feature bank. The selected trials differ from the saved
-tangent-anchor study; direct F1/loss subtraction would be invalid. A matched
-Core-versus-Core+F7 incremental comparison would need frozen common trial
-identities, source-only probability calibration and a selection rule fixed
-before an independent holdout. There is no own-device claim or default change.
+This proves the formula is executable on eligible native trials. The selected
+trials differ from the saved tangent-anchor study; direct F1/loss subtraction
+would be invalid. A separate [matched frozen-Core replay](F7_AFFINE_CORE_MATCHED_REPORT.md)
+now compares Core and a fixed Core+F7 mixture on these exact trial identities,
+including a uniform-probability control. It is retrospective on previously
+inspected users and does not change the product default.

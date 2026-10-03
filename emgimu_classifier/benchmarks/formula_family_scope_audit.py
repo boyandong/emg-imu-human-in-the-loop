@@ -79,13 +79,18 @@ def build() -> dict:
         if family == "F7":
             evidence += ("|benchmarks/new_bank_v3/F7_AFFINE_EPN/results.json"
                          "|benchmarks/new_bank_v3/F7_AFFINE_EPN_REPORT.md"
+                         "|benchmarks/new_bank_v3/F7_AFFINE_CORE_MATCHED/results.json"
+                         "|benchmarks/new_bank_v3/F7_AFFINE_CORE_MATCHED_REPORT.md"
                          "|tests/test_affine_spd_anchor.py"
-                         "|tests/test_f7_affine_epn_delivery.py")
+                         "|tests/test_f7_affine_epn_delivery.py"
+                         "|tests/test_f7_affine_core_matched_delivery.py")
             supported += (" A separate exact affine-invariant matrix-log F7 candidate "
-                          "has nonorthogonal geometry and trial-mass oracles plus a "
-                          "native six-user EPN612 1/2/5-shot standalone screen.")
-            unresolved += (" Its trial selection differs from the tangent arm, so "
-                           "no matched Core increment or default gain is inferred.")
+                          "has nonorthogonal geometry/trial-mass oracles, native "
+                          "six-user 1/2/5-shot trial screens and a positive matched "
+                          "fixed-Core increment beyond a uniform-softening control.")
+            unresolved += (" The users were previously inspected; this is not "
+                           "prospective validation, a learned concatenated Core, "
+                           "or grounds for own-device default promotion.")
         if family == "F6":
             evidence += "|feature_bank/F6_PUBLIC_ELIGIBILITY.md"
             supported += (" A four-candidate public-source eligibility review "

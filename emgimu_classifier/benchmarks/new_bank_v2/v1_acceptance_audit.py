@@ -82,12 +82,17 @@ def build(pre: Path, goal: Path) -> dict:
                          "F1/loss worsen on validation/final, so it remains opt-in.")
             evidence += ("|benchmarks/new_bank_v3/F7_AFFINE_EPN/results.json"
                          "|benchmarks/new_bank_v3/F7_AFFINE_EPN_REPORT.md"
+                         "|benchmarks/new_bank_v3/F7_AFFINE_CORE_MATCHED/results.json"
+                         "|benchmarks/new_bank_v3/F7_AFFINE_CORE_MATCHED_REPORT.md"
                          "|tests/test_affine_spd_anchor.py"
                          "|tests/test_f7_affine_epn_delivery.py"
+                         "|tests/test_f7_affine_core_matched_delivery.py"
                          "|feature_bank/F6_PUBLIC_ELIGIBILITY.md")
             boundary += (" The exact affine-invariant F7 SPD distance has independent "
-                         "geometry/trial-mass oracles and an EPN612 1/2/5-shot "
-                         "standalone screen; no matched Core increment follows. "
+                         "geometry/trial-mass oracles, an EPN612 1/2/5-shot "
+                         "standalone screen and positive exact-trial fixed-Core "
+                         "increments beyond uniform softening; inspected subjects "
+                         "prevent prospective default promotion. "
                          "Public F6 calibration metadata remain unverified.")
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")

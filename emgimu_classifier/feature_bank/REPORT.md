@@ -4002,5 +4002,11 @@ oracle and native EPN612 1/2/5-shot trial screen pass. Validation pooled
 macro-F1 rises from 0.3687 at one shot to 0.5142 at five shots; the
 previously inspected descriptive final rises from 0.3007 to 0.4078.
 Its trial selections differ from the frozen tangent-anchor study, so these
-standalone scores cannot establish a matched incremental gain or justify a
-default change.
+standalone scores cannot be subtracted from that arm. A separate
+[exact-trial Core comparison](../benchmarks/new_bank_v3/F7_AFFINE_CORE_MATCHED_REPORT.md)
+uses a fixed 0.5 probability mixture and a 0.5 uniform control. Across
+1/2/5-shot validation and descriptive-final cells, Core+F7 lowers log loss
+by 0.1135–0.2397 and gains macro-F1 by 0.0152–0.0358 against the same
+held-out trials; loss improvement over the uniform control is 0.0288–0.1109.
+These cohorts were previously inspected, so the positive retrospective
+increment is not a prospective default-promotion test.

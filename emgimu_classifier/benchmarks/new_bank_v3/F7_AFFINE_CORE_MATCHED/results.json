@@ -1,0 +1,159 @@
+{
+  "study": "matched frozen Core versus affine-SPD F7 fixed late-fusion increment",
+  "core": "source-frozen F0+F3_Ring+F2b_CSP+F6_IMU; no target-user fitting",
+  "f7": "calibration-only exact affine-invariant SPD class prototypes",
+  "mixture": "0.5 Core + 0.5 affine F7; 0.5 Core + 0.5 uniform control; weights fixed before matching or final readout",
+  "evidence_boundary": "same native evaluation trials per budget; validation subjects previously selected Core; descriptive final subjects previously inspected; no newly fitted concatenated Core, independent prospective holdout, or device claim",
+  "input_sha256": {
+    "core_validation": "8c2a9f8c616e7c836d788ba9b3dcbd5cff92d706741aed576efc33a8445f6b31",
+    "core_final": "c8d9dd03297e7b268dce7a67ef845f377a7f1117ad4dd40691e46c4641a11d04",
+    "core_audit": "b8d7b1af08a78cfe8645313cd185cb47b4687e6981a6c1c80ac4b69c6a28ec98",
+    "affine_results": "7dac99d090b55c8fe2bc9c5cedbe9212619562ff63f0a5a1fbc9156c6b4c5ac0",
+    "affine_subject_scores.csv": "c93f4d22c6cee0d2ff659b4512ba7e14a256aae4fe2a8fb9fa8480970a8b0258",
+    "affine_trial_predictions.csv": "c08ccf59bb3f76e95d42e57701a870394ebd38531b2646027f1c1ea3013642bc",
+    "affine_calibration_trial_ids.csv": "ed8aecce7bcff5b29ca8f3f23c52b07cbc02af50cba89f2de73dd9e1aaefd913"
+  },
+  "source_sha256": "21d377e1ebbfb4aa54cc2d10f89b59858cee1869e775f7c37d64b2a5cbd365c1",
+  "pooled_increments": [
+    {
+      "phase": "validation",
+      "shots_per_class": 1,
+      "evaluation_trials": 432,
+      "delta_logloss": 0.19499413586652659,
+      "delta_macro_f1": 0.02878632959617139,
+      "delta_brier": 0.006613718835692603,
+      "delta_logloss_over_uniform": 0.07197207656985816,
+      "delta_macro_f1_over_uniform": 0.02878632959617139,
+      "delta_brier_over_uniform": 0.004130883358898149
+    },
+    {
+      "phase": "validation",
+      "shots_per_class": 2,
+      "evaluation_trials": 414,
+      "delta_logloss": 0.22058160692976592,
+      "delta_macro_f1": 0.021741453097824714,
+      "delta_brier": 0.00789547241373402,
+      "delta_logloss_over_uniform": 0.0976811250313574,
+      "delta_macro_f1_over_uniform": 0.021741453097824714,
+      "delta_brier_over_uniform": 0.005417119085576488
+    },
+    {
+      "phase": "validation",
+      "shots_per_class": 5,
+      "evaluation_trials": 360,
+      "delta_logloss": 0.23973957117011313,
+      "delta_macro_f1": 0.03582232564661991,
+      "delta_brier": 0.00914644451840084,
+      "delta_logloss_over_uniform": 0.11087138608988045,
+      "delta_macro_f1_over_uniform": 0.03582232564661991,
+      "delta_brier_over_uniform": 0.006296052856434239
+    },
+    {
+      "phase": "descriptive_final",
+      "shots_per_class": 1,
+      "evaluation_trials": 432,
+      "delta_logloss": 0.11353754183065878,
+      "delta_macro_f1": 0.016421923259829496,
+      "delta_brier": 0.004412706141727438,
+      "delta_logloss_over_uniform": 0.028818062374941222,
+      "delta_macro_f1_over_uniform": 0.016421923259829496,
+      "delta_brier_over_uniform": 0.0019216484803607492
+    },
+    {
+      "phase": "descriptive_final",
+      "shots_per_class": 2,
+      "evaluation_trials": 414,
+      "delta_logloss": 0.14887499948342864,
+      "delta_macro_f1": 0.015198424385584941,
+      "delta_brier": 0.006647390818034268,
+      "delta_logloss_over_uniform": 0.04878180447573888,
+      "delta_macro_f1_over_uniform": 0.015198424385584941,
+      "delta_brier_over_uniform": 0.0032379370147549713
+    },
+    {
+      "phase": "descriptive_final",
+      "shots_per_class": 5,
+      "evaluation_trials": 360,
+      "delta_logloss": 0.1451063112370512,
+      "delta_macro_f1": 0.02010124618398962,
+      "delta_brier": 0.0063065233097734374,
+      "delta_logloss_over_uniform": 0.05543235560209858,
+      "delta_macro_f1_over_uniform": 0.02010124618398962,
+      "delta_brier_over_uniform": 0.0035660071070723887
+    }
+  ],
+  "error_complementarity": [
+    {
+      "phase": "validation",
+      "shots_per_class": 1,
+      "trials": 432,
+      "error_correlation": -0.020417934823622207,
+      "disagreement_rate": 0.7685185185185185,
+      "f7_correct_core_wrong": 91,
+      "f7_wrong_core_correct": 124,
+      "p_f7_correct_core_wrong": 0.21064814814814814,
+      "p_f7_wrong_core_correct": 0.28703703703703703
+    },
+    {
+      "phase": "validation",
+      "shots_per_class": 2,
+      "trials": 414,
+      "error_correlation": -0.044544554589055034,
+      "disagreement_rate": 0.7198067632850241,
+      "f7_correct_core_wrong": 108,
+      "f7_wrong_core_correct": 106,
+      "p_f7_correct_core_wrong": 0.2608695652173913,
+      "p_f7_wrong_core_correct": 0.2560386473429952
+    },
+    {
+      "phase": "validation",
+      "shots_per_class": 5,
+      "trials": 360,
+      "error_correlation": -0.09013159382519054,
+      "disagreement_rate": 0.7138888888888889,
+      "f7_correct_core_wrong": 114,
+      "f7_wrong_core_correct": 83,
+      "p_f7_correct_core_wrong": 0.31666666666666665,
+      "p_f7_wrong_core_correct": 0.23055555555555557
+    },
+    {
+      "phase": "descriptive_final",
+      "shots_per_class": 1,
+      "trials": 432,
+      "error_correlation": 0.1735791751944457,
+      "disagreement_rate": 0.7083333333333334,
+      "f7_correct_core_wrong": 54,
+      "f7_wrong_core_correct": 119,
+      "p_f7_correct_core_wrong": 0.125,
+      "p_f7_wrong_core_correct": 0.27546296296296297
+    },
+    {
+      "phase": "descriptive_final",
+      "shots_per_class": 2,
+      "trials": 414,
+      "error_correlation": 0.25764738979436075,
+      "disagreement_rate": 0.6400966183574879,
+      "f7_correct_core_wrong": 56,
+      "f7_wrong_core_correct": 93,
+      "p_f7_correct_core_wrong": 0.13526570048309178,
+      "p_f7_wrong_core_correct": 0.2246376811594203
+    },
+    {
+      "phase": "descriptive_final",
+      "shots_per_class": 5,
+      "trials": 360,
+      "error_correlation": 0.20702846498396174,
+      "disagreement_rate": 0.6416666666666667,
+      "f7_correct_core_wrong": 64,
+      "f7_wrong_core_correct": 76,
+      "p_f7_correct_core_wrong": 0.17777777777777778,
+      "p_f7_wrong_core_correct": 0.2111111111111111
+    }
+  ],
+  "output_sha256": {
+    "core_validation.npz": "8c2a9f8c616e7c836d788ba9b3dcbd5cff92d706741aed576efc33a8445f6b31",
+    "core_final.npz": "c8d9dd03297e7b268dce7a67ef845f377a7f1117ad4dd40691e46c4641a11d04",
+    "scores.csv": "7f90aa9607b414f638d9e936626bb315f96f50ac210eb67330d71f5c6e2c0418",
+    "trial_predictions.csv": "ad239ea244875ec9992bf12394dff837707374c3f1e703f1073113eede48bf3d"
+  }
+}

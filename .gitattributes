@@ -97,3 +97,7 @@ emgimu_classifier/benchmarks/new_bank_v3/f7_affine_epn.py -text -eol whitespace=
 emgimu_classifier/src/emgimu/feature_bank/affine_spd_anchor.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_affine_spd_anchor.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_f7_affine_epn_delivery.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/F7_AFFINE_CORE_MATCHED/* -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/F7_AFFINE_CORE_MATCHED_REPORT.md -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/f7_affine_core_matched.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_f7_affine_core_matched_delivery.py -text -eol whitespace=cr-at-eol
