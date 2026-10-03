@@ -1503,11 +1503,11 @@ including explicit unavailable cal0 and unsupported cal5 entries.
 These are archive signal units, using eight sparse 200 ms windows per trial. Ramp
 in this public dataset uses 20–80% MVC feedback: the profile describes that observed
 calibration signal range, not measured mechanical force, unconstrained natural
-product use or fatigue. It does not change existing classification results. Three
-tests verify rest exclusion, equal-trial weighting under window duplication, rejection
-of mixed-label/rest-only trials and separation of within/between-gesture variation.
-Full tests pass 122 cases with one skip. Remaining complete-document evidence and
-historical baseline reuse remain open.
+product use or fatigue. It does not change existing classification results. Four
+tests verify an independent known-waveform calculation of all three quantiles,
+pattern mean and within-gesture spread; Rest exclusion; equal-trial weighting under
+window duplication; mixed-label/rest-only rejection; and separation of
+within/between-gesture variation. Remaining complete-document evidence remains open.
 
 ### Family-specific session shift summaries
 

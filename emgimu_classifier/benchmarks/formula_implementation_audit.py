@@ -151,7 +151,7 @@ REVIEWS = (
  ('CAL_A','A. Personal normalization','calibration.py','PersonalNormalizer','candidate_formula',
   'Frozen earlier candidate uses Rest median and a floor max(Q95,epsilon) before division, rather than the detailed formula Q95+epsilon. Raw/cal branches are retained in integrated runs and source/current normalization can decline; the exact denominator is provided separately by DocumentPersonalNormalizerV2.','C centers+C scales; output EMG unchanged shape'),
  ('CAL_C','C. Personal natural force envelope','activation_profile.py','PersonalActivationProfile','candidate_formula',
-  'Raw global RMS q10/q50/q90 equal-trial empirical CDF plus within-gesture pattern spread; exclude Rest, archive signal units, not measured force.','3 quantiles plus C pattern mean and spread per native gesture'),
+  'Raw global RMS q10/q50/q90 equal-trial empirical CDF plus within-gesture pattern spread; exclude Rest, archive signal units, not measured force. An independent two-channel known-waveform oracle checks the three quantiles, unequal windows per trial, pattern mean, within-gesture spread and Rest exclusion.','3 quantiles plus C pattern mean and spread per native gesture'),
  ('CAL_D_E','D. Personal feature reliability','calibration.py','ReliabilityWeights','partial',
   'Between/within separation log-softmax and n0/(n0+N) shrinkage implemented; tau/n0 source CV exists only selected protocols. Policy loading now pins both source OOF probabilities and fitted family/classifier state hashes, rejecting mismatched source state before target use. No global source-CV coverage claim.','K weights'),
  ('CAL_D_E_DOCUMENT_V2','D. Personal feature reliability','document_reliability_v2.py','DocumentReliabilityWeightsV2','candidate_native_negative',
