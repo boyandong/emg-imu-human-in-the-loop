@@ -74,6 +74,12 @@ def build(pre: Path, goal: Path) -> dict:
             boundary += (" Independent V3 F3b CES has a known-spectrum oracle and "
                          "frozen GRAB unseen-user matched-trial replay; both validation "
                          "and descriptive final F1/log loss worsen, so it remains opt-in.")
+            evidence += ("|benchmarks/new_bank_v3/F5_TEMPORAL_GRAB_RESULTS.json"
+                         "|benchmarks/new_bank_v3/F5_TEMPORAL_GRAB_REPORT.md"
+                         "|tests/test_document_temporal_v3.py")
+            boundary += (" A separate goal-exact V3 F5 window feature passes a "
+                         "known-waveform oracle and frozen GRAB unseen-user replay; "
+                         "F1/loss worsen on validation/final, so it remains opt-in.")
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

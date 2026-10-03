@@ -36,6 +36,7 @@ from emgimu.feature_bank.spec_spatial_v3 import (
 from emgimu.feature_bank.calibration import DocumentPersonalAnchorV2, DocumentPersonalNormalizerV2, PersonalAnchor
 from emgimu.feature_bank.document_quality_v3 import DocumentQualityObservationsV3
 from emgimu.feature_bank.document_ces_v3 import DocumentCesFamilyV3
+from emgimu.feature_bank.document_temporal_v3 import DocumentTemporalFormV3
 from emgimu.feature_bank.document_reliability_v2 import DocumentReliabilityWeightsV2
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
@@ -93,6 +94,8 @@ REVIEWS = (
   'Calls unchanged native UniBo G5 at 4ch/processed200Hz: early-minus-late and raw waveform slope; different from new TemporalFormFamily late-minus-early/envelope slope.','5C native G5'),
  ('F5_reference','F5. Temporal Form','families.py','TemporalFormFamily','reference_only',
   'New seven-channel metrics and map velocity; log early/late, normalized entropy/time differ from optional conceptual examples; cannot be called original G5.','7C+1'),
+ ('NEW_V3_F5_TEMPORAL','F5. Temporal Form','document_temporal_v3.py','DocumentTemporalFormV3','candidate_native_negative',
+  'Separate goal-exact short-window ratio early/(late+epsilon), late-minus-early, 25ms edge-extended RMS-envelope slope per second, peak index/T, unnormalized temporal entropy and spatial-map velocity. Fifteen outputs pass an independent two-channel known-waveform oracle. Frozen GRAB Day1 unseen-user matched F0v2 addition worsens validation/final F1 and log loss; not validated UniBo G5 or full-bout DTW and no default promotion.','7C+1'),
  ('F5b','F5b. DTW / template distance','temporal.py','TemporalTemplateFamily','partial',
   'Euclidean local cost, constrained warp and path-length division pass a known-sequence oracle. A separate four-path oracle checks the unique class medoid, zero self-distance, scale-normalized distance and two-class output. DTW requires CompleteSequenceBatch, explicit full coverage and finite native durations >=1s; compressed bin rate cannot prove completeness. Legacy sparse MANUS runner refuses new execution; full UniBo bout replay preserved. Explicit cued stream assembly is available separately, but biological onset/offset detection and live accuracy are not established.','H'),
  ('F5b_cued_assembler','F5b. DTW / template distance','temporal.py','CuedSequenceAssembler','analytical_complete_bout_gate',
@@ -192,6 +195,7 @@ def build(document, output):
                     lambda:QualityObservabilityFamily(ring_topology=True),
                     lambda:DocumentQualityObservationsV3(),
                     DocumentCesFamilyV3,
+                    DocumentTemporalFormV3,
                     lambda:RestNoiseLocalDetailFamily(rest_label=2),DocumentCspFamily,
                     ScalePatternV1,RingLagV1,CorrelationSpectrumV1,FrequencyDirectionV1,
                     lambda: RestNoiseDetailV2(rest_label=0), TraceCovarianceV2,

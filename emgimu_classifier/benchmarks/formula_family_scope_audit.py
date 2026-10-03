@@ -67,6 +67,15 @@ def build() -> dict:
                           "unseen-user matched F0v2 increment.")
             unresolved += (" The isolated V3 CES addition worsens validation and "
                            "descriptive final F1 and log loss; no default promotion.")
+        if family == "F5":
+            evidence += ("|benchmarks/new_bank_v3/F5_TEMPORAL_GRAB_RESULTS.json"
+                         "|benchmarks/new_bank_v3/F5_TEMPORAL_GRAB_REPORT.md"
+                         "|tests/test_document_temporal_v3.py")
+            supported += (" A separate V3 short-window family follows the goal's raw "
+                          "ratio, slope, peak and entropy equations with a known-waveform "
+                          "oracle and a frozen GRAB unseen-user paired increment.")
+            unresolved += (" The V3 F5 addition worsens GRAB validation/final F1 "
+                           "and log loss and is not a full-bout or live detector.")
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

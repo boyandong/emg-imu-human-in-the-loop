@@ -22,7 +22,6 @@ from emgimu.feature_bank.new_bank_v2 import RestNoiseDetailV2
 HERE = Path(__file__).resolve().parent
 PARENT = HERE.parent / 'new_bank_v2'
 PROTOCOL_PATH = HERE / 'F3B_CES_GRAB_PROTOCOL.json'
-PROTOCOL = json.loads(PROTOCOL_PATH.read_text(encoding='utf-8'))
 CLASSES = np.asarray(grab.GESTURES)
 
 
@@ -30,12 +29,14 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def run(data_root: Path) -> dict:
+def run_candidate(data_root: Path, *, protocol_path: Path, candidate_name: str,
+                  candidate_factory, output_prefix: str) -> dict:
+    protocol = json.loads(protocol_path.read_text(encoding='utf-8'))
     parent_run.check_protocol()
     for filename, key in [('GRAB_USER_PROTOCOL.json', 'parent_protocol_sha256'),
                           ('GRAB_USER_RESULTS.json', 'parent_result_sha256'),
                           ('GRAB_USER_PREDICTIONS.csv', 'parent_prediction_sha256')]:
-        if sha256(PARENT / filename) != PROTOCOL[key]:
+        if sha256(PARENT / filename) != protocol[key]:
             raise AssertionError(f'frozen parent changed: {filename}')
     parent = json.loads((PARENT / 'GRAB_USER_RESULTS.json').read_text(encoding='utf-8'))
     split = parent_run.PROTOCOL
@@ -59,13 +60,15 @@ def run(data_root: Path) -> dict:
     families = {
         'F0v2': RestNoiseDetailV2(rest_label=17).fit(FeatureBatch(rest, grab.RATE),
                                                      np.full(len(rest), 17)),
-        'F3bCES': DocumentCesFamilyV3().fit(FeatureBatch(source_windows, grab.RATE), source_labels),
+        candidate_name: candidate_factory().fit(FeatureBatch(source_windows, grab.RATE), source_labels),
     }
     vectors = {name: np.stack([grab.aggregate(family.transform(FeatureBatch(window, grab.RATE)))
                                for window in windows]) for name, family in families.items()}
     rows = []
     scores = {}
-    for arm in PROTOCOL['arms']:
+    if protocol['arms'] != ['F0v2', f'F0v2+{candidate_name}']:
+        raise AssertionError('isolated candidate arms changed')
+    for arm in protocol['arms']:
         feature = np.concatenate([vectors[part] for part in arm.split('+')], axis=1)
         model = make_pipeline(StandardScaler(), LogisticRegression(
             C=1., max_iter=2000, random_state=20260924))
@@ -100,13 +103,13 @@ def run(data_root: Path) -> dict:
         maximum = max(maximum, max(abs(row[f'p_{label}'] - float(old[f'p_{label}'])) for label in CLASSES))
     if maximum > 1e-8:
         raise AssertionError(f'GRAB F0v2 parent replay changed: {maximum}')
-    path = HERE / 'F3B_CES_GRAB_PREDICTIONS.csv'
+    path = HERE / f'{output_prefix}_PREDICTIONS.csv'
     with path.open('w', newline='', encoding='utf-8') as stream:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
-    result = {'protocol_sha256': sha256(PROTOCOL_PATH),
-              'parent_prediction_sha256': PROTOCOL['parent_prediction_sha256'],
+    result = {'protocol_sha256': sha256(protocol_path),
+              'parent_prediction_sha256': protocol['parent_prediction_sha256'],
               'official_sha256_manifest_sha256': manifest_sha,
               'source_windows': int(len(source_windows)), 'rest_windows': int(len(rest)),
               'feature_dimensions': {name: len(family.feature_names) for name, family in families.items()},
@@ -115,9 +118,15 @@ def run(data_root: Path) -> dict:
               'final_trial_ids': parent['final_trial_ids'],
               'prediction_rows': len(rows), 'prediction_sha256': sha256(path),
               'f0v2_parent_replay_max_abs_error': maximum,
-              'scores': scores, 'scope': PROTOCOL['boundary']}
-    (HERE / 'F3B_CES_GRAB_RESULTS.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
+              'scores': scores, 'scope': protocol['boundary']}
+    (HERE / f'{output_prefix}_RESULTS.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
     return result
+
+
+def run(data_root: Path) -> dict:
+    return run_candidate(data_root, protocol_path=PROTOCOL_PATH,
+                         candidate_name='F3bCES', candidate_factory=DocumentCesFamilyV3,
+                         output_prefix='F3B_CES_GRAB')
 
 
 if __name__ == '__main__':

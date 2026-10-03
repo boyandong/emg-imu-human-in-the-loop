@@ -1,0 +1,13 @@
+{
+  "name": "new_v3_f5_temporal_grab_day1_unseen_user",
+  "parent_protocol_sha256": "ffb8c5111a02d2b336966c3214c0e3e72f793c1799a794b48ac5b884e8172827",
+  "parent_result_sha256": "8ba1a3d7a42c0a1af7e9747f4f883aa1b5d3b5a59e5d73dc34db6cb86ae36969",
+  "parent_prediction_sha256": "3f4b7d58df3296b4483fcd63187f13f8d3ff3f4dfc6024b9f2003f76a20065b5",
+  "arms": ["F0v2", "F0v2+F5temporal"],
+  "feature": "F5 V3 25ms edge-extended moving RMS envelope; early/(late+epsilon), late-minus-early, least-squares slope per second, argmax/T, unnormalized temporal entropy, spatial map velocity",
+  "split": "GRAB Day1 source users 1-4, validation users 5-6, descriptive final users 7-8; native trials disjoint",
+  "classifier": "StandardScaler + LogisticRegression(C=1,max_iter=2000,random_state=20260924), source users only",
+  "primary": ["macro_f1", "log_loss", "brier", "minimum_subject_macro_f1"],
+  "decision": "No default promotion from this one-axis study; require the existing multi-axis extension guard",
+  "boundary": "Document-exact short-window formula, not frozen UniBo G5 or complete-bout DTW; previously examined public GRAB users and no device-transfer claim"
+}
