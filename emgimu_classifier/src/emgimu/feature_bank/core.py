@@ -22,8 +22,8 @@ class FeatureBatch:
             raise ValueError("emg must have shape [windows,samples>=3,channels>=1]")
         if not np.all(np.isfinite(emg)):
             raise ValueError("emg contains NaN or Inf")
-        if self.sample_rate_hz <= 0:
-            raise ValueError("sample_rate_hz must be positive")
+        if not np.isfinite(self.sample_rate_hz) or self.sample_rate_hz <= 0:
+            raise ValueError("sample_rate_hz must be finite and positive")
         if self.imu is not None:
             imu = np.asarray(self.imu)
             if imu.ndim != 3 or imu.shape[0] != emg.shape[0] or imu.shape[2] != 6:

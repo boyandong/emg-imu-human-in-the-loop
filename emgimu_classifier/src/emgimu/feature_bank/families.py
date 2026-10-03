@@ -106,15 +106,27 @@ class ScalePatternFamily(FeatureFamily):
     family_id = "F1_scale_pattern_x1h"
 
     def __init__(self) -> None:
+        self.channels_: int | None = None
+        self.sample_rate_hz_: float | None = None
         self._names: tuple[str, ...] = ()
 
     def fit(self, batch: FeatureBatch, labels: np.ndarray | None = None) -> "ScalePatternFamily":
+        self.channels_ = batch.channels
+        self.sample_rate_hz_ = float(batch.sample_rate_hz)
         self._names = tuple(f"F1.rms_pattern.{channel}" for channel in _channel_names(batch.channels))
         self.fitted_ = True
         return self
 
     def transform(self, batch: FeatureBatch) -> np.ndarray:
         self._check()
+        # Existing saved states predate this metadata; all new fits enforce
+        # the source channel layout and sampling rate.
+        channels = getattr(self, "channels_", None)
+        rate = getattr(self, "sample_rate_hz_", None)
+        if channels is not None and batch.channels != channels:
+            raise ValueError("channel count differs from fitted scale pattern")
+        if rate is not None and not np.isclose(batch.sample_rate_hz, rate, rtol=0, atol=1e-9):
+            raise ValueError("sample rate differs from fitted scale pattern")
         rms = _rms(batch.emg)
         global_scale = np.sqrt(np.mean(rms * rms, axis=1, keepdims=True))
         return (rms / np.maximum(global_scale, EPS)).astype(np.float32)

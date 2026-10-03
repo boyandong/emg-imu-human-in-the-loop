@@ -64,6 +64,11 @@ def build(pre: Path, goal: Path) -> dict:
     rows = []
     for ident, doc, start, end, title, status, evidence, boundary in CLAUSES:
         if ident in ("GOAL-03", "GOAL-20"):
+            evidence += "|tests/test_f1_scale_pattern_oracle.py"
+            boundary += (" The versioned F1 RMS/global-RMS formula has an "
+                         "independent eight-channel numeric oracle, with channel "
+                         "and sample-rate fit contracts; historical X1-H identity "
+                         "is not asserted.")
             evidence += "|tests/test_f3a_rlcs_direct_oracle.py"
             boundary += (" A direct Pearson F3a circular-lag oracle and a fitted "
                          "ring sample-rate guard verify the new-version geometry; "

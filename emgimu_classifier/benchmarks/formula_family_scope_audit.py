@@ -58,6 +58,14 @@ def build() -> dict:
         raise AssertionError("source formula review inventory is incomplete")
     rows = []
     for family, status, evidence, supported, unresolved in REVIEWS:
+        if family == "F1":
+            evidence += "|tests/test_f1_scale_pattern_oracle.py"
+            supported += (" An independent eight-channel RMS/global-RMS oracle "
+                          "confirms exact pattern values, scale invariance and "
+                          "exclusion of the log global scale from H. New fits "
+                          "reject changed channel count or sampling rate.")
+            unresolved += (" Historical X1-H equivalence was explicitly "
+                           "superseded by the user's versioned replacement.")
         if family == "F4":
             evidence += "|tests/test_f4a_frequency_coord_oracle.py"
             supported += (" Independent direct-complex-DFT 250 Hz checks verify "

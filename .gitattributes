@@ -113,3 +113,5 @@ emgimu_classifier/tests/test_f3a_rlcs_direct_oracle.py -text -eol whitespace=cr-
 emgimu_classifier/benchmarks/new_bank_v3/epn107_f6_eligibility_probe.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/EPN107_F6_ELIGIBILITY.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_epn107_f6_eligibility.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/core.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_f1_scale_pattern_oracle.py -text -eol whitespace=cr-at-eol
