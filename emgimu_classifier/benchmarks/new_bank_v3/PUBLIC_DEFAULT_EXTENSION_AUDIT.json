@@ -1,0 +1,68 @@
+{
+  "status": "reviewed_public_negative",
+  "protocol_sha256": "371b53fd14fe47b974ca500cba0545ccbcde8509e92f97f03a6db81f82d96dd6",
+  "source_sha256": {
+    "benchmarks/new_bank_v3/SPEC_SPATIAL_GRAB_RESULTS.json": "cb2ea60ad000c6973f7e4220d0f3458b01c241b72a1b8c8ab585e6e4e64876dc",
+    "benchmarks/new_bank_v3/SPEC_F2C_CROSS_AXIS_AUDIT.json": "3b83f7ac90f7c98e68125143d1cf7e12c54a5cc21be713c14071c600de456154",
+    "benchmarks/new_bank_v2/F5C_UNIBO_BOUT_RESULTS.json": "d28d606c3b7a1551423b5e322bebb27544921c0334662dbd020e8ac6133377bb",
+    "benchmarks/new_bank_v3/F7_DOCUMENT_ANCHOR_RESULTS.json": "ab8873c1fd49a43837b6eb598ba85ab9574bd39635d9d29612ca976b1771ccef"
+  },
+  "candidate_checks": [
+    {
+      "candidate": "F0+F2a_spec",
+      "axis": "grab_cross_day",
+      "validation_delta_macro_f1": -0.02390051046923425,
+      "validation_delta_log_loss": 0.0364363187897041,
+      "validation_guard_pass": false
+    },
+    {
+      "candidate": "F0+F3c_spec",
+      "axis": "grab_cross_day",
+      "validation_delta_macro_f1": -0.03533877845163391,
+      "validation_delta_log_loss": 0.02029260477689282,
+      "validation_guard_pass": false
+    },
+    {
+      "candidate": "F0+F2c_spec",
+      "axis": "wearing|manus_session|grab_unseen_user",
+      "validation_guard_pass": false,
+      "validation_violations": [
+        "manus_session:log_loss",
+        "grab_unseen_user:macro_f1",
+        "grab_unseen_user:log_loss"
+      ]
+    },
+    {
+      "candidate": "G5+F5c",
+      "axis": "unibo_full_bout",
+      "validation_delta_macro_f1": 0.05843902608939999,
+      "validation_delta_log_loss": 0.04115482357780431,
+      "validation_guard_pass": false
+    },
+    {
+      "candidate": "F0v2+F7_document_1shot",
+      "axis": "grab_cross_day_calibrated",
+      "validation_delta_macro_f1": 0.0,
+      "validation_delta_log_loss": 0.2847198817952904,
+      "validation_guard_pass": false
+    },
+    {
+      "candidate": "F0v2+F7_document_2shot",
+      "axis": "grab_cross_day_calibrated",
+      "validation_delta_macro_f1": 0.0,
+      "validation_delta_log_loss": 0.28948346759317856,
+      "validation_guard_pass": false
+    },
+    {
+      "candidate": "F0v2+F7_document_5shot",
+      "axis": "grab_cross_day_calibrated",
+      "validation_delta_macro_f1": 0.0,
+      "validation_delta_log_loss": 0.2825892871642389,
+      "validation_guard_pass": false
+    }
+  ],
+  "local_guard_passes": 0,
+  "eligible_new_universal_public_defaults": [],
+  "existing_public_default_retained": "F0v2",
+  "boundary": "Retrospective public-data default guard for newer versioned candidates, not prospective model selection, own-device performance, or a claim that different public tasks share one model."
+}

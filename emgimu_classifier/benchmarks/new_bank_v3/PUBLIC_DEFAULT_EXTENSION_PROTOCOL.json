@@ -1,0 +1,18 @@
+{
+  "name": "new_v3_public_default_extension_retrospective_guard_v1",
+  "frozen_before_audit": "2026-10-03",
+  "source_sha256": {
+    "benchmarks/new_bank_v3/SPEC_SPATIAL_GRAB_RESULTS.json": "cb2ea60ad000c6973f7e4220d0f3458b01c241b72a1b8c8ab585e6e4e64876dc",
+    "benchmarks/new_bank_v3/SPEC_F2C_CROSS_AXIS_AUDIT.json": "3b83f7ac90f7c98e68125143d1cf7e12c54a5cc21be713c14071c600de456154",
+    "benchmarks/new_bank_v2/F5C_UNIBO_BOUT_RESULTS.json": "d28d606c3b7a1551423b5e322bebb27544921c0334662dbd020e8ac6133377bb",
+    "benchmarks/new_bank_v3/F7_DOCUMENT_ANCHOR_RESULTS.json": "ab8873c1fd49a43837b6eb598ba85ab9574bd39635d9d29612ca976b1771ccef"
+  },
+  "guard": "Within each native matched validation task, addition macro F1 must not fall and log loss must not rise, with at least one strict improvement. Universal public default also requires all relevant axes; a single-task pass cannot qualify. Previously inspected final results are descriptive only.",
+  "candidate_scope": [
+    "F2a and F3c centered goal-formula additions on GRAB cross-day",
+    "F2c centered goal-formula addition on wearing, MANUS session and GRAB unseen-user validation",
+    "F5c complete-bout addition to G5 on UniBo Day6 validation",
+    "F7 document-exact fixed half mixture with F0v2 on GRAB Day2 at 1, 2 and 5 shots/class"
+  ],
+  "boundary": "Retrospective public-data default guard for newer versioned candidates, not prospective model selection, own-device performance, or a claim that different public tasks share one model."
+}

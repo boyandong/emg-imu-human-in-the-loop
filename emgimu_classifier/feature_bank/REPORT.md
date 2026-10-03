@@ -3934,3 +3934,13 @@ The V3 F2c result files now capture their numerical-library and thread-backend
 versions at execution time, with a command to compare a future replay host.
 This strengthens reproducibility of these runs only; older environments remain
 unproven where they were not recorded.
+
+# New-version public default extension (2026-10-03)
+
+The [hash-bound extension guard](../benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_REPORT.md)
+compares the newer centered F2a/F2c/F3c, complete-bout F5c and document-exact
+F7 candidates against matched public validation baselines. None clears the
+prespecified F1/non-increasing-loss guard. The earlier seven-axis public F0v2
+default therefore remains the benchmark default. This does not establish a
+safe own-device default; F8/F9 retain their separate limited or negative
+eligibility findings.
