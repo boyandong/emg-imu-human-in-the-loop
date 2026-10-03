@@ -58,6 +58,13 @@ def build() -> dict:
         raise AssertionError("source formula review inventory is incomplete")
     rows = []
     for family, status, evidence, supported, unresolved in REVIEWS:
+        if family == "F4":
+            evidence += "|tests/test_f4a_frequency_coord_oracle.py"
+            supported += (" Independent direct-complex-DFT 250 Hz checks verify "
+                          "sub-Nyquist bandwise channel orientation, and newly "
+                          "fitted spectral states reject a changed sampling rate.")
+            unresolved += (" Persisted older spectral fits predate the new "
+                           "sample-rate field and retain legacy compatibility.")
         if family == "F3":
             evidence += ("|benchmarks/new_bank_v3/F3B_CES_GRAB_RESULTS.json"
                          "|benchmarks/new_bank_v3/F3B_CES_GRAB_REPORT.md"

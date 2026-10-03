@@ -64,6 +64,10 @@ def build(pre: Path, goal: Path) -> dict:
     rows = []
     for ident, doc, start, end, title, status, evidence, boundary in CLAUSES:
         if ident in ("GOAL-03", "GOAL-20"):
+            evidence += "|tests/test_f4a_frequency_coord_oracle.py"
+            boundary += (" A direct-complex-DFT 250 Hz F4a oracle and a fitted "
+                         "sample-rate mismatch guard verify sub-Nyquist band coordinates; "
+                         "older serialized fits predate the guard.")
             evidence += "|benchmarks/new_bank_v3/F5B_CUED_REPLAY_RESULTS.json|tests/test_cued_replay.py"
             boundary += (" A fixed-cue irregular-chunk replay exactly reconstructs all 3,391 "
                          "retained UniBo Day7/8 bouts and their envelope paths; it does not "

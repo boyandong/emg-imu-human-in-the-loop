@@ -299,6 +299,7 @@ class SpectralStateFamily(FeatureFamily):
         self.band_count = int(band_count)
         self.cepstral_coefficients = int(cepstral_coefficients)
         self.channels_: int | None = None
+        self.sample_rate_hz_: float | None = None
         self.bands_: tuple[tuple[float, float], ...] = ()
         self._names: tuple[str, ...] = ()
 
@@ -311,6 +312,7 @@ class SpectralStateFamily(FeatureFamily):
         edges = np.linspace(low, high, self.band_count + 1)
         self.bands_ = tuple((float(a), float(b)) for a, b in zip(edges[:-1], edges[1:]))
         self.channels_ = batch.channels
+        self.sample_rate_hz_ = float(batch.sample_rate_hz)
         names = [f"F4.band{band + 1}.orientation.{channel}" for band in range(self.band_count) for channel in _channel_names(batch.channels)]
         names.extend(f"F4.{metric}.{channel}" for metric in ("total_power", "centroid", "median_frequency", "entropy") for channel in _channel_names(batch.channels))
         names.extend(f"F4.cepstral{k + 1}.{metric}" for k in range(self.cepstral_coefficients) for metric in ("mean", "std"))
@@ -322,6 +324,11 @@ class SpectralStateFamily(FeatureFamily):
         self._check()
         if batch.channels != self.channels_:
             raise ValueError("channel count differs from fitted spectral state")
+        # Older persisted fits predate this field; newly fitted states must
+        # reject a different frequency grid instead of silently reusing bands.
+        fitted_rate = getattr(self, "sample_rate_hz_", None)
+        if fitted_rate is not None and not np.isclose(batch.sample_rate_hz, fitted_rate, rtol=0, atol=1e-9):
+            raise ValueError("sample rate differs from fitted spectral state")
         x = np.asarray(batch.emg, dtype=np.float64)
         tapered = (x - x.mean(axis=1, keepdims=True)) * np.hanning(x.shape[1])[None, :, None]
         psd = np.abs(np.fft.rfft(tapered, axis=1)) ** 2 / max(x.shape[1], 1)

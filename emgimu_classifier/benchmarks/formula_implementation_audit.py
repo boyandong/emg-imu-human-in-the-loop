@@ -83,8 +83,8 @@ REVIEWS = (
   'Independent fixed-25ms edge-extended envelope avoids synthetic boundary activity on constant channels. A known 3+1 correlation spectrum and channel-permutation oracle pass. Frozen GRAB Day1 unseen-user matched F0v2 increment exactly replays parent probabilities and worsens validation/final macro-F1 and log loss; no default promotion or historical CES identity.','C'),
  ('F3c','F3c. Ring-relative covariance','ring_covariance.py','RawRingCovarianceFamily','candidate_formula',
   'New independent raw F2a covariance block with caller-asserted ring-order contract; the public electrode-shift file does not itself attest saved-column physical adjacency. Legacy RingGeometryFamily uses envelope covariance and remains a distinct proxy.','6 floor(C/2)'),
- ('F4a','F4a. Frequency coordination','families.py','SpectralStateFamily','reference_only',
-  'Hann periodogram, four bands strictly below Nyquist and channel L2 band vectors; exact historical Frequency implementation unavailable.','BC block'),
+ ('F4a','F4a. Frequency coordination','families.py','SpectralStateFamily','candidate_formula',
+  'Hann periodogram, four bands strictly below Nyquist and channel L2 band vectors pass an independent direct-complex-DFT 250 Hz oracle. Newly fitted spectral states reject a mismatched transform sampling rate. Exact historical Frequency identity is user-superseded; older persisted fits predate the new rate guard.','BC block'),
  ('F4b','F4b. Spectral summary','families.py','SpectralStateFamily','candidate_formula',
   'Periodogram total power/centroid/MDF and optional entropy normalized by log(number of bins) pass an independent direct Fourier-sum known-signal oracle, including a zero channel. FFT power units are not calibrated physical PSD.','4C block'),
  ('F4c','F4c. Cepstral / CCA-like candidate','families.py','SpectralStateFamily','candidate_formula',
@@ -180,7 +180,7 @@ REVIEWS = (
  ('NEW_V1_F3B','F3b. CES','new_bank_v1.py','CorrelationSpectrumV1','new_version_native_screen',
   'Independent nonnegative sorted envelope-correlation eigenvalues normalized by their sum; rank-one known-signal and permutation oracles pass. Wearing/speed validation gains do not establish general default value. Not historical CES identity.','C'),
  ('NEW_V1_F4A','F4a. Frequency coordination','new_bank_v1.py','FrequencyDirectionV1','new_version_native_screen',
-  'Independent four source-fixed sub-Nyquist bands of Hann tapered channel power, L2 normalized by band; four-tone 250 Hz known-signal oracle and seven public axes tested. Not historical Frequency identity.','4C'),
+  'Independent four source-fixed sub-Nyquist bands of Hann tapered channel power, L2 normalized by band; four-tone 250 Hz known-signal oracle and seven public axes tested. A separate direct-complex-DFT oracle confirms the corresponding SpectralStateFamily F4a block. Not historical Frequency identity.','4C'),
 )
 
 
