@@ -35,6 +35,7 @@ from emgimu.feature_bank.spec_spatial_v3 import (
 )
 from emgimu.feature_bank.calibration import DocumentPersonalAnchorV2, DocumentPersonalNormalizerV2, PersonalAnchor
 from emgimu.feature_bank.document_quality_v3 import DocumentQualityObservationsV3
+from emgimu.feature_bank.document_reliability_v2 import DocumentReliabilityWeightsV2
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
 # Exact historical mandatory reuse cannot be replaced by a conceptual candidate.
@@ -153,6 +154,8 @@ REVIEWS = (
   'Raw global RMS q10/q50/q90 equal-trial empirical CDF plus within-gesture pattern spread; exclude Rest, archive signal units, not measured force.','3 quantiles plus C pattern mean and spread per native gesture'),
  ('CAL_D_E','D. Personal feature reliability','calibration.py','ReliabilityWeights','partial',
   'Between/within separation log-softmax and n0/(n0+N) shrinkage implemented; tau/n0 source CV exists only selected protocols. Policy loading now pins both source OOF probabilities and fitted family/classifier state hashes, rejecting mismatched source state before target use. No global source-CV coverage claim.','K weights'),
+ ('CAL_D_E_DOCUMENT_V2','D. Personal feature reliability','document_reliability_v2.py','DocumentReliabilityWeightsV2','analytical_source_policy_required',
+  'Opt-in exact R=B/(W+epsilon) followed by log(R+epsilon), source-temperature softmax and n0/(n0+distinct calibration trials) shrinkage. Independent zero-between-class and repeated-window oracles pass. Aligned trial identities and optional source/evaluation exclusions prevent row-count inflation; supplied policy identity does not itself prove source CV or native benefit.','K weights'),
  ('SESSION','七、Session Calibration v0','session_pipeline.py','SessionCalibrationPipeline','partial',
   'Current rest/scale/quality/signature/local prototypes preserve long profile. A label-free evaluation API matches the offline wrapper on 60 native public prediction rows, rejects calibration/source trial reuse and leaves state immutable; deliberately wrong offline truth has no effect. Session state is bound to its fitted user/source model identity and rejects cross-profile reuse. Controlled native wearing0/1 only, 2/5 unsupported per domain, current device/calendar-day validation missing.','two-family branch-specific state'),
  ('NEW_V2_SESSION_DOCUMENT','七、Session Calibration v0','session_pipeline.py','DocumentSessionCalibrationPipelineV2','candidate_native_partial',
@@ -272,6 +275,17 @@ def build(document, output):
     measured['DocumentPersonalNormalizerV2']={'fixture_dimension':batch.channels,
         'source_immutable':True,'native_evaluation':'N/A',
         'fixture_override':'synthetic Rest/active windows; exact epsilon oracle is separate from this shape check'}
+    reliability = DocumentReliabilityWeightsV2((0,1),('a','b'),(.5,.5),4.,1.,'synthetic-source-policy')
+    reliability_cal = {name:(rng.normal(size=(4,2)),np.array([0,0,1,1]),['a1','a2','b1','b2'])
+                       for name in reliability.family_ids}
+    before = pickle.dumps(reliability)
+    reliability_weights = reliability.personal(reliability_cal)
+    if (reliability_weights.shape != (2,) or not np.isfinite(reliability_weights).all()
+            or not np.isclose(reliability_weights.sum(),1) or pickle.dumps(reliability) != before):
+        raise AssertionError('Document reliability shape/immutability fixture failed')
+    measured['DocumentReliabilityWeightsV2']={'fixture_dimension':len(reliability_weights),
+        'source_immutable':True,'native_evaluation':'N/A',
+        'fixture_override':'synthetic aligned calibration trials; exact formula oracle and source-CV policy evidence are separate'}
     rows = []
     for item_id,heading,filename,symbol,status,boundary,dimension in REVIEWS:
         matches = [i+1 for i,text in enumerate(lines) if i+1>=1120 and text.strip()==heading]

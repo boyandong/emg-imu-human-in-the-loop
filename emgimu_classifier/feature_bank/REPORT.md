@@ -3960,3 +3960,12 @@ S04 windows without updating source state. The 69 observations per window are
 finite. Unknown mains and ring geometry stay explicitly unavailable. A
 copied constant channel is detected in the synthetic check; no naturally
 labelled hardware fault or safe rejection threshold is established.
+
+# Document-exact reliability follow-up (2026-10-03)
+
+The [opt-in D/E reliability formula](../benchmarks/new_bank_v3/DOCUMENT_RELIABILITY_V2_REPORT.md)
+now computes `B/(W+epsilon)` before `log(R+epsilon)` and uses the number of
+distinct calibration trials in the shrinkage factor. Zero-separation and
+unequal-window-count oracles pass. The earlier reliability path and its
+frozen native results are preserved. A source-CV-selected policy and a new
+native increment for this exact version remain to be established.
