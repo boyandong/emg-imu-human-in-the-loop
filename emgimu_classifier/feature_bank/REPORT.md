@@ -3992,3 +3992,15 @@ trials. Rest-only thresholds lose S03 macro F1, log loss and Brier, and lose S04
 macro F1 despite a small S04 probability-score gain. No target session selected
 the fixed classifier settings; the single-person, same-day and previously
 inspected-session limits still prevent default promotion.
+
+# Exact affine-SPD F7 candidate (2026-10-03)
+
+An [independent affine-invariant F7 anchor](../benchmarks/new_bank_v3/F7_AFFINE_EPN_REPORT.md)
+now computes the goal's matrix-log geodesic on centered F2a covariances,
+using calibration-only, equal-trial-mass class prototypes. A 2x2 geometry
+oracle and native EPN612 1/2/5-shot trial screen pass. Validation pooled
+macro-F1 rises from 0.3687 at one shot to 0.5142 at five shots; the
+previously inspected descriptive final rises from 0.3007 to 0.4078.
+Its trial selections differ from the frozen tangent-anchor study, so these
+standalone scores cannot establish a matched incremental gain or justify a
+default change.

@@ -19,6 +19,7 @@ from .calibration import (
 from .temporal import CuedSequenceAssembler, PathSignatureFamily, TemporalTemplateFamily, CompleteSequenceBatch, dtw_distance
 from .body_frame import CalibratedBodyContextFamily
 from .spd_anchor import SpdTangentPersonalAnchor
+from .affine_spd_anchor import AffineSpdPrototypeAnchor, document_spd_matrices
 from .new_bank_v1 import (
     CorrelationSpectrumV1, FrequencyDirectionV1, RingLagV1, ScalePatternV1,
     new_bank_v1_registry,
@@ -26,6 +27,7 @@ from .new_bank_v1 import (
 
 __all__ = [
     "BodyContextFamily",
+    "AffineSpdPrototypeAnchor",
     "CorrelationSpectrumV1",
     "CalibratedBodyContextFamily",
     "CspSpatialFamily",
@@ -55,6 +57,7 @@ __all__ = [
     "CompleteSequenceBatch",
     "TraceCovarianceFamily",
     "default_registry",
+    "document_spd_matrices",
     "dtw_distance",
     "late_fusion",
     "late_fusion_decision",

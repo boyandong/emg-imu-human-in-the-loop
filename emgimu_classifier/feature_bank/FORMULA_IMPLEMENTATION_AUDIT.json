@@ -1,6 +1,6 @@
 {
   "completion_proven": false,
-  "reviewed_rows": 68,
+  "reviewed_rows": 69,
   "scope": "reviewed selected formula/API boundaries with exact source hashes and symbol spans; not exhaustive document acceptance",
   "fixture": "synthetic16 windows,40 samples,8channels,200Hz,4classes; IMU10samples and2 oracle postures only for dimension checks",
   "warning": "whole-class fixture dimensions are not subblock dimensions; synthetic dimension/immutability checks do not prove native topology or scientific validity",
@@ -1407,6 +1407,17 @@
       "source_immutable": true,
       "fixture_override": "synthetic source8, disjoint calibration4 and evaluation4 for API shape only; no native performance claim",
       "native_evaluation": "N/A"
+    },
+    "AffineSpdPrototypeAnchor": {
+      "fixture_dimension": 4,
+      "names": [
+        "F7.affine_spd.distance.0",
+        "F7.affine_spd.distance.1",
+        "F7.affine_spd.distance.2",
+        "F7.affine_spd.distance.3"
+      ],
+      "source_immutable": true,
+      "fixture_override": "disjoint synthetic four-class covariance trial fixture; independent geometry and EPN native checks separate"
     },
     "PersonalAnchor": {
       "fixture_dimension": 6,

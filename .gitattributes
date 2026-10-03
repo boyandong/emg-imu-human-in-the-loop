@@ -90,3 +90,10 @@ emgimu_classifier/feature_bank/FORMULA_IMPLEMENTATION_AUDIT.* -text -eol whitesp
 emgimu_classifier/feature_bank/FORMULA_SUBSECTION_COVERAGE_AUDIT.* -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/FORMULA_FAMILY_SCOPE_AUDIT.* -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.* -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/F6_PUBLIC_ELIGIBILITY.md -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/F7_AFFINE_EPN/* -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/F7_AFFINE_EPN_REPORT.md -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/f7_affine_epn.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/affine_spd_anchor.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_affine_spd_anchor.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_f7_affine_epn_delivery.py -text -eol whitespace=cr-at-eol

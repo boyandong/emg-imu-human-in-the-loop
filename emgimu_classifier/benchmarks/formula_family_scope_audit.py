@@ -76,6 +76,22 @@ def build() -> dict:
                           "oracle and a frozen GRAB unseen-user paired increment.")
             unresolved += (" The V3 F5 addition worsens GRAB validation/final F1 "
                            "and log loss and is not a full-bout or live detector.")
+        if family == "F7":
+            evidence += ("|benchmarks/new_bank_v3/F7_AFFINE_EPN/results.json"
+                         "|benchmarks/new_bank_v3/F7_AFFINE_EPN_REPORT.md"
+                         "|tests/test_affine_spd_anchor.py"
+                         "|tests/test_f7_affine_epn_delivery.py")
+            supported += (" A separate exact affine-invariant matrix-log F7 candidate "
+                          "has nonorthogonal geometry and trial-mass oracles plus a "
+                          "native six-user EPN612 1/2/5-shot standalone screen.")
+            unresolved += (" Its trial selection differs from the tangent arm, so "
+                           "no matched Core increment or default gain is inferred.")
+        if family == "F6":
+            evidence += "|feature_bank/F6_PUBLIC_ELIGIBILITY.md"
+            supported += (" A four-candidate public-source eligibility review "
+                          "checks raw IMU and anatomical-axis provenance before F6 use.")
+            unresolved += (" No reviewed public metadata yet proves the full "
+                           "neutral-plus-forward calibration contract.")
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

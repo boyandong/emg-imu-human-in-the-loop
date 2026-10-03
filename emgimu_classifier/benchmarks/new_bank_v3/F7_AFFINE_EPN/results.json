@@ -1,0 +1,112 @@
+{
+  "study": "F7 affine-invariant SPD personal-anchor standalone candidate",
+  "source": "EMG-EPN612 native labeled trainingSamples; 200 ms windows, four per trial",
+  "user_phases": {
+    "validation": [
+      16,
+      17,
+      18
+    ],
+    "descriptive_final": [
+      19,
+      20,
+      21
+    ]
+  },
+  "budgets": [
+    1,
+    2,
+    5
+  ],
+  "seed": 20261003,
+  "selection": "classwise seeded nested complete-trial 1/2/5-shot; evaluation trials disjoint",
+  "prototype": "arithmetic mean of equal-weight trial F2a matrices; 1e-10 SPD ridge",
+  "distance": "affine-invariant matrix-log Frobenius norm",
+  "temperature": "median pairwise class-prototype distance from calibration only",
+  "zero_shot": "N/A: personal class prototypes require labeled calibration",
+  "boundary": "standalone candidate; final users previously inspected; no matched Core increment, source-CV temperature optimization or device claim",
+  "pooled": [
+    {
+      "phase": "validation",
+      "shots_per_class": 1,
+      "subjects": 3,
+      "evaluation_trials": 432,
+      "macro_f1": 0.3686550058118983,
+      "accuracy": 0.375,
+      "log_loss": 1.6727947256038278,
+      "brier": 0.13167432835204507,
+      "ece": 0.1487870092195882,
+      "per_class_f1_json": "{\"noGesture\":0.43575418994413406,\"fist\":0.43410852713178294,\"waveIn\":0.2948717948717949,\"waveOut\":0.23300970873786409,\"open\":0.48951048951048953,\"pinch\":0.3246753246753247}"
+    },
+    {
+      "phase": "validation",
+      "shots_per_class": 2,
+      "subjects": 3,
+      "evaluation_trials": 414,
+      "macro_f1": 0.43881652327334425,
+      "accuracy": 0.45169082125603865,
+      "log_loss": 1.611850216453714,
+      "brier": 0.1280574786906483,
+      "ece": 0.22100606576424028,
+      "per_class_f1_json": "{\"noGesture\":0.5487804878048781,\"fist\":0.2677165354330709,\"waveIn\":0.5333333333333333,\"waveOut\":0.3238095238095238,\"open\":0.5,\"pinch\":0.45925925925925926}"
+    },
+    {
+      "phase": "validation",
+      "shots_per_class": 5,
+      "subjects": 3,
+      "evaluation_trials": 360,
+      "macro_f1": 0.5142458282458282,
+      "accuracy": 0.5194444444444445,
+      "log_loss": 1.5714367267795646,
+      "brier": 0.12547430494316797,
+      "ece": 0.2979129887561807,
+      "per_class_f1_json": "{\"noGesture\":0.7285714285714285,\"fist\":0.416,\"waveIn\":0.4603174603174603,\"waveOut\":0.46153846153846156,\"open\":0.5523809523809524,\"pinch\":0.4666666666666667}"
+    },
+    {
+      "phase": "descriptive_final",
+      "shots_per_class": 1,
+      "subjects": 3,
+      "evaluation_trials": 432,
+      "macro_f1": 0.3006691198164609,
+      "accuracy": 0.2986111111111111,
+      "log_loss": 1.7080478814235196,
+      "brier": 0.13379857774783815,
+      "ece": 0.07841053694900814,
+      "per_class_f1_json": "{\"noGesture\":0.3487179487179487,\"fist\":0.19444444444444445,\"waveIn\":0.2926829268292683,\"waveOut\":0.3333333333333333,\"open\":0.4098360655737705,\"pinch\":0.225}"
+    },
+    {
+      "phase": "descriptive_final",
+      "shots_per_class": 2,
+      "subjects": 3,
+      "evaluation_trials": 414,
+      "macro_f1": 0.3371244921103906,
+      "accuracy": 0.3502415458937198,
+      "log_loss": 1.661772150995143,
+      "brier": 0.13067318661567454,
+      "ece": 0.11439552968181144,
+      "per_class_f1_json": "{\"noGesture\":0.410958904109589,\"fist\":0.17142857142857143,\"waveIn\":0.36507936507936506,\"waveOut\":0.31932773109243695,\"open\":0.375,\"pinch\":0.38095238095238093}"
+    },
+    {
+      "phase": "descriptive_final",
+      "shots_per_class": 5,
+      "subjects": 3,
+      "evaluation_trials": 360,
+      "macro_f1": 0.40775538455817184,
+      "accuracy": 0.4111111111111111,
+      "log_loss": 1.6429591386975466,
+      "brier": 0.12991491693050977,
+      "ece": 0.1816993746428969,
+      "per_class_f1_json": "{\"noGesture\":0.4,\"fist\":0.3090909090909091,\"waveIn\":0.3076923076923077,\"waveOut\":0.5035971223021583,\"open\":0.4778761061946903,\"pinch\":0.4482758620689655}"
+    }
+  ],
+  "archive_sha256": "4ee8db037385e7bee1e6ac6f9e9eea4f0869e25f7825f5eb7e5be0dff4f93c21",
+  "source_sha256": {
+    "affine_spd_anchor.py": "4ddd02d2260448aad4f3ab98e013b7213b8ac2a31e93bd89975ec40049239808",
+    "f7_affine_epn.py": "ee891ecba8d10b72eb4321d7e1dc596953061c4dca8ec49f3b35fa170643c45a"
+  },
+  "output_sha256": {
+    "subject_scores.csv": "c93f4d22c6cee0d2ff659b4512ba7e14a256aae4fe2a8fb9fa8480970a8b0258",
+    "trial_predictions.csv": "c08ccf59bb3f76e95d42e57701a870394ebd38531b2646027f1c1ea3013642bc",
+    "calibration_trial_ids.csv": "ed8aecce7bcff5b29ca8f3f23c52b07cbc02af50cba89f2de73dd9e1aaefd913"
+  }
+}

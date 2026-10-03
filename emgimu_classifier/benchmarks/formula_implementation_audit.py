@@ -22,6 +22,7 @@ from emgimu.feature_bank.validated_unibo import ValidatedUniBoFamily
 from emgimu.feature_bank.document_signal import RestNoiseLocalDetailFamily,DocumentCspFamily
 from emgimu.feature_bank.body_frame import CalibratedBodyContextFamily
 from emgimu.feature_bank.spd_anchor import SpdTangentPersonalAnchor
+from emgimu.feature_bank.affine_spd_anchor import AffineSpdPrototypeAnchor, document_spd_matrices
 from emgimu.feature_bank.reconstructed_ring import ReconstructedRlcs
 from emgimu.feature_bank.new_bank_v1 import (
     ScalePatternV1, RingLagV1, CorrelationSpectrumV1, FrequencyDirectionV1,
@@ -122,6 +123,8 @@ REVIEWS = (
   'A separate quadratic-form oracle checks classwise shrinkage covariance and finite inversion. Dimension+2 calibration examples per class are required, so native 1/2/5-shot high-dimensional protocols cannot estimate this option.','H distances plus optional H similarities and 2 margins'),
  ('F7_spd_distance_rule','SPD feature','spd_anchor.py','SpdTangentPersonalAnchor','analytical_native_limited',
   'Frozen source-reference log-tangent vectors have an independent Frobenius matrix-distance oracle and trial-balanced EPN native controls. This permitted tangent approximation is not the exact affine-invariant pairwise geodesic.','H distances plus optional H similarities and 2 margins'),
+ ('F7_affine_spd_v3','SPD feature','affine_spd_anchor.py','AffineSpdPrototypeAnchor','candidate_native_partial',
+  'Exact affine-invariant log-eigenvalue distance on centered F2a covariance plus a fixed SPD ridge; arithmetic class prototypes have equal calibration-trial mass. Independent diagonal, nonorthogonal affine, extreme-eigenvalue and leakage oracles pass. A new-version EPN612 1/2/5-shot six-user native standalone screen is saved, but its selected trial IDs differ from the tangent study and no matched Core increment or default promotion follows.','H distances'),
  ('F8','F8. Session Signature','calibration.py','SessionSignature','partial',
   'Residual norms, cosines and pair geometry generic block pass a hand-computable three-class/two-dimensional oracle with source-state immutability. Family-specific summaries are provided separately by FamilySessionShiftSummary; this interface alone has no predictive-benefit claim.','2H+H(H-1)/2'),
  ('F8_family_shift','F8. Session Signature','session_shift_summary.py','FamilySessionShiftSummary','candidate_formula',
@@ -247,6 +250,20 @@ def build(document, output):
         'names':list(spd_anchor.feature_names),'source_immutable':True,
         'fixture_override':'synthetic source8, disjoint calibration4 and evaluation4 for API shape only; no native performance claim',
         'native_evaluation':'N/A'}
+    affine_matrices = document_spd_matrices(x)
+    affine_anchor = AffineSpdPrototypeAnchor().fit(
+        affine_matrices[8:12], labels[8:12], [f'affine-cal-{i}' for i in range(4)])
+    before = pickle.dumps(affine_anchor)
+    _, affine_values = affine_anchor.transform(
+        affine_matrices[12:16], [f'affine-eval-{i}' for i in range(4)])
+    if (before != pickle.dumps(affine_anchor) or
+            affine_values.shape != (4, len(affine_anchor.feature_names)) or
+            not np.isfinite(affine_values).all()):
+        raise AssertionError('Affine SPD Anchor fixture failed')
+    measured['AffineSpdPrototypeAnchor'] = {
+        'fixture_dimension': affine_values.shape[1],
+        'names': list(affine_anchor.feature_names), 'source_immutable': True,
+        'fixture_override': 'disjoint synthetic four-class covariance trial fixture; independent geometry and EPN native checks separate'}
     small_cal=rng.normal(size=(12,2));small_labels=np.repeat([0,1],6)
     mahalanobis=PersonalAnchor(metric='shrinkage_mahalanobis').fit(small_cal,small_labels)
     before=pickle.dumps(mahalanobis)
