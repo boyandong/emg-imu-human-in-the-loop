@@ -3944,3 +3944,12 @@ prespecified F1/non-increasing-loss guard. The earlier seven-axis public F0v2
 default therefore remains the benchmark default. This does not establish a
 safe own-device default; F8/F9 retain their separate limited or negative
 eligibility findings.
+
+# Document-exact F9 observation follow-up (2026-10-03)
+
+An [opt-in V3 F9 primitive implementation](../benchmarks/new_bank_v3/F9_DOCUMENT_OBSERVATIONS_REPORT.md)
+now uses strict zero/flat thresholds and additive-epsilon line/MAD denominators,
+with explicit ADC, mains, pre-highpass and ring-topology availability. Hand-computable
+boundary, Fourier, covariance and ring-neighbor tests pass. It is an observation
+interface, not a new quality gate; the earlier Song/GRAB false-rejection evidence
+continues to block default F9 gating.

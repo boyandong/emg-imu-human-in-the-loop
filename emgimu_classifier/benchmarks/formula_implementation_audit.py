@@ -34,6 +34,7 @@ from emgimu.feature_bank.spec_spatial_v3 import (
     SpecTraceCovarianceV3, SpecSpdTangentV3, SpecRingRelativeCovarianceV3,
 )
 from emgimu.feature_bank.calibration import DocumentPersonalAnchorV2, DocumentPersonalNormalizerV2, PersonalAnchor
+from emgimu.feature_bank.document_quality_v3 import DocumentQualityObservationsV3
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
 # Exact historical mandatory reuse cannot be replaced by a conceptual candidate.
@@ -126,14 +127,20 @@ REVIEWS = (
   'Seven nonnegative F9v2 observations combine into source-quantile-frozen per-channel scores and four summaries. Song raw-ADC and GRABMyo 2048Hz unseen-user fixed-F0 replays both show the illustrative 0.5 gate rejects many correct trials. A separate severe zero/flat/known-rail rule rejects no natural Song, GRAB or six-user public re-wearing trials and catches synthetic failures; no physical fault-rate or live-gate promotion is established.','C+4'),
  ('F9a_zero_flat_rule','F9a. Missing / zero / flatline','quality_observability.py','QualityObservabilityFamily','analytical_partial',
   'Source-frozen zero tolerance and longest consecutive flat-edge run/T are implemented; a known-run oracle verifies the longest-run convention. Hardware quantization and actual missing-packet semantics remain dataset-dependent.','3C observations including legacy variance'),
+ ('F9a_strict_document_v3','F9a. Missing / zero / flatline','document_quality_v3.py','DocumentQualityObservationsV3','analytical_metadata_conditional',
+  'Opt-in strict less-than source/metadata threshold for zero and flatline, longest consecutive flat-edge run/T and variance pass independent exact-boundary oracles. No missing-packet semantics or natural hardware-fault labels are inferred.','3C observations within 8C+5'),
  ('F9b_adc_clip_rule','F9b. Clipping','families.py','QualityFamily','metadata_conditional',
   'Clip fraction uses explicit ADC min/max metadata only; unknown range is carried as unavailable by F9v2 instead of inferred from target maxima. Synthetic known-range clipping is detected; physical rail events have no ground truth.','C plus availability'),
  ('F9c_line_noise_rule','F9c. Line-noise ratio','quality_observability.py','QualityObservabilityFamily','analytical_metadata_conditional',
   'Configured 50/60 Hz line and neighboring-bin power ratio passes an independent direct-Fourier known-tone oracle; Nyquist/frequency-grid availability is explicit. Measured mains-noise labels remain unavailable.','C plus availability'),
+ ('F9c_additive_document_v3','F9c. Line-noise ratio','document_quality_v3.py','DocumentQualityObservationsV3','analytical_metadata_conditional',
+  'Opt-in explicit 50/60 Hz metadata and frequency-grid availability; direct-Fourier known-tone oracle checks line power over neighboring power plus epsilon. Unknown mains region is unavailable rather than inferred.','C plus availability within 8C+5'),
  ('F9d_low_frequency_rule','F9d. Low-frequency artifact','quality_observability.py','QualityObservabilityFamily','analytical_metadata_conditional',
   'The low-to-valid-band power ratio passes an independent direct-Fourier mixed-tone oracle and is emitted only for explicitly pre-highpass raw input. No measured motion-artifact labels.','C plus availability'),
  ('F9e_amplitude_rule','F9e. Abnormal channel amplitude','families.py','QualityFamily','analytical_source_frozen',
   'A source-only per-channel RMS median/robust-MAD reference and held-out activation-z pass an independent numerical oracle. This is an anomaly observation, not a gesture label.','C'),
+ ('F9e_additive_document_v3','F9e. Abnormal channel amplitude','document_quality_v3.py','DocumentQualityObservationsV3','analytical_source_frozen',
+  'Opt-in raw source MAD with 1.4826 times MAD plus epsilon denominator passes a constant-source near-zero independent oracle; target values never refit the reference.','C within 8C+5'),
  ('F9f_covariance_rule','F9f. Correlation/covariance anomaly','quality_observability.py','QualityObservabilityFamily','analytical_source_frozen',
   'Held-out neighbor-correlation robust deviation and global source-reference trace-covariance Frobenius distance pass independent two-channel numerical oracles. Ring-neighbor mode requires verified topology; no native hardware-fault attribution.','C channel scores plus one global covariance score'),
  ('F9g_mask_rule','F9g. Quality mask','quality_mask_v1.py','SourceCalibratedQualityMask','candidate_negative_gate',
@@ -177,6 +184,7 @@ def build(document, output):
                     BodyContextFamily,QualityFamily,LogBandEnergyFamily,
                     lambda:RawRingCovarianceFamily(ring_topology=True),
                     lambda:QualityObservabilityFamily(ring_topology=True),
+                    lambda:DocumentQualityObservationsV3(),
                     lambda:RestNoiseLocalDetailFamily(rest_label=2),DocumentCspFamily,
                     ScalePatternV1,RingLagV1,CorrelationSpectrumV1,FrequencyDirectionV1,
                     lambda: RestNoiseDetailV2(rest_label=0), TraceCovarianceV2,
@@ -191,6 +199,8 @@ def build(document, output):
         if before!=pickle.dumps(family): raise AssertionError('transform changed fitted state')
         measured[type(family).__name__] = {'fixture_dimension':values.shape[1],
             'names':list(family.feature_names),'finite':True,'source_immutable':True}
+    measured['DocumentQualityObservationsV3']['fixture_override'] = (
+        'synthetic eight-channel shape/immutability only; exact threshold and direct-Fourier oracles are separate; no native gate claim')
     native = FeatureBatch(x[:,:,:4],200)
     family = ValidatedUniBoFamily('G5').fit(native,labels)
     values = family.transform(native)
