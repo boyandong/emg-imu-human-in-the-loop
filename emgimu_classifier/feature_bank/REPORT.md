@@ -3967,5 +3967,9 @@ The [opt-in D/E reliability formula](../benchmarks/new_bank_v3/DOCUMENT_RELIABIL
 now computes `B/(W+epsilon)` before `log(R+epsilon)` and uses the number of
 distinct calibration trials in the shrinkage factor. Zero-separation and
 unequal-window-count oracles pass. The earlier reliability path and its
-frozen native results are preserved. A source-CV-selected policy and a new
-native increment for this exact version remain to be established.
+frozen native results are preserved. The [GRAB D/E native replay](../benchmarks/new_bank_v3/DOCUMENT_RELIABILITY_GRAB_REPORT.md)
+now selects `n0` and temperature with Day2 leave-one-subject-out source CV,
+then evaluates disjoint 1/2/5-shot calibration and repetition-6/7 trials on
+Day3. Personal weights do not improve Day3 log loss or Brier at any budget;
+no default fusion change is justified. Day3 was previously inspected and is
+descriptive, not prospective validation.

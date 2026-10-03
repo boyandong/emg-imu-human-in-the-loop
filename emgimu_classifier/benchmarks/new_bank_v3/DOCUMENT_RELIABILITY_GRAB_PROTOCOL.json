@@ -1,0 +1,21 @@
+{
+  "name": "document_exact_de_grab_crossday_source_cv_v1",
+  "frozen_before_run": "2026-10-03",
+  "parent_result_sha256": "2ae157c39eeab1464fbfac54119b890d02162d7dad3b165f6e2b273b252108b2",
+  "parent_prediction_sha256": "321c84d4c73379cfcc7fa994e142c4943de6249631adec214ffac29ffca7dcad",
+  "source_fitted_f0_features_sha256": "e0fbe467369a78be81a0747ce5ff7636a99107e43c3fe6209a8ed49c93b47bce",
+  "source_fitted_f0_scale_features_sha256": "76bce51ed7551111cd355bf6a9d898209a861e42a4703dfee00d7c2b89f09d35",
+  "subjects": [1, 2, 3, 4, 5, 6, 7, 8],
+  "classes": [4, 15, 16, 17],
+  "providers": ["F0v2", "F0v2+scale_pattern"],
+  "source_selection_day": 2,
+  "descriptive_target_day": 3,
+  "shots_per_class": [1, 2, 5],
+  "calibration_repetitions": "Native trials 1..N of each class, within one user and day.",
+  "evaluation_repetitions": [6, 7],
+  "n0_grid": [2, 8, 32],
+  "temperature_grid": [0.5, 1, 2],
+  "selection": "On Day2, leave one subject out when estimating population provider weights from frozen probabilities on repetitions 6/7 of the other seven users. Score candidate n0/temperature on each held-out subject's disjoint 1/2/5-shot calibration/evaluation trials. Select minimum mean Day2 log loss across 24 cells, tie-breaking by n0 then temperature. Recompute population prior from all Day2 repetition-6/7 trials. Freeze policy before opening Day3 scores. Day3 is descriptive because previously inspected.",
+  "arms": ["population_prior", "document_exact_personal_reliability", "legacy_formula_same_policy"],
+  "boundary": "Public 2048 Hz GRABMyo forearm ring, two overlapping source-trained providers and same-user Day2-to-Day3 calibration. Selection uses Day2 labels, which were previously inspected; Day3 is descriptive, not prospective or own-device validation."
+}

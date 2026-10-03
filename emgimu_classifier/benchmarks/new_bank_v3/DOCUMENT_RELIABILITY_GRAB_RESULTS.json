@@ -1,0 +1,1298 @@
+{
+  "status": "descriptive_target_only",
+  "protocol_sha256": "808ecd723af986ff97ba8fb26138f7f1e73dc13e9fcc77a55f414969891a1ffe",
+  "source_hashes": {
+    "parent_result_sha256": "2ae157c39eeab1464fbfac54119b890d02162d7dad3b165f6e2b273b252108b2",
+    "parent_prediction_sha256": "321c84d4c73379cfcc7fa994e142c4943de6249631adec214ffac29ffca7dcad",
+    "source_fitted_f0_features_sha256": "e0fbe467369a78be81a0747ce5ff7636a99107e43c3fe6209a8ed49c93b47bce",
+    "source_fitted_f0_scale_features_sha256": "76bce51ed7551111cd355bf6a9d898209a861e42a4703dfee00d7c2b89f09d35"
+  },
+  "prediction_sha256": "74e65f3ef82313ef543729935d850f3698919751c4169f4f6eb97a928559a0fb",
+  "prediction_rows": 576,
+  "source_cv_grid": [
+    {
+      "n0": 2,
+      "temperature": 0.5,
+      "cells": 24,
+      "mean_log_loss": 0.1407107488647123,
+      "mean_subject_macro_f1": 0.9416666666666668
+    },
+    {
+      "n0": 2,
+      "temperature": 1,
+      "cells": 24,
+      "mean_log_loss": 0.14075132646040564,
+      "mean_subject_macro_f1": 0.9416666666666668
+    },
+    {
+      "n0": 2,
+      "temperature": 2,
+      "cells": 24,
+      "mean_log_loss": 0.14077672380364747,
+      "mean_subject_macro_f1": 0.9416666666666668
+    },
+    {
+      "n0": 8,
+      "temperature": 0.5,
+      "cells": 24,
+      "mean_log_loss": 0.1408558226725255,
+      "mean_subject_macro_f1": 0.9416666666666668
+    },
+    {
+      "n0": 8,
+      "temperature": 1,
+      "cells": 24,
+      "mean_log_loss": 0.14084381953186098,
+      "mean_subject_macro_f1": 0.9416666666666668
+    },
+    {
+      "n0": 8,
+      "temperature": 2,
+      "cells": 24,
+      "mean_log_loss": 0.14083987331554507,
+      "mean_subject_macro_f1": 0.9416666666666668
+    },
+    {
+      "n0": 32,
+      "temperature": 0.5,
+      "cells": 24,
+      "mean_log_loss": 0.14091640965250254,
+      "mean_subject_macro_f1": 0.9416666666666668
+    },
+    {
+      "n0": 32,
+      "temperature": 1,
+      "cells": 24,
+      "mean_log_loss": 0.14089266692079008,
+      "mean_subject_macro_f1": 0.9416666666666668
+    },
+    {
+      "n0": 32,
+      "temperature": 2,
+      "cells": 24,
+      "mean_log_loss": 0.14088123908581449,
+      "mean_subject_macro_f1": 0.9416666666666668
+    }
+  ],
+  "selected_source_policy": {
+    "n0": 2,
+    "temperature": 0.5,
+    "cells": 24,
+    "mean_log_loss": 0.1407107488647123,
+    "mean_subject_macro_f1": 0.9416666666666668
+  },
+  "source_population_trial_count": 64,
+  "source_population": [
+    0.49866235703224754,
+    0.5013376429677524
+  ],
+  "descriptive_cells": [
+    {
+      "subject": 1,
+      "budget": 1,
+      "calibration_trial_ids": [
+        "session3_participant1_gesture4_trial1",
+        "session3_participant1_gesture15_trial1",
+        "session3_participant1_gesture16_trial1",
+        "session3_participant1_gesture17_trial1"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant1_gesture4_trial6",
+        "session3_participant1_gesture4_trial7",
+        "session3_participant1_gesture15_trial6",
+        "session3_participant1_gesture15_trial7",
+        "session3_participant1_gesture16_trial6",
+        "session3_participant1_gesture16_trial7",
+        "session3_participant1_gesture17_trial6",
+        "session3_participant1_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.45984200212228094,
+        0.5401579978777191
+      ],
+      "legacy_weights": [
+        0.4598420021227631,
+        0.540157997877237
+      ],
+      "between": [
+        7.702426436550109,
+        8.68189873981819
+      ],
+      "within": [
+        0.0,
+        0.0
+      ],
+      "alpha": 0.3333333333333333
+    },
+    {
+      "subject": 1,
+      "budget": 2,
+      "calibration_trial_ids": [
+        "session3_participant1_gesture4_trial1",
+        "session3_participant1_gesture4_trial2",
+        "session3_participant1_gesture15_trial1",
+        "session3_participant1_gesture15_trial2",
+        "session3_participant1_gesture16_trial1",
+        "session3_participant1_gesture16_trial2",
+        "session3_participant1_gesture17_trial1",
+        "session3_participant1_gesture17_trial2"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant1_gesture4_trial6",
+        "session3_participant1_gesture4_trial7",
+        "session3_participant1_gesture15_trial6",
+        "session3_participant1_gesture15_trial7",
+        "session3_participant1_gesture16_trial6",
+        "session3_participant1_gesture16_trial7",
+        "session3_participant1_gesture17_trial6",
+        "session3_participant1_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.5316246050977559,
+        0.4683753949022441
+      ],
+      "legacy_weights": [
+        0.5316246050986734,
+        0.4683753949013266
+      ],
+      "between": [
+        7.520177161265409,
+        8.460639513422647
+      ],
+      "within": [
+        0.7506356017551681,
+        0.9147541236464322
+      ],
+      "alpha": 0.2
+    },
+    {
+      "subject": 1,
+      "budget": 5,
+      "calibration_trial_ids": [
+        "session3_participant1_gesture4_trial1",
+        "session3_participant1_gesture4_trial2",
+        "session3_participant1_gesture4_trial3",
+        "session3_participant1_gesture4_trial4",
+        "session3_participant1_gesture4_trial5",
+        "session3_participant1_gesture15_trial1",
+        "session3_participant1_gesture15_trial2",
+        "session3_participant1_gesture15_trial3",
+        "session3_participant1_gesture15_trial4",
+        "session3_participant1_gesture15_trial5",
+        "session3_participant1_gesture16_trial1",
+        "session3_participant1_gesture16_trial2",
+        "session3_participant1_gesture16_trial3",
+        "session3_participant1_gesture16_trial4",
+        "session3_participant1_gesture16_trial5",
+        "session3_participant1_gesture17_trial1",
+        "session3_participant1_gesture17_trial2",
+        "session3_participant1_gesture17_trial3",
+        "session3_participant1_gesture17_trial4",
+        "session3_participant1_gesture17_trial5"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant1_gesture4_trial6",
+        "session3_participant1_gesture4_trial7",
+        "session3_participant1_gesture15_trial6",
+        "session3_participant1_gesture15_trial7",
+        "session3_participant1_gesture16_trial6",
+        "session3_participant1_gesture16_trial7",
+        "session3_participant1_gesture17_trial6",
+        "session3_participant1_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.5305200592608208,
+        0.46947994073917915
+      ],
+      "legacy_weights": [
+        0.5305200592623032,
+        0.4694799407376968
+      ],
+      "between": [
+        7.099076314475014,
+        8.086116994979765
+      ],
+      "within": [
+        1.5823269448673414,
+        1.928214656588111
+      ],
+      "alpha": 0.09090909090909091
+    },
+    {
+      "subject": 2,
+      "budget": 1,
+      "calibration_trial_ids": [
+        "session3_participant2_gesture4_trial1",
+        "session3_participant2_gesture15_trial1",
+        "session3_participant2_gesture16_trial1",
+        "session3_participant2_gesture17_trial1"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant2_gesture4_trial6",
+        "session3_participant2_gesture4_trial7",
+        "session3_participant2_gesture15_trial6",
+        "session3_participant2_gesture15_trial7",
+        "session3_participant2_gesture16_trial6",
+        "session3_participant2_gesture16_trial7",
+        "session3_participant2_gesture17_trial6",
+        "session3_participant2_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.4676646359364906,
+        0.5323353640635095
+      ],
+      "legacy_weights": [
+        0.46766463593670415,
+        0.5323353640632958
+      ],
+      "between": [
+        14.204156682239999,
+        15.634758980317926
+      ],
+      "within": [
+        0.0,
+        0.0
+      ],
+      "alpha": 0.3333333333333333
+    },
+    {
+      "subject": 2,
+      "budget": 2,
+      "calibration_trial_ids": [
+        "session3_participant2_gesture4_trial1",
+        "session3_participant2_gesture4_trial2",
+        "session3_participant2_gesture15_trial1",
+        "session3_participant2_gesture15_trial2",
+        "session3_participant2_gesture16_trial1",
+        "session3_participant2_gesture16_trial2",
+        "session3_participant2_gesture17_trial1",
+        "session3_participant2_gesture17_trial2"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant2_gesture4_trial6",
+        "session3_participant2_gesture4_trial7",
+        "session3_participant2_gesture15_trial6",
+        "session3_participant2_gesture15_trial7",
+        "session3_participant2_gesture16_trial6",
+        "session3_participant2_gesture16_trial7",
+        "session3_participant2_gesture17_trial6",
+        "session3_participant2_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.5169434649068622,
+        0.48305653509313784
+      ],
+      "legacy_weights": [
+        0.5169434649074419,
+        0.483056535092558
+      ],
+      "between": [
+        13.311886404708682,
+        14.674922575347942
+      ],
+      "within": [
+        2.282312485719496,
+        2.626693898414299
+      ],
+      "alpha": 0.2
+    },
+    {
+      "subject": 2,
+      "budget": 5,
+      "calibration_trial_ids": [
+        "session3_participant2_gesture4_trial1",
+        "session3_participant2_gesture4_trial2",
+        "session3_participant2_gesture4_trial3",
+        "session3_participant2_gesture4_trial4",
+        "session3_participant2_gesture4_trial5",
+        "session3_participant2_gesture15_trial1",
+        "session3_participant2_gesture15_trial2",
+        "session3_participant2_gesture15_trial3",
+        "session3_participant2_gesture15_trial4",
+        "session3_participant2_gesture15_trial5",
+        "session3_participant2_gesture16_trial1",
+        "session3_participant2_gesture16_trial2",
+        "session3_participant2_gesture16_trial3",
+        "session3_participant2_gesture16_trial4",
+        "session3_participant2_gesture16_trial5",
+        "session3_participant2_gesture17_trial1",
+        "session3_participant2_gesture17_trial2",
+        "session3_participant2_gesture17_trial3",
+        "session3_participant2_gesture17_trial4",
+        "session3_participant2_gesture17_trial5"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant2_gesture4_trial6",
+        "session3_participant2_gesture4_trial7",
+        "session3_participant2_gesture15_trial6",
+        "session3_participant2_gesture15_trial7",
+        "session3_participant2_gesture16_trial6",
+        "session3_participant2_gesture16_trial7",
+        "session3_participant2_gesture17_trial6",
+        "session3_participant2_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.5035174038919041,
+        0.4964825961080958
+      ],
+      "legacy_weights": [
+        0.5035174038923173,
+        0.49648259610768275
+      ],
+      "between": [
+        12.734139530637608,
+        14.007553621453802
+      ],
+      "within": [
+        3.08623470294318,
+        3.4221464904666585
+      ],
+      "alpha": 0.09090909090909091
+    },
+    {
+      "subject": 3,
+      "budget": 1,
+      "calibration_trial_ids": [
+        "session3_participant3_gesture4_trial1",
+        "session3_participant3_gesture15_trial1",
+        "session3_participant3_gesture16_trial1",
+        "session3_participant3_gesture17_trial1"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant3_gesture4_trial6",
+        "session3_participant3_gesture4_trial7",
+        "session3_participant3_gesture15_trial6",
+        "session3_participant3_gesture15_trial7",
+        "session3_participant3_gesture16_trial6",
+        "session3_participant3_gesture16_trial7",
+        "session3_participant3_gesture17_trial6",
+        "session3_participant3_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.46398652657154915,
+        0.5360134734284508
+      ],
+      "legacy_weights": [
+        0.46398652657186523,
+        0.5360134734281348
+      ],
+      "between": [
+        10.575100455280682,
+        11.770692373145408
+      ],
+      "within": [
+        0.0,
+        0.0
+      ],
+      "alpha": 0.3333333333333333
+    },
+    {
+      "subject": 3,
+      "budget": 2,
+      "calibration_trial_ids": [
+        "session3_participant3_gesture4_trial1",
+        "session3_participant3_gesture4_trial2",
+        "session3_participant3_gesture15_trial1",
+        "session3_participant3_gesture15_trial2",
+        "session3_participant3_gesture16_trial1",
+        "session3_participant3_gesture16_trial2",
+        "session3_participant3_gesture17_trial1",
+        "session3_participant3_gesture17_trial2"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant3_gesture4_trial6",
+        "session3_participant3_gesture4_trial7",
+        "session3_participant3_gesture15_trial6",
+        "session3_participant3_gesture15_trial7",
+        "session3_participant3_gesture16_trial6",
+        "session3_participant3_gesture16_trial7",
+        "session3_participant3_gesture17_trial6",
+        "session3_participant3_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.5747950633274924,
+        0.4252049366725076
+      ],
+      "legacy_weights": [
+        0.5747950633293838,
+        0.42520493667061626
+      ],
+      "between": [
+        9.580844376569958,
+        10.95173059902973
+      ],
+      "within": [
+        1.6465662506143017,
+        2.275798132383497
+      ],
+      "alpha": 0.2
+    },
+    {
+      "subject": 3,
+      "budget": 5,
+      "calibration_trial_ids": [
+        "session3_participant3_gesture4_trial1",
+        "session3_participant3_gesture4_trial2",
+        "session3_participant3_gesture4_trial3",
+        "session3_participant3_gesture4_trial4",
+        "session3_participant3_gesture4_trial5",
+        "session3_participant3_gesture15_trial1",
+        "session3_participant3_gesture15_trial2",
+        "session3_participant3_gesture15_trial3",
+        "session3_participant3_gesture15_trial4",
+        "session3_participant3_gesture15_trial5",
+        "session3_participant3_gesture16_trial1",
+        "session3_participant3_gesture16_trial2",
+        "session3_participant3_gesture16_trial3",
+        "session3_participant3_gesture16_trial4",
+        "session3_participant3_gesture16_trial5",
+        "session3_participant3_gesture17_trial1",
+        "session3_participant3_gesture17_trial2",
+        "session3_participant3_gesture17_trial3",
+        "session3_participant3_gesture17_trial4",
+        "session3_participant3_gesture17_trial5"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant3_gesture4_trial6",
+        "session3_participant3_gesture4_trial7",
+        "session3_participant3_gesture15_trial6",
+        "session3_participant3_gesture15_trial7",
+        "session3_participant3_gesture16_trial6",
+        "session3_participant3_gesture16_trial7",
+        "session3_participant3_gesture17_trial6",
+        "session3_participant3_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.5826648228852416,
+        0.4173351771147585
+      ],
+      "legacy_weights": [
+        0.5826648228878027,
+        0.41733517711219725
+      ],
+      "between": [
+        9.646817701116802,
+        10.81352724816764
+      ],
+      "within": [
+        2.2464129188589026,
+        3.0273556066511182
+      ],
+      "alpha": 0.09090909090909091
+    },
+    {
+      "subject": 4,
+      "budget": 1,
+      "calibration_trial_ids": [
+        "session3_participant4_gesture4_trial1",
+        "session3_participant4_gesture15_trial1",
+        "session3_participant4_gesture16_trial1",
+        "session3_participant4_gesture17_trial1"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant4_gesture4_trial6",
+        "session3_participant4_gesture4_trial7",
+        "session3_participant4_gesture15_trial6",
+        "session3_participant4_gesture15_trial7",
+        "session3_participant4_gesture16_trial6",
+        "session3_participant4_gesture16_trial7",
+        "session3_participant4_gesture17_trial6",
+        "session3_participant4_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.41843293664729303,
+        0.581567063352707
+      ],
+      "legacy_weights": [
+        0.4184329366480494,
+        0.5815670633519505
+      ],
+      "between": [
+        9.111832348613577,
+        11.680492512568533
+      ],
+      "within": [
+        0.0,
+        0.0
+      ],
+      "alpha": 0.3333333333333333
+    },
+    {
+      "subject": 4,
+      "budget": 2,
+      "calibration_trial_ids": [
+        "session3_participant4_gesture4_trial1",
+        "session3_participant4_gesture4_trial2",
+        "session3_participant4_gesture15_trial1",
+        "session3_participant4_gesture15_trial2",
+        "session3_participant4_gesture16_trial1",
+        "session3_participant4_gesture16_trial2",
+        "session3_participant4_gesture17_trial1",
+        "session3_participant4_gesture17_trial2"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant4_gesture4_trial6",
+        "session3_participant4_gesture4_trial7",
+        "session3_participant4_gesture15_trial6",
+        "session3_participant4_gesture15_trial7",
+        "session3_participant4_gesture16_trial6",
+        "session3_participant4_gesture16_trial7",
+        "session3_participant4_gesture17_trial6",
+        "session3_participant4_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.5428418479303668,
+        0.4571581520696332
+      ],
+      "legacy_weights": [
+        0.5428418479322386,
+        0.4571581520677615
+      ],
+      "between": [
+        8.422380594296769,
+        10.48562796518099
+      ],
+      "within": [
+        1.767767760582647,
+        2.4522948856690836
+      ],
+      "alpha": 0.2
+    },
+    {
+      "subject": 4,
+      "budget": 5,
+      "calibration_trial_ids": [
+        "session3_participant4_gesture4_trial1",
+        "session3_participant4_gesture4_trial2",
+        "session3_participant4_gesture4_trial3",
+        "session3_participant4_gesture4_trial4",
+        "session3_participant4_gesture4_trial5",
+        "session3_participant4_gesture15_trial1",
+        "session3_participant4_gesture15_trial2",
+        "session3_participant4_gesture15_trial3",
+        "session3_participant4_gesture15_trial4",
+        "session3_participant4_gesture15_trial5",
+        "session3_participant4_gesture16_trial1",
+        "session3_participant4_gesture16_trial2",
+        "session3_participant4_gesture16_trial3",
+        "session3_participant4_gesture16_trial4",
+        "session3_participant4_gesture16_trial5",
+        "session3_participant4_gesture17_trial1",
+        "session3_participant4_gesture17_trial2",
+        "session3_participant4_gesture17_trial3",
+        "session3_participant4_gesture17_trial4",
+        "session3_participant4_gesture17_trial5"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant4_gesture4_trial6",
+        "session3_participant4_gesture4_trial7",
+        "session3_participant4_gesture15_trial6",
+        "session3_participant4_gesture15_trial7",
+        "session3_participant4_gesture16_trial6",
+        "session3_participant4_gesture16_trial7",
+        "session3_participant4_gesture17_trial6",
+        "session3_participant4_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.5070759473635291,
+        0.4929240526364709
+      ],
+      "legacy_weights": [
+        0.5070759473647314,
+        0.4929240526352686
+      ],
+      "between": [
+        8.66278051377338,
+        10.576728835606255
+      ],
+      "within": [
+        3.021355460921351,
+        3.7477735495912925
+      ],
+      "alpha": 0.09090909090909091
+    },
+    {
+      "subject": 5,
+      "budget": 1,
+      "calibration_trial_ids": [
+        "session3_participant5_gesture4_trial1",
+        "session3_participant5_gesture15_trial1",
+        "session3_participant5_gesture16_trial1",
+        "session3_participant5_gesture17_trial1"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant5_gesture4_trial6",
+        "session3_participant5_gesture4_trial7",
+        "session3_participant5_gesture15_trial6",
+        "session3_participant5_gesture15_trial7",
+        "session3_participant5_gesture16_trial6",
+        "session3_participant5_gesture16_trial7",
+        "session3_participant5_gesture17_trial6",
+        "session3_participant5_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.43143014093117443,
+        0.5685698590688255
+      ],
+      "legacy_weights": [
+        0.43143014093173615,
+        0.5685698590682638
+      ],
+      "between": [
+        10.63038409131972,
+        13.0789904457273
+      ],
+      "within": [
+        0.0,
+        0.0
+      ],
+      "alpha": 0.3333333333333333
+    },
+    {
+      "subject": 5,
+      "budget": 2,
+      "calibration_trial_ids": [
+        "session3_participant5_gesture4_trial1",
+        "session3_participant5_gesture4_trial2",
+        "session3_participant5_gesture15_trial1",
+        "session3_participant5_gesture15_trial2",
+        "session3_participant5_gesture16_trial1",
+        "session3_participant5_gesture16_trial2",
+        "session3_participant5_gesture17_trial1",
+        "session3_participant5_gesture17_trial2"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant5_gesture4_trial6",
+        "session3_participant5_gesture4_trial7",
+        "session3_participant5_gesture15_trial6",
+        "session3_participant5_gesture15_trial7",
+        "session3_participant5_gesture16_trial6",
+        "session3_participant5_gesture16_trial7",
+        "session3_participant5_gesture17_trial6",
+        "session3_participant5_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.7553170858359584,
+        0.24468291416404167
+      ],
+      "legacy_weights": [
+        0.7553170858388127,
+        0.2446829141611872
+      ],
+      "between": [
+        11.817533548530946,
+        13.605111477601715
+      ],
+      "within": [
+        1.1442894003968072,
+        2.806847259387311
+      ],
+      "alpha": 0.2
+    },
+    {
+      "subject": 5,
+      "budget": 5,
+      "calibration_trial_ids": [
+        "session3_participant5_gesture4_trial1",
+        "session3_participant5_gesture4_trial2",
+        "session3_participant5_gesture4_trial3",
+        "session3_participant5_gesture4_trial4",
+        "session3_participant5_gesture4_trial5",
+        "session3_participant5_gesture15_trial1",
+        "session3_participant5_gesture15_trial2",
+        "session3_participant5_gesture15_trial3",
+        "session3_participant5_gesture15_trial4",
+        "session3_participant5_gesture15_trial5",
+        "session3_participant5_gesture16_trial1",
+        "session3_participant5_gesture16_trial2",
+        "session3_participant5_gesture16_trial3",
+        "session3_participant5_gesture16_trial4",
+        "session3_participant5_gesture16_trial5",
+        "session3_participant5_gesture17_trial1",
+        "session3_participant5_gesture17_trial2",
+        "session3_participant5_gesture17_trial3",
+        "session3_participant5_gesture17_trial4",
+        "session3_participant5_gesture17_trial5"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant5_gesture4_trial6",
+        "session3_participant5_gesture4_trial7",
+        "session3_participant5_gesture15_trial6",
+        "session3_participant5_gesture15_trial7",
+        "session3_participant5_gesture16_trial6",
+        "session3_participant5_gesture16_trial7",
+        "session3_participant5_gesture17_trial6",
+        "session3_participant5_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.6066100570891615,
+        0.39338994291083845
+      ],
+      "legacy_weights": [
+        0.60661005709495,
+        0.39338994290505
+      ],
+      "between": [
+        8.686753779110553,
+        10.156901294438688
+      ],
+      "within": [
+        3.7953979137544716,
+        5.637366907819788
+      ],
+      "alpha": 0.09090909090909091
+    },
+    {
+      "subject": 6,
+      "budget": 1,
+      "calibration_trial_ids": [
+        "session3_participant6_gesture4_trial1",
+        "session3_participant6_gesture15_trial1",
+        "session3_participant6_gesture16_trial1",
+        "session3_participant6_gesture17_trial1"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant6_gesture4_trial6",
+        "session3_participant6_gesture4_trial7",
+        "session3_participant6_gesture15_trial6",
+        "session3_participant6_gesture15_trial7",
+        "session3_participant6_gesture16_trial6",
+        "session3_participant6_gesture16_trial7",
+        "session3_participant6_gesture17_trial6",
+        "session3_participant6_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.46778354175636927,
+        0.5322164582436308
+      ],
+      "legacy_weights": [
+        0.4677835417566955,
+        0.5322164582433045
+      ],
+      "between": [
+        9.211884886294076,
+        10.136030126794887
+      ],
+      "within": [
+        0.0,
+        0.0
+      ],
+      "alpha": 0.3333333333333333
+    },
+    {
+      "subject": 6,
+      "budget": 2,
+      "calibration_trial_ids": [
+        "session3_participant6_gesture4_trial1",
+        "session3_participant6_gesture4_trial2",
+        "session3_participant6_gesture15_trial1",
+        "session3_participant6_gesture15_trial2",
+        "session3_participant6_gesture16_trial1",
+        "session3_participant6_gesture16_trial2",
+        "session3_participant6_gesture17_trial1",
+        "session3_participant6_gesture17_trial2"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant6_gesture4_trial6",
+        "session3_participant6_gesture4_trial7",
+        "session3_participant6_gesture15_trial6",
+        "session3_participant6_gesture15_trial7",
+        "session3_participant6_gesture16_trial6",
+        "session3_participant6_gesture16_trial7",
+        "session3_participant6_gesture17_trial6",
+        "session3_participant6_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.5407797273007992,
+        0.45922027269920085
+      ],
+      "legacy_weights": [
+        0.5407797273021347,
+        0.45922027269786525
+      ],
+      "between": [
+        10.19916199720864,
+        11.197973587015019
+      ],
+      "within": [
+        2.3501824098268798,
+        2.860226615380636
+      ],
+      "alpha": 0.2
+    },
+    {
+      "subject": 6,
+      "budget": 5,
+      "calibration_trial_ids": [
+        "session3_participant6_gesture4_trial1",
+        "session3_participant6_gesture4_trial2",
+        "session3_participant6_gesture4_trial3",
+        "session3_participant6_gesture4_trial4",
+        "session3_participant6_gesture4_trial5",
+        "session3_participant6_gesture15_trial1",
+        "session3_participant6_gesture15_trial2",
+        "session3_participant6_gesture15_trial3",
+        "session3_participant6_gesture15_trial4",
+        "session3_participant6_gesture15_trial5",
+        "session3_participant6_gesture16_trial1",
+        "session3_participant6_gesture16_trial2",
+        "session3_participant6_gesture16_trial3",
+        "session3_participant6_gesture16_trial4",
+        "session3_participant6_gesture16_trial5",
+        "session3_participant6_gesture17_trial1",
+        "session3_participant6_gesture17_trial2",
+        "session3_participant6_gesture17_trial3",
+        "session3_participant6_gesture17_trial4",
+        "session3_participant6_gesture17_trial5"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant6_gesture4_trial6",
+        "session3_participant6_gesture4_trial7",
+        "session3_participant6_gesture15_trial6",
+        "session3_participant6_gesture15_trial7",
+        "session3_participant6_gesture16_trial6",
+        "session3_participant6_gesture16_trial7",
+        "session3_participant6_gesture17_trial6",
+        "session3_participant6_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.5866533946084945,
+        0.4133466053915055
+      ],
+      "legacy_weights": [
+        0.5866533946112726,
+        0.41334660538872736
+      ],
+      "between": [
+        10.357409409026786,
+        11.091426065742963
+      ],
+      "within": [
+        2.770849388477419,
+        3.5998795053425243
+      ],
+      "alpha": 0.09090909090909091
+    },
+    {
+      "subject": 7,
+      "budget": 1,
+      "calibration_trial_ids": [
+        "session3_participant7_gesture4_trial1",
+        "session3_participant7_gesture15_trial1",
+        "session3_participant7_gesture16_trial1",
+        "session3_participant7_gesture17_trial1"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant7_gesture4_trial6",
+        "session3_participant7_gesture4_trial7",
+        "session3_participant7_gesture15_trial6",
+        "session3_participant7_gesture15_trial7",
+        "session3_participant7_gesture16_trial6",
+        "session3_participant7_gesture16_trial7",
+        "session3_participant7_gesture17_trial6",
+        "session3_participant7_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.47373604059042007,
+        0.5262639594095799
+      ],
+      "legacy_weights": [
+        0.47373604059062374,
+        0.5262639594093763
+      ],
+      "between": [
+        12.148020733158532,
+        13.1283752302449
+      ],
+      "within": [
+        0.0,
+        0.0
+      ],
+      "alpha": 0.3333333333333333
+    },
+    {
+      "subject": 7,
+      "budget": 2,
+      "calibration_trial_ids": [
+        "session3_participant7_gesture4_trial1",
+        "session3_participant7_gesture4_trial2",
+        "session3_participant7_gesture15_trial1",
+        "session3_participant7_gesture15_trial2",
+        "session3_participant7_gesture16_trial1",
+        "session3_participant7_gesture16_trial2",
+        "session3_participant7_gesture17_trial1",
+        "session3_participant7_gesture17_trial2"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant7_gesture4_trial6",
+        "session3_participant7_gesture4_trial7",
+        "session3_participant7_gesture15_trial6",
+        "session3_participant7_gesture15_trial7",
+        "session3_participant7_gesture16_trial6",
+        "session3_participant7_gesture16_trial7",
+        "session3_participant7_gesture17_trial6",
+        "session3_participant7_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.5516818254382944,
+        0.44831817456170564
+      ],
+      "legacy_weights": [
+        0.5516818254395435,
+        0.4483181745604565
+      ],
+      "between": [
+        11.233379304582604,
+        12.667377406586517
+      ],
+      "within": [
+        1.7462468477462127,
+        2.2439107779238503
+      ],
+      "alpha": 0.2
+    },
+    {
+      "subject": 7,
+      "budget": 5,
+      "calibration_trial_ids": [
+        "session3_participant7_gesture4_trial1",
+        "session3_participant7_gesture4_trial2",
+        "session3_participant7_gesture4_trial3",
+        "session3_participant7_gesture4_trial4",
+        "session3_participant7_gesture4_trial5",
+        "session3_participant7_gesture15_trial1",
+        "session3_participant7_gesture15_trial2",
+        "session3_participant7_gesture15_trial3",
+        "session3_participant7_gesture15_trial4",
+        "session3_participant7_gesture15_trial5",
+        "session3_participant7_gesture16_trial1",
+        "session3_participant7_gesture16_trial2",
+        "session3_participant7_gesture16_trial3",
+        "session3_participant7_gesture16_trial4",
+        "session3_participant7_gesture16_trial5",
+        "session3_participant7_gesture17_trial1",
+        "session3_participant7_gesture17_trial2",
+        "session3_participant7_gesture17_trial3",
+        "session3_participant7_gesture17_trial4",
+        "session3_participant7_gesture17_trial5"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant7_gesture4_trial6",
+        "session3_participant7_gesture4_trial7",
+        "session3_participant7_gesture15_trial6",
+        "session3_participant7_gesture15_trial7",
+        "session3_participant7_gesture16_trial6",
+        "session3_participant7_gesture16_trial7",
+        "session3_participant7_gesture17_trial6",
+        "session3_participant7_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.5479494434784419,
+        0.4520505565215582
+      ],
+      "legacy_weights": [
+        0.5479494434802047,
+        0.45205055651979537
+      ],
+      "between": [
+        10.519035304003376,
+        12.128257469752974
+      ],
+      "within": [
+        2.4989259837025157,
+        3.2038904403974318
+      ],
+      "alpha": 0.09090909090909091
+    },
+    {
+      "subject": 8,
+      "budget": 1,
+      "calibration_trial_ids": [
+        "session3_participant8_gesture4_trial1",
+        "session3_participant8_gesture15_trial1",
+        "session3_participant8_gesture16_trial1",
+        "session3_participant8_gesture17_trial1"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant8_gesture4_trial6",
+        "session3_participant8_gesture4_trial7",
+        "session3_participant8_gesture15_trial6",
+        "session3_participant8_gesture15_trial7",
+        "session3_participant8_gesture16_trial6",
+        "session3_participant8_gesture16_trial7",
+        "session3_participant8_gesture17_trial6",
+        "session3_participant8_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.45078318367788356,
+        0.5492168163221164
+      ],
+      "legacy_weights": [
+        0.45078318367826253,
+        0.5492168163217376
+      ],
+      "between": [
+        11.827790911531912,
+        13.705845355000662
+      ],
+      "within": [
+        0.0,
+        0.0
+      ],
+      "alpha": 0.3333333333333333
+    },
+    {
+      "subject": 8,
+      "budget": 2,
+      "calibration_trial_ids": [
+        "session3_participant8_gesture4_trial1",
+        "session3_participant8_gesture4_trial2",
+        "session3_participant8_gesture15_trial1",
+        "session3_participant8_gesture15_trial2",
+        "session3_participant8_gesture16_trial1",
+        "session3_participant8_gesture16_trial2",
+        "session3_participant8_gesture17_trial1",
+        "session3_participant8_gesture17_trial2"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant8_gesture4_trial6",
+        "session3_participant8_gesture4_trial7",
+        "session3_participant8_gesture15_trial6",
+        "session3_participant8_gesture15_trial7",
+        "session3_participant8_gesture16_trial6",
+        "session3_participant8_gesture16_trial7",
+        "session3_participant8_gesture17_trial6",
+        "session3_participant8_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.5385404550901537,
+        0.46145954490984636
+      ],
+      "legacy_weights": [
+        0.5385404550912499,
+        0.46145954490875
+      ],
+      "between": [
+        10.30731117797229,
+        11.93872866325153
+      ],
+      "within": [
+        1.4534828031817464,
+        1.8556274197644271
+      ],
+      "alpha": 0.2
+    },
+    {
+      "subject": 8,
+      "budget": 5,
+      "calibration_trial_ids": [
+        "session3_participant8_gesture4_trial1",
+        "session3_participant8_gesture4_trial2",
+        "session3_participant8_gesture4_trial3",
+        "session3_participant8_gesture4_trial4",
+        "session3_participant8_gesture4_trial5",
+        "session3_participant8_gesture15_trial1",
+        "session3_participant8_gesture15_trial2",
+        "session3_participant8_gesture15_trial3",
+        "session3_participant8_gesture15_trial4",
+        "session3_participant8_gesture15_trial5",
+        "session3_participant8_gesture16_trial1",
+        "session3_participant8_gesture16_trial2",
+        "session3_participant8_gesture16_trial3",
+        "session3_participant8_gesture16_trial4",
+        "session3_participant8_gesture16_trial5",
+        "session3_participant8_gesture17_trial1",
+        "session3_participant8_gesture17_trial2",
+        "session3_participant8_gesture17_trial3",
+        "session3_participant8_gesture17_trial4",
+        "session3_participant8_gesture17_trial5"
+      ],
+      "evaluation_trial_ids": [
+        "session3_participant8_gesture4_trial6",
+        "session3_participant8_gesture4_trial7",
+        "session3_participant8_gesture15_trial6",
+        "session3_participant8_gesture15_trial7",
+        "session3_participant8_gesture16_trial6",
+        "session3_participant8_gesture16_trial7",
+        "session3_participant8_gesture17_trial6",
+        "session3_participant8_gesture17_trial7"
+      ],
+      "population": [
+        0.49866235703224754,
+        0.5013376429677524
+      ],
+      "exact_weights": [
+        0.5119781637491428,
+        0.4880218362508571
+      ],
+      "legacy_weights": [
+        0.5119781637500577,
+        0.4880218362499423
+      ],
+      "between": [
+        10.005074677852603,
+        11.609674145526476
+      ],
+      "within": [
+        2.345335826091375,
+        2.7949121546079274
+      ],
+      "alpha": 0.09090909090909091
+    }
+  ],
+  "descriptive_scores": {
+    "1": {
+      "population_prior": {
+        "n": 64,
+        "macro_f1": 0.9221666048696082,
+        "log_loss": 0.2557271825557802,
+        "brier": 0.12618748150101705
+      },
+      "document_exact_personal_reliability": {
+        "n": 64,
+        "macro_f1": 0.9221666048696082,
+        "log_loss": 0.2582200355953448,
+        "brier": 0.12750581494728858
+      },
+      "legacy_formula_same_policy": {
+        "n": 64,
+        "macro_f1": 0.9221666048696082,
+        "log_loss": 0.2582200355953251,
+        "brier": 0.1275058149472762
+      }
+    },
+    "2": {
+      "population_prior": {
+        "n": 64,
+        "macro_f1": 0.9221666048696082,
+        "log_loss": 0.2557271825557802,
+        "brier": 0.12618748150101705
+      },
+      "document_exact_personal_reliability": {
+        "n": 64,
+        "macro_f1": 0.9054510623476141,
+        "log_loss": 0.2576762201199316,
+        "brier": 0.12802490057949542
+      },
+      "legacy_formula_same_policy": {
+        "n": 64,
+        "macro_f1": 0.9054510623476141,
+        "log_loss": 0.2576762201199181,
+        "brier": 0.12802490057949217
+      }
+    },
+    "5": {
+      "population_prior": {
+        "n": 64,
+        "macro_f1": 0.9221666048696082,
+        "log_loss": 0.2557271825557802,
+        "brier": 0.12618748150101705
+      },
+      "document_exact_personal_reliability": {
+        "n": 64,
+        "macro_f1": 0.9221666048696082,
+        "log_loss": 0.2562760884441982,
+        "brier": 0.1263702018070566
+      },
+      "legacy_formula_same_policy": {
+        "n": 64,
+        "macro_f1": 0.9221666048696082,
+        "log_loss": 0.2562760884442269,
+        "brier": 0.12637020180707986
+      }
+    }
+  },
+  "boundary": "Public 2048 Hz GRABMyo forearm ring, two overlapping source-trained providers and same-user Day2-to-Day3 calibration. Selection uses Day2 labels, which were previously inspected; Day3 is descriptive, not prospective or own-device validation."
+}
