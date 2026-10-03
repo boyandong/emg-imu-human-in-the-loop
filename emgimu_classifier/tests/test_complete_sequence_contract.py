@@ -9,6 +9,26 @@ from pathlib import Path
 
 
 class CompleteSequenceContractTests(unittest.TestCase):
+    def test_dtw_medoid_is_middle_pattern_and_ignores_global_amplitude(self):
+        # Three constant, nonnegative envelope paths: the diagonal pattern has
+        # the smallest sum of normalized Euclidean distances to the two axes.
+        vectors = np.array([[1.,0.,0.,0.],[1.,1.,0.,0.],[0.,1.,0.,0.],
+                            [0.,0.,1.,0.]])
+        paths = np.repeat(vectors[:,None,:],32,axis=1)
+        batch = CompleteSequenceBatch(paths,32.,durations_seconds=np.ones(4),
+                                      full_coverage=True)
+        family = TemporalTemplateFamily(.1).fit(batch,np.array([0,0,0,1]))
+        middle = np.array([1/np.sqrt(2),1/np.sqrt(2),0.,0.])
+        np.testing.assert_allclose(family.templates_[0],np.repeat(middle[None,:],32,axis=0))
+        observed = family.transform(batch)
+        np.testing.assert_allclose(observed[1,0],0.,atol=1e-12)
+        np.testing.assert_allclose(observed[3,1],0.,atol=1e-12)
+        np.testing.assert_allclose(observed[[0,2],0],np.sqrt(2-np.sqrt(2)),atol=1e-7)
+        scaled = CompleteSequenceBatch(paths*7,32.,durations_seconds=np.ones(4),
+                                       full_coverage=True)
+        np.testing.assert_allclose(family.transform(scaled),observed,atol=1e-7)
+        self.assertEqual(family.feature_names,('F5b.dtw.0','F5b.dtw.1'))
+
     def test_cued_assembler_only_emits_contiguous_full_native_bouts(self):
         assembler = CuedSequenceAssembler(100., 4, max_duration_s=2.)
         first = np.ones((70, 4))

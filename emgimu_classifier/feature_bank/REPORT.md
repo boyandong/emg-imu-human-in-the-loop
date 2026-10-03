@@ -3764,7 +3764,9 @@ with contiguous native sample indices from marked start to marked end. It
 rejects gaps, overlaps, a wrong end marker, invalid samples and bouts shorter
 than one second before constructing `CompleteSequenceBatch`. This makes
 complete-bout DTW input auditable when a producer supplies trustworthy cue
-boundaries. It does not infer biological onset/offset or establish streaming
+boundaries. A four-path analytical test independently checks unique medoid
+selection, normalized DTW distance, amplitude invariance and class ordering.
+It does not infer biological onset/offset or establish streaming
 recognition accuracy.
 
 The F8 family-specific session summary now emits an actual per-channel Rest
