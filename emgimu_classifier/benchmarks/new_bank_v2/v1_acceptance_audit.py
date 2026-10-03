@@ -101,7 +101,14 @@ def build(pre: Path, goal: Path) -> dict:
                          "standalone screen and positive exact-trial fixed-Core "
                          "increments beyond uniform softening; inspected subjects "
                          "prevent prospective default promotion. "
-                         "Public F6 calibration metadata remain unverified.")
+                         "Strict public F6 calibration eligibility remains unproved.")
+            evidence += ("|benchmarks/new_bank_v3/EPN107_F6_ELIGIBILITY.json"
+                         "|benchmarks/new_bank_v3/epn107_f6_eligibility_probe.py"
+                         "|tests/test_epn107_f6_eligibility.py")
+            boundary += (" A complete 107-MAT EPN107 archive-schema census finds "
+                         "raw accel/gyro absent for 69 gForce users and no explicit "
+                         "anatomical forward-axis field for any device; this source "
+                         "cannot support strict F6 recognition claims.")
             evidence += ("|benchmarks/new_bank_v3/F7_AFFINE_FRESH_PROTOCOL.md"
                          "|benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json"
                          "|benchmarks/new_bank_v3/F7_AFFINE_FRESH_REPORT.md"

@@ -1,0 +1,45 @@
+{
+  "study": "EPN107 public archive F6 calibration eligibility, complete MAT schema census",
+  "public_record": "https://zenodo.org/records/19829636",
+  "archive_bytes": 998699553,
+  "archive_hash": {
+    "md5": "90da8bb6d94e72d8821ae1859b4b878f",
+    "sha256": "d49b0b40a5f5adc15272f23993452bc24671b6fc0ef6f858e21d318a9c115392"
+  },
+  "probe_sha256": "8601e15d203ddc9d1dc99aa308fccd23520233da8adb8c2fc1bfd0bafa7b4503",
+  "member_count": 107,
+  "device_count": {
+    "myo": 38,
+    "gForce": 69
+  },
+  "emg_sampling_rate_count": {
+    "gForce:500Hz": 69,
+    "myo:200Hz": 38
+  },
+  "raw_accel_and_gyro_member_count": {
+    "gForce:sync:False": 69,
+    "gForce:testing:False": 69,
+    "gForce:training:False": 69,
+    "myo:sync:True": 38,
+    "myo:testing:True": 38,
+    "myo:training:True": 38
+  },
+  "sync_binary_groundtruth_member_count": {
+    "gForce:True": 69,
+    "myo:True": 38
+  },
+  "distinct_structural_field_sets_per_device": {
+    "myo": 2,
+    "gForce": 2
+  },
+  "forward_axis_or_mounting_field_names": [],
+  "imu_rate_or_unit_field_names": [],
+  "requirements": {
+    "raw_three_axis_accel_gyro_for_all_devices": false,
+    "explicit_device_frame_anatomical_forward_axis": false,
+    "explicit_imu_units_or_rate_in_mat": false,
+    "binary_sync_label_is_not_anatomical_axis": true
+  },
+  "eligible_for_strict_calibrated_f6": false,
+  "boundary": "All 107 public MAT userData structures were examined without exporting personal values. The public record states 50 Hz IMU but does not supply an anatomical forward-axis protocol. Raw IMU and a binary synchronization label do not establish a measured/guided device-frame forward vector. Empty gForce raw accel/gyro arrays further restrict coverage. No F6 recognition performance is inferred."
+}

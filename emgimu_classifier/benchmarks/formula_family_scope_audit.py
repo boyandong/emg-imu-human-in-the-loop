@@ -116,11 +116,19 @@ def build() -> dict:
                            "to the fresh users22-31 readout, but public gesture transfer "
                            "still does not establish own-device/live reliability.")
         if family == "F6":
-            evidence += "|feature_bank/F6_PUBLIC_ELIGIBILITY.md"
+            evidence += ("|feature_bank/F6_PUBLIC_ELIGIBILITY.md"
+                         "|benchmarks/new_bank_v3/EPN107_F6_ELIGIBILITY.json"
+                         "|benchmarks/new_bank_v3/epn107_f6_eligibility_probe.py"
+                         "|tests/test_epn107_f6_eligibility.py")
             supported += (" A four-candidate public-source eligibility review "
-                          "checks raw IMU and anatomical-axis provenance before F6 use.")
-            unresolved += (" No reviewed public metadata yet proves the full "
-                           "neutral-plus-forward calibration contract.")
+                          "checks raw IMU and anatomical-axis provenance before F6 use. "
+                          "All 107 published EPN107 MAT schemas were then checked: "
+                          "38 Myo members have raw six-axis IMU, 69 gForce members "
+                          "have empty accel/gyro arrays in every subset.")
+            unresolved += (" The full EPN107 archive has no explicit "
+                           "device-frame anatomical forward-axis or IMU-unit fields; "
+                           "binary sync labels and quaternions do not replace them. "
+                           "Strict F6 native evaluation is ineligible here.")
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")
