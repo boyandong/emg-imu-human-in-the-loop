@@ -22,6 +22,8 @@ from emgimu.feature_bank.core import FeatureBatch
 from emgimu.feature_bank.new_bank_v2 import RestNoiseDetailV2
 from emgimu.feature_bank.spec_spatial_v3 import SPD_RIDGE, SpecSpdTangentV3
 
+from benchmarks.new_bank_v3.numeric_environment import fingerprint
+
 
 ROOT=Path(__file__).resolve().parent
 V2=ROOT.parent/"new_bank_v2"
@@ -139,6 +141,7 @@ def evaluate(data_root: Path) -> dict:
             "prediction_sha256":sha256(PREDICTIONS),"prediction_rows":len(rows),
             "feature_dimensions":{"F0v2":48,"F2c_spec":36},
             "scores":{"manus_session":manus_scores,"grab_unseen_user":grab_scores},
+            "numeric_environment":fingerprint(),
             "scope":protocol["boundary"]}
     RESULT.write_text(json.dumps(result,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({"rows":len(rows),

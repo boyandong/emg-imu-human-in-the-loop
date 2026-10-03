@@ -375,5 +375,48 @@
       }
     }
   },
+  "numeric_environment": {
+    "python": "3.13.9",
+    "python_implementation": "CPython",
+    "os": "Windows",
+    "architecture": "AMD64",
+    "packages": {
+      "numpy": "2.4.3",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.8.0",
+      "joblib": "1.5.3",
+      "threadpoolctl": "3.6.0"
+    },
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "prefix": "libscipy_openblas",
+        "version": "0.3.30",
+        "num_threads": 24
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "prefix": "libscipy_openblas",
+        "version": "0.3.31.dev",
+        "num_threads": 24
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "prefix": "vcomp",
+        "version": null,
+        "num_threads": 28
+      }
+    ],
+    "thread_controls": {
+      "PYTHONHASHSEED": null,
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null,
+      "NUMEXPR_NUM_THREADS": null
+    }
+  },
   "scope": "Public-data scope; no own-device 250 Hz, anatomical ring-order or live-recognition claim."
 }

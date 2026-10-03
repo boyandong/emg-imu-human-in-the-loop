@@ -3930,3 +3930,7 @@ uncentered V2 F2c experiments remain separate alternative-feature evidence.
 The 2026-10-03 numerical replay also aligns F2c's `1e-10` SPD ridge with its
 eigenvalue floor. A zero-variance source window now maps to tangent zero;
 all saved F2c probabilities were rerun without changing their frozen splits.
+The V3 F2c result files now capture their numerical-library and thread-backend
+versions at execution time, with a command to compare a future replay host.
+This strengthens reproducibility of these runs only; older environments remain
+unproven where they were not recorded.

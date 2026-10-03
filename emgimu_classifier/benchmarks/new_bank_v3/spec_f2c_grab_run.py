@@ -17,6 +17,8 @@ from emgimu.feature_bank.core import FeatureBatch
 from emgimu.feature_bank.new_bank_v2 import RestNoiseDetailV2
 from emgimu.feature_bank.spec_spatial_v3 import SPD_RIDGE, SpecSpdTangentV3
 
+from benchmarks.new_bank_v3.numeric_environment import fingerprint
+
 
 ROOT = Path(__file__).resolve().parent
 PROTOCOL_PATH = ROOT / "SPEC_F2C_GRAB_PROTOCOL.json"
@@ -106,7 +108,8 @@ def evaluate(data_root: Path) -> dict:
               "official_manifest_sha256": sha256(data_root / "SHA256SUMS.txt"),
               "source_reference_windows": source_batch.windows,
               "prediction_rows": len(rows), "feature_dimension": int(features.shape[1]),
-              "scores": scores, "boundary": PROTOCOL["boundary"]}
+              "scores": scores, "numeric_environment": fingerprint(),
+              "boundary": PROTOCOL["boundary"]}
     RESULT_PATH.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     return result
 

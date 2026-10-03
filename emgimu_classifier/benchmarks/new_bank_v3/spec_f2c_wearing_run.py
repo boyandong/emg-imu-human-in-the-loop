@@ -16,6 +16,8 @@ from emgimu.datasets.electrode_shift import PATH_RE
 from emgimu.feature_bank.new_bank_v2 import RestNoiseDetailV2
 from emgimu.feature_bank.spec_spatial_v3 import SPD_RIDGE, SpecSpdTangentV3
 
+from benchmarks.new_bank_v3.numeric_environment import fingerprint
+
 
 ROOT = Path(__file__).resolve().parent
 V2 = ROOT.parent / "new_bank_v2"
@@ -92,6 +94,7 @@ def evaluate() -> dict:
               "prediction_sha256": sha256(PREDICTIONS), "prediction_rows": len(rows),
               "feature_dimensions": {"F0v2": 48, "F2c_spec": 36},
               "split_trial_ids": partitions, "scores": scores,
+              "numeric_environment": fingerprint(),
               "boundary": protocol["boundary"]}
     RESULT.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     for phase in ("validation", "final"):

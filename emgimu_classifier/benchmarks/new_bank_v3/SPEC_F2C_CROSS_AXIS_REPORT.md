@@ -10,6 +10,13 @@ Its numerical revision uses a `1e-10` SPD ridge matching the matrix eigensystem
 floor, so a zero-variance source window maps to its own tangent origin. The
 earlier `1e-12` ridge and results remain recoverable at Git commit `1f1a2bf`;
 this revision changes no trials, classifier or decision rule.
+Each result JSON now stores the Python, NumPy, SciPy, scikit-learn, joblib and
+threadpoolctl versions, BLAS/OpenMP backend identities and thread settings
+observed in that run. From `emgimu_classifier`, run
+`python -m benchmarks.new_bank_v3.numeric_environment` to reject an unlike
+current numerical environment before attempting byte-level replay. This does
+not establish the environments of earlier experiments or guarantee bitwise
+identity across different hardware.
 The [six-cell table](SPEC_F2C_CROSS_AXIS_CELLS.csv), [guard audit](SPEC_F2C_CROSS_AXIS_AUDIT.json), and saved [wearing](SPEC_F2C_WEARING_PREDICTIONS.csv) and [transfer](SPEC_F2C_TRANSFER_PREDICTIONS.csv) probabilities permit independent trial-level readback.
 
 | Axis and phase | Trials | F0 F1 | F0+F2c F1 | F0 loss | F0+F2c loss |
