@@ -1,0 +1,56 @@
+{
+  "status": "descriptive_feature_only",
+  "protocol_sha256": "0e60760c580774c4eb9078f1ce77035979853ab9192fc763144577b1f2275d9c",
+  "parent_f9_protocol_sha256": "519d3afb0ef6cfcd350c6e7f73737d1e07c6ef74607fe0e339e6b9b83ee942f6",
+  "source_hdf5_sha256": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479"
+  },
+  "source_windows": 849,
+  "source_rest_windows": 213,
+  "pooled_source_thresholds": [
+    464.77327433025835,
+    385.26139070606234,
+    298.92956868362427,
+    383.2838476112366,
+    424.145789528513,
+    386.22533774642943,
+    386.4875336654663,
+    393.76020466384887
+  ],
+  "rest_only_thresholds": [
+    110.33162072153091,
+    91.0198104768753,
+    117.7375834610939,
+    115.18321366061195,
+    135.10642039413452,
+    154.29276013011932,
+    178.57074876317978,
+    178.24999130634964
+  ],
+  "difference_rows": 847,
+  "difference_csv_sha256": "c2b6cbe1b43240478822c9881580005bb326c71b445d7e2b7b4404f2ecdc7d21",
+  "evaluation": {
+    "S03": {
+      "windows": 416,
+      "unique_trials": 140,
+      "threshold_sensitive_fraction": 0.9254807692307693,
+      "mean_rest_minus_base": {
+        "zc": 77.4110576923077,
+        "ssc": 85.56971153846153,
+        "wamp": 109.30288461538461
+      }
+    },
+    "S04": {
+      "windows": 431,
+      "unique_trials": 144,
+      "threshold_sensitive_fraction": 0.925754060324826,
+      "mean_rest_minus_base": {
+        "zc": 71.97911832946636,
+        "ssc": 79.63805104408353,
+        "wamp": 103.77958236658932
+      }
+    }
+  },
+  "boundary": "One participant, four sessions on one date; S01/S02 collection readiness limitations and prior S04 inspection. Feature-only descriptive source-frozen replay, not a classifier gain, independently fitted threshold policy or own-device validation."
+}

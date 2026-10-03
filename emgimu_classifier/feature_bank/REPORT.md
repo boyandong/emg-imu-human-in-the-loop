@@ -3973,3 +3973,13 @@ then evaluates disjoint 1/2/5-shot calibration and repetition-6/7 trials on
 Day3. Personal weights do not improve Day3 log loss or Brier at any budget;
 no default fusion change is justified. Day3 was previously inspected and is
 descriptive, not prospective validation.
+
+# F0 Rest-only noise threshold follow-up (2026-10-03)
+
+The [source-frozen Song F0 replay](../benchmarks/song_real8/F0_REST_NOISE_REPORT.md)
+fits the document's ZC/SSC/WAMP noise thresholds to 213 Rest windows in S01/S02
+and compares them with the pooled-source reference on 847 read-only S03/S04
+windows. About 92.5% of windows have changed threshold-sensitive counts; the
+threshold-free RMS/MAV/WL coordinates are identical. This is feature-only
+evidence on one participant and one day. It does not establish a recognition
+gain or change the default F0 route.

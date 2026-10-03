@@ -1,0 +1,14 @@
+{
+  "name": "song_real8_f0_rest_noise_source_frozen_v1",
+  "frozen_before_run": "2026-10-03",
+  "parent_f9_protocol_sha256": "519d3afb0ef6cfcd350c6e7f73737d1e07c6ef74607fe0e339e6b9b83ee942f6",
+  "source_sessions": ["S01", "S02"],
+  "evaluation_sessions": ["S03", "S04"],
+  "sample_rate_hz": 250,
+  "window_samples": 50,
+  "channels": 8,
+  "rest_label": "neutral",
+  "source_threshold_rules": ["all_source_windows_reference", "rest_only_document_candidate"],
+  "readout": "Frozen source channel thresholds; held-out per-window sums of ZC, SSC and WAMP counts under each threshold; count differences and finite 48-dimensional F0 output. No target labels or windows choose thresholds.",
+  "boundary": "One participant, four sessions on one date; S01/S02 collection readiness limitations and prior S04 inspection. Feature-only descriptive source-frozen replay, not a classifier gain, independently fitted threshold policy or own-device validation."
+}
