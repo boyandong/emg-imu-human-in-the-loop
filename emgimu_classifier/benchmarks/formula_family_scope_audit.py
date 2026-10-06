@@ -58,6 +58,12 @@ def build() -> dict:
         raise AssertionError("source formula review inventory is incomplete")
     rows = []
     for family, status, evidence, supported, unresolved in REVIEWS:
+        if family == "F8":
+            evidence += "|tests/test_session_shift_summary.py|src/emgimu/feature_bank/session_shift_summary.py"
+            supported += (" The family-summary API retains immutable long-term trial "
+                          "identities and rejects any calibration/source overlap or "
+                          "missing provenance. Independent tests verify equal trial "
+                          "mass with unequal window counts and unchanged source state.")
         if family == "F1":
             evidence += "|tests/test_f1_scale_pattern_oracle.py"
             supported += (" An independent eight-channel RMS/global-RMS oracle "

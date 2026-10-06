@@ -123,6 +123,14 @@ def build(pre: Path, goal: Path) -> dict:
                          "five-shot primary guards for fixed Core+F7 on 1,200 disjoint trials; "
                          "7/10 users gain log loss. This is public-cohort evidence only, "
                          "and does not validate the user's montage or live deployment.")
+        if ident in ("GOAL-03", "GOAL-20"):
+            evidence += "|tests/test_session_shift_summary.py|src/emgimu/feature_bank/session_shift_summary.py"
+            evidence = "|".join(dict.fromkeys(evidence.split("|")))
+            boundary += (" The F8 family-summary API retains immutable source "
+                         "trial identities and rejects calibration overlap, "
+                         "invalid trial contracts and missing provenance. "
+                         "Independent leakage and unequal-window trial-mass "
+                         "tests preserve the source state.")
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]
