@@ -484,9 +484,26 @@
   ],
   "fixture_sections": 32,
   "suite_exit_code": 0,
-  "suite_summary": "100 passed, 7 subtests passed in 2.27s",
+  "additional_clause_fixtures": [
+    {
+      "clause_start": 2399,
+      "clause_end": 2474,
+      "title": "Personal feature reliability and population shrinkage (D/E)",
+      "test_sha256": {
+        "tests/test_document_reliability_v2.py": "b3929ae6d3bc59e7369d23ebeabc3adf324790b2e554257a63f2ffc65c81faaf",
+        "tests/test_document_reliability_direct_oracle.py": "cd53984d8d4886b45efb3613061339f783c1e714aec1265e9a9024e59c201203"
+      },
+      "reviewed_source_sha256": {
+        "src/emgimu/feature_bank/document_reliability_v2.py": "34ac2da3bd1f380098320fd1f1a7c15ba2567ec6da67dc86150876a7263728a4"
+      },
+      "arithmetic_status": "reviewed_fixture_suite_passed",
+      "scientific_completion": false,
+      "boundary": "Known three-class nonzero distances verify B/W, additive epsilon, temperature2, six independent trials and population shrinkage. Does not prove source-CV parameter selection or predictive benefit."
+    }
+  ],
+  "suite_summary": "104 passed, 7 subtests passed in 2.35s",
   "inventory_sha256": "2c88c69148c47730251e69a0a6f41f28538f39a6eb3dbed40349960dd9e76776",
-  "generator_sha256": "17b2287b13a9da55bec58ac69b35c485559c8b6b4d6a92cef9d2ce6e3f2a733e",
+  "generator_sha256": "1d8f8509a0df045d3f051e84cb8003e506d667b075e8daed5ce783387e83ec37",
   "completion_proven": false,
   "boundary": "Equation fixtures and source hashes are review evidence, not an efficacy acceptance. F6 native body-frame, physical electrode order and F9 physical faults remain deferred; F7 high-dimensional budget, autonomous bout boundaries and effective F8 routing are separate tasks."
 }

@@ -55,7 +55,13 @@ def run():
     with table.open(encoding='utf-8', newline='') as stream:
         sections = list(csv.DictReader(stream))
     assert {int(s['section_start']) for s in sections if s['mapping'] != 'context_heading'} == set(EVIDENCE)
-    files = sorted({f'tests/{name}' for names in EVIDENCE.values() for name in names})
+    additional = {'clause_start': 2399, 'clause_end': 2474,
+                  'title': 'Personal feature reliability and population shrinkage (D/E)',
+                  'test_paths': ['tests/test_document_reliability_v2.py',
+                                 'tests/test_document_reliability_direct_oracle.py'],
+                  'source_paths': ['src/emgimu/feature_bank/document_reliability_v2.py']}
+    files = sorted({f'tests/{name}' for names in EVIDENCE.values() for name in names}
+                   | set(additional['test_paths']))
     for path in files:
         if not (ROOT / path).is_file():
             raise FileNotFoundError(path)
@@ -81,6 +87,13 @@ def run():
     payload = {
         'schema': 'formula_numerical_acceptance_v1', 'sections': rows,
         'fixture_sections': len(EVIDENCE), 'suite_exit_code': result.returncode,
+        'additional_clause_fixtures': [{
+            'clause_start': additional['clause_start'], 'clause_end': additional['clause_end'],
+            'title': additional['title'],
+            'test_sha256': {p: sha(ROOT/p) for p in additional['test_paths']},
+            'reviewed_source_sha256': {p: sha(ROOT/p) for p in additional['source_paths']},
+            'arithmetic_status': 'reviewed_fixture_suite_passed', 'scientific_completion': False,
+            'boundary': 'Known three-class nonzero distances verify B/W, additive epsilon, temperature2, six independent trials and population shrinkage. Does not prove source-CV parameter selection or predictive benefit.'}],
         'suite_summary': result.stdout.strip().splitlines()[-1],
         'inventory_sha256': sha(table), 'generator_sha256': sha(Path(__file__)),
         'completion_proven': False,
