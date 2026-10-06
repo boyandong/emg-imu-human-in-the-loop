@@ -1,0 +1,14 @@
+{
+  "version": "detected-g5-unibo-v1",
+  "dtw_chain_sha256": "b15a1ab102bb2369f79c03e20b968fc3dc43055454cfd678c9868c7ac13a07dd",
+  "boundary_protocol_sha256": "03e211e0d85e32a796222a2edb7afc95f22419ad86068132303cad0db406c550",
+  "source_protocol_sha256": "551177333493b467f5ee64d8badcea27b71a8f42a671bf7da13a8b3de100ddf6",
+  "source_root": "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_unibo_sequence_temporal_validation_20260916",
+  "source_state_sha256": "8d26130260b26802a06aa2e7593c73b879e08d37bf65f52a922c9d1667d9a658",
+  "source_metadata_sha256": "6d0d7a1792bdd2e92631a6f39aa4092a6e4ace14d91a28185fb360acc3e45b4b",
+  "selection": "Same1257 detected intervals and same750 supported matched references from the locked DTW chain, no new boundary/classifier selection.",
+  "model": "Existing source-only G5 feature/scaler/classifier per user, final source Days1-5 state, source Day5 temperature. No fitting or parameter change.",
+  "aggregation": "Mean of all complete nonoverlapping40-sample/200ms windows within the native detected interval; remainder reported, no padding. Match existing source training exactly.",
+  "controls": "Same-reference G5 oracle intervals and the saved detected/oracle DTW predictions. Retain every unsupported and unmatched event separately.",
+  "scope": "Previously inspected public four-channel/200Hz Day6 continuous diagnostic. No new training, live8-channel deployment, threshold selection, or default promotion."
+}
