@@ -26,8 +26,8 @@ def test_delivery_sources_schemas_and_unavailable_results():
     assert manifest['generator_sha256'] == sha(ROOT/'benchmarks/new_bank_v3/export_current_delivery.py')
     for path, digest in manifest['source_sha256'].items():
         assert sha(ROOT/path) == digest
-    expected = {'feature_family_results.csv': 303, 'conditional_incremental.csv': 122,
-                'error_complementarity.csv': 122, 'calibration_curve.csv': 303,
+    expected = {'feature_family_results.csv': 387, 'conditional_incremental.csv': 206,
+                'error_complementarity.csv': 206, 'calibration_curve.csv': 387,
                 'budget_eligibility.csv': 150, 'boundary_detection.csv': 2}
     for name, count in expected.items():
         table = rows(name)

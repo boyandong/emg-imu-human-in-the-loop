@@ -68,11 +68,19 @@ def build(pre: Path, goal: Path) -> dict:
                          "|feature_bank/delivery/new_bank_v3/MANIFEST.json"
                          "|benchmarks/new_bank_v3/export_current_delivery.py"
                          "|tests/test_current_v3_delivery.py")
-            boundary += (" Current V3 adds 1,002 hash-bound table rows with an additive "
+            boundary += (" Current V3 adds 1,338 hash-bound table rows with an additive "
                          "version index; paired alternatives are explicitly distinguished "
                          "from added-feature increments, DTW probability metrics are N/A, "
                          "and 130 insufficient independent-trial budgets remain ineligible.")
         if ident in ("GOAL-03", "GOAL-20"):
+            evidence += ("|benchmarks/new_bank_v3/f8_calibrated_manus_v2.py"
+                         "|benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json"
+                         "|tests/test_f8_calibrated_manus_v2_delivery.py")
+            boundary += (" A separate F8 V2 source-user OOF temperature-calibrated "
+                         "fusion preserves target split identities; validation loss "
+                         "improves but descriptive-final loss worsens versus raw V1, "
+                         "so this is no stable default improvement.")
             evidence += ("|src/emgimu/feature_bank/autonomous_g5_stream_v1.py"
                          "|tests/test_autonomous_g5_stream_v1.py"
                          "|benchmarks/new_bank_v3/autonomous_g5_stream_replay.py"

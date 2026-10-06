@@ -1,8 +1,9 @@
 {
   "schema": "current_v3_canonical_delivery_v1",
-  "generator_sha256": "f983e27313362a95deaa059b3d72b072c5b7b0180cca96d7791fde4095d96a8c",
+  "generator_sha256": "912259137e39e7d0b54f45c2aa9886fe2013e2ef5e9f9821b7e8ba10db0f597e",
   "source_sha256": {
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
+    "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
     "benchmarks/new_bank_v3/MAHALANOBIS_EPN_BUDGET_V1_RESULTS.json": "0f58780fc3023df1ff39fdaca1d918b5120d34839a7d416de32c8028053ce44d",
     "benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_RESULTS.json": "3ecf34f3713f473045d1778fea63a910ac8f1fa71b692983c8dcc90970048a69",
     "benchmarks/new_bank_v3/AUTONOMOUS_UNIBO_V1_RESULTS.json": "5799c215e7d3379054996847d95fd92e075f0422cfec866343c24a6171ba0400",
@@ -10,20 +11,20 @@
   },
   "tables": {
     "feature_family_results.csv": {
-      "rows": 303,
-      "sha256": "455ae769955f398dbaf06dbf6760bc4cc2bd802f6c58d4a0cd7c29f6a9293145"
+      "rows": 387,
+      "sha256": "f7084fe56c4c69e033b072c64baef812ebe46e235d2bdd9e6b46dfe254fd09fd"
     },
     "conditional_incremental.csv": {
-      "rows": 122,
-      "sha256": "f4361ba5465a4d1dbf2f66705e7642c9e3533de8bfe549923ace9555c84cf268"
+      "rows": 206,
+      "sha256": "193388268e353984dd9b5893d41a0cde3d4d9e007985c708d453aed250326557"
     },
     "error_complementarity.csv": {
-      "rows": 122,
-      "sha256": "02eca2886c8d4ae78ec5055e18806882e2257885c8c81e50ae20e75465daeb5a"
+      "rows": 206,
+      "sha256": "573cba0c30fa2f662ff8b6e4b93a34b7ec72765eacb9ae4b07b5fc5619edb221"
     },
     "calibration_curve.csv": {
-      "rows": 303,
-      "sha256": "348da87e5ba19f69bac7ee9bea9ae9043779ea1e7fb283cb60f16cb0683a0ae4"
+      "rows": 387,
+      "sha256": "160775ae4633b51b5b8ea376190035923bf938fced409fbbd970790f71b68b49"
     },
     "budget_eligibility.csv": {
       "rows": 150,

@@ -72,19 +72,22 @@ def export():
                 delta[output] = z-x if x != 'N/A' and z != 'N/A' else 'N/A'
             incremental.append({**context, 'core_bank': a, 'added_family': b,
                                 'comparison_kind': 'paired_alternative_not_concatenated_increment', **delta})
-    name = 'F8_ROUTER_MANUS_V1_RESULTS.json'; f8 = read(name); source = (HERE/name).relative_to(ROOT).as_posix()
-    for phase in ('validation', 'descriptive_final'):
-        for shots in (1, 2):
-            selected = [b for b in f8['blocks'] if b['phase'] == phase and b['shots'] == shots]
-            for user in ['ALL']+sorted({b['user'] for b in selected}):
-                group = selected if user == 'ALL' else [b for b in selected if b['user'] == user]
-                y = np.concatenate([b['labels'] for b in group])
-                arms = {}
-                for arm in ('TD24', 'uniform', 'F8'):
-                    p = np.concatenate([b['probabilities'][arm] for b in group]); arms[arm] = (p.argmax(axis=1), p)
-                add_group('f8_router_manus_v1', source, 'sEMG-MANUS', user, phase, shots, 'frozen_evaluation_trials',
-                          arms, y, 6, {'classes': 6, 'ontology': 'six native finger-flexion gestures',
-                          'scope': f8['scope'], 'target_calibration_disjoint': True, 'TD24_is_document_F0': False})
+    for name, run_id in [('F8_ROUTER_MANUS_V1_RESULTS.json', 'f8_router_manus_v1'),
+                         ('F8_CALIBRATED_MANUS_V2_RESULTS.json', 'f8_calibrated_manus_v2')]:
+        f8 = read(name); source = (HERE/name).relative_to(ROOT).as_posix()
+        for phase in ('validation', 'descriptive_final'):
+            for shots in (1, 2):
+                selected = [b for b in f8['blocks'] if b['phase'] == phase and b['shots'] == shots]
+                for user in ['ALL']+sorted({b['user'] for b in selected}):
+                    group = selected if user == 'ALL' else [b for b in selected if b['user'] == user]
+                    y = np.concatenate([b['labels'] for b in group])
+                    arms = {}
+                    for arm in ('TD24', 'uniform', 'F8'):
+                        p = np.concatenate([b['probabilities'][arm] for b in group]); arms[arm] = (p.argmax(axis=1), p)
+                    add_group(run_id, source, 'sEMG-MANUS', user, phase, shots, 'frozen_evaluation_trials',
+                              arms, y, 6, {'classes': 6, 'ontology': 'six native finger-flexion gestures',
+                              'scope': f8['scope'], 'target_calibration_disjoint': True,
+                              'source_oof_temperature_calibrated': run_id.endswith('v2'), 'TD24_is_document_F0': False})
     name = 'MAHALANOBIS_EPN_BUDGET_V1_RESULTS.json'; md = read(name); source = (HERE/name).relative_to(ROOT).as_posix()
     for block in md['blocks']:
         eligibility.append({'dataset': 'EPN612', 'subject': block['user'], 'feature_family': block['family'],

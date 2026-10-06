@@ -931,3 +931,7 @@ emgimu_classifier/benchmarks/new_bank_v3/autonomous_g5_stream_replay.py -text -e
 emgimu_classifier/benchmarks/new_bank_v3/AUTONOMOUS_G5_STREAM_V1_RESULTS.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_document_reliability_direct_oracle.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_formula_reliability_register_delivery.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/f8_calibrated_manus_v2.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_PROTOCOL.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_f8_calibrated_manus_v2_delivery.py -text -eol whitespace=cr-at-eol

@@ -1,0 +1,38 @@
+{
+  "version": "f8-calibrated-manus-v2",
+  "archive": "D:\\emg-imu-benchmarks\\data\\raw\\semg_manus\\semg-manus-dataset-v1.zip",
+  "archive_sha256": "2d9e1df613485b9a4afe9a5a71010ca84e75a521b596f836a195b5eaf3dc1f29",
+  "parent_sha256": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
+  "users": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "providers": [
+    "TD24",
+    "pattern",
+    "SPD",
+    "log_bands"
+  ],
+  "temperature_candidates": [
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    2.0,
+    3.0,
+    4.0
+  ],
+  "source": "Session1 only; leave one source user out. Feature family and scaler/classifier fit only other source users in each fold. Equal trial-mean coordinates.",
+  "selection": "Minimum pooled source-OOF log loss per provider; ties prefer nearest log-temperature to zero, then smaller temperature. No target calibration/evaluation labels for temperature selection.",
+  "readout": "Apply temperatures to saved full-source provider probabilities. Same24 target calibration/evaluation blocks and same frozen F8 weights; checked identity and class-axis fusion.",
+  "classifier_C": 1.0,
+  "max_iter": 5000,
+  "seed": 20261006,
+  "scope": "Previously inspected MANUS eight-channel sessions, retrospective versioned calibrated routing comparison. TD24 is not Rest-fitted document F0. No own-device or default-promotion claim."
+}

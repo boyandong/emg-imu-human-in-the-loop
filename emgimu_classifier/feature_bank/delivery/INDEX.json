@@ -50,6 +50,7 @@
     "benchmarks/new_bank_v3/F7_AFFINE_EPN/results.json": "7dac99d090b55c8fe2bc9c5cedbe9212619562ff63f0a5a1fbc9156c6b4c5ac0",
     "benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json": "73ca953e2b4f0f77c5716e712ce26b9923c8ca80d9a7e6621f2cb7e3b2e62ebd",
     "benchmarks/new_bank_v3/F7_DOCUMENT_ANCHOR_RESULTS.json": "ab8873c1fd49a43837b6eb598ba85ab9574bd39635d9d29612ca976b1771ccef",
+    "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
     "benchmarks/new_bank_v3/F8_CHECKED_FUSION_V2_RESULTS.json": "ab0251d43dcca82a417b68756ef5bc44e743776cd37021f5c857fc3e9a351f00",
     "benchmarks/new_bank_v3/F8_DOCUMENT_MANUS_RESULTS.json": "fe3d332cae98cdf9c94c7eeaa6dbe34e9cb1b485249e3fbaa8352f175e23ce58",
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
