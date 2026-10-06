@@ -135,7 +135,18 @@ def build(pre: Path, goal: Path) -> dict:
                          "24 six-class 180-dimensional descriptors; it is not a "
                          "predictive routing gain.")
             boundary=boundary.replace('Sixty-six reviewed formula/source rows',
-                'Seventy-five reviewed formula/source rows')
+                'Seventy-six reviewed formula/source rows')
+            evidence += ("|src/emgimu/feature_bank/document_scale_v3.py"
+                         "|tests/test_document_scale_v3.py"
+                         "|tests/test_f1_scale_grab_delivery.py"
+                         "|benchmarks/new_bank_v3/F1_SCALE_GRAB_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/F1_SCALE_GRAB_RESULTS.json")
+            boundary += (" Separate F1 V3 follows the additive-epsilon "
+                         "RMS/global-RMS formula, with ordinary/zero/near-zero "
+                         "independent numeric oracles. Log scale stays in a "
+                         "separate context API and Document F8 uses these exact "
+                         "coordinates. A frozen GRAB unseen-user matched "
+                         "increment loses validation/final F1/loss; no default change.")
             evidence += ("|src/emgimu/feature_bank/document_path_v3.py"
                          "|tests/test_document_path_v3.py"
                          "|tests/test_f5_path_unibo_delivery.py"

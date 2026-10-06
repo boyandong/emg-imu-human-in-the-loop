@@ -9,6 +9,7 @@ import numpy as np
 from .activation_profile import trial_weights
 from .affine_spd_anchor import document_spd_matrices, affine_spd_distance
 from .session_shift_summary import FamilySessionShiftSummary
+from .document_scale_v3 import document_activation_coordinates
 
 
 class DocumentSessionDescriptorV3(FamilySessionShiftSummary):
@@ -40,6 +41,7 @@ class DocumentSessionDescriptorV3(FamilySessionShiftSummary):
         profiles=super()._profiles(batch,labels,trials)
         y,ids=self._trial_contract(batch,labels,trials)
         covariance=document_spd_matrices(batch.emg)
+        pattern,log_scale=document_activation_coordinates(batch.emg)
         observations=self.quality_.transform(batch)
         # Same source-fixed relative quality rule as QualityFamily. No physical
         # fault attribution is inferred from these scores.
@@ -49,6 +51,8 @@ class DocumentSessionDescriptorV3(FamilySessionShiftSummary):
         for label in profiles:
             mask=y==label;weights=trial_weights(ids[mask]);weights/=weights.sum()
             profiles[label]['covariance']=np.tensordot(weights,covariance[mask],axes=(0,0))
+            profiles[label]['pattern']=np.tensordot(weights,pattern[mask],axes=(0,0))
+            profiles[label]['log_scale']=np.dot(weights,log_scale[mask,0])
             profiles[label]['channel_quality']=np.tensordot(weights,quality[mask],axes=(0,0))
             if 'ring' in profiles[label]:
                 # F3a RLCS only, rather than the bundled CES/ringcov coordinates.

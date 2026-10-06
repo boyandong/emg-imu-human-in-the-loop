@@ -1,6 +1,6 @@
 {
   "completion_proven": false,
-  "reviewed_rows": 75,
+  "reviewed_rows": 76,
   "scope": "reviewed selected formula/API boundaries with exact source hashes and symbol spans; not exhaustive document acceptance",
   "fixture": "synthetic16 windows,40 samples,8channels,200Hz,4classes; IMU10samples and2 oracle postures only for dimension checks",
   "warning": "whole-class fixture dimensions are not subblock dimensions; synthetic dimension/immutability checks do not prove native topology or scientific validity",
@@ -981,6 +981,21 @@
         "F4v3.cepstral3.std",
         "F4v3.cepstral4.mean",
         "F4v3.cepstral4.std"
+      ],
+      "finite": true,
+      "source_immutable": true
+    },
+    "DocumentScalePatternV3": {
+      "fixture_dimension": 8,
+      "names": [
+        "F1v3.rms_pattern.ch1",
+        "F1v3.rms_pattern.ch2",
+        "F1v3.rms_pattern.ch3",
+        "F1v3.rms_pattern.ch4",
+        "F1v3.rms_pattern.ch5",
+        "F1v3.rms_pattern.ch6",
+        "F1v3.rms_pattern.ch7",
+        "F1v3.rms_pattern.ch8"
       ],
       "finite": true,
       "source_immutable": true

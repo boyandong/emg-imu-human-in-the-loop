@@ -49,6 +49,7 @@ def run(archive,processed,output):
         raise AssertionError('Unexpected native descriptor inventory')
     root=Path(__file__).resolve().parents[2]
     evidence=['src/emgimu/feature_bank/document_session_v3.py',
+              'src/emgimu/feature_bank/document_scale_v3.py',
               'src/emgimu/feature_bank/session_shift_summary.py',
               'src/emgimu/feature_bank/spec_spatial_v3.py',
               'src/emgimu/feature_bank/families.py',

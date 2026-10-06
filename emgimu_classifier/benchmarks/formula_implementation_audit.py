@@ -42,10 +42,13 @@ from emgimu.feature_bank.document_reliability_v2 import DocumentReliabilityWeigh
 from emgimu.feature_bank.document_session_v3 import DocumentSessionDescriptorV3
 from emgimu.feature_bank.document_spectral_v3 import DocumentSpectralStateV3
 from emgimu.feature_bank.document_path_v3 import DocumentTemporalTemplatesV3,DocumentPathSignatureV3
+from emgimu.feature_bank.document_scale_v3 import DocumentScalePatternV3
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
 # Exact historical mandatory reuse cannot be replaced by a conceptual candidate.
 REVIEWS = (
+ ('F1_document_v3','F1. Scale–Pattern / X1-H','document_scale_v3.py','DocumentScalePatternV3','analytical_native_negative',
+  'Channel RMS/(global RMS+epsilon), with log(global RMS+epsilon) exposed exclusively by a separate context API. Independent ordinary/zero/near-zero RMS oracles distinguish the legacy maximum-floor variant; sign invariance, source channel/rate and immutability checks pass. The additive epsilon attenuates patterns near zero and does not assert exact scale invariance there. Frozen GRAB 112/56/56 unseen-user matched F0v2 addition loses validation/final F1 and log loss; no default promotion. Document F8 V3 uses the same exact pattern/context coordinates.','C H coordinates; one separate activation-context coordinate'),
  ('F5b_document_v3','F5b. DTW / template distance','document_path_v3.py','DocumentTemporalTemplatesV3','analytical_native_limited',
   'Certified nonnegative complete-envelope inputs use per-time L2+epsilon. Source-only medoids retain explicit unique calibration bout IDs; evaluation rejects reuse, short/sparse inputs and changed channel/sample/rate contracts. Source-frozen warp band minimizes cumulative Euclidean cost, breaks exact ties by shortest path and divides by selected length. Independent exhaustive small-path, known medoid and near-zero normalization oracles pass; frozen UniBo source candidates and held-out complete-bout coordinates are replayed separately. No automatic onset or live claim.','H DTW distances'),
  ('F5c_document_v3','F5c. Low-order path signature（可选）','document_path_v3.py','DocumentPathSignatureV3','analytical_native_limited',
@@ -225,6 +228,7 @@ def build(document, output):
                     DocumentCesFamilyV3,
                     DocumentTemporalFormV3,
                     DocumentSpectralStateV3,
+                    DocumentScalePatternV3,
                     lambda:RestNoiseLocalDetailFamily(rest_label=2),DocumentCspFamily,
                     ScalePatternV1,RingLagV1,CorrelationSpectrumV1,FrequencyDirectionV1,
                     lambda: RestNoiseDetailV2(rest_label=0), TraceCovarianceV2,

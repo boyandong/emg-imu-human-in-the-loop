@@ -89,6 +89,19 @@ def build() -> dict:
                           "calibration splits yield 24 finite 180-dimensional descriptors, "
                           "with no evaluation windows or classifier fitting.")
         if family == "F1":
+            evidence += ("|src/emgimu/feature_bank/document_scale_v3.py"
+                         "|tests/test_document_scale_v3.py"
+                         "|tests/test_f1_scale_grab_delivery.py"
+                         "|benchmarks/new_bank_v3/F1_SCALE_GRAB_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/F1_SCALE_GRAB_RESULTS.json")
+            supported += (" Separate document F1 V3 follows the additive-epsilon "
+                          "RMS/global-RMS formula with ordinary/zero/near-zero "
+                          "numeric oracles and source-contract checks. Global "
+                          "log scale is available only through a separate context "
+                          "API; the matched GRAB increment adds eight H features.")
+            unresolved += (" The exact F1 V3 addition loses validation and "
+                           "descriptive-final F1/log loss; remains opt-in. "
+                           "Additive epsilon is not exact scale invariance near zero.")
             evidence += "|tests/test_f1_scale_pattern_oracle.py"
             supported += (" An independent eight-channel RMS/global-RMS oracle "
                           "confirms exact pattern values, scale invariance and "
