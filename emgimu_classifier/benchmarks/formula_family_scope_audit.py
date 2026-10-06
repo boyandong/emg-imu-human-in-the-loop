@@ -59,6 +59,23 @@ def build() -> dict:
     rows = []
     for family, status, evidence, supported, unresolved in REVIEWS:
         if family == "F5":
+            evidence += ("|src/emgimu/feature_bank/autonomous_bouts_v1.py"
+                         "|src/emgimu/feature_bank/detected_template_reader_v1.py"
+                         "|tests/test_autonomous_bouts_v1.py"
+                         "|tests/test_detected_template_reader_v1.py"
+                         "|tests/test_autonomous_continuous_unibo_v1_delivery.py"
+                         "|benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_RESULTS.json")
+            supported += (" Source-Day1-Rest-fitted causal onset/release detection "
+                          "is replayed on all 28 uninterrupted Day6 recordings: "
+                          "1236/1411 reference intervals matched, 1257 detections, "
+                          "precision .9833 and recall .8760. A separate DTW reader "
+                          "uses the entire detected native RMS path and explicitly "
+                          "marks estimated rather than certified boundaries.")
+            unresolved += (" Protocol intervals do not measure physiological "
+                           "onset; missed bouts and .23/.35-second onset/offset "
+                           "errors remain. This is retrospective boundary evidence, "
+                           "not a native classification gain or device test.")
             evidence += ("|src/emgimu/feature_bank/document_path_v3.py"
                          "|tests/test_document_path_v3.py"
                          "|tests/test_f5_path_unibo_delivery.py"
@@ -153,6 +170,21 @@ def build() -> dict:
             unresolved += (" The V3 F5 addition worsens GRAB validation/final F1 "
                            "and log loss and is not a full-bout or live detector.")
         if family == "F7":
+            evidence += ("|src/emgimu/feature_bank/trial_mahalanobis_v1.py"
+                         "|tests/test_trial_mahalanobis_v1.py"
+                         "|tests/test_mahalanobis_epn_budget_v1_delivery.py"
+                         "|benchmarks/new_bank_v3/MAHALANOBIS_EPN_BUDGET_V1_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/MAHALANOBIS_EPN_BUDGET_V1_RESULTS.json")
+            supported += (" Independent-trial Mahalanobis budgets are screened "
+                          "on previously inspected EPN users22-31 at 1/2/5/10/20 "
+                          "shots, with fixed evaluation trials across budgets. "
+                          "8-coordinate 10/20-shot models improve descriptive "
+                          "F1/loss over same-budget Euclidean anchors; windows "
+                          "cannot inflate the dimension+2 per-class trial guard.")
+            unresolved += (" 24/36-coordinate budgets remain ineligible rather "
+                           "than silently reduced or estimated from dependent "
+                           "windows. Larger native trial budgets and live accuracy "
+                           "are not established by this study.")
             evidence += ("|benchmarks/new_bank_v3/F7_AFFINE_EPN/results.json"
                          "|benchmarks/new_bank_v3/F7_AFFINE_EPN_REPORT.md"
                          "|benchmarks/new_bank_v3/F7_AFFINE_CORE_MATCHED/results.json"
@@ -178,6 +210,21 @@ def build() -> dict:
             unresolved += (" The older inspected-cohort limitation does not apply "
                            "to the fresh users22-31 readout, but public gesture transfer "
                            "still does not establish own-device/live reliability.")
+        if family == "F8":
+            evidence += ("|src/emgimu/feature_bank/session_router_v1.py"
+                         "|tests/test_session_router_v1.py"
+                         "|tests/test_f8_router_manus_v1_delivery.py"
+                         "|benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json")
+            supported += (" New F8 V3 drift/source-class-geometry routing is "
+                          "tested on 24 frozen MANUS one/two-shot blocks using "
+                          "identical TD24/pattern/SPD/log-band providers. Native "
+                          "weights, probabilities and paired metrics are retained; "
+                          "three of four pooled log-loss comparisons improve.")
+            unresolved += (" F1 changes are mixed and one loss comparison "
+                           "worsens. No stable F8 advantage or default promotion "
+                           "is established; TD24 omits unavailable Rest-noise "
+                           "threshold features and is not document six-block F0.")
         if family == "F6":
             evidence += ("|feature_bank/F6_PUBLIC_ELIGIBILITY.md"
                          "|benchmarks/new_bank_v3/EPN107_F6_ELIGIBILITY.json"

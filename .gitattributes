@@ -897,3 +897,4 @@ emgimu_classifier/tests/test_trial_mahalanobis_v1.py -text -eol whitespace=cr-at
 emgimu_classifier/benchmarks/new_bank_v3/mahalanobis_epn_budget_v1.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/MAHALANOBIS_EPN_BUDGET_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/MAHALANOBIS_EPN_BUDGET_V1_RESULTS.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_mahalanobis_epn_budget_v1_delivery.py -text -eol whitespace=cr-at-eol

@@ -64,6 +64,31 @@ def build(pre: Path, goal: Path) -> dict:
     rows = []
     for ident, doc, start, end, title, status, evidence, boundary in CLAUSES:
         if ident in ("GOAL-03", "GOAL-20"):
+            evidence += ("|feature_bank/FORMULA_NUMERICAL_ACCEPTANCE.json"
+                         "|benchmarks/formula_numerical_acceptance.py"
+                         "|benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_RESULTS.json"
+                         "|benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_PROTOCOL.json"
+                         "|tests/test_autonomous_continuous_unibo_v1_delivery.py"
+                         "|src/emgimu/feature_bank/detected_template_reader_v1.py"
+                         "|tests/test_detected_template_reader_v1.py"
+                         "|benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json"
+                         "|benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_PROTOCOL.json"
+                         "|tests/test_f8_router_manus_v1_delivery.py"
+                         "|benchmarks/new_bank_v3/MAHALANOBIS_EPN_BUDGET_V1_RESULTS.json"
+                         "|benchmarks/new_bank_v3/MAHALANOBIS_EPN_BUDGET_V1_PROTOCOL.json"
+                         "|tests/test_mahalanobis_epn_budget_v1_delivery.py")
+            boundary += (" A 32-section explicit arithmetic fixture register "
+                         "now records tested assertions separately from efficacy. "
+                         "A frozen source-Rest continuous UniBo onset/release "
+                         "screen obtains .9833 precision/.8760 recall; estimated "
+                         "full-path DTW readout never certifies oracle coverage. "
+                         "New four-provider MANUS F8 routing has mixed F1/loss "
+                         "changes, so remains opt-in. Independent-trial EPN "
+                         "Mahalanobis 8-coordinate 10/20-shot cases improve "
+                         "descriptive F1/loss; insufficient 24/36-coordinate "
+                         "budgets are explicitly rejected. Paused public body-frame, "
+                         "physical electrode order and physical-fault evidence "
+                         "remain separate, as do own-device claims.")
             evidence += "|tests/test_f1_scale_pattern_oracle.py"
             boundary += (" The versioned F1 RMS/global-RMS formula has an "
                          "independent eight-channel numeric oracle, with channel "
