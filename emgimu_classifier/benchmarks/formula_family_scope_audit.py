@@ -59,6 +59,21 @@ def build() -> dict:
     rows = []
     for family, status, evidence, supported, unresolved in REVIEWS:
         if family == "F5":
+            evidence += ("|benchmarks/new_bank_v3/DETECTED_DTW_UNIBO_V1_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/DETECTED_DTW_UNIBO_V1_RESULTS.json"
+                         "|tests/test_detected_dtw_unibo_v1_delivery.py")
+            supported += (" The estimated-boundary reader is now exercised in "
+                          "a native continuous recording chain against the same "
+                          "source twenty-candidate DTW medoids. Of 850 supported "
+                          "active references, 750 match detections; 340 are "
+                          "classified correctly. On these same 750 references, "
+                          "oracle-boundary nearest-template accuracy is .4413 "
+                          "versus .4533 with estimated boundaries.")
+            unresolved += (" End-to-end supported-reference success is .40; "
+                           "486 matched unsupported gestures and 21 unmatched "
+                           "detections are separately retained. The standalone "
+                           "DTW gesture decision remains weak even with oracle "
+                           "boundaries, rather than establishing a live model.")
             evidence += ("|src/emgimu/feature_bank/autonomous_bouts_v1.py"
                          "|src/emgimu/feature_bank/detected_template_reader_v1.py"
                          "|tests/test_autonomous_bouts_v1.py"

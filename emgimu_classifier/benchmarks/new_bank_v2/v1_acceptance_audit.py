@@ -64,6 +64,16 @@ def build(pre: Path, goal: Path) -> dict:
     rows = []
     for ident, doc, start, end, title, status, evidence, boundary in CLAUSES:
         if ident in ("GOAL-03", "GOAL-20"):
+            evidence += ("|benchmarks/new_bank_v3/DETECTED_DTW_UNIBO_V1_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/DETECTED_DTW_UNIBO_V1_RESULTS.json"
+                         "|tests/test_detected_dtw_unibo_v1_delivery.py")
+            boundary += (" A complete continuous detected-bout-to-DTW chain "
+                         "now replays all 1257 intervals, without changing source "
+                         "medoids. Supported matched accuracy .4533 versus "
+                         "same-reference oracle accuracy .4413 exposes weak "
+                         "gesture separation; 340/850 end-to-end references "
+                         "succeed. Unsupported gestures and unmatched detections "
+                         "remain explicit, with no default promotion.")
             evidence += ("|feature_bank/FORMULA_NUMERICAL_ACCEPTANCE.json"
                          "|benchmarks/formula_numerical_acceptance.py"
                          "|benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_RESULTS.json"
