@@ -1,0 +1,11 @@
+{
+  "version": "detected-dtw-unibo-v1",
+  "boundary_result_sha256": "8af20ead1bdbbd8782d2ca1483f9ea8e9f4874a555ff267b0b60203d93b8ed2e",
+  "boundary_protocol_sha256": "03e211e0d85e32a796222a2edb7afc95f22419ad86068132303cad0db406c550",
+  "template_protocol_sha256": "551177333493b467f5ee64d8badcea27b71a8f42a671bf7da13a8b3de100ddf6",
+  "templates": "Same frozen twenty source candidates/user, five/class, source Days1-5. New document DTW medoids; no candidate reselection or target fitting.",
+  "readout": "Every saved detected native interval into the explicit estimated-boundary full-RMS-path reader. All four source classes including Rest; no forced active class, probability confidence or target label input.",
+  "scoring": "Score only one-to-one IoU>=.5 matched power-grip/two-finger-pinch/open references (native2/3/6 -> canonical2/1/3). Other native active gestures remain unsupported and are reported separately. Misses count in end-to-end reference success.",
+  "oracle_control": "Same matched reference intervals and same source DTW templates; whole interval RMS path, native labels used solely for evaluation/control boundaries.",
+  "scope": "Retrospective continuous Day6 public four-channel offline chain diagnostic. Previous boundaries/sessions inspected. No live eight-channel accuracy, calibrated fusion or default promotion."
+}
