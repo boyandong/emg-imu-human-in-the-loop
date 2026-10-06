@@ -880,3 +880,6 @@ emgimu_classifier/benchmarks/new_bank_v3/autonomous_unibo_v1.py -text -eol white
 emgimu_classifier/benchmarks/new_bank_v3/AUTONOMOUS_UNIBO_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/AUTONOMOUS_UNIBO_V1_RESULTS.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_autonomous_unibo_v1_delivery.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/autonomous_continuous_unibo_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_RESULTS.json -text -eol whitespace=cr-at-eol

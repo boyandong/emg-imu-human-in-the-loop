@@ -1,0 +1,302 @@
+{
+  "version": "autonomous_continuous_unibo_v1",
+  "archive": "D:\\emg-imu-benchmarks\\data\\raw\\unibo_inail\\unibo-inail-main.zip",
+  "archive_sha256": "e32f1649b7b9b775a6b03328fb862ebf21a18c7ca6b4d9abb50b7281caefbce3",
+  "members": {
+    "unibo-inail-semg-dataset-main/data/user_1_day_1_posture_1.mat": {
+      "user": 1,
+      "day": 1,
+      "posture": 1
+    },
+    "unibo-inail-semg-dataset-main/data/user_1_day_1_posture_2.mat": {
+      "user": 1,
+      "day": 1,
+      "posture": 2
+    },
+    "unibo-inail-semg-dataset-main/data/user_1_day_1_posture_3.mat": {
+      "user": 1,
+      "day": 1,
+      "posture": 3
+    },
+    "unibo-inail-semg-dataset-main/data/user_1_day_1_posture_4.mat": {
+      "user": 1,
+      "day": 1,
+      "posture": 4
+    },
+    "unibo-inail-semg-dataset-main/data/user_1_day_6_posture_1.mat": {
+      "user": 1,
+      "day": 6,
+      "posture": 1
+    },
+    "unibo-inail-semg-dataset-main/data/user_1_day_6_posture_2.mat": {
+      "user": 1,
+      "day": 6,
+      "posture": 2
+    },
+    "unibo-inail-semg-dataset-main/data/user_1_day_6_posture_3.mat": {
+      "user": 1,
+      "day": 6,
+      "posture": 3
+    },
+    "unibo-inail-semg-dataset-main/data/user_1_day_6_posture_4.mat": {
+      "user": 1,
+      "day": 6,
+      "posture": 4
+    },
+    "unibo-inail-semg-dataset-main/data/user_2_day_1_posture_1.mat": {
+      "user": 2,
+      "day": 1,
+      "posture": 1
+    },
+    "unibo-inail-semg-dataset-main/data/user_2_day_1_posture_2.mat": {
+      "user": 2,
+      "day": 1,
+      "posture": 2
+    },
+    "unibo-inail-semg-dataset-main/data/user_2_day_1_posture_3.mat": {
+      "user": 2,
+      "day": 1,
+      "posture": 3
+    },
+    "unibo-inail-semg-dataset-main/data/user_2_day_1_posture_4.mat": {
+      "user": 2,
+      "day": 1,
+      "posture": 4
+    },
+    "unibo-inail-semg-dataset-main/data/user_2_day_6_posture_1.mat": {
+      "user": 2,
+      "day": 6,
+      "posture": 1
+    },
+    "unibo-inail-semg-dataset-main/data/user_2_day_6_posture_2.mat": {
+      "user": 2,
+      "day": 6,
+      "posture": 2
+    },
+    "unibo-inail-semg-dataset-main/data/user_2_day_6_posture_3.mat": {
+      "user": 2,
+      "day": 6,
+      "posture": 3
+    },
+    "unibo-inail-semg-dataset-main/data/user_2_day_6_posture_4.mat": {
+      "user": 2,
+      "day": 6,
+      "posture": 4
+    },
+    "unibo-inail-semg-dataset-main/data/user_3_day_1_posture_1.mat": {
+      "user": 3,
+      "day": 1,
+      "posture": 1
+    },
+    "unibo-inail-semg-dataset-main/data/user_3_day_1_posture_2.mat": {
+      "user": 3,
+      "day": 1,
+      "posture": 2
+    },
+    "unibo-inail-semg-dataset-main/data/user_3_day_1_posture_3.mat": {
+      "user": 3,
+      "day": 1,
+      "posture": 3
+    },
+    "unibo-inail-semg-dataset-main/data/user_3_day_1_posture_4.mat": {
+      "user": 3,
+      "day": 1,
+      "posture": 4
+    },
+    "unibo-inail-semg-dataset-main/data/user_3_day_6_posture_1.mat": {
+      "user": 3,
+      "day": 6,
+      "posture": 1
+    },
+    "unibo-inail-semg-dataset-main/data/user_3_day_6_posture_2.mat": {
+      "user": 3,
+      "day": 6,
+      "posture": 2
+    },
+    "unibo-inail-semg-dataset-main/data/user_3_day_6_posture_3.mat": {
+      "user": 3,
+      "day": 6,
+      "posture": 3
+    },
+    "unibo-inail-semg-dataset-main/data/user_3_day_6_posture_4.mat": {
+      "user": 3,
+      "day": 6,
+      "posture": 4
+    },
+    "unibo-inail-semg-dataset-main/data/user_4_day_1_posture_1.mat": {
+      "user": 4,
+      "day": 1,
+      "posture": 1
+    },
+    "unibo-inail-semg-dataset-main/data/user_4_day_1_posture_2.mat": {
+      "user": 4,
+      "day": 1,
+      "posture": 2
+    },
+    "unibo-inail-semg-dataset-main/data/user_4_day_1_posture_3.mat": {
+      "user": 4,
+      "day": 1,
+      "posture": 3
+    },
+    "unibo-inail-semg-dataset-main/data/user_4_day_1_posture_4.mat": {
+      "user": 4,
+      "day": 1,
+      "posture": 4
+    },
+    "unibo-inail-semg-dataset-main/data/user_4_day_6_posture_1.mat": {
+      "user": 4,
+      "day": 6,
+      "posture": 1
+    },
+    "unibo-inail-semg-dataset-main/data/user_4_day_6_posture_2.mat": {
+      "user": 4,
+      "day": 6,
+      "posture": 2
+    },
+    "unibo-inail-semg-dataset-main/data/user_4_day_6_posture_3.mat": {
+      "user": 4,
+      "day": 6,
+      "posture": 3
+    },
+    "unibo-inail-semg-dataset-main/data/user_4_day_6_posture_4.mat": {
+      "user": 4,
+      "day": 6,
+      "posture": 4
+    },
+    "unibo-inail-semg-dataset-main/data/user_5_day_1_posture_1.mat": {
+      "user": 5,
+      "day": 1,
+      "posture": 1
+    },
+    "unibo-inail-semg-dataset-main/data/user_5_day_1_posture_2.mat": {
+      "user": 5,
+      "day": 1,
+      "posture": 2
+    },
+    "unibo-inail-semg-dataset-main/data/user_5_day_1_posture_3.mat": {
+      "user": 5,
+      "day": 1,
+      "posture": 3
+    },
+    "unibo-inail-semg-dataset-main/data/user_5_day_1_posture_4.mat": {
+      "user": 5,
+      "day": 1,
+      "posture": 4
+    },
+    "unibo-inail-semg-dataset-main/data/user_5_day_6_posture_1.mat": {
+      "user": 5,
+      "day": 6,
+      "posture": 1
+    },
+    "unibo-inail-semg-dataset-main/data/user_5_day_6_posture_2.mat": {
+      "user": 5,
+      "day": 6,
+      "posture": 2
+    },
+    "unibo-inail-semg-dataset-main/data/user_5_day_6_posture_3.mat": {
+      "user": 5,
+      "day": 6,
+      "posture": 3
+    },
+    "unibo-inail-semg-dataset-main/data/user_5_day_6_posture_4.mat": {
+      "user": 5,
+      "day": 6,
+      "posture": 4
+    },
+    "unibo-inail-semg-dataset-main/data/user_6_day_1_posture_1.mat": {
+      "user": 6,
+      "day": 1,
+      "posture": 1
+    },
+    "unibo-inail-semg-dataset-main/data/user_6_day_1_posture_2.mat": {
+      "user": 6,
+      "day": 1,
+      "posture": 2
+    },
+    "unibo-inail-semg-dataset-main/data/user_6_day_1_posture_3.mat": {
+      "user": 6,
+      "day": 1,
+      "posture": 3
+    },
+    "unibo-inail-semg-dataset-main/data/user_6_day_1_posture_4.mat": {
+      "user": 6,
+      "day": 1,
+      "posture": 4
+    },
+    "unibo-inail-semg-dataset-main/data/user_6_day_6_posture_1.mat": {
+      "user": 6,
+      "day": 6,
+      "posture": 1
+    },
+    "unibo-inail-semg-dataset-main/data/user_6_day_6_posture_2.mat": {
+      "user": 6,
+      "day": 6,
+      "posture": 2
+    },
+    "unibo-inail-semg-dataset-main/data/user_6_day_6_posture_3.mat": {
+      "user": 6,
+      "day": 6,
+      "posture": 3
+    },
+    "unibo-inail-semg-dataset-main/data/user_6_day_6_posture_4.mat": {
+      "user": 6,
+      "day": 6,
+      "posture": 4
+    },
+    "unibo-inail-semg-dataset-main/data/user_7_day_1_posture_1.mat": {
+      "user": 7,
+      "day": 1,
+      "posture": 1
+    },
+    "unibo-inail-semg-dataset-main/data/user_7_day_1_posture_2.mat": {
+      "user": 7,
+      "day": 1,
+      "posture": 2
+    },
+    "unibo-inail-semg-dataset-main/data/user_7_day_1_posture_3.mat": {
+      "user": 7,
+      "day": 1,
+      "posture": 3
+    },
+    "unibo-inail-semg-dataset-main/data/user_7_day_1_posture_4.mat": {
+      "user": 7,
+      "day": 1,
+      "posture": 4
+    },
+    "unibo-inail-semg-dataset-main/data/user_7_day_6_posture_1.mat": {
+      "user": 7,
+      "day": 6,
+      "posture": 1
+    },
+    "unibo-inail-semg-dataset-main/data/user_7_day_6_posture_2.mat": {
+      "user": 7,
+      "day": 6,
+      "posture": 2
+    },
+    "unibo-inail-semg-dataset-main/data/user_7_day_6_posture_3.mat": {
+      "user": 7,
+      "day": 6,
+      "posture": 3
+    },
+    "unibo-inail-semg-dataset-main/data/user_7_day_6_posture_4.mat": {
+      "user": 7,
+      "day": 6,
+      "posture": 4
+    }
+  },
+  "source_day": 1,
+  "evaluation_day": 6,
+  "sample_rate_hz": 200.0,
+  "source_rest_rule": "Both original label and relabel=1, contiguous runs >=1 second; discard 125ms at each edge. All four source postures, same user, separate Day1 files.",
+  "policy": {
+    "onset_s": 0.08,
+    "release_s": 0.12,
+    "preroll_s": 0.1,
+    "min_duration_s": 1.0,
+    "max_duration_s": 30.0
+  },
+  "chunk_samples": 37,
+  "match_iou": 0.5,
+  "reference": "Every non-Rest relabel=2..6 contiguous interval >=1s. Counter-zero regions preserved. Protocol labels are scoring references, not physiological onset measurements.",
+  "scope": "Retrospective Day6 continuous public recording screen. No classifier, heldout tuning, real 8-channel device or biological completeness claim; no default promotion."
+}
