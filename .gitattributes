@@ -871,3 +871,6 @@ emgimu_classifier/tests/test_wearing_ring_session_interaction.py -text -eol whit
 emgimu_classifier/tests/test_wearing_session_protocol.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_wearing_v1_extension.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_zenodo_replacement_run.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_posture_context_oracle.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/formula_numerical_acceptance.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/FORMULA_NUMERICAL_ACCEPTANCE.json -text -eol whitespace=cr-at-eol

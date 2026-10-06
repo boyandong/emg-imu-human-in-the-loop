@@ -61,6 +61,17 @@ def test_f2c_centered_source_reference_and_target_immutability() -> None:
     np.testing.assert_allclose(family.reference_, expected_ref, atol=1e-12)
     before = pickle.dumps(family)
     transformed = family.transform(FeatureBatch(target, 200))
+    # Independent SciPy matrix functions check the entire nonzero query
+    # tangent, rather than only its shape and the fitted reference matrix.
+    from scipy.linalg import fractional_matrix_power, logm
+    inverse_root=fractional_matrix_power(expected_ref,-.5)
+    expected=[]
+    for sample in target:
+        matrix=direct_f2a(sample,.05)+SPD_RIDGE*np.eye(8)
+        tangent=logm(inverse_root@matrix@inverse_root)
+        assert np.max(np.abs(np.imag(tangent)))<1e-12
+        expected.append(upper(np.real(tangent)))
+    np.testing.assert_allclose(transformed,np.stack(expected),atol=3e-7,rtol=1e-6)
     assert transformed.shape == (2, 36) and np.isfinite(transformed).all()
     assert pickle.dumps(family) == before
     with pytest.raises(ValueError, match="sample rate"):

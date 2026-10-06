@@ -5,6 +5,7 @@ import pytest
 
 from emgimu.feature_bank import FeatureBatch
 from emgimu.feature_bank.reconstructed_ring import ReconstructedRlcs
+from emgimu.feature_bank.new_bank_v1 import RingLagV1
 
 
 def test_rlcs_lag_profile_matches_direct_pearson_on_positive_envelopes():
@@ -38,3 +39,22 @@ def test_new_fit_rejects_rate_change_and_constant_channels_are_finite():
     assert np.isfinite(family.transform(FeatureBatch(zeros, 40.))).all()
     with pytest.raises(ValueError, match="sample rate differs"):
         family.transform(FeatureBatch(zeros, 200.))
+
+
+@pytest.mark.parametrize("rate", [200., 250., 440.])
+def test_versioned_ring_default_rms_envelope_direct_lag_oracle(rate):
+    rng = np.random.default_rng(923)
+    x = rng.normal(size=(47, 8))
+    width = round(rate * .025)
+    left = (width - 1) // 2
+    envelope = np.array([np.sqrt(np.square(x[np.clip(np.arange(t-left, t-left+width), 0, 46)]).mean(axis=0))
+                         for t in range(47)])
+    correlation = np.corrcoef(envelope.T)
+    expected = []
+    for lag in range(1, 5):
+        values = [correlation[c, (c+lag) % 8] for c in range(8)]
+        expected.extend((np.mean(values), np.std(values)))
+    batch = FeatureBatch(x[None], rate)
+    family = RingLagV1().fit(batch)
+    family.envelope_ms = 999.
+    np.testing.assert_allclose(family.transform(batch)[0], expected, atol=2e-7)

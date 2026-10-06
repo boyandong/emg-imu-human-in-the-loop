@@ -31,3 +31,21 @@ def test_zero_variance_channels_remain_finite_and_contract_is_fixed():
     np.testing.assert_array_equal(family.transform(FeatureBatch(x, 200.)), 0.)
     with pytest.raises(ValueError, match="contract"):
         family.transform(FeatureBatch(x, 250.))
+
+
+@pytest.mark.parametrize("rate", [200., 250., 440.])
+def test_default_physical_envelope_matches_direct_local_mean_and_pearson(rate):
+    rng = np.random.default_rng(736)
+    x = rng.normal(size=(47, 8))
+    width = round(rate * .025)
+    left = (width - 1) // 2
+    # Explicit clipped sample indices provide an oracle independent of the
+    # production cumulative-sum implementation, including both window edges.
+    envelope = np.array([np.abs(x[np.clip(np.arange(t-left, t-left+width), 0, 46)]).mean(axis=0)
+                         for t in range(47)])
+    eig = np.maximum(np.linalg.eigvalsh(np.corrcoef(envelope.T))[::-1], 0.)
+    expected = eig / (eig.sum() + 1e-10)
+    batch = FeatureBatch(x[None], rate)
+    family = DocumentCesFamilyV3().fit(batch)
+    family.envelope_ms = 999.  # Source-fitted physical width is immutable.
+    np.testing.assert_allclose(family.transform(batch)[0], expected, atol=2e-7)
