@@ -1,0 +1,16 @@
+{
+  "dataset_root": "D:\\emg-imu-benchmarks\\data\\processed\\unibo_benchmark_20260915",
+  "frozen_source": "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_unibo_sequence_temporal_validation_20260916",
+  "frozen_final": "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_unibo_sequence_temporal_final_20260928",
+  "frozen_files": {
+    "source/fitted_states.pkl": "8d26130260b26802a06aa2e7593c73b879e08d37bf65f52a922c9d1667d9a658",
+    "source/split_trial_ids.json": "b5a671f1c35dc9e2c9e4af8b9e93a566a14f05dd0d366512670bc53d58de3310",
+    "source/bout_metadata.json": "6d0d7a1792bdd2e92631a6f39aa4092a6e4ace14d91a28185fb360acc3e45b4b",
+    "final/bout_metadata.json": "a03e722a7a1d528b744add3dfcebe839a09f00b275a7f983a6e81ac8fb4597c9"
+  },
+  "normalization": "Certified nonnegative 32-bin full-bout RMS envelope divided by per-bin L2+1e-10",
+  "warp_policy": "Fixed .1 source fraction, minimum cumulative Euclidean cost, equal-cost shortest-path tie rule, divide by selected path length",
+  "calibration": "Use all previously frozen 20 candidate bout IDs per user, five per gesture; no reselection or target tuning",
+  "evaluation": "Full frozen Day6 validation and Days7/8 descriptive-final bouts; same users, separate recording trials",
+  "scope": "Retrospective full-bout coordinate replay and nearest-template readout. Oracle boundaries; no automatic onset, live behavior, probability-calibration or default-promotion claim."
+}

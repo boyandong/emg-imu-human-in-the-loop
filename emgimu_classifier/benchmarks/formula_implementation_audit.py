@@ -41,10 +41,15 @@ from emgimu.feature_bank.document_temporal_v3 import DocumentTemporalFormV3
 from emgimu.feature_bank.document_reliability_v2 import DocumentReliabilityWeightsV2
 from emgimu.feature_bank.document_session_v3 import DocumentSessionDescriptorV3
 from emgimu.feature_bank.document_spectral_v3 import DocumentSpectralStateV3
+from emgimu.feature_bank.document_path_v3 import DocumentTemporalTemplatesV3,DocumentPathSignatureV3
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
 # Exact historical mandatory reuse cannot be replaced by a conceptual candidate.
 REVIEWS = (
+ ('F5b_document_v3','F5b. DTW / template distance','document_path_v3.py','DocumentTemporalTemplatesV3','analytical_native_limited',
+  'Certified nonnegative complete-envelope inputs use per-time L2+epsilon. Source-only medoids retain explicit unique calibration bout IDs; evaluation rejects reuse, short/sparse inputs and changed channel/sample/rate contracts. Source-frozen warp band minimizes cumulative Euclidean cost, breaks exact ties by shortest path and divides by selected length. Independent exhaustive small-path, known medoid and near-zero normalization oracles pass; frozen UniBo source candidates and held-out complete-bout coordinates are replayed separately. No automatic onset or live claim.','H DTW distances'),
+ ('F5c_document_v3','F5c. Low-order path signature（可选）','document_path_v3.py','DocumentPathSignatureV3','analytical_native_limited',
+  'Certified nonnegative complete envelope normalized by L2+epsilon, centered at first point, order-one and order-two piecewise-linear signatures, no time channel. An independent near-zero polygon oracle distinguishes the legacy max-floor normalizer; duplicate vertices preserve the signature. Full-bout UniBo native coordinate replay remains an offline oracle-boundary diagnostic, without a new classifier or default promotion.','C+C squared'),
  ('F4a_document_v3','F4a. Frequency coordination','document_spectral_v3.py','DocumentSpectralStateV3','analytical_native_limited',
   'Four source-fixed sub-Nyquist nonempty bands; direct Fourier independent oracle verifies energy/(L2+epsilon), including near-zero windows that distinguish the legacy maximum-floor denominator. Fixed input samples/channels/rate and source-frozen band count are enforced. A source-only GRAB unseen-user matched increment gains validation F1/loss but loses descriptive final F1/loss; no default promotion.','BC'),
  ('F4b_document_v3','F4b. Spectral summary','document_spectral_v3.py','DocumentSpectralStateV3','analytical_native_limited',
@@ -242,6 +247,23 @@ def build(document, output):
     measured['ValidatedUniBoFamily'] = {'fixture_dimension':values.shape[1], 'names':list(family.feature_names),
                                       'fixture_override':'native four-channel processed200Hz G5'}
     complete = CompleteSequenceBatch(x, 32., durations_seconds=np.full(len(x), 1.25), full_coverage=True)
+    envelope_complete=CompleteSequenceBatch(np.abs(x),32.,durations_seconds=np.full(len(x),1.25),full_coverage=True)
+    templates=DocumentTemporalTemplatesV3().fit(envelope_complete.take(np.arange(8)),labels[:8],
+        trial_ids=[f'fit-{i}' for i in range(8)])
+    frozen=pickle.dumps(templates)
+    distances=templates.transform(envelope_complete.take(np.arange(8,16)),
+        trial_ids=[f'eval-{i}' for i in range(8)])
+    if distances.shape!=(8,4) or not np.isfinite(distances).all() or pickle.dumps(templates)!=frozen:
+        raise AssertionError('Document F5b shape/provenance/immutability fixture failed')
+    measured['DocumentTemporalTemplatesV3']={'fixture_dimension':4,'source_immutable':True,
+        'names':list(templates.feature_names),'finite':True,
+        'fixture_override':'Disjoint synthetic complete envelope trial identities; native replay separate'}
+    exact_signature=DocumentPathSignatureV3().fit(envelope_complete)
+    frozen=pickle.dumps(exact_signature);signature_values=exact_signature.transform(envelope_complete)
+    if signature_values.shape!=(16,72) or not np.isfinite(signature_values).all() or pickle.dumps(exact_signature)!=frozen:
+        raise AssertionError('Document F5c shape/immutability fixture failed')
+    measured['DocumentPathSignatureV3']={'fixture_dimension':72,'source_immutable':True,
+        'names':list(exact_signature.feature_names),'finite':True}
     path_signature = PathSignatureFamily().fit(complete)
     before = pickle.dumps(path_signature)
     values = path_signature.transform(complete)

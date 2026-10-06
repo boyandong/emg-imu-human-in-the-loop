@@ -58,6 +58,21 @@ def build() -> dict:
         raise AssertionError("source formula review inventory is incomplete")
     rows = []
     for family, status, evidence, supported, unresolved in REVIEWS:
+        if family == "F5":
+            evidence += ("|src/emgimu/feature_bank/document_path_v3.py"
+                         "|tests/test_document_path_v3.py"
+                         "|tests/test_f5_path_unibo_delivery.py"
+                         "|benchmarks/new_bank_v3/F5_PATH_UNIBO_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/F5_PATH_UNIBO_RESULTS.json")
+            supported += (" Separate document F5b/c V3 uses additive-epsilon "
+                          "complete-envelope normalization. Source-only medoids "
+                          "retain unique trial identities; query overlap and "
+                          "sensor/path-contract changes reject. Independent exhaustive "
+                          "DTW and near-zero polygon oracles pass. Frozen candidate "
+                          "IDs and all Day6/7/8 native complete bouts are replayed.")
+            unresolved += (" This coordinate/nearest-template replay does not "
+                           "establish automatic boundaries, calibrated fusion gains "
+                           "or live-device transfer.")
         if family == "F8":
             evidence += "|tests/test_session_shift_summary.py|src/emgimu/feature_bank/session_shift_summary.py"
             supported += (" The family-summary API retains immutable long-term trial "

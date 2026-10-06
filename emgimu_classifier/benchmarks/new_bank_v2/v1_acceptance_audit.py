@@ -135,7 +135,18 @@ def build(pre: Path, goal: Path) -> dict:
                          "24 six-class 180-dimensional descriptors; it is not a "
                          "predictive routing gain.")
             boundary=boundary.replace('Sixty-six reviewed formula/source rows',
-                'Seventy-three reviewed formula/source rows')
+                'Seventy-five reviewed formula/source rows')
+            evidence += ("|src/emgimu/feature_bank/document_path_v3.py"
+                         "|tests/test_document_path_v3.py"
+                         "|tests/test_f5_path_unibo_delivery.py"
+                         "|benchmarks/new_bank_v3/F5_PATH_UNIBO_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/F5_PATH_UNIBO_RESULTS.json")
+            boundary += (" Document F5b/c V3 follows additive-epsilon full-envelope "
+                         "normalization with independent exhaustive-DTW and near-zero "
+                         "polygon oracles, frozen warp policy and explicit calibration "
+                         "trial exclusion. Frozen UniBo candidates and complete held-out "
+                         "Days6-8 coordinates are replayed; no live or calibrated "
+                         "fusion benefit is claimed.")
             evidence += ("|src/emgimu/feature_bank/document_spectral_v3.py"
                          "|tests/test_document_spectral_v3.py"
                          "|tests/test_f4_spectral_grab_delivery.py"

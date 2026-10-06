@@ -117,6 +117,11 @@ emgimu_classifier/src/emgimu/feature_bank/core.py -text -eol whitespace=cr-at-eo
 emgimu_classifier/tests/test_f1_scale_pattern_oracle.py -text -eol whitespace=cr-at-eol
 
 # Preserve authoritative evidence bytes across fresh checkouts.
+emgimu_classifier/src/emgimu/feature_bank/document_path_v3.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_document_path_v3.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_f5_path_unibo_delivery.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/f5_path_unibo_run.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/F5_PATH_UNIBO* -text -eol whitespace=cr-at-eol
 emgimu_classifier/src/emgimu/feature_bank/document_spectral_v3.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_document_spectral_v3.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_f4_spectral_grab_delivery.py -text -eol whitespace=cr-at-eol
