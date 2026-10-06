@@ -1,0 +1,60 @@
+{
+  "schema": "versioned_feature_bank_delivery_index_v1",
+  "tables": {
+    "feature_family_results.csv": [
+      "feature_family_results.csv",
+      "new_bank_v3/feature_family_results.csv"
+    ],
+    "conditional_incremental.csv": [
+      "conditional_incremental.csv",
+      "new_bank_v3/conditional_incremental.csv"
+    ],
+    "error_complementarity.csv": [
+      "error_complementarity.csv",
+      "new_bank_v3/error_complementarity.csv"
+    ],
+    "calibration_curve.csv": [
+      "calibration_curve.csv",
+      "new_bank_v3/calibration_curve.csv"
+    ]
+  },
+  "additional_tables": [
+    "new_bank_v3/boundary_detection.csv",
+    "new_bank_v3/budget_eligibility.csv"
+  ],
+  "full_bank_ablation": "ablation_full_bank.csv",
+  "current_manifest": "new_bank_v3/MANIFEST.json",
+  "base_provenance": "PROVENANCE_AUDIT.json",
+  "base_table_sha256": {
+    "ablation_full_bank.csv": "97653af7dce471606f03c1aa616dcc58c8f1c1f8b4195a6a649613440b592dba",
+    "calibration_curve.csv": "2c4290cdc742648c4adc6239032bc98c08a6a23336bd8baca7cf3f9a5a54e66f",
+    "conditional_incremental.csv": "a973575780af01f1a697c32b775ce1f5cc6afa6576bde731f3e3a3e3e5c8ee9b",
+    "error_complementarity.csv": "042c45514a69481ce3260f98eceae6f121633e508e66266f2a5f2b5f84928070",
+    "feature_family_results.csv": "0b6df8f0cc3beb493fe0e84a107848e0f9824cc8b881d0822565bc708ed34d83"
+  },
+  "v3_result_inventory_sha256": {
+    "benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_RESULTS.json": "8af20ead1bdbbd8782d2ca1483f9ea8e9f4874a555ff267b0b60203d93b8ed2e",
+    "benchmarks/new_bank_v3/AUTONOMOUS_UNIBO_V1_RESULTS.json": "5799c215e7d3379054996847d95fd92e075f0422cfec866343c24a6171ba0400",
+    "benchmarks/new_bank_v3/DETECTED_DTW_UNIBO_V1_RESULTS.json": "b15a1ab102bb2369f79c03e20b968fc3dc43055454cfd678c9868c7ac13a07dd",
+    "benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_RESULTS.json": "3ecf34f3713f473045d1778fea63a910ac8f1fa71b692983c8dcc90970048a69",
+    "benchmarks/new_bank_v3/DOCUMENT_RELIABILITY_GRAB_RESULTS.json": "0c634b6bed0cb7e686fcc3ca09e52e2e4ed86f3615513c515039dae8a21b732b",
+    "benchmarks/new_bank_v3/F1_SCALE_GRAB_RESULTS.json": "3a13e3c569ab1a2073628fffc534e250b6f519d20c952131dbbf8e3e335e72bc",
+    "benchmarks/new_bank_v3/F3B_CES_GRAB_RESULTS.json": "e701ff84486ecbf72b515012900dde6407d6a23b6cddbbf5fba14eebb89b3c25",
+    "benchmarks/new_bank_v3/F4_SPECTRAL_GRAB_RESULTS.json": "22a47ba58052f761e834060c4dcc4ae17f1eba3f3a302ab62fcc9425572c70f3",
+    "benchmarks/new_bank_v3/F5_PATH_UNIBO_RESULTS.json": "770cb201c4c3ce7c45376231f7eb9bd318dd4c87b849401f8e7b4666da47c871",
+    "benchmarks/new_bank_v3/F5_TEMPORAL_GRAB_RESULTS.json": "d6bd81a2eaccc1a17631d24fd97c0f07bfba11ce6de36bcbc9a3f6cb272d304e",
+    "benchmarks/new_bank_v3/F5B_CUED_REPLAY_RESULTS.json": "ea505707cc6eae184f15c2afb726c701648c109d03fcdb237a84bd8b4fa5e436",
+    "benchmarks/new_bank_v3/F7_AFFINE_CORE_MATCHED/results.json": "1bf7dfad2ed5d31a9817fb39d22882d08c46d849dcd0e73683fb3b9b09eaa375",
+    "benchmarks/new_bank_v3/F7_AFFINE_EPN/results.json": "7dac99d090b55c8fe2bc9c5cedbe9212619562ff63f0a5a1fbc9156c6b4c5ac0",
+    "benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json": "73ca953e2b4f0f77c5716e712ce26b9923c8ca80d9a7e6621f2cb7e3b2e62ebd",
+    "benchmarks/new_bank_v3/F7_DOCUMENT_ANCHOR_RESULTS.json": "ab8873c1fd49a43837b6eb598ba85ab9574bd39635d9d29612ca976b1771ccef",
+    "benchmarks/new_bank_v3/F8_DOCUMENT_MANUS_RESULTS.json": "fe3d332cae98cdf9c94c7eeaa6dbe34e9cb1b485249e3fbaa8352f175e23ce58",
+    "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
+    "benchmarks/new_bank_v3/MAHALANOBIS_EPN_BUDGET_V1_RESULTS.json": "0f58780fc3023df1ff39fdaca1d918b5120d34839a7d416de32c8028053ce44d",
+    "benchmarks/new_bank_v3/SPEC_F2C_GRAB_RESULTS.json": "8d2058a17e63b66e2bbe3ffedc97656d5a20e64a30499dc329efca5120e745bb",
+    "benchmarks/new_bank_v3/SPEC_F2C_TRANSFER_RESULTS.json": "fd680129ec69aee4e9f21744a134e14f245d00557ed27f71bb6b781098c7aed6",
+    "benchmarks/new_bank_v3/SPEC_F2C_WEARING_RESULTS.json": "a3a6fb7e19abf9c3a709c27625a45f03346b9f664cac04126c9ac65d9968b3e4",
+    "benchmarks/new_bank_v3/SPEC_SPATIAL_GRAB_RESULTS.json": "cb2ea60ad000c6973f7e4220d0f3458b01c241b72a1b8c8ab585e6e4e64876dc"
+  },
+  "completion_proven": false
+}

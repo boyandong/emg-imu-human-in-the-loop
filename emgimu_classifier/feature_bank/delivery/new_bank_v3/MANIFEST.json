@@ -1,0 +1,40 @@
+{
+  "schema": "current_v3_canonical_delivery_v1",
+  "generator_sha256": "f983e27313362a95deaa059b3d72b072c5b7b0180cca96d7791fde4095d96a8c",
+  "source_sha256": {
+    "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
+    "benchmarks/new_bank_v3/MAHALANOBIS_EPN_BUDGET_V1_RESULTS.json": "0f58780fc3023df1ff39fdaca1d918b5120d34839a7d416de32c8028053ce44d",
+    "benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_RESULTS.json": "3ecf34f3713f473045d1778fea63a910ac8f1fa71b692983c8dcc90970048a69",
+    "benchmarks/new_bank_v3/AUTONOMOUS_UNIBO_V1_RESULTS.json": "5799c215e7d3379054996847d95fd92e075f0422cfec866343c24a6171ba0400",
+    "benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_RESULTS.json": "8af20ead1bdbbd8782d2ca1483f9ea8e9f4874a555ff267b0b60203d93b8ed2e"
+  },
+  "tables": {
+    "feature_family_results.csv": {
+      "rows": 303,
+      "sha256": "455ae769955f398dbaf06dbf6760bc4cc2bd802f6c58d4a0cd7c29f6a9293145"
+    },
+    "conditional_incremental.csv": {
+      "rows": 122,
+      "sha256": "f4361ba5465a4d1dbf2f66705e7642c9e3533de8bfe549923ace9555c84cf268"
+    },
+    "error_complementarity.csv": {
+      "rows": 122,
+      "sha256": "02eca2886c8d4ae78ec5055e18806882e2257885c8c81e50ae20e75465daeb5a"
+    },
+    "calibration_curve.csv": {
+      "rows": 303,
+      "sha256": "348da87e5ba19f69bac7ee9bea9ae9043779ea1e7fb283cb60f16cb0683a0ae4"
+    },
+    "budget_eligibility.csv": {
+      "rows": 150,
+      "sha256": "0b55f307f2537a70d05815f2dead07722b3df4924c07d8335c4871d27eda2e66"
+    },
+    "boundary_detection.csv": {
+      "rows": 2,
+      "sha256": "c1c39ae8ae61a524efada559714d015ff1272401337c241edb51b5e6e67b1fa4"
+    }
+  },
+  "boundary": "Paired alternatives are labelled explicitly, not claimed as added-feature increments. DTW has no probability metrics. Budget failures are in eligibility, not fake performance rows. Conditions/datasets/class ontologies cannot be pooled indiscriminately.",
+  "default_promoted": false,
+  "completion_proven": false
+}

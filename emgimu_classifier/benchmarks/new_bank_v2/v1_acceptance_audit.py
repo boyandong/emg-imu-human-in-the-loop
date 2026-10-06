@@ -63,6 +63,15 @@ def build(pre: Path, goal: Path) -> dict:
         lines[name] = path.read_text(encoding="utf-8-sig").splitlines()
     rows = []
     for ident, doc, start, end, title, status, evidence, boundary in CLAUSES:
+        if ident == "GOAL-17":
+            evidence += ("|feature_bank/delivery/INDEX.json"
+                         "|feature_bank/delivery/new_bank_v3/MANIFEST.json"
+                         "|benchmarks/new_bank_v3/export_current_delivery.py"
+                         "|tests/test_current_v3_delivery.py")
+            boundary += (" Current V3 adds 1,002 hash-bound table rows with an additive "
+                         "version index; paired alternatives are explicitly distinguished "
+                         "from added-feature increments, DTW probability metrics are N/A, "
+                         "and 130 insufficient independent-trial budgets remain ineligible.")
         if ident in ("GOAL-03", "GOAL-20"):
             evidence += ("|src/emgimu/feature_bank/detected_g5_reader_v1.py"
                          "|tests/test_detected_g5_reader_v1.py"
