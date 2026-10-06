@@ -59,6 +59,24 @@ def build() -> dict:
     rows = []
     for family, status, evidence, supported, unresolved in REVIEWS:
         if family == "F5":
+            evidence += ("|src/emgimu/feature_bank/detected_g5_reader_v1.py"
+                         "|tests/test_detected_g5_reader_v1.py"
+                         "|tests/test_detected_g5_unibo_v1_delivery.py"
+                         "|benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_RESULTS.json")
+            supported += (" Existing frozen source-Days1-5 G5 classifiers and "
+                          "source-Day5 temperatures are replayed on the identical "
+                          "1257 detected intervals without training. All complete "
+                          "200ms windows are averaged, with tails reported. "
+                          "Supported matched G5 accuracy is .688 versus DTW .4533; "
+                          "same-reference G5 oracle accuracy is .744, and G5 "
+                          "end-to-end success is 516/850. Per-user/class and paired "
+                          "error counts remain explicit.")
+            unresolved += (" Classification and segmentation errors remain; "
+                           "one of seven users loses against DTW. This stronger "
+                           "public four-muscle pipeline does not establish "
+                           "performance for an eight-electrode device or justify "
+                           "a change to the collection application's default.")
             evidence += ("|benchmarks/new_bank_v3/DETECTED_DTW_UNIBO_V1_PROTOCOL.json"
                          "|benchmarks/new_bank_v3/DETECTED_DTW_UNIBO_V1_RESULTS.json"
                          "|tests/test_detected_dtw_unibo_v1_delivery.py")

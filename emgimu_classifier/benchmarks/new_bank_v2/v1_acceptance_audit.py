@@ -64,6 +64,20 @@ def build(pre: Path, goal: Path) -> dict:
     rows = []
     for ident, doc, start, end, title, status, evidence, boundary in CLAUSES:
         if ident in ("GOAL-03", "GOAL-20"):
+            evidence += ("|src/emgimu/feature_bank/detected_g5_reader_v1.py"
+                         "|tests/test_detected_g5_reader_v1.py"
+                         "|tests/test_detected_g5_unibo_v1_delivery.py"
+                         "|benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_RESULTS.json")
+            boundary += (" Frozen existing G5 models now consume every complete "
+                         "200ms window of the same estimated native intervals, "
+                         "with explicit unrepresented tails and source-Day5 "
+                         "temperature. No training or default change occurs. "
+                         "516/750 supported detections are correctly classified "
+                         "(.688), versus .744 on the same oracle intervals; "
+                         "end-to-end reference success is 516/850. Native "
+                         "four-channel public transfer remains distinct from "
+                         "the user's eight-channel live system.")
             evidence += ("|benchmarks/new_bank_v3/DETECTED_DTW_UNIBO_V1_PROTOCOL.json"
                          "|benchmarks/new_bank_v3/DETECTED_DTW_UNIBO_V1_RESULTS.json"
                          "|tests/test_detected_dtw_unibo_v1_delivery.py")

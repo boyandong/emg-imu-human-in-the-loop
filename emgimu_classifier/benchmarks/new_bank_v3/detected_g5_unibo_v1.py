@@ -6,9 +6,11 @@ import pickle
 import zipfile
 from pathlib import Path
 import numpy as np
+from sklearn.metrics import f1_score
 from benchmarks.new_bank_v3.autonomous_continuous_unibo_v1 import load, sha
 from emgimu.feature_bank.autonomous_bouts_v1 import DetectedBout
 from emgimu.feature_bank.detected_g5_reader_v1 import DetectedG5ReaderV1
+from emgimu.feature_bank.unibo_study import _metrics
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -83,11 +85,39 @@ def run():
     totals.update(g5_matched_detection_accuracy=totals['g5_detected_correct']/len(supported),
                   g5_matched_oracle_accuracy=totals['g5_oracle_correct']/len(supported),
                   g5_end_to_end_reference_success=totals['g5_detected_correct']/totals['supported_references'])
+    diagnostics = {'per_class': {}, 'per_user': {}, 'paired_correctness': {}}
+    for label in (1, 2, 3):
+        selected = [e for e in supported if e['reference_label'] == label]
+        diagnostics['per_class'][str(label)] = {
+            'matched': len(selected), 'correct': sum(e['g5_prediction'] == label for e in selected),
+            'predicted_counts': {str(c): sum(e['g5_prediction'] == c for e in selected) for c in range(4)}}
+    for user in sorted(states):
+        selected = [e for e in supported if e['user'] == user]
+        diagnostics['per_user'][user] = {'matched': len(selected),
+            'g5_correct': sum(e['g5_prediction'] == e['reference_label'] for e in selected),
+            'dtw_correct': sum(e['prediction'] == e['reference_label'] for e in selected)}
+    for g5_correct, dtw_correct in [(False, False), (False, True), (True, False), (True, True)]:
+        key = f'g5_{int(g5_correct)}_dtw_{int(dtw_correct)}'
+        diagnostics['paired_correctness'][key] = sum(
+            (e['g5_prediction'] == e['reference_label']) == g5_correct and
+            (e['prediction'] == e['reference_label']) == dtw_correct for e in supported)
+    truth = np.array([e['reference_label'] for e in supported])
+    scores = {}
+    for arm, field in [('detected', 'g5_probability'), ('matched_oracle', 'g5_oracle_probability')]:
+        probability = np.array([e[field] for e in supported])
+        scores[arm] = _metrics(truth, probability, np.ones(len(truth)))
+        scores[arm]['active_macro_f1'] = float(f1_score(truth, probability.argmax(axis=1),
+                                                      labels=[1, 2, 3], average='macro', zero_division=0))
+        scores[arm]['scope'] = 'Conditional on supported matched active references; no Rest ground-truth examples. Four-class probabilities retained for loss/Brier/ECE; not a full stream accuracy.'
     evidence = ['benchmarks/new_bank_v3/detected_g5_unibo_v1.py', 'src/emgimu/feature_bank/detected_g5_reader_v1.py',
-                'src/emgimu/feature_bank/validated_unibo.py', 'src/emgimu/feature_bank/force_nested_oof.py']
+                'src/emgimu/feature_bank/validated_unibo.py', 'src/emgimu/feature_bank/force_nested_oof.py',
+                'src/emgimu/datasets/unibo_physiology.py', 'src/emgimu/feature_bank/core.py',
+                'benchmarks/new_bank_v3/autonomous_continuous_unibo_v1.py',
+                'src/emgimu/feature_bank/unibo_study.py', 'src/emgimu/feature_bank/screening.py']
     r = {'protocol_sha256': sha(PROTOCOL), 'source_hashes': {n: sha(ROOT/n) for n in evidence},
          'source_selections': source_records, 'source_state_immutable': True, 'classifier_refitted': False,
-         'events': rows, 'totals': totals, 'scope': p['scope'], 'default_promoted': False}
+         'events': rows, 'totals': totals, 'diagnostics': diagnostics, 'scores': scores,
+         'scope': p['scope'], 'default_promoted': False}
     (HERE/'DETECTED_G5_UNIBO_V1_RESULTS.json').write_text(json.dumps(r, indent=2)+'\n', encoding='utf8')
     print(json.dumps(totals), flush=True)
 
