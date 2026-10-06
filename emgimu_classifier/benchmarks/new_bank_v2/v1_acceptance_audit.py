@@ -73,6 +73,12 @@ def build(pre: Path, goal: Path) -> dict:
                          "from added-feature increments, DTW probability metrics are N/A, "
                          "and 130 insufficient independent-trial budgets remain ineligible.")
         if ident in ("GOAL-03", "GOAL-20"):
+            evidence += ("|benchmarks/new_bank_v3/DETECTED_G5_OUTCOME_V1_RESULTS.json"
+                         "|benchmarks/new_bank_v3/detected_g5_outcome_audit.py"
+                         "|tests/test_detected_g5_outcome_audit.py")
+            boundary += (" Full reference accounting separates 516 correct, 234 wrong "
+                         "and 100 missed supported actions, retaining 561 unsupported "
+                         "references and 21 unmatched detections without inventing neutral truth.")
             evidence += ("|src/emgimu/feature_bank/detected_g5_reader_v1.py"
                          "|tests/test_detected_g5_reader_v1.py"
                          "|tests/test_detected_g5_unibo_v1_delivery.py"

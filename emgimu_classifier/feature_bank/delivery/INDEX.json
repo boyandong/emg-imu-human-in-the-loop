@@ -36,6 +36,7 @@
     "benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_RESULTS.json": "8af20ead1bdbbd8782d2ca1483f9ea8e9f4874a555ff267b0b60203d93b8ed2e",
     "benchmarks/new_bank_v3/AUTONOMOUS_UNIBO_V1_RESULTS.json": "5799c215e7d3379054996847d95fd92e075f0422cfec866343c24a6171ba0400",
     "benchmarks/new_bank_v3/DETECTED_DTW_UNIBO_V1_RESULTS.json": "b15a1ab102bb2369f79c03e20b968fc3dc43055454cfd678c9868c7ac13a07dd",
+    "benchmarks/new_bank_v3/DETECTED_G5_OUTCOME_V1_RESULTS.json": "4d0f831256567fd4cc56749bfed6d872c99ce8bf8496a5d9efd0596deaf81778",
     "benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_RESULTS.json": "3ecf34f3713f473045d1778fea63a910ac8f1fa71b692983c8dcc90970048a69",
     "benchmarks/new_bank_v3/DOCUMENT_RELIABILITY_GRAB_RESULTS.json": "0c634b6bed0cb7e686fcc3ca09e52e2e4ed86f3615513c515039dae8a21b732b",
     "benchmarks/new_bank_v3/F1_SCALE_GRAB_RESULTS.json": "3a13e3c569ab1a2073628fffc534e250b6f519d20c952131dbbf8e3e335e72bc",

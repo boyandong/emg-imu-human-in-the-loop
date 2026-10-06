@@ -918,3 +918,6 @@ emgimu_classifier/feature_bank/delivery/new_bank_v3/error_complementarity.csv -t
 emgimu_classifier/feature_bank/delivery/new_bank_v3/calibration_curve.csv -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/delivery/new_bank_v3/budget_eligibility.csv -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/delivery/new_bank_v3/boundary_detection.csv -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/detected_g5_outcome_audit.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/DETECTED_G5_OUTCOME_V1_RESULTS.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_detected_g5_outcome_audit.py -text -eol whitespace=cr-at-eol
