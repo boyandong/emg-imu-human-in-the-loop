@@ -1,0 +1,52 @@
+{
+  "version": "mahalanobis-epn-budget-v1",
+  "archive": "D:/emg-imu-benchmarks/data/raw/epn612/EMG-EPN612-Dataset.zip",
+  "archive_sha256": "4ee8db037385e7bee1e6ac6f9e9eea4f0869e25f7825f5eb7e5be0dff4f93c21",
+  "source_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "target_users": [
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "feature_dimensions": {
+    "pattern": 8,
+    "TD24": 24,
+    "SPD": 36
+  },
+  "budgets": [
+    1,
+    2,
+    5,
+    10,
+    20
+  ],
+  "reserved_calibration_per_class": 20,
+  "selection": "Within each target user/class, order native trial IDs by SHA256(20261006|trial); reserve first20 once. Prefixes define nested budgets; all remaining trials are identical evaluation at every budget.",
+  "features": "Source-only native eight-channel/200Hz feature state. Four windows averaged once per independent native trial; source-trial-only StandardScaler. TD24 is RMS/MAV/WL, not Rest-threshold six-block F0.",
+  "metric": "Per-class mean and covariance, .2 isotropic shrinkage plus max(trace/d*1e-8,1e-10) ridge. Mahalanobis eligible only with dimension+2 independent native calibration trials per class.",
+  "probability": "softmax(-distance/source-of-personal-fit calibration median distance), same calibration-only rule for Euclidean and Mahalanobis; descriptive distance readout, no source-CV probability tuning.",
+  "scope": "Previously inspected EPN users22-31; retrospective native budget experiment. High-dimensional 24/36 cases must remain N/A if trial budgets are insufficient. No dimensionality reduction, window-count inflation, device or blind holdout claim."
+}
