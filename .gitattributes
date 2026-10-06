@@ -921,3 +921,7 @@ emgimu_classifier/feature_bank/delivery/new_bank_v3/boundary_detection.csv -text
 emgimu_classifier/benchmarks/new_bank_v3/detected_g5_outcome_audit.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/DETECTED_G5_OUTCOME_V1_RESULTS.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_detected_g5_outcome_audit.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/session_fusion_v2.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_session_fusion_v2.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/f8_checked_fusion_replay.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/F8_CHECKED_FUSION_V2_RESULTS.json -text -eol whitespace=cr-at-eol

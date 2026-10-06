@@ -73,6 +73,13 @@ def build(pre: Path, goal: Path) -> dict:
                          "from added-feature increments, DTW probability metrics are N/A, "
                          "and 130 insufficient independent-trial budgets remain ineligible.")
         if ident in ("GOAL-03", "GOAL-20"):
+            evidence += ("|src/emgimu/feature_bank/session_fusion_v2.py"
+                         "|tests/test_session_fusion_v2.py"
+                         "|benchmarks/new_bank_v3/f8_checked_fusion_replay.py"
+                         "|benchmarks/new_bank_v3/F8_CHECKED_FUSION_V2_RESULTS.json")
+            boundary += (" The opt-in V2 probability fusion API rejects source/calibration/"
+                         "evaluation overlap and provider/class-axis mismatch; 24 frozen "
+                         "native blocks preserve their probabilities and reject 96 invalid calls.")
             evidence += ("|benchmarks/new_bank_v3/DETECTED_G5_OUTCOME_V1_RESULTS.json"
                          "|benchmarks/new_bank_v3/detected_g5_outcome_audit.py"
                          "|tests/test_detected_g5_outcome_audit.py")

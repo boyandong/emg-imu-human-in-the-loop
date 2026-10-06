@@ -1,0 +1,324 @@
+{
+  "source_sha256": {
+    "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
+    "benchmarks/new_bank_v3/f8_checked_fusion_replay.py": "270627835d831d7bad4c3fe0930e9d5414901e1714cc619143ddb1537050e067",
+    "src/emgimu/feature_bank/session_fusion_v2.py": "0e1075a81758f34f9a7507de4e893d7f3973e765478dab23a6b81f2fb18509c6"
+  },
+  "blocks": [
+    {
+      "phase": "validation",
+      "user": 3,
+      "shots": 1,
+      "evaluation_trials": 12,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "validation",
+      "user": 4,
+      "shots": 1,
+      "evaluation_trials": 12,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "validation",
+      "user": 5,
+      "shots": 1,
+      "evaluation_trials": 12,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "validation",
+      "user": 6,
+      "shots": 1,
+      "evaluation_trials": 12,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "validation",
+      "user": 7,
+      "shots": 1,
+      "evaluation_trials": 12,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "validation",
+      "user": 8,
+      "shots": 1,
+      "evaluation_trials": 12,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "validation",
+      "user": 3,
+      "shots": 2,
+      "evaluation_trials": 6,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "validation",
+      "user": 4,
+      "shots": 2,
+      "evaluation_trials": 6,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "validation",
+      "user": 5,
+      "shots": 2,
+      "evaluation_trials": 6,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "validation",
+      "user": 6,
+      "shots": 2,
+      "evaluation_trials": 6,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "validation",
+      "user": 7,
+      "shots": 2,
+      "evaluation_trials": 6,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "validation",
+      "user": 8,
+      "shots": 2,
+      "evaluation_trials": 6,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 3,
+      "shots": 1,
+      "evaluation_trials": 12,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 4,
+      "shots": 1,
+      "evaluation_trials": 12,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 5,
+      "shots": 1,
+      "evaluation_trials": 12,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 6,
+      "shots": 1,
+      "evaluation_trials": 12,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 7,
+      "shots": 1,
+      "evaluation_trials": 12,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 8,
+      "shots": 1,
+      "evaluation_trials": 12,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 3,
+      "shots": 2,
+      "evaluation_trials": 6,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 4,
+      "shots": 2,
+      "evaluation_trials": 6,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 5,
+      "shots": 2,
+      "evaluation_trials": 6,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 6,
+      "shots": 2,
+      "evaluation_trials": 6,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 7,
+      "shots": 2,
+      "evaluation_trials": 6,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 8,
+      "shots": 2,
+      "evaluation_trials": 6,
+      "rejected": [
+        "source_evaluation_overlap",
+        "calibration_evaluation_overlap",
+        "class_axis_reversal",
+        "provider_axis_reversal"
+      ],
+      "max_probability_error": 0.0
+    }
+  ],
+  "scope": "Identity guard replay of frozen MANUS F8 probabilities. Native six-class axes declared by original benchmark; no new training, score improvement or device validation.",
+  "default_promoted": false,
+  "completion_proven": false
+}
