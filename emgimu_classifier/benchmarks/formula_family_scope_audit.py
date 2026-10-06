@@ -82,6 +82,18 @@ def build() -> dict:
             unresolved += (" Historical X1-H equivalence was explicitly "
                            "superseded by the user's versioned replacement.")
         if family == "F4":
+            evidence += ("|src/emgimu/feature_bank/document_spectral_v3.py"
+                         "|tests/test_document_spectral_v3.py"
+                         "|tests/test_f4_spectral_grab_delivery.py"
+                         "|benchmarks/new_bank_v3/F4_SPECTRAL_GRAB_RESULTS.json"
+                         "|benchmarks/new_bank_v3/F4_SPECTRAL_GRAB_PROTOCOL.json")
+            supported += (" Separate document F4 V3 uses additive epsilon, raw "
+                          "spectral entropy and explicit orthonormal DCT-II. "
+                          "Independent normal/zero/near-zero Fourier and DCT "
+                          "oracles and source-grid contracts pass. A fixed GRAB "
+                          "unseen-user 112/56/56-trial paired increment is saved.")
+            unresolved += (" F4 V3 gains validation macro F1/loss but loses "
+                           "descriptive final F1/loss; no default promotion.")
             evidence += "|tests/test_f4a_frequency_coord_oracle.py"
             supported += (" Independent direct-complex-DFT 250 Hz checks verify "
                           "sub-Nyquist bandwise channel orientation, and newly "

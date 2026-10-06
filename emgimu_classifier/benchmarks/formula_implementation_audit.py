@@ -40,10 +40,17 @@ from emgimu.feature_bank.document_ces_v3 import DocumentCesFamilyV3
 from emgimu.feature_bank.document_temporal_v3 import DocumentTemporalFormV3
 from emgimu.feature_bank.document_reliability_v2 import DocumentReliabilityWeightsV2
 from emgimu.feature_bank.document_session_v3 import DocumentSessionDescriptorV3
+from emgimu.feature_bank.document_spectral_v3 import DocumentSpectralStateV3
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
 # Exact historical mandatory reuse cannot be replaced by a conceptual candidate.
 REVIEWS = (
+ ('F4a_document_v3','F4a. Frequency coordination','document_spectral_v3.py','DocumentSpectralStateV3','analytical_native_limited',
+  'Four source-fixed sub-Nyquist nonempty bands; direct Fourier independent oracle verifies energy/(L2+epsilon), including near-zero windows that distinguish the legacy maximum-floor denominator. Fixed input samples/channels/rate and source-frozen band count are enforced. A source-only GRAB unseen-user matched increment gains validation F1/loss but loses descriptive final F1/loss; no default promotion.','BC'),
+ ('F4b_document_v3','F4b. Spectral summary','document_spectral_v3.py','DocumentSpectralStateV3','analytical_native_limited',
+  'Hann-demeaned power/T, total power, centroid denominator total+epsilon, first MDF crossing and raw -sum(q log(q+epsilon)), where q=power/(total+epsilon), follow the document. Normal, zero and near-zero independent Fourier oracles pass. The older entropy/log-floor variant remains historical alternative evidence. Native paired GRAB screen is diagnostic rather than a universal default.','4C'),
+ ('F4c_document_v3','F4c. Cepstral / CCA-like candidate','document_spectral_v3.py','DocumentSpectralStateV3','analytical_native_limited',
+  'Log(power+epsilon) and explicit orthonormal DCT-II excluding DC; K=4 is source-fixed and must fit the source grid. Independent scipy DCT check validates mean/std coefficients. No exact CCA, fatigue or device claim; same native GRAB matched increment as F4a/b.','2K'),
  ('NEW_V1_F0','F0. Local / Traditional Signal Detail','new_bank_v2.py','RestNoiseDetailV2','new_version_native_screen',
   'Independent eight-channel RMS/MAV/WL/ZC/SSC/WAMP with per-channel thresholds fixed from source Rest adjacent-difference median and MAD. Exact six-block analytical fixture and seven public validation axes plus complete-bank LOFO exist. No nonexistent historical extra R0 features or own-device generalization are asserted.','6C'),
  ('NEW_V1_F2A','F2a. Trace-normalized covariance','new_bank_v2.py','TraceCovarianceV2','new_version_native_screen',
@@ -97,7 +104,7 @@ REVIEWS = (
  ('F5_reference','F5. Temporal Form','families.py','TemporalFormFamily','reference_only',
   'New seven-channel metrics and map velocity; log early/late, normalized entropy/time differ from optional conceptual examples; cannot be called original G5.','7C+1'),
  ('NEW_V3_F5_TEMPORAL','F5. Temporal Form','document_temporal_v3.py','DocumentTemporalFormV3','candidate_native_negative',
-  'Separate goal-exact short-window ratio early/(late+epsilon), late-minus-early, 25ms edge-extended RMS-envelope slope per second, peak index/T, unnormalized temporal entropy and spatial-map velocity. Fifteen outputs pass an independent two-channel known-waveform oracle. Frozen GRAB Day1 unseen-user matched F0v2 addition worsens validation/final F1 and log loss; not validated UniBo G5 or full-bout DTW and no default promotion.','7C+1'),
+  'Separate goal-exact short-window ratio early/(late+epsilon), late-minus-early, 25ms edge-extended RMS-envelope slope per second, peak index/T, unnormalized temporal entropy and spatial-map velocity. Fifteen outputs pass independent two-channel known-waveform oracles, including default 25ms even-width edge padding, odd window splits and near-zero input checked against explicit local RMS means and least-squares regression. Frozen GRAB Day1 unseen-user matched F0v2 addition worsens validation/final F1 and log loss; not validated UniBo G5 or full-bout DTW and no default promotion.','7C+1'),
  ('F5b','F5b. DTW / template distance','temporal.py','TemporalTemplateFamily','partial',
   'Euclidean local cost, constrained warp and path-length division pass a known-sequence oracle. A separate four-path oracle checks the unique class medoid, zero self-distance, scale-normalized distance and two-class output. DTW requires CompleteSequenceBatch, explicit full coverage and finite native durations >=1s; compressed bin rate cannot prove completeness. Legacy sparse MANUS runner refuses new execution; full UniBo bout replay preserved. Explicit cued stream assembly is available separately, but biological onset/offset detection and live accuracy are not established.','H'),
  ('F5b_cued_assembler','F5b. DTW / template distance','temporal.py','CuedSequenceAssembler','analytical_complete_bout_gate',
@@ -212,6 +219,7 @@ def build(document, output):
                     lambda:DocumentQualityObservationsV3(),
                     DocumentCesFamilyV3,
                     DocumentTemporalFormV3,
+                    DocumentSpectralStateV3,
                     lambda:RestNoiseLocalDetailFamily(rest_label=2),DocumentCspFamily,
                     ScalePatternV1,RingLagV1,CorrelationSpectrumV1,FrequencyDirectionV1,
                     lambda: RestNoiseDetailV2(rest_label=0), TraceCovarianceV2,

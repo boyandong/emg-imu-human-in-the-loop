@@ -135,7 +135,18 @@ def build(pre: Path, goal: Path) -> dict:
                          "24 six-class 180-dimensional descriptors; it is not a "
                          "predictive routing gain.")
             boundary=boundary.replace('Sixty-six reviewed formula/source rows',
-                'Seventy reviewed formula/source rows')
+                'Seventy-three reviewed formula/source rows')
+            evidence += ("|src/emgimu/feature_bank/document_spectral_v3.py"
+                         "|tests/test_document_spectral_v3.py"
+                         "|tests/test_f4_spectral_grab_delivery.py"
+                         "|benchmarks/new_bank_v3/F4_SPECTRAL_GRAB_RESULTS.json"
+                         "|benchmarks/new_bank_v3/F4_SPECTRAL_GRAB_PROTOCOL.json")
+            boundary += (" Separate F4 V3 follows additive-epsilon frequency "
+                         "orientation/centroid, raw entropy and log(power+epsilon) "
+                         "orthonormal DCT-II with source-frozen B/K. Independent "
+                         "normal/zero/near-zero Fourier/DCT oracles pass. A "
+                         "fixed GRAB unseen-user matched increment gains validation "
+                         "F1/loss but loses descriptive final F1/loss, so remains opt-in.")
             evidence += "|tests/test_session_shift_summary.py|src/emgimu/feature_bank/session_shift_summary.py"
             evidence = "|".join(dict.fromkeys(evidence.split("|")))
             boundary += (" The F8 family-summary API retains immutable source "

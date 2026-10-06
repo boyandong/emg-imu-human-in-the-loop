@@ -1,0 +1,13 @@
+{
+  "name": "document_v3_f4_spectral_grab_day1_unseen_user",
+  "parent_protocol_sha256": "ffb8c5111a02d2b336966c3214c0e3e72f793c1799a794b48ac5b884e8172827",
+  "parent_result_sha256": "8ba1a3d7a42c0a1af7e9747f4f883aa1b5d3b5a59e5d73dc34db6cb86ae36969",
+  "parent_prediction_sha256": "3f4b7d58df3296b4483fcd63187f13f8d3ff3f4dfc6024b9f2003f76a20065b5",
+  "arms": ["F0v2", "F0v2+F4spectral"],
+  "feature": "F4 V3 four source-fixed sub-Nyquist bands with energy/(L2+epsilon), total power, additive-epsilon centroid, MDF, raw entropy, four non-DC orthonormal DCT-II mean/std coefficients of log(power+epsilon); 72 window features and 144 trial mean/std features",
+  "split": "GRAB Day1 source users 1-4, validation users 5-6, descriptive final users 7-8; native trials disjoint",
+  "classifier": "StandardScaler + LogisticRegression(C=1,max_iter=2000,random_state=20260924), source users only",
+  "primary": ["macro_f1", "log_loss", "brier", "minimum_subject_macro_f1"],
+  "decision": "No default promotion from this one-axis study; no target-based retuning",
+  "boundary": "Document additive-epsilon/raw-entropy spectral formula; not CCA, fatigue estimation or hardware validation. Previously inspected public GRAB users; final is descriptive. Separate from older normalized-entropy spectral candidate."
+}
