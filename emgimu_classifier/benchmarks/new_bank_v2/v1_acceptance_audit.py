@@ -124,6 +124,18 @@ def build(pre: Path, goal: Path) -> dict:
                          "7/10 users gain log loss. This is public-cohort evidence only, "
                          "and does not validate the user's montage or live deployment.")
         if ident in ("GOAL-03", "GOAL-20"):
+            evidence += ("|src/emgimu/feature_bank/document_session_v3.py"
+                         "|tests/test_document_session_v3.py"
+                         "|tests/test_f8_document_manus_delivery.py"
+                         "|benchmarks/new_bank_v3/F8_DOCUMENT_MANUS_RESULTS.json")
+            boundary += (" Document F8 V3 now concatenates the four required "
+                         "descriptor blocks, enforces same-user/new-session identity, "
+                         "uses centered SPD geometry and separates channel-quality "
+                         "scores from variance. A frozen-split MANUS replay verifies "
+                         "24 six-class 180-dimensional descriptors; it is not a "
+                         "predictive routing gain.")
+            boundary=boundary.replace('Sixty-six reviewed formula/source rows',
+                'Seventy reviewed formula/source rows')
             evidence += "|tests/test_session_shift_summary.py|src/emgimu/feature_bank/session_shift_summary.py"
             evidence = "|".join(dict.fromkeys(evidence.split("|")))
             boundary += (" The F8 family-summary API retains immutable source "

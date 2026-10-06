@@ -25,7 +25,7 @@ section_start,section_end,title,mapping,review_item_ids,review_statuses,source_p
 1985,1992,Cosine,direct_source_review,F7_cosine_rule,analytical_oracle,src/emgimu/feature_bank/calibration.py,not_proven
 1993,2004,Shrinkage Mahalanobis（样本足够时）,direct_source_review,F7_mahalanobis_rule,analytical_budget_limited,src/emgimu/feature_bank/calibration.py,not_proven
 2005,2046,SPD feature,direct_source_review,F7_spd_distance_rule|F7_affine_spd_v3,analytical_native_limited|candidate_native_partial,src/emgimu/feature_bank/spd_anchor.py|src/emgimu/feature_bank/affine_spd_anchor.py,not_proven
-2047,2139,F8. Session Signature,direct_source_review,F8|F8_family_shift,partial|candidate_formula,src/emgimu/feature_bank/calibration.py|src/emgimu/feature_bank/session_shift_summary.py,not_proven
+2047,2139,F8. Session Signature,direct_source_review,F8|F8_family_shift|F8_document_v3,partial|candidate_formula|analytical_native_descriptor,src/emgimu/feature_bank/calibration.py|src/emgimu/feature_bank/session_shift_summary.py|src/emgimu/feature_bank/document_session_v3.py,not_proven
 2140,2145,F9. Quality / Observability,direct_source_review,F9_legacy|F9v2|F9_source_mask_candidate,reference_only|partial|candidate_native_context_only,src/emgimu/feature_bank/families.py|src/emgimu/feature_bank/quality_observability.py|src/emgimu/feature_bank/quality_mask_v1.py,not_proven
 2146,2168,F9a. Missing / zero / flatline,direct_source_review,F9a_zero_flat_rule|F9a_strict_document_v3,analytical_partial|analytical_metadata_conditional,src/emgimu/feature_bank/quality_observability.py|src/emgimu/feature_bank/document_quality_v3.py,not_proven
 2169,2184,F9b. Clipping,direct_source_review,F9b_adc_clip_rule,metadata_conditional,src/emgimu/feature_bank/families.py,not_proven

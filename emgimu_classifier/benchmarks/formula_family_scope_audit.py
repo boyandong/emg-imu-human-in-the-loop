@@ -64,6 +64,15 @@ def build() -> dict:
                           "identities and rejects any calibration/source overlap or "
                           "missing provenance. Independent tests verify equal trial "
                           "mass with unequal window counts and unchanged source state.")
+            evidence += ("|src/emgimu/feature_bank/document_session_v3.py"
+                         "|tests/test_document_session_v3.py"
+                         "|tests/test_f8_document_manus_delivery.py"
+                         "|benchmarks/new_bank_v3/F8_DOCUMENT_MANUS_RESULTS.json")
+            supported += (" The opt-in document V3 assembles all four F8 blocks "
+                          "with explicit user/session separation, document-centered SPD "
+                          "geometry and channel-quality differences. Frozen MANUS "
+                          "calibration splits yield 24 finite 180-dimensional descriptors, "
+                          "with no evaluation windows or classifier fitting.")
         if family == "F1":
             evidence += "|tests/test_f1_scale_pattern_oracle.py"
             supported += (" An independent eight-channel RMS/global-RMS oracle "

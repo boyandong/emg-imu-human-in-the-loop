@@ -117,6 +117,11 @@ emgimu_classifier/src/emgimu/feature_bank/core.py -text -eol whitespace=cr-at-eo
 emgimu_classifier/tests/test_f1_scale_pattern_oracle.py -text -eol whitespace=cr-at-eol
 
 # Preserve authoritative evidence bytes across fresh checkouts.
+emgimu_classifier/src/emgimu/feature_bank/document_session_v3.py -text -eol
+emgimu_classifier/tests/test_document_session_v3.py -text -eol
+emgimu_classifier/tests/test_f8_document_manus_delivery.py -text -eol
+emgimu_classifier/benchmarks/new_bank_v3/f8_document_manus.py -text -eol
+emgimu_classifier/benchmarks/new_bank_v3/F8_DOCUMENT_MANUS_RESULTS.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v2/v1_acceptance_audit.py -text -eol whitespace=cr-at-eol
 .gitattributes -text -eol whitespace=cr-at-eol
 .gitignore -text -eol whitespace=cr-at-eol

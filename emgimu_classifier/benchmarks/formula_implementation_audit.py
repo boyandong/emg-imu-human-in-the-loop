@@ -39,6 +39,7 @@ from emgimu.feature_bank.document_quality_v3 import DocumentQualityObservationsV
 from emgimu.feature_bank.document_ces_v3 import DocumentCesFamilyV3
 from emgimu.feature_bank.document_temporal_v3 import DocumentTemporalFormV3
 from emgimu.feature_bank.document_reliability_v2 import DocumentReliabilityWeightsV2
+from emgimu.feature_bank.document_session_v3 import DocumentSessionDescriptorV3
 
 # Decisions are human-readable reviewed boundaries, never inferred from dimensions/tests.
 # Exact historical mandatory reuse cannot be replaced by a conceptual candidate.
@@ -129,6 +130,8 @@ REVIEWS = (
   'Residual norms, cosines and pair geometry generic block pass a hand-computable three-class/two-dimensional oracle with source-state immutability. Family-specific summaries are provided separately by FamilySessionShiftSummary; this interface alone has no predictive-benefit claim.','2H+H(H-1)/2'),
  ('F8_family_shift','F8. Session Signature','session_shift_summary.py','FamilySessionShiftSummary','candidate_formula',
   'Source and calibration trial-balanced class profiles provide log global activation, scale pattern, log-band, affine-invariant SPD covariance, optional ring-vector and channel-quality shifts. Immutable source trial identities are retained; overlapping calibration trials, missing provenance and invalid trial contracts are rejected. Independent tests verify partial overlap rejection, immutable state and equal trial mass despite unequal window counts. An explicit Rest class yields per-channel log adjacent-difference-noise ratios with isolated Song calibration readback. This is a domain descriptor; native same-day evidence is narrower than cross-day validation.','per-class family-specific summary plus optional C Rest-noise shifts'),
+ ('F8_document_v3','F8. Session Signature','document_session_v3.py','DocumentSessionDescriptorV3','analytical_native_descriptor',
+  'Versioned same-user, distinct-session, trial-balanced descriptor concatenates residual norms, cosine agreements, all selected familywise class-pair shifts and family-specific summaries. Uses centered document F2a SPD matrices, exact affine pair distances, separate C channel-quality score differences and only eight F3a RLCS coordinates when verified ring topology is supplied. Independent known-geometry and identity/leakage oracles pass; a frozen-split MANUS replay produces 24 six-class 180-dimensional non-ring descriptors without evaluation input or classifier fitting. No routing improvement or measured fatigue claim.','K*(2H+H(H-1)/2)+H*(4+C+ring); K=4+ring'),
  ('F9_legacy','F9. Quality / Observability','families.py','QualityFamily','reference_only',
   'Legacy flatline is fraction of flat edges rather than longest run; unknown ADC yields zero without mask; optional low-frequency observation unavailable. Preserve legacy measurements.','6C+5'),
  ('F9v2','F9. Quality / Observability','quality_observability.py','QualityObservabilityFamily','partial',
@@ -191,6 +194,16 @@ def build(document, output):
     x = rng.normal(size=(16,40,8)); labels = np.arange(16)%4
     batch = FeatureBatch(x,200,imu=rng.normal(size=(16,10,6)),posture=np.array(['up','down']*8))
     measured = {}
+    descriptor=DocumentSessionDescriptorV3().fit_long_term(batch.take(np.arange(8)),labels[:8],
+        [f'long-{i}' for i in range(8)],user_id='fixture',session_ids=['source']*8,ring_topology=True)
+    before=pickle.dumps(descriptor)
+    result=descriptor.from_calibration(batch.take(np.arange(8,16)),labels[8:],
+        [f'cal-{i}' for i in range(8)],user_id='fixture',session_ids=['current']*8)
+    if result['phi_dimension']!=122 or before!=pickle.dumps(descriptor):
+        raise AssertionError('Document F8 dimension/immutability contract failed')
+    measured['DocumentSessionDescriptorV3']={'fixture_dimension':122,
+        'names':result['phi_feature_names'],'finite':True,'source_immutable':True,
+        'fixture_override':'H=4,C=8,K=5 including caller-asserted ring; no native topology inference'}
     for factory in (LocalDetailFamily,ScalePatternFamily,TraceCovarianceFamily,CspSpatialFamily,
                     SpdTangentFamily,RingGeometryFamily,ReconstructedRlcs,SpectralStateFamily,TemporalFormFamily,
                     BodyContextFamily,QualityFamily,LogBandEnergyFamily,
