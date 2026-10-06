@@ -1,0 +1,214 @@
+{
+  "source_sha256": {
+    "benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_PROTOCOL.json": "03e211e0d85e32a796222a2edb7afc95f22419ad86068132303cad0db406c550",
+    "benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_RESULTS.json": "8af20ead1bdbbd8782d2ca1483f9ea8e9f4874a555ff267b0b60203d93b8ed2e",
+    "benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_PROTOCOL.json": "8a6ead3d422cedd9ad261bdcf8bee898a66a1d81d5917dc8282bb5c95aa88c3c",
+    "benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_RESULTS.json": "3ecf34f3713f473045d1778fea63a910ac8f1fa71b692983c8dcc90970048a69",
+    "benchmarks/new_bank_v3/autonomous_g5_stream_replay.py": "b72ff05cd47bf3f7b481232d25d35e860d3b10ebd54d3fc5646a69ebcc29cc1d",
+    "src/emgimu/feature_bank/autonomous_g5_stream_v1.py": "54118283f69231d72d2b3995e027429a9c73b2421aff115d32b014ec7b8d9ec5"
+  },
+  "recordings": [
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_1_day_6_posture_1.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_1_day_6_posture_2.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_1_day_6_posture_3.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_1_day_6_posture_4.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_2_day_6_posture_1.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_2_day_6_posture_2.mat",
+      "events": 48,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 35
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_2_day_6_posture_3.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_2_day_6_posture_4.mat",
+      "events": 55,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_3_day_6_posture_1.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_3_day_6_posture_2.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_3_day_6_posture_3.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_3_day_6_posture_4.mat",
+      "events": 55,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_4_day_6_posture_1.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_4_day_6_posture_2.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 35
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_4_day_6_posture_3.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_4_day_6_posture_4.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_5_day_6_posture_1.mat",
+      "events": 52,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_5_day_6_posture_2.mat",
+      "events": 49,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_5_day_6_posture_3.mat",
+      "events": 44,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_5_day_6_posture_4.mat",
+      "events": 48,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_6_day_6_posture_1.mat",
+      "events": 51,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_6_day_6_posture_2.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_6_day_6_posture_3.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_6_day_6_posture_4.mat",
+      "events": 50,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_7_day_6_posture_1.mat",
+      "events": 18,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_7_day_6_posture_2.mat",
+      "events": 16,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_7_day_6_posture_3.mat",
+      "events": 19,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 36
+    },
+    {
+      "member": "unibo-inail-semg-dataset-main/data/user_7_day_6_posture_4.mat",
+      "events": 2,
+      "max_probability_error": 0.0,
+      "censored_end": false,
+      "max_chunk_delay_samples": 16
+    }
+  ],
+  "source_state_immutable": true,
+  "classifier_refitted": false,
+  "chunk_samples": 37,
+  "scope": "Native four-channel/200Hz continuous public replay. Chunk-to-release-confirmed prediction parity; no hardware throughput, onset-time classification or eight-channel transfer claim.",
+  "default_promoted": false,
+  "completion_proven": false
+}

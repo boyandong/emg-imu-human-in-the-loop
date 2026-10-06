@@ -73,6 +73,14 @@ def build(pre: Path, goal: Path) -> dict:
                          "from added-feature increments, DTW probability metrics are N/A, "
                          "and 130 insufficient independent-trial budgets remain ineligible.")
         if ident in ("GOAL-03", "GOAL-20"):
+            evidence += ("|src/emgimu/feature_bank/autonomous_g5_stream_v1.py"
+                         "|tests/test_autonomous_g5_stream_v1.py"
+                         "|benchmarks/new_bank_v3/autonomous_g5_stream_replay.py"
+                         "|benchmarks/new_bank_v3/AUTONOMOUS_G5_STREAM_V1_RESULTS.json")
+            boundary += (" A chunk-to-release-confirmed G5 API reproduces all 1,257 "
+                         "saved detection boundaries/predictions across 28 continuous native "
+                         "recordings with unchanged source predictor state; this is not "
+                         "hardware throughput or onset-time recognition evidence.")
             evidence += ("|src/emgimu/feature_bank/session_fusion_v2.py"
                          "|tests/test_session_fusion_v2.py"
                          "|benchmarks/new_bank_v3/f8_checked_fusion_replay.py"
