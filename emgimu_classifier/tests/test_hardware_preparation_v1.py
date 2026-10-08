@@ -118,3 +118,40 @@ def test_f9_missing_labels_and_source_reuse_do_not_become_validation():
         evaluate_fault_gate(np.array([True]),['static_means_fault'],['eval'],source_trial_ids=['source'])
     with pytest.raises(ValueError,match='Boolean'):
         evaluate_fault_gate([.9],['fault'],['eval'],source_trial_ids=['source'])
+
+
+def test_f6_arbitrary_mount_rotation_matches_independent_closed_form_features():
+    # Constant held-out signals give a closed-form gravity-filter response.
+    # Reexpress every sensor and measured calibration vector in a rotated
+    # device frame; the calibrated body representation must remain unchanged.
+    acceleration=np.array([[.7,-.4,10.1],[-.1,.8,9.1]])
+    angular_velocity=np.array([[.3,-.2,.4],[.5,.6,-.1]])
+    native=np.broadcast_to(np.concatenate([acceleration,angular_velocity],axis=1)[:,None,:],(2,10,6)).copy()
+    neutral=np.zeros((50,6));neutral[:,2]=9.80665
+    emg=np.zeros((2,40,8))
+    from scipy.spatial.transform import Rotation
+    rotations=[np.eye(3),Rotation.from_euler('xyz',[-26,32,135],degrees=True).as_matrix(),
+               Rotation.from_rotvec(np.array([1.,-2.,.5])/np.sqrt(5.25)*2.1).as_matrix()]
+    decay=np.exp(-np.arange(1,11)/(50*.5))
+    expected=[]
+    for accel,gyro in zip(acceleration,angular_velocity):
+        a=np.linalg.norm(accel);g=np.linalg.norm(gyro)
+        residual=accel-np.array([0.,0.,9.80665])
+        mean_gravity=accel-residual*decay.mean()
+        direction=mean_gravity/np.linalg.norm(mean_gravity)
+        expected.append([a,0,a,a,0,g,0,g,g,0,*direction,
+                         np.linalg.norm(residual)*np.sqrt(np.mean(decay**2)),g])
+    for index,rotation in enumerate(rotations):
+        transformed=native.copy()
+        transformed[:,:,:3]=native[:,:,:3]@rotation.T
+        transformed[:,:,3:]=native[:,:,3:]@rotation.T
+        calibrated=neutral.copy();calibrated[:,:3]=neutral[:,:3]@rotation.T
+        batch=FeatureBatch(emg,200.,transformed)
+        model=CalibratedBodyContextV2(imu_sample_rate_hz=50.,acceleration_unit='m/s^2',angular_velocity_unit='rad/s')
+        model.fit(batch,neutral_calibration_imu=calibrated,forward_axis_device=rotation@np.array([1.,0.,0.]),
+                  calibration_trial_ids=['neutral','guided-forward'])
+        source_state=pickle.dumps(model)
+        output=model.transform(batch,trial_ids=['eval-a','eval-b'])
+        np.testing.assert_allclose(output,expected,atol=2e-6,rtol=0)
+        np.testing.assert_allclose(model.device_to_body_@rotation,np.eye(3),atol=1e-12)
+        assert pickle.dumps(model)==source_state

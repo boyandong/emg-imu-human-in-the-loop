@@ -33,7 +33,7 @@ def run():
         'suite_summary':result.stdout.strip().splitlines()[-1],
         'items':[
             {'item':5,'module':modules[5],'software_scope':'Explicit g/m/s² and deg/s/rad/s conversion; calibrated relative frame; strict calibration IDs and matched sensor durations.',
-             'verified_by':'Independent15-coordinate constant-step SI oracle and unit equivalence; source/evaluation guards.',
+             'verified_by':'Independent15-coordinate constant-step SI oracle and unit equivalence; arbitrary three-dimensional mounting rotations match independent exponential-decay gravity/linear-acceleration features; source/evaluation guards.',
              'remaining':'Measured neutral and guided forward calibration, known raw IMU units/axes, native synchronized recordings and physical orientation validation.'},
             {'item':6,'module':modules[6],'software_scope':'Explicit eight measured-channel physical ring map with evidence reference; source/evaluation layout fingerprint; loader-column reorder. Opt-in MappedSessionCalibrationPipelineV3 applies the same declared layout throughout source fit, session calibration and labelled/unlabelled prediction.',
              'verified_by':'Different source/calibration/evaluation loader orders reproduce all six branches of the canonical-order session pipeline; physical layout mismatch, unknown columns and trial leakage are rejected; prediction state is unchanged.',
