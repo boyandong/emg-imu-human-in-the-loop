@@ -1,0 +1,231 @@
+{
+  "schema": "current_discovery_state_v1",
+  "historical_manifest": "DATASET_MANIFEST.json",
+  "source_sha256": {
+    "DATASET_MANIFEST.json": "efd4f05ea43cc75101ffcb3a7204d44cd9823ac2ac9016ce4f9b53d508708940",
+    "DISCOVERY_DELIVERY_AUDIT.json": "a88af2b0d2b374f418f5db6e70e31cf52a7c6d4a6a9798d9e4167b49545f4934",
+    "DS2_V9_FORCE_LABEL_AUDIT.json": "f0cee7da6421444718d33ca648bbb31633b09188f2265d292f78149f612f2ef5",
+    "DS2_V9_FORCE_TRIAL_JOIN.csv": "bdfcb4dd250fb90b713d1dd835f91304d685d751b0d081ba0c48622484d272b7",
+    "public_ds2_force_v9/RESULTS.json": "86d7d79c3a63d3b01d64d1425859c27d0aebd3915a5c277921e637702bec2541",
+    "public_ds2_force_v9/TRIAL_PREDICTIONS.csv": "8b2f35d7b91f5b65e5f874ed4a59e959c2047d4ea63ce33a6873a3a6777a5dc3",
+    "scripts/current_discovery_state.py": "ce5689fd04f29e7e80ca1f150229083f9d00e26dd1901b469fe71f00274e3356"
+  },
+  "datasets": [
+    {
+      "id": "ds2_force",
+      "status": "public_v8_raw_with_verified_publisher_v9_subjective_force_labels",
+      "source": "https://www.mdpi.com/2306-5729/10/12/194",
+      "dataset_url": "https://www.kaggle.com/datasets/d4d7612f90e026339cb1eba7ba2bcb68295fd5cbb11944eadd489d8fe0399584",
+      "dataset_ref": "cinthyazuniga/ds2-emg-signals-three-force-type",
+      "dataset_version": 8,
+      "expected": "20 subjects; 3 channels; 1500 Hz; 5 gestures; low/medium/high",
+      "path": "C:/Users/SCQ666/Documents/Codex/2026-09-13/files-pasted-by-the-user-emg/work/datasets/historical_ds2_candidate/ds2_kaggle_v8.zip",
+      "size": 1123505003,
+      "sha256": "a19bfeb945392b38f5f41bde62e8135918da7d475e479b16e322e1fc4b867110",
+      "file_count": 102,
+      "uncompressed_bytes": 1312583609,
+      "license": "conflict: publication CC-BY-4.0; Kaggle page CC0",
+      "access_audit": "benchmarks/discovery/DS2_ACCESS_AUDIT.json",
+      "archive_audit": "benchmarks/discovery/DS2_ARCHIVE_AUDIT.json",
+      "tdms_first_metadata_audit": "benchmarks/discovery/DS2_TDMS_FIRST_METADATA_AUDIT.json",
+      "tdms_group_audit": "benchmarks/discovery/DS2_TDMS_GROUP_AUDIT.json",
+      "raw_mav_window_join_audit": "benchmarks/discovery/DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json",
+      "tdms_exact_waveform_join_audit": "benchmarks/discovery/DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json",
+      "force_annotation_source_audit": "benchmarks/discovery/DS2_FORCE_ANNOTATION_SOURCE_AUDIT.json",
+      "per_trial_force_labels": "verified_exact_window_to_raw_trial_join",
+      "subject_held_out_gesture_study": "benchmarks/discovery/public_ds2_subject_gesture/RESULTS.json",
+      "verified_tdms_subject_trials": 2833,
+      "unmatched_tdms_subject_trials": 30,
+      "note": "Versioned independent public-data experiment. Missing legacy B0/X1/X2 code is superseded by user instruction and is not a prerequisite. Force labels are subjective instructed categories, not measured mechanical force. Final cohort results remain descriptive; no own-device or deployment claim.",
+      "force_label_publisher_version": 9,
+      "force_label_audit": "DS2_V9_FORCE_LABEL_AUDIT.json",
+      "force_trial_join": "DS2_V9_FORCE_TRIAL_JOIN.csv",
+      "force_labelled_raw_trials": 2863,
+      "subject_gesture_force_eligible_trials": 2832,
+      "active_study_trials": 2297,
+      "current_force_study": "public_ds2_force_v9/RESULTS.json"
+    },
+    {
+      "id": "libemg_force",
+      "status": "downloaded_verified",
+      "source": "https://github.com/LibEMG/ContractionIntensity/archive/refs/heads/main.zip",
+      "size": 207707607,
+      "sha256": "237212D87F50C9B621E572BC780D99FAC3A9AF60B99EC8B455FB3D3DBB2D15E7",
+      "md5": "61D4A5AAEA134F3C730517A354E20870",
+      "file_count_csv": 3220,
+      "license": "not declared by repository",
+      "path": "D:/emg-imu-benchmarks/data/raw/libemg_force/contraction-intensity-main.zip"
+    },
+    {
+      "id": "libemg_electrode_shift",
+      "status": "downloaded_verified",
+      "source": "https://github.com/LibEMG/CIILData/archive/refs/heads/main.zip",
+      "expected_size_source": "GitHub repository reports about 11 MB",
+      "license": "not declared by repository",
+      "path": "D:/emg-imu-benchmarks/data/raw/libemg_electrode_shift/CIILData-main.zip",
+      "size": 11563732,
+      "sha256": "4CFA9A4861193F230179FA87D53EDA7503E66B5CFEDEAE81C81E476F53F6B2B6",
+      "md5": "711DF74C47DFE811968B8F41A37E2438"
+    },
+    {
+      "id": "unibo_inail",
+      "status": "downloaded_verified",
+      "source": "https://github.com/pulp-bio/unibo-inail-semg-dataset/archive/refs/heads/main.zip",
+      "expected_size": 513385791,
+      "expected_sha256": "E32F1649B7B9B775A6B03328FB862EBF21A18C7CA6B4D9ABB50B7281CAEFBCE3",
+      "license": "LGPL-2.1",
+      "path": "D:/emg-imu-benchmarks/data/raw/unibo_inail/unibo-inail-main.zip",
+      "size": 513385791,
+      "sha256": "E32F1649B7B9B775A6B03328FB862EBF21A18C7CA6B4D9ABB50B7281CAEFBCE3"
+    },
+    {
+      "id": "epn612",
+      "status": "downloaded_verified",
+      "source": "https://zenodo.org/api/records/4421500/files/EMG-EPN612%20Dataset.zip/content",
+      "expected_size": 5483385161,
+      "expected_md5": "98bd3c315efab607cc54b2ed2f8f3ada",
+      "license": "CC-BY-4.0",
+      "path": "D:/emg-imu-benchmarks/data/raw/epn612/EMG-EPN612-Dataset.zip",
+      "size": 5483385161,
+      "sha256": "4EE8DB037385E7BEE1E6AC6F9E9EEA4F0869E25F7825F5EB7E5BE0DFF4F93C21",
+      "md5": "98BD3C315EFAB607CC54B2ED2F8F3ADA"
+    },
+    {
+      "id": "semg_manus",
+      "status": "downloaded_verified",
+      "source": "https://zenodo.org/api/records/19261324/files/semg-manus-dataset-v1.zip/content",
+      "expected_size": 594438686,
+      "expected_md5": "2d3975173cd6b6832d50d0be0948e1f0",
+      "license": "CC-BY-4.0",
+      "path": "D:/emg-imu-benchmarks/data/raw/semg_manus/semg-manus-dataset-v1.zip",
+      "size": 594438686,
+      "sha256": "2D9E1DF613485B9A4AFE9A5A71010CA84E75A521B596F836A195B5EAF3DC1F29",
+      "md5": "2D3975173CD6B6832D50D0BE0948E1F0"
+    },
+    {
+      "id": "emg_fmg",
+      "status": "downloaded_verified",
+      "source": "https://zenodo.org/api/records/15420178/files/Data.zip/content",
+      "expected_size": 9125369365,
+      "expected_md5": "453a9e17b5a2ee4c5e8da683d4df2c29",
+      "license": "CC0",
+      "path": "D:/emg-imu-benchmarks/data/raw/emg_fmg/Data.zip",
+      "size": 9125369365,
+      "sha256": "3021E8B5FF31FD5AABA5E11F5F1C4D370D07407C0F1451F36C64A3A03B42C677",
+      "md5": "453A9E17B5A2EE4C5E8DA683D4DF2C29"
+    },
+    {
+      "id": "great",
+      "status": "deferred",
+      "source": "https://doi.org/10.5061/dryad.8sf7m0czv",
+      "expected_size": 3800000000,
+      "license": "CC0"
+    },
+    {
+      "id": "ninapro_db6",
+      "status": "access_required",
+      "source": "https://ninapro.hevs.ch/",
+      "license": "NinaPro terms"
+    },
+    {
+      "id": "grabmyo",
+      "status": "selected_subset_verified",
+      "source": "https://physionet.org/content/grabmyo/1.1.0/",
+      "uncompressed_size": 9400000000,
+      "license": "CC-BY-4.0",
+      "selected_subset_path": "D:/emg-imu-benchmarks/data/raw/grabmyo_crossday_subset_v1",
+      "selected_subset_records": 672,
+      "selected_subset_files": 1344,
+      "selected_subset_bytes": 442479520,
+      "selected_subset_verified_against": "official SHA256SUMS.txt",
+      "official_checksum_manifest_sha256": "757ea64fa5134b7b3b84d9f79e30cfa1ac4d2c65a40ce9b427db11dd8258974e",
+      "full_dataset_downloaded": false
+    },
+    {
+      "id": "ninapro_db5",
+      "status": "access_required",
+      "source": "https://ninapro.hevs.ch/",
+      "license": "NinaPro terms"
+    },
+    {
+      "id": "fors_emg",
+      "status": "deferred",
+      "source": "https://www.kaggle.com/datasets/ummerummanchaity/fors-emg-a-novel-semg-dataset",
+      "license": "verify at download"
+    },
+    {
+      "id": "electrode_replacement",
+      "status": "secondary",
+      "source": "https://zenodo.org/api/records/4039550/files/EMG%20dataset.7z/content",
+      "expected_size": 315604904,
+      "expected_md5": "c577384488e7fd0d7f7916485c87d72b",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "hyser",
+      "status": "metadata_only",
+      "source": "https://physionet.org/content/hd-semg/2.0.0/",
+      "uncompressed_size": 142600000000,
+      "license": "ODC-BY-1.0"
+    },
+    {
+      "id": "roam_emg",
+      "tier": "public_supplement",
+      "status": "downloaded_verified",
+      "source": "https://github.com/roamlab/reactemg",
+      "download_url": "https://www.dropbox.com/scl/fi/isj4450alriqjfstkna2s/data.zip?rlkey=n5sf910lopskewzyae0vgn6j7&st=vt89hfpj&dl=1",
+      "path": "D:/emg-imu-benchmarks/data/raw/roam_emg/data.zip",
+      "size": 1423366661,
+      "sha256": "c9de0e25c187c216e4771d17ccfa19acb0e4028f907ea726b2a87a18d2db5343",
+      "zip_member_count": 187515,
+      "roam_subjects": 28,
+      "roam_static_recordings": 112,
+      "roam_emg_channels": 8,
+      "roam_nominal_sample_rate_hz": 200,
+      "roam_native_sanity_audit": "benchmarks/discovery/ROAM_NATIVE_AUDIT.json",
+      "license": "project repository MIT; data archive terms not separately stated in README",
+      "scope": "Author-hosted archive also includes preprocessed external datasets; only ROAM_EMG static CSVs used for posture/quality and source Rest. Raw archive kept outside Git."
+    },
+    {
+      "id": "electrode_replacement_secondary",
+      "tier": "secondary",
+      "status": "downloaded_verified_secondary_missing_fields",
+      "source": "https://zenodo.org/records/4039550",
+      "license": "CC-BY-4.0",
+      "path": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\secondary_raw\\electrode_replacement\\EMG dataset.7z",
+      "size": 315604904,
+      "md5": "c577384488e7fd0d7f7916485c87d72b",
+      "sha256": "d30a1096ed2522b32bfafcfcb2d9cdf5ccf28e1e21a41dda77824317a8c1b1ff",
+      "native_recordings": 267,
+      "sanity_audit": "electrode_replacement_native_sanity.json",
+      "interval_labels": null,
+      "repetition_boundaries": null,
+      "note": "Optional secondary archive; sampled missing fields reject two full recordings; not historical DS2; no classifier scores."
+    }
+  ],
+  "superseded_conclusions": [
+    {
+      "source": "DATASET_MANIFEST.json:ds2_force.per_trial_force_labels",
+      "old": "unverified",
+      "current": "verified_exact_window_to_raw_trial_join"
+    },
+    {
+      "source": "DISCOVERY_DELIVERY_AUDIT.json:limitations",
+      "old": "No verified per-trial DS2 force key or force-condition scores.",
+      "current": "Publisher v9 force keys and independent force-category scores now exist."
+    },
+    {
+      "source": "Historical baseline recovery",
+      "old": "Wait for unavailable legacy experiments.",
+      "current": "Superseded by user-authorized versioned independent implementation."
+    }
+  ],
+  "remaining": [
+    "Real multi-user/day eight-channel and hardware validation.",
+    "Secondary candidate paper/license/layout verification remains incomplete.",
+    "Reported DS2 license conflict is retained; no new license determination.",
+    "This entry point does not rehash multi-GB raw archives or authenticate physical clocks."
+  ],
+  "completion_proven": false,
+  "scope": "Current local evidence overlay. Historical SHA-bound artifacts are retained as snapshots. Dataset entries other than DS2 retain their recorded status and are not freshly externally verified."
+}

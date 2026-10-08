@@ -63,6 +63,12 @@ def build(pre: Path, goal: Path) -> dict:
         lines[name] = path.read_text(encoding="utf-8-sig").splitlines()
     rows = []
     for ident, doc, start, end, title, status, evidence, boundary in CLAUSES:
+        if ident in ('PRE-03', 'PRE-05', 'PRE-07'):
+            evidence += '|benchmarks/discovery/CURRENT_DISCOVERY_STATE.json|tests/test_current_discovery_state.py'
+            boundary += (' Current discovery entry binds the publisher-v9 subjective force join '
+                         'and independent DS2 study; the earlier no-force-label conclusion is '
+                         'superseded. Legacy experiment recovery is not a prerequisite. '
+                         'Recorded licensing and secondary provenance limits remain explicit.')
         if ident == "GOAL-17":
             evidence += ("|feature_bank/delivery/INDEX.json"
                          "|feature_bank/delivery/new_bank_v3/MANIFEST.json"
