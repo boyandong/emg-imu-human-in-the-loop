@@ -1,0 +1,24 @@
+{
+  "schema": "roam_debounce_control_v1",
+  "confirmations": 2,
+  "classes": [
+    0,
+    1,
+    2
+  ],
+  "rate_hz": 200,
+  "hop_samples": 10,
+  "reaction_half_buffer_samples": 100,
+  "policy": "Confirm two consecutive emission labels before changing; start unknown; reset pending candidate on stable label. Fresh state per native recording.",
+  "evaluation": "Paired class metrics on shared known samples; additionally full-record accuracy with unknown wrong. All transitions retain unknown failures. No probability metrics for a label-only policy.",
+  "scope": "Fixed descriptive control on previously inspected public cohorts, no fit or parameter search, no hardware timing or own-device efficacy proof. Nominal added confirmation interval 50ms for immediately consistent predictions; no guaranteed event delay.",
+  "default_promoted": false,
+  "source_sha256": {
+    "benchmarks/new_bank_v3/roam_debounce_control_v1.py": "610f18b846bd8f1c3c1a64796b85c24f24461097ae57f9b498cba1f59a6540c7",
+    "src/emgimu/feature_bank/causal_label_debounce_v1.py": "81ac16f1d68f86760786c9b357b24952ff7d928a13b3a29a9c8a9e6cd8d368cf",
+    "src/emgimu/feature_bank/causal_window_recognition_v1.py": "30ecd3c911ff793d2dad8242f60ebef0d7cc11b034d68d0855eb06f8c5a6677b",
+    "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_PROTOCOL.json": "baaaa596ff2b36d1cebfbcdf87a68382393510a0fe4c05669c168257f26225b6",
+    "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
+    "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_EMISSIONS.csv": "5c2d27f63f09767abf5258c031ff25d169841da3efe42eac8ebf8352acae8f81"
+  }
+}

@@ -981,3 +981,10 @@ emgimu_classifier/benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_EMISSIONS.csv -te
 emgimu_classifier/tests/test_roam_causal_window_v1_delivery.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/delivery/new_bank_v3/continuous_recognition.csv -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/delivery/new_bank_v3/transition_hold.csv -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/causal_label_debounce_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_causal_label_debounce_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/roam_debounce_control_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_PAIRED.csv -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_roam_debounce_control_v1_delivery.py -text -eol whitespace=cr-at-eol
