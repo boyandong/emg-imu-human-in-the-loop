@@ -20,6 +20,26 @@ def rows(name):
         return list(csv.DictReader(stream))
 
 
+def test_label_stability_export_retains_shared_denominator_and_unavailable_probabilities():
+    native = json.loads((ROOT/'benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json').read_text(encoding='utf8'))
+    source = {r['native_file']: r for r in native['records']}
+    table = rows('label_stability_control.csv')
+    assert len(table) == 80
+    assert len({(r['native_file'], r['label_policy']) for r in table}) == 80
+    for row in table:
+        record = source[row['native_file']]; arm = record['arms'][row['label_policy']]
+        assert row['evaluation_unit'] == 'nominal_sample'
+        assert int(row['shared_known_samples']) == record['shared_known_samples']
+        assert int(row['unknown_samples']) == arm['unknown_samples']
+        assert int(row['samples']) == record['samples']
+        assert all(row[k] == 'N/A' for k in ('log_loss', 'brier', 'ece'))
+        for key in ('accuracy', 'macro_f1'):
+            assert float(row[key]) == arm['shared_known_scores'][key]
+        assert float(row['full_record_accuracy_unknown_wrong']) == arm['full_record_accuracy_unknown_wrong']
+        for key in ('eligible_transitions', 'correct_transitions', 'maintenance_switches'):
+            assert int(row[key]) == arm['transition_hold'][key]
+
+
 def test_delivery_sources_schemas_and_unavailable_results():
     manifest = json.loads((OUT/'MANIFEST.json').read_text())
     assert not manifest['completion_proven'] and not manifest['default_promoted']
@@ -28,7 +48,7 @@ def test_delivery_sources_schemas_and_unavailable_results():
         assert sha(ROOT/path) == digest
     expected = {'feature_family_results.csv': 431, 'conditional_incremental.csv': 228,
                 'error_complementarity.csv': 228, 'calibration_curve.csv': 431,
-                'budget_eligibility.csv': 170, 'boundary_detection.csv': 2, 'calibration_burden.csv': 20, 'continuous_recognition.csv':40, 'transition_hold.csv':40}
+                'budget_eligibility.csv': 170, 'boundary_detection.csv': 2, 'calibration_burden.csv': 20, 'continuous_recognition.csv':40, 'transition_hold.csv':40, 'label_stability_control.csv':80}
     for name, count in expected.items():
         table = rows(name)
         assert len(table) == manifest['tables'][name]['rows'] == count

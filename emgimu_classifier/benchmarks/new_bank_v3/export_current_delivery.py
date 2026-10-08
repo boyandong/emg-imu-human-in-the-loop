@@ -212,8 +212,28 @@ def export():
               'maintenance_switches': diagnostic['maintenance_switches'],
               'reaction_half_buffer_samples':100, 'nominal_sample_rate_hz':200,
               'scope':diagnostic['scope']})
+    control_name = 'ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json'
+    control = read(control_name)
+    control_source = (HERE/control_name).relative_to(ROOT).as_posix()
+    control_rows = []
+    for record in control['records']:
+        for arm, info in record['arms'].items():
+            diagnostic = info['transition_hold']
+            control_rows.append({'run_id':'roam_debounce_control_v1',
+                'source_artifact':control_source, 'source_sha256':sources[control_source],
+                'dataset':'ROAM_EMG', 'subject':record['user'], 'session/domain':record['phase'],
+                'condition':record['posture'], 'native_file':record['native_file'], 'label_policy':arm,
+                'evaluation_unit':'nominal_sample', 'samples':record['samples'],
+                'shared_known_samples':record['shared_known_samples'],
+                'unknown_samples':info['unknown_samples'], **info['shared_known_scores'],
+                'full_record_accuracy_unknown_wrong':info['full_record_accuracy_unknown_wrong'],
+                'eligible_transitions':diagnostic['eligible_transitions'],
+                'correct_transitions':diagnostic['correct_transitions'],
+                'maintenance_switches':diagnostic['maintenance_switches'],
+                'log_loss':'N/A', 'brier':'N/A', 'ece':'N/A', 'scope':control['scope']})
     context_fields = ['run_id', 'source_artifact', 'source_sha256', 'dataset', 'subject', 'session/domain', 'condition', 'calibration_budget', 'evaluation_trials', 'metadata_notes_json']
-    tables = {'continuous_recognition.csv': (continuous_rows, list(continuous_rows[0])),
+    tables = {'label_stability_control.csv': (control_rows, list(control_rows[0])),
+              'continuous_recognition.csv': (continuous_rows, list(continuous_rows[0])),
               'transition_hold.csv': (transition_rows, list(transition_rows[0])),
               'feature_family_results.csv': (family, context_fields+['feature_family']+list(METRICS)+['class_metrics_json']),
               'conditional_incremental.csv': (incremental, context_fields+['core_bank', 'added_family', 'comparison_kind', 'delta_logloss', 'delta_macro_f1', 'delta_brier']),
@@ -240,7 +260,7 @@ def export():
     (OUT/'MANIFEST.json').write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf8')
     index = {'schema': 'versioned_feature_bank_delivery_index_v1',
              'tables': {n: [n, 'new_bank_v3/'+n] for n in tables if (BASE/n).exists()},
-             'additional_tables': ['new_bank_v3/boundary_detection.csv', 'new_bank_v3/budget_eligibility.csv', 'new_bank_v3/calibration_burden.csv', 'new_bank_v3/continuous_recognition.csv', 'new_bank_v3/transition_hold.csv'],
+             'additional_tables': ['new_bank_v3/boundary_detection.csv', 'new_bank_v3/budget_eligibility.csv', 'new_bank_v3/calibration_burden.csv', 'new_bank_v3/continuous_recognition.csv', 'new_bank_v3/transition_hold.csv', 'new_bank_v3/label_stability_control.csv'],
              'full_bank_ablation': 'ablation_full_bank.csv', 'current_manifest': 'new_bank_v3/MANIFEST.json',
              'base_provenance': 'PROVENANCE_AUDIT.json',
              'base_table_sha256': {f.name: sha(f) for f in sorted(BASE.glob('*.csv'))},

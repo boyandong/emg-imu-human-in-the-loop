@@ -23,7 +23,8 @@
     "new_bank_v3/budget_eligibility.csv",
     "new_bank_v3/calibration_burden.csv",
     "new_bank_v3/continuous_recognition.csv",
-    "new_bank_v3/transition_hold.csv"
+    "new_bank_v3/transition_hold.csv",
+    "new_bank_v3/label_stability_control.csv"
   ],
   "full_bank_ablation": "ablation_full_bank.csv",
   "current_manifest": "new_bank_v3/MANIFEST.json",
@@ -60,6 +61,7 @@
     "benchmarks/new_bank_v3/MAHALANOBIS_EPN_BUDGET_V1_RESULTS.json": "0f58780fc3023df1ff39fdaca1d918b5120d34839a7d416de32c8028053ce44d",
     "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json": "a423f944b65c5d9d494ab3b85dc5cd6df528ac07968d35d5445ea060d6d4999e",
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
+    "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json": "9964583ef8211b09fa5e594a3aa8e46825d65418afd50c69a99939f62a7eea0a",
     "benchmarks/new_bank_v3/SPEC_F2C_GRAB_RESULTS.json": "8d2058a17e63b66e2bbe3ffedc97656d5a20e64a30499dc329efca5120e745bb",
     "benchmarks/new_bank_v3/SPEC_F2C_TRANSFER_RESULTS.json": "fd680129ec69aee4e9f21744a134e14f245d00557ed27f71bb6b781098c7aed6",
     "benchmarks/new_bank_v3/SPEC_F2C_WEARING_RESULTS.json": "a3a6fb7e19abf9c3a709c27625a45f03346b9f664cac04126c9ac65d9968b3e4",

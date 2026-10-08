@@ -85,6 +85,19 @@ def build(pre: Path, goal: Path) -> dict:
                          "continuous output. Previously inspected cohorts are descriptive, "
                          "and this versioned tolerance metric is not ReactEMG reproduction "
                          "or hardware/own-device validation.")
+        if ident in ("GOAL-03", "GOAL-18", "GOAL-20"):
+            evidence += ("|benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json"
+                         "|benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_PAIRED.csv"
+                         "|src/emgimu/feature_bank/causal_label_debounce_v1.py"
+                         "|tests/test_causal_label_debounce_v1.py"
+                         "|tests/test_roam_debounce_control_v1_delivery.py")
+            boundary += (" A precommitted fixed two-emission confirmation replay reduces "
+                         "hold switches1007 to561 and788 to436, but paired F1 falls "
+                         ".7867 to.7840 and.8105 to.8061. Hold success26/160 and57/160 "
+                         "remains limited. Extra unknown startup samples are retained, "
+                         "full-record unknown-as-wrong accuracy is reported, and label-only "
+                         "probability metrics stay N/A. No default promotion or device proof.")
         if ident in ("GOAL-12", "GOAL-14"):
             evidence += ("|benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json"
                          "|benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.csv"
@@ -127,7 +140,7 @@ def build(pre: Path, goal: Path) -> dict:
                          "|feature_bank/delivery/new_bank_v3/MANIFEST.json"
                          "|benchmarks/new_bank_v3/export_current_delivery.py"
                          "|tests/test_current_v3_delivery.py")
-            boundary += (" Current V3 adds 1,590 hash-bound table rows with an additive "
+            boundary += (" Current V3 adds 1,670 hash-bound table rows with an additive "
                          "version index; paired alternatives are explicitly distinguished "
                          "from added-feature increments, DTW probability metrics are N/A, "
                          "and 130 insufficient independent-trial budgets remain ineligible. "
