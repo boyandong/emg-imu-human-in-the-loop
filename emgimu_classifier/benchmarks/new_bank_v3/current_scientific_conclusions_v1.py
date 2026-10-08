@@ -35,6 +35,7 @@ def build():
     portable_path=ROOT/'feature_bank/FROZEN_EMG_BANK_ACCEPTANCE_V1.json'
     sources[portable_path.relative_to(ROOT).as_posix()]=sha(portable_path)
     portable=json.loads(portable_path.read_text(encoding='utf8'))
+    sources['src/emgimu/feature_bank/frozen_emg_bank_cli_v1.py']=sha(ROOT/'src/emgimu/feature_bank/frozen_emg_bank_cli_v1.py')
     native_cost_curve=read('EMG_CALIBRATION_COST_CURVE_V1.json')
     calibrated_fusion=read('EMG_CALIBRATED_FUSION_V1_RESULTS.json')
     window_bank = read('EMG_WINDOW_BANK_V1_RESULTS.json')
@@ -161,6 +162,7 @@ def build():
                           'tests/test_emg_calibration_burden_v1.py',
                           'tests/test_emg_calibration_cost_curve_v1.py',
                           'tests/test_frozen_emg_provider_bank_v1.py',
+                          'tests/test_frozen_emg_bank_cli_v1.py',
                           'tests/test_available_bank_fusion_v1.py',
                           'tests/test_available_bank_fusion_v1_delivery.py',
                           'tests/test_epn_holdout_user_robustness_v2.py',

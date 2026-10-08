@@ -232,7 +232,9 @@ def build(pre: Path, goal: Path) -> dict:
             evidence += ("|feature_bank/FROZEN_EMG_BANK_ACCEPTANCE_V1.json"
                          "|feature_bank/models/epn_emg_calibrated_bank_v1.pkl"
                          "|src/emgimu/feature_bank/frozen_emg_provider_bank_v1.py"
-                         "|tests/test_frozen_emg_provider_bank_v1.py")
+                         "|tests/test_frozen_emg_provider_bank_v1.py"
+                         "|src/emgimu/feature_bank/frozen_emg_bank_cli_v1.py"
+                         "|tests/test_frozen_emg_bank_cli_v1.py")
             boundary += (" A source-fitted portable six-provider checkpoint now "
                          "includes complete transforms/scalers/models/temperatures. "
                          "Pure EMG8-channel200Hz40-sample cued-trial inference needs "
@@ -241,7 +243,11 @@ def build(pre: Path, goal: Path) -> dict:
                          "and240 omission cases reproduce frozen native probabilities "
                          "below1e-12; user calibration leaves source state immutable. "
                          "This does not validate autonomous250Hz device inference, "
-                         "the full document bank or a default promotion.")
+                         "the full document bank or a default promotion. An offline "
+                         "CLI checks checkpoint SHA-256, accepts explicit NPZ windows, "
+                         "rejects prediction labels, preserves existing output files "
+                         "and separately saves/loads same-user calibration profiles; "
+                         "a separate-process check needs no source archive.")
         if ident == "GOAL-02":
             evidence += ("|feature_bank/OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json"
                          "|feature_bank/CLASSIFIER_REGRESSION_20261008.json"

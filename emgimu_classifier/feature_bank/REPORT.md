@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `fe3c2f33ebb18776f6db016636ab690880662d9aa50c22ef9467986ef22000ce`.
+Source SHA-256: `63ce49a30851343af857bc5213ae719d193d771584ded55c04f46c8341ac96bb`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -496,6 +496,30 @@ neither GUI defaults nor hardware efficacy are promoted.
 [Portable model package](models/epn_emg_calibrated_bank_v1.pkl)
 and [native replay and source fingerprints](FROZEN_EMG_BANK_ACCEPTANCE_V1.json)
 make the source-fitted delivery independently loadable.
+
+The offline command accepts an NPZ containing exactly `emg` (windows
+by40 samples by8 channels), scalar `sample_rate_hz=200`, string
+`trial_ids` per window and integer `window_offsets` per trial.
+Calibration labels are a separate JSON object mapping trial IDs to
+native class indices0–5. Prediction rejects labels. The native class
+axis is noGesture, fist, waveIn, waveOut, open, pinch. Output paths
+must be new files; existing results are preserved.
+
+From the classifier directory, use its installed Python environment
+with `src` on PYTHONPATH. Zero-shot prediction:
+
+```powershell
+$env:PYTHONPATH="src"
+python -m emgimu.feature_bank.frozen_emg_bank_cli_v1 predict --package feature_bank/models/epn_emg_calibrated_bank_v1.pkl --acceptance feature_bank/FROZEN_EMG_BANK_ACCEPTANCE_V1.json --windows evaluation.npz --user my_user --output prediction.json
+```
+
+Use the same command with action `calibrate`, `--windows calibration.npz`,
+`--labels calibration_labels.json` and `--output my_user.pkl` to save
+a profile. Optionally pass `--evaluation-trials evaluation_trial_ids.json`
+to enforce reserved evaluation exclusion. Add `--profile my_user.pkl`
+to subsequent prediction calls for the same user and bank. The command
+verifies checkpoint SHA-256 before loading; it never fits source models.
+A separate-process test runs without the native training archive.
 
 #### Target calibration burden: extracted signal versus stored recording time
 
