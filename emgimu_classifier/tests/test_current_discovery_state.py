@@ -40,6 +40,8 @@ def test_secondary_metadata_keeps_sensor_and_license_boundaries():
     assert rows['ninapro_db5']['acceleration_columns'] == 3
     assert rows['ninapro_db6']['active_emg_channels'] == 14
     assert rows['ninapro_db6']['stored_emg_channels'] == 16
+    assert rows['ninapro_db6']['raw_acceleration_sample_rate_hz'] == 148.148
+    assert rows['ninapro_db6']['aligned_export_sample_rate_hz'] == 2000
     assert rows['great']['uncued_continuous_transitions_verified'] is False
     assert rows['roam_emg']['code_license_verified'] == 'MIT'
     assert rows['roam_emg']['license_verified'] is None
@@ -66,3 +68,14 @@ def test_publisher_license_identity_not_inferred_from_article_or_code_license():
     assert rows['electrode_replacement_secondary']['fields']['license']['id'] == 'cc-by-4.0'
     assert rows['great']['fields']['identifier'] == 'doi:10.5061/dryad.8sf7m0czv'
     assert rows['great']['fields']['license'] == 'https://spdx.org/licenses/CC0-1.0.html'
+
+
+def test_db6_paper_distinguishes_raw_imu_rate_from_aligned_export():
+    paper = json.loads((HERE / 'SECONDARY_PAPER_REVIEW_V1.json').read_text(encoding='utf8'))['papers'][0]
+    assert paper['dataset'] == 'ninapro_db6'
+    assert paper['pages'] == 6 and paper['visually_reviewed_pages'] == [2, 3]
+    assert paper['raw_emg_sample_rate_hz'] == paper['aligned_export_sample_rate_hz'] == 2000
+    assert paper['raw_acceleration_sample_rate_hz'] == 148.148
+    assert paper['raw_acceleration_sample_rate_hz'] != paper['aligned_export_sample_rate_hz']
+    assert not paper['gyroscope_confirmed'] and not paper['calibrated_body_frame_confirmed']
+    assert sum(len(entry['quote'].split()) for entry in paper['evidence']) <= 25

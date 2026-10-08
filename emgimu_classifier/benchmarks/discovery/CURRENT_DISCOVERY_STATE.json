@@ -8,10 +8,11 @@
     "DS2_V9_FORCE_TRIAL_JOIN.csv": "bdfcb4dd250fb90b713d1dd835f91304d685d751b0d081ba0c48622484d272b7",
     "public_ds2_force_v9/RESULTS.json": "86d7d79c3a63d3b01d64d1425859c27d0aebd3915a5c277921e637702bec2541",
     "public_ds2_force_v9/TRIAL_PREDICTIONS.csv": "8b2f35d7b91f5b65e5f874ed4a59e959c2047d4ea63ce33a6873a3a6777a5dc3",
-    "scripts/current_discovery_state.py": "7f9c42b349fe0f897ffc1bbd65480ff04e584cffa4bd977bc1f71a5c7c0a8746",
+    "scripts/current_discovery_state.py": "74db9b7b3186bf9d3807f3826ad276eec7973162f443a0a37c62fcbbe679a3b2",
     "SECONDARY_LICENSE_METADATA_V1.json": "50bcb5e340bc69ea2fda2cb9f457cb59d1dc27ed3d718700ee2aa20f3297801d",
     "scripts/fetch_secondary_license_metadata.py": "1ffd848656457092a980784d3a722475a580765d98e4d5d07f4d257d20abe11c",
-    "SECONDARY_PRIMARY_REVIEW_V1.json": "b4769407e35ee5ee569773c0726ac321c5e217630cacccbb04d08ac5c5262120"
+    "SECONDARY_PAPER_REVIEW_V1.json": "41024a3c2e1a306ea3d5785dd7923abfe83a646e00b4a89a546cb5b53830c6f7",
+    "SECONDARY_PRIMARY_REVIEW_V1.json": "1e5889874c46c897cfc05ba400c1bc4e401c6985e546291193f1edaf0fbfbdcd"
   },
   "datasets": [
     {
@@ -154,15 +155,18 @@
       "primary_metadata_review": {
         "id": "ninapro_db6",
         "sources": [
-          "https://ninapro.hevs.ch/instructions/DB6.html"
+          "https://ninapro.hevs.ch/instructions/DB6.html",
+          "https://publications.hevs.ch/index.php/attachments/single/1135"
         ],
         "paper": "Palermo et al., Analysis of the repeatability of grasp recognition for hand robotic prosthesis control based on sEMG data, ICORR (2017).",
-        "paper_review": "Official linked citation; paper retrieval failed this review.",
+        "paper_review": "Author's six-page paper retrieved; acquisition/synchronization/analysis paragraphs extracted and pages 2/3 visually reviewed. Reported experiments not reproduced.",
         "license_verified": null,
         "subjects": 10,
         "days": 5,
         "sessions_per_day": 2,
         "emg_sample_rate_hz": 2000,
+        "raw_acceleration_sample_rate_hz": 148.148,
+        "aligned_export_sample_rate_hz": 2000,
         "active_emg_channels": 14,
         "stored_emg_channels": 16,
         "acceleration_columns": 48,
@@ -170,6 +174,7 @@
         "six_axis_imu_verified": false,
         "physical_eight_channel_layout_verified": false,
         "limitations": [
+          "Acceleration is sampled at 148.148 Hz then interpolated to 2000 Hz; aligned export rows are not native IMU rate.",
           "No synchronized gyro confirmed; do not infer full six-axis eligibility from inertial modality label.",
           "Official preprocessed ZIP links visible; raw data and acquisition access not tested."
         ]

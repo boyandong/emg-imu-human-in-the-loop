@@ -1,0 +1,34 @@
+{
+  "schema": "secondary_paper_review_v1",
+  "review_date": "2026-10-08",
+  "papers": [
+    {
+      "dataset": "ninapro_db6",
+      "url": "https://publications.hevs.ch/index.php/attachments/single/1135",
+      "title": "Repeatability of grasp recognition for robotic hand prosthesis control based on sEMG data",
+      "pdf_bytes": 1418396,
+      "pdf_sha256": "9f5ae56b2e68265f65818f73d56e0c75dfe428dcf63a74e568a94e60b3c2328e",
+      "pages": 6,
+      "visually_reviewed_pages": [2, 3],
+      "extracted_review": "Acquisition hardware, protocol, synchronization and analysis paragraphs. No reproduction of reported classification results.",
+      "raw_emg_sample_rate_hz": 2000,
+      "raw_acceleration_sample_rate_hz": 148.148,
+      "aligned_export_sample_rate_hz": 2000,
+      "alignment": "Piecewise linear interpolation of timestamps to the highest frequency.",
+      "gyroscope_confirmed": false,
+      "calibrated_body_frame_confirmed": false,
+      "evidence": [
+        {"page": 2, "quote": "the 3-axes accelerometer in the device is sampled at 148.148 Hz"},
+        {"page": 4, "quote": "interpolating the timestamps with piecewise linear models"}
+      ],
+      "limitations": [
+        "Aligned export rows are not independent native IMU samples.",
+        "Sensor placement in two rows does not authenticate our device column ordering.",
+        "Article availability does not establish the dataset license.",
+        "Public data files were not newly acquired or inspected during this review."
+      ]
+    }
+  ],
+  "completion_proven": false,
+  "scope": "Versioned source-paper evidence for acquisition eligibility; not a new experiment, full-cohort data audit or own-device validation. Original PDF remains outside Git."
+}

@@ -16,7 +16,8 @@ def build():
              'DS2_V9_FORCE_LABEL_AUDIT.json', 'DS2_V9_FORCE_TRIAL_JOIN.csv',
              'public_ds2_force_v9/RESULTS.json', 'public_ds2_force_v9/TRIAL_PREDICTIONS.csv',
              'scripts/current_discovery_state.py', 'SECONDARY_LICENSE_METADATA_V1.json',
-             'scripts/fetch_secondary_license_metadata.py', 'SECONDARY_PRIMARY_REVIEW_V1.json']
+             'scripts/fetch_secondary_license_metadata.py', 'SECONDARY_PAPER_REVIEW_V1.json',
+             'SECONDARY_PRIMARY_REVIEW_V1.json']
     old = json.loads((HERE / paths[0]).read_text(encoding='utf8'))
     labels = json.loads((HERE / paths[2]).read_text(encoding='utf8'))
     result = json.loads((HERE / paths[4]).read_text(encoding='utf8'))

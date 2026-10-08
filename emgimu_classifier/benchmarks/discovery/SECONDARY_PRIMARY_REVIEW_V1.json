@@ -2,6 +2,7 @@
   "schema": "secondary_primary_review_v1",
   "review_date": "2026-10-08",
   "license_metadata_artifact": "SECONDARY_LICENSE_METADATA_V1.json",
+  "paper_review_artifact": "SECONDARY_PAPER_REVIEW_V1.json",
   "scope": "Manually reviewed primary repository pages. Metadata review is separate from native acquisition, full paper review and real hardware validation. Missing fields remain unverified.",
   "completion_proven": false,
   "datasets": [
@@ -55,21 +56,23 @@
     },
     {
       "id": "ninapro_db6",
-      "sources": ["https://ninapro.hevs.ch/instructions/DB6.html"],
+      "sources": ["https://ninapro.hevs.ch/instructions/DB6.html", "https://publications.hevs.ch/index.php/attachments/single/1135"],
       "paper": "Palermo et al., Analysis of the repeatability of grasp recognition for hand robotic prosthesis control based on sEMG data, ICORR (2017).",
-      "paper_review": "Official linked citation; paper retrieval failed this review.",
+      "paper_review": "Author's six-page paper retrieved; acquisition/synchronization/analysis paragraphs extracted and pages 2/3 visually reviewed. Reported experiments not reproduced.",
       "license_verified": null,
       "subjects": 10,
       "days": 5,
       "sessions_per_day": 2,
       "emg_sample_rate_hz": 2000,
+      "raw_acceleration_sample_rate_hz": 148.148,
+      "aligned_export_sample_rate_hz": 2000,
       "active_emg_channels": 14,
       "stored_emg_channels": 16,
       "acceleration_columns": 48,
       "layout": "Eight Trigno sensors in proximal ring, six below; two EMG columns and six acceleration columns empty according to official variables.",
       "six_axis_imu_verified": false,
       "physical_eight_channel_layout_verified": false,
-      "limitations": ["No synchronized gyro confirmed; do not infer full six-axis eligibility from inertial modality label.", "Official preprocessed ZIP links visible; raw data and acquisition access not tested."]
+      "limitations": ["Acceleration is sampled at 148.148 Hz then interpolated to 2000 Hz; aligned export rows are not native IMU rate.", "No synchronized gyro confirmed; do not infer full six-axis eligibility from inertial modality label.", "Official preprocessed ZIP links visible; raw data and acquisition access not tested."]
     },
     {
       "id": "great",

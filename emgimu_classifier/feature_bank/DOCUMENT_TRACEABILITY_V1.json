@@ -8,7 +8,7 @@
     "benchmarks/new_bank_v3/document_traceability_v1.py": "27b0d9da633e8ab0e07fcf0a2ae302ac7dd6823d3c9c3bfa570df3b6132fe2cd",
     "tests/test_document_traceability_v1.py": "4015f84d5448eff28b4e3bd28e73c4a7111252be47c5851e1485a819a2c88494",
     "benchmarks/new_bank_v2/v1_acceptance_audit.py": "9b01a7a46ae03aca2e7aaa4c99432825acb0f7542743898aa7bed7f52b440ab7",
-    "feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.json": "db64a4fb107fcb164192f04bf37fd46f1e40af3c2748ebb62b5ecd153bdc67a2"
+    "feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.json": "039332021130359080f598d0d8f3807e0d472490c2279ff3b6d978389302839b"
   },
   "nonempty_lines": 2586,
   "mapped_lines": 2509,
@@ -18669,7 +18669,7 @@
       "disposition": "superseded_phase_history",
       "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
       "evidence_sha256": {
-        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "61ad7d4401157395e71dd4270abad5690a228607404ed9bf0519d418c42199ec"
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "f0e4beb30bbc5af4fa80c327ac5a55b4cf26bcc46519cf5aa3014f0ffff27dfd"
       }
     },
     {
@@ -18682,7 +18682,7 @@
       "disposition": "superseded_phase_history",
       "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
       "evidence_sha256": {
-        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "61ad7d4401157395e71dd4270abad5690a228607404ed9bf0519d418c42199ec"
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "f0e4beb30bbc5af4fa80c327ac5a55b4cf26bcc46519cf5aa3014f0ffff27dfd"
       }
     },
     {
@@ -18695,7 +18695,7 @@
       "disposition": "superseded_phase_history",
       "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
       "evidence_sha256": {
-        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "61ad7d4401157395e71dd4270abad5690a228607404ed9bf0519d418c42199ec"
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "f0e4beb30bbc5af4fa80c327ac5a55b4cf26bcc46519cf5aa3014f0ffff27dfd"
       }
     },
     {
@@ -18708,7 +18708,7 @@
       "disposition": "superseded_phase_history",
       "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
       "evidence_sha256": {
-        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "61ad7d4401157395e71dd4270abad5690a228607404ed9bf0519d418c42199ec"
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "f0e4beb30bbc5af4fa80c327ac5a55b4cf26bcc46519cf5aa3014f0ffff27dfd"
       }
     },
     {
@@ -18721,7 +18721,7 @@
       "disposition": "superseded_phase_history",
       "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
       "evidence_sha256": {
-        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "61ad7d4401157395e71dd4270abad5690a228607404ed9bf0519d418c42199ec"
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "f0e4beb30bbc5af4fa80c327ac5a55b4cf26bcc46519cf5aa3014f0ffff27dfd"
       }
     },
     {
@@ -18734,7 +18734,7 @@
       "disposition": "superseded_phase_history",
       "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
       "evidence_sha256": {
-        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "61ad7d4401157395e71dd4270abad5690a228607404ed9bf0519d418c42199ec"
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "f0e4beb30bbc5af4fa80c327ac5a55b4cf26bcc46519cf5aa3014f0ffff27dfd"
       }
     },
     {
@@ -18747,7 +18747,7 @@
       "disposition": "superseded_phase_history",
       "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
       "evidence_sha256": {
-        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "61ad7d4401157395e71dd4270abad5690a228607404ed9bf0519d418c42199ec"
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "f0e4beb30bbc5af4fa80c327ac5a55b4cf26bcc46519cf5aa3014f0ffff27dfd"
       }
     },
     {
@@ -18760,7 +18760,7 @@
       "disposition": "superseded_phase_history",
       "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
       "evidence_sha256": {
-        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "61ad7d4401157395e71dd4270abad5690a228607404ed9bf0519d418c42199ec"
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "f0e4beb30bbc5af4fa80c327ac5a55b4cf26bcc46519cf5aa3014f0ffff27dfd"
       }
     },
     {
@@ -18773,7 +18773,7 @@
       "disposition": "superseded_phase_history",
       "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
       "evidence_sha256": {
-        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "61ad7d4401157395e71dd4270abad5690a228607404ed9bf0519d418c42199ec"
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "f0e4beb30bbc5af4fa80c327ac5a55b4cf26bcc46519cf5aa3014f0ffff27dfd"
       }
     },
     {
@@ -18786,7 +18786,7 @@
       "disposition": "superseded_phase_history",
       "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
       "evidence_sha256": {
-        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "61ad7d4401157395e71dd4270abad5690a228607404ed9bf0519d418c42199ec"
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "f0e4beb30bbc5af4fa80c327ac5a55b4cf26bcc46519cf5aa3014f0ffff27dfd"
       }
     },
     {
@@ -18812,8 +18812,8 @@
       "disposition": "partial_active",
       "evidence_scope": "License and access problems are recorded, including unresolved secondary data terms and DS2 conflicting labels; no universal redistribution determination.",
       "evidence_sha256": {
-        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "61ad7d4401157395e71dd4270abad5690a228607404ed9bf0519d418c42199ec",
-        "benchmarks/discovery/SECONDARY_PRIMARY_REVIEW_V1.json": "b4769407e35ee5ee569773c0726ac321c5e217630cacccbb04d08ac5c5262120"
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "f0e4beb30bbc5af4fa80c327ac5a55b4cf26bcc46519cf5aa3014f0ffff27dfd",
+        "benchmarks/discovery/SECONDARY_PRIMARY_REVIEW_V1.json": "1e5889874c46c897cfc05ba400c1bc4e401c6985e546291193f1edaf0fbfbdcd"
       }
     },
     {
@@ -18854,7 +18854,7 @@
       "disposition": "superseded_phase_history",
       "evidence_scope": "Historical stage ordering is not an unmet request to repeat discovery without training. New independent experiments are explicitly authorized.",
       "evidence_sha256": {
-        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "61ad7d4401157395e71dd4270abad5690a228607404ed9bf0519d418c42199ec"
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "f0e4beb30bbc5af4fa80c327ac5a55b4cf26bcc46519cf5aa3014f0ffff27dfd"
       }
     },
     {
@@ -18867,7 +18867,7 @@
       "disposition": "superseded_phase_history",
       "evidence_scope": "Historical stage ordering is not an unmet request to repeat discovery without training. New independent experiments are explicitly authorized.",
       "evidence_sha256": {
-        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "61ad7d4401157395e71dd4270abad5690a228607404ed9bf0519d418c42199ec"
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "f0e4beb30bbc5af4fa80c327ac5a55b4cf26bcc46519cf5aa3014f0ffff27dfd"
       }
     },
     {
