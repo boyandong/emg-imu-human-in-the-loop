@@ -968,3 +968,7 @@ emgimu_classifier/tests/test_epn_holdout_cost_curve_v2.py -text -eol whitespace=
 emgimu_classifier/benchmarks/discovery/scripts/grab_channel_census_v1.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/discovery/GRAB_CHANNEL_CENSUS_V1.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_grab_channel_census_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/epn_holdout_user_robustness_v2.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.csv -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_epn_holdout_user_robustness_v2.py -text -eol whitespace=cr-at-eol

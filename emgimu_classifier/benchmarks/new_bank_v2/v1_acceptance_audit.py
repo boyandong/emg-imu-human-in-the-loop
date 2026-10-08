@@ -69,6 +69,18 @@ def build(pre: Path, goal: Path) -> dict:
                          'and independent DS2 study; the earlier no-force-label conclusion is '
                          'superseded. Legacy experiment recovery is not a prerequisite. '
                          'Recorded licensing and secondary provenance limits remain explicit.')
+        if ident in ("GOAL-12", "GOAL-14"):
+            evidence += ("|benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json"
+                         "|benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.csv"
+                         "|benchmarks/new_bank_v3/epn_holdout_user_robustness_v2.py"
+                         "|tests/test_epn_holdout_user_robustness_v2.py")
+            boundary += (" Frozen EPN holdout equal-user means, sample SD and worst-user "
+                         "outcomes are now distinct from pooled F1. Mahalanobis improves "
+                         "worst-user F1 versus Euclidean at both budgets; increasing its "
+                         "budget10 to20 harms3/10 users and lowers its worst-user F1 "
+                         "from .5315 to .5026 despite mean gain. These two personally "
+                         "calibrated methods do not establish improvement over an "
+                         "uncalibrated baseline or seven-axis R_min.")
         if ident == "PRE-06":
             evidence += ("|benchmarks/discovery/GRAB_CHANNEL_CENSUS_V1.json"
                          "|benchmarks/discovery/scripts/grab_channel_census_v1.py"

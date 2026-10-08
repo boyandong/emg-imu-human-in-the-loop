@@ -1,0 +1,825 @@
+{
+  "schema": "epn_holdout_user_robustness_v2",
+  "source_sha256": {
+    "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json": "a423f944b65c5d9d494ab3b85dc5cd6df528ac07968d35d5445ea060d6d4999e",
+    "benchmarks/new_bank_v3/epn_holdout_user_robustness_v2.py": "573278539bfdf45479f9d128a991179993d373fb52a46fec363bea8c3fa6f2f3"
+  },
+  "csv_sha256": "4dad49adc75b1cdcc49e90e6d51773c32a28a2170f2cc176eceaa785e6c14f04",
+  "aggregate_rows": [
+    {
+      "shots_per_class": 10,
+      "method": "euclidean",
+      "metric": "macro_f1",
+      "users": 10,
+      "equal_user_mean": 0.4935605598105598,
+      "sample_std_ddof1": 0.15423077066314486,
+      "minimum": 0.15252525252525254,
+      "maximum": 0.757070707070707,
+      "worst_user_value": 0.15252525252525254,
+      "worst_users": [
+        38
+      ],
+      "user_values": {
+        "32": 0.5555555555555555,
+        "33": 0.757070707070707,
+        "34": 0.5800976800976801,
+        "35": 0.4406565656565657,
+        "36": 0.40996040996040994,
+        "37": 0.5705535205535206,
+        "38": 0.15252525252525254,
+        "39": 0.47453703703703703,
+        "40": 0.5185786435786436,
+        "41": 0.47607022607022603
+      }
+    },
+    {
+      "shots_per_class": 10,
+      "method": "euclidean",
+      "metric": "log_loss",
+      "users": 10,
+      "equal_user_mean": 1.5374355835514595,
+      "sample_std_ddof1": 0.08271382288595555,
+      "minimum": 1.427320239449474,
+      "maximum": 1.7012838577520741,
+      "worst_user_value": 1.7012838577520741,
+      "worst_users": [
+        38
+      ],
+      "user_values": {
+        "32": 1.5365871676031941,
+        "33": 1.427320239449474,
+        "34": 1.4374560424202107,
+        "35": 1.4964358320186115,
+        "36": 1.6276185376304566,
+        "37": 1.4953573843417034,
+        "38": 1.7012838577520741,
+        "39": 1.5327411254362293,
+        "40": 1.5604866879793577,
+        "41": 1.5590689608832817
+      }
+    },
+    {
+      "shots_per_class": 10,
+      "method": "mahalanobis",
+      "metric": "macro_f1",
+      "users": 10,
+      "equal_user_mean": 0.6246553982080297,
+      "sample_std_ddof1": 0.06520096463388504,
+      "minimum": 0.5315416065416065,
+      "maximum": 0.7554297554297554,
+      "worst_user_value": 0.5315416065416065,
+      "worst_users": [
+        35
+      ],
+      "user_values": {
+        "32": 0.6527777777777778,
+        "33": 0.6803118908382068,
+        "34": 0.7554297554297554,
+        "35": 0.5315416065416065,
+        "36": 0.5748316498316498,
+        "37": 0.6026455026455025,
+        "38": 0.5924630924630924,
+        "39": 0.5647537647537648,
+        "40": 0.6386243386243386,
+        "41": 0.6531746031746032
+      }
+    },
+    {
+      "shots_per_class": 10,
+      "method": "mahalanobis",
+      "metric": "log_loss",
+      "users": 10,
+      "equal_user_mean": 1.3844018282293205,
+      "sample_std_ddof1": 0.09279334386104214,
+      "minimum": 1.2256695112749483,
+      "maximum": 1.570542150892417,
+      "worst_user_value": 1.570542150892417,
+      "worst_users": [
+        38
+      ],
+      "user_values": {
+        "32": 1.3756389018250343,
+        "33": 1.2989706982176346,
+        "34": 1.2256695112749483,
+        "35": 1.3268442522747823,
+        "36": 1.448292750944966,
+        "37": 1.3776128694267575,
+        "38": 1.570542150892417,
+        "39": 1.430309673376784,
+        "40": 1.4108784858184265,
+        "41": 1.3792589882414557
+      }
+    },
+    {
+      "shots_per_class": 20,
+      "method": "euclidean",
+      "metric": "macro_f1",
+      "users": 10,
+      "equal_user_mean": 0.4801302726341426,
+      "sample_std_ddof1": 0.1728787163417042,
+      "minimum": 0.13888888888888887,
+      "maximum": 0.8306462056462056,
+      "worst_user_value": 0.13888888888888887,
+      "worst_users": [
+        38
+      ],
+      "user_values": {
+        "32": 0.5343304843304844,
+        "33": 0.8306462056462056,
+        "34": 0.5466089466089467,
+        "35": 0.37835775335775335,
+        "36": 0.39557226399331663,
+        "37": 0.4978021978021978,
+        "38": 0.13888888888888887,
+        "39": 0.44648692810457513,
+        "40": 0.49693639693639696,
+        "41": 0.5356726606726606
+      }
+    },
+    {
+      "shots_per_class": 20,
+      "method": "euclidean",
+      "metric": "log_loss",
+      "users": 10,
+      "equal_user_mean": 1.5328503499531374,
+      "sample_std_ddof1": 0.09083043472696856,
+      "minimum": 1.4090289165840664,
+      "maximum": 1.7250527239325981,
+      "worst_user_value": 1.7250527239325981,
+      "worst_users": [
+        38
+      ],
+      "user_values": {
+        "32": 1.5287765331134076,
+        "33": 1.4090289165840664,
+        "34": 1.4364522324931632,
+        "35": 1.4918879558937495,
+        "36": 1.6267367091083942,
+        "37": 1.4968460315055263,
+        "38": 1.7250527239325981,
+        "39": 1.5161105175145118,
+        "40": 1.5420770055842372,
+        "41": 1.5555348738017183
+      }
+    },
+    {
+      "shots_per_class": 20,
+      "method": "mahalanobis",
+      "metric": "macro_f1",
+      "users": 10,
+      "equal_user_mean": 0.6752795815295815,
+      "sample_std_ddof1": 0.11768856370549487,
+      "minimum": 0.5026001776001775,
+      "maximum": 0.8690476190476191,
+      "worst_user_value": 0.5026001776001775,
+      "worst_users": [
+        38
+      ],
+      "user_values": {
+        "32": 0.7230158730158731,
+        "33": 0.8690476190476191,
+        "34": 0.7885521885521886,
+        "35": 0.7621637621637621,
+        "36": 0.6693991193991193,
+        "37": 0.6419973544973545,
+        "38": 0.5026001776001775,
+        "39": 0.5568783068783069,
+        "40": 0.701010101010101,
+        "41": 0.5381313131313131
+      }
+    },
+    {
+      "shots_per_class": 20,
+      "method": "mahalanobis",
+      "metric": "log_loss",
+      "users": 10,
+      "equal_user_mean": 1.370504589939547,
+      "sample_std_ddof1": 0.09394220050165378,
+      "minimum": 1.22949638436529,
+      "maximum": 1.5898339978524796,
+      "worst_user_value": 1.5898339978524796,
+      "worst_users": [
+        38
+      ],
+      "user_values": {
+        "32": 1.3356697996113065,
+        "33": 1.3039941844878542,
+        "34": 1.22949638436529,
+        "35": 1.3190715310696304,
+        "36": 1.4010925538078767,
+        "37": 1.3683174224226364,
+        "38": 1.5898339978524796,
+        "39": 1.4164438968589208,
+        "40": 1.363343649257635,
+        "41": 1.3777824796618396
+      }
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "kind": "method_at_fixed_budget",
+      "setting": 10,
+      "metric": "macro_f1",
+      "base": "euclidean",
+      "alternative": "mahalanobis",
+      "wins": 9,
+      "ties": 0,
+      "losses": 1,
+      "equal_user_mean_gain": 0.13109483839747,
+      "minimum_user_gain": -0.07675881623250025,
+      "maximum_user_gain": 0.43993783993783986,
+      "details": [
+        {
+          "user": 32,
+          "base": 0.5555555555555555,
+          "alternative": 0.6527777777777778,
+          "gain_positive_is_better": 0.09722222222222232
+        },
+        {
+          "user": 33,
+          "base": 0.757070707070707,
+          "alternative": 0.6803118908382068,
+          "gain_positive_is_better": -0.07675881623250025
+        },
+        {
+          "user": 34,
+          "base": 0.5800976800976801,
+          "alternative": 0.7554297554297554,
+          "gain_positive_is_better": 0.1753320753320753
+        },
+        {
+          "user": 35,
+          "base": 0.4406565656565657,
+          "alternative": 0.5315416065416065,
+          "gain_positive_is_better": 0.09088504088504085
+        },
+        {
+          "user": 36,
+          "base": 0.40996040996040994,
+          "alternative": 0.5748316498316498,
+          "gain_positive_is_better": 0.16487123987123986
+        },
+        {
+          "user": 37,
+          "base": 0.5705535205535206,
+          "alternative": 0.6026455026455025,
+          "gain_positive_is_better": 0.03209198209198194
+        },
+        {
+          "user": 38,
+          "base": 0.15252525252525254,
+          "alternative": 0.5924630924630924,
+          "gain_positive_is_better": 0.43993783993783986
+        },
+        {
+          "user": 39,
+          "base": 0.47453703703703703,
+          "alternative": 0.5647537647537648,
+          "gain_positive_is_better": 0.09021672771672778
+        },
+        {
+          "user": 40,
+          "base": 0.5185786435786436,
+          "alternative": 0.6386243386243386,
+          "gain_positive_is_better": 0.12004569504569507
+        },
+        {
+          "user": 41,
+          "base": 0.47607022607022603,
+          "alternative": 0.6531746031746032,
+          "gain_positive_is_better": 0.17710437710437715
+        }
+      ]
+    },
+    {
+      "kind": "method_at_fixed_budget",
+      "setting": 10,
+      "metric": "log_loss",
+      "base": "euclidean",
+      "alternative": "mahalanobis",
+      "wins": 10,
+      "ties": 0,
+      "losses": 0,
+      "equal_user_mean_gain": 0.15303375532213873,
+      "minimum_user_gain": 0.10243145205944537,
+      "maximum_user_gain": 0.21178653114526247,
+      "details": [
+        {
+          "user": 32,
+          "base": 1.5365871676031941,
+          "alternative": 1.3756389018250343,
+          "gain_positive_is_better": 0.1609482657781598
+        },
+        {
+          "user": 33,
+          "base": 1.427320239449474,
+          "alternative": 1.2989706982176346,
+          "gain_positive_is_better": 0.1283495412318394
+        },
+        {
+          "user": 34,
+          "base": 1.4374560424202107,
+          "alternative": 1.2256695112749483,
+          "gain_positive_is_better": 0.21178653114526247
+        },
+        {
+          "user": 35,
+          "base": 1.4964358320186115,
+          "alternative": 1.3268442522747823,
+          "gain_positive_is_better": 0.1695915797438292
+        },
+        {
+          "user": 36,
+          "base": 1.6276185376304566,
+          "alternative": 1.448292750944966,
+          "gain_positive_is_better": 0.1793257866854907
+        },
+        {
+          "user": 37,
+          "base": 1.4953573843417034,
+          "alternative": 1.3776128694267575,
+          "gain_positive_is_better": 0.11774451491494586
+        },
+        {
+          "user": 38,
+          "base": 1.7012838577520741,
+          "alternative": 1.570542150892417,
+          "gain_positive_is_better": 0.13074170685965703
+        },
+        {
+          "user": 39,
+          "base": 1.5327411254362293,
+          "alternative": 1.430309673376784,
+          "gain_positive_is_better": 0.10243145205944537
+        },
+        {
+          "user": 40,
+          "base": 1.5604866879793577,
+          "alternative": 1.4108784858184265,
+          "gain_positive_is_better": 0.1496082021609313
+        },
+        {
+          "user": 41,
+          "base": 1.5590689608832817,
+          "alternative": 1.3792589882414557,
+          "gain_positive_is_better": 0.17980997264182608
+        }
+      ]
+    },
+    {
+      "kind": "method_at_fixed_budget",
+      "setting": 20,
+      "metric": "macro_f1",
+      "base": "euclidean",
+      "alternative": "mahalanobis",
+      "wins": 10,
+      "ties": 0,
+      "losses": 0,
+      "equal_user_mean_gain": 0.1951493088954389,
+      "minimum_user_gain": 0.0024586524586525105,
+      "maximum_user_gain": 0.3838060088060088,
+      "details": [
+        {
+          "user": 32,
+          "base": 0.5343304843304844,
+          "alternative": 0.7230158730158731,
+          "gain_positive_is_better": 0.18868538868538876
+        },
+        {
+          "user": 33,
+          "base": 0.8306462056462056,
+          "alternative": 0.8690476190476191,
+          "gain_positive_is_better": 0.03840141340141345
+        },
+        {
+          "user": 34,
+          "base": 0.5466089466089467,
+          "alternative": 0.7885521885521886,
+          "gain_positive_is_better": 0.2419432419432419
+        },
+        {
+          "user": 35,
+          "base": 0.37835775335775335,
+          "alternative": 0.7621637621637621,
+          "gain_positive_is_better": 0.3838060088060088
+        },
+        {
+          "user": 36,
+          "base": 0.39557226399331663,
+          "alternative": 0.6693991193991193,
+          "gain_positive_is_better": 0.2738268554058027
+        },
+        {
+          "user": 37,
+          "base": 0.4978021978021978,
+          "alternative": 0.6419973544973545,
+          "gain_positive_is_better": 0.1441951566951567
+        },
+        {
+          "user": 38,
+          "base": 0.13888888888888887,
+          "alternative": 0.5026001776001775,
+          "gain_positive_is_better": 0.36371128871128866
+        },
+        {
+          "user": 39,
+          "base": 0.44648692810457513,
+          "alternative": 0.5568783068783069,
+          "gain_positive_is_better": 0.11039137877373173
+        },
+        {
+          "user": 40,
+          "base": 0.49693639693639696,
+          "alternative": 0.701010101010101,
+          "gain_positive_is_better": 0.204073704073704
+        },
+        {
+          "user": 41,
+          "base": 0.5356726606726606,
+          "alternative": 0.5381313131313131,
+          "gain_positive_is_better": 0.0024586524586525105
+        }
+      ]
+    },
+    {
+      "kind": "method_at_fixed_budget",
+      "setting": 20,
+      "metric": "log_loss",
+      "base": "euclidean",
+      "alternative": "mahalanobis",
+      "wins": 10,
+      "ties": 0,
+      "losses": 0,
+      "equal_user_mean_gain": 0.16234576001359033,
+      "minimum_user_gain": 0.09966662065559095,
+      "maximum_user_gain": 0.2256441553005175,
+      "details": [
+        {
+          "user": 32,
+          "base": 1.5287765331134076,
+          "alternative": 1.3356697996113065,
+          "gain_positive_is_better": 0.19310673350210106
+        },
+        {
+          "user": 33,
+          "base": 1.4090289165840664,
+          "alternative": 1.3039941844878542,
+          "gain_positive_is_better": 0.10503473209621217
+        },
+        {
+          "user": 34,
+          "base": 1.4364522324931632,
+          "alternative": 1.22949638436529,
+          "gain_positive_is_better": 0.20695584812787327
+        },
+        {
+          "user": 35,
+          "base": 1.4918879558937495,
+          "alternative": 1.3190715310696304,
+          "gain_positive_is_better": 0.17281642482411907
+        },
+        {
+          "user": 36,
+          "base": 1.6267367091083942,
+          "alternative": 1.4010925538078767,
+          "gain_positive_is_better": 0.2256441553005175
+        },
+        {
+          "user": 37,
+          "base": 1.4968460315055263,
+          "alternative": 1.3683174224226364,
+          "gain_positive_is_better": 0.12852860908288988
+        },
+        {
+          "user": 38,
+          "base": 1.7250527239325981,
+          "alternative": 1.5898339978524796,
+          "gain_positive_is_better": 0.13521872608011853
+        },
+        {
+          "user": 39,
+          "base": 1.5161105175145118,
+          "alternative": 1.4164438968589208,
+          "gain_positive_is_better": 0.09966662065559095
+        },
+        {
+          "user": 40,
+          "base": 1.5420770055842372,
+          "alternative": 1.363343649257635,
+          "gain_positive_is_better": 0.17873335632660226
+        },
+        {
+          "user": 41,
+          "base": 1.5555348738017183,
+          "alternative": 1.3777824796618396,
+          "gain_positive_is_better": 0.17775239413987864
+        }
+      ]
+    },
+    {
+      "kind": "budget_at_fixed_method",
+      "setting": "euclidean",
+      "metric": "macro_f1",
+      "base": "10 shots/class",
+      "alternative": "20 shots/class",
+      "wins": 2,
+      "ties": 0,
+      "losses": 8,
+      "equal_user_mean_gain": -0.013430287176417205,
+      "minimum_user_gain": -0.07275132275132279,
+      "maximum_user_gain": 0.07357549857549861,
+      "details": [
+        {
+          "user": 32,
+          "base": 0.5555555555555555,
+          "alternative": 0.5343304843304844,
+          "gain_positive_is_better": -0.021225071225071113
+        },
+        {
+          "user": 33,
+          "base": 0.757070707070707,
+          "alternative": 0.8306462056462056,
+          "gain_positive_is_better": 0.07357549857549861
+        },
+        {
+          "user": 34,
+          "base": 0.5800976800976801,
+          "alternative": 0.5466089466089467,
+          "gain_positive_is_better": -0.03348873348873349
+        },
+        {
+          "user": 35,
+          "base": 0.4406565656565657,
+          "alternative": 0.37835775335775335,
+          "gain_positive_is_better": -0.062298812298812345
+        },
+        {
+          "user": 36,
+          "base": 0.40996040996040994,
+          "alternative": 0.39557226399331663,
+          "gain_positive_is_better": -0.014388145967093313
+        },
+        {
+          "user": 37,
+          "base": 0.5705535205535206,
+          "alternative": 0.4978021978021978,
+          "gain_positive_is_better": -0.07275132275132279
+        },
+        {
+          "user": 38,
+          "base": 0.15252525252525254,
+          "alternative": 0.13888888888888887,
+          "gain_positive_is_better": -0.013636363636363669
+        },
+        {
+          "user": 39,
+          "base": 0.47453703703703703,
+          "alternative": 0.44648692810457513,
+          "gain_positive_is_better": -0.028050108932461904
+        },
+        {
+          "user": 40,
+          "base": 0.5185786435786436,
+          "alternative": 0.49693639693639696,
+          "gain_positive_is_better": -0.02164224664224662
+        },
+        {
+          "user": 41,
+          "base": 0.47607022607022603,
+          "alternative": 0.5356726606726606,
+          "gain_positive_is_better": 0.059602434602434584
+        }
+      ]
+    },
+    {
+      "kind": "budget_at_fixed_method",
+      "setting": "euclidean",
+      "metric": "log_loss",
+      "base": "10 shots/class",
+      "alternative": "20 shots/class",
+      "wins": 8,
+      "ties": 0,
+      "losses": 2,
+      "equal_user_mean_gain": 0.0045852335983220804,
+      "minimum_user_gain": -0.023768866180523984,
+      "maximum_user_gain": 0.01840968239512053,
+      "details": [
+        {
+          "user": 32,
+          "base": 1.5365871676031941,
+          "alternative": 1.5287765331134076,
+          "gain_positive_is_better": 0.007810634489786583
+        },
+        {
+          "user": 33,
+          "base": 1.427320239449474,
+          "alternative": 1.4090289165840664,
+          "gain_positive_is_better": 0.018291322865407578
+        },
+        {
+          "user": 34,
+          "base": 1.4374560424202107,
+          "alternative": 1.4364522324931632,
+          "gain_positive_is_better": 0.0010038099270475165
+        },
+        {
+          "user": 35,
+          "base": 1.4964358320186115,
+          "alternative": 1.4918879558937495,
+          "gain_positive_is_better": 0.004547876124862071
+        },
+        {
+          "user": 36,
+          "base": 1.6276185376304566,
+          "alternative": 1.6267367091083942,
+          "gain_positive_is_better": 0.0008818285220624222
+        },
+        {
+          "user": 37,
+          "base": 1.4953573843417034,
+          "alternative": 1.4968460315055263,
+          "gain_positive_is_better": -0.0014886471638229093
+        },
+        {
+          "user": 38,
+          "base": 1.7012838577520741,
+          "alternative": 1.7250527239325981,
+          "gain_positive_is_better": -0.023768866180523984
+        },
+        {
+          "user": 39,
+          "base": 1.5327411254362293,
+          "alternative": 1.5161105175145118,
+          "gain_positive_is_better": 0.016630607921717555
+        },
+        {
+          "user": 40,
+          "base": 1.5604866879793577,
+          "alternative": 1.5420770055842372,
+          "gain_positive_is_better": 0.01840968239512053
+        },
+        {
+          "user": 41,
+          "base": 1.5590689608832817,
+          "alternative": 1.5555348738017183,
+          "gain_positive_is_better": 0.0035340870815634418
+        }
+      ]
+    },
+    {
+      "kind": "budget_at_fixed_method",
+      "setting": "mahalanobis",
+      "metric": "macro_f1",
+      "base": "10 shots/class",
+      "alternative": "20 shots/class",
+      "wins": 7,
+      "ties": 0,
+      "losses": 3,
+      "equal_user_mean_gain": 0.05062418332155173,
+      "minimum_user_gain": -0.11504329004329006,
+      "maximum_user_gain": 0.2306221556221556,
+      "details": [
+        {
+          "user": 32,
+          "base": 0.6527777777777778,
+          "alternative": 0.7230158730158731,
+          "gain_positive_is_better": 0.07023809523809532
+        },
+        {
+          "user": 33,
+          "base": 0.6803118908382068,
+          "alternative": 0.8690476190476191,
+          "gain_positive_is_better": 0.1887357282094123
+        },
+        {
+          "user": 34,
+          "base": 0.7554297554297554,
+          "alternative": 0.7885521885521886,
+          "gain_positive_is_better": 0.033122433122433126
+        },
+        {
+          "user": 35,
+          "base": 0.5315416065416065,
+          "alternative": 0.7621637621637621,
+          "gain_positive_is_better": 0.2306221556221556
+        },
+        {
+          "user": 36,
+          "base": 0.5748316498316498,
+          "alternative": 0.6693991193991193,
+          "gain_positive_is_better": 0.09456746956746953
+        },
+        {
+          "user": 37,
+          "base": 0.6026455026455025,
+          "alternative": 0.6419973544973545,
+          "gain_positive_is_better": 0.03935185185185197
+        },
+        {
+          "user": 38,
+          "base": 0.5924630924630924,
+          "alternative": 0.5026001776001775,
+          "gain_positive_is_better": -0.08986291486291487
+        },
+        {
+          "user": 39,
+          "base": 0.5647537647537648,
+          "alternative": 0.5568783068783069,
+          "gain_positive_is_better": -0.007875457875457959
+        },
+        {
+          "user": 40,
+          "base": 0.6386243386243386,
+          "alternative": 0.701010101010101,
+          "gain_positive_is_better": 0.06238576238576232
+        },
+        {
+          "user": 41,
+          "base": 0.6531746031746032,
+          "alternative": 0.5381313131313131,
+          "gain_positive_is_better": -0.11504329004329006
+        }
+      ]
+    },
+    {
+      "kind": "budget_at_fixed_method",
+      "setting": "mahalanobis",
+      "metric": "log_loss",
+      "base": "10 shots/class",
+      "alternative": "20 shots/class",
+      "wins": 7,
+      "ties": 0,
+      "losses": 3,
+      "equal_user_mean_gain": 0.013897238289773694,
+      "minimum_user_gain": -0.019291846960062475,
+      "maximum_user_gain": 0.047534836560791494,
+      "details": [
+        {
+          "user": 32,
+          "base": 1.3756389018250343,
+          "alternative": 1.3356697996113065,
+          "gain_positive_is_better": 0.03996910221372785
+        },
+        {
+          "user": 33,
+          "base": 1.2989706982176346,
+          "alternative": 1.3039941844878542,
+          "gain_positive_is_better": -0.005023486270219646
+        },
+        {
+          "user": 34,
+          "base": 1.2256695112749483,
+          "alternative": 1.22949638436529,
+          "gain_positive_is_better": -0.003826873090341687
+        },
+        {
+          "user": 35,
+          "base": 1.3268442522747823,
+          "alternative": 1.3190715310696304,
+          "gain_positive_is_better": 0.007772721205151933
+        },
+        {
+          "user": 36,
+          "base": 1.448292750944966,
+          "alternative": 1.4010925538078767,
+          "gain_positive_is_better": 0.04720019713708923
+        },
+        {
+          "user": 37,
+          "base": 1.3776128694267575,
+          "alternative": 1.3683174224226364,
+          "gain_positive_is_better": 0.009295447004121105
+        },
+        {
+          "user": 38,
+          "base": 1.570542150892417,
+          "alternative": 1.5898339978524796,
+          "gain_positive_is_better": -0.019291846960062475
+        },
+        {
+          "user": 39,
+          "base": 1.430309673376784,
+          "alternative": 1.4164438968589208,
+          "gain_positive_is_better": 0.013865776517863138
+        },
+        {
+          "user": 40,
+          "base": 1.4108784858184265,
+          "alternative": 1.363343649257635,
+          "gain_positive_is_better": 0.047534836560791494
+        },
+        {
+          "user": 41,
+          "base": 1.3792589882414557,
+          "alternative": 1.3777824796618396,
+          "gain_positive_is_better": 0.0014765085796160093
+        }
+      ]
+    }
+  ],
+  "interpretation": "Mahalanobis improves worst-user F1 and reduces between-user sample SD versus Euclidean at each tested budget. Increasing Mahalanobis calibration from10 to20 raises mean F1 but harms3/10 users and lowers worst-user F1; do not recommend longer calibration from pooled gains alone.",
+  "scope": "Equal-user descriptive metrics in one frozen public cohort. Both methods are personally calibrated; no uncalibrated baseline, cross-session proof, seven-axis R_min or population confidence interval is implied.",
+  "default_promoted": false,
+  "own_device_efficacy_proven": false,
+  "completion_proven": false
+}
