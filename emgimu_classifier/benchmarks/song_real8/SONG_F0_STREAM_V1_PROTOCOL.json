@@ -1,0 +1,34 @@
+{
+  "schema": "song_f0_stream_v1",
+  "source_folder": "E:\\qxy\\emg_meta\\emg_meta\\data\\Song",
+  "target_sessions": [
+    "S03",
+    "S04"
+  ],
+  "hdf5_sha256": {
+    "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+    "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+  },
+  "package_path": "feature_bank/models/song_f0_250hz_v1.pkl",
+  "package_sha256": "623e4f9ca282a03cde98236844039b6043f5f0471cfae35da94482af0e43b44c",
+  "sample_rate_hz": 250,
+  "channels": 8,
+  "window_samples": 50,
+  "hop_samples": 10,
+  "confirmations": 2,
+  "chunk_samples": 4096,
+  "source_sha256": {
+    "benchmarks/song_real8/song_f0_stream_replay_v1.py": "7998c6d6bd27f67c77f68e806da02d6e55f262e4fe01f746340148b98cf5ff1b",
+    "src/emgimu/feature_bank/song_f0_stream_v1.py": "df6bea9ea57f68d144d9161446ab53fc9a67ed1a97461a9f9a58bf4bd30a3cb4",
+    "src/emgimu/feature_bank/song_f0_runtime_v1.py": "bd74b650af091763892b0116f074cce50d799b8723863495bd92db30aef2206d",
+    "src/emgimu/feature_bank/causal_label_debounce_v1.py": "81ac16f1d68f86760786c9b357b24952ff7d928a13b3a29a9c8a9e6cd8d368cf",
+    "src/emgimu/feature_bank/families.py": "967a66a3f94554ef8df09c5a0bc2ffd49a634518fecfb7e63d7d1ee211a241ea",
+    "src/emgimu/feature_bank/document_signal.py": "e21c30e27ddf5defed7d7aa23008ffb4a9d08fbcaee6b38744637606636f6825",
+    "src/emgimu/feature_bank/core.py": "a272025baef6a52ed24088092d17937da26ba334453305e552b6690528bbfffe",
+    "benchmarks/song_real8_study.py": "6051769442d6b68e5893dff9b991a2a60a056eca4b7bacd907bad98ebeb15b3b",
+    "tests/test_song_f0_stream_v1.py": "54e23e51f2845b2b420741f4db92697a2e782067b8a3996796cbf1764acfb76f",
+    "tests/test_song_f0_stream_v1_delivery.py": "b600c25fe463ea6747eb4f9b1986007f9184b2c7aec5dc797f2b8376bc021f99"
+  },
+  "scope": "Retrospective full raw Song recording replay of both fixed F0 arms; no new fits, target tuning or default selection. Labels enter scoring only. Every emission uses trailing50 samples and original zero-start continuous causal filter. Two-consecutive-class confirmation starts UNKNOWN. Only windows wholly inside valid completed formal stable intervals are scored; all other emissions remain unscored, never fake Neutral. Equal native trial mass and whole-stable-interval hold counts are reported. Cue intervals are not biological transition labels, autonomous onset detection or hardware latency. One participant/day, readiness failures and previous inspection persist.",
+  "default_promoted": false
+}
