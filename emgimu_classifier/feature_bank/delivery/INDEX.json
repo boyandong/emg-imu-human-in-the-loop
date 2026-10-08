@@ -20,7 +20,8 @@
   },
   "additional_tables": [
     "new_bank_v3/boundary_detection.csv",
-    "new_bank_v3/budget_eligibility.csv"
+    "new_bank_v3/budget_eligibility.csv",
+    "new_bank_v3/calibration_burden.csv"
   ],
   "full_bank_ablation": "ablation_full_bank.csv",
   "current_manifest": "new_bank_v3/MANIFEST.json",

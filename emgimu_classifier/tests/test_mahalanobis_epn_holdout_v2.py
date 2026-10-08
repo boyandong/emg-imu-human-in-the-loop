@@ -61,3 +61,22 @@ def test_independent_shrunk_quadratic_distances_probabilities_and_pooled_scores(
             actual = _metrics(truth, probability, np.ones(len(truth)))
             for metric in ('macro_f1', 'log_loss', 'brier', 'accuracy'):
                 assert abs(actual[metric] - r['scores'][str(shots)][name][metric]) < 1e-12
+
+
+def test_calibration_exposure_costs_preserve_unknown_physical_times():
+    burden = json.loads((HERE/'MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json').read_text())
+    result = json.loads((HERE/'MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json').read_text())
+    assert not burden['few_second_calibration_proven'] and not burden['physical_wall_time_proven']
+    for path, expected in burden['source_sha256'].items():
+        assert sha(HERE.parents[1]/path) == expected
+    assert len(burden['records']) == 20
+    assert {(r['subject'],r['shots_per_class']) for r in burden['records']} == {(b['user'],b['shots']) for b in result['blocks']}
+    for row in burden['records']:
+        budget = row['shots_per_class']
+        assert row['used_calibration_trials'] == budget*6
+        assert row['used_calibration_windows'] == row['used_calibration_trials']*4
+        assert row['window_samples'] == 40 and row['sample_rate_hz'] == 200
+        assert row['used_signal_seconds'] == row['used_calibration_windows']*40/200 == budget*4.8
+        assert row['used_trials_full_recording_seconds'] >= row['used_signal_seconds']
+        assert row['reserved_calibration_trials'] == 120 and row['reserved_signal_seconds'] == 96
+        assert all(row[key] == 'N/A' for key in ('hardware_setup_seconds','guided_prompt_rest_seconds','device_wall_time_seconds'))

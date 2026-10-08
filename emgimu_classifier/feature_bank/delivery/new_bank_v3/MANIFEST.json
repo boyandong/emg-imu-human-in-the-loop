@@ -1,6 +1,6 @@
 {
   "schema": "current_v3_canonical_delivery_v1",
-  "generator_sha256": "8c0d283f9d995502b7e5807b50cd8d3455bb6be5ae68e1c2969441338cba2d1e",
+  "generator_sha256": "8d12dcad6b9270cec074f6062966898dd448aa7650f5d49a1a44e7faf88c8dbc",
   "source_sha256": {
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
@@ -8,8 +8,11 @@
     "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json": "a423f944b65c5d9d494ab3b85dc5cd6df528ac07968d35d5445ea060d6d4999e",
     "benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_RESULTS.json": "3ecf34f3713f473045d1778fea63a910ac8f1fa71b692983c8dcc90970048a69",
     "benchmarks/new_bank_v3/AUTONOMOUS_UNIBO_V1_RESULTS.json": "5799c215e7d3379054996847d95fd92e075f0422cfec866343c24a6171ba0400",
-    "benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_RESULTS.json": "8af20ead1bdbbd8782d2ca1483f9ea8e9f4874a555ff267b0b60203d93b8ed2e"
+    "benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_RESULTS.json": "8af20ead1bdbbd8782d2ca1483f9ea8e9f4874a555ff267b0b60203d93b8ed2e",
+    "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json": "9b2b7ed27a0747b31a129f229d5ff933d06cf4108485fa60f1f496758907a894"
   },
+  "brier_normalization": "mean across trials and classes; not class-summed; compare only matched class ontologies",
+  "calibration_burden_scope": "Extracted window exposure differs from complete recording duration and physical session wall time; hardware times remain N/A.",
   "class_metrics_scope": "Per-class precision/recall/F1 with explicit support and prediction counts. Undefined precision or absent-ground-truth recall/F1 are null; no true-neutral claim on matched active-only UniBo trials.",
   "error_probability_scope": "Paired correctness probabilities use the explicit shared evaluation-trial denominator. Undefined correlations are explained, never filled with zero.",
   "delta_convention": {
@@ -20,19 +23,23 @@
   "tables": {
     "feature_family_results.csv": {
       "rows": 431,
-      "sha256": "0dd04d2aaf9e751a46373f7546f81bcc9f3fc5dd10eed8353a151a7773256032"
+      "sha256": "dda1f160326389d8e0420a77575b1d32119b54b41bdd0fad4b0b2f6186e3c1bc"
     },
     "conditional_incremental.csv": {
       "rows": 228,
-      "sha256": "a7fcd0b4cf98b65b1de6f74eb65f6aa4db0159be79d7215ddb86a95e5f2c4291"
+      "sha256": "578f52bc4cb7e2c18df157aba78d7aca8b909015309dc6f86d1c3c1967ea13fd"
     },
     "error_complementarity.csv": {
       "rows": 228,
-      "sha256": "f2471bee396bcc30bca234f4373ee06870faba1903613fc1e0ceba2cd2a11155"
+      "sha256": "43a32e160d1030146136dcda1473315a50b9e6569b9574ad40b4deb8ed831af1"
     },
     "calibration_curve.csv": {
       "rows": 431,
-      "sha256": "c50ed1efd6b9c056e85f68f303f11104b947d1df11fa66f7311b3472345bc1b6"
+      "sha256": "718b9e0a6d242c2abe894fb7d2ea14df976d1d4bee4e1036359851fe3fb741d0"
+    },
+    "calibration_burden.csv": {
+      "rows": 20,
+      "sha256": "7c2213694607920d5ebf6f0e9103e8dff5d99d9939036cd1fd9acd62934d8fb0"
     },
     "budget_eligibility.csv": {
       "rows": 170,

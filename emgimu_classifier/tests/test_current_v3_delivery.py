@@ -28,7 +28,7 @@ def test_delivery_sources_schemas_and_unavailable_results():
         assert sha(ROOT/path) == digest
     expected = {'feature_family_results.csv': 431, 'conditional_incremental.csv': 228,
                 'error_complementarity.csv': 228, 'calibration_curve.csv': 431,
-                'budget_eligibility.csv': 170, 'boundary_detection.csv': 2}
+                'budget_eligibility.csv': 170, 'boundary_detection.csv': 2, 'calibration_burden.csv': 20}
     for name, count in expected.items():
         table = rows(name)
         assert len(table) == manifest['tables'][name]['rows'] == count
@@ -126,3 +126,24 @@ def test_error_probabilities_denominators_and_class_confusion_metrics():
             assert c['f1'] == (2*tp/(2*tp+fp+fn) if c['support'] else None)
         if row['run_id'] == 'detected_g5_unibo_v1':
             assert metrics['0']['support'] == 0 and metrics['0']['recall'] is None and metrics['0']['f1'] is None
+
+
+def test_holdout_burden_and_brier_definition_match_native_evidence():
+    artifact = ROOT/'benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json'
+    native = json.loads(artifact.read_text())
+    table = rows('calibration_burden.csv')
+    assert len(table) == len(native['records']) == 20
+    for row, record in zip(table, native['records']):
+        assert all(row[key] == str(value) for key, value in record.items())
+    manifest = json.loads((OUT/'MANIFEST.json').read_text())
+    assert manifest['brier_normalization'].startswith('mean across trials and classes')
+    result = json.loads((ROOT/'benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json').read_text())
+    for row in rows('feature_family_results.csv'):
+        if row['run_id'] != 'mahalanobis_epn_holdout_v2':
+            continue
+        notes = json.loads(row['metadata_notes_json'])
+        assert notes['canonical_export_brier_normalization'] == notes['native_score_brier_normalization'] == 'mean across trials and classes'
+        blocks = [b for b in result['blocks'] if b['shots'] == int(row['calibration_budget']) and (row['subject'] == 'ALL' or str(b['user']) == row['subject'])]
+        probability = np.concatenate([b['probabilities'][row['feature_family'].removeprefix('pattern_')] for b in blocks])
+        labels = np.concatenate([b['labels'] for b in blocks])
+        assert np.isclose(float(row['brier']), np.mean((probability-np.eye(6)[labels])**2), atol=1e-12, rtol=0)

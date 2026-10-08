@@ -145,7 +145,7 @@ def export():
                       {'classes': 6, 'ontology': 'EPN612 native six classes', 'dimension': 8,
                        'scope': holdout['scope'], 'independent_trial_guard': True,
                        'native_score_brier_normalization': 'mean across trials and classes',
-                       'canonical_export_brier_normalization': 'mean across trials of class sum'})
+                       'canonical_export_brier_normalization': 'mean across trials and classes'})
     name = 'DETECTED_G5_UNIBO_V1_RESULTS.json'; g5 = read(name); source = (HERE/name).relative_to(ROOT).as_posix()
     supported = [e for e in g5['events'] if e['reference_label'] is not None]
     for boundary in ('detected', 'matched_oracle'):
@@ -170,16 +170,24 @@ def export():
                            'onset_mae_s': t['onset_mae_s'] if t['onset_mae_s'] is not None else 'N/A',
                            'offset_mae_s': t['offset_mae_s'] if t['offset_mae_s'] is not None else 'N/A',
                            'source_artifact': path, 'source_sha256': sources[path], 'scope': result.get('scope', '')})
+    burden_name = 'MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json'
+    burden = read(burden_name)
+    burden_source = (HERE/burden_name).relative_to(ROOT).as_posix()
+    burden_rows = [{**row, 'source_artifact': burden_source, 'source_sha256': sources[burden_source]}
+                   for row in burden['records']]
     context_fields = ['run_id', 'source_artifact', 'source_sha256', 'dataset', 'subject', 'session/domain', 'condition', 'calibration_budget', 'evaluation_trials', 'metadata_notes_json']
     tables = {'feature_family_results.csv': (family, context_fields+['feature_family']+list(METRICS)+['class_metrics_json']),
               'conditional_incremental.csv': (incremental, context_fields+['core_bank', 'added_family', 'comparison_kind', 'delta_logloss', 'delta_macro_f1', 'delta_brier']),
               'error_complementarity.csv': (errors, context_fields+['family_a', 'family_b', 'error_correlation', 'correlation_status', 'disagreement_rate', 'a_correct_b_wrong', 'a_wrong_b_correct', 'a_correct_b_wrong_probability', 'a_wrong_b_correct_probability']),
               'calibration_curve.csv': (curve, context_fields+['feature_bank', 'shots_per_class', 'method', 'supported', 'macro_f1', 'log_loss']),
+              'calibration_burden.csv': (burden_rows, list(burden_rows[0])),
               'budget_eligibility.csv': (eligibility, list(eligibility[0])), 'boundary_detection.csv': (boundaries, list(boundaries[0]))}
     for filename, (rows, fields) in tables.items():
         write(filename, rows, fields)
     manifest = {'schema': 'current_v3_canonical_delivery_v1', 'generator_sha256': sha(Path(__file__)),
                 'source_sha256': sources,
+                'brier_normalization': 'mean across trials and classes; not class-summed; compare only matched class ontologies',
+                'calibration_burden_scope': 'Extracted window exposure differs from complete recording duration and physical session wall time; hardware times remain N/A.',
                 'class_metrics_scope': 'Per-class precision/recall/F1 with explicit support and prediction counts. Undefined precision or absent-ground-truth recall/F1 are null; no true-neutral claim on matched active-only UniBo trials.',
                 'error_probability_scope': 'Paired correctness probabilities use the explicit shared evaluation-trial denominator. Undefined correlations are explained, never filled with zero.',
                 'delta_convention': {'delta_logloss': 'base minus alternative; positive means improvement',
@@ -191,7 +199,7 @@ def export():
     (OUT/'MANIFEST.json').write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf8')
     index = {'schema': 'versioned_feature_bank_delivery_index_v1',
              'tables': {n: [n, 'new_bank_v3/'+n] for n in tables if (BASE/n).exists()},
-             'additional_tables': ['new_bank_v3/boundary_detection.csv', 'new_bank_v3/budget_eligibility.csv'],
+             'additional_tables': ['new_bank_v3/boundary_detection.csv', 'new_bank_v3/budget_eligibility.csv', 'new_bank_v3/calibration_burden.csv'],
              'full_bank_ablation': 'ablation_full_bank.csv', 'current_manifest': 'new_bank_v3/MANIFEST.json',
              'base_provenance': 'PROVENANCE_AUDIT.json',
              'base_table_sha256': {f.name: sha(f) for f in sorted(BASE.glob('*.csv'))},
