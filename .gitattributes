@@ -942,3 +942,6 @@ emgimu_classifier/tests/test_hardware_preparation_v1.py -text -eol whitespace=cr
 emgimu_classifier/tests/test_hardware_preparation_delivery.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/hardware_preparation_acceptance.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/document_traceability_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_document_traceability_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/DOCUMENT_TRACEABILITY_V1.json -text -eol whitespace=cr-at-eol
