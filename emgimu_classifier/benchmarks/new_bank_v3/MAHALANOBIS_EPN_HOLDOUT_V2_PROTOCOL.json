@@ -1,0 +1,56 @@
+{
+  "version": "mahalanobis-epn-holdout-v2",
+  "archive": "D:/emg-imu-benchmarks/data/raw/epn612/EMG-EPN612-Dataset.zip",
+  "archive_sha256": "4ee8db037385e7bee1e6ac6f9e9eea4f0869e25f7825f5eb7e5be0dff4f93c21",
+  "source_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "target_users": [
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41
+  ],
+  "budgets": [
+    10,
+    20
+  ],
+  "dimension": 8,
+  "reserved_calibration_per_class": 20,
+  "covariance_shrinkage": 0.2,
+  "selection_seed": "20261006",
+  "selection": "Same SHA256(seed|native_trial_id) order as V1. First20 reserved per class; prefixes10/20 used for calibration, remaining trials fixed for evaluation.",
+  "feature": "Source-only DocumentScalePatternV3 eight coordinates, trial means and source-only StandardScaler. No source or target dimensionality search.",
+  "probability": "Fixed V1 softmax(-distance/calibration median distance) per metric; no target evaluation temperature fitting or source-OOF calibration claim.",
+  "prior_results_sha256": "0f58780fc3023df1ff39fdaca1d918b5120d34839a7d416de32c8028053ce44d",
+  "source_sha256": {
+    "benchmarks/new_bank_v3/mahalanobis_epn_holdout_v2.py": "31c1d6bdaae34b71f1230c0e56c61392567b0b7d5c3b5b996d8743202522496a",
+    "benchmarks/new_bank_v3/mahalanobis_epn_budget_v1.py": "8666361d8bcf93bd6bf3d2fac5252e425fe6e67ac43a7c172825b5a03e402c45",
+    "src/emgimu/feature_bank/document_scale_v3.py": "5b160c09f2e7658383286fa39df1047d2327313fe2bbc3d4cec2c1431078d6e3",
+    "src/emgimu/feature_bank/trial_mahalanobis_v1.py": "21f259e2bafd05bc02ea7f7961cce7df60db401449074ee17ce8f9b89869bd73",
+    "src/emgimu/feature_bank/calibration.py": "495e4354327d3af31a912f70e0eb5db1c617c4054d01fe422715f5e98e08c90e",
+    "src/emgimu/datasets/epn612.py": "bd227f61ea7cac6e4f9db4d35bb794366f72b3ffec0d943aaef970738e7f937e",
+    "src/emgimu/feature_bank/epn_study.py": "be66dde2f607adb9dfa891048b4afbb6d67b50ee1646c16261c04b73b459f2c2"
+  },
+  "scope": "New precommitted evaluation on EPN users32-41, disjoint from checked source/validation/final cohorts1-31 and earlier public user107 sensor inspection. Not proof of every historical file-access event, full 612-user efficacy, own-device or low calibration burden. Protocol/source frozen before target signal loading; no default promotion."
+}
