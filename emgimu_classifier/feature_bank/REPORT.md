@@ -30,8 +30,13 @@ from source evidence, validation evidence or prespecified controls; final scores
 Seed: 20260915. Classical logistic regression runs use CPU; no neural training is needed
 for these representation comparisons.
 The dated `results/validation.json` log records 224 tests (223 passed, one
-skipped). The current classifier suite was rerun after the independent
-new-v1 wearing-family delivery: 270 passed, one skipped and 14 subtests passed.
+skipped). An earlier classifier rerun after the independent new-v1 wearing-family
+delivery recorded 270 passed, one skipped and 14 subtests passed.
+The [2026-10-08 full regression snapshot](CLASSIFIER_REGRESSION_20261008.json)
+records 517 passed, one skipped and 21 subtests passed. The skipped original-MAT
+conversion check was subsequently [run separately on an unchanged official sample](OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json)
+and passed. This is not represented as a single 518-pass suite, live-device
+validation or complete scientific acceptance.
 Older section-local test counts below are dated snapshots. The collection application's documented
 default `collection/emg_meta/emg_meta/data` directory did not contain a session
 at that earlier review. The user has since supplied four Song sessions at a

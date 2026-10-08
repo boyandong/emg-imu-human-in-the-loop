@@ -1,0 +1,26 @@
+{
+  "schema": "official_unibo_adapter_acceptance_v1",
+  "protocol_sha256": "03e211e0d85e32a796222a2edb7afc95f22419ad86068132303cad0db406c550",
+  "source_archive_sha256": "e32f1649b7b9b775a6b03328fb862ebf21a18c7ca6b4d9abb50b7281caefbce3",
+  "source_member": "unibo-inail-semg-dataset-main/data/user_1_day_1_posture_1.mat",
+  "source_member_bytes": 2264454,
+  "source_member_sha256": "9ec2c67990b072f843003d8fec634462f18e375e97a9114ff06d4de4ddc41688",
+  "source_sha256": {
+    "src/emgimu/datasets/adapters/unibo_inail.py": "e296624d540a5bb1d2d268c3dbe76ef8bdb43318daab5a2b602c89ee55cd5685",
+    "src/emgimu/datasets/adapters/base.py": "7410e43e9bd65922e4c9fbed6e2f0eec4ef06dfc6e9f8962250bf315e59c000e",
+    "src/emgimu/datasets/benchmark.py": "98a1252c72231e1ad0fdbb17b319b56c51c2c21b91b3a5f39729b300a7358585",
+    "src/emgimu/signal.py": "25db7778472aaed7ca00e944c3a97f4bb5a0b4f7b4d76b04c694eb360fea62f4",
+    "tests/test_unibo_adapter.py": "a2a1bee89de826de28a2cebb9f410e48ff492cabc6a57f3d6ba2d5e8efef7c93",
+    "benchmarks/official_unibo_adapter_acceptance_v1.py": "3973dec76c76cf911ea2d153b9dca16137aad00c21d8e7ef49ba28d2ec1bcb14"
+  },
+  "test_node": "tests/test_unibo_adapter.py::UniBoOfficialSampleSmokeTest::test_official_sample_read_only_conversion",
+  "test_exit_code": 0,
+  "test_summary": "1 passed in 2.33s",
+  "test_stdout": ".                                                                        [100%]\n1 passed in 2.33s\n",
+  "test_stderr": "",
+  "source_sample_immutable": true,
+  "training_performed": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Single official original MAT adapter conversion and benchmark-schema smoke check. Complements the full-suite run whose environment did not select this optional test; not all-file data validation, sensor compatibility, recognition accuracy or device execution."
+}

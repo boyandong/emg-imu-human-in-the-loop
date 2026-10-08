@@ -268,6 +268,10 @@ def export():
                                             if f.name.endswith('_RESULTS.json') or f.name == 'results.json'},
              'current_scientific_conclusions': {'path':'../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json',
                  'sha256':sha(ROOT/'feature_bank/CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json')},
+             'current_regression_snapshot': {'path':'../CLASSIFIER_REGRESSION_20261008.json',
+                 'sha256':sha(ROOT/'feature_bank/CLASSIFIER_REGRESSION_20261008.json')},
+             'official_unibo_adapter_acceptance': {'path':'../OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json',
+                 'sha256':sha(ROOT/'feature_bank/OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json')},
              'completion_proven': False}
     (BASE/'INDEX.json').write_text(json.dumps(index, indent=2)+'\n', encoding='utf8')
     print(json.dumps({n: len(rows) for n, (rows, _) in tables.items()}), flush=True)

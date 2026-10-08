@@ -71,5 +71,13 @@
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
     "sha256": "da940a46b053d7169bd557d3f7b57fb9163bd880d164c444e6a1bb708c4f2062"
   },
+  "current_regression_snapshot": {
+    "path": "../CLASSIFIER_REGRESSION_20261008.json",
+    "sha256": "6fb1a55dcf647a385978ba691c9cb2e16e7e759b3b0bcbf2a78c39dc161f17fe"
+  },
+  "official_unibo_adapter_acceptance": {
+    "path": "../OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json",
+    "sha256": "63b809e5c676776a37522f08cf3a571dff43534fe425cf6d7fd7681b898bd45c"
+  },
   "completion_proven": false
 }

@@ -158,6 +158,15 @@ def build(pre: Path, goal: Path) -> dict:
                          "conventions are explicit. Improved calibrated-method comparisons "
                          "do not prove improvement versus no anchor or only-after-calibration "
                          "benefit, and single-axis minima are not full seven-axis R_min.")
+        if ident == "GOAL-02":
+            evidence += ("|feature_bank/OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json"
+                         "|feature_bank/CLASSIFIER_REGRESSION_20261008.json"
+                         "|benchmarks/official_unibo_adapter_acceptance_v1.py")
+            boundary += (" Full-suite code/test fingerprints accompany517 passed,1 skipped "
+                         "and21 subtests at a named revision. The optional original-MAT "
+                         "conversion check then passes separately on an archive-bound "
+                         "unchanged source sample; neither result is a full scientific "
+                         "completion or actual eight-channel sensor-compatibility claim.")
         if ident == "GOAL-17":
             evidence += ("|feature_bank/delivery/INDEX.json"
                          "|feature_bank/delivery/new_bank_v3/MANIFEST.json"
