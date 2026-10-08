@@ -9,7 +9,10 @@
       "pdf_bytes": 1418396,
       "pdf_sha256": "9f5ae56b2e68265f65818f73d56e0c75dfe428dcf63a74e568a94e60b3c2328e",
       "pages": 6,
-      "visually_reviewed_pages": [2, 3],
+      "visually_reviewed_pages": [
+        2,
+        3
+      ],
       "extracted_review": "Acquisition hardware, protocol, synchronization and analysis paragraphs. No reproduction of reported classification results.",
       "raw_emg_sample_rate_hz": 2000,
       "raw_acceleration_sample_rate_hz": 148.148,
@@ -18,8 +21,14 @@
       "gyroscope_confirmed": false,
       "calibrated_body_frame_confirmed": false,
       "evidence": [
-        {"page": 2, "quote": "the 3-axes accelerometer in the device is sampled at 148.148 Hz"},
-        {"page": 4, "quote": "interpolating the timestamps with piecewise linear models"}
+        {
+          "page": 2,
+          "quote": "the 3-axes accelerometer in the device is sampled at 148.148 Hz"
+        },
+        {
+          "page": 4,
+          "quote": "interpolating the timestamps with piecewise linear models"
+        }
       ],
       "limitations": [
         "Aligned export rows are not independent native IMU samples.",
@@ -27,8 +36,62 @@
         "Article availability does not establish the dataset license.",
         "Public data files were not newly acquired or inspected during this review."
       ]
+    },
+    {
+      "dataset": "roam_emg",
+      "url": "https://arxiv.org/html/2506.19815v6",
+      "version": "2506.19815v6",
+      "title": "ReactEMG: Stable, Low-Latency Intent Detection from sEMG via Masked Modeling",
+      "source_format": "HTML",
+      "http_status": 200,
+      "source_bytes": 264307,
+      "source_sha256": "c31bc0a3541b47c5e6935150749176237b147273f93a48df145899ff9b72b8d2",
+      "reviewed_sections": [
+        "III-C",
+        "III-D",
+        "III-E",
+        "IV-A",
+        "V"
+      ],
+      "native_emg_channels": 8,
+      "native_sample_rate_hz": 200,
+      "roam_subjects": 28,
+      "roam_gesture_names": [
+        "relax",
+        "open",
+        "close"
+      ],
+      "pinch_in_roam_native_task": false,
+      "static_postures": 4,
+      "functional_grasp_sets": 2,
+      "smoothed_inference": {
+        "window_samples": 600,
+        "lookahead_samples": 50,
+        "label_hold_samples": 20,
+        "context_seconds": 3.0,
+        "lookahead_seconds": 0.25,
+        "hold_seconds": 0.1,
+        "update_rate_hz": 10
+      },
+      "evaluation": "Public pretraining followed by ROAM leave-one-subject-out fine-tuning; held-out user excluded from fine-tuning. Not evidence of direct public-pretrain transfer to our device.",
+      "transition_metric": {
+        "total_reaction_buffer_samples": 200,
+        "half_buffer_seconds": 0.5,
+        "maintenance": "Every maintenance prediction must match the new intent; one error fails the transition.",
+        "scope": "Tolerance-based annotation metric; not physical reaction-time measurement."
+      },
+      "imu_body_frame_verified": false,
+      "our_device_physical_layout_verified": false,
+      "native_subset_audit": "ROAM_NATIVE_AUDIT.json",
+      "native_subset_audit_sha256": "52b187143a075b147da88110d82a3a2876f94921f19d4a63e1cf4fbb1812cdf1",
+      "limitations": [
+        "Paper observations do not reproduce its model results.",
+        "Our native audit covers112 static recordings, not all posture/grasp/movement experiments.",
+        "Future-sample lookahead is additional to compute, filtering and device delays.",
+        "Paper and code licenses do not establish hosted mixed-data archive terms."
+      ]
     }
   ],
   "completion_proven": false,
-  "scope": "Versioned source-paper evidence for acquisition eligibility; not a new experiment, full-cohort data audit or own-device validation. Original PDF remains outside Git."
+  "scope": "Versioned source-paper acquisition/evaluation evidence; not a model reproduction or own-device validation. Original PDF/HTML stays outside Git."
 }

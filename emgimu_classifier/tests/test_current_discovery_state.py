@@ -79,3 +79,24 @@ def test_db6_paper_distinguishes_raw_imu_rate_from_aligned_export():
     assert paper['raw_acceleration_sample_rate_hz'] != paper['aligned_export_sample_rate_hz']
     assert not paper['gyroscope_confirmed'] and not paper['calibrated_body_frame_confirmed']
     assert sum(len(entry['quote'].split()) for entry in paper['evidence']) <= 25
+
+
+def test_roam_paper_version_sampling_latency_and_native_task_boundaries():
+    papers=json.loads((HERE/'SECONDARY_PAPER_REVIEW_V1.json').read_text(encoding='utf8'))['papers']
+    r=next(p for p in papers if p['dataset']=='roam_emg')
+    assert r['version']=='2506.19815v6' and r['url'].endswith(r['version'])
+    assert r['http_status']==200 and len(r['source_sha256'])==64 and r['source_bytes']>200000
+    assert r['native_emg_channels']==8 and r['native_sample_rate_hz']==200
+    assert r['roam_subjects']==28 and r['static_postures']==4 and r['functional_grasp_sets']==2
+    assert set(r['roam_gesture_names'])=={'relax','open','close'} and not r['pinch_in_roam_native_task']
+    i=r['smoothed_inference'];rate=r['native_sample_rate_hz']
+    assert i['window_samples']/rate==i['context_seconds']==3
+    assert i['lookahead_samples']/rate==i['lookahead_seconds']==.25
+    assert i['label_hold_samples']/rate==i['hold_seconds']==.1
+    assert rate/i['label_hold_samples']==i['update_rate_hz']==10
+    assert r['transition_metric']['total_reaction_buffer_samples']/rate/2==r['transition_metric']['half_buffer_seconds']==.5
+    native=json.loads((HERE/r['native_subset_audit']).read_text(encoding='utf8'))
+    assert sha(HERE/r['native_subset_audit'])==r['native_subset_audit_sha256']
+    assert native['channels']==r['native_emg_channels'] and native['nominal_sample_rate_hz']==rate
+    assert native['static_files_verified']==112 and len(native['subjects'])==r['roam_subjects']
+    assert not r['imu_body_frame_verified'] and not r['our_device_physical_layout_verified']

@@ -11,10 +11,10 @@
     "scripts/current_discovery_state.py": "574327741fce7b5683becb3f8f634f60b8c072f3969f0a02d7941aa0998a2af7",
     "SECONDARY_LICENSE_METADATA_V1.json": "50bcb5e340bc69ea2fda2cb9f457cb59d1dc27ed3d718700ee2aa20f3297801d",
     "scripts/fetch_secondary_license_metadata.py": "1ffd848656457092a980784d3a722475a580765d98e4d5d07f4d257d20abe11c",
-    "SECONDARY_PAPER_REVIEW_V1.json": "41024a3c2e1a306ea3d5785dd7923abfe83a646e00b4a89a546cb5b53830c6f7",
+    "SECONDARY_PAPER_REVIEW_V1.json": "e6b9ff2dc20caffa1195be31235a3ad48829ce50b830a0afab7df17815d8f567",
     "GRAB_CHANNEL_CENSUS_V1.json": "521b16cd3e1f006167ac6bd91e4b82c9607a3bd10026be48522dad81b08a7641",
     "scripts/grab_channel_census_v1.py": "ecfe53aea73ae1bf2b519ee40d4e3b38f33340a85faa368bafa93f437e61c8d5",
-    "SECONDARY_PRIMARY_REVIEW_V1.json": "c4021d0cb3d4820ceca99fcd84173e8bb88972b3dcd839e2e19d0321797b8750"
+    "SECONDARY_PRIMARY_REVIEW_V1.json": "d37bf2082ff1820e3ae157d18613c25d826ebdd9f4eca2b13218e01aacf59221"
   },
   "datasets": [
     {
@@ -316,14 +316,23 @@
           "https://arxiv.org/abs/2506.19815"
         ],
         "paper": "ReactEMG: Stable, Low-Latency Intent Detection from sEMG via Masked Modeling; arXiv 2506.19815.",
-        "paper_review": "Author repository and abstract record reviewed; paper experiment details not independently reviewed.",
+        "paper_review": "arXiv v6 selected inference, datasets, training, metrics and limitations sections reviewed; full model results not reproduced.",
         "license_verified": null,
         "code_license_verified": "MIT",
         "six_axis_imu_verified": false,
         "physical_eight_channel_layout_verified": false,
         "limitations": [
           "Code license does not prove hosted mixed data-archive license.",
-          "Use existing native ROAM static subset audit for channel/rate; do not infer properties from model generalization claims."
+          "Use existing native ROAM static subset audit for channel/rate; do not infer properties from model generalization claims.",
+          "ROAM three-class task excludes pinch;50-sample smoothing uses future data (.25s at200Hz). Native112-static-record audit does not cover all published tasks."
+        ],
+        "paper_version": "2506.19815v6",
+        "native_emg_channels": 8,
+        "native_emg_sample_rate_hz": 200,
+        "native_gesture_names": [
+          "relax",
+          "open",
+          "close"
         ]
       }
     },
