@@ -1,0 +1,67 @@
+{
+  "schema": "roam_causal_window_v1",
+  "archive": "D:/emg-imu-benchmarks/data/raw/roam_emg/data.zip",
+  "archive_sha256": "c9de0e25c187c216e4771d17ccfa19acb0e4028f907ea726b2a87a18d2db5343",
+  "source_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "validation_users": [
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "descriptive_final_users": [
+    24,
+    25,
+    26,
+    27,
+    28
+  ],
+  "source_posture": "resting",
+  "target_postures": [
+    "resting",
+    "hanging",
+    "unsupported",
+    "reaching"
+  ],
+  "sample_rate_hz": 200,
+  "window_samples": 40,
+  "hop_samples": 10,
+  "chunk_samples": 257,
+  "reaction_half_buffer_samples": 100,
+  "source_bout_edge_exclusion_samples": 40,
+  "classifier": "Source-only StandardScaler and LogisticRegression C1,max_iter2000,seed20261008; equal class/bout mass sample weights. No tuning.",
+  "feature": "Reference F0v2 six local metrics,48 coordinates; Rest thresholds from source-only windows. Not prior full-bout aggregate classifier.",
+  "emission": "Trailing observed40-sample window, every10 samples. No future context. Hold latest probability between emissions; first39 samples explicitly unknown.",
+  "evaluation": "All target samples and native cue transitions; no target labels used in fitting, segmentation or inference. Labels used only after chronological inference for metrics.",
+  "scope": "New versioned descriptive public experiment on previously inspected cohorts. Native200Hz Myo three-class/static postures only; not blind new-user, biological onset, hardware throughput or own-device efficacy. Reaction/maintenance metric is independently specified, not exact ReactEMG reproduction.",
+  "source_sha256": {
+    "benchmarks/new_bank_v3/roam_causal_window_v1.py": "8a9f9c7b31adf72420f7eb3167be77663dd892f2ef3490ece3c68bed1145c939",
+    "src/emgimu/feature_bank/causal_window_recognition_v1.py": "30ecd3c911ff793d2dad8242f60ebef0d7cc11b034d68d0855eb06f8c5a6677b",
+    "src/emgimu/feature_bank/new_bank_v2.py": "7f9195d7e591a2b3ac72f17142d36a32b32d4bfd7d049bdd4b40d7f06663c49e",
+    "src/emgimu/feature_bank/new_bank_v1.py": "91d7b76f50197b5ed412d8cf13339bdba16780d61e6b89a349e0c594a3678f24",
+    "src/emgimu/feature_bank/core.py": "a272025baef6a52ed24088092d17937da26ba334453305e552b6690528bbfffe",
+    "benchmarks/new_bank_v2/roam_posture_run.py": "6a0b0e53ba3a572e6085de4393c7339bb29e3f9190145017e21aee5bfc801207",
+    "benchmarks/new_bank_v2/ROAM_POSTURE_PROTOCOL.json": "a4b322b062116b168c7ef22be113ad60957d7015c5c83b9879e0e9a1849a741c"
+  },
+  "default_promoted": false
+}

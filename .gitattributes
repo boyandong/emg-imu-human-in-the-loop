@@ -972,3 +972,7 @@ emgimu_classifier/benchmarks/new_bank_v3/epn_holdout_user_robustness_v2.py -text
 emgimu_classifier/benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.csv -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_epn_holdout_user_robustness_v2.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/causal_window_recognition_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_causal_window_recognition_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/roam_causal_window_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
