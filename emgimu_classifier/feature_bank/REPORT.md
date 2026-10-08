@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `35ae63fb6042d636103817ff0d1e2d1fd765d0f38cd502ff26c4dea6e587b133`.
+Source SHA-256: `8f1c34c39b962a95023cc9d1e4325ed973a34bc905460af46af5bc84d9246050`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -374,6 +374,41 @@ user harms. They do not explain the current hardware user's failures.
 [Class confusions and active/rest rates](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json)
 and [paired class correction/harm table](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.csv)
 are descriptive readouts of immutable predictions; no retraining or default promotion.
+
+#### Six declared EMG window groups: fixed combinations and removals
+
+A separate precommitted EPN52–61 experiment fits 13 source-only models
+on users1–15 and retains all 1,500 held-out native trials. It joins F0,
+F1, centered F2a/F2c, F3b CES, F4a/b/c and local F5 window features.
+The joined bank has 265 coordinates and zero target calibration.
+The missing subfamilies, personal/session/context providers and strict
+F6 remain outside this bank; this is not the document-wide F0–F9 bank.
+
+| Fixed composition | Coordinates | Macro-F1 | Log loss | Worst-user macro-F1 |
+|---|---:|---:|---:|---:|
+| F0 | 48 | 0.4361 | 1.4347 | 0.2956 |
+| F0_plus_F1 | 56 | 0.4346 | 1.4334 | 0.3024 |
+| F0_plus_F2ac | 120 | 0.3981 | 1.6308 | 0.2255 |
+| F0_plus_F3b | 56 | 0.4274 | 1.4325 | 0.2771 |
+| F0_plus_F4abc | 120 | 0.4201 | 1.5448 | 0.2797 |
+| F0_plus_F5window | 105 | 0.4282 | 1.4689 | 0.2983 |
+| window_bank | 265 | 0.3902 | 1.9194 | 0.2387 |
+| window_bank_minus_F0 | 217 | 0.3957 | 1.8855 | 0.2420 |
+| window_bank_minus_F1 | 257 | 0.3860 | 1.9222 | 0.2323 |
+| window_bank_minus_F2ac | 193 | 0.4080 | 1.6014 | 0.2777 |
+| window_bank_minus_F3b | 257 | 0.3883 | 1.9147 | 0.2399 |
+| window_bank_minus_F4abc | 193 | 0.4057 | 1.6855 | 0.2837 |
+| window_bank_minus_F5window | 208 | 0.4024 | 1.8286 | 0.2516 |
+
+All four predeclared joined-bank guards fail; 0/10 users improve log loss. Joined-bank macro-F1 change is -0.0460; log-loss improvement is -0.4847, where positive means better. No composition is selected or promoted using these target results.
+
+Every group removal independently refits the source classifier. This
+differs from removing a probability provider in the F0/F7 experiment.
+Direct F0-to-F0-plus-group comparisons are explicitly labelled source-refit
+concatenated increments; other paired comparisons remain alternatives.
+[Native models and readouts](../benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json)
+and [all declared group removals](delivery/new_bank_v3/ablation_full_bank.csv)
+preserve the negative results and the restricted scope.
 <!-- CURRENT_SCIENTIFIC_ANSWERS_V1_STOP -->
 
 ### Calibration recovery and model-composition limits

@@ -166,13 +166,21 @@ def build(pre: Path, goal: Path) -> dict:
                          "|tests/test_emg_f0_f7_bank_v1_delivery.py"
                          "|benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json"
                          "|benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.csv"
-                         "|tests/test_emg_bank_class_diagnostics_v1.py")
+                         "|tests/test_emg_bank_class_diagnostics_v1.py"
+                         "|benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json"
+                         "|benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_PREDICTIONS.csv"
+                         "|tests/test_emg_window_bank_v1_delivery.py")
             boundary += (" A precommitted EMG-only F0/F7 two-provider bank tests1200 "
                          "fixed held-out trials of EPN42-51 with nested0/1/2/5 budgets "
                          "and both provider removals. Five-shot F1 .4633 to.4836 and "
                          "loss improves by.06383 (.09246 beyond uniform), but only6/10 "
                          "users win loss, failing the7/10 primary guard. No IMU features "
-                         "or default promotion; not a replacement for document-wide "
+                         "or default promotion. A separate precommitted EPN52-61 "
+                         "six-declared-group265-coordinate EMG window bank evaluates "
+                         "1500 trials and13 source-fitted compositions with all group "
+                         "removals. All primary guards fail, with0/10 user loss wins; "
+                         "F1 .4361 to.3902. Not a replacement for document-wide "
                          "full-bank/LOFO, strict F6 or actual device efficacy.")
         if ident == "GOAL-02":
             evidence += ("|feature_bank/OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json"
@@ -188,7 +196,7 @@ def build(pre: Path, goal: Path) -> dict:
                          "|feature_bank/delivery/new_bank_v3/MANIFEST.json"
                          "|benchmarks/new_bank_v3/export_current_delivery.py"
                          "|tests/test_current_v3_delivery.py")
-            boundary += (" Current V3 adds 2,418 hash-bound table rows with an additive "
+            boundary += (" Current V3 adds 4,486 hash-bound table rows with an additive "
                          "version index; paired alternatives are explicitly distinguished "
                          "from added-feature increments, DTW probability metrics are N/A, "
                          "and 130 insufficient independent-trial budgets remain ineligible. "

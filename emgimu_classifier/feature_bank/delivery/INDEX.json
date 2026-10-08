@@ -32,7 +32,7 @@
   ],
   "full_bank_ablation": "ablation_full_bank.csv",
   "current_manifest": "new_bank_v3/MANIFEST.json",
-  "current_ablation_scope": "new_bank_v3/ablation_full_bank.csv is the restricted EMG-only F0/F7 provider removal; the base whole-bank table remains unchanged.",
+  "current_ablation_scope": "new_bank_v3/ablation_full_bank.csv contains restricted F0/F7 provider removals and all six declared source-only EMG window-group removals; neither is the document-wide bank. The base table remains unchanged.",
   "base_provenance": "PROVENANCE_AUDIT.json",
   "base_table_sha256": {
     "ablation_full_bank.csv": "97653af7dce471606f03c1aa616dcc58c8f1c1f8b4195a6a649613440b592dba",
@@ -50,6 +50,7 @@
     "benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_RESULTS.json": "3ecf34f3713f473045d1778fea63a910ac8f1fa71b692983c8dcc90970048a69",
     "benchmarks/new_bank_v3/DOCUMENT_RELIABILITY_GRAB_RESULTS.json": "0c634b6bed0cb7e686fcc3ca09e52e2e4ed86f3615513c515039dae8a21b732b",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
+    "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/F1_SCALE_GRAB_RESULTS.json": "3a13e3c569ab1a2073628fffc534e250b6f519d20c952131dbbf8e3e335e72bc",
     "benchmarks/new_bank_v3/F3B_CES_GRAB_RESULTS.json": "e701ff84486ecbf72b515012900dde6407d6a23b6cddbbf5fba14eebb89b3c25",
     "benchmarks/new_bank_v3/F4_SPECTRAL_GRAB_RESULTS.json": "22a47ba58052f761e834060c4dcc4ae17f1eba3f3a302ab62fcc9425572c70f3",
@@ -75,7 +76,7 @@
   },
   "current_scientific_conclusions": {
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
-    "sha256": "35ae63fb6042d636103817ff0d1e2d1fd765d0f38cd502ff26c4dea6e587b133"
+    "sha256": "8f1c34c39b962a95023cc9d1e4325ed973a34bc905460af46af5bc84d9246050"
   },
   "current_regression_snapshot": {
     "path": "../CLASSIFIER_REGRESSION_20261008.json",

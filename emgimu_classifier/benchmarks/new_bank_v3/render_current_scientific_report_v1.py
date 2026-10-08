@@ -105,6 +105,27 @@ def render(data, source_sha):
                         '[Class confusions and active/rest rates](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json)',
                         'and [paired class correction/harm table](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.csv)',
                         'are descriptive readouts of immutable predictions; no retraining or default promotion.']
+    window_bank = data['emg_window_bank']
+    variation_lines += ['', '#### Six declared EMG window groups: fixed combinations and removals', '',
+                        'A separate precommitted EPN52–61 experiment fits 13 source-only models',
+                        'on users1–15 and retains all 1,500 held-out native trials. It joins F0,',
+                        'F1, centered F2a/F2c, F3b CES, F4a/b/c and local F5 window features.',
+                        'The joined bank has 265 coordinates and zero target calibration.',
+                        'The missing subfamilies, personal/session/context providers and strict',
+                        'F6 remain outside this bank; this is not the document-wide F0–F9 bank.', '',
+                        '| Fixed composition | Coordinates | Macro-F1 | Log loss | Worst-user macro-F1 |',
+                        '|---|---:|---:|---:|---:|']
+    for c in window_bank['cells']:
+        variation_lines.append(f"| {c['arm']} | {c['dimension']} | {c['macro_f1']:.4f} | {c['log_loss']:.4f} | {c['minimum_user_macro_f1']:.4f} |")
+    primary=window_bank['primary']
+    variation_lines += ['', f"All four predeclared joined-bank guards fail; {primary['user_logloss_wins']}/10 users improve log loss. Joined-bank macro-F1 change is {primary['delta_macro_f1']:+.4f}; log-loss improvement is {primary['delta_logloss']:+.4f}, where positive means better. No composition is selected or promoted using these target results.", '',
+                        'Every group removal independently refits the source classifier. This',
+                        'differs from removing a probability provider in the F0/F7 experiment.',
+                        'Direct F0-to-F0-plus-group comparisons are explicitly labelled source-refit',
+                        'concatenated increments; other paired comparisons remain alternatives.',
+                        '[Native models and readouts](../benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json)',
+                        'and [all declared group removals](delivery/new_bank_v3/ablation_full_bank.csv)',
+                        'preserve the negative results and the restricted scope.']
     lines[-1:-1] = variation_lines
     return '\n'.join(lines)
 

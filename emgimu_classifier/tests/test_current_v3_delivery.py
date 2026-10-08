@@ -22,7 +22,7 @@ def rows(name):
 
 def test_emg_only_bank_provider_removals_and_actual_calibration_cost():
     result = json.loads((ROOT/'benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json').read_text(encoding='utf8'))
-    table = rows('ablation_full_bank.csv')
+    table = [r for r in rows('ablation_full_bank.csv') if r['run_id']=='emg_f0_f7_bank_v1']
     assert len(table)==66
     assert len({(r['subject'],r['calibration_budget'],r['removed_provider']) for r in table})==66
     for row in table:
@@ -70,8 +70,8 @@ def test_delivery_sources_schemas_and_unavailable_results():
     assert manifest['generator_sha256'] == sha(ROOT/'benchmarks/new_bank_v3/export_current_delivery.py')
     for path, digest in manifest['source_sha256'].items():
         assert sha(ROOT/path) == digest
-    expected = {'feature_family_results.csv': 574, 'conditional_incremental.csv': 426,
-                'error_complementarity.csv': 426, 'calibration_curve.csv': 574, 'ablation_full_bank.csv':66,
+    expected = {'feature_family_results.csv': 717, 'conditional_incremental.csv': 1284,
+                'error_complementarity.csv': 1284, 'calibration_curve.csv': 717, 'ablation_full_bank.csv':132,
                 'budget_eligibility.csv': 170, 'boundary_detection.csv': 2, 'calibration_burden.csv': 20, 'continuous_recognition.csv':40, 'transition_hold.csv':40, 'label_stability_control.csv':80}
     for name, count in expected.items():
         table = rows(name)
@@ -94,8 +94,9 @@ def test_delivery_sources_schemas_and_unavailable_results():
     dtw = [r for r in rows('feature_family_results.csv') if r['feature_family'] == 'DTW']
     assert len(dtw) == 16
     assert all(r[k] == 'N/A' for r in dtw for k in ('log_loss', 'brier', 'ece'))
-    assert all(r['comparison_kind'] == 'paired_alternative_not_concatenated_increment'
-               for r in rows('conditional_incremental.csv'))
+    for row in rows('conditional_incremental.csv'):
+        is_concat=(row['run_id']=='emg_window_bank_v1' and row['core_bank']=='F0' and row['added_family'].startswith('F0_plus_'))
+        assert row['comparison_kind']==('source_refit_concatenated_group_increment' if is_concat else 'paired_alternative_not_concatenated_increment')
 
 
 def test_delivery_pooled_g5_metrics_and_paired_errors_from_predictions():
@@ -134,7 +135,7 @@ def test_comparison_budget_identity_and_positive_improvement_signs():
                                ('error_complementarity.csv',('family_a','family_b'))]:
         comparisons = rows(table)
         keys = [tuple(r[k] for k in context+pair_fields) for r in comparisons]
-        assert len(keys) == len(set(keys)) == 426
+        assert len(keys) == len(set(keys)) == 1284
         for row in comparisons:
             key = tuple(row[k] for k in context)
             a = lookup[key+(row[pair_fields[0]],)]

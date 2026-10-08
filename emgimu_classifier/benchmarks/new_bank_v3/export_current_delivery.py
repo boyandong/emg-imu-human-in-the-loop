@@ -59,7 +59,7 @@ def export():
         if value.get('default_promoted', False):
             raise AssertionError('Exporter does not authorize default promotion')
         return value
-    def add_group(run, source, dataset, subject, domain, shots, condition, arms, y, classes, notes):
+    def add_group(run, source, dataset, subject, domain, shots, condition, arms, y, classes, notes, concatenated_pairs=()):
         context = {'run_id': run, 'source_artifact': source, 'source_sha256': sources[source],
                    'dataset': dataset, 'subject': str(subject), 'session/domain': domain,
                    'condition': condition, 'calibration_budget': shots,
@@ -87,7 +87,7 @@ def export():
                 delta[output] = ((z-x if metric == 'macro_f1' else x-z)
                                  if x != 'N/A' and z != 'N/A' else 'N/A')
             incremental.append({**context, 'core_bank': a, 'added_family': b,
-                                'comparison_kind': 'paired_alternative_not_concatenated_increment', **delta})
+                                'comparison_kind': ('source_refit_concatenated_group_increment' if (a,b) in concatenated_pairs else 'paired_alternative_not_concatenated_increment'), **delta})
     for name, run_id in [('F8_ROUTER_MANUS_V1_RESULTS.json', 'f8_router_manus_v1'),
                          ('F8_CALIBRATED_MANUS_V2_RESULTS.json', 'f8_calibrated_manus_v2')]:
         f8 = read(name); source = (HERE/name).relative_to(ROOT).as_posix()
@@ -205,6 +205,34 @@ def export():
                         'delta_logloss':alternative['log_loss']-full['log_loss'],
                         'delta_macro_f1':full['macro_f1']-alternative['macro_f1'],
                         'delta_brier':alternative['brier']-full['brier']})
+    window_name = 'EMG_WINDOW_BANK_V1_RESULTS.json'; window_bank = read(window_name)
+    window_source = (HERE/window_name).relative_to(ROOT).as_posix()
+    concatenated_pairs = [('F0','F0_plus_'+g) for g in window_bank['group_feature_names'] if g!='F0']
+    for user in ['ALL']+[b['user'] for b in window_bank['blocks']]:
+        blocks = window_bank['blocks'] if user=='ALL' else [b for b in window_bank['blocks'] if b['user']==user]
+        y = np.concatenate([b['labels'] for b in blocks])
+        probabilities = {arm:np.concatenate([b['probabilities'][arm] for b in blocks]) for arm in window_bank['source_models']}
+        arms = {arm:(q.argmax(1),q) for arm,q in probabilities.items()}
+        notes = {'no_IMU_features':True,'actual_target_calibration_trials_per_user':0,
+                 'source_refit_for_each_declared_composition':True,
+                 'ablation_is_six_declared_window_groups_not_whole_document_bank':True,
+                 'scope':window_bank['scope']}
+        add_group('emg_window_bank_v1',window_source,'EPN612',user,'new_users52-61',0,
+                  'native_cue_aligned_trials',arms,y,6,notes,concatenated_pairs=concatenated_pairs)
+        full = score(y,*arms['window_bank'],6)
+        for removed in window_bank['group_feature_names']:
+            remaining = 'window_bank_minus_'+removed
+            alternative = score(y,*arms[remaining],6)
+            ablations.append({'run_id':'emg_window_bank_v1','source_artifact':window_source,
+                'source_sha256':sources[window_source],'dataset':'EPN612','subject':str(user),
+                'session/domain':'new_users52-61','condition':'native_cue_aligned_trials','calibration_budget':0,
+                'evaluation_trials':len(y),'metadata_notes_json':json.dumps(notes,sort_keys=True),
+                'full_bank':'window_bank','removed_provider':removed,'remaining_bank':remaining,
+                'full_target_calibration_trials_per_user':0,'remaining_target_calibration_trials_per_user':0,
+                **{'full_'+k:full[k] for k in METRICS},**{'remaining_'+k:alternative[k] for k in METRICS},
+                'delta_logloss':alternative['log_loss']-full['log_loss'],
+                'delta_macro_f1':full['macro_f1']-alternative['macro_f1'],
+                'delta_brier':alternative['brier']-full['brier']})
     burden_name = 'MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json'
     burden = read(burden_name)
     burden_source = (HERE/burden_name).relative_to(ROOT).as_posix()
@@ -291,14 +319,14 @@ def export():
                                      'delta_brier': 'base minus alternative; positive means improvement',
                                      'delta_macro_f1': 'alternative minus base; positive means improvement'},
                 'tables': {n: {'rows': len(rows), 'sha256': sha(OUT/n)} for n, (rows, _) in tables.items()},
-                'boundary': 'Paired alternatives are labelled explicitly, not claimed as added-feature increments. DTW has no probability metrics. Budget failures are in eligibility, not fake performance rows. Conditions/datasets/class ontologies cannot be pooled indiscriminately.',
+                'boundary': 'Paired alternatives are labelled explicitly; actual source-refit concatenated group increments have a distinct comparison_kind. DTW has no probability metrics. Budget failures are in eligibility, not fake performance rows. Conditions/datasets/class ontologies cannot be pooled indiscriminately.',
                 'default_promoted': False, 'completion_proven': False}
     (OUT/'MANIFEST.json').write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf8')
     index = {'schema': 'versioned_feature_bank_delivery_index_v1',
              'tables': {n: [n, 'new_bank_v3/'+n] for n in tables if (BASE/n).exists()},
              'additional_tables': ['new_bank_v3/boundary_detection.csv', 'new_bank_v3/budget_eligibility.csv', 'new_bank_v3/calibration_burden.csv', 'new_bank_v3/continuous_recognition.csv', 'new_bank_v3/transition_hold.csv', 'new_bank_v3/label_stability_control.csv'],
              'full_bank_ablation': 'ablation_full_bank.csv', 'current_manifest': 'new_bank_v3/MANIFEST.json',
-             'current_ablation_scope': 'new_bank_v3/ablation_full_bank.csv is the restricted EMG-only F0/F7 provider removal; the base whole-bank table remains unchanged.',
+             'current_ablation_scope': 'new_bank_v3/ablation_full_bank.csv contains restricted F0/F7 provider removals and all six declared source-only EMG window-group removals; neither is the document-wide bank. The base table remains unchanged.',
              'base_provenance': 'PROVENANCE_AUDIT.json',
              'base_table_sha256': {f.name: sha(f) for f in sorted(BASE.glob('*.csv'))},
              'v3_result_inventory_sha256': {f.relative_to(ROOT).as_posix(): sha(f) for f in sorted(HERE.rglob('*.json'))

@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "cc7213435c3e3606d85b9532537732dc09774993bc7beb14f63d94c030479e6f",
+  "generator_sha256": "b7cc141371e0c715a91ecb463caeb9f74ba5750e7cd26b41f67a1ae55d3c302f",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -14,6 +14,7 @@
     "tests/test_current_scientific_report_v1.py",
     "tests/test_emg_f0_f7_bank_v1_delivery.py",
     "tests/test_emg_bank_class_diagnostics_v1.py",
+    "tests/test_emg_window_bank_v1_delivery.py",
     "tests/test_epn_holdout_user_robustness_v2.py",
     "tests/test_mahalanobis_epn_holdout_v2.py",
     "tests/test_f8_calibrated_manus_v2_delivery.py"
@@ -28,16 +29,18 @@
     "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json": "9b2b7ed27a0747b31a129f229d5ff933d06cf4108485fa60f1f496758907a894",
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
+    "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "28582d66bed589a7427d22b48cd6f3396ba11beb8475b74f926ac1c44dede47c",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "7ba01bce9ead7dee285a8e763b4f45a54ee1e1433fa264c9bf5124ba91ba6b41",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
     "tests/test_current_scientific_conclusions_v1.py": "2d05c2b95325cb6ec7b4b157f80aabc7691eb2ebf6bca16ce37aa18d73a35ad2",
-    "tests/test_current_scientific_report_v1.py": "e25d6a55e953cadbb099e01041969eee2d893ac44c2868d447351b2a9f96489c",
+    "tests/test_current_scientific_report_v1.py": "8e0f10caea12b023bcdad52fbc18309f05bd1d02456b0bc4424344d7a2b6552c",
     "tests/test_emg_f0_f7_bank_v1_delivery.py": "a5b29ec5d9644963850211e06a37409da2c6c869631ea5291fc52e9b515a8ac8",
     "tests/test_emg_bank_class_diagnostics_v1.py": "cd1252f955099a0bc93e2164db1c8bb59123d458e5a5c7630095a8f8f130f7fc",
+    "tests/test_emg_window_bank_v1_delivery.py": "ea873465e741a526d665da2b53f01533cc59d0c8a14bcbf8c1379f633189badf",
     "tests/test_epn_holdout_user_robustness_v2.py": "797631cfe13ddb072dc95aaeb95d4b5aa7d7e40da4a15a82de34022f94f3e350",
     "tests/test_mahalanobis_epn_holdout_v2.py": "97c6ffe8c656fb22399eb148f48566bd7b1ddbd4e0cfe5ba52ccac7ab383cc4c",
     "tests/test_f8_calibrated_manus_v2_delivery.py": "f31ae29f787e37f3d176338660a6956967c3b90a8b4e5f3220ace3401a3073fe"
@@ -1112,6 +1115,243 @@
       ]
     }
   ],
+  "emg_window_bank": {
+    "scope": "All six declared EMG window groups, not all document subfamilies or the document-wide F0-F9 bank. F2b CSP, ring-specific F3a/c, session F4d, full-bout/template F5b/c, anatomically calibrated F6, personal F7, F8 routing and F9 gating are absent. EPN52-61 public native cue-window trial classification; not hardware or own-user efficacy. No proof about every historical access event. Zero target calibration trials, full150 trials/user retained.",
+    "primary": {
+      "criteria": {
+        "lower_log_loss": false,
+        "lower_brier": false,
+        "nonworse_macro_f1": false,
+        "at_least_seven_user_loss_wins": false
+      },
+      "passed": false,
+      "user_logloss_wins": 0,
+      "delta_logloss": -0.48466519149364884,
+      "delta_macro_f1": -0.045951836918022515,
+      "delta_brier": -0.022797811484927183
+    },
+    "source_dimension": 265,
+    "actual_target_calibration_trials": 0,
+    "evaluation_trials": 1500,
+    "cells": [
+      {
+        "arm": "F0",
+        "groups": [
+          "F0"
+        ],
+        "dimension": 48,
+        "macro_f1": 0.43611185640743727,
+        "accuracy": 0.44733333333333336,
+        "log_loss": 1.4347447765936319,
+        "brier": 0.11331514704887491,
+        "ece": 0.05605497994532872,
+        "per_class_f1_json": "{\"noGesture\":0.5463659147869674,\"fist\":0.416,\"waveIn\":0.4623115577889447,\"waveOut\":0.45841784989858014,\"open\":0.38227146814404434,\"pinch\":0.35130434782608694}",
+        "minimum_user_macro_f1": 0.2955923250809729
+      },
+      {
+        "arm": "F0_plus_F1",
+        "groups": [
+          "F0",
+          "F1"
+        ],
+        "dimension": 56,
+        "macro_f1": 0.43458146697170624,
+        "accuracy": 0.44466666666666665,
+        "log_loss": 1.433361540402352,
+        "brier": 0.11259007396394198,
+        "ece": 0.04715262918336407,
+        "per_class_f1_json": "{\"noGesture\":0.5554035567715458,\"fist\":0.4267990074441687,\"waveIn\":0.4323040380047506,\"waveOut\":0.46021505376344085,\"open\":0.35933806146572106,\"pinch\":0.3734290843806104}",
+        "minimum_user_macro_f1": 0.30235352409265454
+      },
+      {
+        "arm": "F0_plus_F2ac",
+        "groups": [
+          "F0",
+          "F2ac"
+        ],
+        "dimension": 120,
+        "macro_f1": 0.39810794260136656,
+        "accuracy": 0.398,
+        "log_loss": 1.6308096954593598,
+        "brier": 0.12312539800738034,
+        "ece": 0.17504955008063858,
+        "per_class_f1_json": "{\"noGesture\":0.45595854922279794,\"fist\":0.38388625592417064,\"waveIn\":0.44621513944223107,\"waveOut\":0.42437923250564336,\"open\":0.3541666666666667,\"pinch\":0.3240418118466899}",
+        "minimum_user_macro_f1": 0.22546466537139423
+      },
+      {
+        "arm": "F0_plus_F3b",
+        "groups": [
+          "F0",
+          "F3b"
+        ],
+        "dimension": 56,
+        "macro_f1": 0.4273880759910374,
+        "accuracy": 0.43866666666666665,
+        "log_loss": 1.4325201856636505,
+        "brier": 0.11334817339640983,
+        "ece": 0.05745741057757686,
+        "per_class_f1_json": "{\"noGesture\":0.535575679172057,\"fist\":0.4263157894736842,\"waveIn\":0.43414634146341463,\"waveOut\":0.46122448979591835,\"open\":0.34782608695652173,\"pinch\":0.3592400690846287}",
+        "minimum_user_macro_f1": 0.2770572366805161
+      },
+      {
+        "arm": "F0_plus_F4abc",
+        "groups": [
+          "F0",
+          "F4abc"
+        ],
+        "dimension": 120,
+        "macro_f1": 0.42008562938515276,
+        "accuracy": 0.428,
+        "log_loss": 1.5447846738038706,
+        "brier": 0.11876193530761706,
+        "ece": 0.10725184478883798,
+        "per_class_f1_json": "{\"noGesture\":0.556732223903177,\"fist\":0.4068627450980392,\"waveIn\":0.36363636363636365,\"waveOut\":0.4563758389261745,\"open\":0.3508771929824561,\"pinch\":0.3860294117647059}",
+        "minimum_user_macro_f1": 0.2796581099212678
+      },
+      {
+        "arm": "F0_plus_F5window",
+        "groups": [
+          "F0",
+          "F5window"
+        ],
+        "dimension": 105,
+        "macro_f1": 0.4281597288051558,
+        "accuracy": 0.43933333333333335,
+        "log_loss": 1.4688883478977233,
+        "brier": 0.11589139959114296,
+        "ece": 0.07461549362058649,
+        "per_class_f1_json": "{\"noGesture\":0.5437415881561238,\"fist\":0.44274809160305345,\"waveIn\":0.4149184149184149,\"waveOut\":0.42570281124497994,\"open\":0.3569553805774278,\"pinch\":0.38489208633093525}",
+        "minimum_user_macro_f1": 0.2983204236254387
+      },
+      {
+        "arm": "window_bank",
+        "groups": [
+          "F0",
+          "F1",
+          "F2ac",
+          "F3b",
+          "F4abc",
+          "F5window"
+        ],
+        "dimension": 265,
+        "macro_f1": 0.39016001948941476,
+        "accuracy": 0.3893333333333333,
+        "log_loss": 1.9194099680872807,
+        "brier": 0.1361129585338021,
+        "ece": 0.26648951904097085,
+        "per_class_f1_json": "{\"noGesture\":0.4600760456273764,\"fist\":0.4090909090909091,\"waveIn\":0.3935599284436494,\"waveOut\":0.4125560538116592,\"open\":0.34285714285714286,\"pinch\":0.3228200371057514}",
+        "minimum_user_macro_f1": 0.2387322448568915
+      },
+      {
+        "arm": "window_bank_minus_F0",
+        "groups": [
+          "F1",
+          "F2ac",
+          "F3b",
+          "F4abc",
+          "F5window"
+        ],
+        "dimension": 217,
+        "macro_f1": 0.395666684303456,
+        "accuracy": 0.396,
+        "log_loss": 1.885450593153131,
+        "brier": 0.13475753639072743,
+        "ece": 0.2557372558176066,
+        "per_class_f1_json": "{\"noGesture\":0.48148148148148145,\"fist\":0.39814814814814814,\"waveIn\":0.4050632911392405,\"waveOut\":0.4090909090909091,\"open\":0.3520309477756286,\"pinch\":0.3281853281853282}",
+        "minimum_user_macro_f1": 0.2419553226825417
+      },
+      {
+        "arm": "window_bank_minus_F1",
+        "groups": [
+          "F0",
+          "F2ac",
+          "F3b",
+          "F4abc",
+          "F5window"
+        ],
+        "dimension": 257,
+        "macro_f1": 0.3859872870082917,
+        "accuracy": 0.38533333333333336,
+        "log_loss": 1.9222203695182227,
+        "brier": 0.136361128783047,
+        "ece": 0.27037965888603976,
+        "per_class_f1_json": "{\"noGesture\":0.45692883895131087,\"fist\":0.4054669703872437,\"waveIn\":0.3779816513761468,\"waveOut\":0.4009009009009009,\"open\":0.3431952662721893,\"pinch\":0.3314500941619586}",
+        "minimum_user_macro_f1": 0.23229958813231008
+      },
+      {
+        "arm": "window_bank_minus_F2ac",
+        "groups": [
+          "F0",
+          "F1",
+          "F3b",
+          "F4abc",
+          "F5window"
+        ],
+        "dimension": 193,
+        "macro_f1": 0.4080227961275588,
+        "accuracy": 0.41133333333333333,
+        "log_loss": 1.601430294188249,
+        "brier": 0.12217931051253567,
+        "ece": 0.16171441460290567,
+        "per_class_f1_json": "{\"noGesture\":0.5032894736842105,\"fist\":0.40375586854460094,\"waveIn\":0.3687374749498998,\"waveOut\":0.42201834862385323,\"open\":0.34959349593495936,\"pinch\":0.4007421150278293}",
+        "minimum_user_macro_f1": 0.2776609501905312
+      },
+      {
+        "arm": "window_bank_minus_F3b",
+        "groups": [
+          "F0",
+          "F1",
+          "F2ac",
+          "F4abc",
+          "F5window"
+        ],
+        "dimension": 257,
+        "macro_f1": 0.38832611013955615,
+        "accuracy": 0.388,
+        "log_loss": 1.9147018968043157,
+        "brier": 0.13609168772195368,
+        "ece": 0.26626553284519433,
+        "per_class_f1_json": "{\"noGesture\":0.4670433145009416,\"fist\":0.39260969976905313,\"waveIn\":0.38998211091234347,\"waveOut\":0.4064665127020785,\"open\":0.332657200811359,\"pinch\":0.3411978221415608}",
+        "minimum_user_macro_f1": 0.23992968554962268
+      },
+      {
+        "arm": "window_bank_minus_F4abc",
+        "groups": [
+          "F0",
+          "F1",
+          "F2ac",
+          "F3b",
+          "F5window"
+        ],
+        "dimension": 193,
+        "macro_f1": 0.40569268409087417,
+        "accuracy": 0.4066666666666667,
+        "log_loss": 1.6855397906292289,
+        "brier": 0.12576901996679313,
+        "ece": 0.19138555179874944,
+        "per_class_f1_json": "{\"noGesture\":0.46545454545454545,\"fist\":0.4036697247706422,\"waveIn\":0.43727598566308246,\"waveOut\":0.4343891402714932,\"open\":0.3404255319148936,\"pinch\":0.35294117647058826}",
+        "minimum_user_macro_f1": 0.2837362845212505
+      },
+      {
+        "arm": "window_bank_minus_F5window",
+        "groups": [
+          "F0",
+          "F1",
+          "F2ac",
+          "F3b",
+          "F4abc"
+        ],
+        "dimension": 208,
+        "macro_f1": 0.40242708753129475,
+        "accuracy": 0.4026666666666667,
+        "log_loss": 1.8286303476194867,
+        "brier": 0.13214643925415984,
+        "ece": 0.22923964206812913,
+        "per_class_f1_json": "{\"noGesture\":0.4856115107913669,\"fist\":0.3942307692307692,\"waveIn\":0.3962962962962963,\"waveOut\":0.43243243243243246,\"open\":0.3617886178861789,\"pinch\":0.3442028985507246}",
+        "minimum_user_macro_f1": 0.2516174716756112
+      }
+    ]
+  },
   "emg_only_class_diagnostics": {
     "native_class_axis": [
       "noGesture",

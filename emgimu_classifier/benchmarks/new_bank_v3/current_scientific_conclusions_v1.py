@@ -29,6 +29,7 @@ def build():
     burden = read('MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json')
     raw_router = read('F8_ROUTER_MANUS_V1_RESULTS.json')
     calibrated_router = read('F8_CALIBRATED_MANUS_V2_RESULTS.json')
+    window_bank = read('EMG_WINDOW_BANK_V1_RESULTS.json')
     emg_bank = read('EMG_F0_F7_BANK_V1_RESULTS.json')
     class_diagnostics = read('EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json')
     emg_cells = []
@@ -147,6 +148,7 @@ def build():
                           'tests/test_current_scientific_report_v1.py',
                           'tests/test_emg_f0_f7_bank_v1_delivery.py',
                           'tests/test_emg_bank_class_diagnostics_v1.py',
+                          'tests/test_emg_window_bank_v1_delivery.py',
                           'tests/test_epn_holdout_user_robustness_v2.py',
                           'tests/test_mahalanobis_epn_holdout_v2.py',
                           'tests/test_f8_calibrated_manus_v2_delivery.py']
@@ -155,6 +157,12 @@ def build():
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
               'requirement_lines': [1013, 1049], 'verification_tests': verification_tests,
               'source_sha256': sources, 'questions': answers,
+              'emg_window_bank': {'scope':window_bank['scope'],'primary':window_bank['primary'],
+                  'source_dimension':window_bank['source_models']['window_bank']['dimension'],
+                  'actual_target_calibration_trials':0,'evaluation_trials':sum(len(b['labels']) for b in window_bank['blocks']),
+                  'cells':[{'arm':arm,'groups':window_bank['source_models'][arm]['groups'],
+                            'dimension':window_bank['source_models'][arm]['dimension'],
+                            **s['pooled'],'minimum_user_macro_f1':s['minimum_user_macro_f1']} for arm,s in window_bank['scores'].items()]},
               'emg_only_class_diagnostics': {
                   'native_class_axis': class_diagnostics['native_class_axis'],
                   'cells': [c for c in class_diagnostics['cells'] if c['shots_per_class']==5 and c['user']=='ALL' and c['arm'] in ('F0','F0_F7')],
