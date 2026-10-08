@@ -377,6 +377,10 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/CLASSIFIER_REGRESSION_20261008.json')},
              'official_unibo_adapter_acceptance': {'path':'../OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json',
                  'sha256':sha(ROOT/'feature_bank/OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json')},
+             'portable_emg_bank_acceptance': {'path':'../FROZEN_EMG_BANK_ACCEPTANCE_V1.json',
+                 'sha256':sha(ROOT/'feature_bank/FROZEN_EMG_BANK_ACCEPTANCE_V1.json')},
+             'portable_emg_bank': {'path':'../models/epn_emg_calibrated_bank_v1.pkl',
+                 'sha256':sha(ROOT/'feature_bank/models/epn_emg_calibrated_bank_v1.pkl')},
              'completion_proven': False}
     (BASE/'INDEX.json').write_text(json.dumps(index, indent=2)+'\n', encoding='utf8')
     print(json.dumps({n: len(rows) for n, (rows, _) in tables.items()}), flush=True)

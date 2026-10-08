@@ -1,0 +1,1401 @@
+{
+  "schema": "frozen_emg_bank_acceptance_v1",
+  "source_sha256": {
+    "benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_PROTOCOL.json": "039bff160c3b4e60bded0c1f5d02cb1996f6fe9f3af31bbd2818a850cf4ecf51",
+    "benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json": "0d38aad3bfef51ee962d8cc3ec5cbf2f5b4c96cd483c0b572b69a26661df12b1",
+    "benchmarks/new_bank_v3/export_frozen_emg_bank_v1.py": "c64363ea702d3b1df181f940cb3886dafceb312ae78d64212f382b2da5e05095",
+    "src/emgimu/feature_bank/frozen_emg_provider_bank_v1.py": "26808ea01755979134bcadb09fbb6499068785ae8bec05a0d17d17cf361c96f5",
+    "src/emgimu/feature_bank/available_bank_fusion_v1.py": "ba60eda7eaa3d87694e664d1acdee5df6fa3b393eca9d63064463b7d7f077179",
+    "tests/test_frozen_emg_provider_bank_v1.py": "ee8a98874a5e816811c784841760d3347c229fce8bfeea622a3bc52b7f7a7865"
+  },
+  "package_path": "feature_bank/models/epn_emg_calibrated_bank_v1.pkl",
+  "package_sha256": "e36a6e484abec3ff0533165b8594d0e10aa7d0fabc0c56e45361f46c7b5c2bf2",
+  "bank_id": "ebe5d4992988ecda0f7a7fc9f67a0908d6067356609bc2d4b7de1c936918017e",
+  "python_version": "3.13.9",
+  "numpy_version": "2.4.3",
+  "sklearn_version": "1.8.0",
+  "source_parameters_exactly_recovered": true,
+  "source_trials": 2250,
+  "classes": [
+    "noGesture",
+    "fist",
+    "waveIn",
+    "waveOut",
+    "open",
+    "pinch"
+  ],
+  "sample_rate_hz": 200,
+  "window_samples": 40,
+  "channels": 8,
+  "requires_IMU": false,
+  "records": [
+    {
+      "user": 62,
+      "shots_per_class": 0,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 62,
+      "shots_per_class": 1,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 62,
+      "shots_per_class": 2,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 62,
+      "shots_per_class": 5,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 63,
+      "shots_per_class": 0,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 63,
+      "shots_per_class": 1,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 63,
+      "shots_per_class": 2,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 63,
+      "shots_per_class": 5,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 64,
+      "shots_per_class": 0,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 64,
+      "shots_per_class": 1,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 64,
+      "shots_per_class": 2,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 64,
+      "shots_per_class": 5,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 65,
+      "shots_per_class": 0,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 65,
+      "shots_per_class": 1,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 65,
+      "shots_per_class": 2,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 65,
+      "shots_per_class": 5,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 66,
+      "shots_per_class": 0,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 66,
+      "shots_per_class": 1,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 66,
+      "shots_per_class": 2,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 66,
+      "shots_per_class": 5,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 67,
+      "shots_per_class": 0,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 67,
+      "shots_per_class": 1,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 67,
+      "shots_per_class": 2,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 67,
+      "shots_per_class": 5,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 68,
+      "shots_per_class": 0,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 68,
+      "shots_per_class": 1,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 68,
+      "shots_per_class": 2,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 68,
+      "shots_per_class": 5,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 69,
+      "shots_per_class": 0,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 69,
+      "shots_per_class": 1,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 69,
+      "shots_per_class": 2,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 69,
+      "shots_per_class": 5,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 70,
+      "shots_per_class": 0,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 70,
+      "shots_per_class": 1,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 70,
+      "shots_per_class": 2,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 70,
+      "shots_per_class": 5,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 71,
+      "shots_per_class": 0,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 71,
+      "shots_per_class": 1,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 71,
+      "shots_per_class": 2,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    },
+    {
+      "user": 71,
+      "shots_per_class": 5,
+      "evaluation_trials": 120,
+      "provider_max_probability_error": 0.0,
+      "calibration_weight_max_error": 0.0,
+      "fusion_max_probability_error": 0.0,
+      "omission_cases": [
+        {
+          "missing_provider": "F0",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F1",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F2ac",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F3b",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F4abc",
+          "max_probability_error": 0.0
+        },
+        {
+          "missing_provider": "F5window",
+          "max_probability_error": 0.0
+        }
+      ]
+    }
+  ],
+  "native_provider_cases": 10,
+  "native_fusion_cases": 40,
+  "native_omission_cases": 240,
+  "source_state_immutable": true,
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Portable six-source-provider checkpoint for the completed EPN62-71 experiment. Only final source fits were recovered and exactly matched recorded parameters; no new model selection, OOF refit or target training. Unlabelled inference accepts pure 8-channel200Hz40-sample windows aggregated by unique native trial IDs and explicit contiguous chronological window offsets. This is cue-trial mean inference, not a streaming detector, current250Hz device adapter or complete F0-F9 bank. Native primary guard remains failed."
+}

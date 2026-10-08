@@ -228,6 +228,20 @@ def build(pre: Path, goal: Path) -> dict:
                          "force/posture requirements remain unmeasured or N/A. "
                          "Separate-cohort exported plots do not imply monotone benefit "
                          "or few-second physical onboarding.")
+        if ident in ("GOAL-02", "GOAL-03", "GOAL-05", "GOAL-19", "GOAL-20", "GOAL-23"):
+            evidence += ("|feature_bank/FROZEN_EMG_BANK_ACCEPTANCE_V1.json"
+                         "|feature_bank/models/epn_emg_calibrated_bank_v1.pkl"
+                         "|src/emgimu/feature_bank/frozen_emg_provider_bank_v1.py"
+                         "|tests/test_frozen_emg_provider_bank_v1.py")
+            boundary += (" A source-fitted portable six-provider checkpoint now "
+                         "includes complete transforms/scalers/models/temperatures. "
+                         "Pure EMG8-channel200Hz40-sample cued-trial inference needs "
+                         "native trial IDs and chronological window offsets but no "
+                         "evaluation labels or source archive.10 provider,40 fusion "
+                         "and240 omission cases reproduce frozen native probabilities "
+                         "below1e-12; user calibration leaves source state immutable. "
+                         "This does not validate autonomous250Hz device inference, "
+                         "the full document bank or a default promotion.")
         if ident == "GOAL-02":
             evidence += ("|feature_bank/OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json"
                          "|feature_bank/CLASSIFIER_REGRESSION_20261008.json"

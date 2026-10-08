@@ -32,6 +32,9 @@ def build():
     availability_path=ROOT/'feature_bank/AVAILABLE_BANK_FUSION_ACCEPTANCE_V1.json'
     sources[availability_path.relative_to(ROOT).as_posix()]=sha(availability_path)
     availability=json.loads(availability_path.read_text(encoding='utf8'))
+    portable_path=ROOT/'feature_bank/FROZEN_EMG_BANK_ACCEPTANCE_V1.json'
+    sources[portable_path.relative_to(ROOT).as_posix()]=sha(portable_path)
+    portable=json.loads(portable_path.read_text(encoding='utf8'))
     native_cost_curve=read('EMG_CALIBRATION_COST_CURVE_V1.json')
     calibrated_fusion=read('EMG_CALIBRATED_FUSION_V1_RESULTS.json')
     window_bank = read('EMG_WINDOW_BANK_V1_RESULTS.json')
@@ -157,6 +160,7 @@ def build():
                           'tests/test_emg_calibrated_fusion_v1_delivery.py',
                           'tests/test_emg_calibration_burden_v1.py',
                           'tests/test_emg_calibration_cost_curve_v1.py',
+                          'tests/test_frozen_emg_provider_bank_v1.py',
                           'tests/test_available_bank_fusion_v1.py',
                           'tests/test_available_bank_fusion_v1_delivery.py',
                           'tests/test_epn_holdout_user_robustness_v2.py',
@@ -168,6 +172,7 @@ def build():
               'requirement_lines': [1013, 1049], 'verification_tests': verification_tests,
               'source_sha256': sources, 'questions': answers,
               'available_provider_fusion': {k:availability[k] for k in ('native_full_cases','native_missing_provider_cases','rejected_invalid_native_calls','software_scope','native_scope')},
+              'portable_emg_bank':{k:portable[k] for k in ('package_path','package_sha256','channels','sample_rate_hz','window_samples','requires_IMU','native_provider_cases','native_fusion_cases','native_omission_cases','source_state_immutable','scope')},
               'emg_native_calibration_cost':native_cost_curve['cells'],
               'emg_calibrated_fusion':{'scope':calibrated_fusion['scope'],'primary_five_shot':calibrated_fusion['primary_five_shot'],
                   'source_users':list(range(1,16)),'target_users':list(range(62,72)),

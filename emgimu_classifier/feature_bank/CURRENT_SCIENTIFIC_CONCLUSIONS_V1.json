@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "47809be2f0c0f9eb26de12b6f780f91b08b0f684a08c392d3b438284e995629e",
+  "generator_sha256": "f4b7cc7075e92a73a835d368021b5ce9a34c9fd378b4d7f76b951c1417fd8a13",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -18,6 +18,7 @@
     "tests/test_emg_calibrated_fusion_v1_delivery.py",
     "tests/test_emg_calibration_burden_v1.py",
     "tests/test_emg_calibration_cost_curve_v1.py",
+    "tests/test_frozen_emg_provider_bank_v1.py",
     "tests/test_available_bank_fusion_v1.py",
     "tests/test_available_bank_fusion_v1_delivery.py",
     "tests/test_epn_holdout_user_robustness_v2.py",
@@ -35,12 +36,13 @@
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
     "feature_bank/AVAILABLE_BANK_FUSION_ACCEPTANCE_V1.json": "88868941c9c11ff0eed76e9706f75998652df4cc23d0b7388a23de3500aa52aa",
+    "feature_bank/FROZEN_EMG_BANK_ACCEPTANCE_V1.json": "6daf189264bf7b77ff890718d0d0b80a81c97a2d1b262744fde3e76c54b1dd95",
     "benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.json": "a079bff7bceae47930f3bb6579782cbc9208ee1e858a89caaf78c43b31b575db",
     "benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json": "0d38aad3bfef51ee962d8cc3ec5cbf2f5b4c96cd483c0b572b69a26661df12b1",
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "5e84a8d7cbb474850a08673390d2ecd6e37610740187b3b3473d3bc5cf5769ef",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "8709649cb4ab1d6d103e355bb50add14d2998108f1c55adefee92aac65234baf",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -52,6 +54,7 @@
     "tests/test_emg_calibrated_fusion_v1_delivery.py": "d6f2a523b348a587dc7e0a806cd364b93ca9c92fa481bfab423ba04618d9ab8b",
     "tests/test_emg_calibration_burden_v1.py": "79eb29b305289a9a78262e8365f1d960d3c2a7b76d8aa51d1445403acba42660",
     "tests/test_emg_calibration_cost_curve_v1.py": "159ad5d4c205f37e16262bb7b3f714e20cd654b227a1ec615bb37f230508aa29",
+    "tests/test_frozen_emg_provider_bank_v1.py": "ee8a98874a5e816811c784841760d3347c229fce8bfeea622a3bc52b7f7a7865",
     "tests/test_available_bank_fusion_v1.py": "d2d3d2ce3bd12a5e6e5ef37d77eadb39f529e126b1abdd8585d7e624a7014f07",
     "tests/test_available_bank_fusion_v1_delivery.py": "43c2870143b5c534581c435c06c7dec1506747012bd389d1b62a46d98403266e",
     "tests/test_epn_holdout_user_robustness_v2.py": "797631cfe13ddb072dc95aaeb95d4b5aa7d7e40da4a15a82de34022f94f3e350",
@@ -1134,6 +1137,19 @@
     "rejected_invalid_native_calls": 96,
     "software_scope": "Arbitrary named providers, source-only zero-shot population weights, document-exact calibration reliability with trial-mass shrinkage, missing-calibration skip, runtime missing-provider renormalization, strict per-provider trial/class axes and source/calibration/evaluation isolation.",
     "native_scope": "Frozen MANUS four-provider imported weights replay only. n0/temperature are unused placeholders in imported mode. This does not prove V1 fitted those weights, missing-sensor fault efficacy, own-device recognition, all F0-F9 integration or population-policy selection."
+  },
+  "portable_emg_bank": {
+    "package_path": "feature_bank/models/epn_emg_calibrated_bank_v1.pkl",
+    "package_sha256": "e36a6e484abec3ff0533165b8594d0e10aa7d0fabc0c56e45361f46c7b5c2bf2",
+    "channels": 8,
+    "sample_rate_hz": 200,
+    "window_samples": 40,
+    "requires_IMU": false,
+    "native_provider_cases": 10,
+    "native_fusion_cases": 40,
+    "native_omission_cases": 240,
+    "source_state_immutable": true,
+    "scope": "Portable six-source-provider checkpoint for the completed EPN62-71 experiment. Only final source fits were recovered and exactly matched recorded parameters; no new model selection, OOF refit or target training. Unlabelled inference accepts pure 8-channel200Hz40-sample windows aggregated by unique native trial IDs and explicit contiguous chronological window offsets. This is cue-trial mean inference, not a streaming detector, current250Hz device adapter or complete F0-F9 bank. Native primary guard remains failed."
   },
   "emg_native_calibration_cost": [
     {

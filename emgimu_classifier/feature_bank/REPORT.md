@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `365b2c813c6f247e61e8d6d0cee5ff287e3ccffb2b9984e077dbd2e554aa3b92`.
+Source SHA-256: `fe3c2f33ebb18776f6db016636ab690880662d9aa50c22ef9467986ef22000ce`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -472,6 +472,30 @@ and [frozen-weight provider removals](delivery/new_bank_v3/ablation_full_bank.cs
 retain all results. No target-selected subset or default promotion occurs.
 These six EMG window providers do not validate the complete F0–F9 bank,
 anatomical F6, personal F7, session F8, physical F9 or current hardware.
+
+#### Portable source-fitted EMG model package
+
+The opt-in checkpoint contains all fitted feature transforms, scalers, classifiers and source probability temperatures. Unlabelled pure-EMG inference reproduces 10 users, 40 frozen fusion cases and 240 provider omissions to absolute probability error below1e-12.
+
+The explicit input contract is eight EMG channels at200Hz, with40 samples
+per window, native trial IDs and distinct contiguous chronological window
+offsets starting at zero. Rows may be permuted when offsets are retained.
+Window features are averaged per trial in their original chronological
+order. Inference accepts no evaluation labels, IMU or posture. A separate
+labelled calibration call returns a user-and-bank-bound frozen profile;
+source models remain unchanged. Missing providers are omitted before
+feature extraction and remaining profile weights are renormalized.
+
+Loading this package for inference does not require the source archive
+or retraining. The compiler recovered only final source fits and checked
+their numeric parameters against the unchanged native experiment.
+This is cued-trial inference, not an autonomous streaming detector or
+a250Hz device adapter. The failed primary guard remains unchanged;
+neither GUI defaults nor hardware efficacy are promoted.
+
+[Portable model package](models/epn_emg_calibrated_bank_v1.pkl)
+and [native replay and source fingerprints](FROZEN_EMG_BANK_ACCEPTANCE_V1.json)
+make the source-fitted delivery independently loadable.
 
 #### Target calibration burden: extracted signal versus stored recording time
 

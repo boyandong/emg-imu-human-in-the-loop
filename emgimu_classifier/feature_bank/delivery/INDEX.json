@@ -77,7 +77,7 @@
   },
   "current_scientific_conclusions": {
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
-    "sha256": "365b2c813c6f247e61e8d6d0cee5ff287e3ccffb2b9984e077dbd2e554aa3b92"
+    "sha256": "fe3c2f33ebb18776f6db016636ab690880662d9aa50c22ef9467986ef22000ce"
   },
   "current_regression_snapshot": {
     "path": "../CLASSIFIER_REGRESSION_20261008.json",
@@ -86,6 +86,14 @@
   "official_unibo_adapter_acceptance": {
     "path": "../OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json",
     "sha256": "63b809e5c676776a37522f08cf3a571dff43534fe425cf6d7fd7681b898bd45c"
+  },
+  "portable_emg_bank_acceptance": {
+    "path": "../FROZEN_EMG_BANK_ACCEPTANCE_V1.json",
+    "sha256": "6daf189264bf7b77ff890718d0d0b80a81c97a2d1b262744fde3e76c54b1dd95"
+  },
+  "portable_emg_bank": {
+    "path": "../models/epn_emg_calibrated_bank_v1.pkl",
+    "sha256": "e36a6e484abec3ff0533165b8594d0e10aa7d0fabc0c56e45361f46c7b5c2bf2"
   },
   "completion_proven": false
 }

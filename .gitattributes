@@ -1036,3 +1036,8 @@ emgimu_classifier/benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.svg -text
 emgimu_classifier/benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.png -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_emg_calibration_burden_v1.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_emg_calibration_cost_curve_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/frozen_emg_provider_bank_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/export_frozen_emg_bank_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_frozen_emg_provider_bank_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/FROZEN_EMG_BANK_ACCEPTANCE_V1.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/models/epn_emg_calibrated_bank_v1.pkl -text -eol whitespace=cr-at-eol
