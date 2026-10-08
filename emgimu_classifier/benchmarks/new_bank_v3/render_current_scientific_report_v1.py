@@ -143,6 +143,35 @@ def render(data, source_sha):
                         'fault efficacy or validate the full document bank on actual hardware.',
                         '[Bound software acceptance](AVAILABLE_BANK_FUSION_ACCEPTANCE_V1.json)',
                         'retains that scope. No live deployment default is changed.']
+    fusion=data['emg_calibrated_fusion']
+    variation_lines += ['', '#### Source OOF-calibrated six-provider late fusion', '',
+                        'This separate precommitted EPN62–71 experiment refits all representations,',
+                        'scalers and six independent classifiers inside each of three source-user',
+                        'OOF folds. Source OOF probabilities fit the six probability temperatures;',
+                        'their temperature-fitting losses are not held-out performance. Final',
+                        'providers are fitted on source users1–15. The new target cohort uses',
+                        'nested0/1/2/5 calibration and identical1,200 held-out native trials.', '',
+                        '| Shots/class | Method | Actual calibration trials/user | Macro-F1 | Log loss | Worst-user macro-F1 |',
+                        '|---|---|---:|---:|---:|---:|']
+    for c in fusion['cells']:
+        variation_lines.append(f"| {c['shots_per_class']} | {c['arm']} | {c['actual_target_calibration_trials_per_user']} | {c['macro_f1']:.4f} | {c['log_loss']:.4f} | {c['minimum_user_macro_f1']:.4f} |")
+    primary=fusion['primary_five_shot']
+    variation_lines += ['', f"The five-shot reliability bank changes macro-F1 by {primary['delta_macro_f1']:+.4f}, while log-loss improvement is {primary['delta_logloss']:+.4f} versus source-calibrated F0 and {primary['delta_logloss_over_uniform']:+.4f} versus uniform. Positive means improvement; both loss changes are negative. {primary['user_logloss_wins']}/10 users improve log loss, so the primary conjunction fails.", '',
+                        'Population weights are predeclared uniform; n0=12 and reliability',
+                        'temperature1 are fixed before target reading. Only fusion weights adapt',
+                        'from calibration. Source-provider classifiers and source probability',
+                        'temperatures remain immutable; no personal prototypes or normalization',
+                        'are updated. The controls use zero target calibration trials even in',
+                        'nonzero-shot scenarios. Zero-shot reliability equals uniform fusion.',
+                        'All six provider removals renormalize the same frozen reliability weights;',
+                        'they do not refit classifiers or recompute reliability. One-shot within-',
+                        'class variation is zero and uses the documented epsilon denominator;',
+                        'this numerical definition is not an efficacy guarantee.', '',
+                        '[Native OOF probabilities, calibration weights and readouts](../benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json)',
+                        'and [frozen-weight provider removals](delivery/new_bank_v3/ablation_full_bank.csv)',
+                        'retain all results. No target-selected subset or default promotion occurs.',
+                        'These six EMG window providers do not validate the complete F0–F9 bank,',
+                        'anatomical F6, personal F7, session F8, physical F9 or current hardware.']
     lines[-1:-1] = variation_lines
     return '\n'.join(lines)
 

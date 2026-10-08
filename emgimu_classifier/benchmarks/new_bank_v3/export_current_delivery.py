@@ -59,7 +59,7 @@ def export():
         if value.get('default_promoted', False):
             raise AssertionError('Exporter does not authorize default promotion')
         return value
-    def add_group(run, source, dataset, subject, domain, shots, condition, arms, y, classes, notes, concatenated_pairs=()):
+    def add_group(run, source, dataset, subject, domain, shots, condition, arms, y, classes, notes, concatenated_pairs=(), comparison_pairs=None):
         context = {'run_id': run, 'source_artifact': source, 'source_sha256': sources[source],
                    'dataset': dataset, 'subject': str(subject), 'session/domain': domain,
                    'condition': condition, 'calibration_budget': shots,
@@ -71,7 +71,7 @@ def export():
             family.append({**context, 'feature_family': name, 'calibration_budget': shots, **s})
             curve.append({**context, 'feature_bank': name, 'shots_per_class': shots, 'method': run,
                           'supported': True, 'macro_f1': s['macro_f1'], 'log_loss': s['log_loss']})
-        for a, b in combinations(arms, 2):
+        for a, b in (combinations(arms, 2) if comparison_pairs is None else comparison_pairs):
             pa = np.asarray(arms[a][0]); pb = np.asarray(arms[b][0]); truth = np.asarray(y)
             ea = pa != truth; eb = pb != truth
             corr = float(np.corrcoef(ea.astype(float), eb.astype(float))[0, 1]) if np.std(ea) > 0 and np.std(eb) > 0 else 'N/A'
@@ -233,6 +233,39 @@ def export():
                 'delta_logloss':alternative['log_loss']-full['log_loss'],
                 'delta_macro_f1':full['macro_f1']-alternative['macro_f1'],
                 'delta_brier':alternative['brier']-full['brier']})
+    fusion_name='EMG_CALIBRATED_FUSION_V1_RESULTS.json'; fusion=read(fusion_name)
+    fusion_source=(HERE/fusion_name).relative_to(ROOT).as_posix()
+    provider_names=list(fusion['source_models'])
+    comparisons=list(combinations(provider_names,2))+[('F0','uniform_bank'),('F0','reliability_bank'),('uniform_bank','reliability_bank')]
+    comparisons += [('reliability_bank','reliability_minus_'+name) for name in provider_names]
+    for shots in (0,1,2,5):
+        for user in ['ALL']+[b['user'] for b in fusion['blocks']]:
+            blocks=fusion['blocks'] if user=='ALL' else [b for b in fusion['blocks'] if b['user']==user]
+            entries=[next(c for c in b['calibrations'] if c['shots']==shots) for b in blocks]
+            y=np.concatenate([b['labels'] for b in blocks])
+            probabilities={arm:np.concatenate([c['probabilities'][arm] for c in entries]) for arm in entries[0]['probabilities']}
+            arms={arm:(q.argmax(1),q) for arm,q in probabilities.items()}
+            costs={arm:6*shots if arm.startswith('reliability') else 0 for arm in arms}
+            notes={'no_IMU_features':True,'source_user_OOF_probability_temperatures':True,
+                'actual_target_calibration_trials_per_user':costs,
+                'calibration_updates_only_weights_not_provider_models':True,
+                'ablation_is_six_provider_frozen_weight_removal_not_whole_document_bank':True,
+                'scope':fusion['scope']}
+            add_group('emg_calibrated_fusion_v1',fusion_source,'EPN612',user,'new_users62-71',shots,
+                'native_cue_aligned_trials',arms,y,6,notes,comparison_pairs=comparisons)
+            full=score(y,*arms['reliability_bank'],6)
+            for removed in provider_names:
+                remaining='reliability_minus_'+removed; alternative=score(y,*arms[remaining],6)
+                ablations.append({'run_id':'emg_calibrated_fusion_v1','source_artifact':fusion_source,
+                    'source_sha256':sources[fusion_source],'dataset':'EPN612','subject':str(user),
+                    'session/domain':'new_users62-71','condition':'native_cue_aligned_trials','calibration_budget':shots,
+                    'evaluation_trials':len(y),'metadata_notes_json':json.dumps(notes,sort_keys=True),
+                    'full_bank':'reliability_bank','removed_provider':removed,'remaining_bank':remaining,
+                    'full_target_calibration_trials_per_user':6*shots,'remaining_target_calibration_trials_per_user':6*shots,
+                    **{'full_'+k:full[k] for k in METRICS},**{'remaining_'+k:alternative[k] for k in METRICS},
+                    'delta_logloss':alternative['log_loss']-full['log_loss'],
+                    'delta_macro_f1':full['macro_f1']-alternative['macro_f1'],
+                    'delta_brier':alternative['brier']-full['brier']})
     burden_name = 'MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json'
     burden = read(burden_name)
     burden_source = (HERE/burden_name).relative_to(ROOT).as_posix()
@@ -326,7 +359,7 @@ def export():
              'tables': {n: [n, 'new_bank_v3/'+n] for n in tables if (BASE/n).exists()},
              'additional_tables': ['new_bank_v3/boundary_detection.csv', 'new_bank_v3/budget_eligibility.csv', 'new_bank_v3/calibration_burden.csv', 'new_bank_v3/continuous_recognition.csv', 'new_bank_v3/transition_hold.csv', 'new_bank_v3/label_stability_control.csv'],
              'full_bank_ablation': 'ablation_full_bank.csv', 'current_manifest': 'new_bank_v3/MANIFEST.json',
-             'current_ablation_scope': 'new_bank_v3/ablation_full_bank.csv contains restricted F0/F7 provider removals and all six declared source-only EMG window-group removals; neither is the document-wide bank. The base table remains unchanged.',
+             'current_ablation_scope': 'new_bank_v3/ablation_full_bank.csv contains restricted F0/F7 removals, source-only six-window-group removals and OOF-calibrated six-provider frozen-weight removals; none is the document-wide bank. The base table remains unchanged.',
              'base_provenance': 'PROVENANCE_AUDIT.json',
              'base_table_sha256': {f.name: sha(f) for f in sorted(BASE.glob('*.csv'))},
              'v3_result_inventory_sha256': {f.relative_to(ROOT).as_posix(): sha(f) for f in sorted(HERE.rglob('*.json'))

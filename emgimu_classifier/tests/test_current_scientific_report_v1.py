@@ -33,6 +33,9 @@ def test_required_report_current_answers_numerical_boundaries_and_local_links():
     assert '57/200 to 49/200' in section
     assert '| window_bank | 265 | 0.3902 | 1.9194 |' in section
     assert 'All four predeclared joined-bank guards fail; 0/10' in section
+    assert '| 5 | reliability_bank | 30 | 0.5178 | 1.4720 |' in section
+    assert '| 5 | F0 | 0 | 0.4969 | 1.3616 |' in section
+    assert 'versus uniform. Positive means improvement; both loss changes are negative.' in section
 
 
 def test_report_renderer_escapes_table_text_and_rejects_incomplete_question_sets():

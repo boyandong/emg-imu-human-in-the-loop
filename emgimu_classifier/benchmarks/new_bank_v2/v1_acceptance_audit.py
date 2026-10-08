@@ -196,6 +196,20 @@ def build(pre: Path, goal: Path) -> dict:
                          "omissions and96 rejected invalid native calls are replayed. "
                          "This is software behavior, not sensor-fault efficacy or "
                          "document-wide native integration; no default promotion.")
+        if ident in ("GOAL-03", "GOAL-05", "GOAL-10", "GOAL-12", "GOAL-18", "GOAL-20"):
+            evidence += ("|benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json"
+                         "|benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_PREDICTIONS.csv"
+                         "|tests/test_emg_calibrated_fusion_v1_delivery.py")
+            boundary += (" A precommitted EPN62-71 six-provider EMG experiment "
+                         "refits representations/scalers/classifiers in3 source-user OOF "
+                         "folds, fits source-only probability temperatures and computes "
+                         "document-exact personal reliability from nested0/1/2/5-shot "
+                         "calibration, on1200 identical held-out trials. All6 frozen-weight "
+                         "provider removals are retained. Five-shot F1 .4969 to.5178 "
+                         "but loss worsens by.11041 versus F0 and.00370 versus uniform; "
+                         "0/10 user loss wins. Only weights adapt; no personal prototype "
+                         "or normalization adaptation, complete F0-F9 or hardware claim.")
         if ident == "GOAL-02":
             evidence += ("|feature_bank/OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json"
                          "|feature_bank/CLASSIFIER_REGRESSION_20261008.json"
@@ -210,7 +224,7 @@ def build(pre: Path, goal: Path) -> dict:
                          "|feature_bank/delivery/new_bank_v3/MANIFEST.json"
                          "|benchmarks/new_bank_v3/export_current_delivery.py"
                          "|tests/test_current_v3_delivery.py")
-            boundary += (" Current V3 adds 4,486 hash-bound table rows with an additive "
+            boundary += (" Current V3 adds 8,094 hash-bound table rows with an additive "
                          "version index; paired alternatives are explicitly distinguished "
                          "from added-feature increments, DTW probability metrics are N/A, "
                          "and 130 insufficient independent-trial budgets remain ineligible. "

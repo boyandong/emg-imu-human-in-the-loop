@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `1e47cadb15ac143b4eb08c0f61fe9d0c453e911f408ae68fde7b415af7261fbb`.
+Source SHA-256: `ba9810a680342a15cecc8b4422d247cb374164a5fd8dcb18411916c1271ef95c`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -429,6 +429,49 @@ weights. Omissions test software behavior; they do not demonstrate sensor
 fault efficacy or validate the full document bank on actual hardware.
 [Bound software acceptance](AVAILABLE_BANK_FUSION_ACCEPTANCE_V1.json)
 retains that scope. No live deployment default is changed.
+
+#### Source OOF-calibrated six-provider late fusion
+
+This separate precommitted EPN62–71 experiment refits all representations,
+scalers and six independent classifiers inside each of three source-user
+OOF folds. Source OOF probabilities fit the six probability temperatures;
+their temperature-fitting losses are not held-out performance. Final
+providers are fitted on source users1–15. The new target cohort uses
+nested0/1/2/5 calibration and identical1,200 held-out native trials.
+
+| Shots/class | Method | Actual calibration trials/user | Macro-F1 | Log loss | Worst-user macro-F1 |
+|---|---|---:|---:|---:|---:|
+| 0 | F0 | 0 | 0.4969 | 1.3616 | 0.3428 |
+| 0 | uniform_bank | 0 | 0.5113 | 1.4683 | 0.3948 |
+| 0 | reliability_bank | 0 | 0.5113 | 1.4683 | 0.3948 |
+| 1 | F0 | 0 | 0.4969 | 1.3616 | 0.3428 |
+| 1 | uniform_bank | 0 | 0.5113 | 1.4683 | 0.3948 |
+| 1 | reliability_bank | 6 | 0.5161 | 1.4600 | 0.3897 |
+| 2 | F0 | 0 | 0.4969 | 1.3616 | 0.3428 |
+| 2 | uniform_bank | 0 | 0.5113 | 1.4683 | 0.3948 |
+| 2 | reliability_bank | 12 | 0.5148 | 1.4692 | 0.3948 |
+| 5 | F0 | 0 | 0.4969 | 1.3616 | 0.3428 |
+| 5 | uniform_bank | 0 | 0.5113 | 1.4683 | 0.3948 |
+| 5 | reliability_bank | 30 | 0.5178 | 1.4720 | 0.3938 |
+
+The five-shot reliability bank changes macro-F1 by +0.0209, while log-loss improvement is -0.1104 versus source-calibrated F0 and -0.0037 versus uniform. Positive means improvement; both loss changes are negative. 0/10 users improve log loss, so the primary conjunction fails.
+
+Population weights are predeclared uniform; n0=12 and reliability
+temperature1 are fixed before target reading. Only fusion weights adapt
+from calibration. Source-provider classifiers and source probability
+temperatures remain immutable; no personal prototypes or normalization
+are updated. The controls use zero target calibration trials even in
+nonzero-shot scenarios. Zero-shot reliability equals uniform fusion.
+All six provider removals renormalize the same frozen reliability weights;
+they do not refit classifiers or recompute reliability. One-shot within-
+class variation is zero and uses the documented epsilon denominator;
+this numerical definition is not an efficacy guarantee.
+
+[Native OOF probabilities, calibration weights and readouts](../benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json)
+and [frozen-weight provider removals](delivery/new_bank_v3/ablation_full_bank.csv)
+retain all results. No target-selected subset or default promotion occurs.
+These six EMG window providers do not validate the complete F0–F9 bank,
+anatomical F6, personal F7, session F8, physical F9 or current hardware.
 <!-- CURRENT_SCIENTIFIC_ANSWERS_V1_STOP -->
 
 ### Calibration recovery and model-composition limits
