@@ -175,8 +175,47 @@ def export():
     burden_source = (HERE/burden_name).relative_to(ROOT).as_posix()
     burden_rows = [{**row, 'source_artifact': burden_source, 'source_sha256': sources[burden_source]}
                    for row in burden['records']]
+    continuous_name = 'ROAM_CAUSAL_WINDOW_V1_RESULTS.json'
+    continuous = read(continuous_name)
+    continuous_source = (HERE/continuous_name).relative_to(ROOT).as_posix()
+    emissions_path = HERE/'ROAM_CAUSAL_WINDOW_V1_EMISSIONS.csv'
+    sources[emissions_path.relative_to(ROOT).as_posix()] = sha(emissions_path)
+    emitted = {}
+    with emissions_path.open(encoding='utf8', newline='') as stream:
+        for row in csv.DictReader(stream):
+            emitted.setdefault(row['native_file'], []).append(row)
+    continuous_rows = []; transition_rows = []
+    for record in continuous['records']:
+        truth = np.empty(record['samples'], dtype=int)
+        for a,b,label in record['truth_rle']:
+            truth[a:b] = label
+        events = emitted[record['native_file']]
+        probability = np.asarray([[float(e[f'p_{c}']) for c in range(3)] for e in events])
+        dense = np.repeat(probability, 10, axis=0)[:record['samples']-39]
+        metrics = score(truth[39:], dense.argmax(1), dense, 3)
+        context = {'run_id': 'roam_causal_window_v1', 'source_artifact': continuous_source,
+                   'source_sha256': sources[continuous_source], 'dataset': 'ROAM_EMG',
+                   'subject': record['user'], 'session/domain': record['phase'],
+                   'condition': record['posture'], 'native_file': record['native_file']}
+        continuous_rows.append({**context, 'feature_family': 'F0v2_window48', 'calibration_budget': 0,
+             'evaluation_unit': 'nominal_sample', 'native_recordings': 1,
+             'scored_samples': record['samples']-39, 'unknown_warmup_samples': 39, **metrics,
+             'metadata_notes_json': json.dumps({'classes':3, 'rate_hz':200, 'window_samples':40,
+                 'hop_samples':10, 'no_future_samples':True, 'source_only_rest_thresholds':True,
+                 'brier_normalization':'mean across scored nominal samples and classes',
+                 'scope':continuous['scope'], 'sample_count_is_not_calibration_trial_count':True}, sort_keys=True)})
+        diagnostic = record['transition_hold']
+        transition_rows.append({**context, 'annotated_transitions': diagnostic['annotated_transitions'],
+              'eligible_transitions': diagnostic['eligible_transitions'],
+              'correct_transitions': diagnostic['correct_transitions'],
+              'transition_hold_accuracy': diagnostic['transition_hold_accuracy'],
+              'maintenance_switches': diagnostic['maintenance_switches'],
+              'reaction_half_buffer_samples':100, 'nominal_sample_rate_hz':200,
+              'scope':diagnostic['scope']})
     context_fields = ['run_id', 'source_artifact', 'source_sha256', 'dataset', 'subject', 'session/domain', 'condition', 'calibration_budget', 'evaluation_trials', 'metadata_notes_json']
-    tables = {'feature_family_results.csv': (family, context_fields+['feature_family']+list(METRICS)+['class_metrics_json']),
+    tables = {'continuous_recognition.csv': (continuous_rows, list(continuous_rows[0])),
+              'transition_hold.csv': (transition_rows, list(transition_rows[0])),
+              'feature_family_results.csv': (family, context_fields+['feature_family']+list(METRICS)+['class_metrics_json']),
               'conditional_incremental.csv': (incremental, context_fields+['core_bank', 'added_family', 'comparison_kind', 'delta_logloss', 'delta_macro_f1', 'delta_brier']),
               'error_complementarity.csv': (errors, context_fields+['family_a', 'family_b', 'error_correlation', 'correlation_status', 'disagreement_rate', 'a_correct_b_wrong', 'a_wrong_b_correct', 'a_correct_b_wrong_probability', 'a_wrong_b_correct_probability']),
               'calibration_curve.csv': (curve, context_fields+['feature_bank', 'shots_per_class', 'method', 'supported', 'macro_f1', 'log_loss']),
@@ -188,6 +227,8 @@ def export():
                 'source_sha256': sources,
                 'brier_normalization': 'mean across trials and classes; not class-summed; compare only matched class ontologies',
                 'calibration_burden_scope': 'Extracted window exposure differs from complete recording duration and physical session wall time; hardware times remain N/A.',
+                'continuous_brier_normalization': 'mean across scored nominal samples and classes',
+                'continuous_evaluation_scope': 'Separate nominal-sample records: source thresholds only, target warmup explicitly unknown, sample counts never treated as independent calibration trials. Transition-hold metric is not exact ReactEMG reproduction or hardware latency.',
                 'class_metrics_scope': 'Per-class precision/recall/F1 with explicit support and prediction counts. Undefined precision or absent-ground-truth recall/F1 are null; no true-neutral claim on matched active-only UniBo trials.',
                 'error_probability_scope': 'Paired correctness probabilities use the explicit shared evaluation-trial denominator. Undefined correlations are explained, never filled with zero.',
                 'delta_convention': {'delta_logloss': 'base minus alternative; positive means improvement',
@@ -199,7 +240,7 @@ def export():
     (OUT/'MANIFEST.json').write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf8')
     index = {'schema': 'versioned_feature_bank_delivery_index_v1',
              'tables': {n: [n, 'new_bank_v3/'+n] for n in tables if (BASE/n).exists()},
-             'additional_tables': ['new_bank_v3/boundary_detection.csv', 'new_bank_v3/budget_eligibility.csv', 'new_bank_v3/calibration_burden.csv'],
+             'additional_tables': ['new_bank_v3/boundary_detection.csv', 'new_bank_v3/budget_eligibility.csv', 'new_bank_v3/calibration_burden.csv', 'new_bank_v3/continuous_recognition.csv', 'new_bank_v3/transition_hold.csv'],
              'full_bank_ablation': 'ablation_full_bank.csv', 'current_manifest': 'new_bank_v3/MANIFEST.json',
              'base_provenance': 'PROVENANCE_AUDIT.json',
              'base_table_sha256': {f.name: sha(f) for f in sorted(BASE.glob('*.csv'))},

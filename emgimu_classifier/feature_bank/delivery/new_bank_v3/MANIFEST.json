@@ -1,6 +1,6 @@
 {
   "schema": "current_v3_canonical_delivery_v1",
-  "generator_sha256": "8d12dcad6b9270cec074f6062966898dd448aa7650f5d49a1a44e7faf88c8dbc",
+  "generator_sha256": "dd27dd8898da6c1bb4edfbbbcf47d9cf53c1d238fbcad8913f3c632638caea0b",
   "source_sha256": {
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
@@ -9,10 +9,14 @@
     "benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_RESULTS.json": "3ecf34f3713f473045d1778fea63a910ac8f1fa71b692983c8dcc90970048a69",
     "benchmarks/new_bank_v3/AUTONOMOUS_UNIBO_V1_RESULTS.json": "5799c215e7d3379054996847d95fd92e075f0422cfec866343c24a6171ba0400",
     "benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_RESULTS.json": "8af20ead1bdbbd8782d2ca1483f9ea8e9f4874a555ff267b0b60203d93b8ed2e",
-    "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json": "9b2b7ed27a0747b31a129f229d5ff933d06cf4108485fa60f1f496758907a894"
+    "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json": "9b2b7ed27a0747b31a129f229d5ff933d06cf4108485fa60f1f496758907a894",
+    "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
+    "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_EMISSIONS.csv": "5c2d27f63f09767abf5258c031ff25d169841da3efe42eac8ebf8352acae8f81"
   },
   "brier_normalization": "mean across trials and classes; not class-summed; compare only matched class ontologies",
   "calibration_burden_scope": "Extracted window exposure differs from complete recording duration and physical session wall time; hardware times remain N/A.",
+  "continuous_brier_normalization": "mean across scored nominal samples and classes",
+  "continuous_evaluation_scope": "Separate nominal-sample records: source thresholds only, target warmup explicitly unknown, sample counts never treated as independent calibration trials. Transition-hold metric is not exact ReactEMG reproduction or hardware latency.",
   "class_metrics_scope": "Per-class precision/recall/F1 with explicit support and prediction counts. Undefined precision or absent-ground-truth recall/F1 are null; no true-neutral claim on matched active-only UniBo trials.",
   "error_probability_scope": "Paired correctness probabilities use the explicit shared evaluation-trial denominator. Undefined correlations are explained, never filled with zero.",
   "delta_convention": {
@@ -21,6 +25,14 @@
     "delta_macro_f1": "alternative minus base; positive means improvement"
   },
   "tables": {
+    "continuous_recognition.csv": {
+      "rows": 40,
+      "sha256": "54865267ee744ef741b8979e04893a3d1c648ac532fd9fe2e0d4605761bcfde8"
+    },
+    "transition_hold.csv": {
+      "rows": 40,
+      "sha256": "f8df5629a04323364db46db43617f32b29787a49226a2a5d1e6aca5c5d34dec8"
+    },
     "feature_family_results.csv": {
       "rows": 431,
       "sha256": "dda1f160326389d8e0420a77575b1d32119b54b41bdd0fad4b0b2f6186e3c1bc"

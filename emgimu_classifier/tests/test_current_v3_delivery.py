@@ -28,7 +28,7 @@ def test_delivery_sources_schemas_and_unavailable_results():
         assert sha(ROOT/path) == digest
     expected = {'feature_family_results.csv': 431, 'conditional_incremental.csv': 228,
                 'error_complementarity.csv': 228, 'calibration_curve.csv': 431,
-                'budget_eligibility.csv': 170, 'boundary_detection.csv': 2, 'calibration_burden.csv': 20}
+                'budget_eligibility.csv': 170, 'boundary_detection.csv': 2, 'calibration_burden.csv': 20, 'continuous_recognition.csv':40, 'transition_hold.csv':40}
     for name, count in expected.items():
         table = rows(name)
         assert len(table) == manifest['tables'][name]['rows'] == count
@@ -147,3 +147,23 @@ def test_holdout_burden_and_brier_definition_match_native_evidence():
         probability = np.concatenate([b['probabilities'][row['feature_family'].removeprefix('pattern_')] for b in blocks])
         labels = np.concatenate([b['labels'] for b in blocks])
         assert np.isclose(float(row['brier']), np.mean((probability-np.eye(6)[labels])**2), atol=1e-12, rtol=0)
+
+
+def test_continuous_tables_preserve_sample_units_warmup_and_native_event_scores():
+    result=json.loads((ROOT/'benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json').read_text(encoding='utf8'))
+    records={r['native_file']:r for r in result['records']}
+    for row in rows('continuous_recognition.csv'):
+        native=records[row['native_file']]
+        assert row['evaluation_unit']=='nominal_sample' and int(row['native_recordings'])==1
+        assert int(row['scored_samples'])==native['samples']-39 and int(row['unknown_warmup_samples'])==39
+        assert int(row['calibration_budget'])==0
+        for metric in ('macro_f1','accuracy','log_loss','brier'):
+            assert abs(float(row[metric])-native['scores'][metric])<1e-12
+        counts=json.loads(row['class_metrics_json'])
+        assert sum(v['support'] for v in counts.values())==int(row['scored_samples'])
+        assert 0<=float(row['ece'])<=1
+    for row in rows('transition_hold.csv'):
+        native=records[row['native_file']]['transition_hold']
+        for field in ('annotated_transitions','eligible_transitions','correct_transitions','maintenance_switches'):
+            assert int(row[field])==native[field]
+        assert float(row['transition_hold_accuracy'])==native['transition_hold_accuracy']
