@@ -105,3 +105,24 @@ def test_comparison_budget_identity_and_positive_improvement_signs():
                     assert np.isclose(float(row[delta]),expected,rtol=0,atol=1e-12)
     for row in rows('calibration_curve.csv'):
         assert row['calibration_budget'] == row['shots_per_class']
+
+
+def test_error_probabilities_denominators_and_class_confusion_metrics():
+    for row in rows('error_complementarity.csv'):
+        n = int(row['evaluation_trials']); assert n > 0
+        for count,rate in [('a_correct_b_wrong','a_correct_b_wrong_probability'),
+                           ('a_wrong_b_correct','a_wrong_b_correct_probability')]:
+            assert np.isclose(float(row[rate]),int(row[count])/n,rtol=0,atol=1e-12)
+        assert row['correlation_status'] == ('undefined_constant_error_vector' if row['error_correlation'] == 'N/A' else 'defined')
+    for row in rows('feature_family_results.csv'):
+        metrics = json.loads(row['class_metrics_json']); n = int(row['evaluation_trials'])
+        assert sum(c['support'] for c in metrics.values()) == n
+        assert sum(c['predicted'] for c in metrics.values()) == n
+        for c in metrics.values():
+            tp,fp,fn = c['true_positives'],c['false_positives'],c['false_negatives']
+            assert tp+fp == c['predicted'] and tp+fn == c['support']
+            assert c['recall'] == (tp/(tp+fn) if tp+fn else None)
+            assert c['precision'] == (tp/(tp+fp) if tp+fp else None)
+            assert c['f1'] == (2*tp/(2*tp+fp+fn) if c['support'] else None)
+        if row['run_id'] == 'detected_g5_unibo_v1':
+            assert metrics['0']['support'] == 0 and metrics['0']['recall'] is None and metrics['0']['f1'] is None

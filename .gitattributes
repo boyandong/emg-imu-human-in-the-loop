@@ -935,3 +935,10 @@ emgimu_classifier/benchmarks/new_bank_v3/f8_calibrated_manus_v2.py -text -eol wh
 emgimu_classifier/benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_PROTOCOL.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_f8_calibrated_manus_v2_delivery.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/body_frame_v2.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/electrode_layout_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/fault_gate_evaluation_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_hardware_preparation_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_hardware_preparation_delivery.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/hardware_preparation_acceptance.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json -text -eol whitespace=cr-at-eol

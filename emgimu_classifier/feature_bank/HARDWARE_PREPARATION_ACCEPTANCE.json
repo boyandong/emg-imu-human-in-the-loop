@@ -1,0 +1,41 @@
+{
+  "schema": "hardware_preparation_acceptance_v1",
+  "source_sha256": {
+    "tests/test_hardware_preparation_v1.py": "c2258fb2438544ea0bc8d5150ccc6cf8cd3a570731b0aa7bb6d0f5b4486a64c9",
+    "src/emgimu/feature_bank/body_frame_v2.py": "fbeb222cd40e9c6dd1709d9eba7cab88fc5910fef948233432506f4cd24ad540",
+    "src/emgimu/feature_bank/electrode_layout_v1.py": "f597527f15f33b36196155b8fc52b5510646966781d968dc4c08845fc78fdb23",
+    "src/emgimu/feature_bank/fault_gate_evaluation_v1.py": "49bfe4b94a5db2ef8480a80322b7c0d6f8cd216f325eed1777fa1e77caba7426",
+    "src/emgimu/feature_bank/body_frame.py": "f2091339813e4b63a2965ceffb13b19200c0914abba3e257a43293be50100d8d",
+    "src/emgimu/feature_bank/core.py": "a272025baef6a52ed24088092d17937da26ba334453305e552b6690528bbfffe",
+    "benchmarks/hardware_preparation_acceptance.py": "fbf7f809977fd3de9224b054091c4701607377599b6ed87672e1d4e0074d8de0"
+  },
+  "suite_exit_code": 0,
+  "suite_summary": "6 passed in 0.36s",
+  "items": [
+    {
+      "item": 5,
+      "module": "src/emgimu/feature_bank/body_frame_v2.py",
+      "software_scope": "Explicit g/m/s\u00b2 and deg/s/rad/s conversion; calibrated relative frame; strict calibration IDs and matched sensor durations.",
+      "verified_by": "Independent15-coordinate constant-step SI oracle and unit equivalence; source/evaluation guards.",
+      "remaining": "Measured neutral and guided forward calibration, known raw IMU units/axes, native synchronized recordings and physical orientation validation."
+    },
+    {
+      "item": 6,
+      "module": "src/emgimu/feature_bank/electrode_layout_v1.py",
+      "software_scope": "Explicit eight measured-channel physical ring map with evidence reference; source/evaluation layout fingerprint; loader-column reorder.",
+      "verified_by": "Known channel identity permutation and source-layout mismatch rejection.",
+      "remaining": "Actual electrode/pair wiring and circumferential order must be confirmed physically; software cannot authenticate an operator declaration."
+    },
+    {
+      "item": 7,
+      "module": "src/emgimu/feature_bank/fault_gate_evaluation_v1.py",
+      "software_scope": "Descriptive fault/normal/unknown annotation evaluation; trial-balanced metrics, baseline harm and source-overlap guard.",
+      "verified_by": "Independent known confusion rates, duplicate-recording mass and all-unknown unavailable-metric cases.",
+      "remaining": "Real fault annotations and independent normal recordings, source-selected gate configuration and downstream application/device validation."
+    }
+  ],
+  "physical_validation_proven": false,
+  "default_promoted": false,
+  "completion_proven": false,
+  "scope": "Software preparation only; no training, deployment default or hardware accuracy inferred from fixtures."
+}

@@ -28,6 +28,16 @@ def score(y, prediction, probability, classes):
         result.update(log_loss=float(log_loss(y, p, labels=np.arange(classes))),
                       brier=float(np.mean((p-np.eye(classes)[y])**2)),
                       ece=expected_calibration_error(y, p, np.ones(len(y))))
+    per_class = {}
+    for c in range(classes):
+        support = int(np.sum(y == c)); predicted = int(np.sum(prediction == c))
+        tp = int(np.sum((y == c) & (prediction == c)))
+        per_class[str(c)] = {'support':support,'predicted':predicted,'true_positives':tp,
+            'false_positives':predicted-tp,'false_negatives':support-tp,
+            'precision':tp/predicted if predicted else None,
+            'recall':tp/support if support else None,
+            'f1':2*tp/(support+predicted) if support else None}
+    result['class_metrics_json'] = json.dumps(per_class,sort_keys=True)
     return result
 
 
@@ -53,6 +63,7 @@ def export():
         context = {'run_id': run, 'source_artifact': source, 'source_sha256': sources[source],
                    'dataset': dataset, 'subject': str(subject), 'session/domain': domain,
                    'condition': condition, 'calibration_budget': shots,
+                   'evaluation_trials': len(y),
                    'metadata_notes_json': json.dumps(notes, sort_keys=True)}
         statistics = {}
         for name, (prediction, probability) in arms.items():
@@ -65,8 +76,11 @@ def export():
             ea = pa != truth; eb = pb != truth
             corr = float(np.corrcoef(ea.astype(float), eb.astype(float))[0, 1]) if np.std(ea) > 0 and np.std(eb) > 0 else 'N/A'
             errors.append({**context, 'family_a': a, 'family_b': b, 'error_correlation': corr,
+                           'correlation_status': 'undefined_constant_error_vector' if corr == 'N/A' else 'defined',
                            'disagreement_rate': float(np.mean(pa != pb)),
-                           'a_correct_b_wrong': int(np.sum(~ea & eb)), 'a_wrong_b_correct': int(np.sum(ea & ~eb))})
+                           'a_correct_b_wrong': int(np.sum(~ea & eb)), 'a_wrong_b_correct': int(np.sum(ea & ~eb)),
+                           'a_correct_b_wrong_probability':float(np.mean(~ea & eb)),
+                           'a_wrong_b_correct_probability':float(np.mean(ea & ~eb))})
             delta = {}
             for metric, output in [('log_loss', 'delta_logloss'), ('macro_f1', 'delta_macro_f1'), ('brier', 'delta_brier')]:
                 x, z = statistics[a][metric], statistics[b][metric]
@@ -136,16 +150,18 @@ def export():
                            'onset_mae_s': t['onset_mae_s'] if t['onset_mae_s'] is not None else 'N/A',
                            'offset_mae_s': t['offset_mae_s'] if t['offset_mae_s'] is not None else 'N/A',
                            'source_artifact': path, 'source_sha256': sources[path], 'scope': result.get('scope', '')})
-    context_fields = ['run_id', 'source_artifact', 'source_sha256', 'dataset', 'subject', 'session/domain', 'condition', 'calibration_budget', 'metadata_notes_json']
-    tables = {'feature_family_results.csv': (family, context_fields+['feature_family']+list(METRICS)),
+    context_fields = ['run_id', 'source_artifact', 'source_sha256', 'dataset', 'subject', 'session/domain', 'condition', 'calibration_budget', 'evaluation_trials', 'metadata_notes_json']
+    tables = {'feature_family_results.csv': (family, context_fields+['feature_family']+list(METRICS)+['class_metrics_json']),
               'conditional_incremental.csv': (incremental, context_fields+['core_bank', 'added_family', 'comparison_kind', 'delta_logloss', 'delta_macro_f1', 'delta_brier']),
-              'error_complementarity.csv': (errors, context_fields+['family_a', 'family_b', 'error_correlation', 'disagreement_rate', 'a_correct_b_wrong', 'a_wrong_b_correct']),
+              'error_complementarity.csv': (errors, context_fields+['family_a', 'family_b', 'error_correlation', 'correlation_status', 'disagreement_rate', 'a_correct_b_wrong', 'a_wrong_b_correct', 'a_correct_b_wrong_probability', 'a_wrong_b_correct_probability']),
               'calibration_curve.csv': (curve, context_fields+['feature_bank', 'shots_per_class', 'method', 'supported', 'macro_f1', 'log_loss']),
               'budget_eligibility.csv': (eligibility, list(eligibility[0])), 'boundary_detection.csv': (boundaries, list(boundaries[0]))}
     for filename, (rows, fields) in tables.items():
         write(filename, rows, fields)
     manifest = {'schema': 'current_v3_canonical_delivery_v1', 'generator_sha256': sha(Path(__file__)),
                 'source_sha256': sources,
+                'class_metrics_scope': 'Per-class precision/recall/F1 with explicit support and prediction counts. Undefined precision or absent-ground-truth recall/F1 are null; no true-neutral claim on matched active-only UniBo trials.',
+                'error_probability_scope': 'Paired correctness probabilities use the explicit shared evaluation-trial denominator. Undefined correlations are explained, never filled with zero.',
                 'delta_convention': {'delta_logloss': 'base minus alternative; positive means improvement',
                                      'delta_brier': 'base minus alternative; positive means improvement',
                                      'delta_macro_f1': 'alternative minus base; positive means improvement'},

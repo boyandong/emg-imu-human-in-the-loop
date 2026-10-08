@@ -74,8 +74,21 @@ def build(pre: Path, goal: Path) -> dict:
                          "and 130 insufficient independent-trial budgets remain ineligible. "
                          "Every paired comparison carries its calibration budget; loss "
                          "and Brier deltas use base minus alternative, while F1 uses "
-                         "alternative minus base, so positive consistently means improvement.")
+                         "alternative minus base, so positive consistently means improvement. "
+                         "Paired-error probabilities now include their evaluation-trial "
+                         "denominators; per-class precision/recall/F1 carry explicit support "
+                         "and undefined/absent-ground-truth values rather than fake zeros.")
         if ident in ("GOAL-03", "GOAL-20"):
+            evidence += ("|feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json"
+                         "|src/emgimu/feature_bank/body_frame_v2.py"
+                         "|src/emgimu/feature_bank/electrode_layout_v1.py"
+                         "|src/emgimu/feature_bank/fault_gate_evaluation_v1.py"
+                         "|tests/test_hardware_preparation_v1.py"
+                         "|tests/test_hardware_preparation_delivery.py")
+            boundary += (" User items5/6/7 software preparation now verifies explicit "
+                         "SI conversion, trial provenance, eight-channel physical-layout "
+                         "fingerprints and trial-balanced caller-labelled fault metrics. "
+                         "Physical metadata, fault annotations and device efficacy remain unproved.")
             evidence += ("|benchmarks/new_bank_v3/f8_calibrated_manus_v2.py"
                          "|benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_PROTOCOL.json"
                          "|benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json"
