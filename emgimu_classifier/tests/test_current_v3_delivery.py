@@ -77,3 +77,31 @@ def test_delivery_pooled_g5_metrics_and_paired_errors_from_predictions():
         assert int(pair['a_correct_b_wrong']) == np.sum((a == y) & (b != y))
         assert int(pair['a_wrong_b_correct']) == np.sum((a != y) & (b == y))
         assert np.isclose(float(pair['disagreement_rate']), np.mean(a != b))
+
+
+def test_comparison_budget_identity_and_positive_improvement_signs():
+    # The source document defines delta loss as M0 minus M1, while F1 is
+    # higher-is-better. Resolve every pair to its exact budget, not first match.
+    context = ('run_id','dataset','subject','session/domain','condition','calibration_budget')
+    family = rows('feature_family_results.csv')
+    lookup = {tuple(r[k] for k in context)+(r['feature_family'],):r for r in family}
+    assert len(lookup) == len(family)
+    for table, pair_fields in [('conditional_incremental.csv',('core_bank','added_family')),
+                               ('error_complementarity.csv',('family_a','family_b'))]:
+        comparisons = rows(table)
+        keys = [tuple(r[k] for k in context+pair_fields) for r in comparisons]
+        assert len(keys) == len(set(keys)) == 206
+        for row in comparisons:
+            key = tuple(row[k] for k in context)
+            a = lookup[key+(row[pair_fields[0]],)]
+            b = lookup[key+(row[pair_fields[1]],)]
+            if table != 'conditional_incremental.csv':
+                continue
+            for source,delta in [('log_loss','delta_logloss'),('brier','delta_brier'),('macro_f1','delta_macro_f1')]:
+                if a[source] == 'N/A' or b[source] == 'N/A':
+                    assert row[delta] == 'N/A'
+                else:
+                    expected = float(b[source])-float(a[source]) if source == 'macro_f1' else float(a[source])-float(b[source])
+                    assert np.isclose(float(row[delta]),expected,rtol=0,atol=1e-12)
+    for row in rows('calibration_curve.csv'):
+        assert row['calibration_budget'] == row['shots_per_class']

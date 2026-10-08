@@ -71,7 +71,10 @@ def build(pre: Path, goal: Path) -> dict:
             boundary += (" Current V3 adds 1,338 hash-bound table rows with an additive "
                          "version index; paired alternatives are explicitly distinguished "
                          "from added-feature increments, DTW probability metrics are N/A, "
-                         "and 130 insufficient independent-trial budgets remain ineligible.")
+                         "and 130 insufficient independent-trial budgets remain ineligible. "
+                         "Every paired comparison carries its calibration budget; loss "
+                         "and Brier deltas use base minus alternative, while F1 uses "
+                         "alternative minus base, so positive consistently means improvement.")
         if ident in ("GOAL-03", "GOAL-20"):
             evidence += ("|benchmarks/new_bank_v3/f8_calibrated_manus_v2.py"
                          "|benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_PROTOCOL.json"

@@ -52,7 +52,8 @@ def export():
     def add_group(run, source, dataset, subject, domain, shots, condition, arms, y, classes, notes):
         context = {'run_id': run, 'source_artifact': source, 'source_sha256': sources[source],
                    'dataset': dataset, 'subject': str(subject), 'session/domain': domain,
-                   'condition': condition, 'metadata_notes_json': json.dumps(notes, sort_keys=True)}
+                   'condition': condition, 'calibration_budget': shots,
+                   'metadata_notes_json': json.dumps(notes, sort_keys=True)}
         statistics = {}
         for name, (prediction, probability) in arms.items():
             s = score(y, prediction, probability, classes); statistics[name] = s
@@ -69,7 +70,8 @@ def export():
             delta = {}
             for metric, output in [('log_loss', 'delta_logloss'), ('macro_f1', 'delta_macro_f1'), ('brier', 'delta_brier')]:
                 x, z = statistics[a][metric], statistics[b][metric]
-                delta[output] = z-x if x != 'N/A' and z != 'N/A' else 'N/A'
+                delta[output] = ((z-x if metric == 'macro_f1' else x-z)
+                                 if x != 'N/A' and z != 'N/A' else 'N/A')
             incremental.append({**context, 'core_bank': a, 'added_family': b,
                                 'comparison_kind': 'paired_alternative_not_concatenated_increment', **delta})
     for name, run_id in [('F8_ROUTER_MANUS_V1_RESULTS.json', 'f8_router_manus_v1'),
@@ -134,8 +136,8 @@ def export():
                            'onset_mae_s': t['onset_mae_s'] if t['onset_mae_s'] is not None else 'N/A',
                            'offset_mae_s': t['offset_mae_s'] if t['offset_mae_s'] is not None else 'N/A',
                            'source_artifact': path, 'source_sha256': sources[path], 'scope': result.get('scope', '')})
-    context_fields = ['run_id', 'source_artifact', 'source_sha256', 'dataset', 'subject', 'session/domain', 'condition', 'metadata_notes_json']
-    tables = {'feature_family_results.csv': (family, context_fields+['feature_family', 'calibration_budget']+list(METRICS)),
+    context_fields = ['run_id', 'source_artifact', 'source_sha256', 'dataset', 'subject', 'session/domain', 'condition', 'calibration_budget', 'metadata_notes_json']
+    tables = {'feature_family_results.csv': (family, context_fields+['feature_family']+list(METRICS)),
               'conditional_incremental.csv': (incremental, context_fields+['core_bank', 'added_family', 'comparison_kind', 'delta_logloss', 'delta_macro_f1', 'delta_brier']),
               'error_complementarity.csv': (errors, context_fields+['family_a', 'family_b', 'error_correlation', 'disagreement_rate', 'a_correct_b_wrong', 'a_wrong_b_correct']),
               'calibration_curve.csv': (curve, context_fields+['feature_bank', 'shots_per_class', 'method', 'supported', 'macro_f1', 'log_loss']),
@@ -144,6 +146,9 @@ def export():
         write(filename, rows, fields)
     manifest = {'schema': 'current_v3_canonical_delivery_v1', 'generator_sha256': sha(Path(__file__)),
                 'source_sha256': sources,
+                'delta_convention': {'delta_logloss': 'base minus alternative; positive means improvement',
+                                     'delta_brier': 'base minus alternative; positive means improvement',
+                                     'delta_macro_f1': 'alternative minus base; positive means improvement'},
                 'tables': {n: {'rows': len(rows), 'sha256': sha(OUT/n)} for n, (rows, _) in tables.items()},
                 'boundary': 'Paired alternatives are labelled explicitly, not claimed as added-feature increments. DTW has no probability metrics. Budget failures are in eligibility, not fake performance rows. Conditions/datasets/class ontologies cannot be pooled indiscriminately.',
                 'default_promoted': False, 'completion_proven': False}

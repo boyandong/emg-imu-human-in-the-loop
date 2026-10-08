@@ -1,6 +1,6 @@
 {
   "schema": "current_v3_canonical_delivery_v1",
-  "generator_sha256": "912259137e39e7d0b54f45c2aa9886fe2013e2ef5e9f9821b7e8ba10db0f597e",
+  "generator_sha256": "015fa213a25549def85f264b846409815ce052f0907544a3eaf3b166e3a796b4",
   "source_sha256": {
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
@@ -9,22 +9,27 @@
     "benchmarks/new_bank_v3/AUTONOMOUS_UNIBO_V1_RESULTS.json": "5799c215e7d3379054996847d95fd92e075f0422cfec866343c24a6171ba0400",
     "benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_RESULTS.json": "8af20ead1bdbbd8782d2ca1483f9ea8e9f4874a555ff267b0b60203d93b8ed2e"
   },
+  "delta_convention": {
+    "delta_logloss": "base minus alternative; positive means improvement",
+    "delta_brier": "base minus alternative; positive means improvement",
+    "delta_macro_f1": "alternative minus base; positive means improvement"
+  },
   "tables": {
     "feature_family_results.csv": {
       "rows": 387,
-      "sha256": "f7084fe56c4c69e033b072c64baef812ebe46e235d2bdd9e6b46dfe254fd09fd"
+      "sha256": "10d952246dfa19f03367c469a120a6803e72744c199200ca2f0af728e233e56c"
     },
     "conditional_incremental.csv": {
       "rows": 206,
-      "sha256": "193388268e353984dd9b5893d41a0cde3d4d9e007985c708d453aed250326557"
+      "sha256": "abd4d68f797e22bb03298748953daad7e93df9964e5ae973eb9230cfbf36b1c3"
     },
     "error_complementarity.csv": {
       "rows": 206,
-      "sha256": "573cba0c30fa2f662ff8b6e4b93a34b7ec72765eacb9ae4b07b5fc5619edb221"
+      "sha256": "264e4f69f37da0fb47f1dfd7a52d325bd0a2d82db101eb24cfdc105d84400c35"
     },
     "calibration_curve.csv": {
       "rows": 387,
-      "sha256": "160775ae4633b51b5b8ea376190035923bf938fced409fbbd970790f71b68b49"
+      "sha256": "5004257f43d8e9a79293db1cb0be238e3c28213dcac3787623fce2f97c9c6df0"
     },
     "budget_eligibility.csv": {
       "rows": 150,
