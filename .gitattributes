@@ -951,3 +951,5 @@ emgimu_classifier/tests/test_current_discovery_state.py -text -eol whitespace=cr
 emgimu_classifier/benchmarks/discovery/SECONDARY_PRIMARY_REVIEW_V1.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/discovery/scripts/fetch_secondary_license_metadata.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/discovery/SECONDARY_LICENSE_METADATA_V1.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/mapped_session_pipeline_v3.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_mapped_session_pipeline_v3.py -text -eol whitespace=cr-at-eol

@@ -8,7 +8,7 @@
     "benchmarks/new_bank_v3/document_traceability_v1.py": "27b0d9da633e8ab0e07fcf0a2ae302ac7dd6823d3c9c3bfa570df3b6132fe2cd",
     "tests/test_document_traceability_v1.py": "4015f84d5448eff28b4e3bd28e73c4a7111252be47c5851e1485a819a2c88494",
     "benchmarks/new_bank_v2/v1_acceptance_audit.py": "9b01a7a46ae03aca2e7aaa4c99432825acb0f7542743898aa7bed7f52b440ab7",
-    "feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.json": "a9c100fbb7542ce7abcbe062f248dd186b21c8b85a954a00a41ac6ad2d9d1f8f"
+    "feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.json": "db64a4fb107fcb164192f04bf37fd46f1e40af3c2748ebb62b5ecd153bdc67a2"
   },
   "nonempty_lines": 2586,
   "mapped_lines": 2509,
@@ -19145,7 +19145,7 @@
       "disposition": "partial_active",
       "evidence_scope": "Shared families, personal/session calibration and quality APIs exist. Native body-frame, physical mapping and real-fault/live multi-day validation remain unavailable.",
       "evidence_sha256": {
-        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "4aa5c39aba217cdddff34932987c6f8e4430f037d21e9f84e4511afebded6d22",
+        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "016572fab4d412d42ab16800f4fec2fe17b50f3a2e347958c5725c15395637a2",
         "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858"
       }
     },
@@ -19159,7 +19159,7 @@
       "disposition": "partial_active",
       "evidence_scope": "Shared families, personal/session calibration and quality APIs exist. Native body-frame, physical mapping and real-fault/live multi-day validation remain unavailable.",
       "evidence_sha256": {
-        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "4aa5c39aba217cdddff34932987c6f8e4430f037d21e9f84e4511afebded6d22",
+        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "016572fab4d412d42ab16800f4fec2fe17b50f3a2e347958c5725c15395637a2",
         "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858"
       }
     },
@@ -19173,7 +19173,7 @@
       "disposition": "partial_active",
       "evidence_scope": "Shared families, personal/session calibration and quality APIs exist. Native body-frame, physical mapping and real-fault/live multi-day validation remain unavailable.",
       "evidence_sha256": {
-        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "4aa5c39aba217cdddff34932987c6f8e4430f037d21e9f84e4511afebded6d22",
+        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "016572fab4d412d42ab16800f4fec2fe17b50f3a2e347958c5725c15395637a2",
         "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858"
       }
     },
@@ -19187,7 +19187,7 @@
       "disposition": "partial_active",
       "evidence_scope": "Shared families, personal/session calibration and quality APIs exist. Native body-frame, physical mapping and real-fault/live multi-day validation remain unavailable.",
       "evidence_sha256": {
-        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "4aa5c39aba217cdddff34932987c6f8e4430f037d21e9f84e4511afebded6d22",
+        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "016572fab4d412d42ab16800f4fec2fe17b50f3a2e347958c5725c15395637a2",
         "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858"
       }
     },
@@ -19201,7 +19201,7 @@
       "disposition": "partial_active",
       "evidence_scope": "Shared families, personal/session calibration and quality APIs exist. Native body-frame, physical mapping and real-fault/live multi-day validation remain unavailable.",
       "evidence_sha256": {
-        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "4aa5c39aba217cdddff34932987c6f8e4430f037d21e9f84e4511afebded6d22",
+        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "016572fab4d412d42ab16800f4fec2fe17b50f3a2e347958c5725c15395637a2",
         "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858"
       }
     },

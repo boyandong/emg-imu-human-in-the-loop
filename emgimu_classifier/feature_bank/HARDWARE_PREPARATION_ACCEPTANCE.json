@@ -2,15 +2,19 @@
   "schema": "hardware_preparation_acceptance_v1",
   "source_sha256": {
     "tests/test_hardware_preparation_v1.py": "c2258fb2438544ea0bc8d5150ccc6cf8cd3a570731b0aa7bb6d0f5b4486a64c9",
+    "tests/test_mapped_session_pipeline_v3.py": "d461cee69d198148577c7d1b542de8cf24add8a57d90031e8cb1b191316139a7",
     "src/emgimu/feature_bank/body_frame_v2.py": "fbeb222cd40e9c6dd1709d9eba7cab88fc5910fef948233432506f4cd24ad540",
     "src/emgimu/feature_bank/electrode_layout_v1.py": "f597527f15f33b36196155b8fc52b5510646966781d968dc4c08845fc78fdb23",
     "src/emgimu/feature_bank/fault_gate_evaluation_v1.py": "49bfe4b94a5db2ef8480a80322b7c0d6f8cd216f325eed1777fa1e77caba7426",
+    "src/emgimu/feature_bank/mapped_session_pipeline_v3.py": "664f6cfdcbae1bdb84bc2a49846774557abf000240c083e776b4e3e03b62c5a2",
+    "src/emgimu/feature_bank/session_pipeline.py": "ad84acabfb59cc641fde9c479df281bb45d1e41ba053360e91d1ead95a7f9ec6",
+    "src/emgimu/feature_bank/calibration.py": "495e4354327d3af31a912f70e0eb5db1c617c4054d01fe422715f5e98e08c90e",
     "src/emgimu/feature_bank/body_frame.py": "f2091339813e4b63a2965ceffb13b19200c0914abba3e257a43293be50100d8d",
     "src/emgimu/feature_bank/core.py": "a272025baef6a52ed24088092d17937da26ba334453305e552b6690528bbfffe",
-    "benchmarks/hardware_preparation_acceptance.py": "fbf7f809977fd3de9224b054091c4701607377599b6ed87672e1d4e0074d8de0"
+    "benchmarks/hardware_preparation_acceptance.py": "bb0ecf09abf445df855aa514c06522740256d7d0930e738cb10e18689643f75e"
   },
   "suite_exit_code": 0,
-  "suite_summary": "6 passed in 0.36s",
+  "suite_summary": "8 passed in 1.04s",
   "items": [
     {
       "item": 5,
@@ -22,8 +26,8 @@
     {
       "item": 6,
       "module": "src/emgimu/feature_bank/electrode_layout_v1.py",
-      "software_scope": "Explicit eight measured-channel physical ring map with evidence reference; source/evaluation layout fingerprint; loader-column reorder.",
-      "verified_by": "Known channel identity permutation and source-layout mismatch rejection.",
+      "software_scope": "Explicit eight measured-channel physical ring map with evidence reference; source/evaluation layout fingerprint; loader-column reorder. Opt-in MappedSessionCalibrationPipelineV3 applies the same declared layout throughout source fit, session calibration and labelled/unlabelled prediction.",
+      "verified_by": "Different source/calibration/evaluation loader orders reproduce all six branches of the canonical-order session pipeline; physical layout mismatch, unknown columns and trial leakage are rejected; prediction state is unchanged.",
       "remaining": "Actual electrode/pair wiring and circumferential order must be confirmed physically; software cannot authenticate an operator declaration."
     },
     {
@@ -37,5 +41,5 @@
   "physical_validation_proven": false,
   "default_promoted": false,
   "completion_proven": false,
-  "scope": "Software preparation only; no training, deployment default or hardware accuracy inferred from fixtures."
+  "scope": "Software preparation and fixture integration only; no native training, deployment default or hardware accuracy inferred from fixtures."
 }
