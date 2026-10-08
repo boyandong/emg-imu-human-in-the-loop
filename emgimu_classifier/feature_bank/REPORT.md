@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `8f1c34c39b962a95023cc9d1e4325ed973a34bc905460af46af5bc84d9246050`.
+Source SHA-256: `1e47cadb15ac143b4eb08c0f61fe9d0c453e911f408ae68fde7b415af7261fbb`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -409,6 +409,26 @@ concatenated increments; other paired comparisons remain alternatives.
 [Native models and readouts](../benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json)
 and [all declared group removals](delivery/new_bank_v3/ablation_full_bank.csv)
 preserve the negative results and the restricted scope.
+
+#### Missing-provider calibration and inference interface
+
+A separate opt-in interface supports arbitrary source-selected named
+providers. Zero-shot uses the source population policy. With labelled
+calibration, missing calibration providers are skipped and the available
+population is renormalized before document-exact reliability shrinkage.
+At prediction time, missing providers are skipped and frozen remaining
+weights are renormalized. No prediction-time refit or target-label input
+is accepted; every provider declares its actual trial and class axes.
+
+The imported frozen MANUS policy exactly reproduces 24 native fusion blocks. 96 one-provider omissions match independent weighted arithmetic, and 96 leakage/axis violations are rejected.
+
+Independent synthetic arithmetic verifies zero-shot and calibration-only
+weights, repeated-window trial mass, six named providers and immutable
+inference. Imported mode does not claim this interface fitted the original
+weights. Omissions test software behavior; they do not demonstrate sensor
+fault efficacy or validate the full document bank on actual hardware.
+[Bound software acceptance](AVAILABLE_BANK_FUSION_ACCEPTANCE_V1.json)
+retains that scope. No live deployment default is changed.
 <!-- CURRENT_SCIENTIFIC_ANSWERS_V1_STOP -->
 
 ### Calibration recovery and model-composition limits

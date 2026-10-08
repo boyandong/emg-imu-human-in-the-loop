@@ -182,6 +182,20 @@ def build(pre: Path, goal: Path) -> dict:
                          "removals. All primary guards fail, with0/10 user loss wins; "
                          "F1 .4361 to.3902. Not a replacement for document-wide "
                          "full-bank/LOFO, strict F6 or actual device efficacy.")
+        if ident in ("GOAL-03", "GOAL-05", "GOAL-20", "GOAL-23"):
+            evidence += ("|feature_bank/AVAILABLE_BANK_FUSION_ACCEPTANCE_V1.json"
+                         "|src/emgimu/feature_bank/available_bank_fusion_v1.py"
+                         "|tests/test_available_bank_fusion_v1.py"
+                         "|tests/test_available_bank_fusion_v1_delivery.py")
+            boundary += (" An opt-in arbitrary-provider interface now skips missing "
+                         "calibration branches, renormalizes source population before "
+                         "document-exact reliability shrinkage and renormalizes frozen "
+                         "weights if a provider is absent at inference. Explicit per-provider "
+                         "trial/class axes and disjoint source/calibration/evaluation IDs "
+                         "are checked.24 imported native MANUS fusion blocks,96 provider "
+                         "omissions and96 rejected invalid native calls are replayed. "
+                         "This is software behavior, not sensor-fault efficacy or "
+                         "document-wide native integration; no default promotion.")
         if ident == "GOAL-02":
             evidence += ("|feature_bank/OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json"
                          "|feature_bank/CLASSIFIER_REGRESSION_20261008.json"

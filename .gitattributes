@@ -1017,3 +1017,8 @@ emgimu_classifier/tests/test_emg_window_bank_v1_delivery.py -text -eol whitespac
 emgimu_classifier/benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_PREDICTIONS.csv -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/available_bank_fusion_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/available_bank_fusion_replay_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/AVAILABLE_BANK_FUSION_ACCEPTANCE_V1.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_available_bank_fusion_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_available_bank_fusion_v1_delivery.py -text -eol whitespace=cr-at-eol

@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "b7cc141371e0c715a91ecb463caeb9f74ba5750e7cd26b41f67a1ae55d3c302f",
+  "generator_sha256": "8854a4fb6b7362e68cd5387cdc464c6222bbfb01c3edece0f3cdb4c1d6b2510c",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -15,6 +15,8 @@
     "tests/test_emg_f0_f7_bank_v1_delivery.py",
     "tests/test_emg_bank_class_diagnostics_v1.py",
     "tests/test_emg_window_bank_v1_delivery.py",
+    "tests/test_available_bank_fusion_v1.py",
+    "tests/test_available_bank_fusion_v1_delivery.py",
     "tests/test_epn_holdout_user_robustness_v2.py",
     "tests/test_mahalanobis_epn_holdout_v2.py",
     "tests/test_f8_calibrated_manus_v2_delivery.py"
@@ -29,10 +31,11 @@
     "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json": "9b2b7ed27a0747b31a129f229d5ff933d06cf4108485fa60f1f496758907a894",
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
+    "feature_bank/AVAILABLE_BANK_FUSION_ACCEPTANCE_V1.json": "88868941c9c11ff0eed76e9706f75998652df4cc23d0b7388a23de3500aa52aa",
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "7ba01bce9ead7dee285a8e763b4f45a54ee1e1433fa264c9bf5124ba91ba6b41",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "1f3b225ce41438efeb1e6b4d6c1292bed2a38b189e1d5980b0bdbe5d2f34c969",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -41,6 +44,8 @@
     "tests/test_emg_f0_f7_bank_v1_delivery.py": "a5b29ec5d9644963850211e06a37409da2c6c869631ea5291fc52e9b515a8ac8",
     "tests/test_emg_bank_class_diagnostics_v1.py": "cd1252f955099a0bc93e2164db1c8bb59123d458e5a5c7630095a8f8f130f7fc",
     "tests/test_emg_window_bank_v1_delivery.py": "ea873465e741a526d665da2b53f01533cc59d0c8a14bcbf8c1379f633189badf",
+    "tests/test_available_bank_fusion_v1.py": "d2d3d2ce3bd12a5e6e5ef37d77eadb39f529e126b1abdd8585d7e624a7014f07",
+    "tests/test_available_bank_fusion_v1_delivery.py": "43c2870143b5c534581c435c06c7dec1506747012bd389d1b62a46d98403266e",
     "tests/test_epn_holdout_user_robustness_v2.py": "797631cfe13ddb072dc95aaeb95d4b5aa7d7e40da4a15a82de34022f94f3e350",
     "tests/test_mahalanobis_epn_holdout_v2.py": "97c6ffe8c656fb22399eb148f48566bd7b1ddbd4e0cfe5ba52ccac7ab383cc4c",
     "tests/test_f8_calibrated_manus_v2_delivery.py": "f31ae29f787e37f3d176338660a6956967c3b90a8b4e5f3220ace3401a3073fe"
@@ -1115,6 +1120,13 @@
       ]
     }
   ],
+  "available_provider_fusion": {
+    "native_full_cases": 24,
+    "native_missing_provider_cases": 96,
+    "rejected_invalid_native_calls": 96,
+    "software_scope": "Arbitrary named providers, source-only zero-shot population weights, document-exact calibration reliability with trial-mass shrinkage, missing-calibration skip, runtime missing-provider renormalization, strict per-provider trial/class axes and source/calibration/evaluation isolation.",
+    "native_scope": "Frozen MANUS four-provider imported weights replay only. n0/temperature are unused placeholders in imported mode. This does not prove V1 fitted those weights, missing-sensor fault efficacy, own-device recognition, all F0-F9 integration or population-policy selection."
+  },
   "emg_window_bank": {
     "scope": "All six declared EMG window groups, not all document subfamilies or the document-wide F0-F9 bank. F2b CSP, ring-specific F3a/c, session F4d, full-bout/template F5b/c, anatomically calibrated F6, personal F7, F8 routing and F9 gating are absent. EPN52-61 public native cue-window trial classification; not hardware or own-user efficacy. No proof about every historical access event. Zero target calibration trials, full150 trials/user retained.",
     "primary": {

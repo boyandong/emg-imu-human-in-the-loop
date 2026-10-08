@@ -1,0 +1,1605 @@
+{
+  "schema": "available_bank_fusion_acceptance_v1",
+  "source_sha256": {
+    "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
+    "benchmarks/new_bank_v3/available_bank_fusion_replay_v1.py": "7c8578760a911ebadcb5aee7d0bc560748a0cf5a51a2c597ab9eb0e1c00468a6",
+    "src/emgimu/feature_bank/available_bank_fusion_v1.py": "ba60eda7eaa3d87694e664d1acdee5df6fa3b393eca9d63064463b7d7f077179",
+    "src/emgimu/feature_bank/document_reliability_v2.py": "34ac2da3bd1f380098320fd1f1a7c15ba2567ec6da67dc86150876a7263728a4",
+    "tests/test_available_bank_fusion_v1.py": "d2d3d2ce3bd12a5e6e5ef37d77eadb39f529e126b1abdd8585d7e624a7014f07",
+    "tests/test_available_bank_fusion_v1_delivery.py": "43c2870143b5c534581c435c06c7dec1506747012bd389d1b62a46d98403266e"
+  },
+  "records": [
+    {
+      "phase": "validation",
+      "user": 3,
+      "shots_per_class": 1,
+      "evaluation_trials": 12,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.43420871009972534,
+            0.3687592749523229,
+            0.19703201494795172
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.22123293056143825,
+            0.507568046750113,
+            0.27119902268844875
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.2029499818456543,
+            0.5482632006064271,
+            0.24878681754791848
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.16678509960785584,
+            0.45056487166383463,
+            0.38265002872830944
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "validation",
+      "user": 4,
+      "shots_per_class": 1,
+      "evaluation_trials": 12,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.35049912934550465,
+            0.28074558665030663,
+            0.3687552840041887
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.36410036209598695,
+            0.2748664781837488,
+            0.3610331597202643
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.34082449294082445,
+            0.32122213923460946,
+            0.33795336782456603
+          ],
+          "max_probability_error": 8.326672684688674e-17
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.3707266756585093,
+            0.34940451256546806,
+            0.27986881177602246
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "validation",
+      "user": 5,
+      "shots_per_class": 1,
+      "evaluation_trials": 12,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3134845669431184,
+            0.4158586388040263,
+            0.2706567942528554
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3037952017009348,
+            0.4217279988307158,
+            0.2744767994683494
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.33898865186154525,
+            0.35473751728761954,
+            0.3062738308508352
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.2911499098743485,
+            0.3046762645893068,
+            0.4041738255363446
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "validation",
+      "user": 6,
+      "shots_per_class": 1,
+      "evaluation_trials": 12,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3352116095489151,
+            0.35901815540037213,
+            0.3057702350507127
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.15987927370466967,
+            0.4537061684598771,
+            0.38641455783545336
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.1648384927893157,
+            0.4367609401484036,
+            0.3984005670622808
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.15414414221395148,
+            0.4084248729317331,
+            0.4374309848543155
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "validation",
+      "user": 7,
+      "shots_per_class": 1,
+      "evaluation_trials": 12,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.2455868676442974,
+            0.3169211375029433,
+            0.43749199485275925
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.41448165377887297,
+            0.24597018842157367,
+            0.33954815779955333
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.4387740539486174,
+            0.20177717346957197,
+            0.3594487725818106
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.48701940970689855,
+            0.2239635617264307,
+            0.28901702856667066
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "validation",
+      "user": 8,
+      "shots_per_class": 1,
+      "evaluation_trials": 12,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3613012463532162,
+            0.33503625385885083,
+            0.303662499787933
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.28787894992651303,
+            0.3735507037525806,
+            0.33857034632090643
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.27968846544055315,
+            0.3913739007715524,
+            0.3289376337878944
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.2704956370351542,
+            0.37851018432733874,
+            0.35099417863750704
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "validation",
+      "user": 3,
+      "shots_per_class": 2,
+      "evaluation_trials": 6,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.4399929815295703,
+            0.3721697488485331,
+            0.18783726962189654
+          ],
+          "max_probability_error": 3.3306690738754696e-16
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.2172290270510534,
+            0.5202143308918444,
+            0.2625566420571021
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.19841846334891514,
+            0.5617605230128951,
+            0.23982101363818964
+          ],
+          "max_probability_error": 2.220446049250313e-16
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.16061768842093957,
+            0.45473931775090815,
+            0.38464299382815215
+          ],
+          "max_probability_error": 2.220446049250313e-16
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "validation",
+      "user": 4,
+      "shots_per_class": 2,
+      "evaluation_trials": 6,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3174798185410047,
+            0.2707917893666589,
+            0.4117283920923365
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.42115081984616887,
+            0.22966002987956557,
+            0.34918915027426556
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.4051099335981463,
+            0.25900091027372113,
+            0.3358891561281326
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.45773916651753743,
+            0.29264861452046875,
+            0.24961221896199376
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "validation",
+      "user": 5,
+      "shots_per_class": 2,
+      "evaluation_trials": 6,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.294286804538586,
+            0.3760086434701444,
+            0.32970455199126947
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.33219929750831007,
+            0.355808617250149,
+            0.3119920852415409
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3600418987608871,
+            0.30181704070323695,
+            0.33814106053587584
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.34371905068950664,
+            0.28813387294496334,
+            0.36814707636552996
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "validation",
+      "user": 6,
+      "shots_per_class": 2,
+      "evaluation_trials": 6,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3295544887117631,
+            0.3486517213654578,
+            0.3217937899227791
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.18595985874373364,
+            0.423325224393306,
+            0.39071491686296034
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.19037414755559687,
+            0.409636200174631,
+            0.39998965226977223
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.18422394065299263,
+            0.39640253679008536,
+            0.41937352255692195
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "validation",
+      "user": 7,
+      "shots_per_class": 2,
+      "evaluation_trials": 6,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.2613386872587169,
+            0.3207498050812974,
+            0.4179115076599858
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3980679822450518,
+            0.26137767612409735,
+            0.3405543416308509
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.4183204971241185,
+            0.22379876932546203,
+            0.3578807335504193
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.45628572272991846,
+            0.24410992028783185,
+            0.29960435698224963
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "validation",
+      "user": 8,
+      "shots_per_class": 2,
+      "evaluation_trials": 6,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3644611537549907,
+            0.33702553801034174,
+            0.2985133082346676
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.2866693936959637,
+            0.3782784212000463,
+            0.33505218510399
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.2781054659703637,
+            0.39685165846699955,
+            0.3250428755626368
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.2669125161355219,
+            0.380879513908114,
+            0.35220796995636405
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 3,
+      "shots_per_class": 1,
+      "evaluation_trials": 12,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3575820537480962,
+            0.33521622832812287,
+            0.307201717923781
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.2904207638202531,
+            0.3702612553710553,
+            0.3393179808086916
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.2834191625461679,
+            0.38544329517680326,
+            0.33113754227702874
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.2751115424200371,
+            0.37414513012781375,
+            0.35074332745214903
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 4,
+      "shots_per_class": 1,
+      "evaluation_trials": 12,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3071689492756243,
+            0.2769977339700878,
+            0.4158333167542879
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.40656696833235423,
+            0.23725784931704985,
+            0.356175182350596
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.39632488007284067,
+            0.256472574159526,
+            0.34720254576763326
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.4482915596497181,
+            0.2901016213168871,
+            0.26160681903339467
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 5,
+      "shots_per_class": 1,
+      "evaluation_trials": 12,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.32549533277111836,
+            0.4042070032332089,
+            0.27029766399567273
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.22606177644389353,
+            0.46379404803301844,
+            0.310144175523088
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.24850558867088235,
+            0.410558574569739,
+            0.34093583675937866
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.21259699831297882,
+            0.3512336324185408,
+            0.4361693692684803
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 6,
+      "shots_per_class": 1,
+      "evaluation_trials": 12,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3222189040322678,
+            0.4061129521887619,
+            0.27166814377897025
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.10167971831145944,
+            0.5382556459275191,
+            0.3600646357610216
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.11440007249610323,
+            0.48049042171072864,
+            0.40510950579316807
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.0952950300659014,
+            0.4002475539065869,
+            0.5044574160275118
+          ],
+          "max_probability_error": 2.220446049250313e-16
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 7,
+      "shots_per_class": 1,
+      "evaluation_trials": 12,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.1619636371499727,
+            0.33053014212788084,
+            0.5075062207221465
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.4484726040375717,
+            0.21752806519626489,
+            0.3339993307661634
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.5044327421056403,
+            0.11989169429692362,
+            0.37567556359743604
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.580477954091502,
+            0.13796583688746217,
+            0.28155620902103573
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 8,
+      "shots_per_class": 1,
+      "evaluation_trials": 12,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.30953653557574634,
+            0.3082390715228482,
+            0.3822243929014055
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3871890855842169,
+            0.27357315341239286,
+            0.3392377610033903
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3867437325584401,
+            0.2744087048423747,
+            0.3388475625991852
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.4138904241969407,
+            0.29367026712806893,
+            0.29243930867499024
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 3,
+      "shots_per_class": 2,
+      "evaluation_trials": 6,
+      "full_max_probability_error": 1.1102230246251565e-16,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.37074569425622467,
+            0.33108337727238546,
+            0.2981709284713898
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.28247311757384963,
+            0.3775281652408871,
+            0.33999871718526326
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.27025070613067814,
+            0.4044620800203093,
+            0.32528721384901266
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.2608835327595928,
+            0.3904429994420405,
+            0.3486734677983668
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 4,
+      "shots_per_class": 2,
+      "evaluation_trials": 6,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3107019836825399,
+            0.28810161254360267,
+            0.40119640377385746
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3900898416415384,
+            0.2549203624124022,
+            0.3549897959460595
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3824419809536054,
+            0.2695279339546568,
+            0.3480300850917378
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.42404388035379237,
+            0.2988470844463548,
+            0.27710903519985275
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 5,
+      "shots_per_class": 2,
+      "evaluation_trials": 6,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.29406789278262807,
+            0.36107169409258105,
+            0.34486041312479093
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3268767035677597,
+            0.34429057198432894,
+            0.32883272444791134
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3491861140108523,
+            0.29953825222173486,
+            0.3512756337674129
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.34351372369419364,
+            0.29467237178377836,
+            0.36181390452202794
+          ],
+          "max_probability_error": 2.7755575615628914e-17
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 6,
+      "shots_per_class": 2,
+      "evaluation_trials": 6,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.31306788976933636,
+            0.3886859865125963,
+            0.29824612371806736
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.09841354326586509,
+            0.5101436024652157,
+            0.39144285426891917
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.10925702284925304,
+            0.4561698538408961,
+            0.4345731233098508
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.09653560615845438,
+            0.4030554027863621,
+            0.5004089910551834
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 7,
+      "shots_per_class": 2,
+      "evaluation_trials": 6,
+      "full_max_probability_error": 0.0,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.15967878000499433,
+            0.3237567005470324,
+            0.5165645194479733
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.4181821837967433,
+            0.22416120408641543,
+            0.35765661211684113
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.4717778084932363,
+            0.12472711401295108,
+            0.4034950774938127
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.5554278048535631,
+            0.14684223355733936,
+            0.2977299615890975
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        }
+      ],
+      "state_immutable": true
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 8,
+      "shots_per_class": 2,
+      "evaluation_trials": 6,
+      "full_max_probability_error": 1.1102230246251565e-16,
+      "missing_provider_cases": [
+        {
+          "missing_provider": "TD24",
+          "remaining_providers": [
+            "pattern",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3050359597305006,
+            0.29898349714077715,
+            0.3959805431287222
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "pattern",
+          "remaining_providers": [
+            "TD24",
+            "SPD",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3740325384598192,
+            0.2693001794381217,
+            0.35666728210205917
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        },
+        {
+          "missing_provider": "SPD",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "log_bands"
+          ],
+          "renormalized_weights": [
+            0.3720045299757396,
+            0.27326204179778946,
+            0.354733428226471
+          ],
+          "max_probability_error": 1.1102230246251565e-16
+        },
+        {
+          "missing_provider": "log_bands",
+          "remaining_providers": [
+            "TD24",
+            "pattern",
+            "SPD"
+          ],
+          "renormalized_weights": [
+            0.4074053663280523,
+            0.2992663079921104,
+            0.29332832567983746
+          ],
+          "max_probability_error": 5.551115123125783e-17
+        }
+      ],
+      "state_immutable": true
+    }
+  ],
+  "native_full_cases": 24,
+  "native_missing_provider_cases": 96,
+  "rejected_invalid_native_calls": 96,
+  "software_scope": "Arbitrary named providers, source-only zero-shot population weights, document-exact calibration reliability with trial-mass shrinkage, missing-calibration skip, runtime missing-provider renormalization, strict per-provider trial/class axes and source/calibration/evaluation isolation.",
+  "native_scope": "Frozen MANUS four-provider imported weights replay only. n0/temperature are unused placeholders in imported mode. This does not prove V1 fitted those weights, missing-sensor fault efficacy, own-device recognition, all F0-F9 integration or population-policy selection.",
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false
+}

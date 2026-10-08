@@ -126,6 +126,23 @@ def render(data, source_sha):
                         '[Native models and readouts](../benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json)',
                         'and [all declared group removals](delivery/new_bank_v3/ablation_full_bank.csv)',
                         'preserve the negative results and the restricted scope.']
+    availability=data['available_provider_fusion']
+    variation_lines += ['', '#### Missing-provider calibration and inference interface', '',
+                        'A separate opt-in interface supports arbitrary source-selected named',
+                        'providers. Zero-shot uses the source population policy. With labelled',
+                        'calibration, missing calibration providers are skipped and the available',
+                        'population is renormalized before document-exact reliability shrinkage.',
+                        'At prediction time, missing providers are skipped and frozen remaining',
+                        'weights are renormalized. No prediction-time refit or target-label input',
+                        'is accepted; every provider declares its actual trial and class axes.', '',
+                        f"The imported frozen MANUS policy exactly reproduces {availability['native_full_cases']} native fusion blocks. {availability['native_missing_provider_cases']} one-provider omissions match independent weighted arithmetic, and {availability['rejected_invalid_native_calls']} leakage/axis violations are rejected.", '',
+                        'Independent synthetic arithmetic verifies zero-shot and calibration-only',
+                        'weights, repeated-window trial mass, six named providers and immutable',
+                        'inference. Imported mode does not claim this interface fitted the original',
+                        'weights. Omissions test software behavior; they do not demonstrate sensor',
+                        'fault efficacy or validate the full document bank on actual hardware.',
+                        '[Bound software acceptance](AVAILABLE_BANK_FUSION_ACCEPTANCE_V1.json)',
+                        'retains that scope. No live deployment default is changed.']
     lines[-1:-1] = variation_lines
     return '\n'.join(lines)
 
