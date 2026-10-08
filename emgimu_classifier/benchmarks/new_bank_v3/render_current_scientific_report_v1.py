@@ -239,6 +239,42 @@ def render(data, source_sha):
                         'remain. Cued stable trials do not validate autonomous online recognition',
                         'or new electrode placement. No GUI or model default is changed, and the',
                         'historical Song Brier archive retains its original class-sum convention.']
+    song_stream=data['song_f0_stream']
+    variation_lines += ['', '#### Full-recording250Hz Song stream and label confirmation', '',
+                        'Both fixed source models now run on complete S03/S04 raw recordings.',
+                        'They retain causal filter memory, emit trailing50-sample probabilities',
+                        'every10 samples and optionally require two consecutive class decisions.',
+                        'No cue, trial boundary, evaluation label or IMU enters inference.',
+                        'Sample gaps or duplicates require an explicit reset of filter, window',
+                        'and confirmation state. Confirmation begins UNKNOWN; before the first',
+                        'complete window the stream emits nothing. No model fitting occurs.', '',
+                        '| Session | Source threshold | Label policy | Trial-balanced window macro-F1 | Entire stable interval correct | Within-stable switches |',
+                        '|---|---|---|---:|---:|---:|']
+    for cell in song_stream['cells']:
+        for policy in ('raw','confirmed'):
+            m=cell[policy]
+            variation_lines.append(f"| {cell['session']} | {cell['arm']} | {policy} | {m['trial_balanced_macro_f1']:.4f} | {m['whole_stable_hold_correct']}/{m['eligible_trials']} | {m['within_stable_trial_switches']} |")
+    variation_lines += ['', 'S03 emits33610 and S04 emits29790 windows per arm. Only2238 and2283',
+                        'windows wholly inside valid completed formal stable intervals are scored;',
+                        'the remaining emissions are unscored, never inferred Neutral ground truth.',
+                        'Scoring gives each native trial equal mass despite different window counts.',
+                        'Independent native HDF5 interval checks confirm those exclusions.', '',
+                        'Two-step confirmation reduces switching and raises whole-stable-hold counts',
+                        'in these four cells, while window F1 declines in all four. This is a',
+                        'stability/decision-delay tradeoff, not a universal accuracy improvement.',
+                        'The first window is available after200ms of nominal sampling and each',
+                        'additional confirmation waits at least one40ms hop; these are software',
+                        'sample-grid timings, not measured wall-time or hardware reaction latency.', '',
+                        '[Complete stream arrays](../benchmarks/song_real8/SONG_F0_STREAM_V1_EMISSIONS.npz)',
+                        'and [bound native results](../benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json)',
+                        'retain every probability, raw label and confirmed label. `SongF0StreamV1`',
+                        'requires an explicitly selected existing source arm and recording ID;',
+                        '`push(raw_chunk, first_sample_index=..., sample_rate_hz=250)` returns',
+                        'causal emissions. Initial and explicitly reset states preserve UNKNOWN.',
+                        'This new protocol is frozen separately from the prior three-window trial',
+                        'average benchmark. Stable cue intervals do not prove physiological onset',
+                        'timing or complete-action success. One user/day and readiness/inspection',
+                        'limitations persist; no UI or default model is promoted.']
     variation_lines += ['', '#### Target calibration burden: extracted signal versus stored recording time', '',
                         'Native archive accounting binds 600 reserved trial durations and 690',
                         'method-specific cost rows for the two experiments above. Every source-',

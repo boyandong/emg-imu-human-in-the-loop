@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `754e9e2f276b5780bca767d9a4d2ad297810e224ef5d57dd254482e09dd656a4`.
+Source SHA-256: `1ca86a04b5fb1a6c1f6e5ef94829a888a5b93cc07279729cd6a932f5ff36d8fd`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -552,6 +552,51 @@ one person on one day; S01–S03 readiness failures and prior S04 inspection
 remain. Cued stable trials do not validate autonomous online recognition
 or new electrode placement. No GUI or model default is changed, and the
 historical Song Brier archive retains its original class-sum convention.
+
+#### Full-recording250Hz Song stream and label confirmation
+
+Both fixed source models now run on complete S03/S04 raw recordings.
+They retain causal filter memory, emit trailing50-sample probabilities
+every10 samples and optionally require two consecutive class decisions.
+No cue, trial boundary, evaluation label or IMU enters inference.
+Sample gaps or duplicates require an explicit reset of filter, window
+and confirmation state. Confirmation begins UNKNOWN; before the first
+complete window the stream emits nothing. No model fitting occurs.
+
+| Session | Source threshold | Label policy | Trial-balanced window macro-F1 | Entire stable interval correct | Within-stable switches |
+|---|---|---|---:|---:|---:|
+| S03 | pooled_source_threshold | raw | 0.8646 | 78/140 | 136 |
+| S03 | pooled_source_threshold | confirmed | 0.8600 | 81/140 | 90 |
+| S03 | rest_only_threshold | raw | 0.8544 | 77/140 | 140 |
+| S03 | rest_only_threshold | confirmed | 0.8487 | 82/140 | 92 |
+| S04 | pooled_source_threshold | raw | 0.8048 | 56/144 | 171 |
+| S04 | pooled_source_threshold | confirmed | 0.8042 | 65/144 | 112 |
+| S04 | rest_only_threshold | raw | 0.8150 | 65/144 | 142 |
+| S04 | rest_only_threshold | confirmed | 0.8118 | 69/144 | 99 |
+
+S03 emits33610 and S04 emits29790 windows per arm. Only2238 and2283
+windows wholly inside valid completed formal stable intervals are scored;
+the remaining emissions are unscored, never inferred Neutral ground truth.
+Scoring gives each native trial equal mass despite different window counts.
+Independent native HDF5 interval checks confirm those exclusions.
+
+Two-step confirmation reduces switching and raises whole-stable-hold counts
+in these four cells, while window F1 declines in all four. This is a
+stability/decision-delay tradeoff, not a universal accuracy improvement.
+The first window is available after200ms of nominal sampling and each
+additional confirmation waits at least one40ms hop; these are software
+sample-grid timings, not measured wall-time or hardware reaction latency.
+
+[Complete stream arrays](../benchmarks/song_real8/SONG_F0_STREAM_V1_EMISSIONS.npz)
+and [bound native results](../benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json)
+retain every probability, raw label and confirmed label. `SongF0StreamV1`
+requires an explicitly selected existing source arm and recording ID;
+`push(raw_chunk, first_sample_index=..., sample_rate_hz=250)` returns
+causal emissions. Initial and explicitly reset states preserve UNKNOWN.
+This new protocol is frozen separately from the prior three-window trial
+average benchmark. Stable cue intervals do not prove physiological onset
+timing or complete-action success. One user/day and readiness/inspection
+limitations persist; no UI or default model is promoted.
 
 #### Target calibration burden: extracted signal versus stored recording time
 

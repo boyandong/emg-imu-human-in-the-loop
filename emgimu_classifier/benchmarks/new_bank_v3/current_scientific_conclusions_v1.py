@@ -39,6 +39,9 @@ def build():
     song_runtime_path=ROOT/'feature_bank/SONG_F0_RUNTIME_ACCEPTANCE_V1.json'
     sources[song_runtime_path.relative_to(ROOT).as_posix()]=sha(song_runtime_path)
     song_runtime=json.loads(song_runtime_path.read_text(encoding='utf8'))
+    song_stream_path=ROOT/'benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json'
+    sources[song_stream_path.relative_to(ROOT).as_posix()]=sha(song_stream_path)
+    song_stream=json.loads(song_stream_path.read_text(encoding='utf8'))
     native_cost_curve=read('EMG_CALIBRATION_COST_CURVE_V1.json')
     calibrated_fusion=read('EMG_CALIBRATED_FUSION_V1_RESULTS.json')
     window_bank = read('EMG_WINDOW_BANK_V1_RESULTS.json')
@@ -167,6 +170,9 @@ def build():
                           'tests/test_frozen_emg_provider_bank_v1.py',
                           'tests/test_frozen_emg_bank_cli_v1.py',
                           'tests/test_song_f0_runtime_v1.py',
+                          'tests/test_song_f0_stream_v1.py',
+                          'tests/test_song_f0_stream_v1_delivery.py',
+                          'tests/test_song_f0_stream_native_annotations_v1.py',
                           'tests/test_available_bank_fusion_v1.py',
                           'tests/test_available_bank_fusion_v1_delivery.py',
                           'tests/test_epn_holdout_user_robustness_v2.py',
@@ -180,6 +186,8 @@ def build():
               'available_provider_fusion': {k:availability[k] for k in ('native_full_cases','native_missing_provider_cases','rejected_invalid_native_calls','software_scope','native_scope')},
               'portable_emg_bank':{k:portable[k] for k in ('package_path','package_sha256','channels','sample_rate_hz','window_samples','requires_IMU','native_provider_cases','native_fusion_cases','native_omission_cases','source_state_immutable','scope')},
               'song_f0_runtime':{k:song_runtime[k] for k in ('package_path','package_sha256','classes','sample_rate_hz','channels','window_samples','preprocessing_id','source_windows','source_trials','prediction_rows','records','source_state_immutable','scope')},
+              'song_f0_stream':{'classes':song_stream['classes'],'scope':song_stream['scope'],
+                  'cells':[{k:row[k] for k in ('session','arm','raw_samples','emissions','unscored_emissions','one_pass_max_probability_error')} | {policy:{k:row[policy][k] for k in ('eligible_windows','eligible_trials','unknown_windows','trial_balanced_macro_f1','trial_balanced_accuracy','whole_stable_hold_correct','within_stable_trial_switches')} for policy in ('raw','confirmed')} for row in song_stream['records']]},
               'emg_native_calibration_cost':native_cost_curve['cells'],
               'emg_calibrated_fusion':{'scope':calibrated_fusion['scope'],'primary_five_shot':calibrated_fusion['primary_five_shot'],
                   'source_users':list(range(1,16)),'target_users':list(range(62,72)),

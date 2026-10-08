@@ -262,6 +262,25 @@ def build(pre: Path, goal: Path) -> dict:
                          "from EPN feature means; no evaluation labels or IMU are needed. "
                          "Single-user/day readiness and prior-inspection limits persist; "
                          "no autonomous live or default accuracy claim.")
+        if ident in ("GOAL-02", "GOAL-03", "GOAL-18", "GOAL-20", "GOAL-23"):
+            evidence += ("|benchmarks/song_real8/SONG_F0_STREAM_V1_PROTOCOL.json"
+                         "|benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json"
+                         "|benchmarks/song_real8/SONG_F0_STREAM_V1_EMISSIONS.npz"
+                         "|src/emgimu/feature_bank/song_f0_stream_v1.py"
+                         "|tests/test_song_f0_stream_v1.py"
+                         "|tests/test_song_f0_stream_v1_delivery.py"
+                         "|tests/test_song_f0_stream_native_annotations_v1.py")
+            boundary += (" The separately frozen full-recording Song250Hz stream "
+                         "carries causal filter/window/confirmation memory and uses "
+                         "no cues or labels at inference. All63400 emission positions "
+                         "per arm match independent one-pass probabilities below1e-12. "
+                         "Only4521 fully contained formal-stable windows across284 "
+                         "trials are scored with equal trial mass; unknown intervals "
+                         "remain unscored. Two-confirmation reduces within-stable "
+                         "switches and increases whole-stable holds but lowers F1 in "
+                         "all4 cells. Native HDF5 exclusions are independently checked. "
+                         "No physiological onset, physical latency or default efficacy "
+                         "claim follows from this retrospective one-user/day replay.")
         if ident == "GOAL-02":
             evidence += ("|feature_bank/OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json"
                          "|feature_bank/CLASSIFIER_REGRESSION_20261008.json"

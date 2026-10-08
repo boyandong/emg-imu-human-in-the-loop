@@ -1055,3 +1055,4 @@ emgimu_classifier/tests/test_song_f0_stream_v1_delivery.py -text -eol whitespace
 emgimu_classifier/benchmarks/song_real8/SONG_F0_STREAM_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/song_real8/SONG_F0_STREAM_V1_EMISSIONS.npz -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_song_f0_stream_native_annotations_v1.py -text -eol whitespace=cr-at-eol

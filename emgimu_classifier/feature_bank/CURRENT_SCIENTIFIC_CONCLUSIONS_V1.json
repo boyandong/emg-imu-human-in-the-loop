@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "31f7fe9cebf968055d7a2ed906735c9e4140fa6ebf6f1110a81368469b90b844",
+  "generator_sha256": "40a6c907245a0851bb0855e3c749c67680ac0544051c215f5f50e051ff5cb5e1",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -21,6 +21,9 @@
     "tests/test_frozen_emg_provider_bank_v1.py",
     "tests/test_frozen_emg_bank_cli_v1.py",
     "tests/test_song_f0_runtime_v1.py",
+    "tests/test_song_f0_stream_v1.py",
+    "tests/test_song_f0_stream_v1_delivery.py",
+    "tests/test_song_f0_stream_native_annotations_v1.py",
     "tests/test_available_bank_fusion_v1.py",
     "tests/test_available_bank_fusion_v1_delivery.py",
     "tests/test_epn_holdout_user_robustness_v2.py",
@@ -41,12 +44,13 @@
     "feature_bank/FROZEN_EMG_BANK_ACCEPTANCE_V1.json": "6daf189264bf7b77ff890718d0d0b80a81c97a2d1b262744fde3e76c54b1dd95",
     "src/emgimu/feature_bank/frozen_emg_bank_cli_v1.py": "f92bfc422dfa258329f3d182bd93e0c9435d7723c9a6ff17001bd28eb9d0e648",
     "feature_bank/SONG_F0_RUNTIME_ACCEPTANCE_V1.json": "2ee8d5ccbe203154ff0d48612286eefa39898fcde76d4539e052e0e5c2bf4d7c",
+    "benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json": "3c41021ab3639d9b36b1d4f9c53ca0068a67c9a7749ce8c53127a77caf793b48",
     "benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.json": "a079bff7bceae47930f3bb6579782cbc9208ee1e858a89caaf78c43b31b575db",
     "benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json": "0d38aad3bfef51ee962d8cc3ec5cbf2f5b4c96cd483c0b572b69a26661df12b1",
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "9d2450cf41bf8220d424b93ec525848b6b8899cbe1c9fafe6a4d55d9608a3a39",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "62377dd53ad9f7f132618cc40cb840e28258828b4719e6a95c4c0acfc4920e6f",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -61,6 +65,9 @@
     "tests/test_frozen_emg_provider_bank_v1.py": "ee8a98874a5e816811c784841760d3347c229fce8bfeea622a3bc52b7f7a7865",
     "tests/test_frozen_emg_bank_cli_v1.py": "546235e2b173f1325125621e500cfa8a1c646fde4fbb8baa26c3f64ddcb8a1b5",
     "tests/test_song_f0_runtime_v1.py": "cea4d73cd1d1aaf31c0b63baf1d2e0c101ed603087782ff54e1b9d5e231da9ba",
+    "tests/test_song_f0_stream_v1.py": "54e23e51f2845b2b420741f4db92697a2e782067b8a3996796cbf1764acfb76f",
+    "tests/test_song_f0_stream_v1_delivery.py": "b600c25fe463ea6747eb4f9b1986007f9184b2c7aec5dc797f2b8376bc021f99",
+    "tests/test_song_f0_stream_native_annotations_v1.py": "ad363468b31888e35195a3769f515c5420d7510d0d2a64410a04fcf1949c128b",
     "tests/test_available_bank_fusion_v1.py": "d2d3d2ce3bd12a5e6e5ef37d77eadb39f529e126b1abdd8585d7e624a7014f07",
     "tests/test_available_bank_fusion_v1_delivery.py": "43c2870143b5c534581c435c06c7dec1506747012bd389d1b62a46d98403266e",
     "tests/test_epn_holdout_user_robustness_v2.py": "797631cfe13ddb072dc95aaeb95d4b5aa7d7e40da4a15a82de34022f94f3e350",
@@ -1201,6 +1208,121 @@
     ],
     "source_state_immutable": true,
     "scope": "Two exact existing Song F0 models recovered from S01/S02 only. No model selection, source protocol change or new target training. Probability means over cued windows; one user/day, readiness failures and previously inspected S04. Independent live/generalization efficacy is unproven. Input requires identical causal continuous-session filtering; resets between windows are incompatible. Native Brier archive remains its original class-sum convention."
+  },
+  "song_f0_stream": {
+    "classes": [
+      "neutral",
+      "index_pinch",
+      "fist",
+      "open_hand"
+    ],
+    "scope": "Retrospective full raw Song recording replay of both fixed F0 arms; no new fits, target tuning or default selection. Labels enter scoring only. Every emission uses trailing50 samples and original zero-start continuous causal filter. Two-consecutive-class confirmation starts UNKNOWN. Only windows wholly inside valid completed formal stable intervals are scored; all other emissions remain unscored, never fake Neutral. Equal native trial mass and whole-stable-interval hold counts are reported. Cue intervals are not biological transition labels, autonomous onset detection or hardware latency. One participant/day, readiness failures and previous inspection persist.",
+    "cells": [
+      {
+        "session": "S03",
+        "arm": "pooled_source_threshold",
+        "raw_samples": 336146,
+        "emissions": 33610,
+        "unscored_emissions": 31372,
+        "one_pass_max_probability_error": 5.551115123125783e-16,
+        "raw": {
+          "eligible_windows": 2238,
+          "eligible_trials": 140,
+          "unknown_windows": 0,
+          "trial_balanced_macro_f1": 0.8646103111175446,
+          "trial_balanced_accuracy": 0.8637873743289488,
+          "whole_stable_hold_correct": 78,
+          "within_stable_trial_switches": 136
+        },
+        "confirmed": {
+          "eligible_windows": 2238,
+          "eligible_trials": 140,
+          "unknown_windows": 0,
+          "trial_balanced_macro_f1": 0.8599715091644984,
+          "trial_balanced_accuracy": 0.8594230431713845,
+          "whole_stable_hold_correct": 81,
+          "within_stable_trial_switches": 90
+        }
+      },
+      {
+        "session": "S03",
+        "arm": "rest_only_threshold",
+        "raw_samples": 336146,
+        "emissions": 33610,
+        "unscored_emissions": 31372,
+        "one_pass_max_probability_error": 7.771561172376096e-16,
+        "raw": {
+          "eligible_windows": 2238,
+          "eligible_trials": 140,
+          "unknown_windows": 0,
+          "trial_balanced_macro_f1": 0.8543634827258486,
+          "trial_balanced_accuracy": 0.8546763550224407,
+          "whole_stable_hold_correct": 77,
+          "within_stable_trial_switches": 140
+        },
+        "confirmed": {
+          "eligible_windows": 2238,
+          "eligible_trials": 140,
+          "unknown_windows": 0,
+          "trial_balanced_macro_f1": 0.84866999805545,
+          "trial_balanced_accuracy": 0.8493907068900435,
+          "whole_stable_hold_correct": 82,
+          "within_stable_trial_switches": 92
+        }
+      },
+      {
+        "session": "S04",
+        "arm": "pooled_source_threshold",
+        "raw_samples": 297942,
+        "emissions": 29790,
+        "unscored_emissions": 27507,
+        "one_pass_max_probability_error": 5.551115123125783e-16,
+        "raw": {
+          "eligible_windows": 2283,
+          "eligible_trials": 144,
+          "unknown_windows": 0,
+          "trial_balanced_macro_f1": 0.8048098103131678,
+          "trial_balanced_accuracy": 0.807776456024005,
+          "whole_stable_hold_correct": 56,
+          "within_stable_trial_switches": 171
+        },
+        "confirmed": {
+          "eligible_windows": 2283,
+          "eligible_trials": 144,
+          "unknown_windows": 0,
+          "trial_balanced_macro_f1": 0.8041926039276834,
+          "trial_balanced_accuracy": 0.8085409334674041,
+          "whole_stable_hold_correct": 65,
+          "within_stable_trial_switches": 112
+        }
+      },
+      {
+        "session": "S04",
+        "arm": "rest_only_threshold",
+        "raw_samples": 297942,
+        "emissions": 29790,
+        "unscored_emissions": 27507,
+        "one_pass_max_probability_error": 9.992007221626409e-16,
+        "raw": {
+          "eligible_windows": 2283,
+          "eligible_trials": 144,
+          "unknown_windows": 0,
+          "trial_balanced_macro_f1": 0.8149715565001967,
+          "trial_balanced_accuracy": 0.8189578993990758,
+          "whole_stable_hold_correct": 65,
+          "within_stable_trial_switches": 142
+        },
+        "confirmed": {
+          "eligible_windows": 2283,
+          "eligible_trials": 144,
+          "unknown_windows": 0,
+          "trial_balanced_macro_f1": 0.8118355120482525,
+          "trial_balanced_accuracy": 0.8168495649684375,
+          "whole_stable_hold_correct": 69,
+          "within_stable_trial_switches": 99
+        }
+      }
+    ]
   },
   "emg_native_calibration_cost": [
     {

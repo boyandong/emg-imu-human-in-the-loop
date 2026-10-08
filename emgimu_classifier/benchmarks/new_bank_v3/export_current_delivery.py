@@ -385,6 +385,8 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/SONG_F0_RUNTIME_ACCEPTANCE_V1.json')},
              'song_f0_runtime': {'path':'../models/song_f0_250hz_v1.pkl',
                  'sha256':sha(ROOT/'feature_bank/models/song_f0_250hz_v1.pkl')},
+             'song_f0_stream_replay': {'path':'../../benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json',
+                 'sha256':sha(ROOT/'benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json')},
              'completion_proven': False}
     (BASE/'INDEX.json').write_text(json.dumps(index, indent=2)+'\n', encoding='utf8')
     print(json.dumps({n: len(rows) for n, (rows, _) in tables.items()}), flush=True)
