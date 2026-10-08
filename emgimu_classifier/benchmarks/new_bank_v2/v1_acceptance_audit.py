@@ -163,7 +163,10 @@ def build(pre: Path, goal: Path) -> dict:
                          "|benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json"
                          "|benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_PREDICTIONS.csv"
                          "|tests/test_emg_f0_f7_bank_v1.py"
-                         "|tests/test_emg_f0_f7_bank_v1_delivery.py")
+                         "|tests/test_emg_f0_f7_bank_v1_delivery.py"
+                         "|benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json"
+                         "|benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.csv"
+                         "|tests/test_emg_bank_class_diagnostics_v1.py")
             boundary += (" A precommitted EMG-only F0/F7 two-provider bank tests1200 "
                          "fixed held-out trials of EPN42-51 with nested0/1/2/5 budgets "
                          "and both provider removals. Five-shot F1 .4633 to.4836 and "

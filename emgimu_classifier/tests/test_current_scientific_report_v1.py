@@ -27,6 +27,10 @@ def test_required_report_current_answers_numerical_boundaries_and_local_links():
     assert '| N/A |' in section and 'not hardware latency' in section
     assert '### Calibration recovery and model-composition limits' in report
     assert 'F7_AFFINE_CORE_MATCHED_REPORT.md' in report
+    assert '| open | 0.355 | 0.390 | 7 | 0 |' in section
+    assert '| fist | 0.525 | 0.530 | 5 | 4 |' in section
+    assert '194/1000 to 189/1000' in section
+    assert '57/200 to 49/200' in section
 
 
 def test_report_renderer_escapes_table_text_and_rejects_incomplete_question_sets():

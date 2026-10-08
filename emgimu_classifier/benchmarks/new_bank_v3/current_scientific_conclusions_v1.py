@@ -30,6 +30,7 @@ def build():
     raw_router = read('F8_ROUTER_MANUS_V1_RESULTS.json')
     calibrated_router = read('F8_CALIBRATED_MANUS_V2_RESULTS.json')
     emg_bank = read('EMG_F0_F7_BANK_V1_RESULTS.json')
+    class_diagnostics = read('EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json')
     emg_cells = []
     for budget, arms in emg_bank['scores'].items():
         base = arms['F0']; full = arms.get('F0_F7')
@@ -145,6 +146,7 @@ def build():
                           'tests/test_current_scientific_conclusions_v1.py',
                           'tests/test_current_scientific_report_v1.py',
                           'tests/test_emg_f0_f7_bank_v1_delivery.py',
+                          'tests/test_emg_bank_class_diagnostics_v1.py',
                           'tests/test_epn_holdout_user_robustness_v2.py',
                           'tests/test_mahalanobis_epn_holdout_v2.py',
                           'tests/test_f8_calibrated_manus_v2_delivery.py']
@@ -153,6 +155,11 @@ def build():
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
               'requirement_lines': [1013, 1049], 'verification_tests': verification_tests,
               'source_sha256': sources, 'questions': answers,
+              'emg_only_class_diagnostics': {
+                  'native_class_axis': class_diagnostics['native_class_axis'],
+                  'cells': [c for c in class_diagnostics['cells'] if c['shots_per_class']==5 and c['user']=='ALL' and c['arm'] in ('F0','F0_F7')],
+                  'paired_class_changes': [c for c in class_diagnostics['paired_class_changes'] if c['shots_per_class']==5 and c['user']=='ALL'],
+                  'scope': class_diagnostics['scope']},
               'interpretation_scope': 'Current independent versioned evidence, not resurrection of unavailable historical experiments. REPORT renders these current A-H answers; earlier experiment-specific sections remain scoped historical evidence, not a different current global conclusion.',
               'nominal_continuous_samples': sum(r['samples'] for r in stream['records']),
               'default_promoted': False, 'own_device_efficacy_proven': False,

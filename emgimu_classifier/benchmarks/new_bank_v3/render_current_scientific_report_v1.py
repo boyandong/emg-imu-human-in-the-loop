@@ -88,6 +88,23 @@ def render(data, source_sha):
     variation_lines += ['', 'These are matched source-only versus five-shot-anchor outcomes on a',
                         'separate cohort from the Mahalanobis/Euclidean comparison above;',
                         'their user variation is not pooled across experiments.']
+    diagnostics = data['emg_only_class_diagnostics']
+    native_cells = {c['arm']:c for c in diagnostics['cells'] if c['shots_per_class']==5 and c['user']=='ALL'}
+    variation_lines += ['', '#### Native class-level calibration changes', '',
+                        '| Native EPN class | F0 recall | F0 + F7 recall | Errors corrected | Correct trials harmed |',
+                        '|---|---:|---:|---:|---:|']
+    for item in diagnostics['paired_class_changes']:
+        if item['shots_per_class']!=5 or item['user']!='ALL': continue
+        label=item['class_label']
+        variation_lines.append(f"| {item['native_gesture']} | {native_cells['F0']['recall'][label]:.3f} | {native_cells['F0_F7']['recall'][label]:.3f} | {item['corrected']} | {item['harmed']} |")
+    a,b=native_cells['F0'],native_cells['F0_F7']
+    variation_lines += ['', f"Active trials misclassified as rest change from {a['active_predicted_rest_count']}/{a['active_trials']} to {b['active_predicted_rest_count']}/{b['active_trials']}; rest trials misclassified as active change from {a['rest_predicted_active_count']}/{a['support'][0]} to {b['rest_predicted_active_count']}/{b['support'][0]}.", '',
+                        'All six native classes have 200 held-out trials. These modest pooled',
+                        'recall gains retain substantial missed gestures and can hide individual',
+                        'user harms. They do not explain the current hardware user\'s failures.',
+                        '[Class confusions and active/rest rates](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json)',
+                        'and [paired class correction/harm table](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.csv)',
+                        'are descriptive readouts of immutable predictions; no retraining or default promotion.']
     lines[-1:-1] = variation_lines
     return '\n'.join(lines)
 

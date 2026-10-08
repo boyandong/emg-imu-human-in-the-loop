@@ -1007,3 +1007,7 @@ emgimu_classifier/benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json -text -e
 emgimu_classifier/benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_PREDICTIONS.csv -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_emg_f0_f7_bank_v1_delivery.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/delivery/new_bank_v3/ablation_full_bank.csv -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/emg_bank_class_diagnostics_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.csv -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_emg_bank_class_diagnostics_v1.py -text -eol whitespace=cr-at-eol

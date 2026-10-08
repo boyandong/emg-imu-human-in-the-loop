@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `f386909a1c6dbd7e8c732db012c705892ee1289f2b3f53b574b53301cc8c6831`.
+Source SHA-256: `35ae63fb6042d636103817ff0d1e2d1fd765d0f38cd502ff26c4dea6e587b133`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -354,6 +354,26 @@ strict calibrated F6, an all-612-user result or own-device efficacy.
 These are matched source-only versus five-shot-anchor outcomes on a
 separate cohort from the Mahalanobis/Euclidean comparison above;
 their user variation is not pooled across experiments.
+
+#### Native class-level calibration changes
+
+| Native EPN class | F0 recall | F0 + F7 recall | Errors corrected | Correct trials harmed |
+|---|---:|---:|---:|---:|
+| noGesture | 0.715 | 0.755 | 8 | 0 |
+| fist | 0.525 | 0.530 | 5 | 4 |
+| waveIn | 0.335 | 0.345 | 4 | 2 |
+| waveOut | 0.435 | 0.450 | 4 | 1 |
+| open | 0.355 | 0.390 | 7 | 0 |
+| pinch | 0.440 | 0.465 | 6 | 1 |
+
+Active trials misclassified as rest change from 194/1000 to 189/1000; rest trials misclassified as active change from 57/200 to 49/200.
+
+All six native classes have 200 held-out trials. These modest pooled
+recall gains retain substantial missed gestures and can hide individual
+user harms. They do not explain the current hardware user's failures.
+[Class confusions and active/rest rates](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json)
+and [paired class correction/harm table](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.csv)
+are descriptive readouts of immutable predictions; no retraining or default promotion.
 <!-- CURRENT_SCIENTIFIC_ANSWERS_V1_STOP -->
 
 ### Calibration recovery and model-composition limits

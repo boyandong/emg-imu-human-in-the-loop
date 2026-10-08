@@ -75,7 +75,7 @@
   },
   "current_scientific_conclusions": {
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
-    "sha256": "f386909a1c6dbd7e8c732db012c705892ee1289f2b3f53b574b53301cc8c6831"
+    "sha256": "35ae63fb6042d636103817ff0d1e2d1fd765d0f38cd502ff26c4dea6e587b133"
   },
   "current_regression_snapshot": {
     "path": "../CLASSIFIER_REGRESSION_20261008.json",
