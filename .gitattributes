@@ -992,3 +992,8 @@ emgimu_classifier/feature_bank/delivery/new_bank_v3/label_stability_control.csv 
 emgimu_classifier/benchmarks/new_bank_v3/current_scientific_conclusions_v1.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_current_scientific_conclusions_v1.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/render_current_scientific_report_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_current_scientific_report_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/discovery/scripts/grab_primary_topology_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/discovery/GRAB_PRIMARY_TOPOLOGY_V1.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_grab_primary_topology_v1.py -text -eol whitespace=cr-at-eol

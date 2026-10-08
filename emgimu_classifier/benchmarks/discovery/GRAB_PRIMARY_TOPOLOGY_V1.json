@@ -1,0 +1,58 @@
+{
+  "schema": "grab_primary_topology_v1",
+  "dataset": "grabmyo",
+  "doi": "10.1038/s41597-022-01836-y",
+  "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9712490/fullTextXML",
+  "source_format": "JATS XML",
+  "http_status": 200,
+  "source_bytes": 82725,
+  "source_sha256": "0251e25f08716a500b053cbb376813ddae895ded9c60f41b2d27313e6db439d4",
+  "reviewed_section_text_sha256": {
+    "Sec3": "bbb9fb9715592e9f0ae1adac61e6225851edd6e306a35f2e471680ba94fda28e",
+    "Sec4": "980ffbf7ef205d6e9074fb38ae6a08e16c39c87d0ece339959a08cfb5094a514",
+    "Sec5": "7d8d2e6b2afbaf56000918635bd851f8a52c6c9eb05af6d278df8f3b458afcd0",
+    "Sec6": "567a863e4b1e79c82fbb41db3d51d78307c7fafe5f1ca01e489b1b4433126d0c",
+    "Sec8": "8746b98ecf966b9a1f2ea1f9f90a41a31301043f53a508d3f93aad94ca71faa9",
+    "Sec9": "9efb2067c586a88e7f2949f2d3e654eb98d5d0553941bbad529396904b260751",
+    "Sec17": "3f5bdfa36f3e7c7bc01e59cb140386f4f580f0253062d0a1a852ac272d4610d9",
+    "Sec22": "af78eb8027f26f271d6bdd8398c926fea083a5cc0fd9620cbe1ed6b27b9e2bfd"
+  },
+  "reviewed_sections": [
+    "Sec3",
+    "Sec4",
+    "Sec5",
+    "Sec6",
+    "Sec8",
+    "Sec9",
+    "Sec17",
+    "Sec22"
+  ],
+  "figure_visually_reviewed": false,
+  "emg_sample_rate_hz": 2048,
+  "amplifier_gain": 500,
+  "recorded_monopolar_electrodes": 28,
+  "forearm_rings": 2,
+  "forearm_channels_per_ring": 8,
+  "wrist_rings": 2,
+  "wrist_channels_per_ring": 6,
+  "inter_ring_center_distance_cm": 2,
+  "first_electrode_anatomical_anchor": "Each ring starts on the center-line of the elbow crease.",
+  "stored_signal_montage": "Monopolar columns; bipolar pairs may be constructed separately using channel identity.",
+  "paper_preprocessing": {
+    "bandpass_hz": [
+      10,
+      500
+    ],
+    "butterworth_order": 4,
+    "notch_hz": 60
+  },
+  "wfdb_physical_unit": "mV; conversion requires native header scaling",
+  "force_instruction": "Ordinary effort after self-defined soft/medium/hard practice; not a recorded mechanical-force label.",
+  "own_device_layout_verified": false,
+  "clockwise_direction_verified": false,
+  "bipolar_pair_sign_verified": false,
+  "default_promoted": false,
+  "completion_proven": false,
+  "scope": "Selected text sections reviewed from official open full text; figure, supplementary geometry and performance reproduction not completed. Ring-column identity is bound separately by the 672-record native census. Public monopolar rings do not authenticate our device wiring or imply an eight-bipolar-channel match.",
+  "generator_sha256": "76d1e99cfc3a8e969f1eb9fd1564f1f57d25008db1fd35b38ba38fec5552b80d"
+}

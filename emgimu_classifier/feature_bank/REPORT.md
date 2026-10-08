@@ -19,6 +19,11 @@ subjective force codes; the prior v8-only statements that DS2 has no force label
 are historical snapshots. The new [force join](../benchmarks/discovery/DS2_V9_FORCE_LABEL_AUDIT.json)
 and [fixed cross-user screen](../benchmarks/discovery/public_ds2_force_v9/REPORT.md)
 are separate from still-unproven exact historical B0/X1-H/X2 replication.
+The current [GRAB acquisition-text review](../benchmarks/discovery/GRAB_PRIMARY_TOPOLOGY_V1.json)
+confirms monopolar stored columns. Selecting F1–F8 supplies eight signals from
+one forearm ring; separately constructed bipolar pairs are a different montage.
+Neither the channel count nor this public anatomical layout authenticates the
+current device wiring. Native headers retain their physical-unit conversion.
 Predictive evaluations use source OOF or held-out subjects/sessions; descriptive target
 diagnostics are explicitly labelled. Model compositions and calibration rules are frozen
 from source evidence, validation evidence or prespecified controls; final scores do not tune them.
@@ -251,18 +256,65 @@ are 0.5275 -> 0.5381, but minimum axis F1 is 0.4152 -> 0.3875. Quality/force sha
 trials and day/posture share observations. The earlier six-axis vector omitted synthetic
 quality and cannot support a claim that the complete available minimum improved.
 
-### Answers to questions A–H, with remaining uncertainty
+<!-- CURRENT_SCIENTIFIC_ANSWERS_V1_START -->
+### Current answers to questions A–H (independent versioned evidence)
 
-| Question | Current answer | Boundary / remaining requirement |
+These answers replace the earlier global A–H summary. Individual earlier
+experiments below retain their original cohort, method and budget boundaries.
+No new own-device efficacy or complete seven-axis robustness is claimed.
+
+[Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
+Source SHA-256: `da940a46b053d7169bd557d3f7b57fb9163bd880d164c444e6a1bb708c4f2062`.
+
+| Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
-| A: Missing information or poor organization? | Both remain plausible. Feature organization and calibration alter performance substantially; extra dimensions and stronger nuisance deletion can hurt. | No experiment isolates the physical cause of current eight-channel hardware failure. |
-| B: Which families add conditional information? | EPN fixed late-fusion Core receives log-loss gains from spectral/temporal/quality providers, but final F1 gains are inconsistent. Actual concatenated force Core receives spectral final F1 gains with worse log loss; other additions reverse validation gains or reduce minima. | Force Core has 0/1/2-shot controls; Core coverage on other eligible tasks remains incomplete. This is predictive information, not estimated mutual information. |
-| C: Which families are specialists? | Ring helps average wearing/force performance in some compositions; spectral helps some load/force cells; temporal helps the native UniBo shortlist. | The EPN development Ring gain does not survive its independent shortlist final-user ablation: removing Ring improves pooled F1 and log loss. All force Core additions reduce Core's condition minimum. Historical RLCS/CES/Frequency equivalence is unverified. |
-| D: Which need personal calibration? | MANUS session models can recover strongly with a small own-session budget; current EPN anchors can harm performance. Ramp-only force Core anchors recover only a small amount. | No universal anchor benefit or device calibration prescription follows. |
-| E: Does Personal Anchor reduce cross-user variation? | No for the tested EPN branch: all nonzero budgets lower observed mean/minimum F1 and raise standard deviation relative to matched no-anchor controls. | Three final users, descriptive variation; this does not reject every anchor design. |
-| F: Does Session Signature help cross-day/re-donning? | MANUS session profiles measure shifts. Matched current-session prototypes outperform the fixed long/current blend in the tested controls. | Targeted before/after wearing-domain controls now exist: local prototypes improve F1 with worse LL; cosine context weighting has no final F1 gain. Calendar-session, broader cross-day and own-device verification remain open. |
-| G: Does the bank improve R_min? | Not for the complete seven-axis vector. Frozen concatenated force Core improves its own force-condition minimum; adding families can raise average F1 while lowering that minimum. The independent EPN shortlist also lowers its worst-user F1 from .4263 to .3965. | No global robustness recovery; unlike/correlated tasks and synthetic-quality scope remain explicit. |
-| H: How much product calibration is needed? | Offline budgets range from limited Ramp-only recovery to large MANUS own-session recovery; EPN can fail even at five-shot. | Trial duration estimates exclude preparation/transitions. No measured device-level latency, accuracy or calibration duration claim. |
+| A: 缺少新信息，还是已有信息组织不好？ | 已有信息的组织会影响结果：固定因果确认降低跳动，却略降F1，且完整动作保持成功率仍低。当前证据不能判断真实8通道系统的物理信息是否不足。 [ROAM_CAUSAL_WINDOW_V1_RESULTS.json](../benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json), [ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json](../benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json) | 保持指标与样本F1是不同分母；确认规则没有引入新传感器信息。公开三类Myo数据不能代表用户设备或捏合。 |
+| B: 哪些family提供条件增量信息？ | 新版F7在预先冻结的独立EPN人群上，相对于同一Core及均匀软化对照取得预测增益。该证据支持这个固定组合，不等于估计了条件互信息，也不等于所有family都有效。 [results.json](../benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json), [PUBLIC_DEFAULT_EXTENSION_AUDIT.json](../benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_AUDIT.json) | 五shot、固定Core与0.5混合、同一留出试次；不得与不同试次的独立模型分数相减。七个较新公共默认扩展仍未通过各自验证门槛。 |
+| C: 哪些family只在特定条件下有价值？ | 当前收益依赖数据轴、预算与组合。七项新版默认扩展检查没有确立新的通用默认；F8的各预算和阶段结果应逐格报告，不能把局部收益写成全局不变性。 [PUBLIC_DEFAULT_EXTENSION_AUDIT.json](../benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_AUDIT.json), [F8_ROUTER_MANUS_V1_RESULTS.json](../benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json), [F8_CALIBRATED_MANUS_V2_RESULTS.json](../benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json) | 不同数据集、动作本体及已检查阶段不能合并为同一个统计检验；局部混合收益不是直接证明某个新增特征的信息量。 |
+| D: 哪些family只有个人校准后才有明显价值？ | F7和低维Mahalanobis在明确个人校准预算下取得收益，但这里没有同预算、同表示的未校准对照，不能由两种已校准方法的比较推断“只有校准才有效”。 [results.json](../benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json), [MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json) | 独立试次才计为shot；10/20shot低维协方差结论不能推广到被拒绝的高维、小样本设置或零校准部署。 |
+| E: Personal Anchor是否降低跨用户变化？ | 新版EPN低维Mahalanobis相对Euclidean改善均值及最差用户，并降低这组用户的F1标准差。两者都使用个人校准，不能据此宣称相对无Anchor必然降低跨用户变化。 [MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json) | 等用户均值、样本标准差与 pooled F1分开。人群仅32–41，未证明全部用户或当前设备。增加预算仍有个体退步。 |
+| F: Session Signature能帮助跨天或重新佩戴吗？ | MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。 [F8_ROUTER_MANUS_V1_RESULTS.json](../benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json), [F8_CALIBRATED_MANUS_V2_RESULTS.json](../benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json) | 已检查的MANUS会话是描述性证据；TD24不等于Rest拟合F0。物理重贴和本设备会话恢复未验证。 |
+| G: 是否改善最差场景R_min，而不只是均值？ | 低维Mahalanobis改善相同预算下这组EPN最差用户，但增加到20shot仍可能损害最差用户；不能将单轴最差用户指标冒充完整七轴R_min。连续识别的样本F1也不能代替动作保持成功率。 [MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json), [ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json](../benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json) | 跨force/wearing/day/posture及真实质量等所有轴的统一改善尚未证明。 |
+| H: 新用户或新session需要多少校准？ | 该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。 [MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json), [MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json) | 覆盖六类动作；未证明跨力、姿态、重新佩戴或重复session的必要预算，也未证明几秒校准或实机收益。 |
+
+#### Quantitative evidence behind the current answers
+
+The following values retain their native units and denominators; they are
+not interchangeable measures of one global bank or device.
+
+| ROAM cohort (20 recordings each) | Raw / confirmed shared-sample macro-F1 | Successful hold events (raw / confirmed) | Maintenance switches (raw / confirmed) | Unknown samples (raw / confirmed) |
+|---|---:|---:|---:|---:|
+| validation | 0.7867 / 0.7840 | 23/160 / 26/160 | 1007 / 561 | 780 / 980 |
+| descriptive_final | 0.8105 / 0.8061 | 43/160 / 57/160 | 788 / 436 | 780 / 980 |
+
+Both policies use identical saved emissions. F1 uses shared known samples;
+full-record accuracy counts initialization unknown as wrong in the native
+artifact. Label confirmation adds no calibrated probabilities; its log loss,
+Brier and ECE remain unavailable. Cue-grid timing is not hardware latency.
+
+| EPN calibration | Method | Equal-user macro-F1 | Sample SD | Worst-user macro-F1 |
+|---|---|---:|---:|---:|
+| 10 trials/class | euclidean | 0.4936 | 0.1542 | 0.1525 |
+| 10 trials/class | mahalanobis | 0.6247 | 0.0652 | 0.5315 |
+| 20 trials/class | euclidean | 0.4801 | 0.1729 | 0.1389 |
+| 20 trials/class | mahalanobis | 0.6753 | 0.1177 | 0.5026 |
+
+Both methods use personal calibration; this comparison is not a no-anchor
+control. Sample SD uses ten users and nine degrees of freedom. Three users
+lose macro-F1 when Mahalanobis calibration increases from 10 to 20 shots.
+
+| EPN budget | Independent calibration trials | Extracted signal exposure | Full stored recording duration across users | Actual session wall time |
+|---|---:|---:|---:|---|
+| 10/class, six classes | 60 | 48 s | 296.045–298.755 s | N/A |
+| 20/class, six classes | 120 | 96 s | 592.135–597.455 s | N/A |
+
+For the precommitted independent five-shot F7/Core comparison, log loss improves by 0.2236, macro-F1 by 0.0240 and class-mean Brier by 0.0109. The loss gain beyond uniform softening is 0.0982; 7/10 users improve log loss. This is fixed-composition predictive evidence, not a mutual-information estimate.
+
+The current MANUS routing cells and negative default-extension checks are
+retained in the linked machine-readable answers. Native extension-guard loss
+deltas use candidate minus base, while routing loss improvements use base
+minus alternative; their sign conventions are explicitly separate.
+<!-- CURRENT_SCIENTIFIC_ANSWERS_V1_STOP -->
 
 ### Calibration recovery and model-composition limits
 

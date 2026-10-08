@@ -111,6 +111,16 @@ def build(pre: Path, goal: Path) -> dict:
                          "calibrated methods do not establish improvement over an "
                          "uncalibrated baseline or seven-axis R_min.")
         if ident == "PRE-06":
+            evidence += ("|benchmarks/discovery/GRAB_PRIMARY_TOPOLOGY_V1.json"
+                         "|benchmarks/discovery/scripts/grab_primary_topology_v1.py"
+                         "|tests/test_grab_primary_topology_v1.py")
+            boundary += (" Official GRAB JATS acquisition text now establishes28 stored "
+                         "monopolar electrodes in two8-electrode forearm and two6-electrode "
+                         "wrist rings with2cm axial separation,2048Hz and header-based mV "
+                         "scaling. Bipolar pairs are separately constructed; our selected "
+                         "eight single-ring columns do not authenticate an eight-bipolar "
+                         "device match. Direction/sign and figure geometry remain unverified.")
+        if ident == "PRE-06":
             evidence += ("|benchmarks/discovery/GRAB_CHANNEL_CENSUS_V1.json"
                          "|benchmarks/discovery/scripts/grab_channel_census_v1.py"
                          "|tests/test_grab_channel_census_v1.py")
@@ -138,7 +148,9 @@ def build(pre: Path, goal: Path) -> dict:
         if ident == "GOAL-18":
             evidence += ("|feature_bank/CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json"
                          "|benchmarks/new_bank_v3/current_scientific_conclusions_v1.py"
-                         "|tests/test_current_scientific_conclusions_v1.py")
+                         "|tests/test_current_scientific_conclusions_v1.py"
+                         "|benchmarks/new_bank_v3/render_current_scientific_report_v1.py"
+                         "|tests/test_current_scientific_report_v1.py")
             boundary += (" An independently versioned current A-H synthesis now binds "
                          "the newer F7 confirmation, EPN user variation/calibration costs, "
                          "MANUS routing and full-record ROAM stability evidence. Numerical "

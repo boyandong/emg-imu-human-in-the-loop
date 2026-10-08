@@ -69,7 +69,7 @@
   },
   "current_scientific_conclusions": {
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
-    "sha256": "b69b4eb3627421ce69cde3bcb3cbc4a05f63963d255f0d82e5ebccebdfbff05b"
+    "sha256": "da940a46b053d7169bd557d3f7b57fb9163bd880d164c444e6a1bb708c4f2062"
   },
   "completion_proven": false
 }

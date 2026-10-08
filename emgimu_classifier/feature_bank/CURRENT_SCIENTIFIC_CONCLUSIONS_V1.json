@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "29d107f005120a93dcf08471aa0c952687cefb9b657f1550dc4bba35825bb363",
+  "generator_sha256": "d141b26d91ef2191bf25ad4eed38902c272a1b7fadca81b83fd830a72bed47c1",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -11,6 +11,7 @@
     "tests/test_roam_debounce_control_v1_delivery.py",
     "tests/test_f7_affine_fresh_delivery.py",
     "tests/test_current_scientific_conclusions_v1.py",
+    "tests/test_current_scientific_report_v1.py",
     "tests/test_epn_holdout_user_robustness_v2.py",
     "tests/test_mahalanobis_epn_holdout_v2.py",
     "tests/test_f8_calibrated_manus_v2_delivery.py"
@@ -25,11 +26,12 @@
     "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json": "9b2b7ed27a0747b31a129f229d5ff933d06cf4108485fa60f1f496758907a894",
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
-    "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "b51b64c6a7b9bb10b65e4df7bf8e51df3a49ab702ac13037a0b23190bd468e06",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
     "tests/test_current_scientific_conclusions_v1.py": "10831c9c0315b99011328ebd5e3e6a4e81a8f4cbd79e0fabc3a06c8656b016a5",
+    "tests/test_current_scientific_report_v1.py": "73556488bebb6fe676b591288e6524af456afa245e0d5bad96fa065d722ac8e2",
     "tests/test_epn_holdout_user_robustness_v2.py": "797631cfe13ddb072dc95aaeb95d4b5aa7d7e40da4a15a82de34022f94f3e350",
     "tests/test_mahalanobis_epn_holdout_v2.py": "97c6ffe8c656fb22399eb148f48566bd7b1ddbd4e0cfe5ba52ccac7ab383cc4c",
     "tests/test_f8_calibrated_manus_v2_delivery.py": "f31ae29f787e37f3d176338660a6956967c3b90a8b4e5f3220ace3401a3073fe"
@@ -914,7 +916,7 @@
       ]
     }
   ],
-  "interpretation_scope": "Current independent versioned evidence, not resurrection of unavailable historical experiments. Prior REPORT conclusions are historical snapshots; these answers distinguish evidence changes and present limits.",
+  "interpretation_scope": "Current independent versioned evidence, not resurrection of unavailable historical experiments. REPORT renders these current A-H answers; earlier experiment-specific sections remain scoped historical evidence, not a different current global conclusion.",
   "nominal_continuous_samples": 393776,
   "default_promoted": false,
   "own_device_efficacy_proven": false,

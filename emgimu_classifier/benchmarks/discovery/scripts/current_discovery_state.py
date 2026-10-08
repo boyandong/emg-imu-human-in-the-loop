@@ -18,7 +18,8 @@ def build():
              'scripts/current_discovery_state.py', 'SECONDARY_LICENSE_METADATA_V1.json',
              'scripts/fetch_secondary_license_metadata.py', 'SECONDARY_PAPER_REVIEW_V1.json',
              'GRAB_CHANNEL_CENSUS_V1.json', 'scripts/grab_channel_census_v1.py',
-             'SECONDARY_PRIMARY_REVIEW_V1.json']
+             'SECONDARY_PRIMARY_REVIEW_V1.json', 'GRAB_PRIMARY_TOPOLOGY_V1.json',
+             'scripts/grab_primary_topology_v1.py']
     old = json.loads((HERE / paths[0]).read_text(encoding='utf8'))
     labels = json.loads((HERE / paths[2]).read_text(encoding='utf8'))
     result = json.loads((HERE / paths[4]).read_text(encoding='utf8'))
@@ -47,7 +48,7 @@ def build():
             len(active) != result['eligible_active_trials']):
         raise ValueError('DS2 current cohort counts disagree')
     datasets = [dict(dataset) for dataset in old['datasets']]
-    review = json.loads((HERE / paths[-1]).read_text(encoding='utf8'))
+    review = json.loads((HERE / 'SECONDARY_PRIMARY_REVIEW_V1.json').read_text(encoding='utf8'))
     reviewed = {entry['id']: entry for entry in review['datasets']}
     if len(reviewed) != len(review['datasets']):
         raise ValueError('Duplicate secondary dataset review')

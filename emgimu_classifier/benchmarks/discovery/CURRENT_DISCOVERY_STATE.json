@@ -8,13 +8,15 @@
     "DS2_V9_FORCE_TRIAL_JOIN.csv": "bdfcb4dd250fb90b713d1dd835f91304d685d751b0d081ba0c48622484d272b7",
     "public_ds2_force_v9/RESULTS.json": "86d7d79c3a63d3b01d64d1425859c27d0aebd3915a5c277921e637702bec2541",
     "public_ds2_force_v9/TRIAL_PREDICTIONS.csv": "8b2f35d7b91f5b65e5f874ed4a59e959c2047d4ea63ce33a6873a3a6777a5dc3",
-    "scripts/current_discovery_state.py": "574327741fce7b5683becb3f8f634f60b8c072f3969f0a02d7941aa0998a2af7",
+    "scripts/current_discovery_state.py": "dc6e3efa9bd1ce7036b79ca792a494c1985ca8346476d1a9891dfb360be32e1c",
     "SECONDARY_LICENSE_METADATA_V1.json": "50bcb5e340bc69ea2fda2cb9f457cb59d1dc27ed3d718700ee2aa20f3297801d",
     "scripts/fetch_secondary_license_metadata.py": "1ffd848656457092a980784d3a722475a580765d98e4d5d07f4d257d20abe11c",
-    "SECONDARY_PAPER_REVIEW_V1.json": "e6b9ff2dc20caffa1195be31235a3ad48829ce50b830a0afab7df17815d8f567",
+    "SECONDARY_PAPER_REVIEW_V1.json": "c75f56a6a48397e9e983cb5bf905081814d40677fb10a52e8f3eae457ad1ab0c",
     "GRAB_CHANNEL_CENSUS_V1.json": "521b16cd3e1f006167ac6bd91e4b82c9607a3bd10026be48522dad81b08a7641",
     "scripts/grab_channel_census_v1.py": "ecfe53aea73ae1bf2b519ee40d4e3b38f33340a85faa368bafa93f437e61c8d5",
-    "SECONDARY_PRIMARY_REVIEW_V1.json": "d37bf2082ff1820e3ae157d18613c25d826ebdd9f4eca2b13218e01aacf59221"
+    "SECONDARY_PRIMARY_REVIEW_V1.json": "91b9aaaed40126779029a758043cb1d648c579db807123a6579b2514da0206f7",
+    "GRAB_PRIMARY_TOPOLOGY_V1.json": "ad5db2d68546ffb26a8b207714861074b0e085181d7696a79c7bca7947848e89",
+    "scripts/grab_primary_topology_v1.py": "76d1e99cfc3a8e969f1eb9fd1564f1f57d25008db1fd35b38ba38fec5552b80d"
   },
   "datasets": [
     {
@@ -202,7 +204,7 @@
         ],
         "publisher_version": "1.1.0",
         "paper": "Pradhan, He and Jiang, Multi-day dataset of forearm and wrist electromyogram for hand gesture recognition and biometrics, Scientific Data 9, 733 (2022).",
-        "paper_review": "Publisher-linked citation; paper retrieval failed this review.",
+        "paper_review": "Official Europe PMC JATS full text retrieved; acquisition, protocol, preprocessing, waveform and usage sections reviewed. See GRAB_PRIMARY_TOPOLOGY_V1.json; no figure or performance reproduction claim.",
         "license_verified": "CC-BY-4.0",
         "subjects": 43,
         "days": 3,
@@ -212,11 +214,13 @@
         "six_axis_imu_verified": false,
         "physical_eight_channel_layout_verified": false,
         "limitations": [
-          "Public stored-column identity does not authenticate our device wiring, arm or direction.",
-          "Full paper retrieval remains unavailable; this is official repository metadata plus native subset evidence."
+          "Public stored-column identity does not authenticate our device wiring, arm, direction or bipolar subtraction sign.",
+          "Figure and supplementary geometry are not visually reviewed; selected text sections do not reproduce paper performance."
         ],
         "native_channel_audit": "GRAB_CHANNEL_CENSUS_V1.json",
-        "stored_column_mapping_verified": true
+        "stored_column_mapping_verified": true,
+        "paper_topology_artifact": "GRAB_PRIMARY_TOPOLOGY_V1.json",
+        "stored_signal_montage": "Monopolar columns; bipolar pairs can be constructed separately. Current F1-F8 selection retains eight single-ring monopolar signals."
       }
     },
     {

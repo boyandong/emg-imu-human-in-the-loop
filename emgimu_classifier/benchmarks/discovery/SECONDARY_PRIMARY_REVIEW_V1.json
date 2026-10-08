@@ -13,7 +13,7 @@
       ],
       "publisher_version": "1.1.0",
       "paper": "Pradhan, He and Jiang, Multi-day dataset of forearm and wrist electromyogram for hand gesture recognition and biometrics, Scientific Data 9, 733 (2022).",
-      "paper_review": "Publisher-linked citation; paper retrieval failed this review.",
+      "paper_review": "Official Europe PMC JATS full text retrieved; acquisition, protocol, preprocessing, waveform and usage sections reviewed. See GRAB_PRIMARY_TOPOLOGY_V1.json; no figure or performance reproduction claim.",
       "license_verified": "CC-BY-4.0",
       "subjects": 43,
       "days": 3,
@@ -23,11 +23,13 @@
       "six_axis_imu_verified": false,
       "physical_eight_channel_layout_verified": false,
       "limitations": [
-        "Public stored-column identity does not authenticate our device wiring, arm or direction.",
-        "Full paper retrieval remains unavailable; this is official repository metadata plus native subset evidence."
+        "Public stored-column identity does not authenticate our device wiring, arm, direction or bipolar subtraction sign.",
+        "Figure and supplementary geometry are not visually reviewed; selected text sections do not reproduce paper performance."
       ],
       "native_channel_audit": "GRAB_CHANNEL_CENSUS_V1.json",
-      "stored_column_mapping_verified": true
+      "stored_column_mapping_verified": true,
+      "paper_topology_artifact": "GRAB_PRIMARY_TOPOLOGY_V1.json",
+      "stored_signal_montage": "Monopolar columns; bipolar pairs can be constructed separately. Current F1-F8 selection retains eight single-ring monopolar signals."
     },
     {
       "id": "hyser",

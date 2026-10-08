@@ -90,6 +90,33 @@
         "Future-sample lookahead is additional to compute, filtering and device delays.",
         "Paper and code licenses do not establish hosted mixed-data archive terms."
       ]
+    },
+    {
+      "dataset": "grabmyo",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9712490/fullTextXML",
+      "doi": "10.1038/s41597-022-01836-y",
+      "source_format": "JATS XML",
+      "http_status": 200,
+      "source_bytes": 82725,
+      "source_sha256": "0251e25f08716a500b053cbb376813ddae895ded9c60f41b2d27313e6db439d4",
+      "reviewed_sections": [
+        "Sec3",
+        "Sec4",
+        "Sec5",
+        "Sec6",
+        "Sec8",
+        "Sec9",
+        "Sec17",
+        "Sec22"
+      ],
+      "reviewed_figure": false,
+      "topology_artifact": "GRAB_PRIMARY_TOPOLOGY_V1.json",
+      "stored_signal_montage": "Monopolar columns; bipolar pairs may be constructed separately using channel identity.",
+      "limitations": [
+        "Selected text sections reviewed; figure, supplementary geometry and classification reproduction not completed.",
+        "Stored monopolar ring columns are not equivalent to our unverified eight bipolar channels.",
+        "Our physical direction, wiring and bipolar subtraction sign remain unverified."
+      ]
     }
   ],
   "completion_proven": false,
