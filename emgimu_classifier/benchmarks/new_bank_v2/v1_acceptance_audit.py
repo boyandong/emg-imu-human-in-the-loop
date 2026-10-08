@@ -74,7 +74,7 @@ def build(pre: Path, goal: Path) -> dict:
                          "|feature_bank/delivery/new_bank_v3/MANIFEST.json"
                          "|benchmarks/new_bank_v3/export_current_delivery.py"
                          "|tests/test_current_v3_delivery.py")
-            boundary += (" Current V3 adds 1,338 hash-bound table rows with an additive "
+            boundary += (" Current V3 adds 1,490 hash-bound table rows with an additive "
                          "version index; paired alternatives are explicitly distinguished "
                          "from added-feature increments, DTW probability metrics are N/A, "
                          "and 130 insufficient independent-trial budgets remain ineligible. "
@@ -85,6 +85,14 @@ def build(pre: Path, goal: Path) -> dict:
                          "denominators; per-class precision/recall/F1 carry explicit support "
                          "and undefined/absent-ground-truth values rather than fake zeros.")
         if ident in ("GOAL-03", "GOAL-20"):
+            evidence += ("|benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json"
+                         "|tests/test_mahalanobis_epn_holdout_v2.py")
+            boundary += (" A precommitted EPN users32-41 confirmation fixes eight-coordinate "
+                         "10/20-trial calibration before target loading. Macro-F1 improves "
+                         "from .5129/.5115 to .6329/.6836 and loss improves for all ten users "
+                         "at both budgets. This does not prove all historical access events, "
+                         "few-second calibration burden or own-device efficacy.")
             evidence += ("|feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json"
                          "|src/emgimu/feature_bank/body_frame_v2.py"
                          "|src/emgimu/feature_bank/electrode_layout_v1.py"

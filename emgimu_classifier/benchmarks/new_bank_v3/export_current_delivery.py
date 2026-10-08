@@ -126,6 +126,26 @@ def export():
                           'fixed_evaluation_trials_across_budgets', arms, y, 6,
                           {'classes': 6, 'ontology': 'EPN612 native six classes', 'dimension': group[0]['dimension'],
                            'scope': md['scope'], 'independent_trial_guard': True})
+    name = 'MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json'; holdout = read(name); source = (HERE/name).relative_to(ROOT).as_posix()
+    for block in holdout['blocks']:
+        eligibility.append({'dataset': 'EPN612', 'subject': block['user'], 'feature_family': 'pattern',
+                            'shots_per_class': block['shots'], 'dimension': 8,
+                            'required_independent_trials': 10, 'eligible': True, 'reason': 'eligible',
+                            'source_artifact': source, 'source_sha256': sources[source]})
+    for shots in (10, 20):
+        selected = [b for b in holdout['blocks'] if b['shots'] == shots]
+        for user in ['ALL'] + sorted({b['user'] for b in selected}):
+            group = selected if user == 'ALL' else [b for b in selected if b['user'] == user]
+            y = np.concatenate([b['labels'] for b in group]); arms = {}
+            for arm in ('euclidean', 'mahalanobis'):
+                p = np.concatenate([b['probabilities'][arm] for b in group])
+                arms['pattern_' + arm] = (p.argmax(axis=1), p)
+            add_group('mahalanobis_epn_holdout_v2', source, 'EPN612', user, 'precommitted_users32_41', shots,
+                      'fixed_evaluation_trials_across_budgets', arms, y, 6,
+                      {'classes': 6, 'ontology': 'EPN612 native six classes', 'dimension': 8,
+                       'scope': holdout['scope'], 'independent_trial_guard': True,
+                       'native_score_brier_normalization': 'mean across trials and classes',
+                       'canonical_export_brier_normalization': 'mean across trials of class sum'})
     name = 'DETECTED_G5_UNIBO_V1_RESULTS.json'; g5 = read(name); source = (HERE/name).relative_to(ROOT).as_posix()
     supported = [e for e in g5['events'] if e['reference_label'] is not None]
     for boundary in ('detected', 'matched_oracle'):

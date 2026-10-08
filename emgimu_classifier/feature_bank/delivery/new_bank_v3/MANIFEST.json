@@ -1,10 +1,11 @@
 {
   "schema": "current_v3_canonical_delivery_v1",
-  "generator_sha256": "d53fcedb53fea061da899e8f68ae11b10fc9844dbf6c0f147e865fee69c19d20",
+  "generator_sha256": "8c0d283f9d995502b7e5807b50cd8d3455bb6be5ae68e1c2969441338cba2d1e",
   "source_sha256": {
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
     "benchmarks/new_bank_v3/MAHALANOBIS_EPN_BUDGET_V1_RESULTS.json": "0f58780fc3023df1ff39fdaca1d918b5120d34839a7d416de32c8028053ce44d",
+    "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json": "a423f944b65c5d9d494ab3b85dc5cd6df528ac07968d35d5445ea060d6d4999e",
     "benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_RESULTS.json": "3ecf34f3713f473045d1778fea63a910ac8f1fa71b692983c8dcc90970048a69",
     "benchmarks/new_bank_v3/AUTONOMOUS_UNIBO_V1_RESULTS.json": "5799c215e7d3379054996847d95fd92e075f0422cfec866343c24a6171ba0400",
     "benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_RESULTS.json": "8af20ead1bdbbd8782d2ca1483f9ea8e9f4874a555ff267b0b60203d93b8ed2e"
@@ -18,24 +19,24 @@
   },
   "tables": {
     "feature_family_results.csv": {
-      "rows": 387,
-      "sha256": "b96c46ef1501211f264ed27d2ceea408505b5bc8f5a2bab3c3bf6633c14acccb"
+      "rows": 431,
+      "sha256": "0dd04d2aaf9e751a46373f7546f81bcc9f3fc5dd10eed8353a151a7773256032"
     },
     "conditional_incremental.csv": {
-      "rows": 206,
-      "sha256": "5e0299ef51c87040b71a26ce869bf5663ccf257b18aa6b9200dcae5cf8caa186"
+      "rows": 228,
+      "sha256": "a7fcd0b4cf98b65b1de6f74eb65f6aa4db0159be79d7215ddb86a95e5f2c4291"
     },
     "error_complementarity.csv": {
-      "rows": 206,
-      "sha256": "f2943573728423a302d5243f95dc6e4b72fd40f0d5c7b80daaa62352682519c5"
+      "rows": 228,
+      "sha256": "f2471bee396bcc30bca234f4373ee06870faba1903613fc1e0ceba2cd2a11155"
     },
     "calibration_curve.csv": {
-      "rows": 387,
-      "sha256": "4cdfa98935795397d2749a7276c68d198dcd72cf6e1d35ea5887e615e4df9af9"
+      "rows": 431,
+      "sha256": "c50ed1efd6b9c056e85f68f303f11104b947d1df11fa66f7311b3472345bc1b6"
     },
     "budget_eligibility.csv": {
-      "rows": 150,
-      "sha256": "0b55f307f2537a70d05815f2dead07722b3df4924c07d8335c4871d27eda2e66"
+      "rows": 170,
+      "sha256": "a309ac9a8937da4d6ed8531853e2460007e61840e9bf06afe4f4ae09bcd024e4"
     },
     "boundary_detection.csv": {
       "rows": 2,

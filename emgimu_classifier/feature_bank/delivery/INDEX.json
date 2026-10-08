@@ -55,6 +55,7 @@
     "benchmarks/new_bank_v3/F8_DOCUMENT_MANUS_RESULTS.json": "fe3d332cae98cdf9c94c7eeaa6dbe34e9cb1b485249e3fbaa8352f175e23ce58",
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/MAHALANOBIS_EPN_BUDGET_V1_RESULTS.json": "0f58780fc3023df1ff39fdaca1d918b5120d34839a7d416de32c8028053ce44d",
+    "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json": "a423f944b65c5d9d494ab3b85dc5cd6df528ac07968d35d5445ea060d6d4999e",
     "benchmarks/new_bank_v3/SPEC_F2C_GRAB_RESULTS.json": "8d2058a17e63b66e2bbe3ffedc97656d5a20e64a30499dc329efca5120e745bb",
     "benchmarks/new_bank_v3/SPEC_F2C_TRANSFER_RESULTS.json": "fd680129ec69aee4e9f21744a134e14f245d00557ed27f71bb6b781098c7aed6",
     "benchmarks/new_bank_v3/SPEC_F2C_WEARING_RESULTS.json": "a3a6fb7e19abf9c3a709c27625a45f03346b9f664cac04126c9ac65d9968b3e4",
