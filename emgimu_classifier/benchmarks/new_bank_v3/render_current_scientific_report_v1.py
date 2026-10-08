@@ -172,6 +172,31 @@ def render(data, source_sha):
                         'retain all results. No target-selected subset or default promotion occurs.',
                         'These six EMG window providers do not validate the complete F0–F9 bank,',
                         'anatomical F6, personal F7, session F8, physical F9 or current hardware.']
+    variation_lines += ['', '#### Target calibration burden: extracted signal versus stored recording time', '',
+                        'Native archive accounting binds 600 reserved trial durations and 690',
+                        'method-specific cost rows for the two experiments above. Every source-',
+                        'only classifier and uniform control uses zero target calibration trials,',
+                        'even in a paired nonzero-shot scenario. All candidate calibration trials',
+                        'remain excluded from evaluation; reservation is not calibration usage.', '',
+                        '| Experiment | Shots/class | Used native trials/user | Used signal seconds/user | Complete stored recording seconds/user | Physical elapsed session time |',
+                        '|---|---:|---:|---:|---|---|']
+    for c in data['emg_native_calibration_cost']:
+        if c['feature_bank'] not in ('F0_F7','reliability_bank') or c['shots_per_class']==0:continue
+        variation_lines.append(f"| {c['run_id']} | {c['shots_per_class']} | {c['actual_calibration_trials_per_user']} | {c['used_signal_seconds_mean_per_user']:g} | {c['full_recording_seconds_min_per_user']:.3f}–{c['full_recording_seconds_max_per_user']:.3f} | N/A |")
+    variation_lines += ['', 'Five-shot means 30 distinct native trials across all six gestures. The',
+                        'classifiers use 24 seconds of extracted windows, while complete stored',
+                        'EMG records sum to about148–150 seconds. This does not establish a',
+                        '24-second physical onboarding protocol. Hardware setup, prompts, rest',
+                        'and wall time are unmeasured. These datasets do not establish whether',
+                        'the calibration must repeat each session or cover controlled target',
+                        'force/posture; those product requirements remain N/A.', '',
+                        '![Separate-cohort calibration benefit and burden](../benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.png)', '',
+                        '[Native cost ledger](../benchmarks/new_bank_v3/EMG_CALIBRATION_BURDEN_V1.json)',
+                        'and [figure data and vector export](../benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.json)',
+                        'retain the distinction between extracted exposure, stored recordings',
+                        'and unknown physical time. Zero-shot F7 is unavailable. Curves are',
+                        'separate by cohort; neither longer calibration nor a few-second physical',
+                        'calibration guarantee follows from these mixed outcomes.']
     lines[-1:-1] = variation_lines
     return '\n'.join(lines)
 

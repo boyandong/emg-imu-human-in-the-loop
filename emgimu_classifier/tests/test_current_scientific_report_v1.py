@@ -36,6 +36,9 @@ def test_required_report_current_answers_numerical_boundaries_and_local_links():
     assert '| 5 | reliability_bank | 30 | 0.5178 | 1.4720 |' in section
     assert '| 5 | F0 | 0 | 0.4969 | 1.3616 |' in section
     assert 'versus uniform. Positive means improvement; both loss changes are negative.' in section
+    assert '| EMG_F0_F7_BANK_V1 | 5 | 30 | 24 | 147.900–149.720 | N/A |' in section
+    assert '| EMG_CALIBRATED_FUSION_V1 | 5 | 30 | 24 | 149.155–149.530 | N/A |' in section
+    assert '24-second physical onboarding protocol' in section
 
 
 def test_report_renderer_escapes_table_text_and_rejects_incomplete_question_sets():

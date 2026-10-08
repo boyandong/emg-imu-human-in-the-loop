@@ -72,7 +72,7 @@ def test_delivery_sources_schemas_and_unavailable_results():
         assert sha(ROOT/path) == digest
     expected = {'feature_family_results.csv': 1333, 'conditional_incremental.csv': 2340,
                 'error_complementarity.csv': 2340, 'calibration_curve.csv': 1333, 'ablation_full_bank.csv':396,
-                'budget_eligibility.csv': 170, 'boundary_detection.csv': 2, 'calibration_burden.csv': 20, 'continuous_recognition.csv':40, 'transition_hold.csv':40, 'label_stability_control.csv':80}
+                'budget_eligibility.csv': 170, 'boundary_detection.csv': 2, 'calibration_burden.csv': 710, 'continuous_recognition.csv':40, 'transition_hold.csv':40, 'label_stability_control.csv':80}
     for name, count in expected.items():
         table = rows(name)
         assert len(table) == manifest['tables'][name]['rows'] == count
@@ -176,7 +176,7 @@ def test_error_probabilities_denominators_and_class_confusion_metrics():
 def test_holdout_burden_and_brier_definition_match_native_evidence():
     artifact = ROOT/'benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json'
     native = json.loads(artifact.read_text())
-    table = rows('calibration_burden.csv')
+    table = [r for r in rows('calibration_burden.csv') if r['run_id']=='MAHALANOBIS_EPN_HOLDOUT_V2']
     assert len(table) == len(native['records']) == 20
     for row, record in zip(table, native['records']):
         assert all(row[key] == str(value) for key, value in record.items())

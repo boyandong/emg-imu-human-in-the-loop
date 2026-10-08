@@ -269,8 +269,15 @@ def export():
     burden_name = 'MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json'
     burden = read(burden_name)
     burden_source = (HERE/burden_name).relative_to(ROOT).as_posix()
-    burden_rows = [{**row, 'source_artifact': burden_source, 'source_sha256': sources[burden_source]}
+    burden_rows = [{**row, 'run_id':'MAHALANOBIS_EPN_HOLDOUT_V2',
+                    'feature_bank':'euclidean_and_mahalanobis_shared_calibration',
+                    'source_artifact': burden_source, 'source_sha256': sources[burden_source]}
                    for row in burden['records']]
+    current_burden_name='EMG_CALIBRATION_BURDEN_V1.json';current_burden=read(current_burden_name)
+    current_burden_source=(HERE/current_burden_name).relative_to(ROOT).as_posix()
+    burden_rows += [{**row,'source_artifact':current_burden_source,'source_sha256':sources[current_burden_source]} for row in current_burden['records']]
+    burden_fields=list(dict.fromkeys(key for row in burden_rows for key in row))
+    burden_rows=[{field:row.get(field,'N/A') for field in burden_fields} for row in burden_rows]
     continuous_name = 'ROAM_CAUSAL_WINDOW_V1_RESULTS.json'
     continuous = read(continuous_name)
     continuous_source = (HERE/continuous_name).relative_to(ROOT).as_posix()

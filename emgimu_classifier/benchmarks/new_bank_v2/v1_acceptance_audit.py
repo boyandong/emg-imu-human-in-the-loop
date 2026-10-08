@@ -210,6 +210,24 @@ def build(pre: Path, goal: Path) -> dict:
                          "but loss worsens by.11041 versus F0 and.00370 versus uniform; "
                          "0/10 user loss wins. Only weights adapt; no personal prototype "
                          "or normalization adaptation, complete F0-F9 or hardware claim.")
+        if ident in ("GOAL-12", "GOAL-14", "GOAL-18"):
+            evidence += ("|benchmarks/new_bank_v3/EMG_CALIBRATION_BURDEN_V1.json"
+                         "|benchmarks/new_bank_v3/EMG_CALIBRATION_BURDEN_V1.csv"
+                         "|benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.json"
+                         "|benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.png"
+                         "|tests/test_emg_calibration_burden_v1.py"
+                         "|tests/test_emg_calibration_cost_curve_v1.py")
+            boundary += (" Method-specific native cost accounting now binds690 "
+                         "rows and600 reserved trial durations for EPN42-51 F0/F7 "
+                         "and62-71 calibrated fusion.0/1/2/5-shot costs distinguish "
+                         "used trials/windows from reserved and complete stored EMG "
+                         "durations. Source-only controls use0 target calibration trials. "
+                         "Five-shot uses30 trials and24 seconds extracted signal, "
+                         "but147.9-149.72 seconds complete stored recordings. "
+                         "Product setup/rest/wall time and per-session/controlled "
+                         "force/posture requirements remain unmeasured or N/A. "
+                         "Separate-cohort exported plots do not imply monotone benefit "
+                         "or few-second physical onboarding.")
         if ident == "GOAL-02":
             evidence += ("|feature_bank/OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json"
                          "|feature_bank/CLASSIFIER_REGRESSION_20261008.json"
@@ -224,7 +242,7 @@ def build(pre: Path, goal: Path) -> dict:
                          "|feature_bank/delivery/new_bank_v3/MANIFEST.json"
                          "|benchmarks/new_bank_v3/export_current_delivery.py"
                          "|tests/test_current_v3_delivery.py")
-            boundary += (" Current V3 adds 8,094 hash-bound table rows with an additive "
+            boundary += (" Current V3 adds 8,784 hash-bound table rows with an additive "
                          "version index; paired alternatives are explicitly distinguished "
                          "from added-feature increments, DTW probability metrics are N/A, "
                          "and 130 insufficient independent-trial budgets remain ineligible. "

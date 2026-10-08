@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `ba9810a680342a15cecc8b4422d247cb374164a5fd8dcb18411916c1271ef95c`.
+Source SHA-256: `365b2c813c6f247e61e8d6d0cee5ff287e3ccffb2b9984e077dbd2e554aa3b92`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -472,6 +472,40 @@ and [frozen-weight provider removals](delivery/new_bank_v3/ablation_full_bank.cs
 retain all results. No target-selected subset or default promotion occurs.
 These six EMG window providers do not validate the complete F0–F9 bank,
 anatomical F6, personal F7, session F8, physical F9 or current hardware.
+
+#### Target calibration burden: extracted signal versus stored recording time
+
+Native archive accounting binds 600 reserved trial durations and 690
+method-specific cost rows for the two experiments above. Every source-
+only classifier and uniform control uses zero target calibration trials,
+even in a paired nonzero-shot scenario. All candidate calibration trials
+remain excluded from evaluation; reservation is not calibration usage.
+
+| Experiment | Shots/class | Used native trials/user | Used signal seconds/user | Complete stored recording seconds/user | Physical elapsed session time |
+|---|---:|---:|---:|---|---|
+| EMG_F0_F7_BANK_V1 | 1 | 6 | 4.8 | 29.700–29.915 | N/A |
+| EMG_F0_F7_BANK_V1 | 2 | 12 | 9.6 | 59.560–59.800 | N/A |
+| EMG_F0_F7_BANK_V1 | 5 | 30 | 24 | 147.900–149.720 | N/A |
+| EMG_CALIBRATED_FUSION_V1 | 1 | 6 | 4.8 | 29.765–30.010 | N/A |
+| EMG_CALIBRATED_FUSION_V1 | 2 | 12 | 9.6 | 59.620–59.820 | N/A |
+| EMG_CALIBRATED_FUSION_V1 | 5 | 30 | 24 | 149.155–149.530 | N/A |
+
+Five-shot means 30 distinct native trials across all six gestures. The
+classifiers use 24 seconds of extracted windows, while complete stored
+EMG records sum to about148–150 seconds. This does not establish a
+24-second physical onboarding protocol. Hardware setup, prompts, rest
+and wall time are unmeasured. These datasets do not establish whether
+the calibration must repeat each session or cover controlled target
+force/posture; those product requirements remain N/A.
+
+![Separate-cohort calibration benefit and burden](../benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.png)
+
+[Native cost ledger](../benchmarks/new_bank_v3/EMG_CALIBRATION_BURDEN_V1.json)
+and [figure data and vector export](../benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.json)
+retain the distinction between extracted exposure, stored recordings
+and unknown physical time. Zero-shot F7 is unavailable. Curves are
+separate by cohort; neither longer calibration nor a few-second physical
+calibration guarantee follows from these mixed outcomes.
 <!-- CURRENT_SCIENTIFIC_ANSWERS_V1_STOP -->
 
 ### Calibration recovery and model-composition limits

@@ -1,6 +1,6 @@
 {
   "schema": "current_v3_canonical_delivery_v1",
-  "generator_sha256": "4eb8835ad637205761d537e1bf80d734a3321e4e9261eb0184e608d652e72c46",
+  "generator_sha256": "dd655e014956c6e060c271a72782802d1a3e2f2d204f6c05b7e2b03346362bba",
   "source_sha256": {
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
@@ -13,6 +13,7 @@
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json": "0d38aad3bfef51ee962d8cc3ec5cbf2f5b4c96cd483c0b572b69a26661df12b1",
     "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json": "9b2b7ed27a0747b31a129f229d5ff933d06cf4108485fa60f1f496758907a894",
+    "benchmarks/new_bank_v3/EMG_CALIBRATION_BURDEN_V1.json": "beba067d8cfff25ce2f8a752203f2be1cd293bbe648ba6948e47b952a4076974",
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_EMISSIONS.csv": "5c2d27f63f09767abf5258c031ff25d169841da3efe42eac8ebf8352acae8f81",
     "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json": "9964583ef8211b09fa5e594a3aa8e46825d65418afd50c69a99939f62a7eea0a"
@@ -62,8 +63,8 @@
       "sha256": "162ae7027c0b5410faabf9fc831a1f407ce305b31c105efa2b8bd5107c4d81f1"
     },
     "calibration_burden.csv": {
-      "rows": 20,
-      "sha256": "7c2213694607920d5ebf6f0e9103e8dff5d99d9939036cd1fd9acd62934d8fb0"
+      "rows": 710,
+      "sha256": "2043705f0161847b349a98dc037125afb310e44a8a70593ae8c1aa37f8be7af8"
     },
     "budget_eligibility.csv": {
       "rows": 170,
