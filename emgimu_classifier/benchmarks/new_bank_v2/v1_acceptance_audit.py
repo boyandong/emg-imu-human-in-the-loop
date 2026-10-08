@@ -158,6 +158,19 @@ def build(pre: Path, goal: Path) -> dict:
                          "conventions are explicit. Improved calibrated-method comparisons "
                          "do not prove improvement versus no anchor or only-after-calibration "
                          "benefit, and single-axis minima are not full seven-axis R_min.")
+        if ident in ("GOAL-03", "GOAL-12", "GOAL-18", "GOAL-20"):
+            evidence += ("|benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_PROTOCOL.json"
+                         "|benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json"
+                         "|benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_PREDICTIONS.csv"
+                         "|tests/test_emg_f0_f7_bank_v1.py"
+                         "|tests/test_emg_f0_f7_bank_v1_delivery.py")
+            boundary += (" A precommitted EMG-only F0/F7 two-provider bank tests1200 "
+                         "fixed held-out trials of EPN42-51 with nested0/1/2/5 budgets "
+                         "and both provider removals. Five-shot F1 .4633 to.4836 and "
+                         "loss improves by.06383 (.09246 beyond uniform), but only6/10 "
+                         "users win loss, failing the7/10 primary guard. No IMU features "
+                         "or default promotion; not a replacement for document-wide "
+                         "full-bank/LOFO, strict F6 or actual device efficacy.")
         if ident == "GOAL-02":
             evidence += ("|feature_bank/OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json"
                          "|feature_bank/CLASSIFIER_REGRESSION_20261008.json"
@@ -172,7 +185,7 @@ def build(pre: Path, goal: Path) -> dict:
                          "|feature_bank/delivery/new_bank_v3/MANIFEST.json"
                          "|benchmarks/new_bank_v3/export_current_delivery.py"
                          "|tests/test_current_v3_delivery.py")
-            boundary += (" Current V3 adds 1,670 hash-bound table rows with an additive "
+            boundary += (" Current V3 adds 2,418 hash-bound table rows with an additive "
                          "version index; paired alternatives are explicitly distinguished "
                          "from added-feature increments, DTW probability metrics are N/A, "
                          "and 130 insufficient independent-trial budgets remain ineligible. "

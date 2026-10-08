@@ -52,10 +52,10 @@ def write(name, rows, fields):
 def export():
     OUT.mkdir(parents=True, exist_ok=True)
     sources = {}
-    family = []; incremental = []; errors = []; curve = []; eligibility = []; boundaries = []
+    family = []; incremental = []; errors = []; curve = []; eligibility = []; boundaries = []; ablations = []
     def read(name):
         path = HERE/name; sources[path.relative_to(ROOT).as_posix()] = sha(path)
-        value = json.loads(path.read_text())
+        value = json.loads(path.read_text(encoding='utf8'))
         if value.get('default_promoted', False):
             raise AssertionError('Exporter does not authorize default promotion')
         return value
@@ -170,6 +170,41 @@ def export():
                            'onset_mae_s': t['onset_mae_s'] if t['onset_mae_s'] is not None else 'N/A',
                            'offset_mae_s': t['offset_mae_s'] if t['offset_mae_s'] is not None else 'N/A',
                            'source_artifact': path, 'source_sha256': sources[path], 'scope': result.get('scope', '')})
+    bank_name = 'EMG_F0_F7_BANK_V1_RESULTS.json'; bank = read(bank_name)
+    bank_source = (HERE/bank_name).relative_to(ROOT).as_posix()
+    for shots in (0,1,2,5):
+        for user in ['ALL']+[b['user'] for b in bank['blocks']]:
+            blocks = bank['blocks'] if user == 'ALL' else [b for b in bank['blocks'] if b['user'] == user]
+            y = np.concatenate([b['labels'] for b in blocks])
+            base = np.concatenate([b['F0_probabilities'] for b in blocks])
+            probabilities = {'F0':base}
+            if shots:
+                anchor = np.concatenate([next(c['F7_probabilities'] for c in b['calibrations'] if c['shots']==shots) for b in blocks])
+                probabilities.update(F7=anchor,F0_F7=(base+anchor)/2,F0_uniform=(base+1/6)/2)
+            notes = {'classes':6,'scope':bank['scope'],'trial_mean_feature_dimension':48,
+                     'source_only_F0':True,'no_IMU_features':True,'reserved_trials_per_user':30,
+                     'actual_target_calibration_trials_per_user':{'F0':0,'F0_uniform':0,'F7':6*shots,'F0_F7':6*shots},
+                     'calibration_budget_is_scenario_not_F0_used_shots':True,
+                     'fixed_evaluation_trial_set_across_budgets':True,
+                     'ablation_is_two_provider_probability_removal_not_whole_document_bank':True}
+            arms = {name:(q.argmax(1),q) for name,q in probabilities.items()}
+            add_group('emg_f0_f7_bank_v1',bank_source,'EPN612',user,'new_cohort_42_51',shots,
+                      'fixed_reserved5_per_class',arms,y,6,notes)
+            if shots:
+                full = score(y,probabilities['F0_F7'].argmax(1),probabilities['F0_F7'],6)
+                for removed,remaining in [('F0','F7'),('F7','F0')]:
+                    alternative = score(y,probabilities[remaining].argmax(1),probabilities[remaining],6)
+                    ablations.append({'run_id':'emg_f0_f7_bank_v1','source_artifact':bank_source,
+                        'source_sha256':sources[bank_source],'dataset':'EPN612','subject':str(user),
+                        'session/domain':'new_cohort_42_51','condition':'fixed_reserved5_per_class',
+                        'calibration_budget':shots,'evaluation_trials':len(y),'metadata_notes_json':json.dumps(notes,sort_keys=True),
+                        'full_bank':'F0_F7','removed_provider':removed,'remaining_bank':remaining,
+                        'full_target_calibration_trials_per_user':6*shots,
+                        'remaining_target_calibration_trials_per_user':6*shots if remaining=='F7' else 0,
+                        **{'full_'+k:full[k] for k in METRICS},**{'remaining_'+k:alternative[k] for k in METRICS},
+                        'delta_logloss':alternative['log_loss']-full['log_loss'],
+                        'delta_macro_f1':full['macro_f1']-alternative['macro_f1'],
+                        'delta_brier':alternative['brier']-full['brier']})
     burden_name = 'MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json'
     burden = read(burden_name)
     burden_source = (HERE/burden_name).relative_to(ROOT).as_posix()
@@ -232,7 +267,8 @@ def export():
                 'maintenance_switches':diagnostic['maintenance_switches'],
                 'log_loss':'N/A', 'brier':'N/A', 'ece':'N/A', 'scope':control['scope']})
     context_fields = ['run_id', 'source_artifact', 'source_sha256', 'dataset', 'subject', 'session/domain', 'condition', 'calibration_budget', 'evaluation_trials', 'metadata_notes_json']
-    tables = {'label_stability_control.csv': (control_rows, list(control_rows[0])),
+    tables = {'ablation_full_bank.csv': (ablations, list(ablations[0])),
+              'label_stability_control.csv': (control_rows, list(control_rows[0])),
               'continuous_recognition.csv': (continuous_rows, list(continuous_rows[0])),
               'transition_hold.csv': (transition_rows, list(transition_rows[0])),
               'feature_family_results.csv': (family, context_fields+['feature_family']+list(METRICS)+['class_metrics_json']),
@@ -262,6 +298,7 @@ def export():
              'tables': {n: [n, 'new_bank_v3/'+n] for n in tables if (BASE/n).exists()},
              'additional_tables': ['new_bank_v3/boundary_detection.csv', 'new_bank_v3/budget_eligibility.csv', 'new_bank_v3/calibration_burden.csv', 'new_bank_v3/continuous_recognition.csv', 'new_bank_v3/transition_hold.csv', 'new_bank_v3/label_stability_control.csv'],
              'full_bank_ablation': 'ablation_full_bank.csv', 'current_manifest': 'new_bank_v3/MANIFEST.json',
+             'current_ablation_scope': 'new_bank_v3/ablation_full_bank.csv is the restricted EMG-only F0/F7 provider removal; the base whole-bank table remains unchanged.',
              'base_provenance': 'PROVENANCE_AUDIT.json',
              'base_table_sha256': {f.name: sha(f) for f in sorted(BASE.glob('*.csv'))},
              'v3_result_inventory_sha256': {f.relative_to(ROOT).as_posix(): sha(f) for f in sorted(HERE.rglob('*.json'))

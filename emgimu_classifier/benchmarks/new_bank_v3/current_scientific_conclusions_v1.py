@@ -29,6 +29,25 @@ def build():
     burden = read('MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json')
     raw_router = read('F8_ROUTER_MANUS_V1_RESULTS.json')
     calibrated_router = read('F8_CALIBRATED_MANUS_V2_RESULTS.json')
+    emg_bank = read('EMG_F0_F7_BANK_V1_RESULTS.json')
+    emg_cells = []
+    for budget, arms in emg_bank['scores'].items():
+        base = arms['F0']; full = arms.get('F0_F7')
+        emg_cells.append({'shots_per_class':int(budget),
+            'actual_F0_target_calibration_trials':0,'actual_F7_target_calibration_trials':6*int(budget),
+            'F0_macro_f1':base['pooled']['macro_f1'],'F0_log_loss':base['pooled']['log_loss'],
+            'F0_minimum_user_macro_f1':base['minimum_user_macro_f1'],
+            'F0_F7_macro_f1':full['pooled']['macro_f1'] if full else None,
+            'F0_F7_log_loss':full['pooled']['log_loss'] if full else None,
+            'F0_F7_minimum_user_macro_f1':full['minimum_user_macro_f1'] if full else None})
+    emg_user_variation = []
+    for arm in ('F0','F0_F7'):
+        values = [v['macro_f1'] for v in emg_bank['scores']['5'][arm]['per_user'].values()]
+        mean = sum(values)/len(values)
+        emg_user_variation.append({'method':arm,'F7_shots_per_class':5 if arm=='F0_F7' else 0,
+            'users':len(values),'equal_user_mean':mean,
+            'sample_std_ddof1':(sum((v-mean)**2 for v in values)/(len(values)-1))**.5,
+            'minimum':min(values),'maximum':max(values)})
     def evidence(*names): return ['benchmarks/new_bank_v3/' + n for n in names]
     stream_cells = []
     for phase, arms in debounce['summaries'].items():
@@ -67,10 +86,13 @@ def build():
          'boundary': '保持指标与样本F1是不同分母；确认规则没有引入新传感器信息。公开三类Myo数据不能代表用户设备或捏合。',
          'evidence': evidence('ROAM_CAUSAL_WINDOW_V1_RESULTS.json', 'ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json')},
         {'question_id': 'B', 'question': '哪些family提供条件增量信息？',
-         'answer': '新版F7在预先冻结的独立EPN人群上，相对于同一Core及均匀软化对照取得预测增益。该证据支持这个固定组合，不等于估计了条件互信息，也不等于所有family都有效。',
+         'answer': '新版F7相对固定Core取得增益。新增纯EMG F0＋F7在另一预先冻结人群上有pooled收益，但只有6/10用户改善对数损失，未通过7/10门槛。两种Core与人群分开报告；不等于估计条件互信息或证明所有family有效。',
          'measurements': fresh['primary_five_shot'],
+         'emg_only_bank':{'primary_five_shot':emg_bank['primary_five_shot'],'cells':emg_cells,
+             'evaluation_trials':sum(len(b['evaluation_ids']) for b in emg_bank['blocks']),
+             'reserved_calibration_trials_per_user':30,'scope':emg_bank['scope']},
          'boundary': '五shot、固定Core与0.5混合、同一留出试次；不得与不同试次的独立模型分数相减。七个较新公共默认扩展仍未通过各自验证门槛。',
-         'evidence': evidence('F7_AFFINE_FRESH/results.json', 'PUBLIC_DEFAULT_EXTENSION_AUDIT.json')},
+         'evidence': evidence('F7_AFFINE_FRESH/results.json', 'PUBLIC_DEFAULT_EXTENSION_AUDIT.json', 'EMG_F0_F7_BANK_V1_RESULTS.json')},
         {'question_id': 'C', 'question': '哪些family只在特定条件下有价值？',
          'answer': '当前收益依赖数据轴、预算与组合。七项新版默认扩展检查没有确立新的通用默认；F8的各预算和阶段结果应逐格报告，不能把局部收益写成全局不变性。',
          'measurements': {'default_extension_checks': guard['candidate_checks'], 'session_routing_cells': routing,
@@ -79,15 +101,17 @@ def build():
          'boundary': '不同数据集、动作本体及已检查阶段不能合并为同一个统计检验；局部混合收益不是直接证明某个新增特征的信息量。',
          'evidence': evidence('PUBLIC_DEFAULT_EXTENSION_AUDIT.json', 'F8_ROUTER_MANUS_V1_RESULTS.json', 'F8_CALIBRATED_MANUS_V2_RESULTS.json')},
         {'question_id': 'D', 'question': '哪些family只有个人校准后才有明显价值？',
-         'answer': 'F7和低维Mahalanobis在明确个人校准预算下取得收益，但这里没有同预算、同表示的未校准对照，不能由两种已校准方法的比较推断“只有校准才有效”。',
+         'answer': '两种已校准距离方法不能证明“只有校准才有效”。新增纯EMG实验在相同1200留出试次上比较source-only F0与1/2/5-shot F7组合，获得有限增益，但五shot主要门槛失败；其他family不能据此推断。',
          'measurements': {'F7_five_shot': fresh['primary_five_shot'], 'EPN_calibrated_methods': epn['scores']},
+         'emg_only_same_trial_cells':emg_cells,
          'boundary': '独立试次才计为shot；10/20shot低维协方差结论不能推广到被拒绝的高维、小样本设置或零校准部署。',
-         'evidence': evidence('F7_AFFINE_FRESH/results.json', 'MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json')},
+         'evidence': evidence('F7_AFFINE_FRESH/results.json', 'MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json','EMG_F0_F7_BANK_V1_RESULTS.json')},
         {'question_id': 'E', 'question': 'Personal Anchor是否降低跨用户变化？',
          'answer': '新版EPN低维Mahalanobis相对Euclidean改善均值及最差用户，并降低这组用户的F1标准差。两者都使用个人校准，不能据此宣称相对无Anchor必然降低跨用户变化。',
          'measurements': variation,
+         'emg_only_anchor_vs_no_target_anchor':emg_user_variation,
          'boundary': '等用户均值、样本标准差与 pooled F1分开。人群仅32–41，未证明全部用户或当前设备。增加预算仍有个体退步。',
-         'evidence': evidence('MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json')},
+         'evidence': evidence('MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json','EMG_F0_F7_BANK_V1_RESULTS.json')},
         {'question_id': 'F', 'question': 'Session Signature能帮助跨天或重新佩戴吗？',
          'answer': 'MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。',
          'measurements': routing,
@@ -96,15 +120,18 @@ def build():
         {'question_id': 'G', 'question': '是否改善最差场景R_min，而不只是均值？',
          'answer': '低维Mahalanobis改善相同预算下这组EPN最差用户，但增加到20shot仍可能损害最差用户；不能将单轴最差用户指标冒充完整七轴R_min。连续识别的样本F1也不能代替动作保持成功率。',
          'measurements': {'EPN_user_macro_f1': variation,
+             'EMG_only_bank_single_axis_minima':emg_cells,
              'budget_comparisons': [r for r in users['paired_comparisons'] if r['kind'] == 'budget_at_fixed_method'],
              'continuous_cells': stream_cells},
          'boundary': '跨force/wearing/day/posture及真实质量等所有轴的统一改善尚未证明。',
-         'evidence': evidence('MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json', 'ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json')},
+         'evidence': evidence('MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json', 'ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json','EMG_F0_F7_BANK_V1_RESULTS.json')},
         {'question_id': 'H', 'question': '新用户或新session需要多少校准？',
          'answer': '该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。',
          'measurements': costs,
+         'emg_only_F7_budget_trials_per_user':{'0':0,'1':6,'2':12,'5':30},
+         'emg_only_budget_boundary':'Source-only F0 uses no target trials; 30 trials/user reserved at every budget for matched evaluation. New F7 physical timing and complete recording duration are not measured here; do not transfer the other EPN cohort timing or efficacy to this bank.',
          'boundary': '覆盖六类动作；未证明跨力、姿态、重新佩戴或重复session的必要预算，也未证明几秒校准或实机收益。',
-         'evidence': evidence('MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json', 'MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json')},
+         'evidence': evidence('MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json', 'MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json','EMG_F0_F7_BANK_V1_RESULTS.json')},
     ]
     for answer in answers:
         if not set(answer['evidence']) <= set(sources): raise ValueError('Unbound evidence')
@@ -117,6 +144,7 @@ def build():
                           'tests/test_f7_affine_fresh_delivery.py',
                           'tests/test_current_scientific_conclusions_v1.py',
                           'tests/test_current_scientific_report_v1.py',
+                          'tests/test_emg_f0_f7_bank_v1_delivery.py',
                           'tests/test_epn_holdout_user_robustness_v2.py',
                           'tests/test_mahalanobis_epn_holdout_v2.py',
                           'tests/test_f8_calibrated_manus_v2_delivery.py']

@@ -56,7 +56,39 @@ def render(data, source_sha):
               'The current MANUS routing cells and negative default-extension checks are',
               'retained in the linked machine-readable answers. Native extension-guard loss',
               'deltas use candidate minus base, while routing loss improvements use base',
-              'minus alternative; their sign conventions are explicitly separate.', STOP]
+              'minus alternative; their sign conventions are explicitly separate.']
+    emg = questions['B']['emg_only_bank']
+    lines += ['', '#### Separate EMG-only F0 + F7 bank and provider removals', '',
+              'This precommitted EPN42–51 experiment uses source-fitted 48-coordinate F0',
+              'and calibrated affine-SPD F7. It has no IMU feature input. Its two-provider',
+              'removals are distinct from the earlier whole-bank ablations and the older',
+              'Core containing reference IMU. All budgets use the same 1,200 held-out trials;',
+              '30 candidate calibration trials per user are reserved even at zero shots.', '',
+              '| F7 trials/class | Actual F7 calibration trials/user | Source-only F0 macro-F1 | F0 + F7 macro-F1 | F0 + F7 log loss | Source-only / combined worst-user F1 |',
+              '|---|---:|---:|---:|---:|---|']
+    for cell in emg['cells']:
+        full = f"{cell['F0_F7_macro_f1']:.4f}" if cell['F0_F7_macro_f1'] is not None else 'N/A'
+        loss = f"{cell['F0_F7_log_loss']:.4f}" if cell['F0_F7_log_loss'] is not None else 'N/A'
+        worst = f"{cell['F0_F7_minimum_user_macro_f1']:.4f}" if cell['F0_F7_minimum_user_macro_f1'] is not None else 'N/A'
+        lines.append(f"| {cell['shots_per_class']} | {cell['actual_F7_target_calibration_trials']} | {cell['F0_macro_f1']:.4f} | {full} | {loss} | {cell['F0_minimum_user_macro_f1']:.4f} / {worst} |")
+    guard = emg['primary_five_shot']
+    lines += ['', f"The five-shot combination improves pooled log loss by {guard['delta_logloss']:.5f} versus source-only F0 and {guard['delta_logloss_over_uniform']:.5f} versus uniform softening. Only {guard['user_logloss_wins']}/10 users improve log loss, so the predeclared seven-user conjunction fails. No default is promoted.", '',
+              'Source-only F0 and its uniform control use zero target calibration trials.',
+              'The budget labels describe the paired scenario; they do not assign the',
+              'F7 calibration cost to F0. F7 at zero shots remains unavailable. The',
+              'dataset provides native cue-aligned windows, not online segmentation.',
+              '[Paired provider removals](delivery/new_bank_v3/ablation_full_bank.csv)',
+              'and [saved source parameters and trial readouts](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json)',
+              'retain these boundaries. This is not the complete document-wide bank,',
+              'strict calibrated F6, an all-612-user result or own-device efficacy.', STOP]
+    variation_lines = ['', '| Same EPN42–51 trials | Equal-user macro-F1 | Sample SD | Worst-user macro-F1 |',
+                       '|---|---:|---:|---:|']
+    for row in questions['E']['emg_only_anchor_vs_no_target_anchor']:
+        variation_lines.append(f"| {row['method']} | {row['equal_user_mean']:.4f} | {row['sample_std_ddof1']:.4f} | {row['minimum']:.4f} |")
+    variation_lines += ['', 'These are matched source-only versus five-shot-anchor outcomes on a',
+                        'separate cohort from the Mahalanobis/Euclidean comparison above;',
+                        'their user variation is not pooled across experiments.']
+    lines[-1:-1] = variation_lines
     return '\n'.join(lines)
 
 

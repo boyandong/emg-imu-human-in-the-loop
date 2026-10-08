@@ -72,6 +72,21 @@ def test_quantitative_answers_reconstruct_comparisons_not_old_report_numbers():
         assert row['full_recording_seconds_max'] == max(c['used_trials_full_recording_seconds'] for c in group)
         assert row['device_wall_time_seconds'] is None
     assert len(q['G']['measurements']['budget_comparisons']) == 4
+    native=load(HERE/'EMG_F0_F7_BANK_V1_RESULTS.json')
+    assert q['B']['emg_only_bank']['primary_five_shot']==native['primary_five_shot']
+    assert q['B']['emg_only_bank']['evaluation_trials']==1200
+    assert not q['B']['emg_only_bank']['primary_five_shot']['conjunction_passed']
+    for cell in q['D']['emg_only_same_trial_cells']:
+        values=native['scores'][str(cell['shots_per_class'])]
+        assert cell['F0_macro_f1']==values['F0']['pooled']['macro_f1']
+        assert cell['actual_F0_target_calibration_trials']==0
+        if cell['shots_per_class']==0: assert cell['F0_F7_macro_f1'] is None
+        else: assert cell['F0_F7_macro_f1']==values['F0_F7']['pooled']['macro_f1']
+    for row in q['E']['emg_only_anchor_vs_no_target_anchor']:
+        values=[r['macro_f1'] for r in native['scores']['5'][row['method']]['per_user'].values()]
+        assert abs(row['equal_user_mean']-np.mean(values))<1e-12
+        assert abs(row['sample_std_ddof1']-np.std(values,ddof=1))<1e-12
+        assert row['minimum']==min(values)
 
 
 def test_default_extension_claim_rechecks_native_axes_and_signed_metrics():

@@ -20,6 +20,30 @@ def rows(name):
         return list(csv.DictReader(stream))
 
 
+def test_emg_only_bank_provider_removals_and_actual_calibration_cost():
+    result = json.loads((ROOT/'benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json').read_text(encoding='utf8'))
+    table = rows('ablation_full_bank.csv')
+    assert len(table)==66
+    assert len({(r['subject'],r['calibration_budget'],r['removed_provider']) for r in table})==66
+    for row in table:
+        shots=row['calibration_budget'];user=row['subject'];remaining=row['remaining_bank']
+        score=result['scores'][shots]
+        full=score['F0_F7']['pooled'] if user=='ALL' else score['F0_F7']['per_user'][user]
+        alt=score[remaining]['pooled'] if user=='ALL' else score[remaining]['per_user'][user]
+        assert int(row['evaluation_trials'])==(1200 if user=='ALL' else 120)
+        assert row['full_bank']=='F0_F7' and row['removed_provider']!=remaining
+        assert int(row['full_target_calibration_trials_per_user'])==6*int(shots)
+        assert int(row['remaining_target_calibration_trials_per_user'])==(0 if remaining=='F0' else 6*int(shots))
+        for key in ('macro_f1','accuracy','log_loss','brier'):
+            assert abs(float(row['full_'+key])-full[key])<1e-12
+            assert abs(float(row['remaining_'+key])-alt[key])<1e-12
+        assert abs(float(row['delta_logloss'])-(alt['log_loss']-full['log_loss']))<1e-12
+        assert abs(float(row['delta_macro_f1'])-(full['macro_f1']-alt['macro_f1']))<1e-12
+        notes=json.loads(row['metadata_notes_json'])
+        assert notes['no_IMU_features'] and notes['actual_target_calibration_trials_per_user']['F0']==0
+        assert notes['ablation_is_two_provider_probability_removal_not_whole_document_bank']
+
+
 def test_label_stability_export_retains_shared_denominator_and_unavailable_probabilities():
     native = json.loads((ROOT/'benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json').read_text(encoding='utf8'))
     source = {r['native_file']: r for r in native['records']}
@@ -46,8 +70,8 @@ def test_delivery_sources_schemas_and_unavailable_results():
     assert manifest['generator_sha256'] == sha(ROOT/'benchmarks/new_bank_v3/export_current_delivery.py')
     for path, digest in manifest['source_sha256'].items():
         assert sha(ROOT/path) == digest
-    expected = {'feature_family_results.csv': 431, 'conditional_incremental.csv': 228,
-                'error_complementarity.csv': 228, 'calibration_curve.csv': 431,
+    expected = {'feature_family_results.csv': 574, 'conditional_incremental.csv': 426,
+                'error_complementarity.csv': 426, 'calibration_curve.csv': 574, 'ablation_full_bank.csv':66,
                 'budget_eligibility.csv': 170, 'boundary_detection.csv': 2, 'calibration_burden.csv': 20, 'continuous_recognition.csv':40, 'transition_hold.csv':40, 'label_stability_control.csv':80}
     for name, count in expected.items():
         table = rows(name)
@@ -110,7 +134,7 @@ def test_comparison_budget_identity_and_positive_improvement_signs():
                                ('error_complementarity.csv',('family_a','family_b'))]:
         comparisons = rows(table)
         keys = [tuple(r[k] for k in context+pair_fields) for r in comparisons]
-        assert len(keys) == len(set(keys)) == 228
+        assert len(keys) == len(set(keys)) == 426
         for row in comparisons:
             key = tuple(row[k] for k in context)
             a = lookup[key+(row[pair_fields[0]],)]

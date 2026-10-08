@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "d141b26d91ef2191bf25ad4eed38902c272a1b7fadca81b83fd830a72bed47c1",
+  "generator_sha256": "d6426f036a3866fb5be95d1a4c29803985312820718acc517f60357d6ff7501a",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -12,6 +12,7 @@
     "tests/test_f7_affine_fresh_delivery.py",
     "tests/test_current_scientific_conclusions_v1.py",
     "tests/test_current_scientific_report_v1.py",
+    "tests/test_emg_f0_f7_bank_v1_delivery.py",
     "tests/test_epn_holdout_user_robustness_v2.py",
     "tests/test_mahalanobis_epn_holdout_v2.py",
     "tests/test_f8_calibrated_manus_v2_delivery.py"
@@ -26,12 +27,14 @@
     "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json": "9b2b7ed27a0747b31a129f229d5ff933d06cf4108485fa60f1f496758907a894",
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "b51b64c6a7b9bb10b65e4df7bf8e51df3a49ab702ac13037a0b23190bd468e06",
+    "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "b95845e971361c13d5339e7c197fb7650b11f4ebd6ee53a8f0ddfbb879e0c366",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
-    "tests/test_current_scientific_conclusions_v1.py": "10831c9c0315b99011328ebd5e3e6a4e81a8f4cbd79e0fabc3a06c8656b016a5",
+    "tests/test_current_scientific_conclusions_v1.py": "2d05c2b95325cb6ec7b4b157f80aabc7691eb2ebf6bca16ce37aa18d73a35ad2",
     "tests/test_current_scientific_report_v1.py": "73556488bebb6fe676b591288e6524af456afa245e0d5bad96fa065d722ac8e2",
+    "tests/test_emg_f0_f7_bank_v1_delivery.py": "a5b29ec5d9644963850211e06a37409da2c6c869631ea5291fc52e9b515a8ac8",
     "tests/test_epn_holdout_user_robustness_v2.py": "797631cfe13ddb072dc95aaeb95d4b5aa7d7e40da4a15a82de34022f94f3e350",
     "tests/test_mahalanobis_epn_holdout_v2.py": "97c6ffe8c656fb22399eb148f48566bd7b1ddbd4e0cfe5ba52ccac7ab383cc4c",
     "tests/test_f8_calibrated_manus_v2_delivery.py": "f31ae29f787e37f3d176338660a6956967c3b90a8b4e5f3220ace3401a3073fe"
@@ -82,7 +85,7 @@
     {
       "question_id": "B",
       "question": "哪些family提供条件增量信息？",
-      "answer": "新版F7在预先冻结的独立EPN人群上，相对于同一Core及均匀软化对照取得预测增益。该证据支持这个固定组合，不等于估计了条件互信息，也不等于所有family都有效。",
+      "answer": "新版F7相对固定Core取得增益。新增纯EMG F0＋F7在另一预先冻结人群上有pooled收益，但只有6/10用户改善对数损失，未通过7/10门槛。两种Core与人群分开报告；不等于估计条件互信息或证明所有family有效。",
       "measurements": {
         "criteria": {
           "pooled_logloss_lower": true,
@@ -98,10 +101,77 @@
         "delta_brier": 0.010914579824486764,
         "delta_logloss_over_uniform": 0.09821153428395091
       },
+      "emg_only_bank": {
+        "primary_five_shot": {
+          "criteria": {
+            "lower_log_loss": true,
+            "nonworse_macro_f1": true,
+            "lower_brier": true,
+            "lower_loss_than_uniform": true,
+            "at_least7_user_loss_wins": false
+          },
+          "conjunction_passed": false,
+          "user_logloss_wins": 6,
+          "delta_logloss": 0.06382978415030682,
+          "delta_macro_f1": 0.02028278279534318,
+          "delta_brier": 0.0022501456025743743,
+          "delta_logloss_over_uniform": 0.09246139751704296
+        },
+        "cells": [
+          {
+            "shots_per_class": 0,
+            "actual_F0_target_calibration_trials": 0,
+            "actual_F7_target_calibration_trials": 0,
+            "F0_macro_f1": 0.4632938133719248,
+            "F0_log_loss": 1.458061553137172,
+            "F0_minimum_user_macro_f1": 0.3032378927115769,
+            "F0_F7_macro_f1": null,
+            "F0_F7_log_loss": null,
+            "F0_F7_minimum_user_macro_f1": null
+          },
+          {
+            "shots_per_class": 1,
+            "actual_F0_target_calibration_trials": 0,
+            "actual_F7_target_calibration_trials": 6,
+            "F0_macro_f1": 0.4632938133719248,
+            "F0_log_loss": 1.458061553137172,
+            "F0_minimum_user_macro_f1": 0.3032378927115769,
+            "F0_F7_macro_f1": 0.4765246722968198,
+            "F0_F7_log_loss": 1.428765030716949,
+            "F0_F7_minimum_user_macro_f1": 0.31310526030120894
+          },
+          {
+            "shots_per_class": 2,
+            "actual_F0_target_calibration_trials": 0,
+            "actual_F7_target_calibration_trials": 12,
+            "F0_macro_f1": 0.4632938133719248,
+            "F0_log_loss": 1.458061553137172,
+            "F0_minimum_user_macro_f1": 0.3032378927115769,
+            "F0_F7_macro_f1": 0.4750649628378007,
+            "F0_F7_log_loss": 1.4131367927256007,
+            "F0_F7_minimum_user_macro_f1": 0.3058121702858545
+          },
+          {
+            "shots_per_class": 5,
+            "actual_F0_target_calibration_trials": 0,
+            "actual_F7_target_calibration_trials": 30,
+            "F0_macro_f1": 0.4632938133719248,
+            "F0_log_loss": 1.458061553137172,
+            "F0_minimum_user_macro_f1": 0.3032378927115769,
+            "F0_F7_macro_f1": 0.483576596167268,
+            "F0_F7_log_loss": 1.394231768986865,
+            "F0_F7_minimum_user_macro_f1": 0.308375104427736
+          }
+        ],
+        "evaluation_trials": 1200,
+        "reserved_calibration_trials_per_user": 30,
+        "scope": "New precommitted EMG-only two-provider bank on EPN42-51, disjoint from known earlier1-41 cohorts. No claim about every historical file access or all612 users. Offline native cue-window trial classification; not continuous, whole-document full bank, strict F6 body-frame, own-device or low-burden efficacy. IMU arrays required by the legacy loader are not feature inputs."
+      },
       "boundary": "五shot、固定Core与0.5混合、同一留出试次；不得与不同试次的独立模型分数相减。七个较新公共默认扩展仍未通过各自验证门槛。",
       "evidence": [
         "benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json",
-        "benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_AUDIT.json"
+        "benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_AUDIT.json",
+        "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json"
       ]
     },
     {
@@ -206,7 +276,7 @@
     {
       "question_id": "D",
       "question": "哪些family只有个人校准后才有明显价值？",
-      "answer": "F7和低维Mahalanobis在明确个人校准预算下取得收益，但这里没有同预算、同表示的未校准对照，不能由两种已校准方法的比较推断“只有校准才有效”。",
+      "answer": "两种已校准距离方法不能证明“只有校准才有效”。新增纯EMG实验在相同1200留出试次上比较source-only F0与1/2/5-shot F7组合，获得有限增益，但五shot主要门槛失败；其他family不能据此推断。",
       "measurements": {
         "F7_five_shot": {
           "criteria": {
@@ -262,10 +332,57 @@
           }
         }
       },
+      "emg_only_same_trial_cells": [
+        {
+          "shots_per_class": 0,
+          "actual_F0_target_calibration_trials": 0,
+          "actual_F7_target_calibration_trials": 0,
+          "F0_macro_f1": 0.4632938133719248,
+          "F0_log_loss": 1.458061553137172,
+          "F0_minimum_user_macro_f1": 0.3032378927115769,
+          "F0_F7_macro_f1": null,
+          "F0_F7_log_loss": null,
+          "F0_F7_minimum_user_macro_f1": null
+        },
+        {
+          "shots_per_class": 1,
+          "actual_F0_target_calibration_trials": 0,
+          "actual_F7_target_calibration_trials": 6,
+          "F0_macro_f1": 0.4632938133719248,
+          "F0_log_loss": 1.458061553137172,
+          "F0_minimum_user_macro_f1": 0.3032378927115769,
+          "F0_F7_macro_f1": 0.4765246722968198,
+          "F0_F7_log_loss": 1.428765030716949,
+          "F0_F7_minimum_user_macro_f1": 0.31310526030120894
+        },
+        {
+          "shots_per_class": 2,
+          "actual_F0_target_calibration_trials": 0,
+          "actual_F7_target_calibration_trials": 12,
+          "F0_macro_f1": 0.4632938133719248,
+          "F0_log_loss": 1.458061553137172,
+          "F0_minimum_user_macro_f1": 0.3032378927115769,
+          "F0_F7_macro_f1": 0.4750649628378007,
+          "F0_F7_log_loss": 1.4131367927256007,
+          "F0_F7_minimum_user_macro_f1": 0.3058121702858545
+        },
+        {
+          "shots_per_class": 5,
+          "actual_F0_target_calibration_trials": 0,
+          "actual_F7_target_calibration_trials": 30,
+          "F0_macro_f1": 0.4632938133719248,
+          "F0_log_loss": 1.458061553137172,
+          "F0_minimum_user_macro_f1": 0.3032378927115769,
+          "F0_F7_macro_f1": 0.483576596167268,
+          "F0_F7_log_loss": 1.394231768986865,
+          "F0_F7_minimum_user_macro_f1": 0.308375104427736
+        }
+      ],
       "boundary": "独立试次才计为shot；10/20shot低维协方差结论不能推广到被拒绝的高维、小样本设置或零校准部署。",
       "evidence": [
         "benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json",
-        "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json"
+        "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json",
+        "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json"
       ]
     },
     {
@@ -378,9 +495,30 @@
           }
         }
       ],
+      "emg_only_anchor_vs_no_target_anchor": [
+        {
+          "method": "F0",
+          "F7_shots_per_class": 0,
+          "users": 10,
+          "equal_user_mean": 0.4438857761895635,
+          "sample_std_ddof1": 0.10067417379822698,
+          "minimum": 0.3032378927115769,
+          "maximum": 0.6461892097264438
+        },
+        {
+          "method": "F0_F7",
+          "F7_shots_per_class": 5,
+          "users": 10,
+          "equal_user_mean": 0.4652900650422861,
+          "sample_std_ddof1": 0.1082906916799141,
+          "minimum": 0.308375104427736,
+          "maximum": 0.6801977434632384
+        }
+      ],
       "boundary": "等用户均值、样本标准差与 pooled F1分开。人群仅32–41，未证明全部用户或当前设备。增加预算仍有个体退步。",
       "evidence": [
-        "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json"
+        "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json",
+        "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json"
       ]
     },
     {
@@ -532,6 +670,52 @@
               "40": 0.701010101010101,
               "41": 0.5381313131313131
             }
+          }
+        ],
+        "EMG_only_bank_single_axis_minima": [
+          {
+            "shots_per_class": 0,
+            "actual_F0_target_calibration_trials": 0,
+            "actual_F7_target_calibration_trials": 0,
+            "F0_macro_f1": 0.4632938133719248,
+            "F0_log_loss": 1.458061553137172,
+            "F0_minimum_user_macro_f1": 0.3032378927115769,
+            "F0_F7_macro_f1": null,
+            "F0_F7_log_loss": null,
+            "F0_F7_minimum_user_macro_f1": null
+          },
+          {
+            "shots_per_class": 1,
+            "actual_F0_target_calibration_trials": 0,
+            "actual_F7_target_calibration_trials": 6,
+            "F0_macro_f1": 0.4632938133719248,
+            "F0_log_loss": 1.458061553137172,
+            "F0_minimum_user_macro_f1": 0.3032378927115769,
+            "F0_F7_macro_f1": 0.4765246722968198,
+            "F0_F7_log_loss": 1.428765030716949,
+            "F0_F7_minimum_user_macro_f1": 0.31310526030120894
+          },
+          {
+            "shots_per_class": 2,
+            "actual_F0_target_calibration_trials": 0,
+            "actual_F7_target_calibration_trials": 12,
+            "F0_macro_f1": 0.4632938133719248,
+            "F0_log_loss": 1.458061553137172,
+            "F0_minimum_user_macro_f1": 0.3032378927115769,
+            "F0_F7_macro_f1": 0.4750649628378007,
+            "F0_F7_log_loss": 1.4131367927256007,
+            "F0_F7_minimum_user_macro_f1": 0.3058121702858545
+          },
+          {
+            "shots_per_class": 5,
+            "actual_F0_target_calibration_trials": 0,
+            "actual_F7_target_calibration_trials": 30,
+            "F0_macro_f1": 0.4632938133719248,
+            "F0_log_loss": 1.458061553137172,
+            "F0_minimum_user_macro_f1": 0.3032378927115769,
+            "F0_F7_macro_f1": 0.483576596167268,
+            "F0_F7_log_loss": 1.394231768986865,
+            "F0_F7_minimum_user_macro_f1": 0.308375104427736
           }
         ],
         "budget_comparisons": [
@@ -872,7 +1056,8 @@
       "boundary": "跨force/wearing/day/posture及真实质量等所有轴的统一改善尚未证明。",
       "evidence": [
         "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json",
-        "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json"
+        "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json",
+        "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json"
       ]
     },
     {
@@ -909,10 +1094,18 @@
           "device_wall_time_seconds": null
         }
       ],
+      "emg_only_F7_budget_trials_per_user": {
+        "0": 0,
+        "1": 6,
+        "2": 12,
+        "5": 30
+      },
+      "emg_only_budget_boundary": "Source-only F0 uses no target trials; 30 trials/user reserved at every budget for matched evaluation. New F7 physical timing and complete recording duration are not measured here; do not transfer the other EPN cohort timing or efficacy to this bank.",
       "boundary": "覆盖六类动作；未证明跨力、姿态、重新佩戴或重复session的必要预算，也未证明几秒校准或实机收益。",
       "evidence": [
         "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json",
-        "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json"
+        "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json",
+        "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json"
       ]
     }
   ],

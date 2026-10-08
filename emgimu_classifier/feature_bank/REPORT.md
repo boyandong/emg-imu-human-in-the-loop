@@ -269,18 +269,18 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `da940a46b053d7169bd557d3f7b57fb9163bd880d164c444e6a1bb708c4f2062`.
+Source SHA-256: `f386909a1c6dbd7e8c732db012c705892ee1289f2b3f53b574b53301cc8c6831`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
 | A: 缺少新信息，还是已有信息组织不好？ | 已有信息的组织会影响结果：固定因果确认降低跳动，却略降F1，且完整动作保持成功率仍低。当前证据不能判断真实8通道系统的物理信息是否不足。 [ROAM_CAUSAL_WINDOW_V1_RESULTS.json](../benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json), [ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json](../benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json) | 保持指标与样本F1是不同分母；确认规则没有引入新传感器信息。公开三类Myo数据不能代表用户设备或捏合。 |
-| B: 哪些family提供条件增量信息？ | 新版F7在预先冻结的独立EPN人群上，相对于同一Core及均匀软化对照取得预测增益。该证据支持这个固定组合，不等于估计了条件互信息，也不等于所有family都有效。 [results.json](../benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json), [PUBLIC_DEFAULT_EXTENSION_AUDIT.json](../benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_AUDIT.json) | 五shot、固定Core与0.5混合、同一留出试次；不得与不同试次的独立模型分数相减。七个较新公共默认扩展仍未通过各自验证门槛。 |
+| B: 哪些family提供条件增量信息？ | 新版F7相对固定Core取得增益。新增纯EMG F0＋F7在另一预先冻结人群上有pooled收益，但只有6/10用户改善对数损失，未通过7/10门槛。两种Core与人群分开报告；不等于估计条件互信息或证明所有family有效。 [results.json](../benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json), [PUBLIC_DEFAULT_EXTENSION_AUDIT.json](../benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_AUDIT.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json) | 五shot、固定Core与0.5混合、同一留出试次；不得与不同试次的独立模型分数相减。七个较新公共默认扩展仍未通过各自验证门槛。 |
 | C: 哪些family只在特定条件下有价值？ | 当前收益依赖数据轴、预算与组合。七项新版默认扩展检查没有确立新的通用默认；F8的各预算和阶段结果应逐格报告，不能把局部收益写成全局不变性。 [PUBLIC_DEFAULT_EXTENSION_AUDIT.json](../benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_AUDIT.json), [F8_ROUTER_MANUS_V1_RESULTS.json](../benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json), [F8_CALIBRATED_MANUS_V2_RESULTS.json](../benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json) | 不同数据集、动作本体及已检查阶段不能合并为同一个统计检验；局部混合收益不是直接证明某个新增特征的信息量。 |
-| D: 哪些family只有个人校准后才有明显价值？ | F7和低维Mahalanobis在明确个人校准预算下取得收益，但这里没有同预算、同表示的未校准对照，不能由两种已校准方法的比较推断“只有校准才有效”。 [results.json](../benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json), [MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json) | 独立试次才计为shot；10/20shot低维协方差结论不能推广到被拒绝的高维、小样本设置或零校准部署。 |
-| E: Personal Anchor是否降低跨用户变化？ | 新版EPN低维Mahalanobis相对Euclidean改善均值及最差用户，并降低这组用户的F1标准差。两者都使用个人校准，不能据此宣称相对无Anchor必然降低跨用户变化。 [MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json) | 等用户均值、样本标准差与 pooled F1分开。人群仅32–41，未证明全部用户或当前设备。增加预算仍有个体退步。 |
+| D: 哪些family只有个人校准后才有明显价值？ | 两种已校准距离方法不能证明“只有校准才有效”。新增纯EMG实验在相同1200留出试次上比较source-only F0与1/2/5-shot F7组合，获得有限增益，但五shot主要门槛失败；其他family不能据此推断。 [results.json](../benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json), [MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json) | 独立试次才计为shot；10/20shot低维协方差结论不能推广到被拒绝的高维、小样本设置或零校准部署。 |
+| E: Personal Anchor是否降低跨用户变化？ | 新版EPN低维Mahalanobis相对Euclidean改善均值及最差用户，并降低这组用户的F1标准差。两者都使用个人校准，不能据此宣称相对无Anchor必然降低跨用户变化。 [MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json) | 等用户均值、样本标准差与 pooled F1分开。人群仅32–41，未证明全部用户或当前设备。增加预算仍有个体退步。 |
 | F: Session Signature能帮助跨天或重新佩戴吗？ | MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。 [F8_ROUTER_MANUS_V1_RESULTS.json](../benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json), [F8_CALIBRATED_MANUS_V2_RESULTS.json](../benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json) | 已检查的MANUS会话是描述性证据；TD24不等于Rest拟合F0。物理重贴和本设备会话恢复未验证。 |
-| G: 是否改善最差场景R_min，而不只是均值？ | 低维Mahalanobis改善相同预算下这组EPN最差用户，但增加到20shot仍可能损害最差用户；不能将单轴最差用户指标冒充完整七轴R_min。连续识别的样本F1也不能代替动作保持成功率。 [MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json), [ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json](../benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json) | 跨force/wearing/day/posture及真实质量等所有轴的统一改善尚未证明。 |
-| H: 新用户或新session需要多少校准？ | 该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。 [MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json), [MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json) | 覆盖六类动作；未证明跨力、姿态、重新佩戴或重复session的必要预算，也未证明几秒校准或实机收益。 |
+| G: 是否改善最差场景R_min，而不只是均值？ | 低维Mahalanobis改善相同预算下这组EPN最差用户，但增加到20shot仍可能损害最差用户；不能将单轴最差用户指标冒充完整七轴R_min。连续识别的样本F1也不能代替动作保持成功率。 [MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json), [ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json](../benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json) | 跨force/wearing/day/posture及真实质量等所有轴的统一改善尚未证明。 |
+| H: 新用户或新session需要多少校准？ | 该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。 [MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json), [MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json) | 覆盖六类动作；未证明跨力、姿态、重新佩戴或重复session的必要预算，也未证明几秒校准或实机收益。 |
 
 #### Quantitative evidence behind the current answers
 
@@ -319,6 +319,41 @@ The current MANUS routing cells and negative default-extension checks are
 retained in the linked machine-readable answers. Native extension-guard loss
 deltas use candidate minus base, while routing loss improvements use base
 minus alternative; their sign conventions are explicitly separate.
+
+#### Separate EMG-only F0 + F7 bank and provider removals
+
+This precommitted EPN42–51 experiment uses source-fitted 48-coordinate F0
+and calibrated affine-SPD F7. It has no IMU feature input. Its two-provider
+removals are distinct from the earlier whole-bank ablations and the older
+Core containing reference IMU. All budgets use the same 1,200 held-out trials;
+30 candidate calibration trials per user are reserved even at zero shots.
+
+| F7 trials/class | Actual F7 calibration trials/user | Source-only F0 macro-F1 | F0 + F7 macro-F1 | F0 + F7 log loss | Source-only / combined worst-user F1 |
+|---|---:|---:|---:|---:|---|
+| 0 | 0 | 0.4633 | N/A | N/A | 0.3032 / N/A |
+| 1 | 6 | 0.4633 | 0.4765 | 1.4288 | 0.3032 / 0.3131 |
+| 2 | 12 | 0.4633 | 0.4751 | 1.4131 | 0.3032 / 0.3058 |
+| 5 | 30 | 0.4633 | 0.4836 | 1.3942 | 0.3032 / 0.3084 |
+
+The five-shot combination improves pooled log loss by 0.06383 versus source-only F0 and 0.09246 versus uniform softening. Only 6/10 users improve log loss, so the predeclared seven-user conjunction fails. No default is promoted.
+
+Source-only F0 and its uniform control use zero target calibration trials.
+The budget labels describe the paired scenario; they do not assign the
+F7 calibration cost to F0. F7 at zero shots remains unavailable. The
+dataset provides native cue-aligned windows, not online segmentation.
+[Paired provider removals](delivery/new_bank_v3/ablation_full_bank.csv)
+and [saved source parameters and trial readouts](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json)
+retain these boundaries. This is not the complete document-wide bank,
+strict calibrated F6, an all-612-user result or own-device efficacy.
+
+| Same EPN42–51 trials | Equal-user macro-F1 | Sample SD | Worst-user macro-F1 |
+|---|---:|---:|---:|
+| F0 | 0.4439 | 0.1007 | 0.3032 |
+| F0_F7 | 0.4653 | 0.1083 | 0.3084 |
+
+These are matched source-only versus five-shot-anchor outcomes on a
+separate cohort from the Mahalanobis/Euclidean comparison above;
+their user variation is not pooled across experiments.
 <!-- CURRENT_SCIENTIFIC_ANSWERS_V1_STOP -->
 
 ### Calibration recovery and model-composition limits

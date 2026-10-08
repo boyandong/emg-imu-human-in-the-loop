@@ -1,6 +1,10 @@
 {
   "schema": "versioned_feature_bank_delivery_index_v1",
   "tables": {
+    "ablation_full_bank.csv": [
+      "ablation_full_bank.csv",
+      "new_bank_v3/ablation_full_bank.csv"
+    ],
     "feature_family_results.csv": [
       "feature_family_results.csv",
       "new_bank_v3/feature_family_results.csv"
@@ -28,6 +32,7 @@
   ],
   "full_bank_ablation": "ablation_full_bank.csv",
   "current_manifest": "new_bank_v3/MANIFEST.json",
+  "current_ablation_scope": "new_bank_v3/ablation_full_bank.csv is the restricted EMG-only F0/F7 provider removal; the base whole-bank table remains unchanged.",
   "base_provenance": "PROVENANCE_AUDIT.json",
   "base_table_sha256": {
     "ablation_full_bank.csv": "97653af7dce471606f03c1aa616dcc58c8f1c1f8b4195a6a649613440b592dba",
@@ -44,6 +49,7 @@
     "benchmarks/new_bank_v3/DETECTED_G5_OUTCOME_V1_RESULTS.json": "4d0f831256567fd4cc56749bfed6d872c99ce8bf8496a5d9efd0596deaf81778",
     "benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_RESULTS.json": "3ecf34f3713f473045d1778fea63a910ac8f1fa71b692983c8dcc90970048a69",
     "benchmarks/new_bank_v3/DOCUMENT_RELIABILITY_GRAB_RESULTS.json": "0c634b6bed0cb7e686fcc3ca09e52e2e4ed86f3615513c515039dae8a21b732b",
+    "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/F1_SCALE_GRAB_RESULTS.json": "3a13e3c569ab1a2073628fffc534e250b6f519d20c952131dbbf8e3e335e72bc",
     "benchmarks/new_bank_v3/F3B_CES_GRAB_RESULTS.json": "e701ff84486ecbf72b515012900dde6407d6a23b6cddbbf5fba14eebb89b3c25",
     "benchmarks/new_bank_v3/F4_SPECTRAL_GRAB_RESULTS.json": "22a47ba58052f761e834060c4dcc4ae17f1eba3f3a302ab62fcc9425572c70f3",
@@ -69,7 +75,7 @@
   },
   "current_scientific_conclusions": {
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
-    "sha256": "da940a46b053d7169bd557d3f7b57fb9163bd880d164c444e6a1bb708c4f2062"
+    "sha256": "f386909a1c6dbd7e8c732db012c705892ee1289f2b3f53b574b53301cc8c6831"
   },
   "current_regression_snapshot": {
     "path": "../CLASSIFIER_REGRESSION_20261008.json",
