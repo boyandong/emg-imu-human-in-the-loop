@@ -1,6 +1,6 @@
 {
   "schema": "current_v3_canonical_delivery_v1",
-  "generator_sha256": "1720d895f8dd5084b8865bd9d9e907282264e8c090f7180cc33322b9c456d1f4",
+  "generator_sha256": "7ea02f26b291d51ad937b2777357fee48c9ebcd0ee4fd70e0a1b8864125584b5",
   "source_sha256": {
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",

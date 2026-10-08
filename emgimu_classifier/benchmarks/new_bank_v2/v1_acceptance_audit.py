@@ -248,6 +248,20 @@ def build(pre: Path, goal: Path) -> dict:
                          "rejects prediction labels, preserves existing output files "
                          "and separately saves/loads same-user calibration profiles; "
                          "a separate-process check needs no source archive.")
+        if ident in ("GOAL-02", "GOAL-03", "GOAL-20", "GOAL-23"):
+            evidence += ("|feature_bank/SONG_F0_RUNTIME_ACCEPTANCE_V1.json"
+                         "|feature_bank/models/song_f0_250hz_v1.pkl"
+                         "|src/emgimu/feature_bank/song_f0_runtime_v1.py"
+                         "|tests/test_song_f0_runtime_v1.py")
+            boundary += (" Both existing Song eight-channel250Hz F0 source models "
+                         "are independently packaged. Original source state fingerprints "
+                         "matched before packaging; all568 paired native trial predictions "
+                         "replay below1e-12. Stateful three-stage causal filtering agrees "
+                         "with independent one-pass and arbitrary-chunk references. "
+                         "Explicit cued-trial windows and probability means are distinct "
+                         "from EPN feature means; no evaluation labels or IMU are needed. "
+                         "Single-user/day readiness and prior-inspection limits persist; "
+                         "no autonomous live or default accuracy claim.")
         if ident == "GOAL-02":
             evidence += ("|feature_bank/OFFICIAL_UNIBO_ADAPTER_ACCEPTANCE_V1.json"
                          "|feature_bank/CLASSIFIER_REGRESSION_20261008.json"

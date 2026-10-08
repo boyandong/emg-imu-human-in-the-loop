@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "b3d4bb226148b1d07631052322a9e626c8ccdbf0355f64383e5ab7a6c3435738",
+  "generator_sha256": "31f7fe9cebf968055d7a2ed906735c9e4140fa6ebf6f1110a81368469b90b844",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -20,6 +20,7 @@
     "tests/test_emg_calibration_cost_curve_v1.py",
     "tests/test_frozen_emg_provider_bank_v1.py",
     "tests/test_frozen_emg_bank_cli_v1.py",
+    "tests/test_song_f0_runtime_v1.py",
     "tests/test_available_bank_fusion_v1.py",
     "tests/test_available_bank_fusion_v1_delivery.py",
     "tests/test_epn_holdout_user_robustness_v2.py",
@@ -39,12 +40,13 @@
     "feature_bank/AVAILABLE_BANK_FUSION_ACCEPTANCE_V1.json": "88868941c9c11ff0eed76e9706f75998652df4cc23d0b7388a23de3500aa52aa",
     "feature_bank/FROZEN_EMG_BANK_ACCEPTANCE_V1.json": "6daf189264bf7b77ff890718d0d0b80a81c97a2d1b262744fde3e76c54b1dd95",
     "src/emgimu/feature_bank/frozen_emg_bank_cli_v1.py": "f92bfc422dfa258329f3d182bd93e0c9435d7723c9a6ff17001bd28eb9d0e648",
+    "feature_bank/SONG_F0_RUNTIME_ACCEPTANCE_V1.json": "2ee8d5ccbe203154ff0d48612286eefa39898fcde76d4539e052e0e5c2bf4d7c",
     "benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.json": "a079bff7bceae47930f3bb6579782cbc9208ee1e858a89caaf78c43b31b575db",
     "benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json": "0d38aad3bfef51ee962d8cc3ec5cbf2f5b4c96cd483c0b572b69a26661df12b1",
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "c05ac464caead8dfc11359c2451effad17a2e861d63aaecaffb468f76a458e93",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "9d2450cf41bf8220d424b93ec525848b6b8899cbe1c9fafe6a4d55d9608a3a39",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -58,6 +60,7 @@
     "tests/test_emg_calibration_cost_curve_v1.py": "159ad5d4c205f37e16262bb7b3f714e20cd654b227a1ec615bb37f230508aa29",
     "tests/test_frozen_emg_provider_bank_v1.py": "ee8a98874a5e816811c784841760d3347c229fce8bfeea622a3bc52b7f7a7865",
     "tests/test_frozen_emg_bank_cli_v1.py": "546235e2b173f1325125621e500cfa8a1c646fde4fbb8baa26c3f64ddcb8a1b5",
+    "tests/test_song_f0_runtime_v1.py": "cea4d73cd1d1aaf31c0b63baf1d2e0c101ed603087782ff54e1b9d5e231da9ba",
     "tests/test_available_bank_fusion_v1.py": "d2d3d2ce3bd12a5e6e5ef37d77eadb39f529e126b1abdd8585d7e624a7014f07",
     "tests/test_available_bank_fusion_v1_delivery.py": "43c2870143b5c534581c435c06c7dec1506747012bd389d1b62a46d98403266e",
     "tests/test_epn_holdout_user_robustness_v2.py": "797631cfe13ddb072dc95aaeb95d4b5aa7d7e40da4a15a82de34022f94f3e350",
@@ -1153,6 +1156,51 @@
     "native_omission_cases": 240,
     "source_state_immutable": true,
     "scope": "Portable six-source-provider checkpoint for the completed EPN62-71 experiment. Only final source fits were recovered and exactly matched recorded parameters; no new model selection, OOF refit or target training. Unlabelled inference accepts pure 8-channel200Hz40-sample windows aggregated by unique native trial IDs and explicit contiguous chronological window offsets. This is cue-trial mean inference, not a streaming detector, current250Hz device adapter or complete F0-F9 bank. Native primary guard remains failed."
+  },
+  "song_f0_runtime": {
+    "package_path": "feature_bank/models/song_f0_250hz_v1.pkl",
+    "package_sha256": "623e4f9ca282a03cde98236844039b6043f5f0471cfae35da94482af0e43b44c",
+    "classes": [
+      "neutral",
+      "index_pinch",
+      "fist",
+      "open_hand"
+    ],
+    "sample_rate_hz": 250,
+    "channels": 8,
+    "window_samples": 50,
+    "preprocessing_id": "song250_causal_hp40_order4_notch50_100_Q30_zero_session_initial_v1",
+    "source_windows": 849,
+    "source_trials": 285,
+    "prediction_rows": 568,
+    "records": [
+      {
+        "session": "S03",
+        "arm": "pooled_source_threshold",
+        "trials": 140,
+        "probability_max_error": 0.0
+      },
+      {
+        "session": "S03",
+        "arm": "rest_only_threshold",
+        "trials": 140,
+        "probability_max_error": 0.0
+      },
+      {
+        "session": "S04",
+        "arm": "pooled_source_threshold",
+        "trials": 144,
+        "probability_max_error": 0.0
+      },
+      {
+        "session": "S04",
+        "arm": "rest_only_threshold",
+        "trials": 144,
+        "probability_max_error": 0.0
+      }
+    ],
+    "source_state_immutable": true,
+    "scope": "Two exact existing Song F0 models recovered from S01/S02 only. No model selection, source protocol change or new target training. Probability means over cued windows; one user/day, readiness failures and previously inspected S04. Independent live/generalization efficacy is unproven. Input requires identical causal continuous-session filtering; resets between windows are incompatible. Native Brier archive remains its original class-sum convention."
   },
   "emg_native_calibration_cost": [
     {

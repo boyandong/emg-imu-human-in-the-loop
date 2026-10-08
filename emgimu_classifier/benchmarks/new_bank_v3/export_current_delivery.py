@@ -381,6 +381,10 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/FROZEN_EMG_BANK_ACCEPTANCE_V1.json')},
              'portable_emg_bank': {'path':'../models/epn_emg_calibrated_bank_v1.pkl',
                  'sha256':sha(ROOT/'feature_bank/models/epn_emg_calibrated_bank_v1.pkl')},
+             'song_f0_runtime_acceptance': {'path':'../SONG_F0_RUNTIME_ACCEPTANCE_V1.json',
+                 'sha256':sha(ROOT/'feature_bank/SONG_F0_RUNTIME_ACCEPTANCE_V1.json')},
+             'song_f0_runtime': {'path':'../models/song_f0_250hz_v1.pkl',
+                 'sha256':sha(ROOT/'feature_bank/models/song_f0_250hz_v1.pkl')},
              'completion_proven': False}
     (BASE/'INDEX.json').write_text(json.dumps(index, indent=2)+'\n', encoding='utf8')
     print(json.dumps({n: len(rows) for n, (rows, _) in tables.items()}), flush=True)

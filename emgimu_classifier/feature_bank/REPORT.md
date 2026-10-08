@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `63ce49a30851343af857bc5213ae719d193d771584ded55c04f46c8341ac96bb`.
+Source SHA-256: `754e9e2f276b5780bca767d9a4d2ad297810e224ef5d57dd254482e09dd656a4`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -520,6 +520,38 @@ to enforce reserved evaluation exclusion. Add `--profile my_user.pkl`
 to subsequent prediction calls for the same user and bank. The command
 verifies checkpoint SHA-256 before loading; it never fits source models.
 A separate-process test runs without the native training archive.
+
+#### Song native8-channel250Hz frozen F0 runtime
+
+A separate package contains both unchanged Song F0 threshold arms, fitted only on 849 S01/S02 formal source windows. Original source family/model fingerprints matched before packaging; all 568 saved paired S03/S04 trial probabilities replay with absolute error below1e-12. No target fitting or target-selected arm occurs.
+
+This package uses50-sample windows at250Hz and the native class axis
+neutral, index_pinch, fist, open_hand. It averages window probabilities
+within each explicit trial; the200Hz EPN package instead averages features.
+The protocols are deliberately distinct and neither resamples the other.
+
+The source-fixed continuous-session filter is fourth-order40Hz high-pass
+followed by50Hz and100Hz Q30 notches, with zero state at session start.
+A separate filter instance carries state across received chunks; independent
+arbitrary-chunk tests exactly match one-pass causal filtering. Resetting
+before each window is incompatible. Explicit50-sample recording start
+indices, trial IDs and contiguous window offsets select inference windows;
+evaluation labels and IMU are not accepted or required.
+
+[Song250Hz model package](models/song_f0_250hz_v1.pkl)
+and [native replay acceptance](SONG_F0_RUNTIME_ACCEPTANCE_V1.json)
+are independently loadable without source data or training. After loading
+the package, `predict_recording(raw, window_starts, trial_ids,
+window_offsets=offsets, sample_rate_hz=250)` filters a complete recording
+and returns both explicitly named arms. `new_filter()` provides a separate
+stateful chunk filter; `predict_windows` requires its declared matching
+preprocessing identity for already filtered windows.
+
+This recovers existing models, not a new live-accuracy result. Song is
+one person on one day; S01–S03 readiness failures and prior S04 inspection
+remain. Cued stable trials do not validate autonomous online recognition
+or new electrode placement. No GUI or model default is changed, and the
+historical Song Brier archive retains its original class-sum convention.
 
 #### Target calibration burden: extracted signal versus stored recording time
 

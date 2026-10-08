@@ -1,0 +1,71 @@
+{
+  "schema": "song_f0_runtime_acceptance_v1",
+  "package_path": "feature_bank/models/song_f0_250hz_v1.pkl",
+  "package_sha256": "623e4f9ca282a03cde98236844039b6043f5f0471cfae35da94482af0e43b44c",
+  "source_sha256": {
+    "benchmarks/song_real8/F0_REST_MODEL_PROTOCOL.json": "02ed82e695cf040869fa7ce1325c3fb1f28e7bf271d3b1790ee5cff18019e3a6",
+    "benchmarks/song_real8/F0_REST_MODEL_RESULTS.json": "df34a6923a0988d6b1af9f6d20348310335e5b49233f107ed60f67c08c904515",
+    "benchmarks/song_real8/F0_REST_NOISE_PROTOCOL.json": "0e60760c580774c4eb9078f1ce77035979853ab9192fc763144577b1f2275d9c",
+    "benchmarks/song_real8/F0_REST_MODEL_TRIAL_PREDICTIONS.csv": "31fa57ee7f205f916d934461304f63667b3670dd6760e3fd4aa912e2f9e8e10e",
+    "benchmarks/song_real8/F9_DOCUMENT_V3_PROTOCOL.json": "519d3afb0ef6cfcd350c6e7f73737d1e07c6ef74607fe0e339e6b9b83ee942f6",
+    "benchmarks/song_real8/export_song_f0_runtime_v1.py": "0ca8bca254f91f677a39fa0b75de71fe40ff047c35fa2bb31d66149d1d63de4e",
+    "src/emgimu/feature_bank/song_f0_runtime_v1.py": "bd74b650af091763892b0116f074cce50d799b8723863495bd92db30aef2206d",
+    "tests/test_song_f0_runtime_v1.py": "cea4d73cd1d1aaf31c0b63baf1d2e0c101ed603087782ff54e1b9d5e231da9ba",
+    "src/emgimu/feature_bank/families.py": "967a66a3f94554ef8df09c5a0bc2ffd49a634518fecfb7e63d7d1ee211a241ea",
+    "src/emgimu/feature_bank/document_signal.py": "e21c30e27ddf5defed7d7aa23008ffb4a9d08fbcaee6b38744637606636f6825",
+    "benchmarks/song_real8_study.py": "6051769442d6b68e5893dff9b991a2a60a056eca4b7bacd907bad98ebeb15b3b"
+  },
+  "source_state_exactly_recovered": true,
+  "source_state_immutable": true,
+  "source_windows": 849,
+  "source_trials": 285,
+  "classes": [
+    "neutral",
+    "index_pinch",
+    "fist",
+    "open_hand"
+  ],
+  "channels": 8,
+  "sample_rate_hz": 250,
+  "window_samples": 50,
+  "preprocessing_id": "song250_causal_hp40_order4_notch50_100_Q30_zero_session_initial_v1",
+  "records": [
+    {
+      "session": "S03",
+      "arm": "pooled_source_threshold",
+      "trials": 140,
+      "probability_max_error": 0.0
+    },
+    {
+      "session": "S03",
+      "arm": "rest_only_threshold",
+      "trials": 140,
+      "probability_max_error": 0.0
+    },
+    {
+      "session": "S04",
+      "arm": "pooled_source_threshold",
+      "trials": 144,
+      "probability_max_error": 0.0
+    },
+    {
+      "session": "S04",
+      "arm": "rest_only_threshold",
+      "trials": 144,
+      "probability_max_error": 0.0
+    }
+  ],
+  "prediction_rows": 568,
+  "source_original_state_sha256": {
+    "pooled_source_threshold": "224f6ac440c4afbe0e864184306dd0d2f0c8489a652fb3984905aec93fabd736",
+    "rest_only_threshold": "4ff578f9dfb0896ba4d626a60fc64669e52c3c13e404c9b3cc841ae5b2480ffb"
+  },
+  "source_hdf5_sha256": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479"
+  },
+  "physical_validation_proven": false,
+  "default_promoted": false,
+  "completion_proven": false,
+  "scope": "Two exact existing Song F0 models recovered from S01/S02 only. No model selection, source protocol change or new target training. Probability means over cued windows; one user/day, readiness failures and previously inspected S04. Independent live/generalization efficacy is unproven. Input requires identical causal continuous-session filtering; resets between windows are incompatible. Native Brier archive remains its original class-sum convention."
+}
