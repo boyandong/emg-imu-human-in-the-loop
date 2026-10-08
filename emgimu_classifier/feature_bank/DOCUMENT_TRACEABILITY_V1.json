@@ -5,7 +5,8 @@
     "docx_goal.txt": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0"
   },
   "source_sha256": {
-    "benchmarks/new_bank_v3/document_traceability_v1.py": "6e238d140e5d6f8ddce5852f09277def74d104456e4cd1c6d13a571338b12a92",
+    "benchmarks/new_bank_v3/document_traceability_v1.py": "27b0d9da633e8ab0e07fcf0a2ae302ac7dd6823d3c9c3bfa570df3b6132fe2cd",
+    "tests/test_document_traceability_v1.py": "4015f84d5448eff28b4e3bd28e73c4a7111252be47c5851e1485a819a2c88494",
     "benchmarks/new_bank_v2/v1_acceptance_audit.py": "9b01a7a46ae03aca2e7aaa4c99432825acb0f7542743898aa7bed7f52b440ab7",
     "feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.json": "d7eaf63ac4fee45673119fa285c6105f2012f7176e6ae57fb74f008ed4de8e43"
   },
@@ -18657,6 +18658,1112 @@
       "individual_verification": "unproven"
     }
   ],
+  "supplemental_reviews": [
+    {
+      "document": "docx_pre.txt",
+      "line": 1,
+      "text": "你现在负责本项目的 Phase -1：",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-INTRO",
+      "disposition": "superseded_phase_history",
+      "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
+      "evidence_sha256": {
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "c615235b8bfc232e8e0dc552d5c91ce8c50258724079d84e863d1768b7c9de76"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 3,
+      "text": "DATASET DISCOVERY + BENCHMARK SELECTION + DOWNLOAD",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-INTRO",
+      "disposition": "superseded_phase_history",
+      "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
+      "evidence_sha256": {
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "c615235b8bfc232e8e0dc552d5c91ce8c50258724079d84e863d1768b7c9de76"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 5,
+      "text": "本阶段不要训练新模型，不要实现 Feature Bank。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-INTRO",
+      "disposition": "superseded_phase_history",
+      "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
+      "evidence_sha256": {
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "c615235b8bfc232e8e0dc552d5c91ce8c50258724079d84e863d1768b7c9de76"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 6,
+      "text": "任务是为后续：",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-INTRO",
+      "disposition": "superseded_phase_history",
+      "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
+      "evidence_sha256": {
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "c615235b8bfc232e8e0dc552d5c91ce8c50258724079d84e863d1768b7c9de76"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 8,
+      "text": "Feature Bank",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-INTRO",
+      "disposition": "superseded_phase_history",
+      "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
+      "evidence_sha256": {
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "c615235b8bfc232e8e0dc552d5c91ce8c50258724079d84e863d1768b7c9de76"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 9,
+      "text": "+ Personal Calibration",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-INTRO",
+      "disposition": "superseded_phase_history",
+      "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
+      "evidence_sha256": {
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "c615235b8bfc232e8e0dc552d5c91ce8c50258724079d84e863d1768b7c9de76"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 10,
+      "text": "+ Session Calibration",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-INTRO",
+      "disposition": "superseded_phase_history",
+      "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
+      "evidence_sha256": {
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "c615235b8bfc232e8e0dc552d5c91ce8c50258724079d84e863d1768b7c9de76"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 11,
+      "text": "+ Robustness Audit",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-INTRO",
+      "disposition": "superseded_phase_history",
+      "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
+      "evidence_sha256": {
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "c615235b8bfc232e8e0dc552d5c91ce8c50258724079d84e863d1768b7c9de76"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 13,
+      "text": "建立一套针对真实 failure 的公开 sEMG benchmark suite。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-INTRO",
+      "disposition": "superseded_phase_history",
+      "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
+      "evidence_sha256": {
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "c615235b8bfc232e8e0dc552d5c91ce8c50258724079d84e863d1768b7c9de76"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 15,
+      "text": "==================================================",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-INTRO",
+      "disposition": "superseded_phase_history",
+      "evidence_scope": "Discovery infrastructure exists. Original no-training phase chronology is historical; user now authorizes new independent experiments. No retrospective chronology proof.",
+      "evidence_sha256": {
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "c615235b8bfc232e8e0dc552d5c91ce8c50258724079d84e863d1768b7c9de76"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 1126,
+      "text": "Failed downloads",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-FAILURES",
+      "disposition": "verified_scoped",
+      "evidence_scope": "The failed UniBo master download and successful replacement are recorded; this is not a complete historical network-failure log.",
+      "evidence_sha256": {
+        "benchmarks/discovery/BENCHMARK_SELECTION_REPORT.md": "97ecdb04db1ed4b371ffd2574889d9ddc27ac95ad190138552643cf866e7bd65"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 1127,
+      "text": "Licensing/access problems",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-LICENSE",
+      "disposition": "partial_active",
+      "evidence_scope": "License and access problems are recorded, including unresolved secondary data terms and DS2 conflicting labels; no universal redistribution determination.",
+      "evidence_sha256": {
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "c615235b8bfc232e8e0dc552d5c91ce8c50258724079d84e863d1768b7c9de76",
+        "benchmarks/discovery/SECONDARY_PRIMARY_REVIEW_V1.json": "12d8ac982dffe4bf2a5a8a3114aee78ffc15e6aaa36b98191f88806b2dacac80"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 1128,
+      "text": "Checksums",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-DIGEST",
+      "disposition": "verified_scoped",
+      "evidence_scope": "Core archives have full recorded digests; v9 force files and exact joins are separately bound. Current review does not reread every multi-GB raw byte.",
+      "evidence_sha256": {
+        "benchmarks/discovery/CORE_ARCHIVE_DIGEST_AUDIT.json": "7fb0ab1345434b8658ab5b03345cc8d36be773bc40db1f0068b7662d4041a525",
+        "benchmarks/discovery/DS2_V9_FORCE_LABEL_AUDIT.json": "f0cee7da6421444718d33ca648bbb31633b09188f2265d292f78149f612f2ef5"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 1129,
+      "text": "Sanity-check result",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-SANITY",
+      "disposition": "verified_scoped",
+      "evidence_scope": "Native sample sanity reports include rejected missing fields. Sample checks do not prove full population or physical sensor quality.",
+      "evidence_sha256": {
+        "benchmarks/discovery/SANITY_AUDIT.json": "77792bb4208a021a1d23f3f32b6af079a14c2f0db007bf92b7011c2fe15390c8",
+        "benchmarks/discovery/electrode_replacement_native_sanity.json": "59729d0cad79c6ff0afc7e721decdf31be352a1ef5afcc6b68c74d5436ee2df0"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 1131,
+      "text": "此阶段不要正式跑 Feature Bank。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-ORDER",
+      "disposition": "superseded_phase_history",
+      "evidence_scope": "Historical stage ordering is not an unmet request to repeat discovery without training. New independent experiments are explicitly authorized.",
+      "evidence_sha256": {
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "c615235b8bfc232e8e0dc552d5c91ce8c50258724079d84e863d1768b7c9de76"
+      }
+    },
+    {
+      "document": "docx_pre.txt",
+      "line": 1133,
+      "text": "先把 benchmark infrastructure 建正确。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "PRE-ORDER",
+      "disposition": "superseded_phase_history",
+      "evidence_scope": "Historical stage ordering is not an unmet request to repeat discovery without training. New independent experiments are explicitly authorized.",
+      "evidence_sha256": {
+        "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "c615235b8bfc232e8e0dc552d5c91ce8c50258724079d84e863d1768b7c9de76"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 1,
+      "text": "你现在要在现有 EMG/IMU Human-in-the-loop 项目上开展一轮新的“Feature Bank + Personal Calibration”系统性实验。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INTRO",
+      "disposition": "context",
+      "evidence_scope": "Introduction and section separators; substantive research criteria reviewed below.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 3,
+      "text": "这不是一次“继续堆特征把 macro-F1 刷高”的实验。请严格按照下面的科研问题、实验边界和分析流程执行。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INTRO",
+      "disposition": "context",
+      "evidence_scope": "Introduction and section separators; substantive research criteria reviewed below.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 5,
+      "text": "==================================================",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INTRO",
+      "disposition": "context",
+      "evidence_scope": "Introduction and section separators; substantive research criteria reviewed below.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 6,
+      "text": "一、研究目标",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INTRO",
+      "disposition": "context",
+      "evidence_scope": "Introduction and section separators; substantive research criteria reviewed below.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 7,
+      "text": "==================================================",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INTRO",
+      "disposition": "context",
+      "evidence_scope": "Introduction and section separators; substantive research criteria reviewed below.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 9,
+      "text": "我们目前已经得到两个很重要的经验：",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-PRIORS",
+      "disposition": "historical_prior_not_new_evidence",
+      "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 11,
+      "text": "1. 针对单个 failure 的第一代特征往往明显有效：",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-PRIORS",
+      "disposition": "historical_prior_not_new_evidence",
+      "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 12,
+      "text": "   - force：X1-H 去除 global scale 后明显改善跨力度泛化；",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-PRIORS",
+      "disposition": "historical_prior_not_new_evidence",
+      "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 13,
+      "text": "   - wearing：RLCS 等选择性空间不变量能明显改善佩戴变化。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-PRIORS",
+      "disposition": "historical_prior_not_new_evidence",
+      "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 15,
+      "text": "2. 但继续把同一个方向做得“更 invariant”往往收益很小甚至下降：",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-PRIORS",
+      "disposition": "historical_prior_not_new_evidence",
+      "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 16,
+      "text": "   - CES over-invariant，丢掉太多 gesture information；",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-PRIORS",
+      "disposition": "historical_prior_not_new_evidence",
+      "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 17,
+      "text": "   - normalized-RLCS 更稳定但损失判别信息；",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-PRIORS",
+      "disposition": "historical_prior_not_new_evidence",
+      "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 18,
+      "text": "   - force X2a/X2b 没有超过 X1-H；",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-PRIORS",
+      "disposition": "historical_prior_not_new_evidence",
+      "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 19,
+      "text": "   - robust nuisance distance 虽降低 force drift，却误删 gesture-discriminative information；",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-PRIORS",
+      "disposition": "historical_prior_not_new_evidence",
+      "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 20,
+      "text": "   - frequency coordination 仅在部分困难条件下互补，不能代替 X1-H。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-PRIORS",
+      "disposition": "historical_prior_not_new_evidence",
+      "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 22,
+      "text": "因此我们当前的假设是：",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-HYPOTHESIS",
+      "disposition": "hypothesis_not_proven",
+      "evidence_scope": "Pairwise interactions and heterogeneous axes tested; full person-force-wearing-posture-day-phase-quality factorial interaction is not proven.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17",
+        "benchmarks/new_bank_v2/V1_CROSS_AXIS_DECISION_AUDIT.json": "d2503f1f25435cd41f398a5098815a8db68e63daf14d04baac9ad3eae239d881"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 24,
+      "text": "    后期 error 已经不是几个独立 nuisance 的简单叠加，",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-HYPOTHESIS",
+      "disposition": "hypothesis_not_proven",
+      "evidence_scope": "Pairwise interactions and heterogeneous axes tested; full person-force-wearing-posture-day-phase-quality factorial interaction is not proven.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17",
+        "benchmarks/new_bank_v2/V1_CROSS_AXIS_DECISION_AUDIT.json": "d2503f1f25435cd41f398a5098815a8db68e63daf14d04baac9ad3eae239d881"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 25,
+      "text": "    而是 person × force × wearing × posture × day × phase × quality",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-HYPOTHESIS",
+      "disposition": "hypothesis_not_proven",
+      "evidence_scope": "Pairwise interactions and heterogeneous axes tested; full person-force-wearing-posture-day-phase-quality factorial interaction is not proven.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17",
+        "benchmarks/new_bank_v2/V1_CROSS_AXIS_DECISION_AUDIT.json": "d2503f1f25435cd41f398a5098815a8db68e63daf14d04baac9ad3eae239d881"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 26,
+      "text": "    等因素的 interaction。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-HYPOTHESIS",
+      "disposition": "hypothesis_not_proven",
+      "evidence_scope": "Pairwise interactions and heterogeneous axes tested; full person-force-wearing-posture-day-phase-quality factorial interaction is not proven.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17",
+        "benchmarks/new_bank_v2/V1_CROSS_AXIS_DECISION_AUDIT.json": "d2503f1f25435cd41f398a5098815a8db68e63daf14d04baac9ad3eae239d881"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 28,
+      "text": "所以本轮目标不是寻找“万能 feature”。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-HYPOTHESIS",
+      "disposition": "hypothesis_not_proven",
+      "evidence_scope": "Pairwise interactions and heterogeneous axes tested; full person-force-wearing-posture-day-phase-quality factorial interaction is not proven.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17",
+        "benchmarks/new_bank_v2/V1_CROSS_AXIS_DECISION_AUDIT.json": "d2503f1f25435cd41f398a5098815a8db68e63daf14d04baac9ad3eae239d881"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 30,
+      "text": "真正目标是构造：",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-COMPONENTS",
+      "disposition": "partial_active",
+      "evidence_scope": "Shared families, personal/session calibration and quality APIs exist. Native body-frame, physical mapping and real-fault/live multi-day validation remain unavailable.",
+      "evidence_sha256": {
+        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "4aa5c39aba217cdddff34932987c6f8e4430f037d21e9f84e4511afebded6d22",
+        "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 32,
+      "text": "    Shared Feature Bank",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-COMPONENTS",
+      "disposition": "partial_active",
+      "evidence_scope": "Shared families, personal/session calibration and quality APIs exist. Native body-frame, physical mapping and real-fault/live multi-day validation remain unavailable.",
+      "evidence_sha256": {
+        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "4aa5c39aba217cdddff34932987c6f8e4430f037d21e9f84e4511afebded6d22",
+        "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 33,
+      "text": "    + Personal Calibration",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-COMPONENTS",
+      "disposition": "partial_active",
+      "evidence_scope": "Shared families, personal/session calibration and quality APIs exist. Native body-frame, physical mapping and real-fault/live multi-day validation remain unavailable.",
+      "evidence_sha256": {
+        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "4aa5c39aba217cdddff34932987c6f8e4430f037d21e9f84e4511afebded6d22",
+        "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 34,
+      "text": "    + Session Context",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-COMPONENTS",
+      "disposition": "partial_active",
+      "evidence_scope": "Shared families, personal/session calibration and quality APIs exist. Native body-frame, physical mapping and real-fault/live multi-day validation remain unavailable.",
+      "evidence_sha256": {
+        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "4aa5c39aba217cdddff34932987c6f8e4430f037d21e9f84e4511afebded6d22",
+        "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 35,
+      "text": "    + Quality Awareness",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-COMPONENTS",
+      "disposition": "partial_active",
+      "evidence_scope": "Shared families, personal/session calibration and quality APIs exist. Native body-frame, physical mapping and real-fault/live multi-day validation remain unavailable.",
+      "evidence_sha256": {
+        "feature_bank/HARDWARE_PREPARATION_ACCEPTANCE.json": "4aa5c39aba217cdddff34932987c6f8e4430f037d21e9f84e4511afebded6d22",
+        "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 37,
+      "text": "然后研究：",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-QUESTIONS",
+      "disposition": "verified_scoped",
+      "evidence_scope": "Failure-specific, conditional, paired-error and calibration questions have bounded public results including negative shortlist/LOFO findings; a universally improved compact bank is not claimed.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5",
+        "benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json": "6621e2a93643e7ef30990afd695474a419034140e00c2fedf689de611b57807c",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 39,
+      "text": "1. 每个 feature family 实际解决哪个 failure？",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-QUESTIONS",
+      "disposition": "verified_scoped",
+      "evidence_scope": "Failure-specific, conditional, paired-error and calibration questions have bounded public results including negative shortlist/LOFO findings; a universally improved compact bank is not claimed.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5",
+        "benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json": "6621e2a93643e7ef30990afd695474a419034140e00c2fedf689de611b57807c",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 40,
+      "text": "2. 在已有 feature 条件下，它还提供多少“增量信息”？",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-QUESTIONS",
+      "disposition": "verified_scoped",
+      "evidence_scope": "Failure-specific, conditional, paired-error and calibration questions have bounded public results including negative shortlist/LOFO findings; a universally improved compact bank is not claimed.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5",
+        "benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json": "6621e2a93643e7ef30990afd695474a419034140e00c2fedf689de611b57807c",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 41,
+      "text": "3. 哪些 feature 虽然单独性能一般，但和现有模型犯不同的错误，因此具有互补价值？",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-QUESTIONS",
+      "disposition": "verified_scoped",
+      "evidence_scope": "Failure-specific, conditional, paired-error and calibration questions have bounded public results including negative shortlist/LOFO findings; a universally improved compact bank is not claimed.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5",
+        "benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json": "6621e2a93643e7ef30990afd695474a419034140e00c2fedf689de611b57807c",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 42,
+      "text": "4. 哪些 feature 只有在个人校准后才变得有价值？",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-QUESTIONS",
+      "disposition": "verified_scoped",
+      "evidence_scope": "Failure-specific, conditional, paired-error and calibration questions have bounded public results including negative shortlist/LOFO findings; a universally improved compact bank is not claimed.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5",
+        "benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json": "6621e2a93643e7ef30990afd695474a419034140e00c2fedf689de611b57807c",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 43,
+      "text": "5. 最终能否形成一个较小、互补、可解释的 feature bank，而不是无限堆 feature？",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-QUESTIONS",
+      "disposition": "verified_scoped",
+      "evidence_scope": "Failure-specific, conditional, paired-error and calibration questions have bounded public results including negative shortlist/LOFO findings; a universally improved compact bank is not claimed.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5",
+        "benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json": "6621e2a93643e7ef30990afd695474a419034140e00c2fedf689de611b57807c",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 45,
+      "text": "不要只给出“哪个 feature 的平均 F1 最大”。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-QUESTIONS",
+      "disposition": "verified_scoped",
+      "evidence_scope": "Failure-specific, conditional, paired-error and calibration questions have bounded public results including negative shortlist/LOFO findings; a universally improved compact bank is not claimed.",
+      "evidence_sha256": {
+        "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5",
+        "benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json": "6621e2a93643e7ef30990afd695474a419034140e00c2fedf689de611b57807c",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 47,
+      "text": "==================================================",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 48,
+      "text": "二、核心评价思想",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 49,
+      "text": "==================================================",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 51,
+      "text": "我们不再问：",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 53,
+      "text": "    “Feature F 好不好？”",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 55,
+      "text": "而要问：",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 57,
+      "text": "    “在已经知道其他信息 Z 的情况下，",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 58,
+      "text": "     Feature F 还能给 H 提供多少额外预测信息？”",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 60,
+      "text": "概念上对应：",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 62,
+      "text": "    I(H ; F | Z)",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 64,
+      "text": "实际工程中不要强行估计高维 mutual information。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 66,
+      "text": "主要用 out-of-fold predictive loss improvement 作为条件信息价值的代理：",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 68,
+      "text": "    M0 : H <- Z",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 69,
+      "text": "    M1 : H <- [Z, F]",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 71,
+      "text": "定义：",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 73,
+      "text": "    ΔLogLoss(F | Z)",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 74,
+      "text": "      = LogLoss(M0) - LogLoss(M1)",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 76,
+      "text": "同时报告：",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 78,
+      "text": "    ΔMacroF1",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 79,
+      "text": "    ΔBrier",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 80,
+      "text": "    per-class F1",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 81,
+      "text": "    per-subject result",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 83,
+      "text": "如果 ΔLogLoss 稳定 > 0，",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 84,
+      "text": "说明 F 在已有信息基础上仍提供额外预测信息。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-INFO",
+      "disposition": "verified_scoped",
+      "evidence_scope": "128 paired concatenation increments across 64 cells implement core-minus-added log loss/Brier and added-minus-core F1, with per-class/per-subject outputs. These are predictive proxies, not direct mutual information; stability is not inferred from one positive pooled delta.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/CONDITIONAL_PROTOCOL.json": "bea57daaf5db017ea930a55528f5baa92c577e00cf2b9987747fe4660e61752f",
+        "benchmarks/new_bank_v2/CONDITIONAL_VALUE.csv": "ee9463f455e09718e5f869908ba380dbbd4b5a6ae6e9e7302e351f866ec23008",
+        "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01",
+        "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 86,
+      "text": "所有结果必须严格 out-of-fold / held-out evaluation，",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-HOLDOUT",
+      "disposition": "verified_scoped",
+      "evidence_scope": "Versioned source-fit and disjoint trial/OOF evidence exists. Previously inspected final cohorts are descriptive; this does not prove blind historical execution or exhaustive no-leakage for every older run.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/V1_REPRODUCIBILITY_AUDIT.json": "3a0909a80d245e109225832d0e5fa267f6b6320a4dd3af1cfe88cfedfba6ccbe",
+        "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_PROTOCOL.json": "108cfbceebb8400fe9715584641db3afe93afebd9ddfa53aac0a8bd1c859a359"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 87,
+      "text": "不能用 test 调 feature、超参数或融合权重。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-HOLDOUT",
+      "disposition": "verified_scoped",
+      "evidence_scope": "Versioned source-fit and disjoint trial/OOF evidence exists. Previously inspected final cohorts are descriptive; this does not prove blind historical execution or exhaustive no-leakage for every older run.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/V1_REPRODUCIBILITY_AUDIT.json": "3a0909a80d245e109225832d0e5fa267f6b6320a4dd3af1cfe88cfedfba6ccbe",
+        "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_PROTOCOL.json": "108cfbceebb8400fe9715584641db3afe93afebd9ddfa53aac0a8bd1c859a359"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 89,
+      "text": "==================================================",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-HOLDOUT",
+      "disposition": "verified_scoped",
+      "evidence_scope": "Versioned source-fit and disjoint trial/OOF evidence exists. Previously inspected final cohorts are descriptive; this does not prove blind historical execution or exhaustive no-leakage for every older run.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/V1_REPRODUCIBILITY_AUDIT.json": "3a0909a80d245e109225832d0e5fa267f6b6320a4dd3af1cfe88cfedfba6ccbe",
+        "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_PROTOCOL.json": "108cfbceebb8400fe9715584641db3afe93afebd9ddfa53aac0a8bd1c859a359"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 2641,
+      "text": "       或特定 failure 专长",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-TAIL",
+      "disposition": "context",
+      "evidence_scope": "Continuation of the preceding family-selection criterion: failure specialization or calibration-dependent complementarity. No new standalone command or artifact.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/V1_CROSS_AXIS_DECISION_AUDIT.json": "d2503f1f25435cd41f398a5098815a8db68e63daf14d04baac9ad3eae239d881"
+      }
+    },
+    {
+      "document": "docx_goal.txt",
+      "line": 2642,
+      "text": "       或 calibration 后的互补价值。",
+      "major_clause": null,
+      "individual_verification": "unproven",
+      "supplemental_review": "GOAL-TAIL",
+      "disposition": "context",
+      "evidence_scope": "Continuation of the preceding family-selection criterion: failure specialization or calibration-dependent complementarity. No new standalone command or artifact.",
+      "evidence_sha256": {
+        "benchmarks/new_bank_v2/V1_CROSS_AXIS_DECISION_AUDIT.json": "d2503f1f25435cd41f398a5098815a8db68e63daf14d04baac9ad3eae239d881"
+      }
+    }
+  ],
+  "unmapped_without_semantic_review": 0,
   "completion_proven": false,
-  "scope": "Every nonempty source line is retained exactly once. Major-clause coverage is a navigation aid, not individual requirement verification. Unmapped lines require explicit semantic review; mapped lines also remain individually unproven. No status is inherited as scientific acceptance."
+  "scope": "Every nonempty source line is retained exactly once. Major-clause coverage is a navigation aid, not individual requirement verification. All lines omitted by that matrix now have explicit supplemental semantic review, including scoped evidence, background and open requirements. Mapped lines still remain individually unproven; supplemental review does not establish complete scientific acceptance."
 }
