@@ -1,0 +1,175 @@
+{
+  "schema": "emg_window_bank_v1",
+  "archive": "D:/emg-imu-benchmarks/data/raw/epn612/EMG-EPN612-Dataset.zip",
+  "archive_sha256": "4ee8db037385e7bee1e6ac6f9e9eea4f0869e25f7825f5eb7e5be0dff4f93c21",
+  "source_users": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "target_users": [
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "known_previous_target_users": [
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "source_model_seed": 20261008,
+  "groups": [
+    "F0",
+    "F1",
+    "F2ac",
+    "F3b",
+    "F4abc",
+    "F5window"
+  ],
+  "compositions": {
+    "F0": [
+      "F0"
+    ],
+    "F0_plus_F1": [
+      "F0",
+      "F1"
+    ],
+    "F0_plus_F2ac": [
+      "F0",
+      "F2ac"
+    ],
+    "F0_plus_F3b": [
+      "F0",
+      "F3b"
+    ],
+    "F0_plus_F4abc": [
+      "F0",
+      "F4abc"
+    ],
+    "F0_plus_F5window": [
+      "F0",
+      "F5window"
+    ],
+    "window_bank": [
+      "F0",
+      "F1",
+      "F2ac",
+      "F3b",
+      "F4abc",
+      "F5window"
+    ],
+    "window_bank_minus_F0": [
+      "F1",
+      "F2ac",
+      "F3b",
+      "F4abc",
+      "F5window"
+    ],
+    "window_bank_minus_F1": [
+      "F0",
+      "F2ac",
+      "F3b",
+      "F4abc",
+      "F5window"
+    ],
+    "window_bank_minus_F2ac": [
+      "F0",
+      "F1",
+      "F3b",
+      "F4abc",
+      "F5window"
+    ],
+    "window_bank_minus_F3b": [
+      "F0",
+      "F1",
+      "F2ac",
+      "F4abc",
+      "F5window"
+    ],
+    "window_bank_minus_F4abc": [
+      "F0",
+      "F1",
+      "F2ac",
+      "F3b",
+      "F5window"
+    ],
+    "window_bank_minus_F5window": [
+      "F0",
+      "F1",
+      "F2ac",
+      "F3b",
+      "F4abc"
+    ]
+  },
+  "source_model": "Each composition independently fits source-only StandardScaler and balanced LogisticRegression C1 max_iter2000. Equal native-trial mass; arithmetic mean of four200ms windows per trial. Fixed family parameters; no target tuning, calibration, routing or gating.",
+  "primary": "Fixed six-group window_bank versus F0: lower pooled loss/Brier, nonworse macro-F1 and at least7/10 user loss wins. All additions/removals reported irrespective of sign; no composition selected using target results.",
+  "scope": "All six declared EMG window groups, not all document subfamilies or the document-wide F0-F9 bank. F2b CSP, ring-specific F3a/c, session F4d, full-bout/template F5b/c, anatomically calibrated F6, personal F7, F8 routing and F9 gating are absent. EPN52-61 public native cue-window trial classification; not hardware or own-user efficacy. No proof about every historical access event. Zero target calibration trials, full150 trials/user retained.",
+  "source_sha256": {
+    "benchmarks/new_bank_v3/emg_window_bank_v1.py": "a332ce6f4c3469876428eda9e8cc0ce0544fd3f8ef74b88fa15cdb2d9be456c0",
+    "src/emgimu/datasets/epn612.py": "bd227f61ea7cac6e4f9db4d35bb794366f72b3ffec0d943aaef970738e7f937e",
+    "src/emgimu/feature_bank/core.py": "a272025baef6a52ed24088092d17937da26ba334453305e552b6690528bbfffe",
+    "src/emgimu/feature_bank/families.py": "967a66a3f94554ef8df09c5a0bc2ffd49a634518fecfb7e63d7d1ee211a241ea",
+    "src/emgimu/feature_bank/new_bank_v1.py": "91d7b76f50197b5ed412d8cf13339bdba16780d61e6b89a349e0c594a3678f24",
+    "src/emgimu/feature_bank/new_bank_v2.py": "7f9195d7e591a2b3ac72f17142d36a32b32d4bfd7d049bdd4b40d7f06663c49e",
+    "src/emgimu/feature_bank/document_scale_v3.py": "5b160c09f2e7658383286fa39df1047d2327313fe2bbc3d4cec2c1431078d6e3",
+    "src/emgimu/feature_bank/spec_spatial_v3.py": "f2827bd8e448304d5ef51547241f7c6d59b9aa48fb83b1da64b8393db6f6df04",
+    "src/emgimu/feature_bank/document_ces_v3.py": "81c8bf26791b5e5aab3d5ef986ad8d343f32fef9e844628b6e951783a821644f",
+    "src/emgimu/feature_bank/document_spectral_v3.py": "cb7cd9149c21dee5279b454b23deed068e2ca58a12f8b24ce26a8fa86bc1c7e7",
+    "src/emgimu/feature_bank/document_temporal_v3.py": "58bb5655d52b82e860f1c7812cffe012f1850b5825129fb24f328271e9f68983",
+    "src/emgimu/feature_bank/epn_study.py": "be66dde2f607adb9dfa891048b4afbb6d67b50ee1646c16261c04b73b459f2c2",
+    "src/emgimu/feature_bank/screening.py": "ff32a8bfe3e4f5d7bf7143e4df0e9a90468e73215bcb01c24734ebc70fc42c2b"
+  },
+  "default_promoted": false
+}
