@@ -1,0 +1,465 @@
+{
+  "schema": "epn_holdout_cost_curve_v2",
+  "source_sha256": {
+    "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json": "a423f944b65c5d9d494ab3b85dc5cd6df528ac07968d35d5445ea060d6d4999e",
+    "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json": "9b2b7ed27a0747b31a129f229d5ff933d06cf4108485fa60f1f496758907a894",
+    "benchmarks/new_bank_v3/epn_holdout_cost_curve_v2.py": "c210a5ed4796f8781d69955aa3865841751ba91da6159976dfe3d225f225584b"
+  },
+  "figure_sha256": {
+    "MAHALANOBIS_EPN_HOLDOUT_V2_COST_CURVE.svg": "a37fdd1945269ffbe05c2bfc54053655e8eea28a0573ce821cb51b94bbd7e06b",
+    "MAHALANOBIS_EPN_HOLDOUT_V2_COST_CURVE.png": "873f6226b4e6f2e78b97e382337a458b09b952411349b92616229127a966519d"
+  },
+  "rows": [
+    {
+      "subject": 32,
+      "shots_per_class": 10,
+      "method": "euclidean",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.27500000000003,
+      "macro_f1": 0.5555555555555555,
+      "log_loss": 1.5365871676031941
+    },
+    {
+      "subject": 32,
+      "shots_per_class": 10,
+      "method": "mahalanobis",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.27500000000003,
+      "macro_f1": 0.6527777777777778,
+      "log_loss": 1.3756389018250343
+    },
+    {
+      "subject": 32,
+      "shots_per_class": 20,
+      "method": "euclidean",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 596.7950000000001,
+      "macro_f1": 0.5343304843304844,
+      "log_loss": 1.5287765331134076
+    },
+    {
+      "subject": 32,
+      "shots_per_class": 20,
+      "method": "mahalanobis",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 596.7950000000001,
+      "macro_f1": 0.7230158730158731,
+      "log_loss": 1.3356697996113065
+    },
+    {
+      "subject": 33,
+      "shots_per_class": 10,
+      "method": "euclidean",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.705,
+      "macro_f1": 0.757070707070707,
+      "log_loss": 1.427320239449474
+    },
+    {
+      "subject": 33,
+      "shots_per_class": 10,
+      "method": "mahalanobis",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.705,
+      "macro_f1": 0.6803118908382068,
+      "log_loss": 1.2989706982176346
+    },
+    {
+      "subject": 33,
+      "shots_per_class": 20,
+      "method": "euclidean",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 597.455,
+      "macro_f1": 0.8306462056462056,
+      "log_loss": 1.4090289165840664
+    },
+    {
+      "subject": 33,
+      "shots_per_class": 20,
+      "method": "mahalanobis",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 597.455,
+      "macro_f1": 0.8690476190476191,
+      "log_loss": 1.3039941844878542
+    },
+    {
+      "subject": 34,
+      "shots_per_class": 10,
+      "method": "euclidean",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.755,
+      "macro_f1": 0.5800976800976801,
+      "log_loss": 1.4374560424202107
+    },
+    {
+      "subject": 34,
+      "shots_per_class": 10,
+      "method": "mahalanobis",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.755,
+      "macro_f1": 0.7554297554297554,
+      "log_loss": 1.2256695112749483
+    },
+    {
+      "subject": 34,
+      "shots_per_class": 20,
+      "method": "euclidean",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 597.0600000000001,
+      "macro_f1": 0.5466089466089467,
+      "log_loss": 1.4364522324931632
+    },
+    {
+      "subject": 34,
+      "shots_per_class": 20,
+      "method": "mahalanobis",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 597.0600000000001,
+      "macro_f1": 0.7885521885521886,
+      "log_loss": 1.22949638436529
+    },
+    {
+      "subject": 35,
+      "shots_per_class": 10,
+      "method": "euclidean",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.745,
+      "macro_f1": 0.4406565656565657,
+      "log_loss": 1.4964358320186115
+    },
+    {
+      "subject": 35,
+      "shots_per_class": 10,
+      "method": "mahalanobis",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.745,
+      "macro_f1": 0.5315416065416065,
+      "log_loss": 1.3268442522747823
+    },
+    {
+      "subject": 35,
+      "shots_per_class": 20,
+      "method": "euclidean",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 597.365,
+      "macro_f1": 0.37835775335775335,
+      "log_loss": 1.4918879558937495
+    },
+    {
+      "subject": 35,
+      "shots_per_class": 20,
+      "method": "mahalanobis",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 597.365,
+      "macro_f1": 0.7621637621637621,
+      "log_loss": 1.3190715310696304
+    },
+    {
+      "subject": 36,
+      "shots_per_class": 10,
+      "method": "euclidean",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.64,
+      "macro_f1": 0.40996040996040994,
+      "log_loss": 1.6276185376304566
+    },
+    {
+      "subject": 36,
+      "shots_per_class": 10,
+      "method": "mahalanobis",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.64,
+      "macro_f1": 0.5748316498316498,
+      "log_loss": 1.448292750944966
+    },
+    {
+      "subject": 36,
+      "shots_per_class": 20,
+      "method": "euclidean",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 597.15,
+      "macro_f1": 0.39557226399331663,
+      "log_loss": 1.6267367091083942
+    },
+    {
+      "subject": 36,
+      "shots_per_class": 20,
+      "method": "mahalanobis",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 597.15,
+      "macro_f1": 0.6693991193991193,
+      "log_loss": 1.4010925538078767
+    },
+    {
+      "subject": 37,
+      "shots_per_class": 10,
+      "method": "euclidean",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.615,
+      "macro_f1": 0.5705535205535206,
+      "log_loss": 1.4953573843417034
+    },
+    {
+      "subject": 37,
+      "shots_per_class": 10,
+      "method": "mahalanobis",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.615,
+      "macro_f1": 0.6026455026455025,
+      "log_loss": 1.3776128694267575
+    },
+    {
+      "subject": 37,
+      "shots_per_class": 20,
+      "method": "euclidean",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 597.09,
+      "macro_f1": 0.4978021978021978,
+      "log_loss": 1.4968460315055263
+    },
+    {
+      "subject": 37,
+      "shots_per_class": 20,
+      "method": "mahalanobis",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 597.09,
+      "macro_f1": 0.6419973544973545,
+      "log_loss": 1.3683174224226364
+    },
+    {
+      "subject": 38,
+      "shots_per_class": 10,
+      "method": "euclidean",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.61,
+      "macro_f1": 0.15252525252525254,
+      "log_loss": 1.7012838577520741
+    },
+    {
+      "subject": 38,
+      "shots_per_class": 10,
+      "method": "mahalanobis",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.61,
+      "macro_f1": 0.5924630924630924,
+      "log_loss": 1.570542150892417
+    },
+    {
+      "subject": 38,
+      "shots_per_class": 20,
+      "method": "euclidean",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 597.275,
+      "macro_f1": 0.13888888888888887,
+      "log_loss": 1.7250527239325981
+    },
+    {
+      "subject": 38,
+      "shots_per_class": 20,
+      "method": "mahalanobis",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 597.275,
+      "macro_f1": 0.5026001776001775,
+      "log_loss": 1.5898339978524796
+    },
+    {
+      "subject": 39,
+      "shots_per_class": 10,
+      "method": "euclidean",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.36,
+      "macro_f1": 0.47453703703703703,
+      "log_loss": 1.5327411254362293
+    },
+    {
+      "subject": 39,
+      "shots_per_class": 10,
+      "method": "mahalanobis",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.36,
+      "macro_f1": 0.5647537647537648,
+      "log_loss": 1.430309673376784
+    },
+    {
+      "subject": 39,
+      "shots_per_class": 20,
+      "method": "euclidean",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 596.825,
+      "macro_f1": 0.44648692810457513,
+      "log_loss": 1.5161105175145118
+    },
+    {
+      "subject": 39,
+      "shots_per_class": 20,
+      "method": "mahalanobis",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 596.825,
+      "macro_f1": 0.5568783068783069,
+      "log_loss": 1.4164438968589208
+    },
+    {
+      "subject": 40,
+      "shots_per_class": 10,
+      "method": "euclidean",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.515,
+      "macro_f1": 0.5185786435786436,
+      "log_loss": 1.5604866879793577
+    },
+    {
+      "subject": 40,
+      "shots_per_class": 10,
+      "method": "mahalanobis",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 298.515,
+      "macro_f1": 0.6386243386243386,
+      "log_loss": 1.4108784858184265
+    },
+    {
+      "subject": 40,
+      "shots_per_class": 20,
+      "method": "euclidean",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 597.375,
+      "macro_f1": 0.49693639693639696,
+      "log_loss": 1.5420770055842372
+    },
+    {
+      "subject": 40,
+      "shots_per_class": 20,
+      "method": "mahalanobis",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 597.375,
+      "macro_f1": 0.701010101010101,
+      "log_loss": 1.363343649257635
+    },
+    {
+      "subject": 41,
+      "shots_per_class": 10,
+      "method": "euclidean",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 296.045,
+      "macro_f1": 0.47607022607022603,
+      "log_loss": 1.5590689608832817
+    },
+    {
+      "subject": 41,
+      "shots_per_class": 10,
+      "method": "mahalanobis",
+      "calibration_trials": 60,
+      "signal_seconds": 48.0,
+      "full_recording_seconds": 296.045,
+      "macro_f1": 0.6531746031746032,
+      "log_loss": 1.3792589882414557
+    },
+    {
+      "subject": 41,
+      "shots_per_class": 20,
+      "method": "euclidean",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 592.135,
+      "macro_f1": 0.5356726606726606,
+      "log_loss": 1.5555348738017183
+    },
+    {
+      "subject": 41,
+      "shots_per_class": 20,
+      "method": "mahalanobis",
+      "calibration_trials": 120,
+      "signal_seconds": 96.0,
+      "full_recording_seconds": 592.135,
+      "macro_f1": 0.5381313131313131,
+      "log_loss": 1.3777824796618396
+    }
+  ],
+  "calibration_requirements": {
+    "all_task_gestures_required": true,
+    "required_native_gesture_classes": 6,
+    "basis": "Both prototypes and within-class covariance require labelled target calibration for all six classes.",
+    "each_target_session": "N/A: repeated-session transfer not evaluated in this cohort",
+    "target_force_required": "N/A: force labels and unseen-force transfer not controlled in this experiment",
+    "target_posture_required": "N/A: posture labels and unseen-posture transfer not controlled in this experiment",
+    "physical_session_seconds": "N/A: setup, prompts, rest and elapsed device time unmeasured"
+  },
+  "pooled_scores": {
+    "10": {
+      "euclidean": {
+        "macro_f1": 0.5129449432558552,
+        "accuracy": 0.52,
+        "log_loss": 1.5374355835514595,
+        "brier": 0.12292937962494332,
+        "ece": 0.26961013628605557,
+        "per_class_f1_json": "{\"noGesture\":0.7413793103448276,\"fist\":0.46956521739130436,\"waveIn\":0.5348837209302325,\"waveOut\":0.4489795918367347,\"open\":0.32967032967032966,\"pinch\":0.5531914893617021}"
+      },
+      "mahalanobis": {
+        "macro_f1": 0.6328593451763923,
+        "accuracy": 0.6333333333333333,
+        "log_loss": 1.3844018282293207,
+        "brier": 0.11374947941281588,
+        "ece": 0.35345738945822913,
+        "per_class_f1_json": "{\"noGesture\":0.6744186046511628,\"fist\":0.6788990825688074,\"waveIn\":0.6727272727272727,\"waveOut\":0.5333333333333333,\"open\":0.5777777777777777,\"pinch\":0.66}"
+      }
+    },
+    "20": {
+      "euclidean": {
+        "macro_f1": 0.5115484606170392,
+        "accuracy": 0.5166666666666667,
+        "log_loss": 1.5328503499531374,
+        "brier": 0.12260167639873719,
+        "ece": 0.2823468418012176,
+        "per_class_f1_json": "{\"noGesture\":0.7368421052631579,\"fist\":0.48214285714285715,\"waveIn\":0.574468085106383,\"waveOut\":0.45098039215686275,\"open\":0.29473684210526313,\"pinch\":0.5301204819277109}"
+      },
+      "mahalanobis": {
+        "macro_f1": 0.6835841686103511,
+        "accuracy": 0.6833333333333333,
+        "log_loss": 1.370504589939547,
+        "brier": 0.11278877752697411,
+        "ece": 0.4037546157322054,
+        "per_class_f1_json": "{\"noGesture\":0.7191011235955056,\"fist\":0.6538461538461539,\"waveIn\":0.7115384615384616,\"waveOut\":0.660377358490566,\"open\":0.6041666666666666,\"pinch\":0.7524752475247525}"
+      }
+    }
+  },
+  "scope": "New independent 10/20-shot confirmation only; do not extend curves to unsupported budgets or equate exposure with full recording/physical time.",
+  "few_second_calibration_proven": false,
+  "device_efficacy_proven": false,
+  "default_promoted": false
+}
