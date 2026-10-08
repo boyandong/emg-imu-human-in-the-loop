@@ -1,6 +1,7 @@
 {
   "schema": "secondary_primary_review_v1",
   "review_date": "2026-10-08",
+  "license_metadata_artifact": "SECONDARY_LICENSE_METADATA_V1.json",
   "scope": "Manually reviewed primary repository pages. Metadata review is separate from native acquisition, full paper review and real hardware validation. Missing fields remain unverified.",
   "completion_proven": false,
   "datasets": [
@@ -39,10 +40,10 @@
     },
     {
       "id": "ninapro_db5",
-      "sources": ["https://ninapro.hevs.ch/instructions/DB5.html", "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0186132"],
+      "sources": ["https://ninapro.hevs.ch/instructions/DB5.html", "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0186132", "https://zenodo.org/records/1000116"],
       "paper": "Pizzolato et al., Comparison of six electromyography acquisition setups on hand movement classification tasks (2017).",
       "paper_review": "Article title, public-data statement and official acquisition guidelines read; not exhaustive full-paper validation.",
-      "license_verified": null,
+      "license_verified": "CC-BY-ND-4.0",
       "subjects": 10,
       "emg_sample_rate_hz": 200,
       "stored_emg_channels": 16,
@@ -50,7 +51,7 @@
       "layout": "Two eight-channel Myo rings; second tilted 22.5 degrees clockwise. Acceleration from first Myo.",
       "six_axis_imu_verified": false,
       "physical_eight_channel_layout_verified": false,
-      "limitations": ["Acceleration does not establish synchronized gyro, raw units or guided body-frame calibration.", "Paper's DB5 data DOI resolves to a record titled dataset 4; do not silently use that record as DB5 licensing proof.", "Official subject ZIP links are visible; native download access was not tested."]
+      "limitations": ["Acceleration does not establish synchronized gyro, raw units or guided body-frame calibration.", "Paper's DB5 data DOI resolves to dataset 4; corrected author record 1000116 independently confirms DB5 identity and license.", "Official subject ZIP links are visible; native download access was not tested."]
     },
     {
       "id": "ninapro_db6",
@@ -74,7 +75,7 @@
       "id": "great",
       "sources": ["https://datadryad.org/dataset/doi:10.5061/dryad.8sf7m0czv"],
       "paper_review": "Author repository and README reviewed; linked full paper not reviewed.",
-      "license_verified": null,
+      "license_verified": "CC0-1.0",
       "subjects": 8,
       "days": 2,
       "emg_sample_rate_hz": 2000,
@@ -83,21 +84,21 @@
       "six_axis_imu_verified": false,
       "physical_eight_channel_layout_verified": false,
       "uncued_continuous_transitions_verified": false,
-      "limitations": ["Recording starts after position and grasp formation to avoid transitions; not automatic onset/offset ground truth.", "Nine-position grid described, five positions acquired; do not invent nine acquired conditions.", "README repeats day1block2 in its four-folder listing; native names must be inspected.", "Current page extraction did not expose dataset license; prior CC0 record retained separately."]
+      "limitations": ["Recording starts after position and grasp formation to avoid transitions; not automatic onset/offset ground truth.", "Nine-position grid described, five positions acquired; do not invent nine acquired conditions.", "README repeats day1block2 in its four-folder listing; native names must be inspected."]
     },
     {
       "id": "electrode_replacement_secondary",
       "sources": ["https://zenodo.org/records/4039550"],
       "paper": "Miljkovic and Isakovic, Effect of the sEMG electrode (re) placement and feature set size on the hand movement recognition; DOI 10.1016/j.bspc.2020.102292.",
       "paper_review": "Publisher-linked citation; paper retrieval failed this review.",
-      "license_verified": null,
+      "license_verified": "CC-BY-4.0",
       "emg_sample_rate_hz": 1000,
       "stored_emg_channels": 8,
       "layout": "CH1 through CH8; detailed assembly/position referred to linked paper and not verified here.",
       "native_text_files": 267,
       "six_axis_imu_verified": false,
       "physical_eight_channel_layout_verified": false,
-      "limitations": ["Record describes at least ten repetitions but no sample-level repetition boundaries supplied in eight-column files.", "Some analysis repetitions discarded; cannot reconstruct segmentation from count alone.", "Current page license label not extracted; prior CC-BY-4.0 record retained separately."]
+      "limitations": ["Record describes at least ten repetitions but no sample-level repetition boundaries supplied in eight-column files.", "Some analysis repetitions discarded; cannot reconstruct segmentation from count alone."]
     },
     {
       "id": "roam_emg",

@@ -1,0 +1,53 @@
+{
+  "schema": "secondary_license_metadata_v1",
+  "observations": [
+    {
+      "dataset": "electrode_replacement_secondary",
+      "url": "https://zenodo.org/api/records/4039550",
+      "observed_at_utc": "2026-10-08T04:31:04.682784+00:00",
+      "http_status": 200,
+      "response_sha256": "ba556e6e9ed418f8cfbef3345a121a65a9cfaa50792f5a11678de9753c0833eb",
+      "fields": {
+        "title": "Surface electromyogram (sEMG) dataset recorded from forearm for 9 hand movements and three electrode array positions",
+        "license": {
+          "id": "cc-by-4.0"
+        },
+        "doi": "10.5281/zenodo.4039550"
+      },
+      "publisher_record_id": 4039550,
+      "status": "publisher_metadata_observed"
+    },
+    {
+      "dataset": "ninapro_db5",
+      "url": "https://zenodo.org/api/records/1000116",
+      "observed_at_utc": "2026-10-08T04:31:06.569332+00:00",
+      "http_status": 200,
+      "response_sha256": "404a6b4715473de170eb1761633e402eb95c55041209f0ce771156fe8b45fcfd",
+      "fields": {
+        "title": "Ninapro dataset 5 (double Myo armband)",
+        "license": {
+          "id": "cc-by-nd-4.0"
+        },
+        "doi": "10.5281/zenodo.1000116"
+      },
+      "publisher_record_id": 1000116,
+      "status": "publisher_metadata_observed"
+    },
+    {
+      "dataset": "great",
+      "url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.8sf7m0czv",
+      "observed_at_utc": "2026-10-08T04:31:08.510674+00:00",
+      "http_status": 200,
+      "response_sha256": "2bb310dfdea0494826d6c1b5ab8c59e23ea164265fe69b8cc52bfb06e0e52211",
+      "fields": {
+        "title": "EMG dataset for gesture recognition with arm translation",
+        "license": "https://spdx.org/licenses/CC0-1.0.html",
+        "identifier": "doi:10.5061/dryad.8sf7m0czv"
+      },
+      "publisher_record_id": 143036,
+      "status": "publisher_metadata_observed"
+    }
+  ],
+  "scope": "Selected public API metadata fields with original response digest. No signal archives, account credentials or legal-use determination.",
+  "runner_sha256": "1ffd848656457092a980784d3a722475a580765d98e4d5d07f4d257d20abe11c"
+}

@@ -15,7 +15,8 @@ def build():
     paths = ['DATASET_MANIFEST.json', 'DISCOVERY_DELIVERY_AUDIT.json',
              'DS2_V9_FORCE_LABEL_AUDIT.json', 'DS2_V9_FORCE_TRIAL_JOIN.csv',
              'public_ds2_force_v9/RESULTS.json', 'public_ds2_force_v9/TRIAL_PREDICTIONS.csv',
-             'scripts/current_discovery_state.py', 'SECONDARY_PRIMARY_REVIEW_V1.json']
+             'scripts/current_discovery_state.py', 'SECONDARY_LICENSE_METADATA_V1.json',
+             'scripts/fetch_secondary_license_metadata.py', 'SECONDARY_PRIMARY_REVIEW_V1.json']
     old = json.loads((HERE / paths[0]).read_text(encoding='utf8'))
     labels = json.loads((HERE / paths[2]).read_text(encoding='utf8'))
     result = json.loads((HERE / paths[4]).read_text(encoding='utf8'))
@@ -51,6 +52,10 @@ def build():
     for dataset in datasets:
         if dataset['id'] in reviewed:
             dataset['primary_metadata_review'] = reviewed[dataset['id']]
+            license_name = reviewed[dataset['id']]['license_verified']
+            if license_name is not None and license_name != dataset['license']:
+                dataset['recorded_license'] = dataset['license']
+                dataset['license'] = license_name
     ds2 = next(dataset for dataset in datasets if dataset['id'] == 'ds2_force')
     ds2.update({
         'status': 'public_v8_raw_with_verified_publisher_v9_subjective_force_labels',

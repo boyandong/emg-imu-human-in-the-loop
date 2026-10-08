@@ -8,8 +8,10 @@
     "DS2_V9_FORCE_TRIAL_JOIN.csv": "bdfcb4dd250fb90b713d1dd835f91304d685d751b0d081ba0c48622484d272b7",
     "public_ds2_force_v9/RESULTS.json": "86d7d79c3a63d3b01d64d1425859c27d0aebd3915a5c277921e637702bec2541",
     "public_ds2_force_v9/TRIAL_PREDICTIONS.csv": "8b2f35d7b91f5b65e5f874ed4a59e959c2047d4ea63ce33a6873a3a6777a5dc3",
-    "scripts/current_discovery_state.py": "23b6fba40430734d7563abc4eb9fb5d28fe48bba2de8e958a06791194f9fa8a7",
-    "SECONDARY_PRIMARY_REVIEW_V1.json": "12d8ac982dffe4bf2a5a8a3114aee78ffc15e6aaa36b98191f88806b2dacac80"
+    "scripts/current_discovery_state.py": "7f9c42b349fe0f897ffc1bbd65480ff04e584cffa4bd977bc1f71a5c7c0a8746",
+    "SECONDARY_LICENSE_METADATA_V1.json": "50bcb5e340bc69ea2fda2cb9f457cb59d1dc27ed3d718700ee2aa20f3297801d",
+    "scripts/fetch_secondary_license_metadata.py": "1ffd848656457092a980784d3a722475a580765d98e4d5d07f4d257d20abe11c",
+    "SECONDARY_PRIMARY_REVIEW_V1.json": "b4769407e35ee5ee569773c0726ac321c5e217630cacccbb04d08ac5c5262120"
   },
   "datasets": [
     {
@@ -120,14 +122,14 @@
       "status": "deferred",
       "source": "https://doi.org/10.5061/dryad.8sf7m0czv",
       "expected_size": 3800000000,
-      "license": "CC0",
+      "license": "CC0-1.0",
       "primary_metadata_review": {
         "id": "great",
         "sources": [
           "https://datadryad.org/dataset/doi:10.5061/dryad.8sf7m0czv"
         ],
         "paper_review": "Author repository and README reviewed; linked full paper not reviewed.",
-        "license_verified": null,
+        "license_verified": "CC0-1.0",
         "subjects": 8,
         "days": 2,
         "emg_sample_rate_hz": 2000,
@@ -139,10 +141,10 @@
         "limitations": [
           "Recording starts after position and grasp formation to avoid transitions; not automatic onset/offset ground truth.",
           "Nine-position grid described, five positions acquired; do not invent nine acquired conditions.",
-          "README repeats day1block2 in its four-folder listing; native names must be inspected.",
-          "Current page extraction did not expose dataset license; prior CC0 record retained separately."
+          "README repeats day1block2 in its four-folder listing; native names must be inspected."
         ]
-      }
+      },
+      "recorded_license": "CC0"
     },
     {
       "id": "ninapro_db6",
@@ -211,16 +213,17 @@
       "id": "ninapro_db5",
       "status": "access_required",
       "source": "https://ninapro.hevs.ch/",
-      "license": "NinaPro terms",
+      "license": "CC-BY-ND-4.0",
       "primary_metadata_review": {
         "id": "ninapro_db5",
         "sources": [
           "https://ninapro.hevs.ch/instructions/DB5.html",
-          "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0186132"
+          "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0186132",
+          "https://zenodo.org/records/1000116"
         ],
         "paper": "Pizzolato et al., Comparison of six electromyography acquisition setups on hand movement classification tasks (2017).",
         "paper_review": "Article title, public-data statement and official acquisition guidelines read; not exhaustive full-paper validation.",
-        "license_verified": null,
+        "license_verified": "CC-BY-ND-4.0",
         "subjects": 10,
         "emg_sample_rate_hz": 200,
         "stored_emg_channels": 16,
@@ -230,10 +233,11 @@
         "physical_eight_channel_layout_verified": false,
         "limitations": [
           "Acceleration does not establish synchronized gyro, raw units or guided body-frame calibration.",
-          "Paper's DB5 data DOI resolves to a record titled dataset 4; do not silently use that record as DB5 licensing proof.",
+          "Paper's DB5 data DOI resolves to dataset 4; corrected author record 1000116 independently confirms DB5 identity and license.",
           "Official subject ZIP links are visible; native download access was not tested."
         ]
-      }
+      },
+      "recorded_license": "NinaPro terms"
     },
     {
       "id": "fors_emg",
@@ -335,7 +339,7 @@
         ],
         "paper": "Miljkovic and Isakovic, Effect of the sEMG electrode (re) placement and feature set size on the hand movement recognition; DOI 10.1016/j.bspc.2020.102292.",
         "paper_review": "Publisher-linked citation; paper retrieval failed this review.",
-        "license_verified": null,
+        "license_verified": "CC-BY-4.0",
         "emg_sample_rate_hz": 1000,
         "stored_emg_channels": 8,
         "layout": "CH1 through CH8; detailed assembly/position referred to linked paper and not verified here.",
@@ -344,8 +348,7 @@
         "physical_eight_channel_layout_verified": false,
         "limitations": [
           "Record describes at least ten repetitions but no sample-level repetition boundaries supplied in eight-column files.",
-          "Some analysis repetitions discarded; cannot reconstruct segmentation from count alone.",
-          "Current page license label not extracted; prior CC-BY-4.0 record retained separately."
+          "Some analysis repetitions discarded; cannot reconstruct segmentation from count alone."
         ]
       }
     }
