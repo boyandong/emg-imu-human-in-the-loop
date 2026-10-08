@@ -15,7 +15,7 @@ def build():
     paths = ['DATASET_MANIFEST.json', 'DISCOVERY_DELIVERY_AUDIT.json',
              'DS2_V9_FORCE_LABEL_AUDIT.json', 'DS2_V9_FORCE_TRIAL_JOIN.csv',
              'public_ds2_force_v9/RESULTS.json', 'public_ds2_force_v9/TRIAL_PREDICTIONS.csv',
-             'scripts/current_discovery_state.py']
+             'scripts/current_discovery_state.py', 'SECONDARY_PRIMARY_REVIEW_V1.json']
     old = json.loads((HERE / paths[0]).read_text(encoding='utf8'))
     labels = json.loads((HERE / paths[2]).read_text(encoding='utf8'))
     result = json.loads((HERE / paths[4]).read_text(encoding='utf8'))
@@ -44,6 +44,13 @@ def build():
             len(active) != result['eligible_active_trials']):
         raise ValueError('DS2 current cohort counts disagree')
     datasets = [dict(dataset) for dataset in old['datasets']]
+    review = json.loads((HERE / paths[-1]).read_text(encoding='utf8'))
+    reviewed = {entry['id']: entry for entry in review['datasets']}
+    if len(reviewed) != len(review['datasets']):
+        raise ValueError('Duplicate secondary dataset review')
+    for dataset in datasets:
+        if dataset['id'] in reviewed:
+            dataset['primary_metadata_review'] = reviewed[dataset['id']]
     ds2 = next(dataset for dataset in datasets if dataset['id'] == 'ds2_force')
     ds2.update({
         'status': 'public_v8_raw_with_verified_publisher_v9_subjective_force_labels',
@@ -69,7 +76,7 @@ def build():
             {'source': 'Historical baseline recovery', 'old': 'Wait for unavailable legacy experiments.',
              'current': 'Superseded by user-authorized versioned independent implementation.'}],
         'remaining': ['Real multi-user/day eight-channel and hardware validation.',
-                      'Secondary candidate paper/license/layout verification remains incomplete.',
+                      'Seven secondary primary metadata reviews exist; full-paper, unresolved dataset-license and native physical-layout checks remain explicit per entry.',
                       'Reported DS2 license conflict is retained; no new license determination.',
                       'This entry point does not rehash multi-GB raw archives or authenticate physical clocks.'],
         'completion_proven': False,

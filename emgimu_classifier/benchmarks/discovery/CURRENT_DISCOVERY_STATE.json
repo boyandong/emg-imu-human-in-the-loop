@@ -8,7 +8,8 @@
     "DS2_V9_FORCE_TRIAL_JOIN.csv": "bdfcb4dd250fb90b713d1dd835f91304d685d751b0d081ba0c48622484d272b7",
     "public_ds2_force_v9/RESULTS.json": "86d7d79c3a63d3b01d64d1425859c27d0aebd3915a5c277921e637702bec2541",
     "public_ds2_force_v9/TRIAL_PREDICTIONS.csv": "8b2f35d7b91f5b65e5f874ed4a59e959c2047d4ea63ce33a6873a3a6777a5dc3",
-    "scripts/current_discovery_state.py": "ce5689fd04f29e7e80ca1f150229083f9d00e26dd1901b469fe71f00274e3356"
+    "scripts/current_discovery_state.py": "23b6fba40430734d7563abc4eb9fb5d28fe48bba2de8e958a06791194f9fa8a7",
+    "SECONDARY_PRIMARY_REVIEW_V1.json": "12d8ac982dffe4bf2a5a8a3114aee78ffc15e6aaa36b98191f88806b2dacac80"
   },
   "datasets": [
     {
@@ -119,13 +120,58 @@
       "status": "deferred",
       "source": "https://doi.org/10.5061/dryad.8sf7m0czv",
       "expected_size": 3800000000,
-      "license": "CC0"
+      "license": "CC0",
+      "primary_metadata_review": {
+        "id": "great",
+        "sources": [
+          "https://datadryad.org/dataset/doi:10.5061/dryad.8sf7m0czv"
+        ],
+        "paper_review": "Author repository and README reviewed; linked full paper not reviewed.",
+        "license_verified": null,
+        "subjects": 8,
+        "days": 2,
+        "emg_sample_rate_hz": 2000,
+        "stored_emg_channels": 16,
+        "layout": "Four Trigno Quattro sensors, two staggered rows of eight; first row starts at extensor carpi ulnaris.",
+        "six_axis_imu_verified": false,
+        "physical_eight_channel_layout_verified": false,
+        "uncued_continuous_transitions_verified": false,
+        "limitations": [
+          "Recording starts after position and grasp formation to avoid transitions; not automatic onset/offset ground truth.",
+          "Nine-position grid described, five positions acquired; do not invent nine acquired conditions.",
+          "README repeats day1block2 in its four-folder listing; native names must be inspected.",
+          "Current page extraction did not expose dataset license; prior CC0 record retained separately."
+        ]
+      }
     },
     {
       "id": "ninapro_db6",
       "status": "access_required",
       "source": "https://ninapro.hevs.ch/",
-      "license": "NinaPro terms"
+      "license": "NinaPro terms",
+      "primary_metadata_review": {
+        "id": "ninapro_db6",
+        "sources": [
+          "https://ninapro.hevs.ch/instructions/DB6.html"
+        ],
+        "paper": "Palermo et al., Analysis of the repeatability of grasp recognition for hand robotic prosthesis control based on sEMG data, ICORR (2017).",
+        "paper_review": "Official linked citation; paper retrieval failed this review.",
+        "license_verified": null,
+        "subjects": 10,
+        "days": 5,
+        "sessions_per_day": 2,
+        "emg_sample_rate_hz": 2000,
+        "active_emg_channels": 14,
+        "stored_emg_channels": 16,
+        "acceleration_columns": 48,
+        "layout": "Eight Trigno sensors in proximal ring, six below; two EMG columns and six acceleration columns empty according to official variables.",
+        "six_axis_imu_verified": false,
+        "physical_eight_channel_layout_verified": false,
+        "limitations": [
+          "No synchronized gyro confirmed; do not infer full six-axis eligibility from inertial modality label.",
+          "Official preprocessed ZIP links visible; raw data and acquisition access not tested."
+        ]
+      }
     },
     {
       "id": "grabmyo",
@@ -139,13 +185,55 @@
       "selected_subset_bytes": 442479520,
       "selected_subset_verified_against": "official SHA256SUMS.txt",
       "official_checksum_manifest_sha256": "757ea64fa5134b7b3b84d9f79e30cfa1ac4d2c65a40ce9b427db11dd8258974e",
-      "full_dataset_downloaded": false
+      "full_dataset_downloaded": false,
+      "primary_metadata_review": {
+        "id": "grabmyo",
+        "sources": [
+          "https://physionet.org/content/grabmyo/1.1.0/"
+        ],
+        "publisher_version": "1.1.0",
+        "paper": "Pradhan, He and Jiang, Multi-day dataset of forearm and wrist electromyogram for hand gesture recognition and biometrics, Scientific Data 9, 733 (2022).",
+        "paper_review": "Publisher-linked citation; paper retrieval failed this review.",
+        "license_verified": "CC-BY-4.0",
+        "subjects": 43,
+        "days": 3,
+        "emg_sample_rate_hz": 2048,
+        "stored_emg_channels": 32,
+        "layout": "Forearm: two rings of eight monopolar electrodes, eight bipolar pairs. Wrist: two rings of six, six bipolar pairs. Four stored channels unused. Stored-column to bipolar-pair mapping must be read separately.",
+        "six_axis_imu_verified": false,
+        "physical_eight_channel_layout_verified": false,
+        "limitations": [
+          "Does not authenticate our device wiring or all eight selected column identities."
+        ]
+      }
     },
     {
       "id": "ninapro_db5",
       "status": "access_required",
       "source": "https://ninapro.hevs.ch/",
-      "license": "NinaPro terms"
+      "license": "NinaPro terms",
+      "primary_metadata_review": {
+        "id": "ninapro_db5",
+        "sources": [
+          "https://ninapro.hevs.ch/instructions/DB5.html",
+          "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0186132"
+        ],
+        "paper": "Pizzolato et al., Comparison of six electromyography acquisition setups on hand movement classification tasks (2017).",
+        "paper_review": "Article title, public-data statement and official acquisition guidelines read; not exhaustive full-paper validation.",
+        "license_verified": null,
+        "subjects": 10,
+        "emg_sample_rate_hz": 200,
+        "stored_emg_channels": 16,
+        "acceleration_columns": 3,
+        "layout": "Two eight-channel Myo rings; second tilted 22.5 degrees clockwise. Acceleration from first Myo.",
+        "six_axis_imu_verified": false,
+        "physical_eight_channel_layout_verified": false,
+        "limitations": [
+          "Acceleration does not establish synchronized gyro, raw units or guided body-frame calibration.",
+          "Paper's DB5 data DOI resolves to a record titled dataset 4; do not silently use that record as DB5 licensing proof.",
+          "Official subject ZIP links are visible; native download access was not tested."
+        ]
+      }
     },
     {
       "id": "fors_emg",
@@ -166,7 +254,29 @@
       "status": "metadata_only",
       "source": "https://physionet.org/content/hd-semg/2.0.0/",
       "uncompressed_size": 142600000000,
-      "license": "ODC-BY-1.0"
+      "license": "ODC-BY-1.0",
+      "primary_metadata_review": {
+        "id": "hyser",
+        "sources": [
+          "https://physionet.org/content/hd-semg/2.0.0/"
+        ],
+        "publisher_version": "2.0.0",
+        "paper": "Open Access Dataset, Toolbox and Benchmark Processing Results of High-Density Surface Electromyogram Recordings; DOI 10.1109/TNSRE.2021.3082551.",
+        "paper_review": "Publisher-linked citation; equipment geometry not independently reviewed.",
+        "license_verified": "ODC-BY-1.0",
+        "subjects": 20,
+        "days": 2,
+        "emg_sample_rate_hz": 2048,
+        "stored_emg_channels": 256,
+        "force_sample_rate_hz": 100,
+        "layout": "High-density array; not an eight-channel circumferential device.",
+        "six_axis_imu_verified": false,
+        "physical_eight_channel_layout_verified": false,
+        "limitations": [
+          "PR gesture task and four synchronous force subtasks are distinct; no force trajectory inferred for PR.",
+          "No new raw download or native experiment in this review."
+        ]
+      }
     },
     {
       "id": "roam_emg",
@@ -184,7 +294,24 @@
       "roam_nominal_sample_rate_hz": 200,
       "roam_native_sanity_audit": "benchmarks/discovery/ROAM_NATIVE_AUDIT.json",
       "license": "project repository MIT; data archive terms not separately stated in README",
-      "scope": "Author-hosted archive also includes preprocessed external datasets; only ROAM_EMG static CSVs used for posture/quality and source Rest. Raw archive kept outside Git."
+      "scope": "Author-hosted archive also includes preprocessed external datasets; only ROAM_EMG static CSVs used for posture/quality and source Rest. Raw archive kept outside Git.",
+      "primary_metadata_review": {
+        "id": "roam_emg",
+        "sources": [
+          "https://github.com/roamlab/reactemg",
+          "https://arxiv.org/abs/2506.19815"
+        ],
+        "paper": "ReactEMG: Stable, Low-Latency Intent Detection from sEMG via Masked Modeling; arXiv 2506.19815.",
+        "paper_review": "Author repository and abstract record reviewed; paper experiment details not independently reviewed.",
+        "license_verified": null,
+        "code_license_verified": "MIT",
+        "six_axis_imu_verified": false,
+        "physical_eight_channel_layout_verified": false,
+        "limitations": [
+          "Code license does not prove hosted mixed data-archive license.",
+          "Use existing native ROAM static subset audit for channel/rate; do not infer properties from model generalization claims."
+        ]
+      }
     },
     {
       "id": "electrode_replacement_secondary",
@@ -200,7 +327,27 @@
       "sanity_audit": "electrode_replacement_native_sanity.json",
       "interval_labels": null,
       "repetition_boundaries": null,
-      "note": "Optional secondary archive; sampled missing fields reject two full recordings; not historical DS2; no classifier scores."
+      "note": "Optional secondary archive; sampled missing fields reject two full recordings; not historical DS2; no classifier scores.",
+      "primary_metadata_review": {
+        "id": "electrode_replacement_secondary",
+        "sources": [
+          "https://zenodo.org/records/4039550"
+        ],
+        "paper": "Miljkovic and Isakovic, Effect of the sEMG electrode (re) placement and feature set size on the hand movement recognition; DOI 10.1016/j.bspc.2020.102292.",
+        "paper_review": "Publisher-linked citation; paper retrieval failed this review.",
+        "license_verified": null,
+        "emg_sample_rate_hz": 1000,
+        "stored_emg_channels": 8,
+        "layout": "CH1 through CH8; detailed assembly/position referred to linked paper and not verified here.",
+        "native_text_files": 267,
+        "six_axis_imu_verified": false,
+        "physical_eight_channel_layout_verified": false,
+        "limitations": [
+          "Record describes at least ten repetitions but no sample-level repetition boundaries supplied in eight-column files.",
+          "Some analysis repetitions discarded; cannot reconstruct segmentation from count alone.",
+          "Current page license label not extracted; prior CC-BY-4.0 record retained separately."
+        ]
+      }
     }
   ],
   "superseded_conclusions": [
@@ -222,7 +369,7 @@
   ],
   "remaining": [
     "Real multi-user/day eight-channel and hardware validation.",
-    "Secondary candidate paper/license/layout verification remains incomplete.",
+    "Seven secondary primary metadata reviews exist; full-paper, unresolved dataset-license and native physical-layout checks remain explicit per entry.",
     "Reported DS2 license conflict is retained; no new license determination.",
     "This entry point does not rehash multi-GB raw archives or authenticate physical clocks."
   ],
