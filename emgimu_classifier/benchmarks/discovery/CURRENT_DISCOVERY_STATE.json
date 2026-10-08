@@ -8,11 +8,13 @@
     "DS2_V9_FORCE_TRIAL_JOIN.csv": "bdfcb4dd250fb90b713d1dd835f91304d685d751b0d081ba0c48622484d272b7",
     "public_ds2_force_v9/RESULTS.json": "86d7d79c3a63d3b01d64d1425859c27d0aebd3915a5c277921e637702bec2541",
     "public_ds2_force_v9/TRIAL_PREDICTIONS.csv": "8b2f35d7b91f5b65e5f874ed4a59e959c2047d4ea63ce33a6873a3a6777a5dc3",
-    "scripts/current_discovery_state.py": "74db9b7b3186bf9d3807f3826ad276eec7973162f443a0a37c62fcbbe679a3b2",
+    "scripts/current_discovery_state.py": "574327741fce7b5683becb3f8f634f60b8c072f3969f0a02d7941aa0998a2af7",
     "SECONDARY_LICENSE_METADATA_V1.json": "50bcb5e340bc69ea2fda2cb9f457cb59d1dc27ed3d718700ee2aa20f3297801d",
     "scripts/fetch_secondary_license_metadata.py": "1ffd848656457092a980784d3a722475a580765d98e4d5d07f4d257d20abe11c",
     "SECONDARY_PAPER_REVIEW_V1.json": "41024a3c2e1a306ea3d5785dd7923abfe83a646e00b4a89a546cb5b53830c6f7",
-    "SECONDARY_PRIMARY_REVIEW_V1.json": "1e5889874c46c897cfc05ba400c1bc4e401c6985e546291193f1edaf0fbfbdcd"
+    "GRAB_CHANNEL_CENSUS_V1.json": "521b16cd3e1f006167ac6bd91e4b82c9607a3bd10026be48522dad81b08a7641",
+    "scripts/grab_channel_census_v1.py": "ecfe53aea73ae1bf2b519ee40d4e3b38f33340a85faa368bafa93f437e61c8d5",
+    "SECONDARY_PRIMARY_REVIEW_V1.json": "c4021d0cb3d4820ceca99fcd84173e8bb88972b3dcd839e2e19d0321797b8750"
   },
   "datasets": [
     {
@@ -206,12 +208,15 @@
         "days": 3,
         "emg_sample_rate_hz": 2048,
         "stored_emg_channels": 32,
-        "layout": "Forearm: two rings of eight monopolar electrodes, eight bipolar pairs. Wrist: two rings of six, six bipolar pairs. Four stored channels unused. Stored-column to bipolar-pair mapping must be read separately.",
+        "layout": "Official metadata assigns F1-F8 to columns1-8 and forearm ring1, F9-F16 to columns9-16 and ring2; unused columns17/24/25/32. Existing672-record subset headers and signal checksums are verified. Circumferential direction and our device wiring remain unverified; no differential-pair transformation assumed.",
         "six_axis_imu_verified": false,
         "physical_eight_channel_layout_verified": false,
         "limitations": [
-          "Does not authenticate our device wiring or all eight selected column identities."
-        ]
+          "Public stored-column identity does not authenticate our device wiring, arm or direction.",
+          "Full paper retrieval remains unavailable; this is official repository metadata plus native subset evidence."
+        ],
+        "native_channel_audit": "GRAB_CHANNEL_CENSUS_V1.json",
+        "stored_column_mapping_verified": true
       }
     },
     {
@@ -379,7 +384,7 @@
     "Real multi-user/day eight-channel and hardware validation.",
     "Seven secondary primary metadata reviews exist; full-paper, unresolved dataset-license and native physical-layout checks remain explicit per entry.",
     "Reported DS2 license conflict is retained; no new license determination.",
-    "This entry point does not rehash multi-GB raw archives or authenticate physical clocks."
+    "This entry point does not rehash multi-GB raw archives or authenticate physical clocks; the separate GRAB census rehashes all 672 existing subset header/signal pairs."
   ],
   "completion_proven": false,
   "scope": "Current local evidence overlay. Historical SHA-bound artifacts are retained as snapshots. Dataset entries other than DS2 retain their recorded status and are not freshly externally verified."

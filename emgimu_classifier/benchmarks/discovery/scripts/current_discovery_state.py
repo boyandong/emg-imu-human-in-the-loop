@@ -17,6 +17,7 @@ def build():
              'public_ds2_force_v9/RESULTS.json', 'public_ds2_force_v9/TRIAL_PREDICTIONS.csv',
              'scripts/current_discovery_state.py', 'SECONDARY_LICENSE_METADATA_V1.json',
              'scripts/fetch_secondary_license_metadata.py', 'SECONDARY_PAPER_REVIEW_V1.json',
+             'GRAB_CHANNEL_CENSUS_V1.json', 'scripts/grab_channel_census_v1.py',
              'SECONDARY_PRIMARY_REVIEW_V1.json']
     old = json.loads((HERE / paths[0]).read_text(encoding='utf8'))
     labels = json.loads((HERE / paths[2]).read_text(encoding='utf8'))
@@ -84,7 +85,7 @@ def build():
         'remaining': ['Real multi-user/day eight-channel and hardware validation.',
                       'Seven secondary primary metadata reviews exist; full-paper, unresolved dataset-license and native physical-layout checks remain explicit per entry.',
                       'Reported DS2 license conflict is retained; no new license determination.',
-                      'This entry point does not rehash multi-GB raw archives or authenticate physical clocks.'],
+                      'This entry point does not rehash multi-GB raw archives or authenticate physical clocks; the separate GRAB census rehashes all 672 existing subset header/signal pairs.'],
         'completion_proven': False,
         'scope': 'Current local evidence overlay. Historical SHA-bound artifacts are retained as snapshots. Dataset entries other than DS2 retain their recorded status and are not freshly externally verified.'}
     (HERE / 'CURRENT_DISCOVERY_STATE.json').write_text(json.dumps(output, indent=2) + '\n', encoding='utf8')

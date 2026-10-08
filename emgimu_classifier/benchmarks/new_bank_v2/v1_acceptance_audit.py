@@ -69,6 +69,15 @@ def build(pre: Path, goal: Path) -> dict:
                          'and independent DS2 study; the earlier no-force-label conclusion is '
                          'superseded. Legacy experiment recovery is not a prerequisite. '
                          'Recorded licensing and secondary provenance limits remain explicit.')
+        if ident == "PRE-06":
+            evidence += ("|benchmarks/discovery/GRAB_CHANNEL_CENSUS_V1.json"
+                         "|benchmarks/discovery/scripts/grab_channel_census_v1.py"
+                         "|tests/test_grab_channel_census_v1.py")
+            boundary += (" All672 existing GRAB subset headers and signal checksums now "
+                         "bind F1-F8 selected columns, 2048Hz and 10240samples. Independent "
+                         "signed-byte/gain/baseline decoding checks21504 values against the "
+                         "actual benchmark loader. Direction, our wiring and six-axis IMU "
+                         "remain unverified; no differential-pair conversion inferred.")
         if ident == "GOAL-14":
             evidence += ("|benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json"
                          "|benchmarks/new_bank_v3/epn_holdout_burden_v2.py"
