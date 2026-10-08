@@ -1,0 +1,923 @@
+{
+  "schema": "current_scientific_conclusions_v1",
+  "generator_sha256": "29d107f005120a93dcf08471aa0c952687cefb9b657f1550dc4bba35825bb363",
+  "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
+  "requirement_lines": [
+    1013,
+    1049
+  ],
+  "verification_tests": [
+    "tests/test_roam_causal_window_v1_delivery.py",
+    "tests/test_roam_debounce_control_v1_delivery.py",
+    "tests/test_f7_affine_fresh_delivery.py",
+    "tests/test_current_scientific_conclusions_v1.py",
+    "tests/test_epn_holdout_user_robustness_v2.py",
+    "tests/test_mahalanobis_epn_holdout_v2.py",
+    "tests/test_f8_calibrated_manus_v2_delivery.py"
+  ],
+  "source_sha256": {
+    "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
+    "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json": "9964583ef8211b09fa5e594a3aa8e46825d65418afd50c69a99939f62a7eea0a",
+    "benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json": "73ca953e2b4f0f77c5716e712ce26b9923c8ca80d9a7e6621f2cb7e3b2e62ebd",
+    "benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_AUDIT.json": "265ee75b69c3e0cb3d94b7477d2a616363b959eeb0ac04ab8b91ecdab58223f3",
+    "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json": "a423f944b65c5d9d494ab3b85dc5cd6df528ac07968d35d5445ea060d6d4999e",
+    "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json": "2fedb18964e981ffacfc0071955a77bc2a19790906ba570560ad3c9aa8c4479d",
+    "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json": "9b2b7ed27a0747b31a129f229d5ff933d06cf4108485fa60f1f496758907a894",
+    "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
+    "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
+    "feature_bank/REPORT.md": "3fb3744bfe855a42c2beb820196cd402ebd75476de40228e9b6066d407d4bcb5",
+    "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
+    "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
+    "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
+    "tests/test_current_scientific_conclusions_v1.py": "10831c9c0315b99011328ebd5e3e6a4e81a8f4cbd79e0fabc3a06c8656b016a5",
+    "tests/test_epn_holdout_user_robustness_v2.py": "797631cfe13ddb072dc95aaeb95d4b5aa7d7e40da4a15a82de34022f94f3e350",
+    "tests/test_mahalanobis_epn_holdout_v2.py": "97c6ffe8c656fb22399eb148f48566bd7b1ddbd4e0cfe5ba52ccac7ab383cc4c",
+    "tests/test_f8_calibrated_manus_v2_delivery.py": "f31ae29f787e37f3d176338660a6956967c3b90a8b4e5f3220ace3401a3073fe"
+  },
+  "questions": [
+    {
+      "question_id": "A",
+      "question": "缺少新信息，还是已有信息组织不好？",
+      "answer": "已有信息的组织会影响结果：固定因果确认降低跳动，却略降F1，且完整动作保持成功率仍低。当前证据不能判断真实8通道系统的物理信息是否不足。",
+      "measurements": [
+        {
+          "phase": "validation",
+          "recordings": 20,
+          "raw_shared_macro_f1": 0.7867491193778159,
+          "confirmed_shared_macro_f1": 0.7839544806157235,
+          "delta_shared_macro_f1": -0.002794638762092405,
+          "raw_hold_success": 0.14375,
+          "confirmed_hold_success": 0.1625,
+          "eligible_transitions_per_arm": 160,
+          "raw_switches": 1007,
+          "confirmed_switches": 561,
+          "switch_reduction_fraction": 0.4428997020854022,
+          "raw_unknown_samples": 780,
+          "confirmed_unknown_samples": 980
+        },
+        {
+          "phase": "descriptive_final",
+          "recordings": 20,
+          "raw_shared_macro_f1": 0.8104629108607215,
+          "confirmed_shared_macro_f1": 0.8061376598047321,
+          "delta_shared_macro_f1": -0.004325251055989465,
+          "raw_hold_success": 0.26875,
+          "confirmed_hold_success": 0.35625,
+          "eligible_transitions_per_arm": 160,
+          "raw_switches": 788,
+          "confirmed_switches": 436,
+          "switch_reduction_fraction": 0.4467005076142132,
+          "raw_unknown_samples": 780,
+          "confirmed_unknown_samples": 980
+        }
+      ],
+      "boundary": "保持指标与样本F1是不同分母；确认规则没有引入新传感器信息。公开三类Myo数据不能代表用户设备或捏合。",
+      "evidence": [
+        "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json",
+        "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json"
+      ]
+    },
+    {
+      "question_id": "B",
+      "question": "哪些family提供条件增量信息？",
+      "answer": "新版F7在预先冻结的独立EPN人群上，相对于同一Core及均匀软化对照取得预测增益。该证据支持这个固定组合，不等于估计了条件互信息，也不等于所有family都有效。",
+      "measurements": {
+        "criteria": {
+          "pooled_logloss_lower": true,
+          "pooled_macro_f1_nonworse": true,
+          "pooled_brier_lower": true,
+          "logloss_better_than_uniform": true,
+          "at_least_7_of_10_user_logloss_wins": true
+        },
+        "conjunction_passed": true,
+        "user_logloss_wins": 7,
+        "delta_logloss": 0.22355473002248782,
+        "delta_macro_f1": 0.023996708577113668,
+        "delta_brier": 0.010914579824486764,
+        "delta_logloss_over_uniform": 0.09821153428395091
+      },
+      "boundary": "五shot、固定Core与0.5混合、同一留出试次；不得与不同试次的独立模型分数相减。七个较新公共默认扩展仍未通过各自验证门槛。",
+      "evidence": [
+        "benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json",
+        "benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_AUDIT.json"
+      ]
+    },
+    {
+      "question_id": "C",
+      "question": "哪些family只在特定条件下有价值？",
+      "answer": "当前收益依赖数据轴、预算与组合。七项新版默认扩展检查没有确立新的通用默认；F8的各预算和阶段结果应逐格报告，不能把局部收益写成全局不变性。",
+      "measurements": {
+        "default_extension_checks": [
+          {
+            "candidate": "F0+F2a_spec",
+            "axis": "grab_cross_day",
+            "validation_delta_macro_f1": -0.02390051046923425,
+            "validation_delta_log_loss": 0.0364363187897041,
+            "validation_guard_pass": false
+          },
+          {
+            "candidate": "F0+F3c_spec",
+            "axis": "grab_cross_day",
+            "validation_delta_macro_f1": -0.03533877845163391,
+            "validation_delta_log_loss": 0.02029260477689282,
+            "validation_guard_pass": false
+          },
+          {
+            "candidate": "F0+F2c_spec",
+            "axis": "wearing|manus_session|grab_unseen_user",
+            "validation_guard_pass": false,
+            "validation_violations": [
+              "manus_session:log_loss",
+              "grab_unseen_user:macro_f1",
+              "grab_unseen_user:log_loss"
+            ]
+          },
+          {
+            "candidate": "G5+F5c",
+            "axis": "unibo_full_bout",
+            "validation_delta_macro_f1": 0.05843902608939999,
+            "validation_delta_log_loss": 0.04115482357780431,
+            "validation_guard_pass": false
+          },
+          {
+            "candidate": "F0v2+F7_document_1shot",
+            "axis": "grab_cross_day_calibrated",
+            "validation_delta_macro_f1": 0.0,
+            "validation_delta_log_loss": 0.2847198817952904,
+            "validation_guard_pass": false
+          },
+          {
+            "candidate": "F0v2+F7_document_2shot",
+            "axis": "grab_cross_day_calibrated",
+            "validation_delta_macro_f1": 0.0,
+            "validation_delta_log_loss": 0.28948346759317856,
+            "validation_guard_pass": false
+          },
+          {
+            "candidate": "F0v2+F7_document_5shot",
+            "axis": "grab_cross_day_calibrated",
+            "validation_delta_macro_f1": 0.0,
+            "validation_delta_log_loss": 0.2825892871642389,
+            "validation_guard_pass": false
+          }
+        ],
+        "session_routing_cells": [
+          {
+            "cell": "validation_1shot",
+            "calibrated_F8_vs_calibrated_uniform_delta_log_loss": 0.005103492369214813,
+            "calibrated_F8_vs_calibrated_uniform_delta_macro_f1": 0.026461427465122644,
+            "calibrated_F8_vs_raw_F8_delta_log_loss": 0.11884415433189766,
+            "calibrated_F8_vs_raw_F8_delta_macro_f1": 0.022219642707573706
+          },
+          {
+            "cell": "validation_2shot",
+            "calibrated_F8_vs_calibrated_uniform_delta_log_loss": 0.0024618946804360053,
+            "calibrated_F8_vs_calibrated_uniform_delta_macro_f1": -0.03455882352941175,
+            "calibrated_F8_vs_raw_F8_delta_log_loss": 0.10496741204852733,
+            "calibrated_F8_vs_raw_F8_delta_macro_f1": 0.0
+          },
+          {
+            "cell": "descriptive_final_1shot",
+            "calibrated_F8_vs_calibrated_uniform_delta_log_loss": -0.003472301897615049,
+            "calibrated_F8_vs_calibrated_uniform_delta_macro_f1": -0.01622752559784041,
+            "calibrated_F8_vs_raw_F8_delta_log_loss": -0.08800368838151074,
+            "calibrated_F8_vs_raw_F8_delta_macro_f1": -0.0314211780125882
+          },
+          {
+            "cell": "descriptive_final_2shot",
+            "calibrated_F8_vs_calibrated_uniform_delta_log_loss": 0.0012135174505967239,
+            "calibrated_F8_vs_calibrated_uniform_delta_macro_f1": -0.026795426795426736,
+            "calibrated_F8_vs_raw_F8_delta_log_loss": -0.1734495617951477,
+            "calibrated_F8_vs_raw_F8_delta_macro_f1": -0.057398157398157346
+          }
+        ],
+        "default_extension_delta_convention": "F1 and log_loss both candidate minus base; positive loss means harm.",
+        "routing_delta_convention": "F1 alternative minus base; log_loss base minus alternative; positive means improvement."
+      },
+      "boundary": "不同数据集、动作本体及已检查阶段不能合并为同一个统计检验；局部混合收益不是直接证明某个新增特征的信息量。",
+      "evidence": [
+        "benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_AUDIT.json",
+        "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json",
+        "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json"
+      ]
+    },
+    {
+      "question_id": "D",
+      "question": "哪些family只有个人校准后才有明显价值？",
+      "answer": "F7和低维Mahalanobis在明确个人校准预算下取得收益，但这里没有同预算、同表示的未校准对照，不能由两种已校准方法的比较推断“只有校准才有效”。",
+      "measurements": {
+        "F7_five_shot": {
+          "criteria": {
+            "pooled_logloss_lower": true,
+            "pooled_macro_f1_nonworse": true,
+            "pooled_brier_lower": true,
+            "logloss_better_than_uniform": true,
+            "at_least_7_of_10_user_logloss_wins": true
+          },
+          "conjunction_passed": true,
+          "user_logloss_wins": 7,
+          "delta_logloss": 0.22355473002248782,
+          "delta_macro_f1": 0.023996708577113668,
+          "delta_brier": 0.010914579824486764,
+          "delta_logloss_over_uniform": 0.09821153428395091
+        },
+        "EPN_calibrated_methods": {
+          "10": {
+            "euclidean": {
+              "macro_f1": 0.5129449432558552,
+              "accuracy": 0.52,
+              "log_loss": 1.5374355835514595,
+              "brier": 0.12292937962494332,
+              "ece": 0.26961013628605557,
+              "per_class_f1_json": "{\"noGesture\":0.7413793103448276,\"fist\":0.46956521739130436,\"waveIn\":0.5348837209302325,\"waveOut\":0.4489795918367347,\"open\":0.32967032967032966,\"pinch\":0.5531914893617021}"
+            },
+            "mahalanobis": {
+              "macro_f1": 0.6328593451763923,
+              "accuracy": 0.6333333333333333,
+              "log_loss": 1.3844018282293207,
+              "brier": 0.11374947941281588,
+              "ece": 0.35345738945822913,
+              "per_class_f1_json": "{\"noGesture\":0.6744186046511628,\"fist\":0.6788990825688074,\"waveIn\":0.6727272727272727,\"waveOut\":0.5333333333333333,\"open\":0.5777777777777777,\"pinch\":0.66}"
+            }
+          },
+          "20": {
+            "euclidean": {
+              "macro_f1": 0.5115484606170392,
+              "accuracy": 0.5166666666666667,
+              "log_loss": 1.5328503499531374,
+              "brier": 0.12260167639873719,
+              "ece": 0.2823468418012176,
+              "per_class_f1_json": "{\"noGesture\":0.7368421052631579,\"fist\":0.48214285714285715,\"waveIn\":0.574468085106383,\"waveOut\":0.45098039215686275,\"open\":0.29473684210526313,\"pinch\":0.5301204819277109}"
+            },
+            "mahalanobis": {
+              "macro_f1": 0.6835841686103511,
+              "accuracy": 0.6833333333333333,
+              "log_loss": 1.370504589939547,
+              "brier": 0.11278877752697411,
+              "ece": 0.4037546157322054,
+              "per_class_f1_json": "{\"noGesture\":0.7191011235955056,\"fist\":0.6538461538461539,\"waveIn\":0.7115384615384616,\"waveOut\":0.660377358490566,\"open\":0.6041666666666666,\"pinch\":0.7524752475247525}"
+            }
+          }
+        }
+      },
+      "boundary": "独立试次才计为shot；10/20shot低维协方差结论不能推广到被拒绝的高维、小样本设置或零校准部署。",
+      "evidence": [
+        "benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json",
+        "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json"
+      ]
+    },
+    {
+      "question_id": "E",
+      "question": "Personal Anchor是否降低跨用户变化？",
+      "answer": "新版EPN低维Mahalanobis相对Euclidean改善均值及最差用户，并降低这组用户的F1标准差。两者都使用个人校准，不能据此宣称相对无Anchor必然降低跨用户变化。",
+      "measurements": [
+        {
+          "shots_per_class": 10,
+          "method": "euclidean",
+          "metric": "macro_f1",
+          "users": 10,
+          "equal_user_mean": 0.4935605598105598,
+          "sample_std_ddof1": 0.15423077066314486,
+          "minimum": 0.15252525252525254,
+          "maximum": 0.757070707070707,
+          "worst_user_value": 0.15252525252525254,
+          "worst_users": [
+            38
+          ],
+          "user_values": {
+            "32": 0.5555555555555555,
+            "33": 0.757070707070707,
+            "34": 0.5800976800976801,
+            "35": 0.4406565656565657,
+            "36": 0.40996040996040994,
+            "37": 0.5705535205535206,
+            "38": 0.15252525252525254,
+            "39": 0.47453703703703703,
+            "40": 0.5185786435786436,
+            "41": 0.47607022607022603
+          }
+        },
+        {
+          "shots_per_class": 10,
+          "method": "mahalanobis",
+          "metric": "macro_f1",
+          "users": 10,
+          "equal_user_mean": 0.6246553982080297,
+          "sample_std_ddof1": 0.06520096463388504,
+          "minimum": 0.5315416065416065,
+          "maximum": 0.7554297554297554,
+          "worst_user_value": 0.5315416065416065,
+          "worst_users": [
+            35
+          ],
+          "user_values": {
+            "32": 0.6527777777777778,
+            "33": 0.6803118908382068,
+            "34": 0.7554297554297554,
+            "35": 0.5315416065416065,
+            "36": 0.5748316498316498,
+            "37": 0.6026455026455025,
+            "38": 0.5924630924630924,
+            "39": 0.5647537647537648,
+            "40": 0.6386243386243386,
+            "41": 0.6531746031746032
+          }
+        },
+        {
+          "shots_per_class": 20,
+          "method": "euclidean",
+          "metric": "macro_f1",
+          "users": 10,
+          "equal_user_mean": 0.4801302726341426,
+          "sample_std_ddof1": 0.1728787163417042,
+          "minimum": 0.13888888888888887,
+          "maximum": 0.8306462056462056,
+          "worst_user_value": 0.13888888888888887,
+          "worst_users": [
+            38
+          ],
+          "user_values": {
+            "32": 0.5343304843304844,
+            "33": 0.8306462056462056,
+            "34": 0.5466089466089467,
+            "35": 0.37835775335775335,
+            "36": 0.39557226399331663,
+            "37": 0.4978021978021978,
+            "38": 0.13888888888888887,
+            "39": 0.44648692810457513,
+            "40": 0.49693639693639696,
+            "41": 0.5356726606726606
+          }
+        },
+        {
+          "shots_per_class": 20,
+          "method": "mahalanobis",
+          "metric": "macro_f1",
+          "users": 10,
+          "equal_user_mean": 0.6752795815295815,
+          "sample_std_ddof1": 0.11768856370549487,
+          "minimum": 0.5026001776001775,
+          "maximum": 0.8690476190476191,
+          "worst_user_value": 0.5026001776001775,
+          "worst_users": [
+            38
+          ],
+          "user_values": {
+            "32": 0.7230158730158731,
+            "33": 0.8690476190476191,
+            "34": 0.7885521885521886,
+            "35": 0.7621637621637621,
+            "36": 0.6693991193991193,
+            "37": 0.6419973544973545,
+            "38": 0.5026001776001775,
+            "39": 0.5568783068783069,
+            "40": 0.701010101010101,
+            "41": 0.5381313131313131
+          }
+        }
+      ],
+      "boundary": "等用户均值、样本标准差与 pooled F1分开。人群仅32–41，未证明全部用户或当前设备。增加预算仍有个体退步。",
+      "evidence": [
+        "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json"
+      ]
+    },
+    {
+      "question_id": "F",
+      "question": "Session Signature能帮助跨天或重新佩戴吗？",
+      "answer": "MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。",
+      "measurements": [
+        {
+          "cell": "validation_1shot",
+          "calibrated_F8_vs_calibrated_uniform_delta_log_loss": 0.005103492369214813,
+          "calibrated_F8_vs_calibrated_uniform_delta_macro_f1": 0.026461427465122644,
+          "calibrated_F8_vs_raw_F8_delta_log_loss": 0.11884415433189766,
+          "calibrated_F8_vs_raw_F8_delta_macro_f1": 0.022219642707573706
+        },
+        {
+          "cell": "validation_2shot",
+          "calibrated_F8_vs_calibrated_uniform_delta_log_loss": 0.0024618946804360053,
+          "calibrated_F8_vs_calibrated_uniform_delta_macro_f1": -0.03455882352941175,
+          "calibrated_F8_vs_raw_F8_delta_log_loss": 0.10496741204852733,
+          "calibrated_F8_vs_raw_F8_delta_macro_f1": 0.0
+        },
+        {
+          "cell": "descriptive_final_1shot",
+          "calibrated_F8_vs_calibrated_uniform_delta_log_loss": -0.003472301897615049,
+          "calibrated_F8_vs_calibrated_uniform_delta_macro_f1": -0.01622752559784041,
+          "calibrated_F8_vs_raw_F8_delta_log_loss": -0.08800368838151074,
+          "calibrated_F8_vs_raw_F8_delta_macro_f1": -0.0314211780125882
+        },
+        {
+          "cell": "descriptive_final_2shot",
+          "calibrated_F8_vs_calibrated_uniform_delta_log_loss": 0.0012135174505967239,
+          "calibrated_F8_vs_calibrated_uniform_delta_macro_f1": -0.026795426795426736,
+          "calibrated_F8_vs_raw_F8_delta_log_loss": -0.1734495617951477,
+          "calibrated_F8_vs_raw_F8_delta_macro_f1": -0.057398157398157346
+        }
+      ],
+      "boundary": "已检查的MANUS会话是描述性证据；TD24不等于Rest拟合F0。物理重贴和本设备会话恢复未验证。",
+      "evidence": [
+        "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json",
+        "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json"
+      ]
+    },
+    {
+      "question_id": "G",
+      "question": "是否改善最差场景R_min，而不只是均值？",
+      "answer": "低维Mahalanobis改善相同预算下这组EPN最差用户，但增加到20shot仍可能损害最差用户；不能将单轴最差用户指标冒充完整七轴R_min。连续识别的样本F1也不能代替动作保持成功率。",
+      "measurements": {
+        "EPN_user_macro_f1": [
+          {
+            "shots_per_class": 10,
+            "method": "euclidean",
+            "metric": "macro_f1",
+            "users": 10,
+            "equal_user_mean": 0.4935605598105598,
+            "sample_std_ddof1": 0.15423077066314486,
+            "minimum": 0.15252525252525254,
+            "maximum": 0.757070707070707,
+            "worst_user_value": 0.15252525252525254,
+            "worst_users": [
+              38
+            ],
+            "user_values": {
+              "32": 0.5555555555555555,
+              "33": 0.757070707070707,
+              "34": 0.5800976800976801,
+              "35": 0.4406565656565657,
+              "36": 0.40996040996040994,
+              "37": 0.5705535205535206,
+              "38": 0.15252525252525254,
+              "39": 0.47453703703703703,
+              "40": 0.5185786435786436,
+              "41": 0.47607022607022603
+            }
+          },
+          {
+            "shots_per_class": 10,
+            "method": "mahalanobis",
+            "metric": "macro_f1",
+            "users": 10,
+            "equal_user_mean": 0.6246553982080297,
+            "sample_std_ddof1": 0.06520096463388504,
+            "minimum": 0.5315416065416065,
+            "maximum": 0.7554297554297554,
+            "worst_user_value": 0.5315416065416065,
+            "worst_users": [
+              35
+            ],
+            "user_values": {
+              "32": 0.6527777777777778,
+              "33": 0.6803118908382068,
+              "34": 0.7554297554297554,
+              "35": 0.5315416065416065,
+              "36": 0.5748316498316498,
+              "37": 0.6026455026455025,
+              "38": 0.5924630924630924,
+              "39": 0.5647537647537648,
+              "40": 0.6386243386243386,
+              "41": 0.6531746031746032
+            }
+          },
+          {
+            "shots_per_class": 20,
+            "method": "euclidean",
+            "metric": "macro_f1",
+            "users": 10,
+            "equal_user_mean": 0.4801302726341426,
+            "sample_std_ddof1": 0.1728787163417042,
+            "minimum": 0.13888888888888887,
+            "maximum": 0.8306462056462056,
+            "worst_user_value": 0.13888888888888887,
+            "worst_users": [
+              38
+            ],
+            "user_values": {
+              "32": 0.5343304843304844,
+              "33": 0.8306462056462056,
+              "34": 0.5466089466089467,
+              "35": 0.37835775335775335,
+              "36": 0.39557226399331663,
+              "37": 0.4978021978021978,
+              "38": 0.13888888888888887,
+              "39": 0.44648692810457513,
+              "40": 0.49693639693639696,
+              "41": 0.5356726606726606
+            }
+          },
+          {
+            "shots_per_class": 20,
+            "method": "mahalanobis",
+            "metric": "macro_f1",
+            "users": 10,
+            "equal_user_mean": 0.6752795815295815,
+            "sample_std_ddof1": 0.11768856370549487,
+            "minimum": 0.5026001776001775,
+            "maximum": 0.8690476190476191,
+            "worst_user_value": 0.5026001776001775,
+            "worst_users": [
+              38
+            ],
+            "user_values": {
+              "32": 0.7230158730158731,
+              "33": 0.8690476190476191,
+              "34": 0.7885521885521886,
+              "35": 0.7621637621637621,
+              "36": 0.6693991193991193,
+              "37": 0.6419973544973545,
+              "38": 0.5026001776001775,
+              "39": 0.5568783068783069,
+              "40": 0.701010101010101,
+              "41": 0.5381313131313131
+            }
+          }
+        ],
+        "budget_comparisons": [
+          {
+            "kind": "budget_at_fixed_method",
+            "setting": "euclidean",
+            "metric": "macro_f1",
+            "base": "10 shots/class",
+            "alternative": "20 shots/class",
+            "wins": 2,
+            "ties": 0,
+            "losses": 8,
+            "equal_user_mean_gain": -0.013430287176417205,
+            "minimum_user_gain": -0.07275132275132279,
+            "maximum_user_gain": 0.07357549857549861,
+            "details": [
+              {
+                "user": 32,
+                "base": 0.5555555555555555,
+                "alternative": 0.5343304843304844,
+                "gain_positive_is_better": -0.021225071225071113
+              },
+              {
+                "user": 33,
+                "base": 0.757070707070707,
+                "alternative": 0.8306462056462056,
+                "gain_positive_is_better": 0.07357549857549861
+              },
+              {
+                "user": 34,
+                "base": 0.5800976800976801,
+                "alternative": 0.5466089466089467,
+                "gain_positive_is_better": -0.03348873348873349
+              },
+              {
+                "user": 35,
+                "base": 0.4406565656565657,
+                "alternative": 0.37835775335775335,
+                "gain_positive_is_better": -0.062298812298812345
+              },
+              {
+                "user": 36,
+                "base": 0.40996040996040994,
+                "alternative": 0.39557226399331663,
+                "gain_positive_is_better": -0.014388145967093313
+              },
+              {
+                "user": 37,
+                "base": 0.5705535205535206,
+                "alternative": 0.4978021978021978,
+                "gain_positive_is_better": -0.07275132275132279
+              },
+              {
+                "user": 38,
+                "base": 0.15252525252525254,
+                "alternative": 0.13888888888888887,
+                "gain_positive_is_better": -0.013636363636363669
+              },
+              {
+                "user": 39,
+                "base": 0.47453703703703703,
+                "alternative": 0.44648692810457513,
+                "gain_positive_is_better": -0.028050108932461904
+              },
+              {
+                "user": 40,
+                "base": 0.5185786435786436,
+                "alternative": 0.49693639693639696,
+                "gain_positive_is_better": -0.02164224664224662
+              },
+              {
+                "user": 41,
+                "base": 0.47607022607022603,
+                "alternative": 0.5356726606726606,
+                "gain_positive_is_better": 0.059602434602434584
+              }
+            ]
+          },
+          {
+            "kind": "budget_at_fixed_method",
+            "setting": "euclidean",
+            "metric": "log_loss",
+            "base": "10 shots/class",
+            "alternative": "20 shots/class",
+            "wins": 8,
+            "ties": 0,
+            "losses": 2,
+            "equal_user_mean_gain": 0.0045852335983220804,
+            "minimum_user_gain": -0.023768866180523984,
+            "maximum_user_gain": 0.01840968239512053,
+            "details": [
+              {
+                "user": 32,
+                "base": 1.5365871676031941,
+                "alternative": 1.5287765331134076,
+                "gain_positive_is_better": 0.007810634489786583
+              },
+              {
+                "user": 33,
+                "base": 1.427320239449474,
+                "alternative": 1.4090289165840664,
+                "gain_positive_is_better": 0.018291322865407578
+              },
+              {
+                "user": 34,
+                "base": 1.4374560424202107,
+                "alternative": 1.4364522324931632,
+                "gain_positive_is_better": 0.0010038099270475165
+              },
+              {
+                "user": 35,
+                "base": 1.4964358320186115,
+                "alternative": 1.4918879558937495,
+                "gain_positive_is_better": 0.004547876124862071
+              },
+              {
+                "user": 36,
+                "base": 1.6276185376304566,
+                "alternative": 1.6267367091083942,
+                "gain_positive_is_better": 0.0008818285220624222
+              },
+              {
+                "user": 37,
+                "base": 1.4953573843417034,
+                "alternative": 1.4968460315055263,
+                "gain_positive_is_better": -0.0014886471638229093
+              },
+              {
+                "user": 38,
+                "base": 1.7012838577520741,
+                "alternative": 1.7250527239325981,
+                "gain_positive_is_better": -0.023768866180523984
+              },
+              {
+                "user": 39,
+                "base": 1.5327411254362293,
+                "alternative": 1.5161105175145118,
+                "gain_positive_is_better": 0.016630607921717555
+              },
+              {
+                "user": 40,
+                "base": 1.5604866879793577,
+                "alternative": 1.5420770055842372,
+                "gain_positive_is_better": 0.01840968239512053
+              },
+              {
+                "user": 41,
+                "base": 1.5590689608832817,
+                "alternative": 1.5555348738017183,
+                "gain_positive_is_better": 0.0035340870815634418
+              }
+            ]
+          },
+          {
+            "kind": "budget_at_fixed_method",
+            "setting": "mahalanobis",
+            "metric": "macro_f1",
+            "base": "10 shots/class",
+            "alternative": "20 shots/class",
+            "wins": 7,
+            "ties": 0,
+            "losses": 3,
+            "equal_user_mean_gain": 0.05062418332155173,
+            "minimum_user_gain": -0.11504329004329006,
+            "maximum_user_gain": 0.2306221556221556,
+            "details": [
+              {
+                "user": 32,
+                "base": 0.6527777777777778,
+                "alternative": 0.7230158730158731,
+                "gain_positive_is_better": 0.07023809523809532
+              },
+              {
+                "user": 33,
+                "base": 0.6803118908382068,
+                "alternative": 0.8690476190476191,
+                "gain_positive_is_better": 0.1887357282094123
+              },
+              {
+                "user": 34,
+                "base": 0.7554297554297554,
+                "alternative": 0.7885521885521886,
+                "gain_positive_is_better": 0.033122433122433126
+              },
+              {
+                "user": 35,
+                "base": 0.5315416065416065,
+                "alternative": 0.7621637621637621,
+                "gain_positive_is_better": 0.2306221556221556
+              },
+              {
+                "user": 36,
+                "base": 0.5748316498316498,
+                "alternative": 0.6693991193991193,
+                "gain_positive_is_better": 0.09456746956746953
+              },
+              {
+                "user": 37,
+                "base": 0.6026455026455025,
+                "alternative": 0.6419973544973545,
+                "gain_positive_is_better": 0.03935185185185197
+              },
+              {
+                "user": 38,
+                "base": 0.5924630924630924,
+                "alternative": 0.5026001776001775,
+                "gain_positive_is_better": -0.08986291486291487
+              },
+              {
+                "user": 39,
+                "base": 0.5647537647537648,
+                "alternative": 0.5568783068783069,
+                "gain_positive_is_better": -0.007875457875457959
+              },
+              {
+                "user": 40,
+                "base": 0.6386243386243386,
+                "alternative": 0.701010101010101,
+                "gain_positive_is_better": 0.06238576238576232
+              },
+              {
+                "user": 41,
+                "base": 0.6531746031746032,
+                "alternative": 0.5381313131313131,
+                "gain_positive_is_better": -0.11504329004329006
+              }
+            ]
+          },
+          {
+            "kind": "budget_at_fixed_method",
+            "setting": "mahalanobis",
+            "metric": "log_loss",
+            "base": "10 shots/class",
+            "alternative": "20 shots/class",
+            "wins": 7,
+            "ties": 0,
+            "losses": 3,
+            "equal_user_mean_gain": 0.013897238289773694,
+            "minimum_user_gain": -0.019291846960062475,
+            "maximum_user_gain": 0.047534836560791494,
+            "details": [
+              {
+                "user": 32,
+                "base": 1.3756389018250343,
+                "alternative": 1.3356697996113065,
+                "gain_positive_is_better": 0.03996910221372785
+              },
+              {
+                "user": 33,
+                "base": 1.2989706982176346,
+                "alternative": 1.3039941844878542,
+                "gain_positive_is_better": -0.005023486270219646
+              },
+              {
+                "user": 34,
+                "base": 1.2256695112749483,
+                "alternative": 1.22949638436529,
+                "gain_positive_is_better": -0.003826873090341687
+              },
+              {
+                "user": 35,
+                "base": 1.3268442522747823,
+                "alternative": 1.3190715310696304,
+                "gain_positive_is_better": 0.007772721205151933
+              },
+              {
+                "user": 36,
+                "base": 1.448292750944966,
+                "alternative": 1.4010925538078767,
+                "gain_positive_is_better": 0.04720019713708923
+              },
+              {
+                "user": 37,
+                "base": 1.3776128694267575,
+                "alternative": 1.3683174224226364,
+                "gain_positive_is_better": 0.009295447004121105
+              },
+              {
+                "user": 38,
+                "base": 1.570542150892417,
+                "alternative": 1.5898339978524796,
+                "gain_positive_is_better": -0.019291846960062475
+              },
+              {
+                "user": 39,
+                "base": 1.430309673376784,
+                "alternative": 1.4164438968589208,
+                "gain_positive_is_better": 0.013865776517863138
+              },
+              {
+                "user": 40,
+                "base": 1.4108784858184265,
+                "alternative": 1.363343649257635,
+                "gain_positive_is_better": 0.047534836560791494
+              },
+              {
+                "user": 41,
+                "base": 1.3792589882414557,
+                "alternative": 1.3777824796618396,
+                "gain_positive_is_better": 0.0014765085796160093
+              }
+            ]
+          }
+        ],
+        "continuous_cells": [
+          {
+            "phase": "validation",
+            "recordings": 20,
+            "raw_shared_macro_f1": 0.7867491193778159,
+            "confirmed_shared_macro_f1": 0.7839544806157235,
+            "delta_shared_macro_f1": -0.002794638762092405,
+            "raw_hold_success": 0.14375,
+            "confirmed_hold_success": 0.1625,
+            "eligible_transitions_per_arm": 160,
+            "raw_switches": 1007,
+            "confirmed_switches": 561,
+            "switch_reduction_fraction": 0.4428997020854022,
+            "raw_unknown_samples": 780,
+            "confirmed_unknown_samples": 980
+          },
+          {
+            "phase": "descriptive_final",
+            "recordings": 20,
+            "raw_shared_macro_f1": 0.8104629108607215,
+            "confirmed_shared_macro_f1": 0.8061376598047321,
+            "delta_shared_macro_f1": -0.004325251055989465,
+            "raw_hold_success": 0.26875,
+            "confirmed_hold_success": 0.35625,
+            "eligible_transitions_per_arm": 160,
+            "raw_switches": 788,
+            "confirmed_switches": 436,
+            "switch_reduction_fraction": 0.4467005076142132,
+            "raw_unknown_samples": 780,
+            "confirmed_unknown_samples": 980
+          }
+        ]
+      },
+      "boundary": "跨force/wearing/day/posture及真实质量等所有轴的统一改善尚未证明。",
+      "evidence": [
+        "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json",
+        "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json"
+      ]
+    },
+    {
+      "question_id": "H",
+      "question": "新用户或新session需要多少校准？",
+      "answer": "该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。",
+      "measurements": [
+        {
+          "shots_per_class": 10,
+          "users": 10,
+          "classes": 6,
+          "used_trials": [
+            60
+          ],
+          "used_signal_seconds": [
+            48.0
+          ],
+          "full_recording_seconds_min": 296.045,
+          "full_recording_seconds_max": 298.755,
+          "device_wall_time_seconds": null
+        },
+        {
+          "shots_per_class": 20,
+          "users": 10,
+          "classes": 6,
+          "used_trials": [
+            120
+          ],
+          "used_signal_seconds": [
+            96.0
+          ],
+          "full_recording_seconds_min": 592.135,
+          "full_recording_seconds_max": 597.455,
+          "device_wall_time_seconds": null
+        }
+      ],
+      "boundary": "覆盖六类动作；未证明跨力、姿态、重新佩戴或重复session的必要预算，也未证明几秒校准或实机收益。",
+      "evidence": [
+        "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json",
+        "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json"
+      ]
+    }
+  ],
+  "interpretation_scope": "Current independent versioned evidence, not resurrection of unavailable historical experiments. Prior REPORT conclusions are historical snapshots; these answers distinguish evidence changes and present limits.",
+  "nominal_continuous_samples": 393776,
+  "default_promoted": false,
+  "own_device_efficacy_proven": false,
+  "full_seven_axis_robustness_proven": false,
+  "completion_proven": false
+}

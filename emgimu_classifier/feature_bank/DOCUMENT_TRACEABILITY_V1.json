@@ -7,8 +7,8 @@
   "source_sha256": {
     "benchmarks/new_bank_v3/document_traceability_v1.py": "27b0d9da633e8ab0e07fcf0a2ae302ac7dd6823d3c9c3bfa570df3b6132fe2cd",
     "tests/test_document_traceability_v1.py": "4015f84d5448eff28b4e3bd28e73c4a7111252be47c5851e1485a819a2c88494",
-    "benchmarks/new_bank_v2/v1_acceptance_audit.py": "4489c43bbeb0aacc71b72fdc5a8c061c1a733f85e63ae53cf4c58f77d9c352ce",
-    "feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.json": "c2ec58f70528a99f9dc1f8328ebc017cb1160ea1fff39163569addb504f23325"
+    "benchmarks/new_bank_v2/v1_acceptance_audit.py": "656a427a9879eaca76385a0abd544a000d156f185202a4aa30151fa1e1596071",
+    "feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.json": "ad7f8357bbb894683e2ba061613ef130fd96a1a1d2a89b80559122105f00cbe9"
   },
   "nonempty_lines": 2586,
   "mapped_lines": 2509,

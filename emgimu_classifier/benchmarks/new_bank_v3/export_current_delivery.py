@@ -266,6 +266,8 @@ def export():
              'base_table_sha256': {f.name: sha(f) for f in sorted(BASE.glob('*.csv'))},
              'v3_result_inventory_sha256': {f.relative_to(ROOT).as_posix(): sha(f) for f in sorted(HERE.rglob('*.json'))
                                             if f.name.endswith('_RESULTS.json') or f.name == 'results.json'},
+             'current_scientific_conclusions': {'path':'../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json',
+                 'sha256':sha(ROOT/'feature_bank/CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json')},
              'completion_proven': False}
     (BASE/'INDEX.json').write_text(json.dumps(index, indent=2)+'\n', encoding='utf8')
     print(json.dumps({n: len(rows) for n, (rows, _) in tables.items()}), flush=True)

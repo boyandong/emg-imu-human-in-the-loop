@@ -67,5 +67,9 @@
     "benchmarks/new_bank_v3/SPEC_F2C_WEARING_RESULTS.json": "a3a6fb7e19abf9c3a709c27625a45f03346b9f664cac04126c9ac65d9968b3e4",
     "benchmarks/new_bank_v3/SPEC_SPATIAL_GRAB_RESULTS.json": "cb2ea60ad000c6973f7e4220d0f3458b01c241b72a1b8c8ab585e6e4e64876dc"
   },
+  "current_scientific_conclusions": {
+    "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
+    "sha256": "b69b4eb3627421ce69cde3bcb3cbc4a05f63963d255f0d82e5ebccebdfbff05b"
+  },
   "completion_proven": false
 }

@@ -135,6 +135,17 @@ def build(pre: Path, goal: Path) -> dict:
                          "curve reports pooled and individual-user outcomes at supported 10/20 budgets. "
                          "All six labelled gestures are required; repeated-session, force and posture "
                          "transfer requirements are untested rather than asserted optional.")
+        if ident == "GOAL-18":
+            evidence += ("|feature_bank/CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json"
+                         "|benchmarks/new_bank_v3/current_scientific_conclusions_v1.py"
+                         "|tests/test_current_scientific_conclusions_v1.py")
+            boundary += (" An independently versioned current A-H synthesis now binds "
+                         "the newer F7 confirmation, EPN user variation/calibration costs, "
+                         "MANUS routing and full-record ROAM stability evidence. Numerical "
+                         "deltas, sample versus trial denominators and original guard-sign "
+                         "conventions are explicit. Improved calibrated-method comparisons "
+                         "do not prove improvement versus no anchor or only-after-calibration "
+                         "benefit, and single-axis minima are not full seven-axis R_min.")
         if ident == "GOAL-17":
             evidence += ("|feature_bank/delivery/INDEX.json"
                          "|feature_bank/delivery/new_bank_v3/MANIFEST.json"
