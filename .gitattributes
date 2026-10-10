@@ -1548,3 +1548,17 @@ emgimu_classifier/tests/test_calibration_rest_detector_v1.py -text -eol whitespa
 /emgimu_classifier/tests/test_roam_native_joint_register_v1.py -text -eol whitespace=cr-at-eol
 
 /emgimu_classifier/feature_bank/ROAM_NATIVE_JOINT_V1_GIT_CHECKOUT.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/verify_roam_source_fusion_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/source_probability_fusion_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_roam_source_fusion_study_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_source_probability_fusion_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_SOURCE_INPUT.json -text -eol whitespace=cr-at-eol
