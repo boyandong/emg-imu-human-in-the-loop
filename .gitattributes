@@ -1147,3 +1147,11 @@ collection/emg_meta/emg_meta/install_decision_shortcut_v1.ps1 -text -eol whitesp
 collection/emg_meta/emg_meta/tests/test_decision_launcher_v1.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/SONG_DECISION_GUI_REGRESSION_V1.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/regression/decision_gui_v1/** -text -eol whitespace=cr-at-eol
+
+# Seven-provider CSP and context-only F4d versioned experiment
+emgimu_classifier/src/emgimu/feature_bank/extended_window_decision_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_extended_window_decision_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/song_extended_window_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_RESULTS.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/song_extended_window_v1/** -text -eol whitespace=cr-at-eol
