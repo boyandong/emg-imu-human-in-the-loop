@@ -1,0 +1,52 @@
+{
+  "schema": "song_personal_session_acceptance_v1",
+  "workflow_config": {
+    "channel_ids": [
+      "CH1",
+      "CH2",
+      "CH3",
+      "CH4",
+      "CH5",
+      "CH6",
+      "CH7",
+      "CH8"
+    ],
+    "preprocessing_id": "song250_causal_hp40_order4_notch50_100_Q30_zero_session_initial_v1",
+    "rest_label": "neutral",
+    "quality_options": {
+      "line_frequency_hz": 50,
+      "pre_highpass_available": false
+    }
+  },
+  "workflow_contract_id": "77d8cbd7d3ee662b45ac7c8bb5af1d2bdd3eb4e40a03fc76ae5f322457b8cb0a",
+  "source_bank_id": "79c1f6383a5758ae3886a1d79d6556e35b813cfa77076c076ed0d9c50a17d140",
+  "source_bank_sha256": "2828f59ca3d142ec873ba330622bae71f0ce0793768d777bc7a40047a88efe3c",
+  "provider_readouts_path": "feature_bank/SONG_PERSONAL_SESSION_PROVIDER_READOUTS_V1.npz",
+  "source_sha256": {
+    "benchmarks/song_real8/verify_song_personal_session_v1.py": "99feb8ddcb3f6825c0f525b3f1c6d2a2714c6aa8f6566f473ea1079b501a9598",
+    "benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json": "1378f1c4e1655a59588f2d6dc6c35bc48e0d30c5a22bab2568c705a768551e38",
+    "benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_PROTOCOL.json": "80c0001f008269e57b8d4dd0730c1c36dc473844196a4957ec4a267bac9e39bc",
+    "src/emgimu/feature_bank/personal_session_cli_v1.py": "7d4e36ed18eea9bf653e2143897b183a0627c1e61bd42be4b6516724ef2d9067",
+    "tests/test_personal_session_cli_v1.py": "fc76494cafa08cdd6857313df22fbcba6b75263108ed3547d65931d954d5e53d",
+    "tests/test_song_personal_session_v1_delivery.py": "243d9b6785c730ee142a925aeaad811e9132eb7b88c8c4de376add34f0f972a7"
+  },
+  "artifact_sha256": {
+    "benchmarks/song_real8/song_personal_session_v1/source_bank.pkl": "2828f59ca3d142ec873ba330622bae71f0ce0793768d777bc7a40047a88efe3c",
+    "benchmarks/song_real8/song_personal_session_v1/predictions.csv": "6866eee2361f2e0fd4a106a3e7fb376ea2f1e0629bb2ace2d287fab194153514",
+    "benchmarks/song_real8/song_personal_session_v1/context_readouts.npz": "fc7ed4417dde22de18301a06d753048b9be25dd4fe03798688952201f194d83b",
+    "benchmarks/song_real8/song_personal_session_v1/personal_S03.zip": "14407991c3ef6062f8f6f61932b947859ad6bde51a9984d4cf2c685846cf62b2",
+    "feature_bank/SONG_PERSONAL_SESSION_PROVIDER_READOUTS_V1.npz": "dd48137495035ad7480921f385ce4f8d8f6daa0255b612e1b541697d34c99341",
+    "benchmarks/song_real8/song_personal_session_v1/session_S04_1shot.zip": "22d40e212f0d0a3ee40c964c39d3ed46548f4c15407305f66cdf05bb740c3f5d",
+    "benchmarks/song_real8/song_personal_session_v1/session_S04_2shot.zip": "a61e83a76da722f53a4d30051c05f33ee74b31234bd02d564fb017dc05479df1",
+    "benchmarks/song_real8/song_personal_session_v1/session_S04_5shot.zip": "5dce549f820a7c85e1e782a0fdb9105f256cb1e9b189c6e6899a4966f0ee15ec"
+  },
+  "checked_native_cells": 44,
+  "checked_trial_probabilities": 5456,
+  "maximum_probability_error": 4.440892098500626e-16,
+  "source_state_immutable": true,
+  "personal_state_immutable": true,
+  "physical_validation_proven": false,
+  "default_promoted": false,
+  "completion_proven": false,
+  "scope": "Source-frozen six-provider Song lifecycle; all44 cells/5456 native trial predictions and persisted context outputs reverified without fitting. Long-term20 trials plus current0/4/8/20 are separate costs. No GUI calibration integration, full F0-F9 composition, learned anchor/context classifier, quality gate, native anatomical F6 or live efficacy claim."
+}

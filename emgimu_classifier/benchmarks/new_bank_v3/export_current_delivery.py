@@ -266,6 +266,47 @@ def export():
                     'delta_logloss':alternative['log_loss']-full['log_loss'],
                     'delta_macro_f1':full['macro_f1']-alternative['macro_f1'],
                     'delta_brier':alternative['brier']-full['brier']})
+    song_path=ROOT/'benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json'
+    song_source=song_path.relative_to(ROOT).as_posix();sources[song_source]=sha(song_path)
+    song=json.loads(song_path.read_text(encoding='utf8'))
+    provider_path=ROOT/'feature_bank/SONG_PERSONAL_SESSION_PROVIDER_READOUTS_V1.npz'
+    sources[provider_path.relative_to(ROOT).as_posix()]=sha(provider_path)
+    prediction_path=ROOT/song['prediction_path'];sources[prediction_path.relative_to(ROOT).as_posix()]=sha(prediction_path)
+    with prediction_path.open(encoding='utf8',newline='') as stream:song_rows=list(csv.DictReader(stream))
+    with np.load(provider_path,allow_pickle=False) as native:
+        classes=native['class_names'].tolist();y=np.array([classes.index(c) for c in native['labels']])
+        groups=list(song['source_dimensions'])
+        comparisons=list(combinations(groups,2))+[('F0',a) for a in ('population','uniform','personal','session')]
+        comparisons += [('personal','session')]+[('session','session_minus_'+g) for g in groups]
+        for shots in (0,1,2,5):
+            probabilities={g:native[g] for g in groups}
+            for cell in song['cells']:
+                if cell['shots']!=shots:continue
+                rows=[r for r in song_rows if int(r['shots'])==shots and r['arm']==cell['arm']]
+                if [r['trial_id'] for r in rows]!=native['trial_ids'].tolist():raise ValueError('Song canonical trial axis differs')
+                probabilities[cell['arm']]=np.array([[float(r['p_'+c]) for c in classes] for r in rows])
+            arms={k:(q.argmax(1),q) for k,q in probabilities.items()}
+            costs={k:(20+4*shots if k.startswith('session') else 20 if k=='personal' else 0) for k in arms}
+            notes={'class_names':classes,'same_person_day':True,'long_term_session':'S03','current_session':'S04',
+                'actual_total_target_calibration_trials':costs,'long_term_personal_trials':20,
+                'current_session_trials':4*shots,'source_only_recorded_session_OOF_probability_calibration':True,
+                'provider_removal_is_frozen_weight_renormalization':True,
+                'F7_F8_F9_are_separate_context_not_fused_classifiers':True,'scope':song['scope']}
+            add_group('song_personal_session_v1',song_source,'Song_real8','Song','S04_recording',shots,
+                'same_person_day_cued_stable_native_trials',arms,y,4,notes,comparison_pairs=comparisons)
+            full=score(y,*arms['session'],4)
+            for removed in groups:
+                remaining='session_minus_'+removed;alternative=score(y,*arms[remaining],4)
+                ablations.append({'run_id':'song_personal_session_v1','source_artifact':song_source,
+                    'source_sha256':sources[song_source],'dataset':'Song_real8','subject':'Song',
+                    'session/domain':'S04_recording','condition':'same_person_day_cued_stable_native_trials',
+                    'calibration_budget':shots,'evaluation_trials':len(y),'metadata_notes_json':json.dumps(notes,sort_keys=True),
+                    'full_bank':'session','removed_provider':removed,'remaining_bank':remaining,
+                    'full_target_calibration_trials_per_user':20+4*shots,'remaining_target_calibration_trials_per_user':20+4*shots,
+                    **{'full_'+k:full[k] for k in METRICS},**{'remaining_'+k:alternative[k] for k in METRICS},
+                    'delta_logloss':alternative['log_loss']-full['log_loss'],
+                    'delta_macro_f1':full['macro_f1']-alternative['macro_f1'],
+                    'delta_brier':alternative['brier']-full['brier']})
     burden_name = 'MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json'
     burden = read(burden_name)
     burden_source = (HERE/burden_name).relative_to(ROOT).as_posix()
@@ -389,6 +430,8 @@ def export():
                  'sha256':sha(ROOT/'benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json')},
              'song_gui_v2_acceptance': {'path':'../SONG_GUI_V2_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/SONG_GUI_V2_ACCEPTANCE.json')},
+             'song_personal_session_acceptance': {'path':'../SONG_PERSONAL_SESSION_ACCEPTANCE_V1.json',
+                 'sha256':sha(ROOT/'feature_bank/SONG_PERSONAL_SESSION_ACCEPTANCE_V1.json')},
              'completion_proven': False}
     (BASE/'INDEX.json').write_text(json.dumps(index, indent=2)+'\n', encoding='utf8')
     print(json.dumps({n: len(rows) for n, (rows, _) in tables.items()}), flush=True)

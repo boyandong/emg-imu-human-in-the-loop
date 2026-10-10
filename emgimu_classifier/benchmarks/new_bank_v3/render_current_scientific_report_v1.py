@@ -300,6 +300,57 @@ def render(data, source_sha):
                         'This proves software integration and retrospective equivalence, not live',
                         'device accuracy or recovery after electrode reattachment. Both source',
                         'arms remain user-selectable experimental candidates; neither is promoted.']
+    personal=data['song_personal_session'];cells={(c['shots'],c['arm']):c for c in personal['cells']}
+    variation_lines += ['', '#### Persisted personal and current-session workflow on native Song recordings', '',
+                        'A separate source-frozen experiment fits six EMG window providers on S01/S02',
+                        'and calibrates their probability temperatures using recorded-source-session OOF',
+                        'predictions. Population weights and the reliability parameters are selected',
+                        'using source recordings only. S03 supplies20 distinct long-term personal trials.',
+                        'S04 supplies nested0/4/8/20 current-session trials. All budgets use the same124',
+                        'remaining S04 evaluation trials; all20 reserved S04 trials are excluded even at0.', '',
+                        '| Current shots/class | S03 personal trials | S04 current trials | F0 macro-F1 / logloss | Personal macro-F1 / logloss | Session macro-F1 / logloss |',
+                        '|---:|---:|---:|---:|---:|---:|']
+    for shots in (0,1,2,5):
+        values=[f"{cells[shots,a]['macro_f1']:.4f} / {cells[shots,a]['log_loss']:.4f}" for a in ('F0','personal','session')]
+        variation_lines.append(f"| {shots} | 20 | {4*shots} | "+' | '.join(values)+' |')
+    variation_lines += ['', 'F0, population and uniform source controls use zero target calibration trials.',
+                        'Personal uses20 S03 trials; session/removal arms use20 S03 plus the stated S04',
+                        'budget. Thus0 current shots is not zero total onboarding. One-shot improves',
+                        'loss relative to the personal profile here, while two/five-shot worsen it.',
+                        'The six-provider source population also improves F1 versus F0 but worsens',
+                        'logloss. These mixed outcomes do not authorize choosing the best target budget.', '',
+                        '| Removed provider | Delta logloss at0 shots | At1 shot | At2 shots | At5 shots |',
+                        '|---|---:|---:|---:|---:|']
+    for group in ('F0','F1','F2ac','F3b','F4abc','F5window'):
+        deltas=[cells[s,'session_minus_'+group]['log_loss']-cells[s,'session']['log_loss'] for s in (0,1,2,5)]
+        variation_lines.append('| '+group+' | '+' | '.join(f'{v:+.4f}' for v in deltas)+' |')
+    variation_lines += ['', 'Positive delta means the full fusion has lower loss than that frozen-weight',
+                        'removal. Remaining weights are renormalized without refitting or retuning.',
+                        'Individual family results, pair errors, all24 removals and signed comparisons',
+                        'are included in the current canonical tables.', '',
+                        'The workflow keeps separate long-term/current rest centers, additive-epsilon',
+                        'Q95 scales and activation ranges; it exports per-family F7 long/local/blended',
+                        'coordinates, calibration-only F8 descriptors and source-referenced F9 observations.',
+                        'Prototype blending uses only long/current calibration trial counts. User/session',
+                        'identities, channel names, preprocessing identity and source bank are bound to',
+                        'checksum-verified persistent profiles. Prediction accepts no labels, rejects',
+                        'source/personal/current calibration trial overlap and leaves source/long-term',
+                        'state unchanged. All5456 trial predictions and saved context arrays reverify;',
+                        'session package reloads preserve probabilities exactly.', '',
+                        'The offline CLI `python -m emgimu.feature_bank.personal_session_cli_v1` supports',
+                        '`enroll`, `session` and `predict`; it requires an explicit preprocessed-window NPZ,',
+                        'observed channel names, preprocessing identity, user and recording/session ID.',
+                        'Calibration labels are a separate trial-ID JSON. A separate-process test needs',
+                        'only source checkpoint, acceptance, windows and profile files, not raw recordings.', '',
+                        '[Native workflow results](../benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json)',
+                        'and [package/configuration acceptance](SONG_PERSONAL_SESSION_ACCEPTANCE_V1.json)',
+                        'retain44 cells, source-only policy selection and every calibration reservation.',
+                        'This is an offline workflow, not the GUI calibration path. Normalized views and',
+                        'F7/F8/F9 context are not silently inserted into raw-trained classifiers. No',
+                        'quality rejection, learned anchor/context classifier, complete DTW bout, native',
+                        'anatomical F6 or full document-wide F0-F9 fusion is proved. All four recordings',
+                        'are from one user/day with readiness and prior-inspection limits; recording IDs',
+                        'do not establish separate days or physical electrode reattachment.']
     variation_lines += ['', '#### Target calibration burden: extracted signal versus stored recording time', '',
                         'Native archive accounting binds 600 reserved trial durations and 690',
                         'method-specific cost rows for the two experiments above. Every source-',

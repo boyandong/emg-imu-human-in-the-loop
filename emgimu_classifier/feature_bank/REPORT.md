@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `ba43c23971aa865babba2ef393cdf4cc6060b6d0eb449eb7e8abed96793ee2a0`.
+Source SHA-256: `cb1eed5129d1ad0208d30ec8282e3a249c374f72f755b418c06d5331ad8d96ee`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -278,9 +278,9 @@ Source SHA-256: `ba43c23971aa865babba2ef393cdf4cc6060b6d0eb449eb7e8abed96793ee2a
 | C: 哪些family只在特定条件下有价值？ | 当前收益依赖数据轴、预算与组合。七项新版默认扩展检查没有确立新的通用默认；F8的各预算和阶段结果应逐格报告，不能把局部收益写成全局不变性。 [PUBLIC_DEFAULT_EXTENSION_AUDIT.json](../benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_AUDIT.json), [F8_ROUTER_MANUS_V1_RESULTS.json](../benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json), [F8_CALIBRATED_MANUS_V2_RESULTS.json](../benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json) | 不同数据集、动作本体及已检查阶段不能合并为同一个统计检验；局部混合收益不是直接证明某个新增特征的信息量。 |
 | D: 哪些family只有个人校准后才有明显价值？ | 两种已校准距离方法不能证明“只有校准才有效”。新增纯EMG实验在相同1200留出试次上比较source-only F0与1/2/5-shot F7组合，获得有限增益，但五shot主要门槛失败；其他family不能据此推断。 [results.json](../benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json), [MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json) | 独立试次才计为shot；10/20shot低维协方差结论不能推广到被拒绝的高维、小样本设置或零校准部署。 |
 | E: Personal Anchor是否降低跨用户变化？ | 新版EPN低维Mahalanobis相对Euclidean改善均值及最差用户，并降低这组用户的F1标准差。两者都使用个人校准，不能据此宣称相对无Anchor必然降低跨用户变化。 [MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json) | 等用户均值、样本标准差与 pooled F1分开。人群仅32–41，未证明全部用户或当前设备。增加预算仍有个体退步。 |
-| F: Session Signature能帮助跨天或重新佩戴吗？ | MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。 [F8_ROUTER_MANUS_V1_RESULTS.json](../benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json), [F8_CALIBRATED_MANUS_V2_RESULTS.json](../benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json) | 已检查的MANUS会话是描述性证据；TD24不等于Rest拟合F0。物理重贴和本设备会话恢复未验证。 |
+| F: Session Signature能帮助跨天或重新佩戴吗？ | MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。 Song新版在同人单日不同录制中也呈混合结果：1-shot会话权重改善损失，2/5-shot反而退步；尚非跨天或真实重贴证明。 [F8_ROUTER_MANUS_V1_RESULTS.json](../benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json), [F8_CALIBRATED_MANUS_V2_RESULTS.json](../benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json), [SONG_PERSONAL_SESSION_V1_RESULTS.json](../benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json) | 已检查的MANUS会话是描述性证据；TD24不等于Rest拟合F0。物理重贴和本设备会话恢复未验证。 |
 | G: 是否改善最差场景R_min，而不只是均值？ | 低维Mahalanobis改善相同预算下这组EPN最差用户，但增加到20shot仍可能损害最差用户；不能将单轴最差用户指标冒充完整七轴R_min。连续识别的样本F1也不能代替动作保持成功率。 [MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json), [ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json](../benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json) | 跨force/wearing/day/posture及真实质量等所有轴的统一改善尚未证明。 |
-| H: 新用户或新session需要多少校准？ | 该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。 [MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json), [MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json) | 覆盖六类动作；未证明跨力、姿态、重新佩戴或重复session的必要预算，也未证明几秒校准或实机收益。 |
+| H: 新用户或新session需要多少校准？ | 该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。 Song新版另需20个S03长期试次，再加0/4/8/20个S04会话试次；0-shot当前会话不等于零总校准。 [MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json), [MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json), [SONG_PERSONAL_SESSION_V1_RESULTS.json](../benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json) | 覆盖六类动作；未证明跨力、姿态、重新佩戴或重复session的必要预算，也未证明几秒校准或实机收益。 |
 
 #### Quantitative evidence behind the current answers
 
@@ -626,6 +626,69 @@ bind the exporter, runtime, worker, page and collection tests.
 This proves software integration and retrospective equivalence, not live
 device accuracy or recovery after electrode reattachment. Both source
 arms remain user-selectable experimental candidates; neither is promoted.
+
+#### Persisted personal and current-session workflow on native Song recordings
+
+A separate source-frozen experiment fits six EMG window providers on S01/S02
+and calibrates their probability temperatures using recorded-source-session OOF
+predictions. Population weights and the reliability parameters are selected
+using source recordings only. S03 supplies20 distinct long-term personal trials.
+S04 supplies nested0/4/8/20 current-session trials. All budgets use the same124
+remaining S04 evaluation trials; all20 reserved S04 trials are excluded even at0.
+
+| Current shots/class | S03 personal trials | S04 current trials | F0 macro-F1 / logloss | Personal macro-F1 / logloss | Session macro-F1 / logloss |
+|---:|---:|---:|---:|---:|---:|
+| 0 | 20 | 0 | 0.8986 / 0.2729 | 0.9062 / 0.2787 | 0.9062 / 0.2787 |
+| 1 | 20 | 4 | 0.8986 / 0.2729 | 0.9062 / 0.2787 | 0.9247 / 0.2524 |
+| 2 | 20 | 8 | 0.8986 / 0.2729 | 0.9062 / 0.2787 | 0.9154 / 0.3298 |
+| 5 | 20 | 20 | 0.8986 / 0.2729 | 0.9062 / 0.2787 | 0.9154 / 0.3303 |
+
+F0, population and uniform source controls use zero target calibration trials.
+Personal uses20 S03 trials; session/removal arms use20 S03 plus the stated S04
+budget. Thus0 current shots is not zero total onboarding. One-shot improves
+loss relative to the personal profile here, while two/five-shot worsen it.
+The six-provider source population also improves F1 versus F0 but worsens
+logloss. These mixed outcomes do not authorize choosing the best target budget.
+
+| Removed provider | Delta logloss at0 shots | At1 shot | At2 shots | At5 shots |
+|---|---:|---:|---:|---:|
+| F0 | +0.0679 | +0.0273 | +0.0803 | +0.0990 |
+| F1 | -0.0256 | -0.0171 | -0.0240 | -0.0269 |
+| F2ac | +0.0452 | +0.0568 | +0.0622 | +0.0558 |
+| F3b | -0.0419 | -0.0331 | -0.0872 | -0.0814 |
+| F4abc | +0.0020 | -0.0026 | +0.0063 | +0.0039 |
+| F5window | +0.0055 | +0.0041 | +0.0078 | +0.0073 |
+
+Positive delta means the full fusion has lower loss than that frozen-weight
+removal. Remaining weights are renormalized without refitting or retuning.
+Individual family results, pair errors, all24 removals and signed comparisons
+are included in the current canonical tables.
+
+The workflow keeps separate long-term/current rest centers, additive-epsilon
+Q95 scales and activation ranges; it exports per-family F7 long/local/blended
+coordinates, calibration-only F8 descriptors and source-referenced F9 observations.
+Prototype blending uses only long/current calibration trial counts. User/session
+identities, channel names, preprocessing identity and source bank are bound to
+checksum-verified persistent profiles. Prediction accepts no labels, rejects
+source/personal/current calibration trial overlap and leaves source/long-term
+state unchanged. All5456 trial predictions and saved context arrays reverify;
+session package reloads preserve probabilities exactly.
+
+The offline CLI `python -m emgimu.feature_bank.personal_session_cli_v1` supports
+`enroll`, `session` and `predict`; it requires an explicit preprocessed-window NPZ,
+observed channel names, preprocessing identity, user and recording/session ID.
+Calibration labels are a separate trial-ID JSON. A separate-process test needs
+only source checkpoint, acceptance, windows and profile files, not raw recordings.
+
+[Native workflow results](../benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json)
+and [package/configuration acceptance](SONG_PERSONAL_SESSION_ACCEPTANCE_V1.json)
+retain44 cells, source-only policy selection and every calibration reservation.
+This is an offline workflow, not the GUI calibration path. Normalized views and
+F7/F8/F9 context are not silently inserted into raw-trained classifiers. No
+quality rejection, learned anchor/context classifier, complete DTW bout, native
+anatomical F6 or full document-wide F0-F9 fusion is proved. All four recordings
+are from one user/day with readiness and prior-inspection limits; recording IDs
+do not establish separate days or physical electrode reattachment.
 
 #### Target calibration burden: extracted signal versus stored recording time
 

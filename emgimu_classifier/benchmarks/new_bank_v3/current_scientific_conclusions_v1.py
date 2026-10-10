@@ -45,6 +45,12 @@ def build():
     song_gui_path=ROOT/'feature_bank/SONG_GUI_V2_ACCEPTANCE.json'
     sources[song_gui_path.relative_to(ROOT).as_posix()]=sha(song_gui_path)
     song_gui=json.loads(song_gui_path.read_text(encoding='utf8'))
+    song_personal_path=ROOT/'benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json'
+    sources[song_personal_path.relative_to(ROOT).as_posix()]=sha(song_personal_path)
+    song_personal=json.loads(song_personal_path.read_text(encoding='utf8'))
+    song_acceptance_path=ROOT/'feature_bank/SONG_PERSONAL_SESSION_ACCEPTANCE_V1.json'
+    sources[song_acceptance_path.relative_to(ROOT).as_posix()]=sha(song_acceptance_path)
+    song_acceptance=json.loads(song_acceptance_path.read_text(encoding='utf8'))
     native_cost_curve=read('EMG_CALIBRATION_COST_CURVE_V1.json')
     calibrated_fusion=read('EMG_CALIBRATED_FUSION_V1_RESULTS.json')
     window_bank = read('EMG_WINDOW_BANK_V1_RESULTS.json')
@@ -153,6 +159,11 @@ def build():
          'boundary': '覆盖六类动作；未证明跨力、姿态、重新佩戴或重复session的必要预算，也未证明几秒校准或实机收益。',
          'evidence': evidence('MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json', 'MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json','EMG_F0_F7_BANK_V1_RESULTS.json')},
     ]
+    for index in (5,7):
+        answers[index]['native_Song_recording_session_cells']=[c for c in song_personal['cells'] if c['arm'] in ('F0','personal','session')]
+        answers[index]['evidence'].append(song_personal_path.relative_to(ROOT).as_posix())
+    answers[5]['answer'] += ' Song新版在同人单日不同录制中也呈混合结果：1-shot会话权重改善损失，2/5-shot反而退步；尚非跨天或真实重贴证明。'
+    answers[7]['answer'] += ' Song新版另需20个S03长期试次，再加0/4/8/20个S04会话试次；0-shot当前会话不等于零总校准。'
     for answer in answers:
         if not set(answer['evidence']) <= set(sources): raise ValueError('Unbound evidence')
     # REPORT is a rendered consumer, not independent experiment evidence.
@@ -177,6 +188,10 @@ def build():
                           'tests/test_song_f0_stream_v1_delivery.py',
                           'tests/test_song_f0_stream_native_annotations_v1.py',
                           'tests/test_song_gui_v2_delivery.py',
+                          'tests/test_personal_session_workflow_v1.py',
+                          'tests/test_personal_session_cli_v1.py',
+                          'tests/test_song_personal_session_protocol_v1.py',
+                          'tests/test_song_personal_session_v1_delivery.py',
                           'tests/test_available_bank_fusion_v1.py',
                           'tests/test_available_bank_fusion_v1_delivery.py',
                           'tests/test_epn_holdout_user_robustness_v2.py',
@@ -191,6 +206,8 @@ def build():
               'portable_emg_bank':{k:portable[k] for k in ('package_path','package_sha256','channels','sample_rate_hz','window_samples','requires_IMU','native_provider_cases','native_fusion_cases','native_omission_cases','source_state_immutable','scope')},
               'song_f0_runtime':{k:song_runtime[k] for k in ('package_path','package_sha256','classes','sample_rate_hz','channels','window_samples','preprocessing_id','source_windows','source_trials','prediction_rows','records','source_state_immutable','scope')},
               'song_gui_v2':{k:song_gui[k] for k in ('bundles','records','source_parameters_exact','source_state_immutable','builtin_discovery_verified','default_promoted','physical_validation_proven','scope')},
+              'song_personal_session':{k:song_personal[k] for k in ('cells','selected_source_policy','scope','evaluation_ids','personal_calibration_ids','reserved_current_ids','source_state_immutable','personal_state_immutable')},
+              'song_personal_session_acceptance':{k:song_acceptance[k] for k in ('checked_native_cells','checked_trial_probabilities','maximum_probability_error','workflow_contract_id','scope')},
               'song_f0_stream':{'classes':song_stream['classes'],'scope':song_stream['scope'],
                   'cells':[{k:row[k] for k in ('session','arm','raw_samples','emissions','unscored_emissions','one_pass_max_probability_error')} | {policy:{k:row[policy][k] for k in ('eligible_windows','eligible_trials','unknown_windows','trial_balanced_macro_f1','trial_balanced_accuracy','whole_stable_hold_correct','within_stable_trial_switches')} for policy in ('raw','confirmed')} for row in song_stream['records']]},
               'emg_native_calibration_cost':native_cost_curve['cells'],

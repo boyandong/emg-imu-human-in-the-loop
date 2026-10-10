@@ -1,6 +1,6 @@
 {
   "schema": "current_v3_canonical_delivery_v1",
-  "generator_sha256": "2c144c45e310a354252dabb4dcb72afaeb36e14e3934910955b700bc37fee110",
+  "generator_sha256": "aac3297f241cf967f77365c70b22fe416d620906b89e941442fd33e092ee0997",
   "source_sha256": {
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
@@ -12,6 +12,9 @@
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json": "0d38aad3bfef51ee962d8cc3ec5cbf2f5b4c96cd483c0b572b69a26661df12b1",
+    "benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json": "1378f1c4e1655a59588f2d6dc6c35bc48e0d30c5a22bab2568c705a768551e38",
+    "feature_bank/SONG_PERSONAL_SESSION_PROVIDER_READOUTS_V1.npz": "dd48137495035ad7480921f385ce4f8d8f6daa0255b612e1b541697d34c99341",
+    "benchmarks/song_real8/song_personal_session_v1/predictions.csv": "6866eee2361f2e0fd4a106a3e7fb376ea2f1e0629bb2ace2d287fab194153514",
     "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json": "9b2b7ed27a0747b31a129f229d5ff933d06cf4108485fa60f1f496758907a894",
     "benchmarks/new_bank_v3/EMG_CALIBRATION_BURDEN_V1.json": "beba067d8cfff25ce2f8a752203f2be1cd293bbe648ba6948e47b952a4076974",
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
@@ -31,8 +34,8 @@
   },
   "tables": {
     "ablation_full_bank.csv": {
-      "rows": 396,
-      "sha256": "a8d627c9657b8d1d1593929f3dc5a235aeec0a37d95456b1fbcdb4bc3c5769a8"
+      "rows": 420,
+      "sha256": "d6686c02bfde319812931490cd41377a34c2a2e265b7b3c154c3cee3f082f070"
     },
     "label_stability_control.csv": {
       "rows": 80,
@@ -47,20 +50,20 @@
       "sha256": "f8df5629a04323364db46db43617f32b29787a49226a2a5d1e6aca5c5d34dec8"
     },
     "feature_family_results.csv": {
-      "rows": 1333,
-      "sha256": "ae0bb2e5cca6ffdd36e458c30fd53edafe9582b39b9ec00844179e9f98b05568"
+      "rows": 1397,
+      "sha256": "30dd748126ccf335938842a751015f036d0c9d9c041563af0afa5e7668703b77"
     },
     "conditional_incremental.csv": {
-      "rows": 2340,
-      "sha256": "78363091a442a49fe08fedaa55788156a2c5c12ad5825d0e3c2c5b6c7ad5f290"
+      "rows": 2444,
+      "sha256": "a76ee9343042902fe852c5181d8c8267eab11abd1d2e292bf33bc7239f88a82c"
     },
     "error_complementarity.csv": {
-      "rows": 2340,
-      "sha256": "58b28b915c684fa6322bb5241706dad6a1668ff719462d43fe9f136f8891688c"
+      "rows": 2444,
+      "sha256": "ed6e664b67533ca3102bc6262cc7f4f97ef6b30c46694de09f88373fc93a4b85"
     },
     "calibration_curve.csv": {
-      "rows": 1333,
-      "sha256": "162ae7027c0b5410faabf9fc831a1f407ce305b31c105efa2b8bd5107c4d81f1"
+      "rows": 1397,
+      "sha256": "d189480e30fabe17eea2c9d687f8fa5377b36d7a1b287680723ea123683c4618"
     },
     "calibration_burden.csv": {
       "rows": 710,

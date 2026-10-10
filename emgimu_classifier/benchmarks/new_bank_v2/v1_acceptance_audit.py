@@ -273,6 +273,24 @@ def build(pre: Path, goal: Path) -> dict:
                          "The fixed200ms/40ms/two-confirmation policy cannot be changed "
                          "by the confidence control. Software integration does not "
                          "prove current-device accuracy or physical timing.")
+        if ident in ("GOAL-02", "GOAL-03", "GOAL-08", "GOAL-09", "GOAL-20", "GOAL-22", "GOAL-23"):
+            evidence += ("|feature_bank/SONG_PERSONAL_SESSION_ACCEPTANCE_V1.json"
+                         "|benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_PROTOCOL.json"
+                         "|benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json"
+                         "|tests/test_personal_session_workflow_v1.py"
+                         "|tests/test_personal_session_cli_v1.py"
+                         "|tests/test_song_personal_session_v1_delivery.py")
+            boundary += (" New Song offline personal/session lifecycle binds source, "
+                         "user, recording and preprocessing identities and verifies "
+                         "persistent profiles. Six source-temperature-calibrated window "
+                         "providers, same124 S04 trials,44 cells and all24 provider "
+                         "removals are retained. Long-term20 trials plus current0/4/8/20 "
+                         "are separate budgets. Current calibration changes reliability "
+                         "weights; normalization, F7 anchors, F8 and F9 remain separate "
+                         "context outputs. Session effects are mixed, and more shots "
+                         "can harm loss. No GUI calibration path, complete document "
+                         "F0-F9 integration, native anatomical F6, quality rejection "
+                         "or cross-day/re-donning/device proof follows.")
         if ident in ("GOAL-02", "GOAL-03", "GOAL-18", "GOAL-20", "GOAL-23"):
             evidence += ("|benchmarks/song_real8/SONG_F0_STREAM_V1_PROTOCOL.json"
                          "|benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json"
