@@ -1,0 +1,40 @@
+{
+  "schema": "joint_bout_workflow_v1_regression",
+  "freeze_commit": "6ae61ee",
+  "suites": [
+    {
+      "path": "feature_bank/regression/joint_bout_workflow_v1/classifier.xml",
+      "sha256": "9f4a92c221887ab99ab66badb3c0eb339e900bdb64836baa9bb9b2032e6ad149",
+      "tests": 84,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "path": "feature_bank/regression/joint_bout_workflow_v1/delivery.xml",
+      "sha256": "70a549e91f38c3a573efed29607d9268371d98591f1c71cf8ec83ca31220a0d9",
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "path": "feature_bank/regression/joint_bout_workflow_v1/audits.xml",
+      "sha256": "099a342620cda70fc04ecdaae76792c6f285245e939588cf6de506cff023ac90",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "total_passing_cases": 99,
+  "frozen_source_files_verified": 136,
+  "acceptance_sha256": "9bf4a118a99d7cc8034738b69b11154f85fb123022dd3d8a715eb248c3df89f2",
+  "shared_API_and_CLI_delivered": true,
+  "desktop_entry_changed": false,
+  "new_native_training_or_scoring": false,
+  "default_promoted": false,
+  "native_accuracy_proven": false,
+  "physical_validation_proven": false,
+  "completion_proven": false
+}

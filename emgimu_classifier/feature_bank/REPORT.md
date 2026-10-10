@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `9ef8fea9b8bd8cfc1871e45cee8996fe737436a87020f28e79f4002f64406b1f`.
+Source SHA-256: `8d16ed0661d5412b5e6f1ab473d60274875a69d8665094437960e8837f959bbb`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -1187,6 +1187,13 @@ The independent generic interface verifies288 arithmetic cases and15552 probabil
 Missing providers, unavailable quality observations and all-quality-rejected Unknown decisions remain distinct. Scoreable probabilities and per-row effective weights are retained.
 The verification reuses frozen MANUS predictions with synthetic quality-one/zero inputs. It performs no source refit, threshold selection or efficacy experiment, and does not establish physical fault detection or complete F0-F9 representation coverage.
 [Quality fusion arithmetic acceptance](AVAILABLE_BANK_QUALITY_ACCEPTANCE_V2.json).
+
+#### Joint complete-action registration V1 (software lifecycle)
+
+The opt-in API/CLI passes54 lifecycle tests, including18 combined window/temporal/quality cases.
+One complete cued registration feeds window F7/F8, full-bout DTW/signatures and a neutral-only detector; captured native raw/filtered inputs and calibration cost are saved once. Independent stream state, persistence, source/recording isolation and failure cleanup are verified.
+The existing desktop enrollment paths remain separate. This verification uses the frozen Song source model with synthetic complete-bout inputs, not Song full-action labels; no native accuracy, all-subfamily, physical fault, boundary, latency or device claim follows.
+[Joint lifecycle acceptance](JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json).
 <!-- CURRENT_SCIENTIFIC_ANSWERS_V1_STOP -->
 
 ### Calibration recovery and model-composition limits

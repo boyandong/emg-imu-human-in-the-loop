@@ -311,11 +311,16 @@ def build():
                 'scope':registered_rest['scope']}
     verification_tests += ['tests/test_available_bank_quality_v2_delivery.py',
         'tests/test_formula_quality_register_v2_delivery.py']
+    joint_path=ROOT/'feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json'
+    sources[joint_path.relative_to(ROOT).as_posix()]=sha(joint_path)
+    joint=json.loads(joint_path.read_text(encoding='utf8'))
+    verification_tests += ['tests/test_joint_bout_v1_delivery.py','tests/test_joint_bout_register_delivery_v1.py']
     for name in verification_tests: sources[name] = sha(ROOT / name)
     result = {'schema': 'current_scientific_conclusions_v1', 'generator_sha256': sha(Path(__file__)),
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
               'requirement_lines': [1013, 1049], 'verification_tests': verification_tests,
               'source_sha256': sources, 'questions': answers,
+              'joint_bout_workflow': {k:joint[k] for k in ('joint_lifecycle_tests','combined_window_temporal_quality_cases','shared_calibration_counted_once','saved_profile_roundtrip_and_separate_process_verified','scope','known_limitations','desktop_entry_changed','default_promoted','native_accuracy_proven','physical_validation_proven','completion_proven')},
               'available_quality_fusion': {k:quality_fusion[k] for k in ('verification_cases','checked_probability_values','rejected_invalid_quality_calls','maximum_probability_error','scope','default_promoted','physical_validation_proven')},
               'available_provider_fusion': {k:availability[k] for k in ('native_full_cases','native_missing_provider_cases','rejected_invalid_native_calls','software_scope','native_scope')},
               'portable_emg_bank':{k:portable[k] for k in ('package_path','package_sha256','channels','sample_rate_hz','window_samples','requires_IMU','native_provider_cases','native_fusion_cases','native_omission_cases','source_state_immutable','scope')},

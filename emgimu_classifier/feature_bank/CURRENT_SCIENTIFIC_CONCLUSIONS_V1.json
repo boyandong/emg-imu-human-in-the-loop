@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "94707d97838d33d03afe7727efd671c0bb641131add991550db486718b183446",
+  "generator_sha256": "bf6964438e78a289a03f2ba964a5071bec05eef1e58738f06a8efc56694916e9",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -54,7 +54,9 @@
     "tests/test_detected_personal_temporal_unibo_v3_delivery.py",
     "tests/test_calibration_rest_continuous_unibo_v1_delivery.py",
     "tests/test_available_bank_quality_v2_delivery.py",
-    "tests/test_formula_quality_register_v2_delivery.py"
+    "tests/test_formula_quality_register_v2_delivery.py",
+    "tests/test_joint_bout_v1_delivery.py",
+    "tests/test_joint_bout_register_delivery_v1.py"
   ],
   "source_sha256": {
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
@@ -106,7 +108,8 @@
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "ec243200b39a4237a8fcd81317a5ad7fb849498dda2b0b85a27ca11ae6da3a07",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "9c2b795c64149358e95679c4b439d154ac9fbc2abe338d1bdd11ef392e50a5f6",
+    "feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json": "9bf4a118a99d7cc8034738b69b11154f85fb123022dd3d8a715eb248c3df89f2",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -152,7 +155,9 @@
     "tests/test_temporal_live_gui_v1_delivery.py": "88ff841d9643a9d3b9d3b20877a560a29700193586a3e757a8e75c35e8e0d6b9",
     "tests/test_calibration_rest_continuous_unibo_v1_delivery.py": "95b35775649e704e0456ec4056a09856e23310de365fe262b5a9cb201868e3b3",
     "tests/test_available_bank_quality_v2_delivery.py": "42016202d00be6d0690e80ca4f13f94ad43d0e1512ffd1c83de6d41e5c13ab35",
-    "tests/test_formula_quality_register_v2_delivery.py": "e7b6f99ec9b0e90d26cfaaf459cbfba4d1d446f648eaf5ea0614c8932a20d7ad"
+    "tests/test_formula_quality_register_v2_delivery.py": "e7b6f99ec9b0e90d26cfaaf459cbfba4d1d446f648eaf5ea0614c8932a20d7ad",
+    "tests/test_joint_bout_v1_delivery.py": "84d60ff1b897f21470c7a9bc6e35f062d3c821a9de035627df042fa8dcb7f5c3",
+    "tests/test_joint_bout_register_delivery_v1.py": "a53591d22f18ec017876d65246b2b6fb8ebab10c079749bf9b358c7c8cd7041f"
   },
   "questions": [
     {
@@ -3376,6 +3381,26 @@
       }
     }
   ],
+  "joint_bout_workflow": {
+    "joint_lifecycle_tests": 54,
+    "combined_window_temporal_quality_cases": 18,
+    "shared_calibration_counted_once": true,
+    "saved_profile_roundtrip_and_separate_process_verified": true,
+    "scope": "Software lifecycle/composition using the existing source-frozen Song seven-provider 8-channel250Hz checkpoint and synthetic contiguous full-bout fixtures. No native training, native efficacy scoring, new native experiment, desktop promotion or device validation. Both window and full-bout branches consume the same cued enrollment once. Prediction accepts no labels and disallows any joint calibration trial or recording.",
+    "known_limitations": [
+      "Current Song recordings contain stable excerpts, not eligible full-action labels; fixtures do not establish Song complete-action accuracy.",
+      "Full-bout decisions wait for interval completion; automatic intervals remain estimated.",
+      "The existing window F9 gate observes 50-sample windows; a reported sub-hop tail is retained by temporal processing but is not a separate full-bout hardware-fault gate.",
+      "Opaque frozen child-profile IDs may differ on independent re-enrollment of value-equivalent inputs; saved-profile IDs survive reload and predictions are checked independently.",
+      "The existing desktop continues to use separate enrollment paths; this shared workflow is an opt-in API and CLI.",
+      "Native F6 body-frame, physical electrode geometry, independent multi-user/day data, physical faults and latency remain unproved."
+    ],
+    "desktop_entry_changed": false,
+    "default_promoted": false,
+    "native_accuracy_proven": false,
+    "physical_validation_proven": false,
+    "completion_proven": false
+  },
   "available_quality_fusion": {
     "verification_cases": 288,
     "checked_probability_values": 15552,

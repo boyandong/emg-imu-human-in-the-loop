@@ -714,6 +714,13 @@ def render(data, source_sha):
             'Missing providers, unavailable quality observations and all-quality-rejected Unknown decisions remain distinct. Scoreable probabilities and per-row effective weights are retained.',
             'The verification reuses frozen MANUS predictions with synthetic quality-one/zero inputs. It performs no source refit, threshold selection or efficacy experiment, and does not establish physical fault detection or complete F0-F9 representation coverage.',
             '[Quality fusion arithmetic acceptance](AVAILABLE_BANK_QUALITY_ACCEPTANCE_V2.json).']
+    if 'joint_bout_workflow' in data:
+        joint=data['joint_bout_workflow']
+        variation_lines += ['', '#### Joint complete-action registration V1 (software lifecycle)', '',
+            f"The opt-in API/CLI passes{joint['joint_lifecycle_tests']} lifecycle tests, including{joint['combined_window_temporal_quality_cases']} combined window/temporal/quality cases.",
+            'One complete cued registration feeds window F7/F8, full-bout DTW/signatures and a neutral-only detector; captured native raw/filtered inputs and calibration cost are saved once. Independent stream state, persistence, source/recording isolation and failure cleanup are verified.',
+            'The existing desktop enrollment paths remain separate. This verification uses the frozen Song source model with synthetic complete-bout inputs, not Song full-action labels; no native accuracy, all-subfamily, physical fault, boundary, latency or device claim follows.',
+            '[Joint lifecycle acceptance](JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json).']
     lines[-1:-1] = variation_lines
     return '\n'.join(lines)
 

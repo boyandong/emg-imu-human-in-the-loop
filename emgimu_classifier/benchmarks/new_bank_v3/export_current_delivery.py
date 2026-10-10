@@ -669,6 +669,8 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json')},
              'available_quality_fusion_acceptance': {'path':'../AVAILABLE_BANK_QUALITY_ACCEPTANCE_V2.json',
                  'sha256':sha(ROOT/'feature_bank/AVAILABLE_BANK_QUALITY_ACCEPTANCE_V2.json')},
+             'joint_bout_workflow_acceptance': {'path':'../JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json',
+                 'sha256':sha(ROOT/'feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json')},
              'formula_numerical_acceptance': {'path':'../FORMULA_NUMERICAL_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/FORMULA_NUMERICAL_ACCEPTANCE.json')},
              'completion_proven': False}
