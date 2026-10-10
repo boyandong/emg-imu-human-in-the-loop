@@ -395,6 +395,44 @@ def export():
                 full_target_calibration_trials_per_user=20+4*shots,remaining_target_calibration_trials_per_user=20+4*shots,
                 **{'full_'+key:full[key] for key in METRICS},**{'remaining_'+key:alternative[key] for key in METRICS},
                 delta_logloss=alternative['log_loss']-full['log_loss'],delta_macro_f1=full['macro_f1']-alternative['macro_f1'],delta_brier=alternative['brier']-full['brier']))
+    extension_path=ROOT/'benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_RESULTS.json'
+    extension_source=extension_path.relative_to(ROOT).as_posix();sources[extension_source]=sha(extension_path)
+    extension=json.loads(extension_path.read_text(encoding='utf8'))
+    extension_csv=extension_path.parent/'song_extended_window_v1/predictions.csv'
+    sources[extension_csv.relative_to(ROOT).as_posix()]=sha(extension_csv)
+    with extension_csv.open(encoding='utf8',newline='') as stream:extension_rows=list(csv.DictReader(stream))
+    y=np.array([classes.index(c) for c in extension['evaluation_labels']])
+    full_name='seven_full_structural';groups=list(extension['source_dimensions'])
+    removals={name:'full_minus_'+name for name in groups}
+    removals.update(F7_anchor='seven_minus_F7',F8_router='seven_minus_F8',F9_raw='seven_minus_F9')
+    comparisons=[('old_six_baseline','seven_reliability'),('old_six_F7_F8','seven_F7_F8')]
+    comparisons += [('seven_reliability',name) for name in ('seven_F8','seven_F7_F8','seven_population','seven_uniform','CSP_only')]
+    comparisons += [('seven_F7_F8',full_name)]+[(full_name,name) for name in removals.values()]
+    for shots in (0,1,2,5):
+        arms={}
+        for cell in extension['cells']:
+            if cell['shots']!=shots:continue
+            records=[v for v in extension_rows if int(v['shots'])==shots and v['arm']==cell['arm']]
+            if [v['trial_id'] for v in records]!=extension['evaluation_ids']:raise ValueError('Extended canonical trial axis differs')
+            q=np.array([[float(v['p_'+c]) for c in classes] for v in records]);arms[cell['arm']]=(q.argmax(1),q)
+        costs={c['arm']:c['long_term_calibration_trials']+c['current_calibration_trials'] for c in extension['cells'] if c['shots']==shots}
+        notes=dict(class_names=classes,actual_total_target_calibration_trials=costs,
+            long_term_personal_trials=20,current_session_trials=4*shots,source_only_controls=['seven_population','seven_uniform','CSP_only'],
+            CSP_source_only=True,six_previous_models_unchanged=True,F4d_context_only=True,
+            provider_and_branch_removals_do_not_refit_models=True,scope=extension['scope'])
+        add_group('song_extended_window_v1',extension_source,'Song_real8','Song','S04_CSP_extension',shots,
+            'same_person_day_cued_stable_native_trials',arms,y,4,notes,comparison_pairs=comparisons)
+        full=score(y,*arms[full_name],4)
+        for removed,remaining in removals.items():
+            alternative=score(y,*arms[remaining],4)
+            ablations.append(dict(run_id='song_extended_window_v1',source_artifact=extension_source,
+                source_sha256=sources[extension_source],dataset='Song_real8',subject='Song',
+                **{'session/domain':'S04_CSP_extension'},condition='same_person_day_cued_stable_native_trials',
+                calibration_budget=shots,evaluation_trials=len(y),metadata_notes_json=json.dumps(notes,sort_keys=True),
+                full_bank=full_name,removed_provider=removed,remaining_bank=remaining,
+                full_target_calibration_trials_per_user=costs[full_name],remaining_target_calibration_trials_per_user=costs[remaining],
+                **{'full_'+key:full[key] for key in METRICS},**{'remaining_'+key:alternative[key] for key in METRICS},
+                delta_logloss=alternative['log_loss']-full['log_loss'],delta_macro_f1=full['macro_f1']-alternative['macro_f1'],delta_brier=alternative['brier']-full['brier']))
     burden_name = 'MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json'
     burden = read(burden_name)
     burden_source = (HERE/burden_name).relative_to(ROOT).as_posix()
@@ -546,6 +584,10 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/SONG_INTEGRATED_DECISION_ACCEPTANCE_V1.json')},
              'song_decision_gui_acceptance': {'path':'../SONG_DECISION_GUI_V1_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/SONG_DECISION_GUI_V1_ACCEPTANCE.json')},
+             'song_extended_window_acceptance': {'path':'../SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json',
+                 'sha256':sha(ROOT/'feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json')},
+             'song_extended_gui_acceptance': {'path':'../SONG_EXTENDED_GUI_V1_ACCEPTANCE.json',
+                 'sha256':sha(ROOT/'feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json')},
              'completion_proven': False}
     (BASE/'INDEX.json').write_text(json.dumps(index, indent=2)+'\n', encoding='utf8')
     print(json.dumps({n: len(rows) for n, (rows, _) in tables.items()}), flush=True)

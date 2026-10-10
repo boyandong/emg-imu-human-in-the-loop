@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "01d80519a3c207c95179de535e71c77f237d645d0f6f3aae0466d23e238ddd45",
+  "generator_sha256": "29e4cadd625b87745434eee808cfa9e12d48effd8f4f3fd33bb67593c0e34125",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -44,7 +44,11 @@
     "tests/test_available_bank_fusion_v1_delivery.py",
     "tests/test_epn_holdout_user_robustness_v2.py",
     "tests/test_mahalanobis_epn_holdout_v2.py",
-    "tests/test_f8_calibrated_manus_v2_delivery.py"
+    "tests/test_f8_calibrated_manus_v2_delivery.py",
+    "tests/test_extended_window_decision_v1.py",
+    "tests/test_extended_window_cli_v1.py",
+    "tests/test_personal_session_stream_v4.py",
+    "tests/test_extended_window_delivery_v1.py"
   ],
   "source_sha256": {
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
@@ -72,6 +76,9 @@
     "benchmarks/song_real8/SONG_INTEGRATED_DECISION_V1_RESULTS.json": "dcc64db6db2475783468d0459dfb9b798298b93fc218867315e218a27ea6a79a",
     "feature_bank/SONG_INTEGRATED_DECISION_ACCEPTANCE_V1.json": "f391e1578b4c8f9971708b5aadf7442a763c931f20bb706818d2e208d731286e",
     "feature_bank/SONG_DECISION_GUI_V1_ACCEPTANCE.json": "aca2a1365563a122d59cee6a08d9198c056d0ceef2538d60c562a41c9687472f",
+    "benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_RESULTS.json": "dab1fba20d7f09404605c944d317cbcfdc8c19e100fcb830f030c4d4dd49f34f",
+    "feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json": "f861dc99eaf990dbd67ac37a85d08dc20df0f4aceaf3af122df5b345f31ca449",
+    "feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json": "6e2f17850abc9fd6611089dddd0300ba5e4e2d974de3a1e7b391912dc35f2016",
     "benchmarks/song_real8/SONG_DECISION_GUI_V1_PROTOCOL.json": "37d455fd3451a76ed63f5cf904dd8a8dab31a77fd14bc531af153e8dcd5348c0",
     "tests/test_personal_session_stream_v3.py": "d56e2533e26486e973eca1c23c134fb2db97eab1b70423f72e1e3cfe7ef1e378",
     "tests/test_decision_gui_v1_delivery.py": "46895ee2df343a1741cd2eca50254f4f766c3e9d39cf8b9fa6fd3b1eb38d78f9",
@@ -80,7 +87,7 @@
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "fac7142e9442e56d5e2b9a370b619ca6d2a3de0f0ce0cb711d1b7f83300a5835",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "7ba1306a7c1a9cdf396cbf8794dc48f5d35d0a141ded88f168c017d123fe393c",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -118,7 +125,11 @@
     "tests/test_available_bank_fusion_v1_delivery.py": "43c2870143b5c534581c435c06c7dec1506747012bd389d1b62a46d98403266e",
     "tests/test_epn_holdout_user_robustness_v2.py": "797631cfe13ddb072dc95aaeb95d4b5aa7d7e40da4a15a82de34022f94f3e350",
     "tests/test_mahalanobis_epn_holdout_v2.py": "97c6ffe8c656fb22399eb148f48566bd7b1ddbd4e0cfe5ba52ccac7ab383cc4c",
-    "tests/test_f8_calibrated_manus_v2_delivery.py": "f31ae29f787e37f3d176338660a6956967c3b90a8b4e5f3220ace3401a3073fe"
+    "tests/test_f8_calibrated_manus_v2_delivery.py": "f31ae29f787e37f3d176338660a6956967c3b90a8b4e5f3220ace3401a3073fe",
+    "tests/test_extended_window_decision_v1.py": "794395e6bcb17dc95b1ade91e26321e8801fd7e63fb8209384ef1e2ce13cd059",
+    "tests/test_extended_window_cli_v1.py": "b5b329f1ce686d8ad1cf69977429069c6d2a8dbf655ba763e1c879b180c8e69b",
+    "tests/test_personal_session_stream_v4.py": "218b05bc9f6ccf3679e1f50f5d4fb388cf47c673ddecc215530bbff0c5410379",
+    "tests/test_extended_window_delivery_v1.py": "90c9b8939ce57646a17fad1a7b4c3d56383d0bb3745dd6e0aae25e04708ccf3c"
   },
   "questions": [
     {
@@ -166,7 +177,7 @@
     {
       "question_id": "B",
       "question": "哪些family提供条件增量信息？",
-      "answer": "新版F7相对固定Core取得增益。新增纯EMG F0＋F7在另一预先冻结人群上有pooled收益，但只有6/10用户改善对数损失，未通过7/10门槛。两种Core与人群分开报告；不等于估计条件互信息或证明所有family有效。",
+      "answer": "新版F7相对固定Core取得增益。新增纯EMG F0＋F7在另一预先冻结人群上有pooled收益，但只有6/10用户改善对数损失，未通过7/10门槛。两种Core与人群分开报告；不等于估计条件互信息或证明所有family有效。 独立新版在六组冻结模型外加入仅源数据训练的CSP；同124试次上五次/类校准时，F1从.9154升到.9422，损失从.3303降到.2675，四项预声明标准通过。仅为已检查的同人同日记录结果。",
       "measurements": {
         "criteria": {
           "pooled_logloss_lower": true,
@@ -252,7 +263,380 @@
       "evidence": [
         "benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json",
         "benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_AUDIT.json",
-        "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json"
+        "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json",
+        "benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_RESULTS.json",
+        "feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json",
+        "feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json"
+      ],
+      "native_Song_CSP_extension_cells": [
+        {
+          "shots": 0,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.2314963904430612,
+          "brier": 0.02540528804334596,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 0,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.5535683487562996,
+          "brier": 0.06208185673490012,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 0,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.906231789044289,
+          "accuracy": 0.9112903225806451,
+          "log_loss": 0.27869090412254566,
+          "brier": 0.03219521653405765,
+          "per_class_f1": {
+            "fist": 0.9393939393939394,
+            "index_pinch": 0.8076923076923077,
+            "neutral": 0.9090909090909091,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.6774193548387096,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 0,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.9243812321937321,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.5886435227319567,
+          "brier": 0.06802716555137284,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9336737914862915,
+          "accuracy": 0.9354838709677419,
+          "log_loss": 0.22682354011076308,
+          "brier": 0.025265107706036644,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8727272727272727,
+            "neutral": 0.9090909090909091,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7741935483870968,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9509028982713192,
+          "accuracy": 0.9516129032258065,
+          "log_loss": 0.5418880031604801,
+          "brier": 0.06024393086476259,
+          "per_class_f1": {
+            "fist": 0.9841269841269841,
+            "index_pinch": 0.9122807017543859,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8387096774193549,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9247289747289748,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.25244012858948717,
+          "brier": 0.028871227905569046,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9090909090909091,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9333260489510489,
+          "accuracy": 0.9354838709677419,
+          "log_loss": 0.5646514048731129,
+          "brier": 0.06407476891420702,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8727272727272727,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7741935483870968,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.285892277050845,
+          "brier": 0.03007401702716583,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9509028982713192,
+          "accuracy": 0.9516129032258065,
+          "log_loss": 0.571779609726622,
+          "brier": 0.06493159659287896,
+          "per_class_f1": {
+            "fist": 0.9841269841269841,
+            "index_pinch": 0.9122807017543859,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8387096774193549,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9153523854290364,
+          "accuracy": 0.9193548387096774,
+          "log_loss": 0.3298258501987646,
+          "brier": 0.03629454423041074,
+          "per_class_f1": {
+            "fist": 0.9393939393939394,
+            "index_pinch": 0.8301886792452831,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7096774193548387,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9243812321937321,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.6097375481611091,
+          "brier": 0.07136430650457685,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.2675196367435064,
+          "brier": 0.02810258203934636,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9509028982713192,
+          "accuracy": 0.9516129032258065,
+          "log_loss": 0.5587634398623516,
+          "brier": 0.06284112196823523,
+          "per_class_f1": {
+            "fist": 0.9841269841269841,
+            "index_pinch": 0.9122807017543859,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8387096774193549,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9153523854290364,
+          "accuracy": 0.9193548387096774,
+          "log_loss": 0.3303379944751847,
+          "brier": 0.03679802721842879,
+          "per_class_f1": {
+            "fist": 0.9393939393939394,
+            "index_pinch": 0.8301886792452831,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7096774193548387,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9243812321937321,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.6092862615242222,
+          "brier": 0.0713668502608454,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        }
       ]
     },
     {
@@ -463,7 +847,380 @@
       "evidence": [
         "benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json",
         "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json",
-        "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json"
+        "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json",
+        "benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_RESULTS.json",
+        "feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json",
+        "feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json"
+      ],
+      "native_Song_CSP_extension_cells": [
+        {
+          "shots": 0,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.2314963904430612,
+          "brier": 0.02540528804334596,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 0,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.5535683487562996,
+          "brier": 0.06208185673490012,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 0,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.906231789044289,
+          "accuracy": 0.9112903225806451,
+          "log_loss": 0.27869090412254566,
+          "brier": 0.03219521653405765,
+          "per_class_f1": {
+            "fist": 0.9393939393939394,
+            "index_pinch": 0.8076923076923077,
+            "neutral": 0.9090909090909091,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.6774193548387096,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 0,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.9243812321937321,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.5886435227319567,
+          "brier": 0.06802716555137284,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9336737914862915,
+          "accuracy": 0.9354838709677419,
+          "log_loss": 0.22682354011076308,
+          "brier": 0.025265107706036644,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8727272727272727,
+            "neutral": 0.9090909090909091,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7741935483870968,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9509028982713192,
+          "accuracy": 0.9516129032258065,
+          "log_loss": 0.5418880031604801,
+          "brier": 0.06024393086476259,
+          "per_class_f1": {
+            "fist": 0.9841269841269841,
+            "index_pinch": 0.9122807017543859,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8387096774193549,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9247289747289748,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.25244012858948717,
+          "brier": 0.028871227905569046,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9090909090909091,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9333260489510489,
+          "accuracy": 0.9354838709677419,
+          "log_loss": 0.5646514048731129,
+          "brier": 0.06407476891420702,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8727272727272727,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7741935483870968,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.285892277050845,
+          "brier": 0.03007401702716583,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9509028982713192,
+          "accuracy": 0.9516129032258065,
+          "log_loss": 0.571779609726622,
+          "brier": 0.06493159659287896,
+          "per_class_f1": {
+            "fist": 0.9841269841269841,
+            "index_pinch": 0.9122807017543859,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8387096774193549,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9153523854290364,
+          "accuracy": 0.9193548387096774,
+          "log_loss": 0.3298258501987646,
+          "brier": 0.03629454423041074,
+          "per_class_f1": {
+            "fist": 0.9393939393939394,
+            "index_pinch": 0.8301886792452831,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7096774193548387,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9243812321937321,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.6097375481611091,
+          "brier": 0.07136430650457685,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.2675196367435064,
+          "brier": 0.02810258203934636,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9509028982713192,
+          "accuracy": 0.9516129032258065,
+          "log_loss": 0.5587634398623516,
+          "brier": 0.06284112196823523,
+          "per_class_f1": {
+            "fist": 0.9841269841269841,
+            "index_pinch": 0.9122807017543859,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8387096774193549,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9153523854290364,
+          "accuracy": 0.9193548387096774,
+          "log_loss": 0.3303379944751847,
+          "brier": 0.03679802721842879,
+          "per_class_f1": {
+            "fist": 0.9393939393939394,
+            "index_pinch": 0.8301886792452831,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7096774193548387,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9243812321937321,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.6092862615242222,
+          "brier": 0.0713668502608454,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        }
       ]
     },
     {
@@ -605,7 +1362,7 @@
     {
       "question_id": "F",
       "question": "Session Signature能帮助跨天或重新佩戴吗？",
-      "answer": "MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。 Song新版在同人单日不同录制中也呈混合结果：1-shot会话权重改善损失，2/5-shot反而退步；尚非跨天或真实重贴证明。 新版配对训练进一步检验了个人归一化：五试次/类时总体F1、概率损失及握拳召回退步，四项主要守门均未通过；不能默认启用。",
+      "answer": "MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。 Song新版在同人单日不同录制中也呈混合结果：1-shot会话权重改善损失，2/5-shot反而退步；尚非跨天或真实重贴证明。 新版配对训练进一步检验了个人归一化：五试次/类时总体F1、概率损失及握拳召回退步，四项主要守门均未通过；不能默认启用。 新七组F7/F8相对旧六组F7/F8也通过四项标准，但相对新七组基础方案，虽F1更高，损失/Brier更差。F4d仅为窗口/会话相对长期参考的背景坐标，不是分类器或疲劳测量。",
       "measurements": [
         {
           "cell": "validation_1shot",
@@ -641,7 +1398,10 @@
         "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json",
         "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json",
         "benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json",
-        "benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json"
+        "benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json",
+        "benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_RESULTS.json",
+        "feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json",
+        "feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json"
       ],
       "native_Song_recording_session_cells": [
         {
@@ -916,6 +1676,376 @@
           "recall": {
             "fist": 1.0,
             "index_pinch": 0.7096774193548387,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        }
+      ],
+      "native_Song_CSP_extension_cells": [
+        {
+          "shots": 0,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.2314963904430612,
+          "brier": 0.02540528804334596,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 0,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.5535683487562996,
+          "brier": 0.06208185673490012,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 0,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.906231789044289,
+          "accuracy": 0.9112903225806451,
+          "log_loss": 0.27869090412254566,
+          "brier": 0.03219521653405765,
+          "per_class_f1": {
+            "fist": 0.9393939393939394,
+            "index_pinch": 0.8076923076923077,
+            "neutral": 0.9090909090909091,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.6774193548387096,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 0,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.9243812321937321,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.5886435227319567,
+          "brier": 0.06802716555137284,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9336737914862915,
+          "accuracy": 0.9354838709677419,
+          "log_loss": 0.22682354011076308,
+          "brier": 0.025265107706036644,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8727272727272727,
+            "neutral": 0.9090909090909091,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7741935483870968,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9509028982713192,
+          "accuracy": 0.9516129032258065,
+          "log_loss": 0.5418880031604801,
+          "brier": 0.06024393086476259,
+          "per_class_f1": {
+            "fist": 0.9841269841269841,
+            "index_pinch": 0.9122807017543859,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8387096774193549,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9247289747289748,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.25244012858948717,
+          "brier": 0.028871227905569046,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9090909090909091,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9333260489510489,
+          "accuracy": 0.9354838709677419,
+          "log_loss": 0.5646514048731129,
+          "brier": 0.06407476891420702,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8727272727272727,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7741935483870968,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.285892277050845,
+          "brier": 0.03007401702716583,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9509028982713192,
+          "accuracy": 0.9516129032258065,
+          "log_loss": 0.571779609726622,
+          "brier": 0.06493159659287896,
+          "per_class_f1": {
+            "fist": 0.9841269841269841,
+            "index_pinch": 0.9122807017543859,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8387096774193549,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9153523854290364,
+          "accuracy": 0.9193548387096774,
+          "log_loss": 0.3298258501987646,
+          "brier": 0.03629454423041074,
+          "per_class_f1": {
+            "fist": 0.9393939393939394,
+            "index_pinch": 0.8301886792452831,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7096774193548387,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9243812321937321,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.6097375481611091,
+          "brier": 0.07136430650457685,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.2675196367435064,
+          "brier": 0.02810258203934636,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9509028982713192,
+          "accuracy": 0.9516129032258065,
+          "log_loss": 0.5587634398623516,
+          "brier": 0.06284112196823523,
+          "per_class_f1": {
+            "fist": 0.9841269841269841,
+            "index_pinch": 0.9122807017543859,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8387096774193549,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9153523854290364,
+          "accuracy": 0.9193548387096774,
+          "log_loss": 0.3303379944751847,
+          "brier": 0.03679802721842879,
+          "per_class_f1": {
+            "fist": 0.9393939393939394,
+            "index_pinch": 0.8301886792452831,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7096774193548387,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9243812321937321,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.6092862615242222,
+          "brier": 0.0713668502608454,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
             "neutral": 0.967741935483871,
             "open_hand": 1.0
           }
@@ -1424,7 +2554,7 @@
     {
       "question_id": "H",
       "question": "新用户或新session需要多少校准？",
-      "answer": "该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。 Song新版另需20个S03长期试次，再加0/4/8/20个S04会话试次；0-shot当前会话不等于零总校准。 归一化分支即使使用人口权重或单F0，也需长期20试次及所用会话校准，不能记成零校准控制。",
+      "answer": "该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。 Song新版另需20个S03长期试次，再加0/4/8/20个S04会话试次；0-shot当前会话不等于零总校准。 归一化分支即使使用人口权重或单F0，也需长期20试次及所用会话校准，不能记成零校准控制。 新七组人口权重、均匀权重和单CSP控制实际目标校准成本为0；可靠性/个人原型等分支仍需长期20加当前0/4/8/20试次。新版界面提供明确选择，保留六组初始选项。",
       "measurements": [
         {
           "shots_per_class": 10,
@@ -1468,7 +2598,10 @@
         "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json",
         "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json",
         "benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json",
-        "benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json"
+        "benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json",
+        "benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_RESULTS.json",
+        "feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json",
+        "feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json"
       ],
       "native_Song_recording_session_cells": [
         {
@@ -1743,6 +2876,376 @@
           "recall": {
             "fist": 1.0,
             "index_pinch": 0.7096774193548387,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        }
+      ],
+      "native_Song_CSP_extension_cells": [
+        {
+          "shots": 0,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.2314963904430612,
+          "brier": 0.02540528804334596,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 0,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.5535683487562996,
+          "brier": 0.06208185673490012,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 0,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.906231789044289,
+          "accuracy": 0.9112903225806451,
+          "log_loss": 0.27869090412254566,
+          "brier": 0.03219521653405765,
+          "per_class_f1": {
+            "fist": 0.9393939393939394,
+            "index_pinch": 0.8076923076923077,
+            "neutral": 0.9090909090909091,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.6774193548387096,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 0,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 0,
+          "trials": 124,
+          "macro_f1": 0.9243812321937321,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.5886435227319567,
+          "brier": 0.06802716555137284,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9336737914862915,
+          "accuracy": 0.9354838709677419,
+          "log_loss": 0.22682354011076308,
+          "brier": 0.025265107706036644,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8727272727272727,
+            "neutral": 0.9090909090909091,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7741935483870968,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9509028982713192,
+          "accuracy": 0.9516129032258065,
+          "log_loss": 0.5418880031604801,
+          "brier": 0.06024393086476259,
+          "per_class_f1": {
+            "fist": 0.9841269841269841,
+            "index_pinch": 0.9122807017543859,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8387096774193549,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9247289747289748,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.25244012858948717,
+          "brier": 0.028871227905569046,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9090909090909091,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 1,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 4,
+          "trials": 124,
+          "macro_f1": 0.9333260489510489,
+          "accuracy": 0.9354838709677419,
+          "log_loss": 0.5646514048731129,
+          "brier": 0.06407476891420702,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8727272727272727,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7741935483870968,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.285892277050845,
+          "brier": 0.03007401702716583,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9509028982713192,
+          "accuracy": 0.9516129032258065,
+          "log_loss": 0.571779609726622,
+          "brier": 0.06493159659287896,
+          "per_class_f1": {
+            "fist": 0.9841269841269841,
+            "index_pinch": 0.9122807017543859,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8387096774193549,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9153523854290364,
+          "accuracy": 0.9193548387096774,
+          "log_loss": 0.3298258501987646,
+          "brier": 0.03629454423041074,
+          "per_class_f1": {
+            "fist": 0.9393939393939394,
+            "index_pinch": 0.8301886792452831,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7096774193548387,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 2,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 8,
+          "trials": 124,
+          "macro_f1": 0.9243812321937321,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.6097375481611091,
+          "brier": 0.07136430650457685,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "seven_reliability",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9422027625152625,
+          "accuracy": 0.9435483870967742,
+          "log_loss": 0.2675196367435064,
+          "brier": 0.02810258203934636,
+          "per_class_f1": {
+            "fist": 0.96875,
+            "index_pinch": 0.8928571428571429,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8064516129032258,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "seven_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9509028982713192,
+          "accuracy": 0.9516129032258065,
+          "log_loss": 0.5587634398623516,
+          "brier": 0.06284112196823523,
+          "per_class_f1": {
+            "fist": 0.9841269841269841,
+            "index_pinch": 0.9122807017543859,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.9841269841269841
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.8387096774193549,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "old_six_baseline",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9153523854290364,
+          "accuracy": 0.9193548387096774,
+          "log_loss": 0.3303379944751847,
+          "brier": 0.03679802721842879,
+          "per_class_f1": {
+            "fist": 0.9393939393939394,
+            "index_pinch": 0.8301886792452831,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7096774193548387,
+            "neutral": 0.967741935483871,
+            "open_hand": 1.0
+          }
+        },
+        {
+          "shots": 5,
+          "arm": "old_six_F7_F8",
+          "long_term_calibration_trials": 20,
+          "current_calibration_trials": 20,
+          "trials": 124,
+          "macro_f1": 0.9243812321937321,
+          "accuracy": 0.9274193548387096,
+          "log_loss": 0.6092862615242222,
+          "brier": 0.0713668502608454,
+          "per_class_f1": {
+            "fist": 0.9538461538461539,
+            "index_pinch": 0.8518518518518519,
+            "neutral": 0.9230769230769231,
+            "open_hand": 0.96875
+          },
+          "recall": {
+            "fist": 1.0,
+            "index_pinch": 0.7419354838709677,
             "neutral": 0.967741935483871,
             "open_hand": 1.0
           }
@@ -7519,6 +9022,1932 @@
     "checked_trial_probabilities": 6944,
     "maximum_probability_error": 4.163336342344337e-16,
     "scope": "Operational F7/F8/raw-F9 around six frozen EMG window providers, not every document subfamily, anatomical F6, full-bout F5, future-free continuous inference or device efficacy. Same single operator-identified user/day, inspected sessions and cued stable trial windows. New profile schema/policy identity cannot silently reuse old archives."
+  },
+  "song_extended_window": {
+    "cells": [
+      {
+        "shots": 0,
+        "arm": "seven_reliability",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9422027625152625,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.2314963904430612,
+        "brier": 0.02540528804334596,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "seven_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9422027625152625,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.2314963904430612,
+        "brier": 0.02540528804334596,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "seven_F7_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9422027625152625,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.5535683487562996,
+        "brier": 0.06208185673490012,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "seven_full_structural",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9422027625152625,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.5535683487562996,
+        "brier": 0.06208185673490012,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "seven_minus_F7",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9422027625152625,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.2314963904430612,
+        "brier": 0.02540528804334596,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "seven_minus_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9422027625152625,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.5535683487562996,
+        "brier": 0.06208185673490012,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "seven_minus_F9",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9422027625152625,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.5535683487562996,
+        "brier": 0.06208185673490012,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "full_minus_F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.943094213900135,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.5751658123825764,
+        "brier": 0.06512705175259834,
+        "per_class_f1": {
+          "fist": 1.0,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.90625,
+          "open_hand": 0.9538461538461539
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.9354838709677419,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "full_minus_F1",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5390499476040689,
+        "brier": 0.05985871139842623,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "full_minus_F2ac",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9419642857142857,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.5644693481653118,
+        "brier": 0.06388440890507129,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9375,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "full_minus_F3b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9422027625152625,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.5273290021535711,
+        "brier": 0.05806785408010195,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "full_minus_F4abc",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5496005802366883,
+        "brier": 0.06148030784446168,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "full_minus_F5window",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9422027625152625,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.5503162200383399,
+        "brier": 0.061582941993526,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "full_minus_F2b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9243812321937321,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.5889342566821744,
+        "brier": 0.06806715272580244,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "old_six_baseline",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.906231789044289,
+        "accuracy": 0.9112903225806451,
+        "log_loss": 0.27869090412254566,
+        "brier": 0.03219521653405765,
+        "per_class_f1": {
+          "fist": 0.9393939393939394,
+          "index_pinch": 0.8076923076923077,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "old_six_F7_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9243812321937321,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.5886435227319567,
+        "brier": 0.06802716555137284,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "seven_population",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.2512696247874185,
+        "brier": 0.02705864197898938,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "seven_uniform",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.30393214081059783,
+        "brier": 0.032175019716136975,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "CSP_only",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9275181469700677,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.14045669276469847,
+        "brier": 0.02258705701978316,
+        "per_class_f1": {
+          "fist": 0.9666666666666667,
+          "index_pinch": 0.9,
+          "neutral": 0.9180327868852459,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.9354838709677419,
+          "index_pinch": 0.8709677419354839,
+          "neutral": 0.9032258064516129,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "seven_reliability",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9336737914862915,
+        "accuracy": 0.9354838709677419,
+        "log_loss": 0.22682354011076308,
+        "brier": 0.025265107706036644,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8727272727272727,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7741935483870968,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "seven_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.20973018988613143,
+        "brier": 0.02345001902380342,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "seven_F7_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5418880031604801,
+        "brier": 0.06024393086476259,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "seven_full_structural",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5418880031604801,
+        "brier": 0.06024393086476259,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "seven_minus_F7",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.2097301898861314,
+        "brier": 0.023450019023803424,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "seven_minus_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5562779700301256,
+        "brier": 0.0625410479915481,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "seven_minus_F9",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5418880031604801,
+        "brier": 0.06024393086476259,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "full_minus_F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9505893153281213,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5539985618055892,
+        "brier": 0.061910991891865975,
+        "per_class_f1": {
+          "fist": 1.0,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9253731343283582,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "full_minus_F1",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5340541466775444,
+        "brier": 0.05904737902812813,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "full_minus_F2ac",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9426399151614668,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.5624786179030125,
+        "brier": 0.06363154715183085,
+        "per_class_f1": {
+          "fist": 0.9523809523809523,
+          "index_pinch": 0.896551724137931,
+          "neutral": 0.9375,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "full_minus_F3b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5242704752858072,
+        "brier": 0.05756764659763301,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "full_minus_F4abc",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5318165058010663,
+        "brier": 0.05866657546960715,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "full_minus_F5window",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5363630365547511,
+        "brier": 0.05938777205335779,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "full_minus_F2b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9336737914862915,
+        "accuracy": 0.9354838709677419,
+        "log_loss": 0.5639005162959658,
+        "brier": 0.06393247975181765,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8727272727272727,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7741935483870968,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "old_six_baseline",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9247289747289748,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.25244012858948717,
+        "brier": 0.028871227905569046,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "old_six_F7_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9333260489510489,
+        "accuracy": 0.9354838709677419,
+        "log_loss": 0.5646514048731129,
+        "brier": 0.06407476891420702,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8727272727272727,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7741935483870968,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "seven_population",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.2512696247874185,
+        "brier": 0.02705864197898938,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "seven_uniform",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.30393214081059783,
+        "brier": 0.032175019716136975,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "CSP_only",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9275181469700677,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.14045669276469847,
+        "brier": 0.02258705701978316,
+        "per_class_f1": {
+          "fist": 0.9666666666666667,
+          "index_pinch": 0.9,
+          "neutral": 0.9180327868852459,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.9354838709677419,
+          "index_pinch": 0.8709677419354839,
+          "neutral": 0.9032258064516129,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "seven_reliability",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9422027625152625,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.285892277050845,
+        "brier": 0.03007401702716583,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "seven_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.26175702615099,
+        "brier": 0.02742435649887898,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "seven_F7_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.571779609726622,
+        "brier": 0.06493159659287896,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "seven_full_structural",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.571779609726622,
+        "brier": 0.06493159659287896,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "seven_minus_F7",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.26175702615099,
+        "brier": 0.02742435649887898,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "seven_minus_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9422027625152625,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.5906572414389847,
+        "brier": 0.06799131989308875,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "seven_minus_F9",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.571779609726622,
+        "brier": 0.06493159659287896,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "full_minus_F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.943094213900135,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.6012134254463884,
+        "brier": 0.06932688425556148,
+        "per_class_f1": {
+          "fist": 1.0,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.90625,
+          "open_hand": 0.9538461538461539
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.9354838709677419,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "full_minus_F1",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5572111489128162,
+        "brier": 0.0626812168468392,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "full_minus_F2ac",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9419642857142857,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.5901019783879805,
+        "brier": 0.06792858812005921,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9375,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "full_minus_F3b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9422027625152625,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.5217675465510095,
+        "brier": 0.057202445314600205,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "full_minus_F4abc",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5697039976707897,
+        "brier": 0.06462690572330611,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "full_minus_F5window",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5705716691929958,
+        "brier": 0.06474630266692138,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "full_minus_F2b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9243812321937321,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.611322455308431,
+        "brier": 0.07161335890678235,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "old_six_baseline",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9153523854290364,
+        "accuracy": 0.9193548387096774,
+        "log_loss": 0.3298258501987646,
+        "brier": 0.03629454423041074,
+        "per_class_f1": {
+          "fist": 0.9393939393939394,
+          "index_pinch": 0.8301886792452831,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "old_six_F7_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9243812321937321,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.6097375481611091,
+        "brier": 0.07136430650457685,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "seven_population",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.2512696247874185,
+        "brier": 0.02705864197898938,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "seven_uniform",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.30393214081059783,
+        "brier": 0.032175019716136975,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "CSP_only",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9275181469700677,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.14045669276469847,
+        "brier": 0.02258705701978316,
+        "per_class_f1": {
+          "fist": 0.9666666666666667,
+          "index_pinch": 0.9,
+          "neutral": 0.9180327868852459,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.9354838709677419,
+          "index_pinch": 0.8709677419354839,
+          "neutral": 0.9032258064516129,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "seven_reliability",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9422027625152625,
+        "accuracy": 0.9435483870967742,
+        "log_loss": 0.2675196367435064,
+        "brier": 0.02810258203934636,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "seven_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.2512892309450574,
+        "brier": 0.02635348601662978,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "seven_F7_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5587634398623516,
+        "brier": 0.06284112196823523,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "seven_full_structural",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5587634398623516,
+        "brier": 0.06284112196823523,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "seven_minus_F7",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.2512892309450574,
+        "brier": 0.02635348601662978,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "seven_minus_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5713600625100753,
+        "brier": 0.06487633431322373,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "seven_minus_F9",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5587634398623516,
+        "brier": 0.06284112196823523,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "full_minus_F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9351408825093035,
+        "accuracy": 0.9354838709677419,
+        "log_loss": 0.5841161534399696,
+        "brier": 0.06657903680277195,
+        "per_class_f1": {
+          "fist": 1.0,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.8888888888888888,
+          "open_hand": 0.9393939393939394
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.9032258064516129,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "full_minus_F1",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9590731048166392,
+        "accuracy": 0.9596774193548387,
+        "log_loss": 0.5428780429141155,
+        "brier": 0.06039997802619667,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9310344827586207,
+          "neutral": 0.9523809523809523,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8709677419354839,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "full_minus_F2ac",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9505404135338346,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5713003668424873,
+        "brier": 0.06487161986964145,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9523809523809523,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "full_minus_F3b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5133952282657901,
+        "brier": 0.0558830101855161,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "full_minus_F4abc",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9506644214703425,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5573640275655612,
+        "brier": 0.06263319281633756,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9375,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "full_minus_F5window",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.5574133411433347,
+        "brier": 0.0626332027174999,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "full_minus_F2b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9243812321937321,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.6092512292859456,
+        "brier": 0.07136018045104779,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "old_six_baseline",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9153523854290364,
+        "accuracy": 0.9193548387096774,
+        "log_loss": 0.3303379944751847,
+        "brier": 0.03679802721842879,
+        "per_class_f1": {
+          "fist": 0.9393939393939394,
+          "index_pinch": 0.8301886792452831,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "old_six_F7_F8",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9243812321937321,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.6092862615242222,
+        "brier": 0.0713668502608454,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "seven_population",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.2512696247874185,
+        "brier": 0.02705864197898938,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "seven_uniform",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9509028982713192,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.30393214081059783,
+        "brier": 0.032175019716136975,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.9122807017543859,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "CSP_only",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9275181469700677,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.14045669276469847,
+        "brier": 0.02258705701978316,
+        "per_class_f1": {
+          "fist": 0.9666666666666667,
+          "index_pinch": 0.9,
+          "neutral": 0.9180327868852459,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.9354838709677419,
+          "index_pinch": 0.8709677419354839,
+          "neutral": 0.9032258064516129,
+          "open_hand": 1.0
+        }
+      }
+    ],
+    "source_dimensions": {
+      "F0": 48,
+      "F1": 8,
+      "F2ac": 72,
+      "F3b": 8,
+      "F4abc": 72,
+      "F5window": 57,
+      "F2b": 16
+    },
+    "primary_guards": {
+      "lower_log_loss": true,
+      "lower_brier": true,
+      "nonworse_macro_f1": true,
+      "nonworse_all_class_recall": true
+    },
+    "primary_pass": true,
+    "full_anchor_guards": {
+      "lower_log_loss": true,
+      "lower_brier": true,
+      "nonworse_macro_f1": true,
+      "nonworse_all_class_recall": true
+    },
+    "F4d_context_only": true,
+    "scope": "Seven declared window groups/281coordinates plus context-only F4d. Not every F0-F9 subfamily, full-bout F5, physical ring/F6, unseen-person/day, hardware or deployment efficacy. Retrospective source OOF temperatures/prior reuse is not unbiased source performance. No default promotion."
+  },
+  "song_extended_window_acceptance": {
+    "schema": "song_extended_window_acceptance_v1",
+    "protocol_sha256": "371266f1b4c3c7f24cf2b4e77a9da5a172ec3c82ed193816153334e09cf0d618",
+    "result_sha256": "dab1fba20d7f09404605c944d317cbcfdc8c19e100fcb830f030c4d4dd49f34f",
+    "verifier_sha256": "f2b212a7fde24ad8fccf7c65fd41d73790cad2c865e24c1880616fee8e5536a7",
+    "artifact_sha256": {
+      "benchmarks/song_real8/song_extended_window_v1/personal_S03.zip": "e30a3d201be5da00fda02d412de4ae9ad418b8e0b8884ba90f4591579dcf14bb",
+      "benchmarks/song_real8/song_extended_window_v1/policy.json": "a46078eb37a0ce26f149e3d8f6b923010f90b342f83b7cc7bc38c5526800006c",
+      "benchmarks/song_real8/song_extended_window_v1/predictions.csv": "95cac50cdba1af19a323b6d7c307f8989165003e2f2eba1e03b99af390588c76",
+      "benchmarks/song_real8/song_extended_window_v1/readouts.npz": "713fd585cf146da69291bf236b8066e927fc631b09ce49fa537069f24dcb6def",
+      "benchmarks/song_real8/song_extended_window_v1/session_S04_1shot.zip": "c813c8f1b2cd4cb6d0eedd401a708063e0a70b7f173e840acc41df3cdd14d849",
+      "benchmarks/song_real8/song_extended_window_v1/session_S04_2shot.zip": "5da0d2dcefa50e03ecb12ffbe469b5dc0f2b9d3fa66a094bd2e47964bcd1dd00",
+      "benchmarks/song_real8/song_extended_window_v1/session_S04_5shot.zip": "765b279e46fac30e53d5c33b8479a8838c91a82524023bc97c6552e243d9071a",
+      "benchmarks/song_real8/song_extended_window_v1/source_bank.pkl": "a0d3d8816cffeaa22b3c7e9d761d05cbd5704a4e57ca806ad1f076c5dc1f3d73"
+    },
+    "checked_cells": 76,
+    "checked_trial_probabilities": 9424,
+    "maximum_probability_error": 2.914335439641036e-16,
+    "maximum_CSP_eigen_residual": 9.43689570931383e-16,
+    "independent_source_CSP_eigen_and_variance": true,
+    "independent_direct_DFT_context": true,
+    "independent_trial_balanced_prototypes_and_routing": true,
+    "previous_six_baseline_parity": true,
+    "source_and_profiles_immutable": true,
+    "primary_pass": true,
+    "F4d_context_only": true,
+    "default_promoted": false,
+    "physical_validation_proven": false,
+    "completion_proven": false,
+    "scope": "Seven declared window groups/281coordinates plus context-only F4d. Not every F0-F9 subfamily, full-bout F5, physical ring/F6, unseen-person/day, hardware or deployment efficacy. Retrospective source OOF temperatures/prior reuse is not unbiased source performance. No default promotion."
+  },
+  "song_extended_gui_acceptance": {
+    "records": [
+      {
+        "arm": "population",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 3.3306690738754696e-16,
+        "maximum_context_error": 0.0,
+        "context_chunks": 0,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 15.180665699997917
+      },
+      {
+        "arm": "session_baseline",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 3.3306690738754696e-16,
+        "maximum_context_error": 0.0,
+        "context_chunks": 169,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 17.158620200003497
+      },
+      {
+        "arm": "personal_anchor",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 5.551115123125783e-16,
+        "maximum_context_error": 0.0,
+        "context_chunks": 169,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 21.36190620000707
+      },
+      {
+        "arm": "session_router",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 3.3306690738754696e-16,
+        "maximum_context_error": 0.0,
+        "context_chunks": 169,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 16.959108700000797
+      },
+      {
+        "arm": "session_anchor_long",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 5.551115123125783e-16,
+        "maximum_context_error": 0.0,
+        "context_chunks": 169,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 21.320578099999693
+      },
+      {
+        "arm": "session_anchor_local",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 6.661338147750939e-16,
+        "maximum_context_error": 0.0,
+        "context_chunks": 169,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 21.4411689999979
+      },
+      {
+        "arm": "full_off",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 7.494005416219807e-16,
+        "maximum_context_error": 0.0,
+        "context_chunks": 169,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 21.27454119999311
+      },
+      {
+        "arm": "full_structural",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 7.494005416219807e-16,
+        "maximum_context_error": 0.0,
+        "context_chunks": 169,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 21.58680259999528
+      },
+      {
+        "arm": "full_soft",
+        "windows": 29790,
+        "rejected": 21,
+        "maximum_probability_error": 7.494005416219807e-16,
+        "maximum_context_error": 0.0,
+        "context_chunks": 169,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 21.335530900003505
+      },
+      {
+        "arm": "full_dropout_structural",
+        "windows": 29790,
+        "rejected": 29790,
+        "maximum_probability_error": 8.881784197001252e-16,
+        "maximum_context_error": 0.0,
+        "context_chunks": 169,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 21.278031399997417
+      }
+    ],
+    "verified_windows": 297900,
+    "scope": "Seven-provider extension and context-only F4d. Previously inspected single-user/day full S04 including calibration intervals. No fitting, labels, future context, selection, accuracy or device claims. Immutable pre-existing profiles and policy; injected channel3 zero is synthetic. Initial branches remain off.",
+    "source_and_profiles_immutable": true,
+    "independent_direct_DFT_context": true,
+    "F4d_context_only": true
   },
   "song_decision_gui_acceptance": {
     "records": [

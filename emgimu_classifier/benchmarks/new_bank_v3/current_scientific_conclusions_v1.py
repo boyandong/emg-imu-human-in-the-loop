@@ -75,6 +75,14 @@ def build():
     decision_gui_path=ROOT/'feature_bank/SONG_DECISION_GUI_V1_ACCEPTANCE.json'
     sources[decision_gui_path.relative_to(ROOT).as_posix()]=sha(decision_gui_path)
     decision_gui=json.loads(decision_gui_path.read_text(encoding='utf8'))
+    extension_path=ROOT/'benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_RESULTS.json'
+    extension=json.loads(extension_path.read_text(encoding='utf8'))
+    extension_acceptance_path=ROOT/'feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json'
+    extension_acceptance=json.loads(extension_acceptance_path.read_text(encoding='utf8'))
+    extension_gui_path=ROOT/'feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json'
+    extension_gui=json.loads(extension_gui_path.read_text(encoding='utf8'))
+    for path in (extension_path,extension_acceptance_path,extension_gui_path):
+        sources[path.relative_to(ROOT).as_posix()]=sha(path)
     for name in ('benchmarks/song_real8/SONG_DECISION_GUI_V1_PROTOCOL.json',
                  'tests/test_personal_session_stream_v3.py', 'tests/test_decision_gui_v1_delivery.py'):
         sources[name]=sha(ROOT/name)
@@ -194,6 +202,13 @@ def build():
     answers[5]['answer'] += ' 新版配对训练进一步检验了个人归一化：五试次/类时总体F1、概率损失及握拳召回退步，四项主要守门均未通过；不能默认启用。'
     for index in (5,7):answers[index]['evidence'].append(matched_path.relative_to(ROOT).as_posix())
     answers[7]['answer'] += ' 归一化分支即使使用人口权重或单F0，也需长期20试次及所用会话校准，不能记成零校准控制。'
+    for index in (1,3,5,7):
+        answers[index]['native_Song_CSP_extension_cells']=[c for c in extension['cells'] if c['arm'] in ('old_six_baseline','seven_reliability','old_six_F7_F8','seven_F7_F8')]
+        answers[index]['evidence'].extend(path.relative_to(ROOT).as_posix() for path in
+            (extension_path,extension_acceptance_path,extension_gui_path))
+    answers[1]['answer'] += ' 独立新版在六组冻结模型外加入仅源数据训练的CSP；同124试次上五次/类校准时，F1从.9154升到.9422，损失从.3303降到.2675，四项预声明标准通过。仅为已检查的同人同日记录结果。'
+    answers[5]['answer'] += ' 新七组F7/F8相对旧六组F7/F8也通过四项标准，但相对新七组基础方案，虽F1更高，损失/Brier更差。F4d仅为窗口/会话相对长期参考的背景坐标，不是分类器或疲劳测量。'
+    answers[7]['answer'] += ' 新七组人口权重、均匀权重和单CSP控制实际目标校准成本为0；可靠性/个人原型等分支仍需长期20加当前0/4/8/20试次。新版界面提供明确选择，保留六组初始选项。'
     for answer in answers:
         if not set(answer['evidence']) <= set(sources): raise ValueError('Unbound evidence')
     # REPORT is a rendered consumer, not independent experiment evidence.
@@ -238,6 +253,8 @@ def build():
                           'tests/test_epn_holdout_user_robustness_v2.py',
                           'tests/test_mahalanobis_epn_holdout_v2.py',
                           'tests/test_f8_calibrated_manus_v2_delivery.py']
+    verification_tests += ['tests/test_extended_window_decision_v1.py','tests/test_extended_window_cli_v1.py',
+        'tests/test_personal_session_stream_v4.py','tests/test_extended_window_delivery_v1.py']
     for name in verification_tests: sources[name] = sha(ROOT / name)
     result = {'schema': 'current_scientific_conclusions_v1', 'generator_sha256': sha(Path(__file__)),
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
@@ -256,6 +273,9 @@ def build():
               'song_raw_quality_acceptance':{k:quality_acceptance[k] for k in ('checked_cells','checked_trial_probabilities','maximum_probability_error','unmodified_soft_correct_to_wrong','unmodified_soft_wrong_to_correct','full_stream_records','scope')},
               'song_integrated_decision':{k:integrated[k] for k in ('cells','primary_guards','primary_pass','scope')},
               'song_integrated_decision_acceptance':{k:integrated_acceptance[k] for k in ('checked_cells','checked_trial_probabilities','maximum_probability_error','scope')},
+              'song_extended_window':{k:extension[k] for k in ('cells','source_dimensions','primary_guards','primary_pass','full_anchor_guards','F4d_context_only','scope')},
+              'song_extended_window_acceptance':extension_acceptance,
+              'song_extended_gui_acceptance':{k:extension_gui[k] for k in ('records','verified_windows','scope','source_and_profiles_immutable','independent_direct_DFT_context','F4d_context_only')},
               'song_decision_gui_acceptance':{k:decision_gui[k] for k in ('records','verified_windows','scope',
                   'independent_filter_and_geometry_probabilities','chronological_confirmation_exact',
                   'source_and_profiles_immutable','unmodified_structural_off_probability_identity')},

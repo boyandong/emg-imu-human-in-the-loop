@@ -1181,3 +1181,10 @@ emgimu_classifier/benchmarks/song_real8/song_extended_window_v1/session_S04_1sho
 emgimu_classifier/benchmarks/song_real8/song_extended_window_v1/session_S04_2shot.zip -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/song_real8/song_extended_window_v1/session_S04_5shot.zip -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/song_real8/song_extended_window_v1/source_bank.pkl -text -eol whitespace=cr-at-eol
+
+# Seven-provider native acceptance and regression receipt
+emgimu_classifier/feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/SONG_EXTENDED_GUI_REGRESSION_V1.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_extended_window_delivery_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/song_extended_gui_v1/emissions.npz -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/regression/extended_gui_v1/** -text -eol whitespace=cr-at-eol

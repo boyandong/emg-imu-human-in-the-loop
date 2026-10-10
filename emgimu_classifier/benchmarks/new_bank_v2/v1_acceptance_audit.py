@@ -613,6 +613,22 @@ def build(pre: Path, goal: Path) -> dict:
                          'Ten full-S04 streams/297900 emissions match independent filter/Euclidean/generalized-SPD/weight/gate arithmetic and chronological confirmations under irregular chunks. '
                          'Qt exercises the actual default application entry, personal/new-session lifecycle and packet-loss clearing. '
                          'No stream labels, fitting or source/profile mutation occur. Calibration intervals remain included, so this is execution parity, not new efficacy, hardware throughput or a reversal of negative offline guards.')
+        if ident in ('GOAL-03','GOAL-20','GOAL-22'):
+            evidence += ('|benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_PROTOCOL.json'
+                         '|benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_RESULTS.json'
+                         '|feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json'
+                         '|benchmarks/song_real8/SONG_EXTENDED_GUI_V1_PROTOCOL.json'
+                         '|feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json'
+                         '|src/emgimu/feature_bank/extended_window_decision_v1.py'
+                         '|src/emgimu/feature_bank/extended_window_cli_v1.py'
+                         '|src/emgimu/feature_bank/personal_session_stream_v4.py'
+                         '|tests/test_extended_window_delivery_v1.py')
+            boundary += (' A separately versioned source-only CSP extension retains all six source models and adds16 coordinates, with76 cells/9424 predictions on the same124 trials. '
+                         'Five-shot new-seven reliability improves F1 .9154 to.9422 and loss .3303 to.2675, passing all four predeclared old-six comparison guards. '
+                         'F4d now emits trial-balanced window/trial/session-minus-long context; it is not a classifier or fatigue measurement. '
+                         'Independent native eigen/variance/DFT/prototype/routing checks and ten new-seven full-stream arms/297900 emissions pass. '
+                         'The explicit versioned desktop entry offers six/seven selection, separate persistent profiles and spectral context; actual Qt/subprocess lifecycle tests pass. '
+                         'New-seven full F7/F8 still has worse loss/Brier than new-seven reliability. No default promotion, all-subfamily/full-bout composition, physical ring/F6, independent user/day or device proof follows.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

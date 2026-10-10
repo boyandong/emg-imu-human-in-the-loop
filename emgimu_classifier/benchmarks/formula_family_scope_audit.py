@@ -304,6 +304,22 @@ def build() -> dict:
                           'Actual Qt/subprocess tests exercise guided personal/new-session registration and packet-loss clearing. Source/profile state stays immutable.')
             unresolved += (' Five-shot full F1/pinch recall improve, but loss/Brier worsen; joint guard fails. No default promotion. '
                            'Continuous numerical integration includes calibration intervals, does not score accuracy and does not cover every document subfamily or device efficacy.')
+        if family in ('F2','F4','F7','F8','F9'):
+            evidence += ('|benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_RESULTS.json'
+                         '|feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json'
+                         '|feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json'
+                         '|src/emgimu/feature_bank/extended_window_decision_v1.py'
+                         '|src/emgimu/feature_bank/extended_window_cli_v1.py'
+                         '|src/emgimu/feature_bank/personal_session_stream_v4.py'
+                         '|tests/test_extended_window_delivery_v1.py')
+            supported += (' A separate source-only CSP/16-coordinate extension retains six original models byte-identical. '
+                          'Seven declared window groups/281coordinates preserve76 cells/9424 predictions and all seven frozen-weight removals. '
+                          'Five-shot reliability F1 .9154 to.9422 and loss .3303 to.2675 pass all four declared old-six comparison guards. '
+                          'Independent CSP eigen/variance, direct DFT context and trial-balanced prototype/routing checks pass. '
+                          'V4 GUI/subprocess supports explicit six/seven selection, extended profiles and context-only F4d; ten full-S04 streams verify297900 emissions without source/profile mutation.')
+            unresolved += (' This positive CSP increment is retrospective on one user/day, not a reversal of historical public-cohort negatives. '
+                           'New-seven F7/F8 still worsens probability loss/Brier versus new-seven reliability despite higher F1; no default promotion. '
+                           'F4d is only background/session coordinates, not a fatigue measurement. Full-bout F5, physical ring/F6 and independent deployment remain outside this window-bank scope.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")
