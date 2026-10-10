@@ -1,0 +1,2025 @@
+{
+  "schema": "roam_native_continuous_v1",
+  "source_sha256": {
+    "src/emgimu/feature_bank/activation_profile.py": "912f07fc5c053e9b996b60f95a60b3f48c0f045d4ab6eb37b58f801ca4235b00",
+    "src/emgimu/feature_bank/affine_spd_anchor.py": "4ddd02d2260448aad4f3ab98e013b7213b8ac2a31e93bd89975ec40049239808",
+    "src/emgimu/feature_bank/autonomous_bouts_v1.py": "46583295782be8a26cd453cf5ca9724cc507628b83a527b33dd21aa79613f463",
+    "src/emgimu/feature_bank/autonomous_g5_stream_v1.py": "54118283f69231d72d2b3995e027429a9c73b2421aff115d32b014ec7b8d9ec5",
+    "src/emgimu/feature_bank/available_bank_fusion_v1.py": "ba60eda7eaa3d87694e664d1acdee5df6fa3b393eca9d63064463b7d7f077179",
+    "src/emgimu/feature_bank/available_bank_quality_fusion_v2.py": "1820b806326aef7e403e9c8a6383780d7a180ea79de268327f302710ac729e86",
+    "src/emgimu/feature_bank/body_frame.py": "f2091339813e4b63a2965ceffb13b19200c0914abba3e257a43293be50100d8d",
+    "src/emgimu/feature_bank/body_frame_v2.py": "fbeb222cd40e9c6dd1709d9eba7cab88fc5910fef948233432506f4cd24ad540",
+    "src/emgimu/feature_bank/calibration.py": "495e4354327d3af31a912f70e0eb5db1c617c4054d01fe422715f5e98e08c90e",
+    "src/emgimu/feature_bank/calibration_diagnostics.py": "425a521079e7e4e2eb55ae1f582f3ea19c779b3c5fd1227098fe33c601a36b68",
+    "src/emgimu/feature_bank/calibration_rest_detector_v1.py": "b131335f90bc0edc36c5c7d0b7d74cb40d7054f8c94e0766fc5c229892e67a45",
+    "src/emgimu/feature_bank/calibration_study.py": "fa2750089dfd72152895914b7fed5f045c97832481ddd195fbe60f148fb8c5cb",
+    "src/emgimu/feature_bank/causal_label_debounce_v1.py": "81ac16f1d68f86760786c9b357b24952ff7d928a13b3a29a9c8a9e6cd8d368cf",
+    "src/emgimu/feature_bank/causal_window_recognition_v1.py": "30ecd3c911ff793d2dad8242f60ebef0d7cc11b034d68d0855eb06f8c5a6677b",
+    "src/emgimu/feature_bank/complete_bout_window_adapter_v1.py": "49c124f12ceb6530f9c219d57698bfd8d1c38ad1879368cb597fef135eefda31",
+    "src/emgimu/feature_bank/continuous_calibration_isolation_v1.py": "24a632ce1cffcef0cce887472cb11873308b32e3791691d741e973e88f8f1767",
+    "src/emgimu/feature_bank/core.py": "a272025baef6a52ed24088092d17937da26ba334453305e552b6690528bbfffe",
+    "src/emgimu/feature_bank/core_incremental_heldout.py": "4e9cb410f87f99434b94b2dadbce9c3e9c745670457100fe0d0327f3b5c99620",
+    "src/emgimu/feature_bank/core_incremental_oof.py": "1f35127a4ccd70458bcf58ff020917bd7553a2a4343b4b510b186ffb90ee9ecb",
+    "src/emgimu/feature_bank/core_probability_oof.py": "abd1a7ba6bc0679be1e94fed5ea388868cf565e37dd614a90fc0c095e407375d",
+    "src/emgimu/feature_bank/cued_replay.py": "2ccecb1bc1bfce203fbd126c6ea3f4100b1970613c057fe49c7b0b6f8969dd9f",
+    "src/emgimu/feature_bank/detected_g5_reader_v1.py": "86bad274f2cdfefdb672050a3d7362d282bf2d930653c72cd1e6029d9f50d3eb",
+    "src/emgimu/feature_bank/detected_template_reader_v1.py": "3609bb9adda85d6e5458610ed3399ac6c0c2253392f56165deda534856ef83cd",
+    "src/emgimu/feature_bank/document_ces_v3.py": "81c8bf26791b5e5aab3d5ef986ad8d343f32fef9e844628b6e951783a821644f",
+    "src/emgimu/feature_bank/document_path_v3.py": "8c5b3f84b0d7ac74c82f736606823846d812f2f34ea9962f2c4c3d6fff7ab98d",
+    "src/emgimu/feature_bank/document_quality_v3.py": "af2eac5feebe4cc782c693c217711f6f8092f685178c4091a0d980363044a8e5",
+    "src/emgimu/feature_bank/document_reliability_v2.py": "34ac2da3bd1f380098320fd1f1a7c15ba2567ec6da67dc86150876a7263728a4",
+    "src/emgimu/feature_bank/document_scale_v3.py": "5b160c09f2e7658383286fa39df1047d2327313fe2bbc3d4cec2c1431078d6e3",
+    "src/emgimu/feature_bank/document_session_v3.py": "a6577662dc1a964c3eb972811faa280aa9e9d84ce6036ab050655457dc252f1a",
+    "src/emgimu/feature_bank/document_signal.py": "e21c30e27ddf5defed7d7aa23008ffb4a9d08fbcaee6b38744637606636f6825",
+    "src/emgimu/feature_bank/document_spectral_v3.py": "cb7cd9149c21dee5279b454b23deed068e2ca58a12f8b24ce26a8fa86bc1c7e7",
+    "src/emgimu/feature_bank/document_temporal_v3.py": "58bb5655d52b82e860f1c7812cffe012f1850b5825129fb24f328271e9f68983",
+    "src/emgimu/feature_bank/document_window_composition_v1.py": "caebc99104a1d13f3db4e852de71a722b2a6ca1505e0fa7ec1371fb47967d842",
+    "src/emgimu/feature_bank/electrode_layout_v1.py": "f597527f15f33b36196155b8fc52b5510646966781d968dc4c08845fc78fdb23",
+    "src/emgimu/feature_bank/electrode_shift_study.py": "85fca63307aeec2a44e3f032f9885677a5b44a64ff8d45764d78e5f6dba5f868",
+    "src/emgimu/feature_bank/emg_fmg_study.py": "2a7533fa2aaf7e8724410dd16c1ddf1401b9549f6fd7170891026d26c78b9eee",
+    "src/emgimu/feature_bank/epn_calibration.py": "c7c5cddc12af755ca39aa45b03bf219223aba941caa2ebb0202dfe182faa9b66",
+    "src/emgimu/feature_bank/epn_selection_study.py": "6d97a5b5c7cf136937b3ba8aedd4607e0ca74977326ecade3a1988713fd258a6",
+    "src/emgimu/feature_bank/epn_study.py": "be66dde2f607adb9dfa891048b4afbb6d67b50ee1646c16261c04b73b459f2c2",
+    "src/emgimu/feature_bank/extended_window_cli_v1.py": "13f84b713692624683c0308f896f6aaa464b7c2ed550fa6050367ae47d574933",
+    "src/emgimu/feature_bank/extended_window_decision_v1.py": "46bd77c0f75dc15846e8c65f936a4c3eeb59aa36f55a75da2f4960c1d9dca0b3",
+    "src/emgimu/feature_bank/families.py": "967a66a3f94554ef8df09c5a0bc2ffd49a634518fecfb7e63d7d1ee211a241ea",
+    "src/emgimu/feature_bank/fault_gate_evaluation_v1.py": "49bfe4b94a5db2ef8480a80322b7c0d6f8cd216f325eed1777fa1e77caba7426",
+    "src/emgimu/feature_bank/force_condition_audit.py": "ae80ed57b6015897632050f216034b0b60ad2cdee7d424f33d610cc49e2ba288",
+    "src/emgimu/feature_bank/force_core_calibration.py": "286ae238594b0ee102108bae3fc649155fae54b69af25d66b4f8f269e9097cd4",
+    "src/emgimu/feature_bank/force_core_incremental.py": "605662bd71d7c779fa9590aca4ecda2bdc2735f0990776027b88324f28cc6090",
+    "src/emgimu/feature_bank/force_final_reference.py": "b3b57ccc37974b95eb90898862dc0d70f8ae5d3d157b5b92491fe96c10aa2ad5",
+    "src/emgimu/feature_bank/force_full_fusion.py": "0d18944aeb485184df1e0c22dff76b6d33517dc3213bed28936c7f5b0a162092",
+    "src/emgimu/feature_bank/force_nested_oof.py": "6808324123f814bffdac2a9189d92861071d6107e7973cb1aa2319adb247c367",
+    "src/emgimu/feature_bank/force_zero_shot_study.py": "b68ef61f71a42683f79b966d546cb78483d0590ee84ac9c2ca3d48f414a164f7",
+    "src/emgimu/feature_bank/frozen_emg_bank_cli_v1.py": "f92bfc422dfa258329f3d182bd93e0c9435d7723c9a6ff17001bd28eb9d0e648",
+    "src/emgimu/feature_bank/frozen_emg_provider_bank_v1.py": "26808ea01755979134bcadb09fbb6499068785ae8bec05a0d17d17cf361c96f5",
+    "src/emgimu/feature_bank/full_fusion_study.py": "e2d596185f4daa053bd2c9ba1d7ac584ff62fd79793ed5b273bae9ae878a35e7",
+    "src/emgimu/feature_bank/fusion_study.py": "73f3b0fe475ac64259bf457049678f63963920e62d930204c9ae67bf26fb3185",
+    "src/emgimu/feature_bank/joint_bout_cli_v1.py": "1870f73f8da46fce55f19f22d5e39e9dabad79ea3b6fe063e06c3fd13000b7ee",
+    "src/emgimu/feature_bank/joint_bout_live_v1.py": "bf2163c829dceb23b8951eb30a86e0c6b75411f76ed9654244defcf5ca7dae5f",
+    "src/emgimu/feature_bank/joint_bout_workflow_v1.py": "b2f3fd2afafdcf69598782065c33722317961c034e35047857062ad7918ad902",
+    "src/emgimu/feature_bank/load_position_full_fusion.py": "9dd38f071389cdc7c274307bec25e38a74306bcd41e22f704c6520ece324bb4f",
+    "src/emgimu/feature_bank/manus_calibration.py": "2d50e8a73a15ec05272c4647efd07ec750fbabb8ef4167f992df71c822a69cf8",
+    "src/emgimu/feature_bank/manus_core_calibration.py": "869a25435d4f58a4274d4ee7c86fcd48b2f609d5380cee4e1b8316859a84dac6",
+    "src/emgimu/feature_bank/manus_core_incremental.py": "5288cc962fb9b4669ccd9429426d22b42bdb4eebc9fe45072647c8aa377ccea1",
+    "src/emgimu/feature_bank/manus_study.py": "35d115e850d7b0c01f22672c3bd837da9e13eff45e22e31fb92bd0fd51c9f589",
+    "src/emgimu/feature_bank/mapped_session_pipeline_v3.py": "664f6cfdcbae1bdb84bc2a49846774557abf000240c083e776b4e3e03b62c5a2",
+    "src/emgimu/feature_bank/matched_normalization_cli_v1.py": "56c6721fc969292e6028af7b6b7f73c901a7ebc7e8915d37fced281f34f6389f",
+    "src/emgimu/feature_bank/matched_normalized_bank_v1.py": "f85d6f4787ef4c6af5ed8d2a152711751094ca7e435b37cc83631c712163dac2",
+    "src/emgimu/feature_bank/native_bout_window_adapter_v2.py": "d96517dda7ce227f184e8610aa2b33701c47e0b187e94283be502611ff8b3155",
+    "src/emgimu/feature_bank/native_document_window_v2.py": "0ed508cd4008d4717a9f6f5e5c665c2031812af266ce435d4ccf8dde0e7b0b59",
+    "src/emgimu/feature_bank/native_joint_bout_workflow_v2.py": "1531efb17ddfc57f6f1a411a4565ca6d378e9fe2529b3d17c786affa27d45f4a",
+    "src/emgimu/feature_bank/new_bank_v1.py": "91d7b76f50197b5ed412d8cf13339bdba16780d61e6b89a349e0c594a3678f24",
+    "src/emgimu/feature_bank/new_bank_v2.py": "7f9195d7e591a2b3ac72f17142d36a32b32d4bfd7d049bdd4b40d7f06663c49e",
+    "src/emgimu/feature_bank/normalization_study.py": "5e446e7695c7bf17aecfc426f69728ef1a1508286466ea68a7bdc1fe7a72e27c",
+    "src/emgimu/feature_bank/personal_session_cli_v1.py": "7d4e36ed18eea9bf653e2143897b183a0627c1e61bd42be4b6516724ef2d9067",
+    "src/emgimu/feature_bank/personal_session_decision_cli_v1.py": "12a32803d1dea8c83cdf6fb0b70124bf556d0a2e2f07214c678a65edde26a0c0",
+    "src/emgimu/feature_bank/personal_session_decision_v1.py": "9214ac5cc7ff73f484d0386f38aaa1a5200eab358e6793de589b6aab91d541e7",
+    "src/emgimu/feature_bank/personal_session_stream_v1.py": "860c716053ed67b8788c444ec1884a69b65a1064b950ac6e8b3cc2b57d834059",
+    "src/emgimu/feature_bank/personal_session_stream_v2.py": "8536199e87cf7e38a9b8da0c05d26c4f284c95cff22034152cb66d47a757cb46",
+    "src/emgimu/feature_bank/personal_session_stream_v3.py": "d5a946447bbaa61148ab97b35e42e7fe87dde0490aa4e304a284785f7ea94928",
+    "src/emgimu/feature_bank/personal_session_stream_v4.py": "fe38df6e139b216234c6a3419df24b7818232cc5e8cff25e9cb29bca1adf0471",
+    "src/emgimu/feature_bank/personal_session_stream_v5.py": "00e72d071cfd8963c275eb64d1b7deac98663ee644ca9eb958e478b750cfa966",
+    "src/emgimu/feature_bank/personal_session_stream_v6.py": "29f660e93eda17658da05fbc8e9851ad665a4fcce1d78a017215e7be178cbf70",
+    "src/emgimu/feature_bank/personal_session_workflow_v1.py": "18fca30ac5fd0e7299d258e14b9dc28121d9e00eb98d5c22584de6ac201794ee",
+    "src/emgimu/feature_bank/personal_temporal_bouts_v1.py": "cf0d48becc65acd8b6336be421253070b160b345f0eee8acc2924938853af5c6",
+    "src/emgimu/feature_bank/personal_temporal_cli_v1.py": "4acb69eab4c0ec1796fbe535694ea1794290f4146a529cad5006cf65a1140568",
+    "src/emgimu/feature_bank/quality_corruption_study.py": "b2b20c7be850902630a40c42278f249d0e02aa34295e0678ae83a10d6a7436fd",
+    "src/emgimu/feature_bank/quality_mask_v1.py": "8df014fdf04042a585c1a1a7d7f82e0c18fda1dbff95aa2f62e16c397cc4083e",
+    "src/emgimu/feature_bank/quality_observability.py": "ab59c054a410f2930b69615a039ce57bf1e9281d70a64ec5f3191f5e7cbacc6a",
+    "src/emgimu/feature_bank/quality_robustness.py": "a972536edba39b6e9b5837476651fe39faaf0eb3c074fb4aca80c5592b6cd371",
+    "src/emgimu/feature_bank/quality_role_ablation.py": "a106f9c19d60a04a52d212b3e3d6e855ba910fa345cc3ad8b314101c6f47e899",
+    "src/emgimu/feature_bank/quality_unknown_replay.py": "cd35d8c9de5ac712570b740962869980ece95bd36c6782cda7d5cc7d7920601d",
+    "src/emgimu/feature_bank/reconstructed_ring.py": "694619242e2c524fa02ce6087cad484c8239457f851e8f16c162fbcff35230ea",
+    "src/emgimu/feature_bank/relative_spectrum.py": "f37362efd68c3a94b6129ebe502fbf95cd035a7ff2ec6938ae735474d60ad078",
+    "src/emgimu/feature_bank/relative_spectrum_study.py": "e094f43a174fc894238f5425476fb6e0a0683b20b53bf122785dce5e38533cd5",
+    "src/emgimu/feature_bank/reliability_selection.py": "b95535129ecf6af0f29107063c74726e12ff187045e69dcdb3771e1c30884b7d",
+    "src/emgimu/feature_bank/replay_force_fusion.py": "a434f99adc6f26570305ac39b5e5a46a69344df4b7ce143e9e62988952996493",
+    "src/emgimu/feature_bank/replay_fusion.py": "594a5ddb9e50a57c881eec834dc63f3777d296c892dec30ee80eeda075d7d181",
+    "src/emgimu/feature_bank/replay_load_position.py": "2d05c8d2ecbdaaf7996e095a05d730e733712a5d2a11f2b798c309d86a7f0c2b",
+    "src/emgimu/feature_bank/replay_unibo.py": "bb3c65a2afbf2cd0f0530af85374417ce286076d18f5c1094e0d9a385fca3068",
+    "src/emgimu/feature_bank/replay_wearing.py": "f54ab2ac23016553cf559a15f071796758eb5b6a6b6c46716a694dc01d472298",
+    "src/emgimu/feature_bank/ring_covariance.py": "d091799a7921ff624abbf97afae3e513a106a82874bfa547957597f37a35b40f",
+    "src/emgimu/feature_bank/screening.py": "ff32a8bfe3e4f5d7bf7143e4df0e9a90468e73215bcb01c24734ebc70fc42c2b",
+    "src/emgimu/feature_bank/selection_study.py": "55c11db594a2236d6a6191e0b31184673813368cce29dc9af19851bb263d6dd5",
+    "src/emgimu/feature_bank/session_anchor.py": "70661c29c2571f8ef751d53f431cea458176f430d7f0bf5a44782425ba1c2741",
+    "src/emgimu/feature_bank/session_anchor_study.py": "2f2e8d6dad8670bc88cc8ce5adaafce0e51b98235ff41cc6a9bea8502313001e",
+    "src/emgimu/feature_bank/session_context_study.py": "621ca02695c64328bf2bc871d156d43d64230c0efe8f8a9b13393b8a3a050593",
+    "src/emgimu/feature_bank/session_fusion_v2.py": "0e1075a81758f34f9a7507de4e893d7f3973e765478dab23a6b81f2fb18509c6",
+    "src/emgimu/feature_bank/session_pipeline.py": "ad84acabfb59cc641fde9c479df281bb45d1e41ba053360e91d1ead95a7f9ec6",
+    "src/emgimu/feature_bank/session_router_v1.py": "9b43563966631de231e873dda82b4b15db51736bfc384e9df8aa4330476bdfb3",
+    "src/emgimu/feature_bank/session_shift_summary.py": "2bd60eb4939ef8f3e7d9795dc4ea0565df2ef3583ce77d8227d768309913ee58",
+    "src/emgimu/feature_bank/song_f0_runtime_v1.py": "bd74b650af091763892b0116f074cce50d799b8723863495bd92db30aef2206d",
+    "src/emgimu/feature_bank/song_f0_stream_v1.py": "df6bea9ea57f68d144d9161446ab53fc9a67ed1a97461a9f9a58bf4bd30a3cb4",
+    "src/emgimu/feature_bank/source_quality_gate_v1.py": "e17ebd35ca7d7ee0ae29897dd55e3f4603240cfc85b6ede6bf572abe797f7607",
+    "src/emgimu/feature_bank/spd_anchor.py": "3781eb0fb7c0e7b98c49c25e835ad88cc22b24f5f2dc7d0e88876ec1d245d2e9",
+    "src/emgimu/feature_bank/spec_spatial_v3.py": "f2827bd8e448304d5ef51547241f7c6d59b9aa48fb83b1da64b8393db6f6df04",
+    "src/emgimu/feature_bank/template_study.py": "4ded8e126df6c5675afab92fb6821adf6b1fb44af730fcd5e63350bed507a466",
+    "src/emgimu/feature_bank/temporal.py": "ce23e7a046d27ecbd5ee38e2c0e54976cbe668ac5d44fb28a9b5826b6950b45a",
+    "src/emgimu/feature_bank/temporal_bout_live_v1.py": "c76fb5916692fc972db2aae6da13efd0502533346ee8fff93b2e208026741958",
+    "src/emgimu/feature_bank/trial_mahalanobis_v1.py": "21f259e2bafd05bc02ea7f7961cce7df60db401449074ee17ce8f9b89869bd73",
+    "src/emgimu/feature_bank/unibo_full_fusion.py": "9b205fd010a04bb7f170fbf803b4c79911319189af32fc9d0c6ce8ca5d860d91",
+    "src/emgimu/feature_bank/unibo_reuse_screening.py": "c68f15a06c44d60186133670f7697c08f70464733a157ed05991f50a6445fb3a",
+    "src/emgimu/feature_bank/unibo_sequence_incremental.py": "7600b30afa38dc0db1c9521ce196a74488cf967df2fe9705e44141fac4129810",
+    "src/emgimu/feature_bank/unibo_sequence_temporal.py": "c081d69336f3126689e55df688af09b4644eb7b3db0ba893dbdeb4dc88dfbb7f",
+    "src/emgimu/feature_bank/unibo_study.py": "45be90b3f0cd6810b737df1c304df238ae6a65f544d02f79c30ea5e96ec73db7",
+    "src/emgimu/feature_bank/unibo_temporal_complementarity.py": "a8815a70a190e4cf8ce2a9f6e292d41cd9c0252631d48fb599e5e8c782861b48",
+    "src/emgimu/feature_bank/validated_unibo.py": "b0d320b8d9ba258afea1f4c3f26577c9b0a468d0ac072c5a26769fed53526827",
+    "src/emgimu/feature_bank/wearing_core_ring.py": "19838f2c2a637374ee2c11102548815b820ccafb7f784ef86f1a81e0695f7339",
+    "src/emgimu/feature_bank/wearing_full_fusion.py": "590fd3e5c4be63e19316d96b11351181da64efc56096a79c0bb4f8693b187378",
+    "src/emgimu/feature_bank/wearing_session_normalization.py": "cc107b60f973fd337837ec568b68746f757ab957312f2283bfb1e5a28cb541a1",
+    "src/emgimu/feature_bank/wearing_session_study.py": "118e6be761ca2f6f5ab3a16d39e80eaa88880115f3bdab10a3e2b9332cc8cc80",
+    "src/emgimu/feature_bank/__init__.py": "f39ca26b06dc4a9b66a06a847dd431bc4d694c2cb7c55f2b99405d3f70a6fbd4",
+    "src/emgimu/datasets/roam_cued_intervals_v1.py": "fe3b0dfe6e0e6f403928a0100cfc867cbeca94e2f075f9f10fd427fb40b43e45",
+    "benchmarks/new_bank_v3/roam_native_joint_v1.py": "dc4bb962344c1054c278a74398bf54a7a56951a64e0cbd312bee1cc5f0c66b02",
+    "benchmarks/new_bank_v3/verify_roam_native_joint_v1.py": "ffcded308750d3fb4666c79eae4ce68c6ddca1778c55d2154aaa47a1813d88ce",
+    "tests/test_native_joint_bout_workflow_v2.py": "7060dc7749636f483332416aa5a4a902b4955b1b3431fd5cf5db4dc54f4c10e9",
+    "tests/test_roam_cued_intervals_v1.py": "c94a880519bab701b083364770c654be35b0d272a2c09bc6c4c33052ef670d29",
+    "tests/test_roam_native_joint_study_v1.py": "197de9aab7de418094e3328b42094e4948048e95e57316fd5c97b0e8da8831e2",
+    "benchmarks/new_bank_v3/roam_native_continuous_v1.py": "0a8e3b9cead1f39ab05693f7b0f9338cd038f3724577ec628dee3a66d727a7b5",
+    "benchmarks/new_bank_v3/verify_roam_native_continuous_v1.py": "a2aa88c0f91ff7cd3fb31d2cd6d02e75bf6042ce204f0f88d12abd789c6a0baa",
+    "benchmarks/new_bank_v3/verify_calibration_rest_continuous_unibo_v1.py": "4071b32da7413bb6fe232e6857ef33250b2c2dc2b171440d600e5ffe2aab4d2d",
+    "benchmarks/song_real8/verify_integrated_decision_v1.py": "65cd183cfe71e852552351691b28518abeaa4ad9a4e43b73862150704bbd2a2f",
+    "src/emgimu/feature_bank/native_joint_bout_stream_v1.py": "32d06662c5bf89c184e9e5477f35b0fd164d3c61a68f498227eb4a258bf0360a",
+    "tests/test_native_joint_bout_stream_v1.py": "2ca5ea1449a31f9ff7d9145530706ae812a745ba93e457b183014f1239cf4f18",
+    "tests/test_roam_native_continuous_v1.py": "3d79685836af98ed8587b1566ed2dae82d26f9dd467fcdca081f658ca0efe574"
+  },
+  "artifact_sha256": {
+    "benchmarks/new_bank_v3/ROAM_NATIVE_JOINT_V1_RESULTS.json": "c1691293a0e1df662838c58137d05ce377753fa860d99c9309c05987ec26ef98",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/source_bank.pkl": "f90fb4273a861d5213692476ff8b60705d8ea19416dc534c7375046c7189c28a",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s19_personal.zip": "68bc021b32b7a2e3b72a20801774a4860a3d59fd220e448ec192aa45e99c487e",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s19_current1.zip": "467f80c5f5e0a4b82710b1152024ede47ac39b036c3415c4b31e02cec75e9dd7",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s19_current2.zip": "19ee2f33b9fd6994180ddaf17eba5265fdfdb5b1123be54bd00d362d27f9b240",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s20_personal.zip": "a137d3f38d3e144ccf9483750b02c4d9233e4bb621fe01c5b2771777ce4fcc1a",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s20_current1.zip": "75daa23a655ba73368c5cdd308731b1de7e1605935e02b6fba31cc5426a854a1",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s20_current2.zip": "ca6f4083e7c985bc3117e67753eb9710aa0dae02d0cb6639f85d2f467af2154d",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s21_personal.zip": "d10485b7ba7205a19f921a0adbcd39ad3ef54cd95fc78c2e813e3ef861a550b1",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s21_current1.zip": "8a1540906f37ed471fc5b8d019e0d7e937cbac99368f7864bd8ee297571e812a",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s21_current2.zip": "06c4bde6d8777778194dd7e0f58eff68fa00c64d741a4b3f1b8b1a0b6b37ef87",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s22_personal.zip": "820273dc92041f0bc85fc0e0c9f1e4c62394524e62361016ca4d89ed717b6339",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s22_current1.zip": "ceb8a1e6b04866faf2bc3c5ae235fe375391dd069bec86479141243e4f6b03f6",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s22_current2.zip": "25a24d7ae4870af049a9bd61fb614584f1e6fdb1655f5a2ffb78673750adf67f",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s23_personal.zip": "03d5033a4885acf883e9c2a5e7b873b9facdc67a1a17ae1703a20d0bbc7b40ec",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s23_current1.zip": "a464029e725fe33dede87ad0d8d6910bbd08bb6bf5a23807b2c008a38934d2ac",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s23_current2.zip": "684b5db98178b3e1c08763abec1e15d03a98146dbc18d75a6f937fbb4a6c4500",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s24_personal.zip": "4cf63973f0e459b829e3fa44019d9219f83381e98695c36e07492f5f63970399",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s24_current1.zip": "7cd687814ebb9dd478bcc564e91b018e9842adcb6447b5800f1f8924cf918e95",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s24_current2.zip": "3b55a8466f85bd56d1ba590d141ae4130f843ec2d339198050bb21246a4bad73",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s25_personal.zip": "c592c035f1dbc7e8979198c41c924849622f942a7391c7461813cc5f5164773c",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s25_current1.zip": "5efc3f0010c70a455654f0643392d3f23b069640c85dd8e950c6f35bbcd274ae",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s25_current2.zip": "6673a8d3041d29be9ba56dd3c3cadee5ac30acc5d90f2c62a00bb1eba934c0d0",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s26_personal.zip": "3920c711f5fa1bf3d8bee31a60f88dfc45c54ab1f4badba0da0b503ee591d1f8",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s26_current1.zip": "bbb8c9029e3bbaa1b2b7cb52239ab311b25e95bc8d7a0624bd37bb5f84cd98a9",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s26_current2.zip": "d7e40a1588bc4a1e829b096f474243cfb972dc710493cfcafabe558dd38609e7",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s27_personal.zip": "60af938634090909b3b2342939f6f7354fce689cedefa2981e6e5ee27c75a778",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s27_current1.zip": "b8bb2d1884f4f62ba0c5c956661ef1972b258d4538cae94a3c1033356fd405c4",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s27_current2.zip": "0b81fe78520e176653330a8f9f5d4c389e3c5a01abdd898d0269dafb34b94aa3",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s28_personal.zip": "f26d1bee7f395b2623c2c5be02686c499b2c6fafd792844f95fe1a5b939f3e9d",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s28_current1.zip": "3caf02f802202caf5ac49689484a392976aa56bf74959c96d00fb12bd99607f4",
+    "benchmarks/new_bank_v3/roam_native_joint_v1/s28_current2.zip": "f33f894daecf03b94a3e68ae1e04dbf06680e5fb9fd4c7d8994ceefcdd1811e4"
+  },
+  "archive": "D:\\emg-imu-benchmarks\\data\\raw\\roam_emg\\data.zip",
+  "archive_sha256": "c9de0e25c187c216e4771d17ccfa19acb0e4028f907ea726b2a87a18d2db5343",
+  "native_recordings": [
+    {
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "member_sha256": "dcff53bf70c0afaf96dd65dc7bdc4010196da606572ed6b3e3d11b77422661d7",
+      "native_samples": 10458,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue0",
+          "start": 0,
+          "end": 1130,
+          "samples": 1130,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue1",
+          "start": 1130,
+          "end": 2374,
+          "samples": 1244,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue2",
+          "start": 2374,
+          "end": 3530,
+          "samples": 1156,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue3",
+          "start": 3530,
+          "end": 4694,
+          "samples": 1164,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue4",
+          "start": 4694,
+          "end": 5920,
+          "samples": 1226,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue5",
+          "start": 5920,
+          "end": 7106,
+          "samples": 1186,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue6",
+          "start": 7106,
+          "end": 8214,
+          "samples": 1108,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue7",
+          "start": 8214,
+          "end": 9414,
+          "samples": 1200,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue8",
+          "start": 9414,
+          "end": 10458,
+          "samples": 1044,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 52.29,
+      "observed_clock_span": 52.411304236,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "member_sha256": "b2c4239f163c8ee3130a9bf2b37a893292d72bb93070d10828d7b0dbaf6461a5",
+      "native_samples": 10098,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue0",
+          "start": 0,
+          "end": 1090,
+          "samples": 1090,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue1",
+          "start": 1090,
+          "end": 2214,
+          "samples": 1124,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue2",
+          "start": 2214,
+          "end": 3362,
+          "samples": 1148,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue3",
+          "start": 3362,
+          "end": 4528,
+          "samples": 1166,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue4",
+          "start": 4528,
+          "end": 5746,
+          "samples": 1218,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue5",
+          "start": 5746,
+          "end": 6812,
+          "samples": 1066,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue6",
+          "start": 6812,
+          "end": 7940,
+          "samples": 1128,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue7",
+          "start": 7940,
+          "end": 9140,
+          "samples": 1200,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue8",
+          "start": 9140,
+          "end": 10098,
+          "samples": 958,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 50.49,
+      "observed_clock_span": 50.618857622,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "member_sha256": "20818bf135feed9e62c5fc07158ad8fecb07050ccc877f58104a33512eb65f69",
+      "native_samples": 10578,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue0",
+          "start": 0,
+          "end": 1288,
+          "samples": 1288,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue1",
+          "start": 1288,
+          "end": 2462,
+          "samples": 1174,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue2",
+          "start": 2462,
+          "end": 3654,
+          "samples": 1192,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue3",
+          "start": 3654,
+          "end": 4854,
+          "samples": 1200,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue4",
+          "start": 4854,
+          "end": 6026,
+          "samples": 1172,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue5",
+          "start": 6026,
+          "end": 7208,
+          "samples": 1182,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue6",
+          "start": 7208,
+          "end": 8348,
+          "samples": 1140,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue7",
+          "start": 8348,
+          "end": 9560,
+          "samples": 1212,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue8",
+          "start": 9560,
+          "end": 10578,
+          "samples": 1018,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 52.89,
+      "observed_clock_span": 53.018638373,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "member_sha256": "7eb6bb41c0cd0c1f52c39ab7f9d00326dc2858166f918b333f0bca2e29e21c45",
+      "native_samples": 10484,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue0",
+          "start": 0,
+          "end": 996,
+          "samples": 996,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue1",
+          "start": 996,
+          "end": 2094,
+          "samples": 1098,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue2",
+          "start": 2094,
+          "end": 3270,
+          "samples": 1176,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue3",
+          "start": 3270,
+          "end": 4474,
+          "samples": 1204,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue4",
+          "start": 4474,
+          "end": 5662,
+          "samples": 1188,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue5",
+          "start": 5662,
+          "end": 6886,
+          "samples": 1224,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue6",
+          "start": 6886,
+          "end": 8090,
+          "samples": 1204,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue7",
+          "start": 8090,
+          "end": 9350,
+          "samples": 1260,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue8",
+          "start": 9350,
+          "end": 10484,
+          "samples": 1134,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 52.42,
+      "observed_clock_span": 52.546406745,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "member_sha256": "26f21e26349fe07313d80f77deefcd6a5d266810565d6379d5294e3201edb586",
+      "native_samples": 9702,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue0",
+          "start": 0,
+          "end": 1060,
+          "samples": 1060,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue1",
+          "start": 1060,
+          "end": 2130,
+          "samples": 1070,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue2",
+          "start": 2130,
+          "end": 3220,
+          "samples": 1090,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue3",
+          "start": 3220,
+          "end": 4306,
+          "samples": 1086,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue4",
+          "start": 4306,
+          "end": 5390,
+          "samples": 1084,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue5",
+          "start": 5390,
+          "end": 6468,
+          "samples": 1078,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue6",
+          "start": 6468,
+          "end": 7530,
+          "samples": 1062,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue7",
+          "start": 7530,
+          "end": 8608,
+          "samples": 1078,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue8",
+          "start": 8608,
+          "end": 9702,
+          "samples": 1094,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 48.51,
+      "observed_clock_span": 48.623568058000004,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "member_sha256": "b72efc8f470997aa9945d114356acd142a995521270cbf9a5e8f649aea22d7d5",
+      "native_samples": 9608,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue0",
+          "start": 0,
+          "end": 1050,
+          "samples": 1050,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue1",
+          "start": 1050,
+          "end": 2104,
+          "samples": 1054,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue2",
+          "start": 2104,
+          "end": 3168,
+          "samples": 1064,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue3",
+          "start": 3168,
+          "end": 4224,
+          "samples": 1056,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue4",
+          "start": 4224,
+          "end": 5260,
+          "samples": 1036,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue5",
+          "start": 5260,
+          "end": 6318,
+          "samples": 1058,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue6",
+          "start": 6318,
+          "end": 7390,
+          "samples": 1072,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue7",
+          "start": 7390,
+          "end": 8496,
+          "samples": 1106,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue8",
+          "start": 8496,
+          "end": 9608,
+          "samples": 1112,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 48.04,
+      "observed_clock_span": 48.159682274,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "member_sha256": "a91f2212269cbb9387430942aa52a90c665fea46e2d7a6b89464c760e6161b1e",
+      "native_samples": 9196,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue0",
+          "start": 0,
+          "end": 986,
+          "samples": 986,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue1",
+          "start": 986,
+          "end": 1940,
+          "samples": 954,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue2",
+          "start": 1940,
+          "end": 2946,
+          "samples": 1006,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue3",
+          "start": 2946,
+          "end": 3976,
+          "samples": 1030,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue4",
+          "start": 3976,
+          "end": 5020,
+          "samples": 1044,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue5",
+          "start": 5020,
+          "end": 6072,
+          "samples": 1052,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue6",
+          "start": 6072,
+          "end": 7120,
+          "samples": 1048,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue7",
+          "start": 7120,
+          "end": 8180,
+          "samples": 1060,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue8",
+          "start": 8180,
+          "end": 9196,
+          "samples": 1016,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 45.98,
+      "observed_clock_span": 46.098212719,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "member_sha256": "bf333adaa5ef3a082d7d7548200780a013d783ec9c1c2da47a0cac54d1fcda59",
+      "native_samples": 9162,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue0",
+          "start": 0,
+          "end": 942,
+          "samples": 942,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue1",
+          "start": 942,
+          "end": 1920,
+          "samples": 978,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue2",
+          "start": 1920,
+          "end": 2948,
+          "samples": 1028,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue3",
+          "start": 2948,
+          "end": 3986,
+          "samples": 1038,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue4",
+          "start": 3986,
+          "end": 5022,
+          "samples": 1036,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue5",
+          "start": 5022,
+          "end": 6062,
+          "samples": 1040,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue6",
+          "start": 6062,
+          "end": 7116,
+          "samples": 1054,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue7",
+          "start": 7116,
+          "end": 8194,
+          "samples": 1078,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue8",
+          "start": 8194,
+          "end": 9162,
+          "samples": 968,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 45.81,
+      "observed_clock_span": 45.926478386,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "member_sha256": "e35d551d93585cc6d93f0b4025e1ee2d28a1fa796a18cb993c4bae067b5e1dcc",
+      "native_samples": 9872,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue0",
+          "start": 0,
+          "end": 1058,
+          "samples": 1058,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue1",
+          "start": 1058,
+          "end": 2246,
+          "samples": 1188,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue2",
+          "start": 2246,
+          "end": 3282,
+          "samples": 1036,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue3",
+          "start": 3282,
+          "end": 4354,
+          "samples": 1072,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue4",
+          "start": 4354,
+          "end": 5546,
+          "samples": 1192,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue5",
+          "start": 5546,
+          "end": 6692,
+          "samples": 1146,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue6",
+          "start": 6692,
+          "end": 7694,
+          "samples": 1002,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue7",
+          "start": 7694,
+          "end": 8858,
+          "samples": 1164,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue8",
+          "start": 8858,
+          "end": 9872,
+          "samples": 1014,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 49.36,
+      "observed_clock_span": 49.472321033,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "member_sha256": "6c2448deaf2c952854adae0f595cd499d61e652eb13230763d1a743b2db612cd",
+      "native_samples": 10092,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue0",
+          "start": 0,
+          "end": 1192,
+          "samples": 1192,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue1",
+          "start": 1192,
+          "end": 2286,
+          "samples": 1094,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue2",
+          "start": 2286,
+          "end": 3404,
+          "samples": 1118,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue3",
+          "start": 3404,
+          "end": 4598,
+          "samples": 1194,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue4",
+          "start": 4598,
+          "end": 5738,
+          "samples": 1140,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue5",
+          "start": 5738,
+          "end": 6862,
+          "samples": 1124,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue6",
+          "start": 6862,
+          "end": 7990,
+          "samples": 1128,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue7",
+          "start": 7990,
+          "end": 9092,
+          "samples": 1102,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue8",
+          "start": 9092,
+          "end": 10092,
+          "samples": 1000,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 50.46,
+      "observed_clock_span": 50.579289437,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "member_sha256": "1b60091abb353ecacde37f1df58972f902ed838193cdd44c35df4ac64df36d9d",
+      "native_samples": 9768,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue0",
+          "start": 0,
+          "end": 1092,
+          "samples": 1092,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue1",
+          "start": 1092,
+          "end": 2244,
+          "samples": 1152,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue2",
+          "start": 2244,
+          "end": 3324,
+          "samples": 1080,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue3",
+          "start": 3324,
+          "end": 4366,
+          "samples": 1042,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue4",
+          "start": 4366,
+          "end": 5422,
+          "samples": 1056,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue5",
+          "start": 5422,
+          "end": 6484,
+          "samples": 1062,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue6",
+          "start": 6484,
+          "end": 7544,
+          "samples": 1060,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue7",
+          "start": 7544,
+          "end": 8670,
+          "samples": 1126,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue8",
+          "start": 8670,
+          "end": 9768,
+          "samples": 1098,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 48.84,
+      "observed_clock_span": 48.951072216,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "member_sha256": "18384f5a5c000b890628b9fe8e31a7695c7f841a196fb60870a55adc16f973c9",
+      "native_samples": 10122,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue0",
+          "start": 0,
+          "end": 1116,
+          "samples": 1116,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue1",
+          "start": 1116,
+          "end": 2234,
+          "samples": 1118,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue2",
+          "start": 2234,
+          "end": 3354,
+          "samples": 1120,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue3",
+          "start": 3354,
+          "end": 4440,
+          "samples": 1086,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue4",
+          "start": 4440,
+          "end": 5622,
+          "samples": 1182,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue5",
+          "start": 5622,
+          "end": 6848,
+          "samples": 1226,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue6",
+          "start": 6848,
+          "end": 8056,
+          "samples": 1208,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue7",
+          "start": 8056,
+          "end": 9164,
+          "samples": 1108,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue8",
+          "start": 9164,
+          "end": 10122,
+          "samples": 958,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 50.61,
+      "observed_clock_span": 50.7308321,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "member_sha256": "3e24e141de9b79bf030da83daf72a9d90c8cf1a68d450b6fc3b6e6cb1d5f9309",
+      "native_samples": 8964,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue0",
+          "start": 0,
+          "end": 966,
+          "samples": 966,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue1",
+          "start": 966,
+          "end": 1954,
+          "samples": 988,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue2",
+          "start": 1954,
+          "end": 2882,
+          "samples": 928,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue3",
+          "start": 2882,
+          "end": 3846,
+          "samples": 964,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue4",
+          "start": 3846,
+          "end": 4806,
+          "samples": 960,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue5",
+          "start": 4806,
+          "end": 5866,
+          "samples": 1060,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue6",
+          "start": 5866,
+          "end": 6892,
+          "samples": 1026,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue7",
+          "start": 6892,
+          "end": 7958,
+          "samples": 1066,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue8",
+          "start": 7958,
+          "end": 8964,
+          "samples": 1006,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 44.82,
+      "observed_clock_span": 44.923631192,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "member_sha256": "da6625d32aebf8cfe096f33872609279b966b23832f9facec4043276f12cb223",
+      "native_samples": 9266,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue0",
+          "start": 0,
+          "end": 982,
+          "samples": 982,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue1",
+          "start": 982,
+          "end": 1956,
+          "samples": 974,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue2",
+          "start": 1956,
+          "end": 2920,
+          "samples": 964,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue3",
+          "start": 2920,
+          "end": 4018,
+          "samples": 1098,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue4",
+          "start": 4018,
+          "end": 5030,
+          "samples": 1012,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue5",
+          "start": 5030,
+          "end": 6106,
+          "samples": 1076,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue6",
+          "start": 6106,
+          "end": 7256,
+          "samples": 1150,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue7",
+          "start": 7256,
+          "end": 8348,
+          "samples": 1092,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue8",
+          "start": 8348,
+          "end": 9266,
+          "samples": 918,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 46.33,
+      "observed_clock_span": 46.430159568,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "member_sha256": "a2d277c25e87a7176db925fc74746efd7d077394d316dd0ca786d86d67ec6cdc",
+      "native_samples": 9234,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue0",
+          "start": 0,
+          "end": 934,
+          "samples": 934,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue1",
+          "start": 934,
+          "end": 1902,
+          "samples": 968,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue2",
+          "start": 1902,
+          "end": 2956,
+          "samples": 1054,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue3",
+          "start": 2956,
+          "end": 4034,
+          "samples": 1078,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue4",
+          "start": 4034,
+          "end": 5108,
+          "samples": 1074,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue5",
+          "start": 5108,
+          "end": 6074,
+          "samples": 966,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue6",
+          "start": 6074,
+          "end": 7154,
+          "samples": 1080,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue7",
+          "start": 7154,
+          "end": 8218,
+          "samples": 1064,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue8",
+          "start": 8218,
+          "end": 9234,
+          "samples": 1016,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 46.17,
+      "observed_clock_span": 46.281060219,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "member_sha256": "a5aa63950f42df7c8f62acf761897910adf8e35c32f399ac7152e0317602065e",
+      "native_samples": 9224,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue0",
+          "start": 0,
+          "end": 1048,
+          "samples": 1048,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue1",
+          "start": 1048,
+          "end": 2010,
+          "samples": 962,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue2",
+          "start": 2010,
+          "end": 3064,
+          "samples": 1054,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue3",
+          "start": 3064,
+          "end": 4060,
+          "samples": 996,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue4",
+          "start": 4060,
+          "end": 5124,
+          "samples": 1064,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue5",
+          "start": 5124,
+          "end": 6108,
+          "samples": 984,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue6",
+          "start": 6108,
+          "end": 7172,
+          "samples": 1064,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue7",
+          "start": 7172,
+          "end": 8250,
+          "samples": 1078,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue8",
+          "start": 8250,
+          "end": 9224,
+          "samples": 974,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 46.12,
+      "observed_clock_span": 46.230328083,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "member_sha256": "9cdd99038b0ff862fd9e87063f27f7cd7ee8b6eb7b197d05659ee1515fc21f78",
+      "native_samples": 9824,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue0",
+          "start": 0,
+          "end": 1164,
+          "samples": 1164,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue1",
+          "start": 1164,
+          "end": 2358,
+          "samples": 1194,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue2",
+          "start": 2358,
+          "end": 3376,
+          "samples": 1018,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue3",
+          "start": 3376,
+          "end": 4472,
+          "samples": 1096,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue4",
+          "start": 4472,
+          "end": 5558,
+          "samples": 1086,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue5",
+          "start": 5558,
+          "end": 6733,
+          "samples": 1175,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue6",
+          "start": 6733,
+          "end": 7761,
+          "samples": 1028,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue7",
+          "start": 7761,
+          "end": 8857,
+          "samples": 1096,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue8",
+          "start": 8857,
+          "end": 9824,
+          "samples": 967,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 49.12,
+      "observed_clock_span": 49.243180513,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "member_sha256": "aab297cad533c1114a63928d5513567ca3610d63178124cd4807320e9d980361",
+      "native_samples": 9952,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue0",
+          "start": 0,
+          "end": 1100,
+          "samples": 1100,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue1",
+          "start": 1100,
+          "end": 2283,
+          "samples": 1183,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue2",
+          "start": 2283,
+          "end": 3346,
+          "samples": 1063,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue3",
+          "start": 3346,
+          "end": 4404,
+          "samples": 1058,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue4",
+          "start": 4404,
+          "end": 5486,
+          "samples": 1082,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue5",
+          "start": 5486,
+          "end": 6582,
+          "samples": 1096,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue6",
+          "start": 6582,
+          "end": 7676,
+          "samples": 1094,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue7",
+          "start": 7676,
+          "end": 8816,
+          "samples": 1140,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue8",
+          "start": 8816,
+          "end": 9952,
+          "samples": 1136,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 49.76,
+      "observed_clock_span": 49.882539034,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "member_sha256": "fcb45c547495c174cceeaa3a87782d19b38917636bb20974bedf5a0ac1ed1217",
+      "native_samples": 9646,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue0",
+          "start": 0,
+          "end": 1060,
+          "samples": 1060,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue1",
+          "start": 1060,
+          "end": 2116,
+          "samples": 1056,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue2",
+          "start": 2116,
+          "end": 3176,
+          "samples": 1060,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue3",
+          "start": 3176,
+          "end": 4254,
+          "samples": 1078,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue4",
+          "start": 4254,
+          "end": 5334,
+          "samples": 1080,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue5",
+          "start": 5334,
+          "end": 6400,
+          "samples": 1066,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue6",
+          "start": 6400,
+          "end": 7474,
+          "samples": 1074,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue7",
+          "start": 7474,
+          "end": 8566,
+          "samples": 1092,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue8",
+          "start": 8566,
+          "end": 9646,
+          "samples": 1080,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 48.23,
+      "observed_clock_span": 48.352015972000004,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    },
+    {
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "member_sha256": "3ca37e55fbe79dbf412d03cd7a98f111b56aba8ac971e98aa537253ca5476ff9",
+      "native_samples": 9738,
+      "archive_sample_rate_hz": 200.0,
+      "channel_ids": [
+        "emg0",
+        "emg1",
+        "emg2",
+        "emg3",
+        "emg4",
+        "emg5",
+        "emg6",
+        "emg7"
+      ],
+      "cue_intervals": [
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue0",
+          "start": 0,
+          "end": 1134,
+          "samples": 1134,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue1",
+          "start": 1134,
+          "end": 2221,
+          "samples": 1087,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue2",
+          "start": 2221,
+          "end": 3337,
+          "samples": 1116,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue3",
+          "start": 3337,
+          "end": 4549,
+          "samples": 1212,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue4",
+          "start": 4549,
+          "end": 5422,
+          "samples": 873,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue5",
+          "start": 5422,
+          "end": 6635,
+          "samples": 1213,
+          "class_name": "open"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue6",
+          "start": 6635,
+          "end": 7625,
+          "samples": 990,
+          "class_name": "relax"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue7",
+          "start": 7625,
+          "end": 8789,
+          "samples": 1164,
+          "class_name": "close"
+        },
+        {
+          "trial_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue8",
+          "start": 8789,
+          "end": 9738,
+          "samples": 949,
+          "class_name": "relax"
+        }
+      ],
+      "excluded_intervals": [],
+      "nominal_seconds": 48.69,
+      "observed_clock_span": 48.806129694,
+      "source_annotation": "gt contiguous cue-label intervals; oracle boundaries",
+      "labels_separate_from_inference_batch": true,
+      "resampled": false,
+      "biological_boundaries_proven": false,
+      "autonomous_segmentation_proven": false,
+      "physical_validation_proven": false
+    }
+  ],
+  "validation_users": [
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "descriptive_users": [
+    24,
+    25,
+    26,
+    27,
+    28
+  ],
+  "current_shots": [
+    0,
+    1,
+    2
+  ],
+  "arms": [
+    "source_window",
+    "window_full",
+    "joint_full"
+  ],
+  "chunk_samples": [
+    17,
+    251,
+    64,
+    389
+  ],
+  "sample_rate_hz": 200.0,
+  "detector": "Reuse saved personal detector at0 current shots, saved current detector otherwise. Fixed25ms RMS,80ms onset,120ms release,100ms preroll,1..30s. No EOF flush or query fitting.",
+  "reference": "All close/open contiguous gt cue intervals; relax intervals remain stream input and may produce unmatched detections. Same100 unique active references at every budget.",
+  "matching": "Within each recording, greedy descending IoU>=.5; ties event index then reference index; one-to-one; independent of predicted gesture. Unmatched detections and every missed reference retained.",
+  "calibration_cost": "Every arm uses shared6 long plus0/3/6 current native cues and same selected detector. Population classifier does not make the detector/calibration bundle zero-cost.",
+  "primary": "2 current cues/class on validation19..23: joint_full vs source_window higher end-to-end success, nonworse both active recalls and active event F1, lower matched log loss/Brier, at least3/5 user success wins; shared detector/matches. Empty matches fail probability guards.",
+  "classifier_refitted": false,
+  "detector_refitted": false,
+  "scope": "Retrospective native eight-channel200Hz continuous ROAM query recordings; no query labels or cue boundaries enter detection/classification. Saved target calibration profiles and their neutral-only fixed detectors are reused, not fitted. Active gt cue intervals are evaluation references, not physiological action boundaries. Postures are not days/redonnings; inspected users19..28 are not a new blind cohort. No pinch, own-device250Hz efficacy, F6/ring/raw-quality validation, physical latency or default promotion. Misses and unmatched detections remain visible.",
+  "default_promoted": false
+}
