@@ -49,6 +49,7 @@
     "benchmarks/new_bank_v3/DETECTED_DTW_UNIBO_V1_RESULTS.json": "b15a1ab102bb2369f79c03e20b968fc3dc43055454cfd678c9868c7ac13a07dd",
     "benchmarks/new_bank_v3/DETECTED_G5_OUTCOME_V1_RESULTS.json": "4d0f831256567fd4cc56749bfed6d872c99ce8bf8496a5d9efd0596deaf81778",
     "benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_RESULTS.json": "3ecf34f3713f473045d1778fea63a910ac8f1fa71b692983c8dcc90970048a69",
+    "benchmarks/new_bank_v3/DETECTED_PERSONAL_TEMPORAL_UNIBO_V3_RESULTS.json": "9b5216d8289e4cf50a2c43772f5c49b24ad7c9ea78506a5c8138447f868897a8",
     "benchmarks/new_bank_v3/DOCUMENT_RELIABILITY_GRAB_RESULTS.json": "0c634b6bed0cb7e686fcc3ca09e52e2e4ed86f3615513c515039dae8a21b732b",
     "benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json": "0d38aad3bfef51ee962d8cc3ec5cbf2f5b4c96cd483c0b572b69a26661df12b1",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
@@ -79,7 +80,7 @@
   },
   "current_scientific_conclusions": {
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
-    "sha256": "df1cb6e16d7b4fe8a557a1b2f3d252e89d95cf1bae2aab5563278f0df62d6091"
+    "sha256": "03bb2faba11a4129288fa179219a84298318ca144290a782fb9385dc8a47dd94"
   },
   "current_regression_snapshot": {
     "path": "../CLASSIFIER_REGRESSION_20261008.json",
@@ -140,6 +141,10 @@
   "song_extended_window_acceptance": {
     "path": "../SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json",
     "sha256": "f861dc99eaf990dbd67ac37a85d08dc20df0f4aceaf3af122df5b345f31ca449"
+  },
+  "detected_personal_temporal_unibo_acceptance": {
+    "path": "../DETECTED_PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V3.json",
+    "sha256": "d25b51d15472416b0e3f983b78b90f522f574902c05bdee46b0efe738154342f"
   },
   "temporal_live_gui_acceptance": {
     "path": "../TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json",

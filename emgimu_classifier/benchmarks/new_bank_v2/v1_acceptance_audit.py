@@ -652,6 +652,17 @@ def build(pre: Path, goal: Path) -> dict:
                          '197 software checks include real Qt/subprocess acquisition lifecycle, frozen window parity, chunk/direct-interval parity, profile identity, quality Unknown and gap/overflow/censoring. '
                          'Desktop shortcut is installed to main_decision_v3.py; initial six-provider model and off temporal mode are preserved. '
                          'This software scope does not prove native automatic-fusion gain, physical throughput, biological boundaries or independent multi-day eight-channel efficacy.')
+        if ident in ('GOAL-03','GOAL-20','GOAL-22'):
+            evidence += ('|benchmarks/new_bank_v3/DETECTED_PERSONAL_TEMPORAL_UNIBO_V3_PROTOCOL.json'
+                         '|benchmarks/new_bank_v3/DETECTED_PERSONAL_TEMPORAL_UNIBO_V3_RESULTS.json'
+                         '|feature_bank/DETECTED_PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V3.json'
+                         '|tests/test_detected_personal_temporal_unibo_v3_delivery.py')
+            boundary += (' New continuous personal/session fusion reuses unchanged detector/G5 outputs and exact prior profiles. '
+                         '140 numbered calibration recording regions plus native resampling guard are excluded at all budgets. '
+                         'Independent original-clock/pair isolation and616 arm cells/273328 probabilities pass. '
+                         '596 supported references retain69 misses; full five-shot changes366 to367 correct, conditional loss .8001 to.7005. '
+                         'Only2/7 user loss wins and u07 lacks matched fist; complete-class primary stays ineligible and fails. '
+                         'This closes public native automatic-fusion execution, not stable gain, current8-channel detector or physical efficacy.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

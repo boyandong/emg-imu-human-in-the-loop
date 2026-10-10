@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `df1cb6e16d7b4fe8a557a1b2f3d252e89d95cf1bae2aab5563278f0df62d6091`.
+Source SHA-256: `03bb2faba11a4129288fa179219a84298318ca144290a782fb9385dc8a47dd94`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -1066,6 +1066,44 @@ preserve the opt-in and after-interval scope.
 
 [Native temporal results](../benchmarks/new_bank_v3/PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json)
 and [independent acceptance](PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json) retain every budget and arm.
+
+#### Continuous personal/session fusion with calibration-region isolation, V3
+
+Existing source-Rest detector intervals, matches and G5 probabilities are unchanged.
+All140 reserved numbered calibration recordings are recovered on the original500Hz clock,
+verified against exact converted records and excluded with a100-source-sample guard.
+Intersecting events/references and both endpoints of affected fixed pairs are removed;
+no recutting or rematching occurs. Every budget uses the same retained evaluation axes.
+1026 detections,596 supported references and527 supported matches remain. All69 missed
+supported references stay in end-to-end denominators;481 unsupported matches and18
+unmatched detections keep their predictions without invented truth labels.
+616 arm cells and 273328 retained probability values are independently checked.
+
+| Boundary mode | Five-shot arm | Conditional active F1 | Conditional log loss | Conditional Brier | Correct/all supported references |
+|---|---|---:|---:|---:|---|
+| detected | DTW_local | 0.812504 | 1.059152 | 0.143903 | 418/596 |
+| detected | base | 0.719371 | 0.800086 | 0.097699 | 366/596 |
+| detected | base_full | 0.721355 | 0.700494 | 0.094518 | 367/596 |
+| detected | base_uniform | 0.719371 | 0.732893 | 0.096931 | 366/596 |
+| matched_oracle | DTW_local | 0.849052 | 1.049396 | 0.142659 | N/A; same matched subset only |
+| matched_oracle | base | 0.738846 | 0.653399 | 0.081757 | N/A; same matched subset only |
+| matched_oracle | base_full | 0.738569 | 0.609987 | 0.081510 | N/A; same matched subset only |
+| matched_oracle | base_uniform | 0.738846 | 0.646289 | 0.084522 | N/A; same matched subset only |
+
+Detected full fusion changes correct supported-reference outcomes from366/596 to367/596.
+Conditional loss improves .800086 to.700494, but only2/7 users improves loss.
+u07 has no matched fist even in the pre-existing detector chain; its missing fist references
+remain misses. Conditional class weights use observed classes with explicit coverage.
+The original complete-three-class/user eligibility is NOT relaxed: primary is ineligible
+and fails regardless of the average conditional improvements. No default promotion.
+Conditional active F1 excludes Rest from the averaging axis; four-class loss/Brier retain
+Rest probabilities. There are no Rest truth examples, so these are not full-stream accuracy.
+Oracle controls use correct boundaries for the SAME matched supported references only.
+Source-Rest Day1 detector and four-channel200Hz public data do not validate the8-channel
+GUI current-Rest detector, physical latency or physiological action boundaries.
+
+[Continuous native results](../benchmarks/new_bank_v3/DETECTED_PERSONAL_TEMPORAL_UNIBO_V3_RESULTS.json)
+and [independent acceptance](DETECTED_PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V3.json) preserve every budget, miss and control.
 
 #### Target calibration burden: extracted signal versus stored recording time
 

@@ -339,6 +339,16 @@ def build() -> dict:
                           'Fixed detector uses only neutral calibration; window-off identity, chunk/direct-interval parity, quality Unknown and gap/overflow/censoring checks pass. '
                           'Actual Qt/subprocess acquisition lifecycle and whole collection regression total197 tests; desktop shortcut targets the new entry.')
             unresolved += (' Software-only deterministic eight-channel fixtures do not prove a native automatic-fusion gain or physical/live accuracy; automatic boundaries remain estimated and output waits for interval completion.')
+        if family=='F5':
+            evidence += ('|benchmarks/new_bank_v3/DETECTED_PERSONAL_TEMPORAL_UNIBO_V3_PROTOCOL.json'
+                         '|benchmarks/new_bank_v3/DETECTED_PERSONAL_TEMPORAL_UNIBO_V3_RESULTS.json'
+                         '|feature_bank/DETECTED_PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V3.json'
+                         '|tests/test_detected_personal_temporal_unibo_v3_delivery.py')
+            supported += (' New continuous fusion preserves frozen detector/G5 outputs while excluding140 complete calibration recording regions and their resampling guard. '
+                          'Independent source-clock/pair exclusion,616 arm cells/273328 probabilities and identical budget axes pass. '
+                          'All596 supported references retain69 misses; full five-shot changes366 to367 correct.')
+            unresolved += (' Conditional loss improves .8001 to.7005, but only2/7 user loss wins; u07 has no matched fist. '
+                           'Complete-class primary remains ineligible and fails. No default/8-channel/physical efficacy claim.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

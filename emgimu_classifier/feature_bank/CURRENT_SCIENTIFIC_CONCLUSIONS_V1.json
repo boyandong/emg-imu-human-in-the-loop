@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "ab4acc4c61039e7ac3173db6f6c34f21f2310ae046a90581ac0969275111fac4",
+  "generator_sha256": "9433c62f8acf878821bacc92355a0d09cec53d9224bbd134fd90a229419dcfee",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -50,7 +50,8 @@
     "tests/test_personal_session_stream_v4.py",
     "tests/test_extended_window_delivery_v1.py",
     "tests/test_personal_temporal_unibo_v1_delivery.py",
-    "tests/test_temporal_live_gui_v1_delivery.py"
+    "tests/test_temporal_live_gui_v1_delivery.py",
+    "tests/test_detected_personal_temporal_unibo_v3_delivery.py"
   ],
   "source_sha256": {
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
@@ -89,12 +90,16 @@
     "feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json": "cdc50a21d93eec8e6b86878570cbd062e19552af7067eaf64ede184555d12583",
     "tests/test_personal_temporal_unibo_v1_delivery.py": "40671498030e735e7733e8c067d6cfdc1d682a82d5c4ed3a359a6050480f7b9d",
     "benchmarks/new_bank_v3/verify_personal_temporal_unibo_v1.py": "80a7c48c56897aec20f83a48ac879406448c63646c5f59d2099aa62f43ef641a",
+    "benchmarks/new_bank_v3/DETECTED_PERSONAL_TEMPORAL_UNIBO_V3_RESULTS.json": "9b5216d8289e4cf50a2c43772f5c49b24ad7c9ea78506a5c8138447f868897a8",
+    "feature_bank/DETECTED_PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V3.json": "d25b51d15472416b0e3f983b78b90f522f574902c05bdee46b0efe738154342f",
+    "benchmarks/new_bank_v3/verify_detected_personal_temporal_unibo_v3.py": "37362db168dfb00e4f348034db45c2bc0cf29da4a969325cc118edaae0284702",
+    "tests/test_detected_personal_temporal_unibo_v3_delivery.py": "5046af8e7b532c9bdb7ac3b9cdf5f006b078390fa1b3ef82f88db00442a43024",
     "benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.json": "a079bff7bceae47930f3bb6579782cbc9208ee1e858a89caaf78c43b31b575db",
     "benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json": "0d38aad3bfef51ee962d8cc3ec5cbf2f5b4c96cd483c0b572b69a26661df12b1",
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "4d07233a53e7e95649b0921143d8166a58daa01035902d39548a0d25184d9900",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "6084bcc6ca63f0c39a16b3f2ff9fe16313204384957b0755617ea2a151259005",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -180,7 +185,22 @@
       "evidence": [
         "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json",
         "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json"
-      ]
+      ],
+      "continuous_temporal_diagnostic": {
+        "supported_references": 596,
+        "supported_matched": 527,
+        "calibration_recordings_excluded": 140,
+        "five_shot_correct_base": 366,
+        "five_shot_correct_full": 367,
+        "conditional_loss_base": 0.8000858528366488,
+        "conditional_loss_full": 0.7004936843241519,
+        "user_loss_wins": 2,
+        "users": 7,
+        "primary_eligible": false,
+        "primary_pass": false,
+        "missing_matched_class": "u07 fist; misses remain in the reference denominator",
+        "scope": "Retrospective public four-channel200Hz continuous diagnostic with original Day1 source-Rest boundaries and personalized Days1-5 G5 history. Calibration and evaluation use disjoint regions of the SAME Day6 continuous files, not independent-day files. No physical8-channel250Hz or current-Rest GUI-detector efficacy, physiological onset, prospective validation or default promotion."
+      }
     },
     {
       "question_id": "B",
@@ -647,7 +667,22 @@
             "open_hand": 1.0
           }
         }
-      ]
+      ],
+      "continuous_temporal_diagnostic": {
+        "supported_references": 596,
+        "supported_matched": 527,
+        "calibration_recordings_excluded": 140,
+        "five_shot_correct_base": 366,
+        "five_shot_correct_full": 367,
+        "conditional_loss_base": 0.8000858528366488,
+        "conditional_loss_full": 0.7004936843241519,
+        "user_loss_wins": 2,
+        "users": 7,
+        "primary_eligible": false,
+        "primary_pass": false,
+        "missing_matched_class": "u07 fist; misses remain in the reference denominator",
+        "scope": "Retrospective public four-channel200Hz continuous diagnostic with original Day1 source-Rest boundaries and personalized Days1-5 G5 history. Calibration and evaluation use disjoint regions of the SAME Day6 continuous files, not independent-day files. No physical8-channel250Hz or current-Rest GUI-detector efficacy, physiological onset, prospective validation or default promotion."
+      }
     },
     {
       "question_id": "C",
@@ -2562,7 +2597,22 @@
         "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json",
         "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json",
         "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json"
-      ]
+      ],
+      "continuous_temporal_diagnostic": {
+        "supported_references": 596,
+        "supported_matched": 527,
+        "calibration_recordings_excluded": 140,
+        "five_shot_correct_base": 366,
+        "five_shot_correct_full": 367,
+        "conditional_loss_base": 0.8000858528366488,
+        "conditional_loss_full": 0.7004936843241519,
+        "user_loss_wins": 2,
+        "users": 7,
+        "primary_eligible": false,
+        "primary_pass": false,
+        "missing_matched_class": "u07 fist; misses remain in the reference denominator",
+        "scope": "Retrospective public four-channel200Hz continuous diagnostic with original Day1 source-Rest boundaries and personalized Days1-5 G5 history. Calibration and evaluation use disjoint regions of the SAME Day6 continuous files, not independent-day files. No physical8-channel250Hz or current-Rest GUI-detector efficacy, physiological onset, prospective validation or default promotion."
+      }
     },
     {
       "question_id": "H",
@@ -3266,7 +3316,22 @@
             "open_hand": 1.0
           }
         }
-      ]
+      ],
+      "continuous_temporal_diagnostic": {
+        "supported_references": 596,
+        "supported_matched": 527,
+        "calibration_recordings_excluded": 140,
+        "five_shot_correct_base": 366,
+        "five_shot_correct_full": 367,
+        "conditional_loss_base": 0.8000858528366488,
+        "conditional_loss_full": 0.7004936843241519,
+        "user_loss_wins": 2,
+        "users": 7,
+        "primary_eligible": false,
+        "primary_pass": false,
+        "missing_matched_class": "u07 fist; misses remain in the reference denominator",
+        "scope": "Retrospective public four-channel200Hz continuous diagnostic with original Day1 source-Rest boundaries and personalized Days1-5 G5 history. Calibration and evaluation use disjoint regions of the SAME Day6 continuous files, not independent-day files. No physical8-channel250Hz or current-Rest GUI-detector efficacy, physiological onset, prospective validation or default promotion."
+      }
     }
   ],
   "available_provider_fusion": {
@@ -12379,6 +12444,3074 @@
     "physical_validation_proven": false,
     "completion_proven": false,
     "scope": "Previously inspected UniBo four-channel200Hz native oracle-labelled complete bouts. Native calibration/evaluation recording trials disjoint. Separate eight-channel250Hz window-adapter/CLI tests do not prove real eight-channel complete-action accuracy. Song stable-only excerpts are ineligible. Estimated boundaries stay estimated; output waits for interval end. No automatic segmentation or device/default efficacy claim."
+  },
+  "detected_personal_temporal_unibo": {
+    "pooled": [
+      {
+        "mode": "detected",
+        "shots": 0,
+        "arm": "DTW_long",
+        "macro_f1": 0.3402858959114349,
+        "accuracy": 0.45126828842932637,
+        "log_loss": 1.2443805376259813,
+        "brier": 0.17041194894187317,
+        "ece": 0.1158902230483166,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5225968669895492,\"FIST\":0.44505754686926025,\"OPEN\":0.3934891697869301}",
+        "active_macro_f1": 0.4537145278819132,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 19,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 237,
+          "success": 0.3976510067114094,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 104,
+              "success": 0.5561497326203209
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 100,
+              "success": 0.49504950495049505
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 33,
+              "success": 0.15942028985507245
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.3970982328223017
+      },
+      {
+        "mode": "detected",
+        "shots": 0,
+        "arm": "signature_long",
+        "macro_f1": 0.3453828312114216,
+        "accuracy": 0.45569388646765313,
+        "log_loss": 1.258368491480192,
+        "brier": 0.17156427145970127,
+        "ece": 0.14058499174697978,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5549891128723614,\"FIST\":0.33571215668944304,\"OPEN\":0.490830055283882}",
+        "active_macro_f1": 0.4605104416152288,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 34,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 236,
+          "success": 0.3959731543624161,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 88,
+              "success": 0.47058823529411764
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 53,
+              "success": 0.2623762376237624
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 95,
+              "success": 0.45893719806763283
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.3951230580224509
+      },
+      {
+        "mode": "detected",
+        "shots": 0,
+        "arm": "DTW_local",
+        "macro_f1": 0.3402858959114349,
+        "accuracy": 0.45126828842932637,
+        "log_loss": 1.2443805376259813,
+        "brier": 0.17041194894187317,
+        "ece": 0.1158902230483166,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5225968669895492,\"FIST\":0.44505754686926025,\"OPEN\":0.3934891697869301}",
+        "active_macro_f1": 0.4537145278819132,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 19,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 237,
+          "success": 0.3976510067114094,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 104,
+              "success": 0.5561497326203209
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 100,
+              "success": 0.49504950495049505
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 33,
+              "success": 0.15942028985507245
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.3970982328223017
+      },
+      {
+        "mode": "detected",
+        "shots": 0,
+        "arm": "DTW_blended",
+        "macro_f1": 0.3402858959114349,
+        "accuracy": 0.45126828842932637,
+        "log_loss": 1.2443805376259813,
+        "brier": 0.17041194894187317,
+        "ece": 0.1158902230483166,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5225968669895492,\"FIST\":0.44505754686926025,\"OPEN\":0.3934891697869301}",
+        "active_macro_f1": 0.4537145278819132,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 19,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 237,
+          "success": 0.3976510067114094,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 104,
+              "success": 0.5561497326203209
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 100,
+              "success": 0.49504950495049505
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 33,
+              "success": 0.15942028985507245
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.3970982328223017
+      },
+      {
+        "mode": "detected",
+        "shots": 0,
+        "arm": "signature_blended",
+        "macro_f1": 0.3453828312114216,
+        "accuracy": 0.45569388646765313,
+        "log_loss": 1.258368491480192,
+        "brier": 0.17156427145970127,
+        "ece": 0.14058499174697978,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5549891128723614,\"FIST\":0.33571215668944304,\"OPEN\":0.490830055283882}",
+        "active_macro_f1": 0.4605104416152288,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 34,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 236,
+          "success": 0.3959731543624161,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 88,
+              "success": 0.47058823529411764
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 53,
+              "success": 0.2623762376237624
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 95,
+              "success": 0.45893719806763283
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.3951230580224509
+      },
+      {
+        "mode": "detected",
+        "shots": 0,
+        "arm": "base",
+        "macro_f1": 0.5395284422346704,
+        "accuracy": 0.7232146529290726,
+        "log_loss": 0.8000858528366488,
+        "brier": 0.09769932178807872,
+        "ece": 0.11618170151355135,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6745070855517178,\"OPEN\":0.7668265731439917}",
+        "active_macro_f1": 0.7193712563128939,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 366,
+          "success": 0.6140939597315436,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 104,
+              "success": 0.5148514851485149
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6169079571723098
+      },
+      {
+        "mode": "detected",
+        "shots": 0,
+        "arm": "base_DTW_long",
+        "macro_f1": 0.54090323056878,
+        "accuracy": 0.7244553477181546,
+        "log_loss": 0.7142907789174102,
+        "brier": 0.0965884484813431,
+        "ece": 0.09172269776716892,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6798708145165279,\"OPEN\":0.7669619975156198}",
+        "active_macro_f1": 0.7212043074250399,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 367,
+          "success": 0.6157718120805369,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 106,
+              "success": 0.5247524752475248
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 138,
+              "success": 0.6666666666666666
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6186291275681789
+      },
+      {
+        "mode": "detected",
+        "shots": 0,
+        "arm": "base_DTW_blended",
+        "macro_f1": 0.54090323056878,
+        "accuracy": 0.7244553477181546,
+        "log_loss": 0.7142907789174102,
+        "brier": 0.0965884484813431,
+        "ece": 0.09172269776716892,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6798708145165279,\"OPEN\":0.7669619975156198}",
+        "active_macro_f1": 0.7212043074250399,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 367,
+          "success": 0.6157718120805369,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 106,
+              "success": 0.5247524752475248
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 138,
+              "success": 0.6666666666666666
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6186291275681789
+      },
+      {
+        "mode": "detected",
+        "shots": 0,
+        "arm": "base_signature_blended",
+        "macro_f1": 0.5382757269506193,
+        "accuracy": 0.7216785546187807,
+        "log_loss": 0.7122886773430704,
+        "brier": 0.09563403090667816,
+        "ece": 0.08230768742708171,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6733997762810009,\"OPEN\":0.762923021278504}",
+        "active_macro_f1": 0.7177009692674924,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 365,
+          "success": 0.6124161073825504,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 103,
+              "success": 0.5099009900990099
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6151867867764407
+      },
+      {
+        "mode": "detected",
+        "shots": 0,
+        "arm": "base_full",
+        "macro_f1": 0.5381584163731699,
+        "accuracy": 0.7213831510975708,
+        "log_loss": 0.712814718512699,
+        "brier": 0.0960366520765003,
+        "ece": 0.09110596794893988,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6721576695084132,\"OPEN\":0.763695885741294}",
+        "active_macro_f1": 0.7175445551642264,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 365,
+          "success": 0.6124161073825504,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 104,
+              "success": 0.5148514851485149
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 138,
+              "success": 0.6666666666666666
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6151867867764407
+      },
+      {
+        "mode": "detected",
+        "shots": 0,
+        "arm": "base_uniform",
+        "macro_f1": 0.5395284422346704,
+        "accuracy": 0.7232146529290726,
+        "log_loss": 0.7328930248104051,
+        "brier": 0.09693121013015649,
+        "ece": 0.0945689408953633,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6745070855517178,\"OPEN\":0.7668265731439917}",
+        "active_macro_f1": 0.7193712563128939,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 366,
+          "success": 0.6140939597315436,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 104,
+              "success": 0.5148514851485149
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6169079571723098
+      },
+      {
+        "mode": "detected",
+        "shots": 1,
+        "arm": "DTW_long",
+        "macro_f1": 0.3402858959114349,
+        "accuracy": 0.45126828842932637,
+        "log_loss": 1.2443805376259813,
+        "brier": 0.17041194894187317,
+        "ece": 0.1158902230483166,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5225968669895492,\"FIST\":0.44505754686926025,\"OPEN\":0.3934891697869301}",
+        "active_macro_f1": 0.4537145278819132,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 19,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 237,
+          "success": 0.3976510067114094,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 104,
+              "success": 0.5561497326203209
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 100,
+              "success": 0.49504950495049505
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 33,
+              "success": 0.15942028985507245
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.3970982328223017
+      },
+      {
+        "mode": "detected",
+        "shots": 1,
+        "arm": "signature_long",
+        "macro_f1": 0.3453828312114216,
+        "accuracy": 0.45569388646765313,
+        "log_loss": 1.258368491480192,
+        "brier": 0.17156427145970127,
+        "ece": 0.14058499174697978,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5549891128723614,\"FIST\":0.33571215668944304,\"OPEN\":0.490830055283882}",
+        "active_macro_f1": 0.4605104416152288,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 34,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 236,
+          "success": 0.3959731543624161,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 88,
+              "success": 0.47058823529411764
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 53,
+              "success": 0.2623762376237624
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 95,
+              "success": 0.45893719806763283
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.3951230580224509
+      },
+      {
+        "mode": "detected",
+        "shots": 1,
+        "arm": "DTW_local",
+        "macro_f1": 0.5170802040166838,
+        "accuracy": 0.6998531825226753,
+        "log_loss": 1.07963297525,
+        "brier": 0.1479700742258239,
+        "ece": 0.3447137668014326,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7653820450118946,\"FIST\":0.5400922207406975,\"OPEN\":0.7628465503141427}",
+        "active_macro_f1": 0.689440272022245,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 10,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 359,
+          "success": 0.6023489932885906,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 145,
+              "success": 0.7754010695187166
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 82,
+              "success": 0.40594059405940597
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 132,
+              "success": 0.6376811594202898
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6048037544515571
+      },
+      {
+        "mode": "detected",
+        "shots": 1,
+        "arm": "DTW_blended",
+        "macro_f1": 0.4928565718281081,
+        "accuracy": 0.6552685488787228,
+        "log_loss": 1.1528298363149938,
+        "brier": 0.15797516479069298,
+        "ece": 0.32399703106738065,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7078340318943782,\"FIST\":0.5418821233358438,\"OPEN\":0.7217101320822104}",
+        "active_macro_f1": 0.6571420957708108,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 11,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 338,
+          "success": 0.5671140939597316,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 137,
+              "success": 0.732620320855615
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 97,
+              "success": 0.4801980198019802
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 104,
+              "success": 0.5024154589371981
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.5678874365503613
+      },
+      {
+        "mode": "detected",
+        "shots": 1,
+        "arm": "signature_blended",
+        "macro_f1": 0.381434143394158,
+        "accuracy": 0.507175319095224,
+        "log_loss": 1.2549751436930108,
+        "brier": 0.17116590219117606,
+        "ece": 0.19813598539650512,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5155045946749773,\"FIST\":0.37089435085468103,\"OPEN\":0.6393376280469736}",
+        "active_macro_f1": 0.5085788578588774,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 38,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 255,
+          "success": 0.4278523489932886,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 73,
+              "success": 0.39037433155080214
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 57,
+              "success": 0.28217821782178215
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 125,
+              "success": 0.6038647342995169
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.4264088659695636
+      },
+      {
+        "mode": "detected",
+        "shots": 1,
+        "arm": "base",
+        "macro_f1": 0.5395284422346704,
+        "accuracy": 0.7232146529290726,
+        "log_loss": 0.8000858528366488,
+        "brier": 0.09769932178807872,
+        "ece": 0.11618170151355135,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6745070855517178,\"OPEN\":0.7668265731439917}",
+        "active_macro_f1": 0.7193712563128939,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 366,
+          "success": 0.6140939597315436,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 104,
+              "success": 0.5148514851485149
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6169079571723098
+      },
+      {
+        "mode": "detected",
+        "shots": 1,
+        "arm": "base_DTW_long",
+        "macro_f1": 0.54090323056878,
+        "accuracy": 0.7244553477181546,
+        "log_loss": 0.7142907789174102,
+        "brier": 0.0965884484813431,
+        "ece": 0.09172269776716892,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6798708145165279,\"OPEN\":0.7669619975156198}",
+        "active_macro_f1": 0.7212043074250399,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 367,
+          "success": 0.6157718120805369,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 106,
+              "success": 0.5247524752475248
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 138,
+              "success": 0.6666666666666666
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6186291275681789
+      },
+      {
+        "mode": "detected",
+        "shots": 1,
+        "arm": "base_DTW_blended",
+        "macro_f1": 0.5436466747632328,
+        "accuracy": 0.7278229478599483,
+        "log_loss": 0.6945229139459637,
+        "brier": 0.09456496262649115,
+        "ece": 0.09014057286549963,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6860627864818191,\"OPEN\":0.7717438023281401}",
+        "active_macro_f1": 0.7248622330176437,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 369,
+          "success": 0.6191275167785235,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 107,
+              "success": 0.5297029702970297
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6220714683599173
+      },
+      {
+        "mode": "detected",
+        "shots": 1,
+        "arm": "base_signature_blended",
+        "macro_f1": 0.5381478465302465,
+        "accuracy": 0.7216785546187807,
+        "log_loss": 0.7106559709121136,
+        "brier": 0.0954970748241189,
+        "ece": 0.0981257885399282,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6706098839598551,\"OPEN\":0.7652013919181584}",
+        "active_macro_f1": 0.7175304620403287,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 365,
+          "success": 0.6124161073825504,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 103,
+              "success": 0.5099009900990099
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6151867867764407
+      },
+      {
+        "mode": "detected",
+        "shots": 1,
+        "arm": "base_full",
+        "macro_f1": 0.540905071677487,
+        "accuracy": 0.7247507512393645,
+        "log_loss": 0.7023331965266698,
+        "brier": 0.09497878090951768,
+        "ece": 0.0985938422673215,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6783815040869254,\"OPEN\":0.7684586723800507}",
+        "active_macro_f1": 0.7212067622366494,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 367,
+          "success": 0.6157718120805369,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 105,
+              "success": 0.5198019801980198
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6186291275681791
+      },
+      {
+        "mode": "detected",
+        "shots": 1,
+        "arm": "base_uniform",
+        "macro_f1": 0.5395284422346704,
+        "accuracy": 0.7232146529290726,
+        "log_loss": 0.7328930248104051,
+        "brier": 0.09693121013015649,
+        "ece": 0.0945689408953633,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6745070855517178,\"OPEN\":0.7668265731439917}",
+        "active_macro_f1": 0.7193712563128939,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 366,
+          "success": 0.6140939597315436,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 104,
+              "success": 0.5148514851485149
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6169079571723098
+      },
+      {
+        "mode": "detected",
+        "shots": 2,
+        "arm": "DTW_long",
+        "macro_f1": 0.3402858959114349,
+        "accuracy": 0.45126828842932637,
+        "log_loss": 1.2443805376259813,
+        "brier": 0.17041194894187317,
+        "ece": 0.1158902230483166,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5225968669895492,\"FIST\":0.44505754686926025,\"OPEN\":0.3934891697869301}",
+        "active_macro_f1": 0.4537145278819132,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 19,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 237,
+          "success": 0.3976510067114094,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 104,
+              "success": 0.5561497326203209
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 100,
+              "success": 0.49504950495049505
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 33,
+              "success": 0.15942028985507245
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.3970982328223017
+      },
+      {
+        "mode": "detected",
+        "shots": 2,
+        "arm": "signature_long",
+        "macro_f1": 0.3453828312114216,
+        "accuracy": 0.45569388646765313,
+        "log_loss": 1.258368491480192,
+        "brier": 0.17156427145970127,
+        "ece": 0.14058499174697978,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5549891128723614,\"FIST\":0.33571215668944304,\"OPEN\":0.490830055283882}",
+        "active_macro_f1": 0.4605104416152288,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 34,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 236,
+          "success": 0.3959731543624161,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 88,
+              "success": 0.47058823529411764
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 53,
+              "success": 0.2623762376237624
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 95,
+              "success": 0.45893719806763283
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.3951230580224509
+      },
+      {
+        "mode": "detected",
+        "shots": 2,
+        "arm": "DTW_local",
+        "macro_f1": 0.5170802040166838,
+        "accuracy": 0.6998531825226753,
+        "log_loss": 1.07963297525,
+        "brier": 0.1479700742258239,
+        "ece": 0.3447137668014326,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7653820450118946,\"FIST\":0.5400922207406975,\"OPEN\":0.7628465503141427}",
+        "active_macro_f1": 0.689440272022245,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 10,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 359,
+          "success": 0.6023489932885906,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 145,
+              "success": 0.7754010695187166
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 82,
+              "success": 0.40594059405940597
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 132,
+              "success": 0.6376811594202898
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6048037544515571
+      },
+      {
+        "mode": "detected",
+        "shots": 2,
+        "arm": "DTW_blended",
+        "macro_f1": 0.4928565718281081,
+        "accuracy": 0.6552685488787228,
+        "log_loss": 1.1528298363149938,
+        "brier": 0.15797516479069298,
+        "ece": 0.32399703106738065,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7078340318943782,\"FIST\":0.5418821233358438,\"OPEN\":0.7217101320822104}",
+        "active_macro_f1": 0.6571420957708108,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 11,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 338,
+          "success": 0.5671140939597316,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 137,
+              "success": 0.732620320855615
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 97,
+              "success": 0.4801980198019802
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 104,
+              "success": 0.5024154589371981
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.5678874365503613
+      },
+      {
+        "mode": "detected",
+        "shots": 2,
+        "arm": "signature_blended",
+        "macro_f1": 0.38539287938169375,
+        "accuracy": 0.5153997857462179,
+        "log_loss": 1.234822432668936,
+        "brier": 0.16850461117350712,
+        "ece": 0.20060592988292286,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5819400760062815,\"FIST\":0.3680776373025749,\"OPEN\":0.5915538042179187}",
+        "active_macro_f1": 0.513857172508925,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 27,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 265,
+          "success": 0.4446308724832215,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 94,
+              "success": 0.5026737967914439
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 56,
+              "success": 0.27722772277227725
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 115,
+              "success": 0.5555555555555556
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.4435171550683358
+      },
+      {
+        "mode": "detected",
+        "shots": 2,
+        "arm": "base",
+        "macro_f1": 0.5395284422346704,
+        "accuracy": 0.7232146529290726,
+        "log_loss": 0.8000858528366488,
+        "brier": 0.09769932178807872,
+        "ece": 0.11618170151355135,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6745070855517178,\"OPEN\":0.7668265731439917}",
+        "active_macro_f1": 0.7193712563128939,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 366,
+          "success": 0.6140939597315436,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 104,
+              "success": 0.5148514851485149
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6169079571723098
+      },
+      {
+        "mode": "detected",
+        "shots": 2,
+        "arm": "base_DTW_long",
+        "macro_f1": 0.54090323056878,
+        "accuracy": 0.7244553477181546,
+        "log_loss": 0.7142907789174102,
+        "brier": 0.0965884484813431,
+        "ece": 0.09172269776716892,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6798708145165279,\"OPEN\":0.7669619975156198}",
+        "active_macro_f1": 0.7212043074250399,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 367,
+          "success": 0.6157718120805369,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 106,
+              "success": 0.5247524752475248
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 138,
+              "success": 0.6666666666666666
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6186291275681789
+      },
+      {
+        "mode": "detected",
+        "shots": 2,
+        "arm": "base_DTW_blended",
+        "macro_f1": 0.5436466747632328,
+        "accuracy": 0.7278229478599483,
+        "log_loss": 0.6945229139459637,
+        "brier": 0.09456496262649115,
+        "ece": 0.09014057286549963,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6860627864818191,\"OPEN\":0.7717438023281401}",
+        "active_macro_f1": 0.7248622330176437,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 369,
+          "success": 0.6191275167785235,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 107,
+              "success": 0.5297029702970297
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6220714683599173
+      },
+      {
+        "mode": "detected",
+        "shots": 2,
+        "arm": "base_signature_blended",
+        "macro_f1": 0.5382598958825711,
+        "accuracy": 0.7216785546187807,
+        "log_loss": 0.708712034175161,
+        "brier": 0.09531694288101489,
+        "ece": 0.09428641168755383,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6730637641573185,\"OPEN\":0.7631957091299937}",
+        "active_macro_f1": 0.7176798611767614,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 365,
+          "success": 0.6124161073825504,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 103,
+              "success": 0.5099009900990099
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6151867867764407
+      },
+      {
+        "mode": "detected",
+        "shots": 2,
+        "arm": "base_full",
+        "macro_f1": 0.5422777957259964,
+        "accuracy": 0.7262868495496564,
+        "log_loss": 0.7013644993120689,
+        "brier": 0.09488366106849051,
+        "ece": 0.09418531037949998,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6822333387679739,\"OPEN\":0.7700977338930398}",
+        "active_macro_f1": 0.7230370609679952,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 368,
+          "success": 0.6174496644295302,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 106,
+              "success": 0.5247524752475248
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6203502979640482
+      },
+      {
+        "mode": "detected",
+        "shots": 2,
+        "arm": "base_uniform",
+        "macro_f1": 0.5395284422346704,
+        "accuracy": 0.7232146529290726,
+        "log_loss": 0.7328930248104051,
+        "brier": 0.09693121013015649,
+        "ece": 0.0945689408953633,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6745070855517178,\"OPEN\":0.7668265731439917}",
+        "active_macro_f1": 0.7193712563128939,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 366,
+          "success": 0.6140939597315436,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 104,
+              "success": 0.5148514851485149
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6169079571723098
+      },
+      {
+        "mode": "detected",
+        "shots": 5,
+        "arm": "DTW_long",
+        "macro_f1": 0.3402858959114349,
+        "accuracy": 0.45126828842932637,
+        "log_loss": 1.2443805376259813,
+        "brier": 0.17041194894187317,
+        "ece": 0.1158902230483166,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5225968669895492,\"FIST\":0.44505754686926025,\"OPEN\":0.3934891697869301}",
+        "active_macro_f1": 0.4537145278819132,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 19,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 237,
+          "success": 0.3976510067114094,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 104,
+              "success": 0.5561497326203209
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 100,
+              "success": 0.49504950495049505
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 33,
+              "success": 0.15942028985507245
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.3970982328223017
+      },
+      {
+        "mode": "detected",
+        "shots": 5,
+        "arm": "signature_long",
+        "macro_f1": 0.3453828312114216,
+        "accuracy": 0.45569388646765313,
+        "log_loss": 1.258368491480192,
+        "brier": 0.17156427145970127,
+        "ece": 0.14058499174697978,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5549891128723614,\"FIST\":0.33571215668944304,\"OPEN\":0.490830055283882}",
+        "active_macro_f1": 0.4605104416152288,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 34,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 236,
+          "success": 0.3959731543624161,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 88,
+              "success": 0.47058823529411764
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 53,
+              "success": 0.2623762376237624
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 95,
+              "success": 0.45893719806763283
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.3951230580224509
+      },
+      {
+        "mode": "detected",
+        "shots": 5,
+        "arm": "DTW_local",
+        "macro_f1": 0.609378270618198,
+        "accuracy": 0.8144791109450255,
+        "log_loss": 1.05915172593877,
+        "brier": 0.14390308326580384,
+        "ece": 0.4533335917407348,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.9029517011515068,\"FIST\":0.7139052113161887,\"OPEN\":0.8206561700050965}",
+        "active_macro_f1": 0.812504360824264,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 8,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 418,
+          "success": 0.7013422818791947,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 143,
+              "success": 0.7647058823529411
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 115,
+              "success": 0.5693069306930693
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 160,
+              "success": 0.7729468599033816
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.7039852058327053
+      },
+      {
+        "mode": "detected",
+        "shots": 5,
+        "arm": "DTW_blended",
+        "macro_f1": 0.5536796317405217,
+        "accuracy": 0.7380092784434678,
+        "log_loss": 1.1417851221337414,
+        "brier": 0.15588011953071823,
+        "ece": 0.40541028766329235,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7781509548974263,\"FIST\":0.6478669998945111,\"OPEN\":0.7887005721701495}",
+        "active_macro_f1": 0.7382395089873622,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 5,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 381,
+          "success": 0.639261744966443,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 136,
+              "success": 0.7272727272727273
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 119,
+              "success": 0.5891089108910891
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 126,
+              "success": 0.6086956521739131
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6400007220974216
+      },
+      {
+        "mode": "detected",
+        "shots": 5,
+        "arm": "signature_blended",
+        "macro_f1": 0.43076260588049564,
+        "accuracy": 0.571833898148306,
+        "log_loss": 1.219450372379417,
+        "brier": 0.16597166551182424,
+        "ece": 0.2511847025699553,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6030624770687728,\"FIST\":0.4566918614898987,\"OPEN\":0.663296084963311}",
+        "active_macro_f1": 0.5743501411739942,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 28,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 296,
+          "success": 0.4966442953020134,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 96,
+              "success": 0.5133689839572193
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 71,
+              "success": 0.35148514851485146
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 129,
+              "success": 0.6231884057971014
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.49579579225760967
+      },
+      {
+        "mode": "detected",
+        "shots": 5,
+        "arm": "base",
+        "macro_f1": 0.5395284422346704,
+        "accuracy": 0.7232146529290726,
+        "log_loss": 0.8000858528366488,
+        "brier": 0.09769932178807872,
+        "ece": 0.11618170151355135,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6745070855517178,\"OPEN\":0.7668265731439917}",
+        "active_macro_f1": 0.7193712563128939,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 366,
+          "success": 0.6140939597315436,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 104,
+              "success": 0.5148514851485149
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6169079571723098
+      },
+      {
+        "mode": "detected",
+        "shots": 5,
+        "arm": "base_DTW_long",
+        "macro_f1": 0.54090323056878,
+        "accuracy": 0.7244553477181546,
+        "log_loss": 0.7142907789174102,
+        "brier": 0.0965884484813431,
+        "ece": 0.09172269776716892,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6798708145165279,\"OPEN\":0.7669619975156198}",
+        "active_macro_f1": 0.7212043074250399,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 367,
+          "success": 0.6157718120805369,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 106,
+              "success": 0.5247524752475248
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 138,
+              "success": 0.6666666666666666
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6186291275681789
+      },
+      {
+        "mode": "detected",
+        "shots": 5,
+        "arm": "base_DTW_blended",
+        "macro_f1": 0.5436466747632328,
+        "accuracy": 0.7278229478599483,
+        "log_loss": 0.6946182246077244,
+        "brier": 0.09422682981860714,
+        "ece": 0.08728688636766299,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6860627864818191,\"OPEN\":0.7717438023281401}",
+        "active_macro_f1": 0.7248622330176437,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 369,
+          "success": 0.6191275167785235,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 107,
+              "success": 0.5297029702970297
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6220714683599173
+      },
+      {
+        "mode": "detected",
+        "shots": 5,
+        "arm": "base_signature_blended",
+        "macro_f1": 0.5382598958825711,
+        "accuracy": 0.7216785546187807,
+        "log_loss": 0.7069309843547091,
+        "brier": 0.09491708366349717,
+        "ece": 0.10379104029862661,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6730637641573185,\"OPEN\":0.7631957091299937}",
+        "active_macro_f1": 0.7176798611767614,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 365,
+          "success": 0.6124161073825504,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 103,
+              "success": 0.5099009900990099
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6151867867764407
+      },
+      {
+        "mode": "detected",
+        "shots": 5,
+        "arm": "base_full",
+        "macro_f1": 0.5410163170545523,
+        "accuracy": 0.7247507512393645,
+        "log_loss": 0.7004936843241519,
+        "brier": 0.0945176754272893,
+        "ece": 0.09175924883404678,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6808492575872349,\"OPEN\":0.7664359003880022}",
+        "active_macro_f1": 0.7213550894060697,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 367,
+          "success": 0.6157718120805369,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 105,
+              "success": 0.5198019801980198
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6186291275681791
+      },
+      {
+        "mode": "detected",
+        "shots": 5,
+        "arm": "base_uniform",
+        "macro_f1": 0.5395284422346704,
+        "accuracy": 0.7232146529290726,
+        "log_loss": 0.7328930248104051,
+        "brier": 0.09693121013015649,
+        "ece": 0.0945689408953633,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7167801102429722,\"FIST\":0.6745070855517178,\"OPEN\":0.7668265731439917}",
+        "active_macro_f1": 0.7193712563128939,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1,
+        "end_to_end": {
+          "supported_references": 596,
+          "supported_matched": 527,
+          "correct": 366,
+          "success": 0.6140939597315436,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 123,
+              "success": 0.6577540106951871
+            },
+            "fist": {
+              "references": 202,
+              "matched": 171,
+              "misses": 31,
+              "correct": 104,
+              "success": 0.5148514851485149
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 139,
+              "success": 0.6714975845410628
+            }
+          }
+        },
+        "equal_user_end_to_end_success": 0.6169079571723098
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 0,
+        "arm": "DTW_long",
+        "macro_f1": 0.3309992191136508,
+        "accuracy": 0.4409406830326589,
+        "log_loss": 1.2397697449993645,
+        "brier": 0.16991897766073616,
+        "ece": 0.10211349944139136,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5213148907717378,\"FIST\":0.4193133848749405,\"OPEN\":0.3833686008079249}",
+        "active_macro_f1": 0.4413322921515344,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 17
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 0,
+        "arm": "signature_long",
+        "macro_f1": 0.39106934878248295,
+        "accuracy": 0.5331252575059732,
+        "log_loss": 1.2176471038565602,
+        "brier": 0.16623813381516878,
+        "ece": 0.1963038972315434,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6096356611773236,\"FIST\":0.3804059299261613,\"OPEN\":0.5742358040264469}",
+        "active_macro_f1": 0.5214257983766439,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 10
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 0,
+        "arm": "DTW_local",
+        "macro_f1": 0.3309992191136508,
+        "accuracy": 0.4409406830326589,
+        "log_loss": 1.2397697449993645,
+        "brier": 0.16991897766073616,
+        "ece": 0.10211349944139136,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5213148907717378,\"FIST\":0.4193133848749405,\"OPEN\":0.3833686008079249}",
+        "active_macro_f1": 0.4413322921515344,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 17
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 0,
+        "arm": "DTW_blended",
+        "macro_f1": 0.3309992191136508,
+        "accuracy": 0.4409406830326589,
+        "log_loss": 1.2397697449993645,
+        "brier": 0.16991897766073616,
+        "ece": 0.10211349944139136,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5213148907717378,\"FIST\":0.4193133848749405,\"OPEN\":0.3833686008079249}",
+        "active_macro_f1": 0.4413322921515344,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 17
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 0,
+        "arm": "signature_blended",
+        "macro_f1": 0.39106934878248295,
+        "accuracy": 0.5331252575059732,
+        "log_loss": 1.2176471038565602,
+        "brier": 0.16623813381516878,
+        "ece": 0.1963038972315434,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6096356611773236,\"FIST\":0.3804059299261613,\"OPEN\":0.5742358040264469}",
+        "active_macro_f1": 0.5214257983766439,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 10
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 0,
+        "arm": "base",
+        "macro_f1": 0.5541343471283242,
+        "accuracy": 0.7478875784550313,
+        "log_loss": 0.6533993579031886,
+        "brier": 0.08175721397695701,
+        "ece": 0.08318598942771814,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7533228632048862,\"FIST\":0.6575778720228125,\"OPEN\":0.8056366532855983}",
+        "active_macro_f1": 0.7388457961710989,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 0,
+        "arm": "base_DTW_long",
+        "macro_f1": 0.5513579517732559,
+        "accuracy": 0.7429720638620974,
+        "log_loss": 0.6288553858454875,
+        "brier": 0.08398471431051563,
+        "ece": 0.10618673172313113,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.736378768381751,\"FIST\":0.6586114673949494,\"OPEN\":0.8104415713163231}",
+        "active_macro_f1": 0.7351439356976744,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 0,
+        "arm": "base_DTW_blended",
+        "macro_f1": 0.5513579517732559,
+        "accuracy": 0.7429720638620974,
+        "log_loss": 0.6288553858454875,
+        "brier": 0.08398471431051563,
+        "ece": 0.10618673172313113,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.736378768381751,\"FIST\":0.6586114673949494,\"OPEN\":0.8104415713163231}",
+        "active_macro_f1": 0.7351439356976744,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 0,
+        "arm": "base_signature_blended",
+        "macro_f1": 0.5527304588368593,
+        "accuracy": 0.7462455423302365,
+        "log_loss": 0.6177490963784098,
+        "brier": 0.08244713896773084,
+        "ece": 0.1013010384124243,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7550267649474955,\"FIST\":0.6560736447878973,\"OPEN\":0.7998214256120442}",
+        "active_macro_f1": 0.7369739451158125,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 0,
+        "arm": "base_full",
+        "macro_f1": 0.5481457170345538,
+        "accuracy": 0.7399510705185233,
+        "log_loss": 0.6225026407112825,
+        "brier": 0.08310946750363227,
+        "ece": 0.10037306077654759,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7412659508948961,\"FIST\":0.645118193220954,\"OPEN\":0.8061987240223654}",
+        "active_macro_f1": 0.7308609560460718,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 0,
+        "arm": "base_uniform",
+        "macro_f1": 0.5541343471283242,
+        "accuracy": 0.7478875784550313,
+        "log_loss": 0.646289129220694,
+        "brier": 0.08452218225265674,
+        "ece": 0.1138812011442642,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7533228632048862,\"FIST\":0.6575778720228125,\"OPEN\":0.8056366532855983}",
+        "active_macro_f1": 0.7388457961710989,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 1,
+        "arm": "DTW_long",
+        "macro_f1": 0.3309992191136508,
+        "accuracy": 0.4409406830326589,
+        "log_loss": 1.2397697449993645,
+        "brier": 0.16991897766073616,
+        "ece": 0.10211349944139136,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5213148907717378,\"FIST\":0.4193133848749405,\"OPEN\":0.3833686008079249}",
+        "active_macro_f1": 0.4413322921515344,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 17
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 1,
+        "arm": "signature_long",
+        "macro_f1": 0.39106934878248295,
+        "accuracy": 0.5331252575059732,
+        "log_loss": 1.2176471038565602,
+        "brier": 0.16623813381516878,
+        "ece": 0.1963038972315434,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6096356611773236,\"FIST\":0.3804059299261613,\"OPEN\":0.5742358040264469}",
+        "active_macro_f1": 0.5214257983766439,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 10
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 1,
+        "arm": "DTW_local",
+        "macro_f1": 0.5210001302686607,
+        "accuracy": 0.7062852617159925,
+        "log_loss": 1.0659574613523795,
+        "brier": 0.1461548392768085,
+        "ece": 0.34802784427965333,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7840697050002615,\"FIST\":0.5440897723597247,\"OPEN\":0.7558410437146568}",
+        "active_macro_f1": 0.6946668403582142,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 10
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 1,
+        "arm": "DTW_blended",
+        "macro_f1": 0.4987062574374613,
+        "accuracy": 0.6640366581640733,
+        "log_loss": 1.1430788232338496,
+        "brier": 0.1567531044197889,
+        "ece": 0.32839999348883,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7107544711037065,\"FIST\":0.5520844255304634,\"OPEN\":0.7319861331156752}",
+        "active_macro_f1": 0.6649416765832817,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 10
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 1,
+        "arm": "signature_blended",
+        "macro_f1": 0.4147078098728147,
+        "accuracy": 0.576572665103666,
+        "log_loss": 1.201513344772322,
+        "brier": 0.1644581999933663,
+        "ece": 0.2507556317074167,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5714880885093698,\"FIST\":0.4184115673025774,\"OPEN\":0.6689315836793115}",
+        "active_macro_f1": 0.5529437464970862,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 1
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 1,
+        "arm": "base",
+        "macro_f1": 0.5541343471283242,
+        "accuracy": 0.7478875784550313,
+        "log_loss": 0.6533993579031886,
+        "brier": 0.08175721397695701,
+        "ece": 0.08318598942771814,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7533228632048862,\"FIST\":0.6575778720228125,\"OPEN\":0.8056366532855983}",
+        "active_macro_f1": 0.7388457961710989,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 1,
+        "arm": "base_DTW_long",
+        "macro_f1": 0.5513579517732559,
+        "accuracy": 0.7429720638620974,
+        "log_loss": 0.6288553858454875,
+        "brier": 0.08398471431051563,
+        "ece": 0.10618673172313113,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.736378768381751,\"FIST\":0.6586114673949494,\"OPEN\":0.8104415713163231}",
+        "active_macro_f1": 0.7351439356976744,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 1,
+        "arm": "base_DTW_blended",
+        "macro_f1": 0.5583067274237814,
+        "accuracy": 0.7524958733859068,
+        "log_loss": 0.6123985538401213,
+        "brier": 0.08210187197059778,
+        "ece": 0.10969744672488749,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7517358382374839,\"FIST\":0.6685068950795785,\"OPEN\":0.812984176378063}",
+        "active_macro_f1": 0.7444089698983752,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 1,
+        "arm": "base_signature_blended",
+        "macro_f1": 0.5526245226276751,
+        "accuracy": 0.7462455423302365,
+        "log_loss": 0.6151661287542411,
+        "brier": 0.08208597681453471,
+        "ece": 0.10109017185892691,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7550267649474955,\"FIST\":0.6533498206822317,\"OPEN\":0.8021215048809736}",
+        "active_macro_f1": 0.7368326968369002,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 1,
+        "arm": "base_full",
+        "macro_f1": 0.5554183073190276,
+        "accuracy": 0.7494236767653232,
+        "log_loss": 0.613472316519751,
+        "brier": 0.08202923162352199,
+        "ece": 0.10775043516917086,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7550267649474955,\"FIST\":0.6587906485410618,\"OPEN\":0.8078558157875532}",
+        "active_macro_f1": 0.7405577430920368,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 1,
+        "arm": "base_uniform",
+        "macro_f1": 0.5541343471283242,
+        "accuracy": 0.7478875784550313,
+        "log_loss": 0.646289129220694,
+        "brier": 0.08452218225265674,
+        "ece": 0.1138812011442642,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7533228632048862,\"FIST\":0.6575778720228125,\"OPEN\":0.8056366532855983}",
+        "active_macro_f1": 0.7388457961710989,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 2,
+        "arm": "DTW_long",
+        "macro_f1": 0.3309992191136508,
+        "accuracy": 0.4409406830326589,
+        "log_loss": 1.2397697449993645,
+        "brier": 0.16991897766073616,
+        "ece": 0.10211349944139136,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5213148907717378,\"FIST\":0.4193133848749405,\"OPEN\":0.3833686008079249}",
+        "active_macro_f1": 0.4413322921515344,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 17
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 2,
+        "arm": "signature_long",
+        "macro_f1": 0.39106934878248295,
+        "accuracy": 0.5331252575059732,
+        "log_loss": 1.2176471038565602,
+        "brier": 0.16623813381516878,
+        "ece": 0.1963038972315434,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6096356611773236,\"FIST\":0.3804059299261613,\"OPEN\":0.5742358040264469}",
+        "active_macro_f1": 0.5214257983766439,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 10
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 2,
+        "arm": "DTW_local",
+        "macro_f1": 0.5210001302686607,
+        "accuracy": 0.7062852617159925,
+        "log_loss": 1.0659574613523795,
+        "brier": 0.1461548392768085,
+        "ece": 0.34802784427965333,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7840697050002615,\"FIST\":0.5440897723597247,\"OPEN\":0.7558410437146568}",
+        "active_macro_f1": 0.6946668403582142,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 10
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 2,
+        "arm": "DTW_blended",
+        "macro_f1": 0.4987062574374613,
+        "accuracy": 0.6640366581640733,
+        "log_loss": 1.1430788232338496,
+        "brier": 0.1567531044197889,
+        "ece": 0.32839999348883,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7107544711037065,\"FIST\":0.5520844255304634,\"OPEN\":0.7319861331156752}",
+        "active_macro_f1": 0.6649416765832817,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 10
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 2,
+        "arm": "signature_blended",
+        "macro_f1": 0.4302678424901936,
+        "accuracy": 0.5898944676603326,
+        "log_loss": 1.1786974377702089,
+        "brier": 0.1615635058029643,
+        "ece": 0.2626702326096612,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6420659104535145,\"FIST\":0.44619096435401506,\"OPEN\":0.6328144951532451}",
+        "active_macro_f1": 0.5736904566535915,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 2
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 2,
+        "arm": "base",
+        "macro_f1": 0.5541343471283242,
+        "accuracy": 0.7478875784550313,
+        "log_loss": 0.6533993579031886,
+        "brier": 0.08175721397695701,
+        "ece": 0.08318598942771814,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7533228632048862,\"FIST\":0.6575778720228125,\"OPEN\":0.8056366532855983}",
+        "active_macro_f1": 0.7388457961710989,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 2,
+        "arm": "base_DTW_long",
+        "macro_f1": 0.5513579517732559,
+        "accuracy": 0.7429720638620974,
+        "log_loss": 0.6288553858454875,
+        "brier": 0.08398471431051563,
+        "ece": 0.10618673172313113,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.736378768381751,\"FIST\":0.6586114673949494,\"OPEN\":0.8104415713163231}",
+        "active_macro_f1": 0.7351439356976744,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 2,
+        "arm": "base_DTW_blended",
+        "macro_f1": 0.5583067274237814,
+        "accuracy": 0.7524958733859068,
+        "log_loss": 0.6123985538401213,
+        "brier": 0.08210187197059778,
+        "ece": 0.10969744672488749,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7517358382374839,\"FIST\":0.6685068950795785,\"OPEN\":0.812984176378063}",
+        "active_macro_f1": 0.7444089698983752,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 2,
+        "arm": "base_signature_blended",
+        "macro_f1": 0.5526245226276751,
+        "accuracy": 0.7462455423302365,
+        "log_loss": 0.6120841891880376,
+        "brier": 0.08180694847387815,
+        "ece": 0.09062661451008922,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7550267649474955,\"FIST\":0.6533498206822317,\"OPEN\":0.8021215048809736}",
+        "active_macro_f1": 0.7368326968369002,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 2,
+        "arm": "base_full",
+        "macro_f1": 0.554023270070395,
+        "accuracy": 0.7478875784550313,
+        "log_loss": 0.6119465016442767,
+        "brier": 0.08188277906438574,
+        "ece": 0.09940133101064001,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7550267649474955,\"FIST\":0.6548675913117189,\"OPEN\":0.8061987240223654}",
+        "active_macro_f1": 0.7386976934271933,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 2,
+        "arm": "base_uniform",
+        "macro_f1": 0.5541343471283242,
+        "accuracy": 0.7478875784550313,
+        "log_loss": 0.646289129220694,
+        "brier": 0.08452218225265674,
+        "ece": 0.1138812011442642,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7533228632048862,\"FIST\":0.6575778720228125,\"OPEN\":0.8056366532855983}",
+        "active_macro_f1": 0.7388457961710989,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 5,
+        "arm": "DTW_long",
+        "macro_f1": 0.3309992191136508,
+        "accuracy": 0.4409406830326589,
+        "log_loss": 1.2397697449993645,
+        "brier": 0.16991897766073616,
+        "ece": 0.10211349944139136,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5213148907717378,\"FIST\":0.4193133848749405,\"OPEN\":0.3833686008079249}",
+        "active_macro_f1": 0.4413322921515344,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 17
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 5,
+        "arm": "signature_long",
+        "macro_f1": 0.39106934878248295,
+        "accuracy": 0.5331252575059732,
+        "log_loss": 1.2176471038565602,
+        "brier": 0.16623813381516878,
+        "ece": 0.1963038972315434,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6096356611773236,\"FIST\":0.3804059299261613,\"OPEN\":0.5742358040264469}",
+        "active_macro_f1": 0.5214257983766439,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 10
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 5,
+        "arm": "DTW_local",
+        "macro_f1": 0.6367891941278345,
+        "accuracy": 0.8515530461920944,
+        "log_loss": 1.049396044230583,
+        "brier": 0.14265856900209234,
+        "ece": 0.490051160161445,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.9303847496625329,\"FIST\":0.7616709127749892,\"OPEN\":0.855101114073816}",
+        "active_macro_f1": 0.8490522588371127,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 6
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 5,
+        "arm": "DTW_blended",
+        "macro_f1": 0.5527984969506552,
+        "accuracy": 0.737192696160301,
+        "log_loss": 1.1341667251755232,
+        "brier": 0.15496550120961722,
+        "ece": 0.4050308212985997,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7796089534850529,\"FIST\":0.6317030511611029,\"OPEN\":0.799881983156465}",
+        "active_macro_f1": 0.7370646626008736,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 5
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 5,
+        "arm": "signature_blended",
+        "macro_f1": 0.4593117521592509,
+        "accuracy": 0.6298525754419481,
+        "log_loss": 1.1657308707262333,
+        "brier": 0.1593218876434554,
+        "ece": 0.2926136263543498,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.621505138949755,\"FIST\":0.5162145334460931,\"OPEN\":0.6995273362411556}",
+        "active_macro_f1": 0.6124156695456678,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 3
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 5,
+        "arm": "base",
+        "macro_f1": 0.5541343471283242,
+        "accuracy": 0.7478875784550313,
+        "log_loss": 0.6533993579031886,
+        "brier": 0.08175721397695701,
+        "ece": 0.08318598942771814,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7533228632048862,\"FIST\":0.6575778720228125,\"OPEN\":0.8056366532855983}",
+        "active_macro_f1": 0.7388457961710989,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 5,
+        "arm": "base_DTW_long",
+        "macro_f1": 0.5513579517732559,
+        "accuracy": 0.7429720638620974,
+        "log_loss": 0.6288553858454875,
+        "brier": 0.08398471431051563,
+        "ece": 0.10618673172313113,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.736378768381751,\"FIST\":0.6586114673949494,\"OPEN\":0.8104415713163231}",
+        "active_macro_f1": 0.7351439356976744,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 5,
+        "arm": "base_DTW_blended",
+        "macro_f1": 0.5567340046778497,
+        "accuracy": 0.7508538372611121,
+        "log_loss": 0.6115808014640116,
+        "brier": 0.0817392073703617,
+        "ece": 0.09892343806354449,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7533228632048862,\"FIST\":0.662422635531031,\"OPEN\":0.8111905199754814}",
+        "active_macro_f1": 0.742312006237133,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 5,
+        "arm": "base_signature_blended",
+        "macro_f1": 0.5526245226276751,
+        "accuracy": 0.7462455423302365,
+        "log_loss": 0.6091001990506995,
+        "brier": 0.08141891161470707,
+        "ece": 0.08836084165796834,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7550267649474955,\"FIST\":0.6533498206822317,\"OPEN\":0.8021215048809736}",
+        "active_macro_f1": 0.7368326968369002,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 5,
+        "arm": "base_full",
+        "macro_f1": 0.5539269117103649,
+        "accuracy": 0.7477816406405284,
+        "log_loss": 0.6099871558169445,
+        "brier": 0.08151030169119902,
+        "ece": 0.09723446795275031,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7550267649474955,\"FIST\":0.6545961895128112,\"OPEN\":0.8060846923811529}",
+        "active_macro_f1": 0.7385692156138198,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      },
+      {
+        "mode": "matched_oracle",
+        "shots": 5,
+        "arm": "base_uniform",
+        "macro_f1": 0.5541343471283242,
+        "accuracy": 0.7478875784550313,
+        "log_loss": 0.646289129220694,
+        "brier": 0.08452218225265674,
+        "ece": 0.1138812011442642,
+        "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7533228632048862,\"FIST\":0.6575778720228125,\"OPEN\":0.8056366532855983}",
+        "active_macro_f1": 0.7388457961710989,
+        "observed_active_classes": [
+          1,
+          2,
+          3
+        ],
+        "all_active_classes_observed": true,
+        "predicted_rest_count": 0
+      }
+    ],
+    "totals": {
+      "original_detections": 1257,
+      "retained_detections": 1026,
+      "retained_references": 1152,
+      "retained_matches": 1008,
+      "supported_references": 596,
+      "supported_matched": 527,
+      "unsupported_matched": 481,
+      "unmatched_detections": 18,
+      "excluded_calibration_recordings": 140,
+      "onset_mae_s": 0.23365079365079364,
+      "offset_mae_s": 0.3523958333333333
+    },
+    "primary_guards": {
+      "lower_log_loss": true,
+      "lower_brier": true,
+      "nonworse_active_macro_f1": true,
+      "nonworse_end_to_end_success": true,
+      "at_least5_of7_user_loss_wins": false,
+      "lower_loss_than_uniform": true,
+      "all7_users_have_all3_matched_active_classes": false
+    },
+    "primary_eligible": false,
+    "primary_pass": false,
+    "primary_user_loss_wins": 2,
+    "scope": "Retrospective public four-channel200Hz continuous diagnostic with original Day1 source-Rest boundaries and personalized Days1-5 G5 history. Calibration and evaluation use disjoint regions of the SAME Day6 continuous files, not independent-day files. No physical8-channel250Hz or current-Rest GUI-detector efficacy, physiological onset, prospective validation or default promotion."
+  },
+  "detected_personal_temporal_unibo_acceptance": {
+    "schema": "detected_personal_temporal_unibo_acceptance_v3",
+    "verifier_sha256": "37362db168dfb00e4f348034db45c2bc0cf29da4a969325cc118edaae0284702",
+    "protocol_sha256": "10985957d6d9d03e8568b6c397f4952dad7288a4d1708ff20def6ebd592f15a3",
+    "result_sha256": "9b5216d8289e4cf50a2c43772f5c49b24ad7c9ea78506a5c8138447f868897a8",
+    "recordings": 28,
+    "excluded_calibration_recordings": 140,
+    "blocks": 56,
+    "arm_cells": 616,
+    "pooled_cells": 88,
+    "retained_predictions": 273328,
+    "totals": {
+      "original_detections": 1257,
+      "retained_detections": 1026,
+      "retained_references": 1152,
+      "retained_matches": 1008,
+      "supported_references": 596,
+      "supported_matched": 527,
+      "unsupported_matched": 481,
+      "unmatched_detections": 18,
+      "excluded_calibration_recordings": 140,
+      "onset_mae_s": 0.23365079365079364,
+      "offset_mae_s": 0.3523958333333333
+    },
+    "independent_source_clock_projection_and_pair_exclusion": true,
+    "every_metric_probability_cost_and_budget_axis_checked": true,
+    "frozen_G5_probabilities_exact": true,
+    "independent_inrun_DP_path_signature_probability_max_error": 6.661338147750939e-16,
+    "independent_fusion_max_error": 1.1102230246251565e-16,
+    "primary_guards": {
+      "lower_log_loss": true,
+      "lower_brier": true,
+      "nonworse_active_macro_f1": true,
+      "nonworse_end_to_end_success": true,
+      "at_least5_of7_user_loss_wins": false,
+      "lower_loss_than_uniform": true,
+      "all7_users_have_all3_matched_active_classes": false
+    },
+    "primary_eligible": false,
+    "primary_pass": false,
+    "user_loss_wins": 2,
+    "default_promoted": false,
+    "physical_validation_proven": false,
+    "completion_proven": false,
+    "scope": "Retrospective public four-channel200Hz continuous diagnostic with original Day1 source-Rest boundaries and personalized Days1-5 G5 history. Calibration and evaluation use disjoint regions of the SAME Day6 continuous files, not independent-day files. No physical8-channel250Hz or current-Rest GUI-detector efficacy, physiological onset, prospective validation or default promotion."
   },
   "temporal_live_gui_acceptance": {
     "schema": "temporal_live_gui_v1_acceptance",
