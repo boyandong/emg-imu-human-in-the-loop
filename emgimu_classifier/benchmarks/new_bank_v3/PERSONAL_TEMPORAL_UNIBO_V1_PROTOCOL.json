@@ -1,0 +1,58 @@
+{
+  "schema": "personal_temporal_unibo_v1_protocol",
+  "parent_protocol_sha256": "551177333493b467f5ee64d8badcea27b71a8f42a671bf7da13a8b3de100ddf6",
+  "external_sha256": {
+    "C:\\Users\\SCQ666\\Documents\\ChatGPT\\EMG-A\\emgimu_classifier\\benchmarks\\new_bank_v3\\F5_PATH_UNIBO_RESULTS.json": "770cb201c4c3ce7c45376231f7eb9bd318dd4c87b849401f8e7b4666da47c871",
+    "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_unibo_sequence_temporal_validation_20260916\\bout_metadata.json": "6d0d7a1792bdd2e92631a6f39aa4092a6e4ace14d91a28185fb360acc3e45b4b",
+    "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_unibo_sequence_temporal_validation_20260916\\split_trial_ids.json": "b5a671f1c35dc9e2c9e4af8b9e93a566a14f05dd0d366512670bc53d58de3310",
+    "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_unibo_sequence_temporal_validation_20260916\\heldout_predictions.npz": "06b6a76f9d2529b9eb28b01f7ff6f03998299d4706e65e88e4f3b2e04a04de93",
+    "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_unibo_sequence_temporal_validation_20260916\\run_manifest.json": "eaf5466dccfdcb5b5bf06983aaba80a968b7b5d3044f3a36571e28123153932c",
+    "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_unibo_sequence_temporal_final_20260928\\bout_metadata.json": "a03e722a7a1d528b744add3dfcebe839a09f00b275a7f983a6e81ac8fb4597c9",
+    "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_unibo_sequence_temporal_final_20260928\\split_trial_ids.json": "1aebd7dc02759797bd338558de6118b5a65e4c2af63d4cf0f049daf811aef4a0",
+    "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_unibo_sequence_temporal_final_20260928\\heldout_predictions.npz": "e33cb3651bff9b7c437cc58146f3185c69dc26cb098f77e544a87ffcc6dd4b89",
+    "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_unibo_sequence_temporal_final_20260928\\run_manifest.json": "30991d997d43336da364ef59da7bed9b53078e0ccfc5f261234dbeaca8c3beea",
+    "D:\\emg-imu-benchmarks\\data\\processed\\feature_bank_unibo_sequence_temporal_validation_20260916\\fitted_states.pkl": "8d26130260b26802a06aa2e7593c73b879e08d37bf65f52a922c9d1667d9a658"
+  },
+  "source_sha256": {
+    "src/emgimu/feature_bank/personal_temporal_bouts_v1.py": "cf0d48becc65acd8b6336be421253070b160b345f0eee8acc2924938853af5c6",
+    "src/emgimu/feature_bank/complete_bout_window_adapter_v1.py": "49c124f12ceb6530f9c219d57698bfd8d1c38ad1879368cb597fef135eefda31",
+    "src/emgimu/feature_bank/personal_temporal_cli_v1.py": "4acb69eab4c0ec1796fbe535694ea1794290f4146a529cad5006cf65a1140568",
+    "src/emgimu/feature_bank/document_path_v3.py": "8c5b3f84b0d7ac74c82f736606823846d812f2f34ea9962f2c4c3d6fff7ab98d",
+    "src/emgimu/feature_bank/temporal.py": "ce23e7a046d27ecbd5ee38e2c0e54976cbe668ac5d44fb28a9b5826b6950b45a",
+    "src/emgimu/feature_bank/core.py": "a272025baef6a52ed24088092d17937da26ba334453305e552b6690528bbfffe",
+    "src/emgimu/feature_bank/unibo_sequence_temporal.py": "c081d69336f3126689e55df688af09b4644eb7b3db0ba893dbdeb4dc88dfbb7f",
+    "src/emgimu/feature_bank/unibo_study.py": "45be90b3f0cd6810b737df1c304df238ae6a65f544d02f79c30ea5e96ec73db7",
+    "src/emgimu/feature_bank/screening.py": "ff32a8bfe3e4f5d7bf7143e4df0e9a90468e73215bcb01c24734ebc70fc42c2b",
+    "src/emgimu/datasets/benchmark.py": "98a1252c72231e1ad0fdbb17b319b56c51c2c21b91b3a5f39729b300a7358585",
+    "src/emgimu/state.py": "226a29b7d958ce3ac3180d923bf3e8310904edd1f950917003e74cd9949582c6",
+    "src/emgimu/datasets/unibo_baseline.py": "86055861e9e192d7eedb4e329f4e83594af842159ab72dc811bd5280e039c539",
+    "tests/test_personal_temporal_bouts_v1.py": "35c894e83b5e3c151e96c25bc721683cad2e5f567a2564efe05ae1bf41764050",
+    "tests/test_personal_temporal_cli_v1.py": "778f1912d1024782520093ddab7a761b6d8e3cba7aff8bd86787fa306681ac40",
+    "tests/test_personal_temporal_native_oracles_v1.py": "a7b5ac3040edeae726db88e7f65295990a9ab1f84c8e4fbee6e9a2568156ac4c",
+    "benchmarks/new_bank_v3/personal_temporal_unibo_v1.py": "c632795aacdcffb46d91b0728cec63bdb880afdd512d932e34ae22aa8e17bfad"
+  },
+  "classes": [
+    "neutral",
+    "index_pinch",
+    "fist",
+    "open_hand"
+  ],
+  "current_shots": [
+    0,
+    1,
+    2,
+    5
+  ],
+  "source_profile_trials": 20,
+  "selection_seed": "20261011_personal_temporal_unibo_v1",
+  "temporal_mix": 0.25,
+  "band_fraction": 0.1,
+  "source_rule": "Reuse exact frozen G5 probabilities/models; never refit G5 or temperatures. Long-term temporal profile uses the same20 frozen source candidate bouts/user from Days1-5. Source history overlaps the personalized G5 training history and is disclosed, not a generic-to-new-user trial.",
+  "calibration_rule": "For each user and each Day6/7/8, reserve5 complete bouts/class deterministically by SHA256(seed|boutid), requiring distinct recording trials across all20. Nested1/2/5 shots/class. Exclude ALL bouts of every reserved recording from evaluation at all budgets, including0; fit local templates only on selected calibration bouts.",
+  "temporal": "All native samples ->32 equal-duration RMS bins -> envelope/(L2+1e-10). Per-class medoids with cumulative Euclidean Sakoe-Chiba band3, shortest equal-cost path, divided by selected path length. Temperature=mean inter-class medoid DTW distance. Order1/2 signatures without absolute time; long-calibration mean/std reused by local class means; Euclidean class-geometry temperature.",
+  "fusion": "Fixed .75 base+.25 DTW or signature; full=.75base+.125DTW+.125signature. Long/local temporal probability blend .5/.5. Include base softened toward uniform as a same-mixture control. No target policy/temperature search.",
+  "primary": "Day6 five-shot full versus base: lower equal-user loss/Brier, nonworse pooled macroF1 and at least5/7 user loss wins. Preserve all budgets, all11 arms, all three day axes and all provider/long-local controls. Days7/8 descriptive, no selection.",
+  "scope": "Previously inspected UniBo four-channel200Hz native oracle-labelled complete bouts. Native calibration/evaluation recording trials disjoint. Separate eight-channel250Hz window-adapter/CLI tests do not prove real eight-channel complete-action accuracy. Song stable-only excerpts are ineligible. Estimated boundaries stay estimated; output waits for interval end. No automatic segmentation or device/default efficacy claim.",
+  "base_cost": "Existing G5 models were trained on personalized Days1-5 history. Reported additional20/0/4/8/20 trial costs concern temporal registration, not total source history. DTW_local at positive budgets mathematically uses only current medoids; the lifecycle still requires a long-term profile. Signature local/blended uses long-term standardization.",
+  "default_promoted": false
+}

@@ -1188,3 +1188,13 @@ emgimu_classifier/feature_bank/SONG_EXTENDED_GUI_REGRESSION_V1.json -text -eol w
 emgimu_classifier/tests/test_extended_window_delivery_v1.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/song_real8/song_extended_gui_v1/emissions.npz -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/regression/extended_gui_v1/** -text -eol whitespace=cr-at-eol
+
+# Personal full-bout temporal runtime and predeclared native experiment
+emgimu_classifier/benchmarks/new_bank_v3/PERSONAL_TEMPORAL_UNIBO_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/new_bank_v3/personal_temporal_unibo_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/complete_bout_window_adapter_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/personal_temporal_bouts_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/personal_temporal_cli_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_personal_temporal_bouts_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_personal_temporal_cli_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_personal_temporal_native_oracles_v1.py -text -eol whitespace=cr-at-eol
