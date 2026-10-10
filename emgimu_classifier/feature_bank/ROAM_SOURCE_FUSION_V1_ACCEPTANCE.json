@@ -1,0 +1,47 @@
+{
+  "schema": "roam_source_fusion_v1_acceptance",
+  "protocol_sha256": "1426edfd216ccf77c0ad27c53a894a8d70c9c97ac2bbe3ecca9b6659117ea20d",
+  "source_result_sha256": "8a513d6f56b75e2411d583bccd2f9c082ade8fc159c455f7ba110b0789c58185",
+  "source_acceptance_sha256": "a42890a0a8f2332356358bcd7ae39e1cbfcbc1518c1b5c0fe933c5d5b3ee08b6",
+  "target_result_sha256": "d927d5c020200e6a06df5a1d450364b70f376afca278c4f18693c1e5d09e812a",
+  "policy_sha256": "199fb6f7db4438eb39d6cb695f2150840548f67491685cebd04614726e440c48",
+  "verifier_sha256": "0dcac0975aa96e0b7b9d47f2349aab4f5543a1b06149378912738c2f73cde4cf",
+  "independent_source_queries": 324,
+  "independent_target_queries": 180,
+  "source_budget_rows": 972,
+  "target_cells": 330,
+  "target_predictions": 5940,
+  "maximum_target_composition_error": 2.220446049250313e-16,
+  "source_simplex_stationarity_gap": 1.938560423297986e-12,
+  "primary_guards": {
+    "fixed_joint": {
+      "lower_log_loss": true,
+      "lower_brier": true,
+      "nonworse_macro_f1": true,
+      "nonworse_all_class_recall": true,
+      "at_least3_user_loss_wins": true
+    },
+    "population": {
+      "lower_log_loss": false,
+      "lower_brier": false,
+      "nonworse_macro_f1": true,
+      "nonworse_all_class_recall": true,
+      "at_least3_user_loss_wins": false
+    }
+  },
+  "primary_pass": false,
+  "user_loss_wins": {
+    "fixed_joint": 5,
+    "population": 1
+  },
+  "source_policy_committed_before_target_apply": true,
+  "target_refitted": false,
+  "read_only_no_fitting": true,
+  "missing_provider_Unknown_scored_wrong": true,
+  "source_training_loss_is_unbiased_evaluation": false,
+  "previously_inspected_target_users": true,
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Retrospective native8/200Hz three-class ROAM source-only convex population fusion. Frozen representations/classifiers and original target probabilities are reused, not refitted. Source OOF users1..18 supply972 budget rows on324 independent posture queries; weights are committed before application to180 previously inspected19..28 queries. Source temperature/prior used all source OOF labels; source policy training loss is not an unbiased source evaluation. Postures are not days or redonnings; cue boundaries are oracle, pinch/physical ring/F6/ADC-F9/device efficacy unavailable."
+}

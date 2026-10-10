@@ -75,6 +75,8 @@
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
     "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json": "9964583ef8211b09fa5e594a3aa8e46825d65418afd50c69a99939f62a7eea0a",
     "benchmarks/new_bank_v3/ROAM_NATIVE_JOINT_V1_RESULTS.json": "c1691293a0e1df662838c58137d05ce377753fa860d99c9309c05987ec26ef98",
+    "benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_SOURCE_RESULTS.json": "8a513d6f56b75e2411d583bccd2f9c082ade8fc159c455f7ba110b0789c58185",
+    "benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_TARGET_RESULTS.json": "d927d5c020200e6a06df5a1d450364b70f376afca278c4f18693c1e5d09e812a",
     "benchmarks/new_bank_v3/SPEC_F2C_GRAB_RESULTS.json": "8d2058a17e63b66e2bbe3ffedc97656d5a20e64a30499dc329efca5120e745bb",
     "benchmarks/new_bank_v3/SPEC_F2C_TRANSFER_RESULTS.json": "fd680129ec69aee4e9f21744a134e14f245d00557ed27f71bb6b781098c7aed6",
     "benchmarks/new_bank_v3/SPEC_F2C_WEARING_RESULTS.json": "a3a6fb7e19abf9c3a709c27625a45f03346b9f664cac04126c9ac65d9968b3e4",
@@ -82,7 +84,7 @@
   },
   "current_scientific_conclusions": {
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
-    "sha256": "c0fd811e2333fcf457a0747627c29d542d2a3ab1b418aaa7391fafbc476bc41f"
+    "sha256": "664292e29e3f92033a269e7c5aabff81229e05d06d54197a5887705ac8991c9b"
   },
   "current_regression_snapshot": {
     "path": "../CLASSIFIER_REGRESSION_20261008.json",
@@ -175,6 +177,10 @@
   "joint_bout_gui_acceptance": {
     "path": "../JOINT_BOUT_GUI_V1_ACCEPTANCE.json",
     "sha256": "27e905148ec66fafffc7788d438f9e4e4044cc7fad709162e0387707d00d391d"
+  },
+  "roam_source_fusion_acceptance": {
+    "path": "../ROAM_SOURCE_FUSION_V1_ACCEPTANCE.json",
+    "sha256": "7d9c36beeeeb5d7d278b296b5f1f3b2c12e1dceaf7771225f84284da8c52baf2"
   },
   "roam_native_joint_acceptance": {
     "path": "../ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json",

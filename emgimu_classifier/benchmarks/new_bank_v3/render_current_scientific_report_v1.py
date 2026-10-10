@@ -750,6 +750,18 @@ def render(data, source_sha):
             'Independent manual classifier, DTW/signature and fusion equations, every saved-profile replay, metric and CSV row are verified without fitting. The native study was run once.',
             'These are previously inspected public three-class close/open/relax users; close is not relabelled as fist and pinch is absent. Boundaries are supplied cue intervals, not autonomous segmentation or physiological action boundaries. Recording conditions are different postures, not a cross-day or redonning experiment. Physical ring/F6, ADC-bound F9, own-device efficacy and latency remain unavailable.',
             '[Native joint acceptance](ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json).']
+    if 'roam_source_fusion' in data:
+        fusion=data['roam_source_fusion'];weights=fusion['source_weights']
+        summary={(c['phase'],c['arm']):c for c in fusion['two_shot_summary']}
+        selected=summary['descriptive_all','source_selected'];fixed=summary['descriptive_all','fixed_joint'];population=summary['descriptive_all','population']
+        variation_lines += ['', '#### Source-only population probability fusion', '',
+            'Three frozen source-user-out classifier packages are reused without refitting. Eighteen source users supply72 native recordings,324 independent posture queries and972 paired budget rows. Five nonnegative normalized population coefficients are fitted using source labels only; source training loss is not an unbiased evaluation. Source OOF temperature/prior estimation also used all source users.',
+            f"Selected source coefficients are{weights}. The policy and its54-block independent native replay receipt are committed before applying frozen target arrays. No target representation, classifier, profile, temperature or weight is fitted; the180 target queries were already inspected in earlier work.",
+            f"At2 current cues/class, descriptive all-user selected F1/loss are{selected['macro_f1']:.4f}/{selected['log_loss']:.4f}; fixed-joint values are{fixed['macro_f1']:.4f}/{fixed['log_loss']:.4f}, and zero-calibration population values are{population['macro_f1']:.4f}/{population['log_loss']:.4f}. The strict guard compares against both controls, primary pass={fusion['primary_pass']}; loss improvements against a weaker fixed mixture do not establish superiority to population or a general default.",
+            'Source weights have an independently verified simplex stationarity gap below1e-6. Source transforms, full-path probabilities, saved profiles and every target fusion/metric/CSV row are checked without fitting or re-optimizing. Five component omissions renormalize retained source coefficients; these are top-level components, not whole-document family removals.',
+            'All five branches are computed, so selected/omission arms retain6 long plus0/3/6 current calibration cues even when a coefficient is zero. Population controls consume zero target calibration. If available mass is zero, Unknown is scored as wrong and its uniform probability fallback remains separately scoreable.',
+            'This is three-class oracle-cue/posture evidence. It does not prove automatic segmentation, physiological boundaries, pinch, cross-day/redonning, ADC-bound quality, own-device efficacy or a universal family role. Desktop defaults remain unchanged.',
+            '[Source-only fusion acceptance](ROAM_SOURCE_FUSION_V1_ACCEPTANCE.json).']
     lines[-1:-1] = variation_lines
     return '\n'.join(lines)
 

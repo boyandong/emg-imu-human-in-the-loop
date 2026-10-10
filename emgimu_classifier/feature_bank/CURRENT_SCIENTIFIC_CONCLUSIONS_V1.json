@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "7f30187f824b26825e5f8ed65c904a9bf5cf5018a5ca40cdd82909e496540e2b",
+  "generator_sha256": "da60cd097abf4a3780ab1b431ecfc8f7c7406ab908ef7d9c044451366f07f51b",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -62,7 +62,9 @@
     "tests/test_document_window_composition_delivery_v1.py",
     "tests/test_document_window_composition_register_v1.py",
     "tests/test_roam_native_joint_delivery_v1.py",
-    "tests/test_roam_native_joint_register_v1.py"
+    "tests/test_roam_native_joint_register_v1.py",
+    "tests/test_roam_source_fusion_delivery_v1.py",
+    "tests/test_roam_source_fusion_register_v1.py"
   ],
   "source_sha256": {
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
@@ -114,7 +116,7 @@
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "1c761276a852f29475487038add9885f5150857e9d525078a05d1565bf740ab4",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "3885ff300bee71cc1a0f91ddba8cb1e3d4a94f776d663304d69386983f4160d1",
     "feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json": "9bf4a118a99d7cc8034738b69b11154f85fb123022dd3d8a715eb248c3df89f2",
     "feature_bank/JOINT_BOUT_GUI_V1_ACCEPTANCE.json": "27e905148ec66fafffc7788d438f9e4e4044cc7fad709162e0387707d00d391d",
     "benchmarks/new_bank_v3/render_joint_bout_gui_v1.py": "9decc46e4dc83409237e42e4a075a3683e20e308c6ab39b46af9c3fe9c02e652",
@@ -125,6 +127,10 @@
     "feature_bank/ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json": "5aed9fc11619bec8d7f024c38d7b579e01b4e66c6292195f589445e37d9071ea",
     "benchmarks/new_bank_v3/ROAM_NATIVE_JOINT_V1_RESULTS.json": "c1691293a0e1df662838c58137d05ce377753fa860d99c9309c05987ec26ef98",
     "benchmarks/new_bank_v3/verify_roam_native_joint_v1.py": "ffcded308750d3fb4666c79eae4ce68c6ddca1778c55d2154aaa47a1813d88ce",
+    "feature_bank/ROAM_SOURCE_FUSION_V1_ACCEPTANCE.json": "7d9c36beeeeb5d7d278b296b5f1f3b2c12e1dceaf7771225f84284da8c52baf2",
+    "benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_TARGET_RESULTS.json": "d927d5c020200e6a06df5a1d450364b70f376afca278c4f18693c1e5d09e812a",
+    "benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_SOURCE_RESULTS.json": "8a513d6f56b75e2411d583bccd2f9c082ade8fc159c455f7ba110b0789c58185",
+    "benchmarks/new_bank_v3/verify_roam_source_fusion_v1.py": "0dcac0975aa96e0b7b9d47f2349aab4f5543a1b06149378912738c2f73cde4cf",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -178,7 +184,9 @@
     "tests/test_document_window_composition_delivery_v1.py": "bf1634a13850c8904eb074319645c536e7b7dcfe488a22b65871f3490340baac",
     "tests/test_document_window_composition_register_v1.py": "83b0b77e3ac4523edd65dd97d2d7c65c4d5c43c70d00d568e92321a7614cb666",
     "tests/test_roam_native_joint_delivery_v1.py": "af9c07637aea9e1d356d4dbe8c113ce3f019f2fa2d6aa0d41caed694689a9988",
-    "tests/test_roam_native_joint_register_v1.py": "212db04dd7dff579edc31b6ea7c94eaba9753f6a1953d6e6495c91de835e9aa5"
+    "tests/test_roam_native_joint_register_v1.py": "212db04dd7dff579edc31b6ea7c94eaba9753f6a1953d6e6495c91de835e9aa5",
+    "tests/test_roam_source_fusion_delivery_v1.py": "7022808c6a479df85c5dc86e2648ada7c1c08690f2f48aa4ce31f59992e8d25b",
+    "tests/test_roam_source_fusion_register_v1.py": "36cb59599e4f03046591aa96555c52f7e804249013401b3514552361a9687226"
   },
   "questions": [
     {
@@ -3402,6 +3410,567 @@
       }
     }
   ],
+  "roam_source_fusion": {
+    "schema": "roam_source_fusion_v1_acceptance",
+    "protocol_sha256": "1426edfd216ccf77c0ad27c53a894a8d70c9c97ac2bbe3ecca9b6659117ea20d",
+    "source_result_sha256": "8a513d6f56b75e2411d583bccd2f9c082ade8fc159c455f7ba110b0789c58185",
+    "source_acceptance_sha256": "a42890a0a8f2332356358bcd7ae39e1cbfcbc1518c1b5c0fe933c5d5b3ee08b6",
+    "target_result_sha256": "d927d5c020200e6a06df5a1d450364b70f376afca278c4f18693c1e5d09e812a",
+    "policy_sha256": "199fb6f7db4438eb39d6cb695f2150840548f67491685cebd04614726e440c48",
+    "verifier_sha256": "0dcac0975aa96e0b7b9d47f2349aab4f5543a1b06149378912738c2f73cde4cf",
+    "independent_source_queries": 324,
+    "independent_target_queries": 180,
+    "source_budget_rows": 972,
+    "target_cells": 330,
+    "target_predictions": 5940,
+    "maximum_target_composition_error": 2.220446049250313e-16,
+    "source_simplex_stationarity_gap": 1.938560423297986e-12,
+    "primary_guards": {
+      "fixed_joint": {
+        "lower_log_loss": true,
+        "lower_brier": true,
+        "nonworse_macro_f1": true,
+        "nonworse_all_class_recall": true,
+        "at_least3_user_loss_wins": true
+      },
+      "population": {
+        "lower_log_loss": false,
+        "lower_brier": false,
+        "nonworse_macro_f1": true,
+        "nonworse_all_class_recall": true,
+        "at_least3_user_loss_wins": false
+      }
+    },
+    "primary_pass": false,
+    "user_loss_wins": {
+      "fixed_joint": 5,
+      "population": 1
+    },
+    "source_policy_committed_before_target_apply": true,
+    "target_refitted": false,
+    "read_only_no_fitting": true,
+    "missing_provider_Unknown_scored_wrong": true,
+    "source_training_loss_is_unbiased_evaluation": false,
+    "previously_inspected_target_users": true,
+    "default_promoted": false,
+    "physical_validation_proven": false,
+    "completion_proven": false,
+    "scope": "Retrospective native8/200Hz three-class ROAM source-only convex population fusion. Frozen representations/classifiers and original target probabilities are reused, not refitted. Source OOF users1..18 supply972 budget rows on324 independent posture queries; weights are committed before application to180 previously inspected19..28 queries. Source temperature/prior used all source OOF labels; source policy training loss is not an unbiased source evaluation. Postures are not days or redonnings; cue boundaries are oracle, pinch/physical ring/F6/ADC-F9/device efficacy unavailable.",
+    "source_weights": {
+      "source_window": 0.9800336116561629,
+      "reliability_window": 0.019966388343836152,
+      "F7F8_window": 9.459437102609864e-16,
+      "DTW": 0.0,
+      "signature": 0.0
+    },
+    "two_shot_summary": [
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "source_selected",
+        "trials": 90,
+        "macro_f1": 0.9902350561484271,
+        "accuracy": 0.9888888888888889,
+        "log_loss": 0.29400287653411383,
+        "brier": 0.042422040217022,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9666666666666667,
+          "relax": 1.0
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            29,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            40,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "fixed_joint",
+        "trials": 90,
+        "macro_f1": 0.9902350561484271,
+        "accuracy": 0.9888888888888889,
+        "log_loss": 0.5951586891389614,
+        "brier": 0.10183203890100707,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9666666666666667,
+          "relax": 1.0
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            29,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            40,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "population",
+        "trials": 90,
+        "macro_f1": 0.9902350561484271,
+        "accuracy": 0.9888888888888889,
+        "log_loss": 0.29383201882633614,
+        "brier": 0.04237359881954501,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9666666666666667,
+          "relax": 1.0
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            29,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            40,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "reliability",
+        "trials": 90,
+        "macro_f1": 0.9803756658256239,
+        "accuracy": 0.9777777777777777,
+        "log_loss": 0.3033377783827913,
+        "brier": 0.045418927803636926,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9333333333333333,
+          "relax": 1.0
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            28,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            40,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "source_selected",
+        "trials": 90,
+        "macro_f1": 0.903713436322132,
+        "accuracy": 0.9111111111111111,
+        "log_loss": 0.3674356632632332,
+        "brier": 0.06149960886839978,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334,
+          "relax": 0.925
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            25,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            37,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "fixed_joint",
+        "trials": 90,
+        "macro_f1": 0.9269874442288235,
+        "accuracy": 0.9333333333333333,
+        "log_loss": 0.6210545125429404,
+        "brier": 0.10863265146772212,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9,
+          "relax": 0.925
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            27,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            37,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "population",
+        "trials": 90,
+        "macro_f1": 0.903713436322132,
+        "accuracy": 0.9111111111111111,
+        "log_loss": 0.36782415087933346,
+        "brier": 0.06157275621048732,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334,
+          "relax": 0.925
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            25,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            37,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "reliability",
+        "trials": 90,
+        "macro_f1": 0.903713436322132,
+        "accuracy": 0.9111111111111111,
+        "log_loss": 0.3508815119040324,
+        "brier": 0.05874979010924447,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334,
+          "relax": 0.925
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            25,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            37,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_all",
+        "shots": 2,
+        "arm": "source_selected",
+        "trials": 180,
+        "macro_f1": 0.9459721506805469,
+        "accuracy": 0.95,
+        "log_loss": 0.33071926989867345,
+        "brier": 0.051960824542710886,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9,
+          "relax": 0.9625
+        },
+        "confusion_with_Unknown": [
+          [
+            40,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            54,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            77,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_all",
+        "shots": 2,
+        "arm": "fixed_joint",
+        "trials": 180,
+        "macro_f1": 0.95770832405233,
+        "accuracy": 0.9611111111111111,
+        "log_loss": 0.6081066008409509,
+        "brier": 0.10523234518436461,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9333333333333333,
+          "relax": 0.9625
+        },
+        "confusion_with_Unknown": [
+          [
+            40,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            56,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            77,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_all",
+        "shots": 2,
+        "arm": "population",
+        "trials": 180,
+        "macro_f1": 0.9459721506805469,
+        "accuracy": 0.95,
+        "log_loss": 0.33082808485283477,
+        "brier": 0.051973177515016164,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9,
+          "relax": 0.9625
+        },
+        "confusion_with_Unknown": [
+          [
+            40,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            54,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            77,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_all",
+        "shots": 2,
+        "arm": "reliability",
+        "trials": 180,
+        "macro_f1": 0.9408523731810146,
+        "accuracy": 0.9444444444444444,
+        "log_loss": 0.32710964514341184,
+        "brier": 0.05208435895644069,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.8833333333333333,
+          "relax": 0.9625
+        },
+        "confusion_with_Unknown": [
+          [
+            40,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            53,
+            3,
+            0
+          ],
+          [
+            2,
+            1,
+            77,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "interpretation": "Five convex population coefficients are fitted on source-user posture queries and committed before target application. Classifiers and target arrays are reused. Source policy training selects mostly source-window and weak reliability-window mass, with zero DTW/signature mass; this is dataset-specific selection, not proof temporal families never help. Both fixed-joint and zero-calibration population guards remain explicit. Unknown fallback is scored wrong, and all computed personal branches retain6+3*shots shared registration cost."
+  },
   "roam_native_joint": {
     "schema": "roam_native_joint_v1_acceptance",
     "protocol_sha256": "83e761ff30175356308312bd489790064599a5005fed09b747b33bb6724b26e6",

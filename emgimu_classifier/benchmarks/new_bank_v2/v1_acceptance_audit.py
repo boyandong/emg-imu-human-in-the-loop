@@ -702,6 +702,13 @@ def build(pre: Path, goal: Path) -> dict:
                          'Whole F2 removes covariance/tangent and CSP; whole F5 removes window and both full-path branches. '
                          'Descriptive F1 improves but loss/Brier worsen and0/5 validation users win loss; the primary guard fails. '
                          'These are three-class oracle cue intervals on previously inspected posture domains, not physiological/automatic boundaries, cross-day/redonning, pinch, ADC-bound F9 or own-device proof. The remaining formula/native eligibility clauses stay partial.')
+        if ident in ('GOAL-03','GOAL-05','GOAL-10','GOAL-20'):
+            evidence += ('|feature_bank/ROAM_SOURCE_FUSION_V1_ACCEPTANCE.json'
+                         '|benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_TARGET_RESULTS.json'
+                         '|tests/test_roam_source_fusion_delivery_v1.py')
+            boundary += (' Source-only convex five-component population weights are fitted on324 native source-user queries/972 budget rows, committed before frozen180-query target application, and verified by54 native source replays plus independent target equations. '
+                         'Classifier/source representations and target arrays are reused without refitting. Both fixed-joint and zero-calibration population guards remain explicit; zero temporal coefficients and computed6+3*shots registration costs are retained. '
+                         'Top-level component omissions are not document-wide family removals. Source training loss is not unbiased evaluation; oracle/posture/previously inspected-user limits and physical/formula gaps remain open.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

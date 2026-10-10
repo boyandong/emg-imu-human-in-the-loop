@@ -382,6 +382,13 @@ def build() -> dict:
                           'Whole F2 removes covariance/tangent and CSP; whole F5 removes window temporal form and full-path branches. Independent read-only source/temporal/fusion oracles and saved-profile replay are verified.')
             unresolved += (' Three-class oracle cue intervals and posture domains do not establish pinch, automatic/physiological boundaries, cross-day/redonning, physical ring/F6 or own-device efficacy. '
                            'Joint descriptive F1 improves but probability loss/Brier worsen;0/5 validation user loss wins fail the primary guard. No default promotion.')
+        if family in ('F5','F7','F8'):
+            evidence += ('|feature_bank/ROAM_SOURCE_FUSION_V1_ACCEPTANCE.json'
+                         '|benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_TARGET_RESULTS.json')
+            supported += (' A source-only convex five-component population mixture is fitted on324 native source-user posture queries and972 budget rows, then committed before applying180 frozen target query arrays. '
+                          'Source simplex stationarity,54 native replay blocks and target composition/metrics are independently verified without classifier refitting.')
+            unresolved += (' This source policy selects zero DTW/signature mass in this three-class task; it does not establish their universal uselessness or all-family superiority. '
+                           'Strict comparisons against both fixed joint and zero-calibration population are retained. Oracle boundaries, posture domains and previously inspected users do not prove autonomous/device or cross-day efficacy.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

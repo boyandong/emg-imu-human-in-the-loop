@@ -335,11 +335,24 @@ def build():
     for path in (native_joint_path,native_joint_result_path,HERE/'verify_roam_native_joint_v1.py'):
         sources[path.relative_to(ROOT).as_posix()]=sha(path)
     verification_tests += ['tests/test_roam_native_joint_delivery_v1.py','tests/test_roam_native_joint_register_v1.py']
+    source_fusion_path=ROOT/'feature_bank/ROAM_SOURCE_FUSION_V1_ACCEPTANCE.json'
+    source_fusion=json.loads(source_fusion_path.read_text(encoding='utf8'))
+    source_fusion_result_path=HERE/'ROAM_SOURCE_FUSION_V1_TARGET_RESULTS.json'
+    source_fusion_result=json.loads(source_fusion_result_path.read_text(encoding='utf8'))
+    source_fusion_train_path=HERE/'ROAM_SOURCE_FUSION_V1_SOURCE_RESULTS.json'
+    source_fusion_train=json.loads(source_fusion_train_path.read_text(encoding='utf8'))
+    for path in (source_fusion_path,source_fusion_result_path,source_fusion_train_path,HERE/'verify_roam_source_fusion_v1.py'):
+        sources[path.relative_to(ROOT).as_posix()]=sha(path)
+    verification_tests += ['tests/test_roam_source_fusion_delivery_v1.py','tests/test_roam_source_fusion_register_v1.py']
     for name in verification_tests: sources[name] = sha(ROOT / name)
     result = {'schema': 'current_scientific_conclusions_v1', 'generator_sha256': sha(Path(__file__)),
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
               'requirement_lines': [1013, 1049], 'verification_tests': verification_tests,
               'source_sha256': sources, 'questions': answers,
+              'roam_source_fusion': dict(source_fusion,source_weights=source_fusion_train['policy_weights'],
+                  two_shot_summary=[c for c in source_fusion_result['aggregates'] if c['shots']==2 and
+                      c['arm'] in ('source_selected','fixed_joint','population','reliability')],
+                  interpretation='Five convex population coefficients are fitted on source-user posture queries and committed before target application. Classifiers and target arrays are reused. Source policy training selects mostly source-window and weak reliability-window mass, with zero DTW/signature mass; this is dataset-specific selection, not proof temporal families never help. Both fixed-joint and zero-calibration population guards remain explicit. Unknown fallback is scored wrong, and all computed personal branches retain6+3*shots shared registration cost.'),
               'roam_native_joint': dict(native_joint,
                   two_shot_summary=[c for c in native_joint_result['aggregates'] if c['shots']==2 and
                       c['arm'] in ('window_reliability','window_full','joint_full','joint_uniform')],

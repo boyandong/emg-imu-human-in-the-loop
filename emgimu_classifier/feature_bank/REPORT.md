@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `c0fd811e2333fcf457a0747627c29d542d2a3ab1b418aaa7391fafbc476bc41f`.
+Source SHA-256: `664292e29e3f92033a269e7c5aabff81229e05d06d54197a5887705ac8991c9b`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -1221,6 +1221,16 @@ Seven provider and six whole-family omissions preserve fitted models and renorma
 Independent manual classifier, DTW/signature and fusion equations, every saved-profile replay, metric and CSV row are verified without fitting. The native study was run once.
 These are previously inspected public three-class close/open/relax users; close is not relabelled as fist and pinch is absent. Boundaries are supplied cue intervals, not autonomous segmentation or physiological action boundaries. Recording conditions are different postures, not a cross-day or redonning experiment. Physical ring/F6, ADC-bound F9, own-device efficacy and latency remain unavailable.
 [Native joint acceptance](ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json).
+
+#### Source-only population probability fusion
+
+Three frozen source-user-out classifier packages are reused without refitting. Eighteen source users supply72 native recordings,324 independent posture queries and972 paired budget rows. Five nonnegative normalized population coefficients are fitted using source labels only; source training loss is not an unbiased evaluation. Source OOF temperature/prior estimation also used all source users.
+Selected source coefficients are{'source_window': 0.9800336116561629, 'reliability_window': 0.019966388343836152, 'F7F8_window': 9.459437102609864e-16, 'DTW': 0.0, 'signature': 0.0}. The policy and its54-block independent native replay receipt are committed before applying frozen target arrays. No target representation, classifier, profile, temperature or weight is fitted; the180 target queries were already inspected in earlier work.
+At2 current cues/class, descriptive all-user selected F1/loss are0.9460/0.3307; fixed-joint values are0.9577/0.6081, and zero-calibration population values are0.9460/0.3308. The strict guard compares against both controls, primary pass=False; loss improvements against a weaker fixed mixture do not establish superiority to population or a general default.
+Source weights have an independently verified simplex stationarity gap below1e-6. Source transforms, full-path probabilities, saved profiles and every target fusion/metric/CSV row are checked without fitting or re-optimizing. Five component omissions renormalize retained source coefficients; these are top-level components, not whole-document family removals.
+All five branches are computed, so selected/omission arms retain6 long plus0/3/6 current calibration cues even when a coefficient is zero. Population controls consume zero target calibration. If available mass is zero, Unknown is scored as wrong and its uniform probability fallback remains separately scoreable.
+This is three-class oracle-cue/posture evidence. It does not prove automatic segmentation, physiological boundaries, pinch, cross-day/redonning, ADC-bound quality, own-device efficacy or a universal family role. Desktop defaults remain unchanged.
+[Source-only fusion acceptance](ROAM_SOURCE_FUSION_V1_ACCEPTANCE.json).
 <!-- CURRENT_SCIENTIFIC_ANSWERS_V1_STOP -->
 
 ### Calibration recovery and model-composition limits

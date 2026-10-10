@@ -513,6 +513,47 @@ def export():
                         full_target_calibration_trials_per_user=costs['joint_full'],remaining_target_calibration_trials_per_user=costs[remaining],
                         **{'full_'+key:full[key] for key in METRICS},**{'remaining_'+key:alternative[key] for key in METRICS},
                         delta_logloss=alternative['log_loss']-full['log_loss'],delta_macro_f1=full['macro_f1']-alternative['macro_f1'],delta_brier=alternative['brier']-full['brier']))
+    source_selected=read('ROAM_SOURCE_FUSION_V1_TARGET_RESULTS.json')
+    selected_source=(HERE/'ROAM_SOURCE_FUSION_V1_TARGET_RESULTS.json').relative_to(ROOT).as_posix()
+    selected_arrays=HERE/'roam_source_fusion_v1/target/readouts.npz'
+    sources[selected_arrays.relative_to(ROOT).as_posix()]=sha(selected_arrays)
+    for path in (HERE/'ROAM_SOURCE_FUSION_V1_SOURCE_RESULTS.json',ROOT/'feature_bank/ROAM_SOURCE_FUSION_V1_ACCEPTANCE.json'):
+        sources[path.relative_to(ROOT).as_posix()]=sha(path)
+    removals={'component_'+g:'minus_'+g for g in source_selected['weights']}
+    comparisons=[(g,'source_selected') for g in ('population','fixed_joint','reliability','window_full','uniform_components')]
+    comparisons += [('source_selected',g) for g in removals.values()]
+    with np.load(selected_arrays,allow_pickle=False) as native:
+        for user,phase,subjects in groups:
+            y=np.array([['close','open','relax'].index(c) for s in subjects for c in s['query_labels']])
+            for shots in (0,1,2):
+                names=[c['arm'] for c in source_selected['cells'] if c['user']==subjects[0]['user'] and c['shots']==shots]
+                probabilities={a:np.concatenate([native[f'u{s["user"]}_s{shots}_{a}'] for s in subjects]) for a in names}
+                rejected={a:np.concatenate([native[f'u{s["user"]}_s{shots}_{a}_rejected'] for s in subjects]) for a in names}
+                arms={}
+                for a,q in probabilities.items():
+                    prediction=q.argmax(1);prediction[rejected[a]]=3;arms[a]=(prediction,q)
+                costs={a:0 if a=='population' else 6+3*shots for a in arms}
+                notes=dict(class_names=['close','open','relax'],source_population_weights=source_selected['weights'],
+                    source_policy_frozen_before_target_apply=True,target_arrays_reused_without_refitting=True,
+                    actual_total_target_calibration_trials_per_user=costs,registration_counted_once=True,
+                    zero_coefficients_do_not_erase_computed_registration_cost=True,Unknown_scored_wrong=True,
+                    Unknown_count_by_arm={a:int(v.sum()) for a,v in rejected.items()},
+                    probability_metrics_score_uniform_Unknown_fallback=True,ECE_is_probability_fallback_calibration_not_abstention_confidence=True,
+                    removal_is_top_level_component_not_whole_F0_F9_family=True,oracle_cue_intervals=True,
+                    source_training_loss_is_unbiased_evaluation=False,scope=source_selected['scope'])
+                add_group('roam_source_fusion_v1',selected_source,'ROAM_native8_cues',user,phase,shots,
+                    'source_selected_mixture_on_frozen_oracle_cue_probabilities',arms,y,3,notes,comparison_pairs=comparisons)
+                full=score(y,*arms['source_selected'],3)
+                for removed,remaining in removals.items():
+                    alternative=score(y,*arms[remaining],3)
+                    ablations.append(dict(run_id='roam_source_fusion_v1',source_artifact=selected_source,
+                        source_sha256=sources[selected_source],dataset='ROAM_native8_cues',subject=user,
+                        **{'session/domain':phase},condition='source_selected_mixture_on_frozen_oracle_cue_probabilities',
+                        calibration_budget=shots,evaluation_trials=len(y),metadata_notes_json=json.dumps(notes,sort_keys=True),
+                        full_bank='source_selected',removed_provider=removed,remaining_bank=remaining,
+                        full_target_calibration_trials_per_user=costs['source_selected'],remaining_target_calibration_trials_per_user=costs[remaining],
+                        **{'full_'+key:full[key] for key in METRICS},**{'remaining_'+key:alternative[key] for key in METRICS},
+                        delta_logloss=alternative['log_loss']-full['log_loss'],delta_macro_f1=full['macro_f1']-alternative['macro_f1'],delta_brier=alternative['brier']-full['brier']))
     temporal_name='PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json';temporal=read(temporal_name)
     temporal_source=(HERE/temporal_name).relative_to(ROOT).as_posix()
     temporal_arrays=HERE/'personal_temporal_unibo_v1/readouts.npz'
@@ -753,6 +794,8 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json')},
              'joint_bout_gui_acceptance': {'path':'../JOINT_BOUT_GUI_V1_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/JOINT_BOUT_GUI_V1_ACCEPTANCE.json')},
+             'roam_source_fusion_acceptance': {'path':'../ROAM_SOURCE_FUSION_V1_ACCEPTANCE.json',
+                 'sha256':sha(ROOT/'feature_bank/ROAM_SOURCE_FUSION_V1_ACCEPTANCE.json')},
              'roam_native_joint_acceptance': {'path':'../ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json')},
              'document_window_composition_acceptance': {'path':'../DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json',

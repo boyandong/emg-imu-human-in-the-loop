@@ -70,8 +70,8 @@ def test_delivery_sources_schemas_and_unavailable_results():
     assert manifest['generator_sha256'] == sha(ROOT/'benchmarks/new_bank_v3/export_current_delivery.py')
     for path, digest in manifest['source_sha256'].items():
         assert sha(ROOT/path) == digest
-    expected = {'feature_family_results.csv': 4724, 'conditional_incremental.csv': 5969,
-                'error_complementarity.csv': 5969, 'calibration_curve.csv': 4724, 'ablation_full_bank.csv':1568,
+    expected = {'feature_family_results.csv': 5153, 'conditional_incremental.csv': 6359,
+                'error_complementarity.csv': 6359, 'calibration_curve.csv': 5153, 'ablation_full_bank.csv':1763,
                 'budget_eligibility.csv': 170, 'boundary_detection.csv': 2, 'calibration_burden.csv': 710, 'continuous_recognition.csv':40, 'transition_hold.csv':40, 'label_stability_control.csv':80, 'quality_gate.csv':24}
     for name, count in expected.items():
         table = rows(name)
@@ -137,7 +137,7 @@ def test_comparison_budget_identity_and_positive_improvement_signs():
                                ('error_complementarity.csv',('family_a','family_b'))]:
         comparisons = rows(table)
         keys = [tuple(r[k] for k in context+pair_fields) for r in comparisons]
-        assert len(keys) == len(set(keys)) == 5969
+        assert len(keys) == len(set(keys)) == 6359
         for row in comparisons:
             key = tuple(row[k] for k in context)
             a = lookup[key+(row[pair_fields[0]],)]
