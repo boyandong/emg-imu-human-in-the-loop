@@ -1,0 +1,15 @@
+{
+  "schema": "joint_bout_gui_v1_windows_render",
+  "platform": "windows",
+  "font": "Microsoft YaHei UI",
+  "source_sha256": "9decc46e4dc83409237e42e4a075a3683e20e308c6ab39b46af9c3fe9c02e652",
+  "panel_sha256": "f860012646b259a241db1737f21ba0a95184e85f76fb20834c65576fced1752a",
+  "schema_loaded": "song_personal_session_stream_v6",
+  "personal_trials": 4,
+  "session_trials": 4,
+  "personal_profile_id": "8cfde2da750a51ec221f2b2d6001b9e9e9a86872177562c77b1e158fe8102497",
+  "session_profile_id": "7ec6d8d73d6dfaa69b278b903237346e510dbcbaf8d855b99c10638a88c1eb83",
+  "actual_Qt_controls_and_classifier_process": true,
+  "new_fit_or_native_scoring": false,
+  "physical_validation_proven": false
+}

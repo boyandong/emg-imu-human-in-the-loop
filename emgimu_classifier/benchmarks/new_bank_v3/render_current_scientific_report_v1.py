@@ -719,8 +719,16 @@ def render(data, source_sha):
         variation_lines += ['', '#### Joint complete-action registration V1 (software lifecycle)', '',
             f"The opt-in API/CLI passes{joint['joint_lifecycle_tests']} lifecycle tests, including{joint['combined_window_temporal_quality_cases']} combined window/temporal/quality cases.",
             'One complete cued registration feeds window F7/F8, full-bout DTW/signatures and a neutral-only detector; captured native raw/filtered inputs and calibration cost are saved once. Independent stream state, persistence, source/recording isolation and failure cleanup are verified.',
-            'The existing desktop enrollment paths remain separate. This verification uses the frozen Song source model with synthetic complete-bout inputs, not Song full-action labels; no native accuracy, all-subfamily, physical fault, boundary, latency or device claim follows.',
+            'This API/CLI acceptance uses the frozen Song source model with synthetic complete-bout inputs; desktop integration has separate evidence below, not Song full-action labels; no native accuracy, all-subfamily, physical fault, boundary, latency or device claim follows.',
             '[Joint lifecycle acceptance](JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json).']
+    if 'joint_bout_gui' in data:
+        gui=data['joint_bout_gui']
+        variation_lines += ['', '#### Joint registration in the versioned desktop (software acceptance)', '',
+            f"The versioned entry now exposes a shared guided registration option. Its classifier and complete collection regression pass{gui['total_passing_cases']} cases without failures or skips.",
+            'One personal or current-session archive activates both the window and full-action branches; native raw/filtered calibration and neutral-only detector state are retained. Manual/estimated-auto decisions, quality Unknown, cancellation/disconnect, failed-save retry and failed-load pause are exercised through actual Qt acquisition signals and a persistent classifier process.',
+            'The installed desktop shortcut targets main_decision_v4.py; its target was read back. The rendered panel uses the actual Windows platform, Microsoft YaHei UI font and reloaded software-fixture profiles. The six-provider initial selection and off-by-default decision/quality branches stay unchanged.',
+            'This supersedes the earlier API-only desktop-integration gap. Synthetic acquisition tests do not establish native action accuracy, physical boundaries/latency/faults, independent user/day generalization or full-document scientific completion.',
+            '[Desktop joint-registration acceptance](JOINT_BOUT_GUI_V1_ACCEPTANCE.json).']
     lines[-1:-1] = variation_lines
     return '\n'.join(lines)
 

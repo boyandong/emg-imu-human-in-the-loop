@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "bf6964438e78a289a03f2ba964a5071bec05eef1e58738f06a8efc56694916e9",
+  "generator_sha256": "0c3bee1cad69d66157fea26f95592c2c24eb635844cbdfb71c1b48a5a7e508fc",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -56,7 +56,9 @@
     "tests/test_available_bank_quality_v2_delivery.py",
     "tests/test_formula_quality_register_v2_delivery.py",
     "tests/test_joint_bout_v1_delivery.py",
-    "tests/test_joint_bout_register_delivery_v1.py"
+    "tests/test_joint_bout_register_delivery_v1.py",
+    "tests/test_joint_bout_gui_v1_delivery.py",
+    "tests/test_joint_bout_gui_register_delivery_v1.py"
   ],
   "source_sha256": {
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
@@ -108,8 +110,11 @@
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "9c2b795c64149358e95679c4b439d154ac9fbc2abe338d1bdd11ef392e50a5f6",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "f1390381c93781831165762739c5e6438eae9a175db92081770ee338121b4bf6",
     "feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json": "9bf4a118a99d7cc8034738b69b11154f85fb123022dd3d8a715eb248c3df89f2",
+    "feature_bank/JOINT_BOUT_GUI_V1_ACCEPTANCE.json": "27e905148ec66fafffc7788d438f9e4e4044cc7fad709162e0387707d00d391d",
+    "benchmarks/new_bank_v3/render_joint_bout_gui_v1.py": "9decc46e4dc83409237e42e4a075a3683e20e308c6ab39b46af9c3fe9c02e652",
+    "feature_bank/regression/joint_bout_gui_v1/windows_render.json": "bad6935727cc000aff66ac27844975b691c9211e8cc2e0e61440d592f9c3dd1e",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -157,7 +162,9 @@
     "tests/test_available_bank_quality_v2_delivery.py": "42016202d00be6d0690e80ca4f13f94ad43d0e1512ffd1c83de6d41e5c13ab35",
     "tests/test_formula_quality_register_v2_delivery.py": "e7b6f99ec9b0e90d26cfaaf459cbfba4d1d446f648eaf5ea0614c8932a20d7ad",
     "tests/test_joint_bout_v1_delivery.py": "84d60ff1b897f21470c7a9bc6e35f062d3c821a9de035627df042fa8dcb7f5c3",
-    "tests/test_joint_bout_register_delivery_v1.py": "a53591d22f18ec017876d65246b2b6fb8ebab10c079749bf9b358c7c8cd7041f"
+    "tests/test_joint_bout_register_delivery_v1.py": "a53591d22f18ec017876d65246b2b6fb8ebab10c079749bf9b358c7c8cd7041f",
+    "tests/test_joint_bout_gui_v1_delivery.py": "78f764b8ba471eb030239dd2a973147d8a455d31f1404e9b45f470806ac15ab0",
+    "tests/test_joint_bout_gui_register_delivery_v1.py": "e297c68bbf772ad786501fb02bc5e8e0eca1bed4f07766bf162e4c3b57db9a28"
   },
   "questions": [
     {
@@ -3381,6 +3388,24 @@
       }
     }
   ],
+  "joint_bout_gui": {
+    "total_passing_cases": 225,
+    "entry": "collection/emg_meta/emg_meta/main_decision_v4.py",
+    "desktop_shortcut_installed_and_read_back": true,
+    "shared_registration_in_desktop": true,
+    "window_and_temporal_profiles_bound_together": true,
+    "personal_and_session_reload_verified": true,
+    "manual_and_estimated_auto_decisions_verified": true,
+    "failed_save_retry_and_failed_load_pause_verified": true,
+    "gap_disconnect_and_cancel_clear_incomplete_actions": true,
+    "quality_Unknown_preserved": true,
+    "scope": "Versioned Windows Qt collection entry V4, panel V6 and actual persistent classifier V6 process. Synthetic contiguous 8-channel250Hz acquisitions test shared guided registration, one saved raw/filtered joint profile, personal/current-session reload, window-parent numerical parity, manual/estimated-auto decisions, cost counting, quality Unknown and failure/discontinuity cleanup. Existing source models, default six-provider selection and scientific gates stay frozen. No new native training/scoring, accuracy gain, physical electrode/F6, hardware faults, timing, independent user/day or prospective efficacy claim.",
+    "default_model": "six",
+    "default_promoted": false,
+    "native_accuracy_proven": false,
+    "physical_validation_proven": false,
+    "completion_proven": false
+  },
   "joint_bout_workflow": {
     "joint_lifecycle_tests": 54,
     "combined_window_temporal_quality_cases": 18,

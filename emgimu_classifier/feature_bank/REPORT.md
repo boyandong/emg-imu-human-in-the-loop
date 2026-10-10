@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `8d16ed0661d5412b5e6f1ab473d60274875a69d8665094437960e8837f959bbb`.
+Source SHA-256: `e4e7170887bd3074b6953e81825366ab2158fbec9c3c665cfc5bd976bbfd3288`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -1192,8 +1192,16 @@ The verification reuses frozen MANUS predictions with synthetic quality-one/zero
 
 The opt-in API/CLI passes54 lifecycle tests, including18 combined window/temporal/quality cases.
 One complete cued registration feeds window F7/F8, full-bout DTW/signatures and a neutral-only detector; captured native raw/filtered inputs and calibration cost are saved once. Independent stream state, persistence, source/recording isolation and failure cleanup are verified.
-The existing desktop enrollment paths remain separate. This verification uses the frozen Song source model with synthetic complete-bout inputs, not Song full-action labels; no native accuracy, all-subfamily, physical fault, boundary, latency or device claim follows.
+This API/CLI acceptance uses the frozen Song source model with synthetic complete-bout inputs; desktop integration has separate evidence below, not Song full-action labels; no native accuracy, all-subfamily, physical fault, boundary, latency or device claim follows.
 [Joint lifecycle acceptance](JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json).
+
+#### Joint registration in the versioned desktop (software acceptance)
+
+The versioned entry now exposes a shared guided registration option. Its classifier and complete collection regression pass225 cases without failures or skips.
+One personal or current-session archive activates both the window and full-action branches; native raw/filtered calibration and neutral-only detector state are retained. Manual/estimated-auto decisions, quality Unknown, cancellation/disconnect, failed-save retry and failed-load pause are exercised through actual Qt acquisition signals and a persistent classifier process.
+The installed desktop shortcut targets main_decision_v4.py; its target was read back. The rendered panel uses the actual Windows platform, Microsoft YaHei UI font and reloaded software-fixture profiles. The six-provider initial selection and off-by-default decision/quality branches stay unchanged.
+This supersedes the earlier API-only desktop-integration gap. Synthetic acquisition tests do not establish native action accuracy, physical boundaries/latency/faults, independent user/day generalization or full-document scientific completion.
+[Desktop joint-registration acceptance](JOINT_BOUT_GUI_V1_ACCEPTANCE.json).
 <!-- CURRENT_SCIENTIFIC_ANSWERS_V1_STOP -->
 
 ### Calibration recovery and model-composition limits

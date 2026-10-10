@@ -1,0 +1,43 @@
+{
+  "schema": "joint_bout_gui_v1_regression",
+  "freeze_commit": "97abfb0",
+  "suites": [
+    {
+      "path": "feature_bank/regression/joint_bout_gui_v1/classifier.xml",
+      "sha256": "42f7e0c97aa77c223a9f927ecfc5fdce031310dda9f356befa1923c7ecb71ab6",
+      "tests": 54,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "path": "feature_bank/regression/joint_bout_gui_v1/collection.xml",
+      "sha256": "eecb438c7b7773d5f30cbb7563cf91e12b164755ff24b40f7c18f3c7587f68dd",
+      "tests": 171,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "path": "feature_bank/regression/joint_bout_gui_v1/delivery.xml",
+      "sha256": "9b424ace8f914aa6fdcd154bf545c64346d477eab902ebb70293f2450a6c440a",
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "total_passing_cases": 242,
+  "frozen_GUI_source_files_verified": 264,
+  "prior_shared_API_frozen_source_files_verified": 136,
+  "acceptance_sha256": "27e905148ec66fafffc7788d438f9e4e4044cc7fad709162e0387707d00d391d",
+  "windows_render_receipt_sha256": "bad6935727cc000aff66ac27844975b691c9211e8cc2e0e61440d592f9c3dd1e",
+  "actual_Windows_fonts_visually_reviewed": true,
+  "shared_desktop_registration_delivered": true,
+  "shortcut_installed_and_read_back": true,
+  "new_native_training_or_scoring": false,
+  "default_promoted": false,
+  "native_accuracy_proven": false,
+  "physical_validation_proven": false,
+  "completion_proven": false
+}

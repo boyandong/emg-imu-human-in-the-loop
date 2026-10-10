@@ -315,11 +315,18 @@ def build():
     sources[joint_path.relative_to(ROOT).as_posix()]=sha(joint_path)
     joint=json.loads(joint_path.read_text(encoding='utf8'))
     verification_tests += ['tests/test_joint_bout_v1_delivery.py','tests/test_joint_bout_register_delivery_v1.py']
+    joint_gui_path=ROOT/'feature_bank/JOINT_BOUT_GUI_V1_ACCEPTANCE.json'
+    sources[joint_gui_path.relative_to(ROOT).as_posix()]=sha(joint_gui_path)
+    joint_gui=json.loads(joint_gui_path.read_text(encoding='utf8'))
+    for name in ('benchmarks/new_bank_v3/render_joint_bout_gui_v1.py','feature_bank/regression/joint_bout_gui_v1/windows_render.json'):
+        sources[name]=sha(ROOT/name)
+    verification_tests += ['tests/test_joint_bout_gui_v1_delivery.py','tests/test_joint_bout_gui_register_delivery_v1.py']
     for name in verification_tests: sources[name] = sha(ROOT / name)
     result = {'schema': 'current_scientific_conclusions_v1', 'generator_sha256': sha(Path(__file__)),
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
               'requirement_lines': [1013, 1049], 'verification_tests': verification_tests,
               'source_sha256': sources, 'questions': answers,
+              'joint_bout_gui': {k:joint_gui[k] for k in ('total_passing_cases','entry','desktop_shortcut_installed_and_read_back','shared_registration_in_desktop','window_and_temporal_profiles_bound_together','personal_and_session_reload_verified','manual_and_estimated_auto_decisions_verified','failed_save_retry_and_failed_load_pause_verified','gap_disconnect_and_cancel_clear_incomplete_actions','quality_Unknown_preserved','scope','default_model','default_promoted','native_accuracy_proven','physical_validation_proven','completion_proven')},
               'joint_bout_workflow': {k:joint[k] for k in ('joint_lifecycle_tests','combined_window_temporal_quality_cases','shared_calibration_counted_once','saved_profile_roundtrip_and_separate_process_verified','scope','known_limitations','desktop_entry_changed','default_promoted','native_accuracy_proven','physical_validation_proven','completion_proven')},
               'available_quality_fusion': {k:quality_fusion[k] for k in ('verification_cases','checked_probability_values','rejected_invalid_quality_calls','maximum_probability_error','scope','default_promoted','physical_validation_proven')},
               'available_provider_fusion': {k:availability[k] for k in ('native_full_cases','native_missing_provider_cases','rejected_invalid_native_calls','software_scope','native_scope')},

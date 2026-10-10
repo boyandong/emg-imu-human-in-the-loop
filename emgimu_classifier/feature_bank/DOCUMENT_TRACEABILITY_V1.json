@@ -8,7 +8,7 @@
     "benchmarks/new_bank_v3/document_traceability_v1.py": "27b0d9da633e8ab0e07fcf0a2ae302ac7dd6823d3c9c3bfa570df3b6132fe2cd",
     "tests/test_document_traceability_v1.py": "4015f84d5448eff28b4e3bd28e73c4a7111252be47c5851e1485a819a2c88494",
     "benchmarks/new_bank_v2/v1_acceptance_audit.py": "4eb01abc955ecf201f4a4ddccc24e205853c07116b117f718841168a61e041fb",
-    "feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.json": "82df7f5eaed4e17798fc1471550e7436ce723c061f1907a4fef1fde4cd4693af"
+    "feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.json": "e53267b39abd3aa261650a816e33367d701dedace6f32704628573871d2fe97a"
   },
   "nonempty_lines": 2586,
   "mapped_lines": 2509,
@@ -18880,7 +18880,7 @@
       "disposition": "context",
       "evidence_scope": "Introduction and section separators; substantive research criteria reviewed below.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -18893,7 +18893,7 @@
       "disposition": "context",
       "evidence_scope": "Introduction and section separators; substantive research criteria reviewed below.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -18906,7 +18906,7 @@
       "disposition": "context",
       "evidence_scope": "Introduction and section separators; substantive research criteria reviewed below.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -18919,7 +18919,7 @@
       "disposition": "context",
       "evidence_scope": "Introduction and section separators; substantive research criteria reviewed below.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -18932,7 +18932,7 @@
       "disposition": "context",
       "evidence_scope": "Introduction and section separators; substantive research criteria reviewed below.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -18945,7 +18945,7 @@
       "disposition": "historical_prior_not_new_evidence",
       "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -18958,7 +18958,7 @@
       "disposition": "historical_prior_not_new_evidence",
       "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -18971,7 +18971,7 @@
       "disposition": "historical_prior_not_new_evidence",
       "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -18984,7 +18984,7 @@
       "disposition": "historical_prior_not_new_evidence",
       "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -18997,7 +18997,7 @@
       "disposition": "historical_prior_not_new_evidence",
       "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -19010,7 +19010,7 @@
       "disposition": "historical_prior_not_new_evidence",
       "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -19023,7 +19023,7 @@
       "disposition": "historical_prior_not_new_evidence",
       "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -19036,7 +19036,7 @@
       "disposition": "historical_prior_not_new_evidence",
       "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -19049,7 +19049,7 @@
       "disposition": "historical_prior_not_new_evidence",
       "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -19062,7 +19062,7 @@
       "disposition": "historical_prior_not_new_evidence",
       "evidence_scope": "User-supplied X1/CES/RLCS/X2 statements are research priors, not reproduced evidence. User superseded unavailable legacy code.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c"
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08"
       }
     },
     {
@@ -19215,7 +19215,7 @@
       "disposition": "verified_scoped",
       "evidence_scope": "Failure-specific, conditional, paired-error and calibration questions have bounded public results including negative shortlist/LOFO findings; a universally improved compact bank is not claimed.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c",
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08",
         "benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json": "6621e2a93643e7ef30990afd695474a419034140e00c2fedf689de611b57807c",
         "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01"
       }
@@ -19230,7 +19230,7 @@
       "disposition": "verified_scoped",
       "evidence_scope": "Failure-specific, conditional, paired-error and calibration questions have bounded public results including negative shortlist/LOFO findings; a universally improved compact bank is not claimed.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c",
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08",
         "benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json": "6621e2a93643e7ef30990afd695474a419034140e00c2fedf689de611b57807c",
         "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01"
       }
@@ -19245,7 +19245,7 @@
       "disposition": "verified_scoped",
       "evidence_scope": "Failure-specific, conditional, paired-error and calibration questions have bounded public results including negative shortlist/LOFO findings; a universally improved compact bank is not claimed.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c",
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08",
         "benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json": "6621e2a93643e7ef30990afd695474a419034140e00c2fedf689de611b57807c",
         "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01"
       }
@@ -19260,7 +19260,7 @@
       "disposition": "verified_scoped",
       "evidence_scope": "Failure-specific, conditional, paired-error and calibration questions have bounded public results including negative shortlist/LOFO findings; a universally improved compact bank is not claimed.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c",
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08",
         "benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json": "6621e2a93643e7ef30990afd695474a419034140e00c2fedf689de611b57807c",
         "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01"
       }
@@ -19275,7 +19275,7 @@
       "disposition": "verified_scoped",
       "evidence_scope": "Failure-specific, conditional, paired-error and calibration questions have bounded public results including negative shortlist/LOFO findings; a universally improved compact bank is not claimed.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c",
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08",
         "benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json": "6621e2a93643e7ef30990afd695474a419034140e00c2fedf689de611b57807c",
         "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01"
       }
@@ -19290,7 +19290,7 @@
       "disposition": "verified_scoped",
       "evidence_scope": "Failure-specific, conditional, paired-error and calibration questions have bounded public results including negative shortlist/LOFO findings; a universally improved compact bank is not claimed.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c",
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08",
         "benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json": "6621e2a93643e7ef30990afd695474a419034140e00c2fedf689de611b57807c",
         "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01"
       }
@@ -19305,7 +19305,7 @@
       "disposition": "verified_scoped",
       "evidence_scope": "Failure-specific, conditional, paired-error and calibration questions have bounded public results including negative shortlist/LOFO findings; a universally improved compact bank is not claimed.",
       "evidence_sha256": {
-        "feature_bank/REPORT.md": "a9a17ee9dcb1bb3f93402472e2eaa1036dd7d18ef3d19da6f5e38433e10c793c",
+        "feature_bank/REPORT.md": "ea629c7f129f88243349560fed223b963a632f397109c80c8cc1c1ad6399fb08",
         "benchmarks/new_bank_v2/FULL_V1_LOFO_AUDIT.json": "6621e2a93643e7ef30990afd695474a419034140e00c2fedf689de611b57807c",
         "benchmarks/new_bank_v2/CONDITIONAL_AUDIT.json": "5760ac51b9a033ccc8cb86757b5c50f4190d906cd6417c181f8219ab476bcc01"
       }
