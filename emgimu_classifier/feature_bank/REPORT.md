@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `48ed303df75765657b83b4d26575ac625421932f9fec30b7d73ae518d10e7916`.
+Source SHA-256: `c0fd811e2333fcf457a0747627c29d542d2a3ab1b418aaa7391fafbc476bc41f`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -1211,6 +1211,16 @@ The strict improvement guard fails because the rebuilt and old reliability proba
 A corrected read-only V2 verifier casts scaler parameters to the actual input dtype before arithmetic, matching the installed sklearn. The frozen V1 verification assumption is retained; the native experiment was not rerun or edited. Independent provider probability error is zero and fusion error is below1e-12.
 Ring F3a/c, anatomical F6, full-bout native Song evidence and physical/new-person/day validation remain outside this window scope. The rebuild is available through its Python workflow API; the desktop selection remains unchanged.
 [Document composition acceptance](DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json).
+
+#### Native eight-channel joint cue-interval study
+
+The frozen native8-channel200Hz ROAM study retains58 recordings,522 cue intervals,180 independent queries,870 user/budget/arm cells and15660 predictions. Three source-user folds fit all seven window representations independently; every eligible cue sample enters the32-bin full-path representation.
+Shared registration consumes6 long-term cues and0/3/6 current-domain cues at0/1/2 shots per class, counted once across window and temporal branches. Four source-only controls consume zero target calibration. Calibration recordings and query recordings are disjoint; the same unsupported/reaching queries remain at every budget.
+At2 current cues/class, descriptive all-user F1 changes from0.9511 to0.9577, but logloss worsens from0.5167 to0.6081. Validation loss wins are0/5 and the predeclared conjunctive guard fails. Source-only population controls are competitive; temporal additions are not a proven general improvement. No default promotion follows.
+Seven provider and six whole-family omissions preserve fitted models and renormalize frozen window weights. Whole F2 removes covariance/tangent and CSP. Whole F5 removes the temporal-form window provider and both full-path branches; removing window F5 alone retains the temporal branches.
+Independent manual classifier, DTW/signature and fusion equations, every saved-profile replay, metric and CSV row are verified without fitting. The native study was run once.
+These are previously inspected public three-class close/open/relax users; close is not relabelled as fist and pinch is absent. Boundaries are supplied cue intervals, not autonomous segmentation or physiological action boundaries. Recording conditions are different postures, not a cross-day or redonning experiment. Physical ring/F6, ADC-bound F9, own-device efficacy and latency remain unavailable.
+[Native joint acceptance](ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json).
 <!-- CURRENT_SCIENTIFIC_ANSWERS_V1_STOP -->
 
 ### Calibration recovery and model-composition limits

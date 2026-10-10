@@ -375,6 +375,13 @@ def build() -> dict:
             supported += (' Independent source-refitted document window composition reproduces the existing seven source classifiers, temperatures and60 native probability cells exactly. '
                           'Whole-family LOFO supplements provider LOFO, including joint removal of both F2 covariance/tangent and CSP branches on same124 Song trials.')
             unresolved += (' This is same-person/day reproducibility and scoped family-removal evidence, not a new algorithmic gain, all ring/full-bout subfamilies, independent generalization or hardware proof.')
+        if family in ('F0','F1','F2','F3','F4','F5','F7','F8'):
+            evidence += ('|feature_bank/ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json'
+                         '|benchmarks/new_bank_v3/ROAM_NATIVE_JOINT_V1_RESULTS.json')
+            supported += (' Native8/200Hz ROAM window/full-cue composition now shares calibration across both branches, with870 cells and15660 predictions on180 fixed queries. '
+                          'Whole F2 removes covariance/tangent and CSP; whole F5 removes window temporal form and full-path branches. Independent read-only source/temporal/fusion oracles and saved-profile replay are verified.')
+            unresolved += (' Three-class oracle cue intervals and posture domains do not establish pinch, automatic/physiological boundaries, cross-day/redonning, physical ring/F6 or own-device efficacy. '
+                           'Joint descriptive F1 improves but probability loss/Brier worsen;0/5 validation user loss wins fail the primary guard. No default promotion.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

@@ -738,6 +738,18 @@ def render(data, source_sha):
             'A corrected read-only V2 verifier casts scaler parameters to the actual input dtype before arithmetic, matching the installed sklearn. The frozen V1 verification assumption is retained; the native experiment was not rerun or edited. Independent provider probability error is zero and fusion error is below1e-12.',
             'Ring F3a/c, anatomical F6, full-bout native Song evidence and physical/new-person/day validation remain outside this window scope. The rebuild is available through its Python workflow API; the desktop selection remains unchanged.',
             '[Document composition acceptance](DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json).']
+    if 'roam_native_joint' in data:
+        native=data['roam_native_joint']
+        summary={(c['phase'],c['arm']):c for c in native['two_shot_summary']}
+        base=summary['descriptive_all','window_full'];full=summary['descriptive_all','joint_full']
+        variation_lines += ['', '#### Native eight-channel joint cue-interval study', '',
+            f"The frozen native8-channel200Hz ROAM study retains{native['native_recordings']} recordings,{native['native_cue_intervals']} cue intervals,{native['independent_queries']} independent queries,{native['native_cells']} user/budget/arm cells and{native['predictions']} predictions. Three source-user folds fit all seven window representations independently; every eligible cue sample enters the32-bin full-path representation.",
+            'Shared registration consumes6 long-term cues and0/3/6 current-domain cues at0/1/2 shots per class, counted once across window and temporal branches. Four source-only controls consume zero target calibration. Calibration recordings and query recordings are disjoint; the same unsupported/reaching queries remain at every budget.',
+            f"At2 current cues/class, descriptive all-user F1 changes from{base['macro_f1']:.4f} to{full['macro_f1']:.4f}, but logloss worsens from{base['log_loss']:.4f} to{full['log_loss']:.4f}. Validation loss wins are{native['validation_user_loss_wins']}/5 and the predeclared conjunctive guard fails. Source-only population controls are competitive; temporal additions are not a proven general improvement. No default promotion follows.",
+            'Seven provider and six whole-family omissions preserve fitted models and renormalize frozen window weights. Whole F2 removes covariance/tangent and CSP. Whole F5 removes the temporal-form window provider and both full-path branches; removing window F5 alone retains the temporal branches.',
+            'Independent manual classifier, DTW/signature and fusion equations, every saved-profile replay, metric and CSV row are verified without fitting. The native study was run once.',
+            'These are previously inspected public three-class close/open/relax users; close is not relabelled as fist and pinch is absent. Boundaries are supplied cue intervals, not autonomous segmentation or physiological action boundaries. Recording conditions are different postures, not a cross-day or redonning experiment. Physical ring/F6, ADC-bound F9, own-device efficacy and latency remain unavailable.',
+            '[Native joint acceptance](ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json).']
     lines[-1:-1] = variation_lines
     return '\n'.join(lines)
 

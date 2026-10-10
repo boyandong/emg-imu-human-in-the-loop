@@ -1460,3 +1460,91 @@ emgimu_classifier/tests/test_calibration_rest_detector_v1.py -text -eol whitespa
 /emgimu_classifier/benchmarks/new_bank_v3/ROAM_NATIVE_JOINT_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
 
 /emgimu_classifier/src/emgimu/feature_bank/core_incremental_oof.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/policy.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/predictions.csv -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/readouts.npz -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s19_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s19_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s19_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s20_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s20_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s20_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s21_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s21_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s21_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s22_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s22_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s22_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s23_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s23_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s23_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s24_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s24_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s24_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s25_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s25_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s25_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s26_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s26_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s26_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s27_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s27_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s27_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s28_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s28_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/s28_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/source_bank.pkl -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/source_fold0.pkl -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/source_fold1.pkl -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1/source_fold2.pkl -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/ROAM_NATIVE_JOINT_V1_RESULTS.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/regression/roam_native_joint_v1/classifier.xml -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/ROAM_NATIVE_JOINT_V1_REGRESSION.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_roam_native_joint_delivery_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_roam_native_joint_register_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/ROAM_NATIVE_JOINT_V1_GIT_CHECKOUT.json -text -eol whitespace=cr-at-eol

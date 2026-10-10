@@ -74,6 +74,7 @@
     "benchmarks/new_bank_v3/PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json": "291d5b903238e31c90f8997add01fcd0c86cf8da639a401c1bc0c259e6c38cdf",
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
     "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json": "9964583ef8211b09fa5e594a3aa8e46825d65418afd50c69a99939f62a7eea0a",
+    "benchmarks/new_bank_v3/ROAM_NATIVE_JOINT_V1_RESULTS.json": "c1691293a0e1df662838c58137d05ce377753fa860d99c9309c05987ec26ef98",
     "benchmarks/new_bank_v3/SPEC_F2C_GRAB_RESULTS.json": "8d2058a17e63b66e2bbe3ffedc97656d5a20e64a30499dc329efca5120e745bb",
     "benchmarks/new_bank_v3/SPEC_F2C_TRANSFER_RESULTS.json": "fd680129ec69aee4e9f21744a134e14f245d00557ed27f71bb6b781098c7aed6",
     "benchmarks/new_bank_v3/SPEC_F2C_WEARING_RESULTS.json": "a3a6fb7e19abf9c3a709c27625a45f03346b9f664cac04126c9ac65d9968b3e4",
@@ -81,7 +82,7 @@
   },
   "current_scientific_conclusions": {
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
-    "sha256": "48ed303df75765657b83b4d26575ac625421932f9fec30b7d73ae518d10e7916"
+    "sha256": "c0fd811e2333fcf457a0747627c29d542d2a3ab1b418aaa7391fafbc476bc41f"
   },
   "current_regression_snapshot": {
     "path": "../CLASSIFIER_REGRESSION_20261008.json",
@@ -174,6 +175,10 @@
   "joint_bout_gui_acceptance": {
     "path": "../JOINT_BOUT_GUI_V1_ACCEPTANCE.json",
     "sha256": "27e905148ec66fafffc7788d438f9e4e4044cc7fad709162e0387707d00d391d"
+  },
+  "roam_native_joint_acceptance": {
+    "path": "../ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json",
+    "sha256": "5aed9fc11619bec8d7f024c38d7b579e01b4e66c6292195f589445e37d9071ea"
   },
   "document_window_composition_acceptance": {
     "path": "../DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json",

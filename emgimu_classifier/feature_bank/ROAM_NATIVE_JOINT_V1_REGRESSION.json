@@ -1,0 +1,33 @@
+{
+  "schema": "roam_native_joint_v1_regression",
+  "passing_cases": 137,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "junit_path": "feature_bank/regression/roam_native_joint_v1/classifier.xml",
+  "junit_sha256": "a71b76f84f7bd1d6712ccc322eddc20eb4b271c4d01e8d512149ff7bcd41ded2",
+  "test_source_sha256": {
+    "tests/test_native_joint_bout_workflow_v2.py": "7060dc7749636f483332416aa5a4a902b4955b1b3431fd5cf5db4dc54f4c10e9",
+    "tests/test_roam_cued_intervals_v1.py": "c94a880519bab701b083364770c654be35b0d272a2c09bc6c4c33052ef670d29",
+    "tests/test_roam_native_joint_study_v1.py": "197de9aab7de418094e3328b42094e4948048e95e57316fd5c97b0e8da8831e2",
+    "tests/test_roam_native_joint_delivery_v1.py": "af9c07637aea9e1d356d4dbe8c113ce3f019f2fa2d6aa0d41caed694689a9988",
+    "tests/test_roam_native_joint_register_v1.py": "212db04dd7dff579edc31b6ea7c94eaba9753f6a1953d6e6495c91de835e9aa5",
+    "tests/test_joint_bout_workflow_v1.py": "f91c7f419e36d4ac519c729111bda51525f4d6768412c0c207bdc218a2866f78",
+    "tests/test_joint_bout_cli_v1.py": "c06a580a7574e7b19aba97e05b81ff70fddaf9ae373f86af4e8bd3ce9b8a7c03",
+    "tests/test_joint_bout_v1_delivery.py": "84d60ff1b897f21470c7a9bc6e35f062d3c821a9de035627df042fa8dcb7f5c3",
+    "tests/test_joint_bout_register_delivery_v1.py": "a53591d22f18ec017876d65246b2b6fb8ebab10c079749bf9b358c7c8cd7041f",
+    "tests/test_document_window_composition_v1.py": "66fac94cc26784af2877d10544d87ba8aefb2c00fc73c928f77258756f64a218",
+    "tests/test_document_window_composition_register_v1.py": "83b0b77e3ac4523edd65dd97d2d7c65c4d5c43c70d00d568e92321a7614cb666",
+    "tests/test_available_bank_quality_fusion_v2.py": "f7302d739d7c59778d9465e12bec016c082d1fc0e3c7a30bdc2d979803b92b2d",
+    "tests/test_current_v3_delivery.py": "f4cfb2bfe4d76a10dc7c26cbc9443dd4cf7fcf54c40ccd85b5d416f1fc470bff",
+    "tests/test_current_scientific_conclusions_v1.py": "2d05c2b95325cb6ec7b4b157f80aabc7691eb2ebf6bca16ce37aa18d73a35ad2",
+    "tests/test_current_scientific_report_v1.py": "d9da7b89c16fe68c04e92f79ac61f2838e7dd3e9260fc8852ba4f5eef23e8143",
+    "tests/test_formula_family_scope_audit.py": "d6d867f26d34af93aa127d04620a36b9935a5c591f123d97b9d74c6628f0e357",
+    "tests/test_v1_acceptance_audit.py": "851d577823297687034259e02f54bc5bb4860dc656777f2e78bb42f9f915b236",
+    "tests/test_document_traceability_v1.py": "4015f84d5448eff28b4e3bd28e73c4a7111252be47c5851e1485a819a2c88494"
+  },
+  "acceptance_sha256": "5aed9fc11619bec8d7f024c38d7b579e01b4e66c6292195f589445e37d9071ea",
+  "source_protocol_sha256": "83e761ff30175356308312bd489790064599a5005fed09b747b33bb6724b26e6",
+  "native_experiment_rerun": false,
+  "scope": "Native200/250Hz software lifecycle, independent classifier/full-path oracles, native result/register integrity, frozen V1 joint compatibility and current canonical/report/formula-scope regressions. Unit fixtures are not hardware or native efficacy evidence; native outcomes retain their failed primary guard."
+}

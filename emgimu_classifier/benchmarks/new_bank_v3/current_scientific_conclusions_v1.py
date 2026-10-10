@@ -328,11 +328,22 @@ def build():
     for path in (composition_path,composition_result_path,ROOT/'benchmarks/song_real8/verify_document_window_composition_v2.py'):
         sources[path.relative_to(ROOT).as_posix()]=sha(path)
     verification_tests += ['tests/test_document_window_composition_delivery_v1.py','tests/test_document_window_composition_register_v1.py']
+    native_joint_path=ROOT/'feature_bank/ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json'
+    native_joint=json.loads(native_joint_path.read_text(encoding='utf8'))
+    native_joint_result_path=HERE/'ROAM_NATIVE_JOINT_V1_RESULTS.json'
+    native_joint_result=json.loads(native_joint_result_path.read_text(encoding='utf8'))
+    for path in (native_joint_path,native_joint_result_path,HERE/'verify_roam_native_joint_v1.py'):
+        sources[path.relative_to(ROOT).as_posix()]=sha(path)
+    verification_tests += ['tests/test_roam_native_joint_delivery_v1.py','tests/test_roam_native_joint_register_v1.py']
     for name in verification_tests: sources[name] = sha(ROOT / name)
     result = {'schema': 'current_scientific_conclusions_v1', 'generator_sha256': sha(Path(__file__)),
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
               'requirement_lines': [1013, 1049], 'verification_tests': verification_tests,
               'source_sha256': sources, 'questions': answers,
+              'roam_native_joint': dict(native_joint,
+                  two_shot_summary=[c for c in native_joint_result['aggregates'] if c['shots']==2 and
+                      c['arm'] in ('window_reliability','window_full','joint_full','joint_uniform')],
+                  interpretation='Native8/200Hz window and full-cue paths now share registration and fixed queries. Joint F1 improves descriptively over all180 intervals, but probability loss/Brier worsen and0/5 validation users improve loss. Primary guard fails. Source-only controls have zero target calibration, joint branches consume6 long plus0/3/6 current cues once. Oracle cue intervals are not physiological boundaries; posture domains are not days or redonnings.'),
               'document_window_composition': dict(composition,
                   five_shot_cells=[c for c in composition_result['cells'] if c['shots']==5 and
                       (c['arm'] in ('old_reliability','new_reliability','old_full','new_full') or c['arm'].startswith('minus_family_'))],

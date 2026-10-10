@@ -470,6 +470,49 @@ def export():
                 **{'full_'+key:full[key] for key in METRICS},**{'remaining_'+key:alternative[key] for key in METRICS},
                 delta_logloss=alternative['log_loss']-full['log_loss'],delta_macro_f1=full['macro_f1']-alternative['macro_f1'],delta_brier=alternative['brier']-full['brier']))
     composition_q.close()
+    native_joint=read('ROAM_NATIVE_JOINT_V1_RESULTS.json')
+    native_source=(HERE/'ROAM_NATIVE_JOINT_V1_RESULTS.json').relative_to(ROOT).as_posix()
+    native_arrays=HERE/'roam_native_joint_v1/readouts.npz'
+    sources[native_arrays.relative_to(ROOT).as_posix()]=sha(native_arrays)
+    native_receipt=ROOT/'feature_bank/ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json'
+    sources[native_receipt.relative_to(ROOT).as_posix()]=sha(native_receipt)
+    removals={'provider_'+g:'minus_provider_'+g for g in ('F0','F1','F2ac','F3b','F4abc','F5window','F2b')}
+    removals.update({'family_'+g:'minus_family_'+g for g in ('F0','F1','F2','F3','F4','F5')})
+    removals.update(window_F7='joint_minus_window_F7',window_F8='joint_minus_window_F8',temporal_F5='joint_minus_temporal')
+    comparisons=[('window_full',a) for a in ('joint_full','joint_DTW','joint_signature','joint_uniform')]
+    comparisons += [('window_reliability','window_F7'),('window_F7','window_full'),('joint_full','joint_long_templates')]
+    comparisons += [('joint_full',a) for a in removals.values()]
+    groups=[(str(s['user']),'validation' if s['user']<=23 else 'descriptive_final',[s]) for s in native_joint['subjects']]
+    groups += [('ALL',phase,[s for s in native_joint['subjects'] if s['user'] in users]) for phase,users in
+               [('validation',range(19,24)),('descriptive_final',range(24,29)),('descriptive_all',range(19,29))]]
+    with np.load(native_arrays,allow_pickle=False) as native:
+        for user,phase,subjects in groups:
+            y=np.array([['close','open','relax'].index(c) for s in subjects for c in s['query_labels']])
+            for shots in (0,1,2):
+                probabilities={a:np.concatenate([native[f'u{s["user"]}_s{shots}_{a}'] for s in subjects])
+                    for a in subjects[0]['budgets'][str(shots)]['arms']}
+                arms={a:(q.argmax(1),q) for a,q in probabilities.items()}
+                costs={a:0 if a in ('population','uniform','single_F0','single_CSP') else 6+3*shots for a in arms}
+                notes=dict(class_names=['close','open','relax'],actual_total_target_calibration_trials_per_user=costs,
+                    long_registration_cues_per_user=6,current_registration_cues_per_user=3*shots,
+                    registration_counted_once_across_branches=True,calibration_query_recordings_disjoint=True,
+                    oracle_cue_intervals=True,autonomous_segmentation_proven=False,native_sample_rate_hz=200.,channels=8,
+                    raw_quality_policy_available=False,previously_inspected_users=True,
+                    whole_F2_removes_covariance_and_CSP=True,whole_F5_removes_window_and_temporal=True,
+                    window_F7_F8_removals_retain_temporal_calibration=True,removals_do_not_refit=True,scope=native_joint['scope'])
+                add_group('roam_native_joint_v1',native_source,'ROAM_native8_cues',user,phase,shots,
+                    'oracle_cues_posture_domains_not_chronological_sessions',arms,y,3,notes,comparison_pairs=comparisons)
+                full=score(y,*arms['joint_full'],3)
+                for removed,remaining in removals.items():
+                    alternative=score(y,*arms[remaining],3)
+                    ablations.append(dict(run_id='roam_native_joint_v1',source_artifact=native_source,
+                        source_sha256=sources[native_source],dataset='ROAM_native8_cues',subject=user,
+                        **{'session/domain':phase},condition='oracle_cues_posture_domains_not_chronological_sessions',
+                        calibration_budget=shots,evaluation_trials=len(y),metadata_notes_json=json.dumps(notes,sort_keys=True),
+                        full_bank='joint_full',removed_provider=removed,remaining_bank=remaining,
+                        full_target_calibration_trials_per_user=costs['joint_full'],remaining_target_calibration_trials_per_user=costs[remaining],
+                        **{'full_'+key:full[key] for key in METRICS},**{'remaining_'+key:alternative[key] for key in METRICS},
+                        delta_logloss=alternative['log_loss']-full['log_loss'],delta_macro_f1=full['macro_f1']-alternative['macro_f1'],delta_brier=alternative['brier']-full['brier']))
     temporal_name='PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json';temporal=read(temporal_name)
     temporal_source=(HERE/temporal_name).relative_to(ROOT).as_posix()
     temporal_arrays=HERE/'personal_temporal_unibo_v1/readouts.npz'
@@ -710,6 +753,8 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json')},
              'joint_bout_gui_acceptance': {'path':'../JOINT_BOUT_GUI_V1_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/JOINT_BOUT_GUI_V1_ACCEPTANCE.json')},
+             'roam_native_joint_acceptance': {'path':'../ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json',
+                 'sha256':sha(ROOT/'feature_bank/ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json')},
              'document_window_composition_acceptance': {'path':'../DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json')},
              'formula_numerical_acceptance': {'path':'../FORMULA_NUMERICAL_ACCEPTANCE.json',

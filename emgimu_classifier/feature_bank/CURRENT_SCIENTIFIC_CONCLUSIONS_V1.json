@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "726acc11da97c94c3f891f4307ea23e78f2f37aa67af96e60349d1fe7acc70d9",
+  "generator_sha256": "7f30187f824b26825e5f8ed65c904a9bf5cf5018a5ca40cdd82909e496540e2b",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -60,7 +60,9 @@
     "tests/test_joint_bout_gui_v1_delivery.py",
     "tests/test_joint_bout_gui_register_delivery_v1.py",
     "tests/test_document_window_composition_delivery_v1.py",
-    "tests/test_document_window_composition_register_v1.py"
+    "tests/test_document_window_composition_register_v1.py",
+    "tests/test_roam_native_joint_delivery_v1.py",
+    "tests/test_roam_native_joint_register_v1.py"
   ],
   "source_sha256": {
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
@@ -112,7 +114,7 @@
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "2e00a01e4e5a5ca070cccd922d7546ff1875a1abbf4367f2ec025a4e938ad37e",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "1c761276a852f29475487038add9885f5150857e9d525078a05d1565bf740ab4",
     "feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json": "9bf4a118a99d7cc8034738b69b11154f85fb123022dd3d8a715eb248c3df89f2",
     "feature_bank/JOINT_BOUT_GUI_V1_ACCEPTANCE.json": "27e905148ec66fafffc7788d438f9e4e4044cc7fad709162e0387707d00d391d",
     "benchmarks/new_bank_v3/render_joint_bout_gui_v1.py": "9decc46e4dc83409237e42e4a075a3683e20e308c6ab39b46af9c3fe9c02e652",
@@ -120,6 +122,9 @@
     "feature_bank/DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json": "79c7644d1418fd22d4a5985d31bd14173cccfa697c6467e9cdda0a803f9ab0c8",
     "benchmarks/song_real8/DOCUMENT_WINDOW_COMPOSITION_V1_RESULTS.json": "e603f9fbf8df7bb15c3ddfd52ccf632d74caa768300f32bee536d47061222dd0",
     "benchmarks/song_real8/verify_document_window_composition_v2.py": "79d64a723c75301a467fd6f360d0d42ab2c04032f12ef827d34a3b2117cf5de5",
+    "feature_bank/ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json": "5aed9fc11619bec8d7f024c38d7b579e01b4e66c6292195f589445e37d9071ea",
+    "benchmarks/new_bank_v3/ROAM_NATIVE_JOINT_V1_RESULTS.json": "c1691293a0e1df662838c58137d05ce377753fa860d99c9309c05987ec26ef98",
+    "benchmarks/new_bank_v3/verify_roam_native_joint_v1.py": "ffcded308750d3fb4666c79eae4ce68c6ddca1778c55d2154aaa47a1813d88ce",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -171,7 +176,9 @@
     "tests/test_joint_bout_gui_v1_delivery.py": "78f764b8ba471eb030239dd2a973147d8a455d31f1404e9b45f470806ac15ab0",
     "tests/test_joint_bout_gui_register_delivery_v1.py": "e297c68bbf772ad786501fb02bc5e8e0eca1bed4f07766bf162e4c3b57db9a28",
     "tests/test_document_window_composition_delivery_v1.py": "bf1634a13850c8904eb074319645c536e7b7dcfe488a22b65871f3490340baac",
-    "tests/test_document_window_composition_register_v1.py": "83b0b77e3ac4523edd65dd97d2d7c65c4d5c43c70d00d568e92321a7614cb666"
+    "tests/test_document_window_composition_register_v1.py": "83b0b77e3ac4523edd65dd97d2d7c65c4d5c43c70d00d568e92321a7614cb666",
+    "tests/test_roam_native_joint_delivery_v1.py": "af9c07637aea9e1d356d4dbe8c113ce3f019f2fa2d6aa0d41caed694689a9988",
+    "tests/test_roam_native_joint_register_v1.py": "212db04dd7dff579edc31b6ea7c94eaba9753f6a1953d6e6495c91de835e9aa5"
   },
   "questions": [
     {
@@ -3395,6 +3402,437 @@
       }
     }
   ],
+  "roam_native_joint": {
+    "schema": "roam_native_joint_v1_acceptance",
+    "protocol_sha256": "83e761ff30175356308312bd489790064599a5005fed09b747b33bb6724b26e6",
+    "result_sha256": "c1691293a0e1df662838c58137d05ce377753fa860d99c9309c05987ec26ef98",
+    "verifier_sha256": "ffcded308750d3fb4666c79eae4ce68c6ddca1778c55d2154aaa47a1813d88ce",
+    "native_recordings": 58,
+    "native_cue_intervals": 522,
+    "independent_queries": 180,
+    "native_cells": 870,
+    "predictions": 15660,
+    "read_only_no_fitting": true,
+    "source_user_folds_disjoint": true,
+    "calibration_query_recordings_disjoint": true,
+    "profiles_preserve_all_calibration_samples": true,
+    "maximum_manual_source_probability_error": 0.0,
+    "maximum_composition_probability_error": 2.220446049250313e-16,
+    "maximum_independent_temporal_probability_error": 1.6653345369377348e-16,
+    "maximum_saved_profile_replay_error": 0.0,
+    "primary_guards": {
+      "lower_log_loss": false,
+      "lower_brier": false,
+      "nonworse_macro_f1": true,
+      "nonworse_all_class_recalls": true,
+      "at_least3_of5_user_loss_wins": false
+    },
+    "primary_pass": false,
+    "validation_user_loss_wins": 0,
+    "native_sample_rate_hz": 200.0,
+    "channels": 8,
+    "classes": [
+      "close",
+      "open",
+      "relax"
+    ],
+    "raw_quality_policy_available": false,
+    "resampled": false,
+    "previously_inspected_public_users": true,
+    "autonomous_segmentation_proven": false,
+    "physiological_boundaries_proven": false,
+    "physical_validation_proven": false,
+    "default_promoted": false,
+    "completion_proven": false,
+    "scope": "Retrospective native8-channel200Hz three-class ROAM oracle cue-interval classification. Source users1..18 resting; target long resting and current hanging recordings are separate from unsupported/reaching queries. Recording domains are not chronological sessions, days or redonnings. Every eligible interval native sample enters full-path processing; overlapping window coverage and tails are reported. Previously inspected19..28 users, no new blind cohort. No pinch, autonomous segmentation, physiological action boundaries, physical ring/F6, ADC-bound F9, device latency or efficacy claim.",
+    "two_shot_summary": [
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "window_reliability",
+        "trials": 90,
+        "macro_f1": 0.9803756658256239,
+        "accuracy": 0.9777777777777777,
+        "log_loss": 0.3033377783827913,
+        "brier": 0.045418927803636926,
+        "confusion": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            0,
+            28,
+            2
+          ],
+          [
+            0,
+            0,
+            40
+          ]
+        ],
+        "recall": {
+          "close": 1.0,
+          "open": 0.9333333333333333,
+          "relax": 1.0
+        }
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "window_full",
+        "trials": 90,
+        "macro_f1": 0.9902350561484271,
+        "accuracy": 0.9888888888888889,
+        "log_loss": 0.501149563548788,
+        "brier": 0.08056361502210421,
+        "confusion": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            0,
+            29,
+            1
+          ],
+          [
+            0,
+            0,
+            40
+          ]
+        ],
+        "recall": {
+          "close": 1.0,
+          "open": 0.9666666666666667,
+          "relax": 1.0
+        }
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "joint_full",
+        "trials": 90,
+        "macro_f1": 0.9902350561484271,
+        "accuracy": 0.9888888888888889,
+        "log_loss": 0.5951586891389614,
+        "brier": 0.10183203890100707,
+        "confusion": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            0,
+            29,
+            1
+          ],
+          [
+            0,
+            0,
+            40
+          ]
+        ],
+        "recall": {
+          "close": 1.0,
+          "open": 0.9666666666666667,
+          "relax": 1.0
+        }
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "joint_uniform",
+        "trials": 90,
+        "macro_f1": 0.9902350561484271,
+        "accuracy": 0.9888888888888889,
+        "log_loss": 0.6186774683321209,
+        "brier": 0.10753499639704603,
+        "confusion": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            0,
+            29,
+            1
+          ],
+          [
+            0,
+            0,
+            40
+          ]
+        ],
+        "recall": {
+          "close": 1.0,
+          "open": 0.9666666666666667,
+          "relax": 1.0
+        }
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "window_reliability",
+        "trials": 90,
+        "macro_f1": 0.903713436322132,
+        "accuracy": 0.9111111111111111,
+        "log_loss": 0.3508815119040324,
+        "brier": 0.05874979010924447,
+        "confusion": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            4,
+            25,
+            1
+          ],
+          [
+            2,
+            1,
+            37
+          ]
+        ],
+        "recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334,
+          "relax": 0.925
+        }
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "window_full",
+        "trials": 90,
+        "macro_f1": 0.9142949600615505,
+        "accuracy": 0.9222222222222223,
+        "log_loss": 0.5322977519527892,
+        "brier": 0.08886023141674483,
+        "confusion": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            4,
+            26,
+            0
+          ],
+          [
+            2,
+            1,
+            37
+          ]
+        ],
+        "recall": {
+          "close": 1.0,
+          "open": 0.8666666666666667,
+          "relax": 0.925
+        }
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "joint_full",
+        "trials": 90,
+        "macro_f1": 0.9269874442288235,
+        "accuracy": 0.9333333333333333,
+        "log_loss": 0.6210545125429404,
+        "brier": 0.10863265146772212,
+        "confusion": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            3,
+            27,
+            0
+          ],
+          [
+            2,
+            1,
+            37
+          ]
+        ],
+        "recall": {
+          "close": 1.0,
+          "open": 0.9,
+          "relax": 0.925
+        }
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "joint_uniform",
+        "trials": 90,
+        "macro_f1": 0.9142949600615505,
+        "accuracy": 0.9222222222222223,
+        "log_loss": 0.6429392755068909,
+        "brier": 0.11377507482615937,
+        "confusion": [
+          [
+            20,
+            0,
+            0
+          ],
+          [
+            4,
+            26,
+            0
+          ],
+          [
+            2,
+            1,
+            37
+          ]
+        ],
+        "recall": {
+          "close": 1.0,
+          "open": 0.8666666666666667,
+          "relax": 0.925
+        }
+      },
+      {
+        "phase": "descriptive_all",
+        "shots": 2,
+        "arm": "window_reliability",
+        "trials": 180,
+        "macro_f1": 0.9408523731810146,
+        "accuracy": 0.9444444444444444,
+        "log_loss": 0.32710964514341184,
+        "brier": 0.05208435895644069,
+        "confusion": [
+          [
+            40,
+            0,
+            0
+          ],
+          [
+            4,
+            53,
+            3
+          ],
+          [
+            2,
+            1,
+            77
+          ]
+        ],
+        "recall": {
+          "close": 1.0,
+          "open": 0.8833333333333333,
+          "relax": 0.9625
+        }
+      },
+      {
+        "phase": "descriptive_all",
+        "shots": 2,
+        "arm": "window_full",
+        "trials": 180,
+        "macro_f1": 0.951063988170766,
+        "accuracy": 0.9555555555555556,
+        "log_loss": 0.5167236577507887,
+        "brier": 0.08471192321942453,
+        "confusion": [
+          [
+            40,
+            0,
+            0
+          ],
+          [
+            4,
+            55,
+            1
+          ],
+          [
+            2,
+            1,
+            77
+          ]
+        ],
+        "recall": {
+          "close": 1.0,
+          "open": 0.9166666666666666,
+          "relax": 0.9625
+        }
+      },
+      {
+        "phase": "descriptive_all",
+        "shots": 2,
+        "arm": "joint_full",
+        "trials": 180,
+        "macro_f1": 0.95770832405233,
+        "accuracy": 0.9611111111111111,
+        "log_loss": 0.6081066008409509,
+        "brier": 0.10523234518436461,
+        "confusion": [
+          [
+            40,
+            0,
+            0
+          ],
+          [
+            3,
+            56,
+            1
+          ],
+          [
+            2,
+            1,
+            77
+          ]
+        ],
+        "recall": {
+          "close": 1.0,
+          "open": 0.9333333333333333,
+          "relax": 0.9625
+        }
+      },
+      {
+        "phase": "descriptive_all",
+        "shots": 2,
+        "arm": "joint_uniform",
+        "trials": 180,
+        "macro_f1": 0.951063988170766,
+        "accuracy": 0.9555555555555556,
+        "log_loss": 0.6308083719195059,
+        "brier": 0.1106550356116027,
+        "confusion": [
+          [
+            40,
+            0,
+            0
+          ],
+          [
+            4,
+            55,
+            1
+          ],
+          [
+            2,
+            1,
+            77
+          ]
+        ],
+        "recall": {
+          "close": 1.0,
+          "open": 0.9166666666666666,
+          "relax": 0.9625
+        }
+      }
+    ],
+    "interpretation": "Native8/200Hz window and full-cue paths now share registration and fixed queries. Joint F1 improves descriptively over all180 intervals, but probability loss/Brier worsen and0/5 validation users improve loss. Primary guard fails. Source-only controls have zero target calibration, joint branches consume6 long plus0/3/6 current cues once. Oracle cue intervals are not physiological boundaries; posture domains are not days or redonnings."
+  },
   "document_window_composition": {
     "schema": "document_window_composition_v1_acceptance",
     "verification_version": 2,

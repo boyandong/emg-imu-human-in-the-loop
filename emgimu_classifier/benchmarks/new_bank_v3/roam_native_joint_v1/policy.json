@@ -1,0 +1,21 @@
+{
+  "schema": "roam_native_joint_v1",
+  "bank_sha256": "f90fb4273a861d5213692476ff8b60705d8ea19416dc534c7375046c7189c28a",
+  "bank_id": "6304bb07e77d8948072ba4ed9c27c9e0f7d3190c9031e640ad501bdf7be2a260",
+  "window_policy_id": "20eb331083a5bfa49449e14a632a5cfb784c96ca71bfa501b64103d76e3edc47",
+  "joint_contract_id": "aab65a64cf15f7be18a86d64c3ec54d3321d74dc4d86ab2434d0533b018e6e04",
+  "channels": [
+    "emg0",
+    "emg1",
+    "emg2",
+    "emg3",
+    "emg4",
+    "emg5",
+    "emg6",
+    "emg7"
+  ],
+  "preprocessing": "roam_native_myo200_no_added_filter_v1",
+  "rest_label": "relax",
+  "sample_rate_hz": 200.0,
+  "quality_policy_available": false
+}

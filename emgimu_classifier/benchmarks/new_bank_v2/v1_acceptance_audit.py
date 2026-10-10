@@ -693,6 +693,15 @@ def build(pre: Path, goal: Path) -> dict:
                          '96 cells/11904 predictions retain seven provider and six whole-family removals, including joint F2 covariance/CSP removal. '
                          'This closes a scoped composition/rebuild/family-LOFO check, not a new gain, ring/anatomical/full-bout native8-channel eligibility, all formulas or physical acceptance. '
                          'The corrected read-only V2 scaler oracle has zero provider error; the frozen native experiment is unchanged.')
+        if ident in ('GOAL-03','GOAL-20'):
+            evidence += ('|feature_bank/ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json'
+                         '|benchmarks/new_bank_v3/ROAM_NATIVE_JOINT_V1_RESULTS.json'
+                         '|tests/test_roam_native_joint_delivery_v1.py')
+            boundary += (' Native8/200Hz ROAM seven-window/full-cue workflow now shares6 long and0/3/6 current calibration cues on180 recording-disjoint queries. '
+                         '870 cells/15660 predictions and independent manual source/temporal/fusion equations plus saved-profile replay are verified. '
+                         'Whole F2 removes covariance/tangent and CSP; whole F5 removes window and both full-path branches. '
+                         'Descriptive F1 improves but loss/Brier worsen and0/5 validation users win loss; the primary guard fails. '
+                         'These are three-class oracle cue intervals on previously inspected posture domains, not physiological/automatic boundaries, cross-day/redonning, pinch, ADC-bound F9 or own-device proof. The remaining formula/native eligibility clauses stay partial.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]
