@@ -1086,3 +1086,14 @@ collection/emg_meta/emg_meta/emgforce/ui/personal_session_panel.py -text -eol wh
 collection/emg_meta/emg_meta/tests/test_personal_session_panel.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/SONG_PERSONAL_GUI_V1_ACCEPTANCE.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_personal_session_gui_v1_delivery.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/matched_normalized_bank_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_matched_normalized_bank_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/song_matched_normalization_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/song_matched_normalization_v1/** -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/matched_normalization_cli_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_matched_normalization_delivery_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_matched_normalization_cli_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/verify_matched_normalization_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/SONG_MATCHED_NORMALIZATION_ACCEPTANCE_V1.json -text -eol whitespace=cr-at-eol
