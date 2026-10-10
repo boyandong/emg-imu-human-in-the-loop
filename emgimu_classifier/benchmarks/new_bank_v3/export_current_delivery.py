@@ -307,6 +307,57 @@ def export():
                     'delta_logloss':alternative['log_loss']-full['log_loss'],
                     'delta_macro_f1':full['macro_f1']-alternative['macro_f1'],
                     'delta_brier':alternative['brier']-full['brier']})
+    matched_path=ROOT/'benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json'
+    matched_source=matched_path.relative_to(ROOT).as_posix();sources[matched_source]=sha(matched_path)
+    matched=json.loads(matched_path.read_text(encoding='utf8'))
+    matched_folder=matched_path.parent/'song_matched_normalization_v1'
+    for path in (matched_folder/'predictions.csv',matched_folder/'readouts.npz'):
+        sources[path.relative_to(ROOT).as_posix()]=sha(path)
+    with (matched_folder/'predictions.csv').open(encoding='utf8',newline='') as stream:matched_rows=list(csv.DictReader(stream))
+    with np.load(matched_folder/'readouts.npz',allow_pickle=False) as native:
+        classes=native['class_names'].tolist();y=np.array([classes.index(c) for c in native['labels']])
+        groups=list(matched['source']['raw']['dimensions'])
+        comparisons=[]
+        for mode in ('raw','normalized'):
+            comparisons += [(mode+'_'+a,mode+'_'+b) for a,b in list(combinations(groups,2))+
+                [('F0',a) for a in ('population','personal','session')]+[('personal','session')]+
+                [('session','session_minus_'+g) for g in groups]]
+        comparisons += [('raw_'+arm,'normalized_'+arm) for arm in ('F0','population','personal','session')]
+        for shots in (0,1,2,5):
+            probabilities={mode+'_'+g:native[f'{mode}_{shots}_{g}'] for mode in ('raw','normalized') for g in groups}
+            for cell in matched['cells']:
+                if cell['shots']!=shots:continue
+                rows=[r for r in matched_rows if r['mode']==cell['mode'] and int(r['shots'])==shots and r['arm']==cell['arm']]
+                if [r['trial_id'] for r in rows]!=native['trial_ids'].tolist():raise ValueError('Matched normalization trial axis differs')
+                probabilities[cell['mode']+'_'+cell['arm']]=np.array([[float(r['p_'+c]) for c in classes] for r in rows])
+            arms={name:(q.argmax(1),q) for name,q in probabilities.items()}
+            costs={}
+            for name in arms:
+                mode,arm=name.split('_',1)
+                costs[name]=(20+4*shots if (mode=='normalized' and arm!='personal') or arm.startswith('session') else
+                             20 if arm=='personal' else 0)
+            notes={'class_names':classes,'actual_total_target_calibration_trials':costs,
+                'source_model_fit_trials_common_to_both_domains':245,'source_normalization_reserved_trials':40,
+                'long_term_personal_trials':20,'current_session_trials':4*shots,'same_person_day':True,
+                'source_representations_scalers_classifiers_and_probability_temperatures_refitted_per_domain':True,
+                'normalized_models_require_calibration_even_for_population_or_F0_prediction':True,
+                'provider_removal_is_frozen_weight_renormalization':True,'scope':matched['scope']}
+            add_group('song_matched_normalization_v1',matched_source,'Song_real8','Song','S04_matched_input_domains',shots,
+                'same_person_day_cued_stable_native_trials',arms,y,4,notes,comparison_pairs=comparisons)
+            for mode in ('raw','normalized'):
+                full_name=mode+'_session';full=score(y,*arms[full_name],4)
+                for removed in groups:
+                    remaining=mode+'_session_minus_'+removed;alternative=score(y,*arms[remaining],4)
+                    ablations.append({'run_id':'song_matched_normalization_v1','source_artifact':matched_source,
+                        'source_sha256':sources[matched_source],'dataset':'Song_real8','subject':'Song',
+                        'session/domain':'S04_matched_input_domains','condition':'same_person_day_cued_stable_native_trials',
+                        'calibration_budget':shots,'evaluation_trials':len(y),'metadata_notes_json':json.dumps(notes,sort_keys=True),
+                        'full_bank':full_name,'removed_provider':removed,'remaining_bank':remaining,
+                        'full_target_calibration_trials_per_user':20+4*shots,'remaining_target_calibration_trials_per_user':20+4*shots,
+                        **{'full_'+k:full[k] for k in METRICS},**{'remaining_'+k:alternative[k] for k in METRICS},
+                        'delta_logloss':alternative['log_loss']-full['log_loss'],
+                        'delta_macro_f1':full['macro_f1']-alternative['macro_f1'],
+                        'delta_brier':alternative['brier']-full['brier']})
     burden_name = 'MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json'
     burden = read(burden_name)
     burden_source = (HERE/burden_name).relative_to(ROOT).as_posix()
@@ -434,6 +485,8 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/SONG_PERSONAL_SESSION_ACCEPTANCE_V1.json')},
              'song_personal_gui_acceptance': {'path':'../SONG_PERSONAL_GUI_V1_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/SONG_PERSONAL_GUI_V1_ACCEPTANCE.json')},
+             'song_matched_normalization_acceptance': {'path':'../SONG_MATCHED_NORMALIZATION_ACCEPTANCE_V1.json',
+                 'sha256':sha(ROOT/'feature_bank/SONG_MATCHED_NORMALIZATION_ACCEPTANCE_V1.json')},
              'completion_proven': False}
     (BASE/'INDEX.json').write_text(json.dumps(index, indent=2)+'\n', encoding='utf8')
     print(json.dumps({n: len(rows) for n, (rows, _) in tables.items()}), flush=True)

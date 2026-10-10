@@ -1,0 +1,38 @@
+{
+  "schema": "song_matched_normalization_acceptance_v1",
+  "source_sha256": {
+    "benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json": "4f67d4fb98a2a68025ceed3014595e0adbcb5c5f7c6d811157b9ff98978d1eed",
+    "benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_PROTOCOL.json": "e8fb0ae2f5e6be1ece6bd5383ad0f64f49e3a1197b4b5bdb27120b1494942b17",
+    "benchmarks/song_real8/verify_matched_normalization_v1.py": "243ac455a6090087a42f7aa2fd31155af3dbb5d93e660ad3ce681ff2ae2bffa6",
+    "src/emgimu/feature_bank/matched_normalization_cli_v1.py": "56c6721fc969292e6028af7b6b7f73c901a7ebc7e8915d37fced281f34f6389f",
+    "tests/test_matched_normalization_cli_v1.py": "2beea946fc26ad82bc65445682a6de546ca3d7b8232d64ef62ce9828612b5ecd",
+    "tests/test_matched_normalization_delivery_v1.py": "69f9692856fa026df702c1fb43e8b162ffaf14499a7e129d6f75188f7c7e4a3f"
+  },
+  "artifact_sha256": {
+    "benchmarks/song_real8/song_matched_normalization_v1/raw_personal_S03.zip": "a078626b4b03878ef4f5aa2682bfecacfe368fa674cf46d2aa41222863f5aac6",
+    "benchmarks/song_real8/song_matched_normalization_v1/normalized_personal_S03.zip": "454872d59b155005a04e412090002a7dc0cf6d3236b8a9358109475a463e1cce",
+    "benchmarks/song_real8/song_matched_normalization_v1/raw_session_S04_1shot.zip": "40ef7c2b522aeb01dd7daf6da9b96e964b663cddaaae1cee7d6a47688e1fc63f",
+    "benchmarks/song_real8/song_matched_normalization_v1/normalized_session_S04_1shot.zip": "b18147f79f7691fd6a8dd39e77d8458aebee6430bfa808c7719dfa7b4afa1bb5",
+    "benchmarks/song_real8/song_matched_normalization_v1/raw_session_S04_2shot.zip": "26daf8acaefa18849d2487c441d8e2b8ab30081fae92a08d9a344e3fa5ba3901",
+    "benchmarks/song_real8/song_matched_normalization_v1/normalized_session_S04_2shot.zip": "b66c9a07568f4d15ebfcd289e7e9be39a682e1a6b678020483beefb308b99fb3",
+    "benchmarks/song_real8/song_matched_normalization_v1/raw_session_S04_5shot.zip": "b7f478d5ccd0e2c202c074ffbbb5db50ef038f673f2ca14f61f6fa5786c49e84",
+    "benchmarks/song_real8/song_matched_normalization_v1/normalized_session_S04_5shot.zip": "986eca48b7f7adf99a8afcf941b95c84e66ede0afd5a5e2411f03951e371dbf0",
+    "benchmarks/song_real8/song_matched_normalization_v1/predictions.csv": "3af87228b438a73fbee4a3e82c601edb4e8bac843c5e304261c44977bea263b1",
+    "benchmarks/song_real8/song_matched_normalization_v1/readouts.npz": "2aab96cf37698a7bb25ab9e26cbd1ca4afa08e05be6ea5595978bcf7704ecfdf",
+    "benchmarks/song_real8/song_matched_normalization_v1/raw_source_bank.pkl": "16d1efb23cb97d9090b056798a7012e5ca1833b89c8f292a1fc9433b9fc3a04d",
+    "benchmarks/song_real8/song_matched_normalization_v1/normalized_source_bank.pkl": "3ef8edcc74a5b6ecbcd0964887f3a97b29429b6b03b9a912bf4ae527c49a9bd0"
+  },
+  "checked_cells": 80,
+  "checked_trial_probabilities": 9920,
+  "maximum_probability_error": 4.440892098500626e-16,
+  "maximum_normalization_error": 0.0,
+  "source_model_fit_trials": 245,
+  "source_normalization_trials": 40,
+  "source_state_immutable": true,
+  "personal_state_immutable": true,
+  "primary_pass": false,
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Six declared EMG window providers with matched normalization training, not full document F0-F9. Separate source checkpoints and profile identities; source/current calibration trials excluded from evaluation. No raw-ADC quality or F8 routing is inferred from normalized classifier inputs. No GUI normalized-candidate integration, live efficacy, physical re-donning, cross-day/general-user proof or mechanical-force claim."
+}

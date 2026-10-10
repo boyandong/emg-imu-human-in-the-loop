@@ -306,6 +306,25 @@ def build(pre: Path, goal: Path) -> dict:
                          "efficacy experiment. Device disconnection or discontinuity cancels pending "
                          "calibration and clears displayed recognition. Full F0-F9 fusion, quality "
                          "rejection and hardware efficacy remain unproved.")
+        if ident in ("GOAL-02", "GOAL-03", "GOAL-08", "GOAL-09", "GOAL-20", "GOAL-21", "GOAL-22", "GOAL-23"):
+            evidence += ("|feature_bank/SONG_MATCHED_NORMALIZATION_ACCEPTANCE_V1.json"
+                         "|benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_PROTOCOL.json"
+                         "|benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json"
+                         "|tests/test_matched_normalized_bank_v1.py"
+                         "|tests/test_matched_normalization_cli_v1.py"
+                         "|tests/test_matched_normalization_delivery_v1.py")
+            boundary += (" A separate matched source-trained normalization candidate now applies "
+                         "Rest median and active Q95+epsilon before feature extraction in both "
+                         "training and inference. Both raw/normalized branches fit the same245 "
+                         "source trials, reserving40 normalization trials. Same124 S04 evaluation "
+                         "trials,80 cells/9920 predictions, all48 provider removals and calibration "
+                         "budgets are retained. The fixed five-shot normalized candidate worsens "
+                         "loss/Brier/F1 and fist recall; all four primary guards fail. Separate "
+                         "normalized source/profile identities, label-free CLI, source-only "
+                         "temperatures/policy and independent no-fit normalization oracles verify "
+                         "execution, not a benefit. Population/F0 normalization still consumes "
+                         "long-term20 plus current0/4/8/20 trials. No GUI/default promotion, "
+                         "raw-ADC quality, full F0-F9 or hardware efficacy is proved.")
         if ident in ("GOAL-02", "GOAL-03", "GOAL-18", "GOAL-20", "GOAL-23"):
             evidence += ("|benchmarks/song_real8/SONG_F0_STREAM_V1_PROTOCOL.json"
                          "|benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json"

@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `d95910474771bd815caae36824ee7ba5daa9f27ac61b4c163228d691b51c4574`.
+Source SHA-256: `9bb1d01f8c014b8221002ae4752a85ab4646661e05a3d68c2312eb5ccd805639`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -278,9 +278,9 @@ Source SHA-256: `d95910474771bd815caae36824ee7ba5daa9f27ac61b4c163228d691b51c457
 | C: 哪些family只在特定条件下有价值？ | 当前收益依赖数据轴、预算与组合。七项新版默认扩展检查没有确立新的通用默认；F8的各预算和阶段结果应逐格报告，不能把局部收益写成全局不变性。 [PUBLIC_DEFAULT_EXTENSION_AUDIT.json](../benchmarks/new_bank_v3/PUBLIC_DEFAULT_EXTENSION_AUDIT.json), [F8_ROUTER_MANUS_V1_RESULTS.json](../benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json), [F8_CALIBRATED_MANUS_V2_RESULTS.json](../benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json) | 不同数据集、动作本体及已检查阶段不能合并为同一个统计检验；局部混合收益不是直接证明某个新增特征的信息量。 |
 | D: 哪些family只有个人校准后才有明显价值？ | 两种已校准距离方法不能证明“只有校准才有效”。新增纯EMG实验在相同1200留出试次上比较source-only F0与1/2/5-shot F7组合，获得有限增益，但五shot主要门槛失败；其他family不能据此推断。 [results.json](../benchmarks/new_bank_v3/F7_AFFINE_FRESH/results.json), [MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json) | 独立试次才计为shot；10/20shot低维协方差结论不能推广到被拒绝的高维、小样本设置或零校准部署。 |
 | E: Personal Anchor是否降低跨用户变化？ | 新版EPN低维Mahalanobis相对Euclidean改善均值及最差用户，并降低这组用户的F1标准差。两者都使用个人校准，不能据此宣称相对无Anchor必然降低跨用户变化。 [MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json) | 等用户均值、样本标准差与 pooled F1分开。人群仅32–41，未证明全部用户或当前设备。增加预算仍有个体退步。 |
-| F: Session Signature能帮助跨天或重新佩戴吗？ | MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。 Song新版在同人单日不同录制中也呈混合结果：1-shot会话权重改善损失，2/5-shot反而退步；尚非跨天或真实重贴证明。 [F8_ROUTER_MANUS_V1_RESULTS.json](../benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json), [F8_CALIBRATED_MANUS_V2_RESULTS.json](../benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json), [SONG_PERSONAL_SESSION_V1_RESULTS.json](../benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json) | 已检查的MANUS会话是描述性证据；TD24不等于Rest拟合F0。物理重贴和本设备会话恢复未验证。 |
+| F: Session Signature能帮助跨天或重新佩戴吗？ | MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。 Song新版在同人单日不同录制中也呈混合结果：1-shot会话权重改善损失，2/5-shot反而退步；尚非跨天或真实重贴证明。 新版配对训练进一步检验了个人归一化：五试次/类时总体F1、概率损失及握拳召回退步，四项主要守门均未通过；不能默认启用。 [F8_ROUTER_MANUS_V1_RESULTS.json](../benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json), [F8_CALIBRATED_MANUS_V2_RESULTS.json](../benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json), [SONG_PERSONAL_SESSION_V1_RESULTS.json](../benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json), [SONG_MATCHED_NORMALIZATION_V1_RESULTS.json](../benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json) | 已检查的MANUS会话是描述性证据；TD24不等于Rest拟合F0。物理重贴和本设备会话恢复未验证。 |
 | G: 是否改善最差场景R_min，而不只是均值？ | 低维Mahalanobis改善相同预算下这组EPN最差用户，但增加到20shot仍可能损害最差用户；不能将单轴最差用户指标冒充完整七轴R_min。连续识别的样本F1也不能代替动作保持成功率。 [MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json), [ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json](../benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json) | 跨force/wearing/day/posture及真实质量等所有轴的统一改善尚未证明。 |
-| H: 新用户或新session需要多少校准？ | 该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。 Song新版另需20个S03长期试次，再加0/4/8/20个S04会话试次；0-shot当前会话不等于零总校准。 [MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json), [MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json), [SONG_PERSONAL_SESSION_V1_RESULTS.json](../benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json) | 覆盖六类动作；未证明跨力、姿态、重新佩戴或重复session的必要预算，也未证明几秒校准或实机收益。 |
+| H: 新用户或新session需要多少校准？ | 该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。 Song新版另需20个S03长期试次，再加0/4/8/20个S04会话试次；0-shot当前会话不等于零总校准。 归一化分支即使使用人口权重或单F0，也需长期20试次及所用会话校准，不能记成零校准控制。 [MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json), [MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json](../benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json), [EMG_F0_F7_BANK_V1_RESULTS.json](../benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json), [SONG_PERSONAL_SESSION_V1_RESULTS.json](../benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json), [SONG_MATCHED_NORMALIZATION_V1_RESULTS.json](../benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json) | 覆盖六类动作；未证明跨力、姿态、重新佩戴或重复session的必要预算，也未证明几秒校准或实机收益。 |
 
 #### Quantitative evidence behind the current answers
 
@@ -721,6 +721,61 @@ profile mismatch rejection, disconnect and switching back to ordinary models.
 [GUI lifecycle provenance](SONG_PERSONAL_GUI_V1_ACCEPTANCE.json)
 retains experimental status. Physical usability, end-to-end latency, new
 electrode placement, quality rejection and full F0-F9 integration remain open.
+
+#### Matched source training for personal normalization
+
+This separate precommitted experiment fits paired raw and document-normalized
+versions of all six window providers. Both branches reserve40 source trials
+(five/class in each source recording) and fit every representation, scaler
+and classifier on the same245 remaining source trials. Source normalization
+uses only its recording calibration; leave-source-recording-out models refit
+all learned representations. Source OOF temperatures and reliability policy
+use the declared0/1/2/5 scenarios. Reusing source validation for probability
+calibration and policy selection is not nested unbiased source performance.
+
+The same20 S03 personal trials,20 reserved S04 trials and124 evaluation trials
+as the previous lifecycle study are retained. At0 current shots normalization
+uses the long-term profile; at1/2/5 it uses only the current calibration subset.
+Rest median and active Q95+1e-10 are applied exactly once before feature
+extraction, in the same domain as source training. Evaluation never updates
+the source model, probability temperatures, long-term profile or normalizer.
+
+| Domain | Current shots/class | Macro F1 | Logloss | Fist recall | Pinch recall | Open recall |
+|---|---:|---:|---:|---:|---:|---:|
+| raw | 0 | 0.9157 | 0.2825 | 1.0000 | 0.7097 | 1.0000 |
+| normalized | 0 | 0.8412 | 0.3762 | 0.6774 | 0.7097 | 1.0000 |
+| raw | 1 | 0.9334 | 0.2591 | 1.0000 | 0.7742 | 1.0000 |
+| normalized | 1 | 0.8746 | 0.3492 | 0.8387 | 0.6774 | 1.0000 |
+| raw | 2 | 0.9247 | 0.3344 | 1.0000 | 0.7419 | 1.0000 |
+| normalized | 2 | 0.9187 | 0.3742 | 0.8387 | 0.8710 | 1.0000 |
+| raw | 5 | 0.9067 | 0.3340 | 1.0000 | 0.6774 | 1.0000 |
+| normalized | 5 | 0.8752 | 0.4054 | 0.6774 | 0.8387 | 1.0000 |
+
+The fixed five-shot primary guards are `{"lower_brier": false, "lower_log_loss": false, "nonworse_all_class_recall": false, "nonworse_macro_f1": false}`.
+The normalized candidate fails all four: loss/Brier increase, overall F1
+decreases and fist recall drops, despite improved pinch recall in this cell.
+No target-selected normalization budget or GUI default is promoted. The
+current GUI fixed source model is a different source-fit protocol; do not
+substitute these paired-source numbers for its existing acceptance results.
+
+All80 cells, including48 provider removals, and9920 trial predictions are
+retained. Independent no-fit replay verifies raw-calibration medians/quantiles,
+source normalization reservations, every saved probability and package
+roundtrip. The portable CLI `python -m emgimu.feature_bank.matched_normalization_cli_v1`
+supports enrollment, new-session calibration and unlabeled prediction from
+explicit source packages and profiles without the recording archive. A
+normalized source package rejects a missing personal profile and cannot be
+interchanged with the paired raw package.
+
+Even population-weight or single-F0 normalized inference consumes the
+normalization calibration:20 long-term plus0/4/8/20 current trials. Separate
+source-only raw controls consume none. Normalized inputs do not establish
+raw-ADC quality or F8 routing. Full document F0-F9, native device efficacy,
+cross-day/re-donning and normalized-candidate GUI integration remain open.
+
+[Matched normalization results](../benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json)
+and [independent normalization/package acceptance](SONG_MATCHED_NORMALIZATION_ACCEPTANCE_V1.json)
+bind this developmental comparison to its frozen implementation.
 
 #### Target calibration burden: extracted signal versus stored recording time
 

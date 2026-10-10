@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "aa2bfbdf671bb2a3583e792a04a4c302d8c5364285084f7bbdcbec311f54233d",
+  "generator_sha256": "5c535375b79c6179a091c4cf41254cf81a6dfbccfbd28eb2a46127c9edcf37a9",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -31,6 +31,9 @@
     "tests/test_song_personal_session_v1_delivery.py",
     "tests/test_personal_session_stream_v1.py",
     "tests/test_personal_session_gui_v1_delivery.py",
+    "tests/test_matched_normalized_bank_v1.py",
+    "tests/test_matched_normalization_cli_v1.py",
+    "tests/test_matched_normalization_delivery_v1.py",
     "tests/test_available_bank_fusion_v1.py",
     "tests/test_available_bank_fusion_v1_delivery.py",
     "tests/test_epn_holdout_user_robustness_v2.py",
@@ -56,12 +59,14 @@
     "benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json": "1378f1c4e1655a59588f2d6dc6c35bc48e0d30c5a22bab2568c705a768551e38",
     "feature_bank/SONG_PERSONAL_SESSION_ACCEPTANCE_V1.json": "195b23cd57430b6b44395bd8c0aca2935fdee2734f35b3a8bf8d687fa99fc6d6",
     "feature_bank/SONG_PERSONAL_GUI_V1_ACCEPTANCE.json": "e4a613649f41ea7cdc5c5d1d00b59d7ebbf355179157fd47d6eaa5c4117831db",
+    "benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json": "4f67d4fb98a2a68025ceed3014595e0adbcb5c5f7c6d811157b9ff98978d1eed",
+    "feature_bank/SONG_MATCHED_NORMALIZATION_ACCEPTANCE_V1.json": "418d6590d4dfe7d753dda07a58f6cad84e41ae9bdbaa6acea4ce508f980e4ba7",
     "benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.json": "a079bff7bceae47930f3bb6579782cbc9208ee1e858a89caaf78c43b31b575db",
     "benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json": "0d38aad3bfef51ee962d8cc3ec5cbf2f5b4c96cd483c0b572b69a26661df12b1",
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "848a2b343b24316246b50eb6a150dc26bf32c72f44bbc03cedbe2af2bf17b2d1",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "2fd21fa1450fe926871ef14163d154274b1b162ca6744dc79ee11ff04f67fd38",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -86,6 +91,9 @@
     "tests/test_song_personal_session_v1_delivery.py": "243d9b6785c730ee142a925aeaad811e9132eb7b88c8c4de376add34f0f972a7",
     "tests/test_personal_session_stream_v1.py": "6e196d48620fd82672ab42fdb73718255da58b9cf1cf3c649189fca5cb2ec1ca",
     "tests/test_personal_session_gui_v1_delivery.py": "c3618500af12d37119474e7c97888752a1ae4c1592bf3caf9b2d9b571b68357f",
+    "tests/test_matched_normalized_bank_v1.py": "2c1dc05091b12ff4a926c0a4d2679c0133daa0c51d49e30870286f18bd149cc2",
+    "tests/test_matched_normalization_cli_v1.py": "2beea946fc26ad82bc65445682a6de546ca3d7b8232d64ef62ce9828612b5ecd",
+    "tests/test_matched_normalization_delivery_v1.py": "69f9692856fa026df702c1fb43e8b162ffaf14499a7e129d6f75188f7c7e4a3f",
     "tests/test_available_bank_fusion_v1.py": "d2d3d2ce3bd12a5e6e5ef37d77eadb39f529e126b1abdd8585d7e624a7014f07",
     "tests/test_available_bank_fusion_v1_delivery.py": "43c2870143b5c534581c435c06c7dec1506747012bd389d1b62a46d98403266e",
     "tests/test_epn_holdout_user_robustness_v2.py": "797631cfe13ddb072dc95aaeb95d4b5aa7d7e40da4a15a82de34022f94f3e350",
@@ -577,7 +585,7 @@
     {
       "question_id": "F",
       "question": "Session Signature能帮助跨天或重新佩戴吗？",
-      "answer": "MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。 Song新版在同人单日不同录制中也呈混合结果：1-shot会话权重改善损失，2/5-shot反而退步；尚非跨天或真实重贴证明。",
+      "answer": "MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。 Song新版在同人单日不同录制中也呈混合结果：1-shot会话权重改善损失，2/5-shot反而退步；尚非跨天或真实重贴证明。 新版配对训练进一步检验了个人归一化：五试次/类时总体F1、概率损失及握拳召回退步，四项主要守门均未通过；不能默认启用。",
       "measurements": [
         {
           "cell": "validation_1shot",
@@ -612,7 +620,8 @@
       "evidence": [
         "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json",
         "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json",
-        "benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json"
+        "benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json",
+        "benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json"
       ],
       "native_Song_recording_session_cells": [
         {
@@ -1395,7 +1404,7 @@
     {
       "question_id": "H",
       "question": "新用户或新session需要多少校准？",
-      "answer": "该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。 Song新版另需20个S03长期试次，再加0/4/8/20个S04会话试次；0-shot当前会话不等于零总校准。",
+      "answer": "该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。 Song新版另需20个S03长期试次，再加0/4/8/20个S04会话试次；0-shot当前会话不等于零总校准。 归一化分支即使使用人口权重或单F0，也需长期20试次及所用会话校准，不能记成零校准控制。",
       "measurements": [
         {
           "shots_per_class": 10,
@@ -1438,7 +1447,8 @@
         "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json",
         "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json",
         "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json",
-        "benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json"
+        "benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json",
+        "benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json"
       ],
       "native_Song_recording_session_cells": [
         {
@@ -3063,6 +3073,2238 @@
     "scope": "Opt-in six-provider GUI lifecycle. Full native-recording window parity, not native trial efficacy or hardware validation. F7/F8/F9 remain context outputs; normalization does not replace classifier inputs; quality rejection and full F0-F9 integration remain open.",
     "physical_validation_proven": false,
     "default_promoted": false
+  },
+  "song_matched_normalization": {
+    "cells": [
+      {
+        "mode": "raw",
+        "shots": 0,
+        "arm": "F0",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8983426655891279,
+        "accuracy": 0.9032258064516129,
+        "log_loss": 0.25229167242646183,
+        "brier": 0.03360146144088601,
+        "per_class_f1": {
+          "fist": 0.9230769230769231,
+          "index_pinch": 0.7924528301886793,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 0,
+        "arm": "population",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9254616910866911,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.29158469459869807,
+        "brier": 0.03239282740513591,
+        "per_class_f1": {
+          "fist": 0.9375,
+          "index_pinch": 0.8571428571428571,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.7741935483870968,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 0,
+        "arm": "personal",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9157001279642789,
+        "accuracy": 0.9193548387096774,
+        "log_loss": 0.28249469164431307,
+        "brier": 0.0320707646988671,
+        "per_class_f1": {
+          "fist": 0.9393939393939394,
+          "index_pinch": 0.8301886792452831,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 0,
+        "arm": "session",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9157001279642789,
+        "accuracy": 0.9193548387096774,
+        "log_loss": 0.28249469164431307,
+        "brier": 0.0320707646988671,
+        "per_class_f1": {
+          "fist": 0.9393939393939394,
+          "index_pinch": 0.8301886792452831,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 0,
+        "arm": "session_minus_F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9336737914862915,
+        "accuracy": 0.9354838709677419,
+        "log_loss": 0.3519149066048228,
+        "brier": 0.038121768353227246,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.8727272727272727,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7741935483870968,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 0,
+        "arm": "session_minus_F1",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.898794781363072,
+        "accuracy": 0.9032258064516129,
+        "log_loss": 0.25921544990336026,
+        "brier": 0.02938366918177693,
+        "per_class_f1": {
+          "fist": 0.9230769230769231,
+          "index_pinch": 0.7924528301886793,
+          "neutral": 0.8955223880597015,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 0,
+        "arm": "session_minus_F2ac",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8998669733044733,
+        "accuracy": 0.9032258064516129,
+        "log_loss": 0.31834009330763596,
+        "brier": 0.03684874865702648,
+        "per_class_f1": {
+          "fist": 0.90625,
+          "index_pinch": 0.8,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 0.9354838709677419,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 0,
+        "arm": "session_minus_F3b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9247289747289748,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.2404147293229461,
+        "brier": 0.029923433082415206,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 0,
+        "arm": "session_minus_F4abc",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9066839048182332,
+        "accuracy": 0.9112903225806451,
+        "log_loss": 0.28578466804657654,
+        "brier": 0.032365713411250364,
+        "per_class_f1": {
+          "fist": 0.9393939393939394,
+          "index_pinch": 0.8076923076923077,
+          "neutral": 0.8955223880597015,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 0,
+        "arm": "session_minus_F5window",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9066839048182332,
+        "accuracy": 0.9112903225806451,
+        "log_loss": 0.286844926073426,
+        "brier": 0.03287249024141572,
+        "per_class_f1": {
+          "fist": 0.9393939393939394,
+          "index_pinch": 0.8076923076923077,
+          "neutral": 0.8955223880597015,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 0,
+        "arm": "F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.822095504868614,
+        "accuracy": 0.8306451612903226,
+        "log_loss": 0.38094204910799445,
+        "brier": 0.05581359049174029,
+        "per_class_f1": {
+          "fist": 0.7346938775510204,
+          "index_pinch": 0.7301587301587301,
+          "neutral": 0.9117647058823529,
+          "open_hand": 0.9117647058823529
+        },
+        "recall": {
+          "fist": 0.5806451612903226,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 0,
+        "arm": "population",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8758867337381794,
+        "accuracy": 0.8790322580645161,
+        "log_loss": 0.38384282904993033,
+        "brier": 0.046951786604696705,
+        "per_class_f1": {
+          "fist": 0.8727272727272727,
+          "index_pinch": 0.7796610169491526,
+          "neutral": 0.9117647058823529,
+          "open_hand": 0.9393939393939394
+        },
+        "recall": {
+          "fist": 0.7741935483870968,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 0,
+        "arm": "personal",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8412373749979201,
+        "accuracy": 0.8467741935483871,
+        "log_loss": 0.37622561516512965,
+        "brier": 0.047671682325840334,
+        "per_class_f1": {
+          "fist": 0.8076923076923077,
+          "index_pinch": 0.7333333333333333,
+          "neutral": 0.8985507246376812,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.6774193548387096,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 0,
+        "arm": "session",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8412373749979201,
+        "accuracy": 0.8467741935483871,
+        "log_loss": 0.37622561516512965,
+        "brier": 0.047671682325840334,
+        "per_class_f1": {
+          "fist": 0.8076923076923077,
+          "index_pinch": 0.7333333333333333,
+          "neutral": 0.8985507246376812,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.6774193548387096,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 0,
+        "arm": "session_minus_F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8894987763483844,
+        "accuracy": 0.8951612903225806,
+        "log_loss": 0.4387622340555581,
+        "brier": 0.05089401387176898,
+        "per_class_f1": {
+          "fist": 0.9508196721311475,
+          "index_pinch": 0.7692307692307693,
+          "neutral": 0.8985507246376812,
+          "open_hand": 0.9393939393939394
+        },
+        "recall": {
+          "fist": 0.9354838709677419,
+          "index_pinch": 0.6451612903225806,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 0,
+        "arm": "session_minus_F1",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8412373749979201,
+        "accuracy": 0.8467741935483871,
+        "log_loss": 0.34550591638762007,
+        "brier": 0.04464640011833859,
+        "per_class_f1": {
+          "fist": 0.8076923076923077,
+          "index_pinch": 0.7333333333333333,
+          "neutral": 0.8985507246376812,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.6774193548387096,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 0,
+        "arm": "session_minus_F2ac",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8136716818564733,
+        "accuracy": 0.8225806451612904,
+        "log_loss": 0.44745621647782935,
+        "brier": 0.05760380682662127,
+        "per_class_f1": {
+          "fist": 0.7346938775510204,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 0.8985507246376812,
+          "open_hand": 0.9117647058823529
+        },
+        "recall": {
+          "fist": 0.5806451612903226,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 0,
+        "arm": "session_minus_F3b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8412373749979201,
+        "accuracy": 0.8467741935483871,
+        "log_loss": 0.3373992129633413,
+        "brier": 0.04580420869601336,
+        "per_class_f1": {
+          "fist": 0.8076923076923077,
+          "index_pinch": 0.7333333333333333,
+          "neutral": 0.8985507246376812,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.6774193548387096,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 0,
+        "arm": "session_minus_F4abc",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8412373749979201,
+        "accuracy": 0.8467741935483871,
+        "log_loss": 0.3685927629308761,
+        "brier": 0.04634373853476634,
+        "per_class_f1": {
+          "fist": 0.8076923076923077,
+          "index_pinch": 0.7333333333333333,
+          "neutral": 0.8985507246376812,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.6774193548387096,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 0,
+        "arm": "session_minus_F5window",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8412373749979201,
+        "accuracy": 0.8467741935483871,
+        "log_loss": 0.38210292559564074,
+        "brier": 0.04839097808446772,
+        "per_class_f1": {
+          "fist": 0.8076923076923077,
+          "index_pinch": 0.7333333333333333,
+          "neutral": 0.8985507246376812,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.6774193548387096,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 1,
+        "arm": "F0",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8983426655891279,
+        "accuracy": 0.9032258064516129,
+        "log_loss": 0.25229167242646183,
+        "brier": 0.03360146144088601,
+        "per_class_f1": {
+          "fist": 0.9230769230769231,
+          "index_pinch": 0.7924528301886793,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 1,
+        "arm": "population",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9254616910866911,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.29158469459869807,
+        "brier": 0.03239282740513591,
+        "per_class_f1": {
+          "fist": 0.9375,
+          "index_pinch": 0.8571428571428571,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.7741935483870968,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 1,
+        "arm": "personal",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9157001279642789,
+        "accuracy": 0.9193548387096774,
+        "log_loss": 0.28249469164431307,
+        "brier": 0.0320707646988671,
+        "per_class_f1": {
+          "fist": 0.9393939393939394,
+          "index_pinch": 0.8301886792452831,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 1,
+        "arm": "session",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9334443334443334,
+        "accuracy": 0.9354838709677419,
+        "log_loss": 0.2590545870772388,
+        "brier": 0.02923685527072413,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8727272727272727,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7741935483870968,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 1,
+        "arm": "session_minus_F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9341602761323108,
+        "accuracy": 0.9354838709677419,
+        "log_loss": 0.28756533038392385,
+        "brier": 0.03136182661461058,
+        "per_class_f1": {
+          "fist": 0.9836065573770492,
+          "index_pinch": 0.8571428571428571,
+          "neutral": 0.9117647058823529,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.7741935483870968,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 1,
+        "arm": "session_minus_F1",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9336737914862915,
+        "accuracy": 0.9354838709677419,
+        "log_loss": 0.24357121831671763,
+        "brier": 0.027614350009039727,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8727272727272727,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7741935483870968,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 1,
+        "arm": "session_minus_F2ac",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9087206196581197,
+        "accuracy": 0.9112903225806451,
+        "log_loss": 0.3059506360516096,
+        "brier": 0.03586254627810608,
+        "per_class_f1": {
+          "fist": 0.90625,
+          "index_pinch": 0.8214285714285714,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 0.9354838709677419,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 1,
+        "arm": "session_minus_F3b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9334443334443334,
+        "accuracy": 0.9354838709677419,
+        "log_loss": 0.22533541667841153,
+        "brier": 0.027543540244617404,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8727272727272727,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7741935483870968,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 1,
+        "arm": "session_minus_F4abc",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9250628060096344,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.25950765777535145,
+        "brier": 0.02871843859168133,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.8955223880597015,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 1,
+        "arm": "session_minus_F5window",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9250628060096344,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.26246458950963386,
+        "brier": 0.030045430868037768,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.8955223880597015,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 1,
+        "arm": "F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.8524377353313565,
+        "accuracy": 0.8548387096774194,
+        "log_loss": 0.38436536404981714,
+        "brier": 0.05138321130954003,
+        "per_class_f1": {
+          "fist": 0.7931034482758621,
+          "index_pinch": 0.7719298245614035,
+          "neutral": 0.9836065573770492,
+          "open_hand": 0.8611111111111112
+        },
+        "recall": {
+          "fist": 0.7419354838709677,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 1,
+        "arm": "population",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.8664025634586345,
+        "accuracy": 0.8709677419354839,
+        "log_loss": 0.3846254524294722,
+        "brier": 0.045592636703024436,
+        "per_class_f1": {
+          "fist": 0.9122807017543859,
+          "index_pinch": 0.7547169811320755,
+          "neutral": 0.9253731343283582,
+          "open_hand": 0.8732394366197183
+        },
+        "recall": {
+          "fist": 0.8387096774193549,
+          "index_pinch": 0.6451612903225806,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 1,
+        "arm": "personal",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8412373749979201,
+        "accuracy": 0.8467741935483871,
+        "log_loss": 0.37622561516512965,
+        "brier": 0.047671682325840334,
+        "per_class_f1": {
+          "fist": 0.8076923076923077,
+          "index_pinch": 0.7333333333333333,
+          "neutral": 0.8985507246376812,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.6774193548387096,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 1,
+        "arm": "session",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.874563340220437,
+        "accuracy": 0.8790322580645161,
+        "log_loss": 0.34915950673835283,
+        "brier": 0.042272601521131756,
+        "per_class_f1": {
+          "fist": 0.896551724137931,
+          "index_pinch": 0.7777777777777778,
+          "neutral": 0.9253731343283582,
+          "open_hand": 0.8985507246376812
+        },
+        "recall": {
+          "fist": 0.8387096774193549,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 1,
+        "arm": "session_minus_F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.8972983752961945,
+        "accuracy": 0.9032258064516129,
+        "log_loss": 0.37844541149044014,
+        "brier": 0.043764434765513636,
+        "per_class_f1": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.7843137254901961,
+          "neutral": 0.9117647058823529,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.6451612903225806,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 1,
+        "arm": "session_minus_F1",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.883624097042388,
+        "accuracy": 0.8870967741935484,
+        "log_loss": 0.32837503535350493,
+        "brier": 0.0404281915355772,
+        "per_class_f1": {
+          "fist": 0.896551724137931,
+          "index_pinch": 0.8,
+          "neutral": 0.9393939393939394,
+          "open_hand": 0.8985507246376812
+        },
+        "recall": {
+          "fist": 0.8387096774193549,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 1,
+        "arm": "session_minus_F2ac",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.827173579109063,
+        "accuracy": 0.8306451612903226,
+        "log_loss": 0.4313343830419697,
+        "brier": 0.05450001939736356,
+        "per_class_f1": {
+          "fist": 0.8,
+          "index_pinch": 0.7142857142857143,
+          "neutral": 0.967741935483871,
+          "open_hand": 0.8266666666666667
+        },
+        "recall": {
+          "fist": 0.7096774193548387,
+          "index_pinch": 0.6451612903225806,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 1,
+        "arm": "session_minus_F3b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.874563340220437,
+        "accuracy": 0.8790322580645161,
+        "log_loss": 0.3218341576036876,
+        "brier": 0.04072177392308074,
+        "per_class_f1": {
+          "fist": 0.896551724137931,
+          "index_pinch": 0.7777777777777778,
+          "neutral": 0.9253731343283582,
+          "open_hand": 0.8985507246376812
+        },
+        "recall": {
+          "fist": 0.8387096774193549,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 1,
+        "arm": "session_minus_F4abc",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.9092494235836627,
+        "accuracy": 0.9112903225806451,
+        "log_loss": 0.32897504007781037,
+        "brier": 0.03876880343360127,
+        "per_class_f1": {
+          "fist": 0.9333333333333333,
+          "index_pinch": 0.8363636363636363,
+          "neutral": 0.96875,
+          "open_hand": 0.8985507246376812
+        },
+        "recall": {
+          "fist": 0.9032258064516129,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 1,
+        "arm": "session_minus_F5window",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 4,
+        "trials": 124,
+        "macro_f1": 0.8825424638191561,
+        "accuracy": 0.8870967741935484,
+        "log_loss": 0.35521288310192173,
+        "brier": 0.04275582438447685,
+        "per_class_f1": {
+          "fist": 0.9152542372881356,
+          "index_pinch": 0.7777777777777778,
+          "neutral": 0.9253731343283582,
+          "open_hand": 0.9117647058823529
+        },
+        "recall": {
+          "fist": 0.8709677419354839,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 2,
+        "arm": "F0",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8983426655891279,
+        "accuracy": 0.9032258064516129,
+        "log_loss": 0.25229167242646183,
+        "brier": 0.03360146144088601,
+        "per_class_f1": {
+          "fist": 0.9230769230769231,
+          "index_pinch": 0.7924528301886793,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 2,
+        "arm": "population",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9254616910866911,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.29158469459869807,
+        "brier": 0.03239282740513591,
+        "per_class_f1": {
+          "fist": 0.9375,
+          "index_pinch": 0.8571428571428571,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.7741935483870968,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 2,
+        "arm": "personal",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9157001279642789,
+        "accuracy": 0.9193548387096774,
+        "log_loss": 0.28249469164431307,
+        "brier": 0.0320707646988671,
+        "per_class_f1": {
+          "fist": 0.9393939393939394,
+          "index_pinch": 0.8301886792452831,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 2,
+        "arm": "session",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9247289747289748,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.3344331405975475,
+        "brier": 0.036343022670351346,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 2,
+        "arm": "session_minus_F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9336737914862915,
+        "accuracy": 0.9354838709677419,
+        "log_loss": 0.415979011037753,
+        "brier": 0.04562844126861066,
+        "per_class_f1": {
+          "fist": 0.9841269841269841,
+          "index_pinch": 0.8727272727272727,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7741935483870968,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 2,
+        "arm": "session_minus_F1",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9247289747289748,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.3135114775633071,
+        "brier": 0.033403788429522546,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 2,
+        "arm": "session_minus_F2ac",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9087206196581197,
+        "accuracy": 0.9112903225806451,
+        "log_loss": 0.3872843855453784,
+        "brier": 0.043543936184973264,
+        "per_class_f1": {
+          "fist": 0.90625,
+          "index_pinch": 0.8214285714285714,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 0.9354838709677419,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 2,
+        "arm": "session_minus_F3b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9247289747289748,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.2469111359658848,
+        "brier": 0.030315715883472115,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 2,
+        "arm": "session_minus_F4abc",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9159210513195306,
+        "accuracy": 0.9193548387096774,
+        "log_loss": 0.3421597546175013,
+        "brier": 0.03714952373729991,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8301886792452831,
+          "neutral": 0.8955223880597015,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 2,
+        "arm": "session_minus_F5window",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9247289747289748,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.3414332010480832,
+        "brier": 0.03732142911374021,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 2,
+        "arm": "F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.8937410492727225,
+        "accuracy": 0.8951612903225806,
+        "log_loss": 0.28151982154600896,
+        "brier": 0.04059057650539634,
+        "per_class_f1": {
+          "fist": 0.8148148148148148,
+          "index_pinch": 0.8405797101449275,
+          "neutral": 0.9508196721311475,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 0.7096774193548387,
+          "index_pinch": 0.9354838709677419,
+          "neutral": 0.9354838709677419,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 2,
+        "arm": "population",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.918220914385442,
+        "accuracy": 0.9193548387096774,
+        "log_loss": 0.3315229067515398,
+        "brier": 0.037223896031256504,
+        "per_class_f1": {
+          "fist": 0.9122807017543859,
+          "index_pinch": 0.8524590163934426,
+          "neutral": 0.9393939393939394,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 0.8387096774193549,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 2,
+        "arm": "personal",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8412373749979201,
+        "accuracy": 0.8467741935483871,
+        "log_loss": 0.37622561516512965,
+        "brier": 0.047671682325840334,
+        "per_class_f1": {
+          "fist": 0.8076923076923077,
+          "index_pinch": 0.7333333333333333,
+          "neutral": 0.8985507246376812,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.6774193548387096,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 2,
+        "arm": "session",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9187063834154352,
+        "accuracy": 0.9193548387096774,
+        "log_loss": 0.37419001034249316,
+        "brier": 0.041867370797728266,
+        "per_class_f1": {
+          "fist": 0.896551724137931,
+          "index_pinch": 0.8571428571428571,
+          "neutral": 0.9523809523809523,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 0.8387096774193549,
+          "index_pinch": 0.8709677419354839,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 2,
+        "arm": "session_minus_F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9505893153281213,
+        "accuracy": 0.9516129032258065,
+        "log_loss": 0.46842107415232115,
+        "brier": 0.0531327613060519,
+        "per_class_f1": {
+          "fist": 1.0,
+          "index_pinch": 0.8928571428571429,
+          "neutral": 0.9253731343283582,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 2,
+        "arm": "session_minus_F1",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9187063834154352,
+        "accuracy": 0.9193548387096774,
+        "log_loss": 0.34075800233855913,
+        "brier": 0.037783867398622994,
+        "per_class_f1": {
+          "fist": 0.896551724137931,
+          "index_pinch": 0.8571428571428571,
+          "neutral": 0.9523809523809523,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 0.8387096774193549,
+          "index_pinch": 0.8709677419354839,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 2,
+        "arm": "session_minus_F2ac",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.8923670865413764,
+        "accuracy": 0.8951612903225806,
+        "log_loss": 0.44765461429261505,
+        "brier": 0.05269791492836533,
+        "per_class_f1": {
+          "fist": 0.8148148148148148,
+          "index_pinch": 0.8615384615384616,
+          "neutral": 0.967741935483871,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.7096774193548387,
+          "index_pinch": 0.9032258064516129,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 2,
+        "arm": "session_minus_F3b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9351820840141196,
+        "accuracy": 0.9354838709677419,
+        "log_loss": 0.2824550535056274,
+        "brier": 0.03378326123040165,
+        "per_class_f1": {
+          "fist": 0.896551724137931,
+          "index_pinch": 0.8923076923076924,
+          "neutral": 0.967741935483871,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 0.8387096774193549,
+          "index_pinch": 0.9354838709677419,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 2,
+        "arm": "session_minus_F4abc",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9101407364565259,
+        "accuracy": 0.9112903225806451,
+        "log_loss": 0.3743472482240201,
+        "brier": 0.04153470154749077,
+        "per_class_f1": {
+          "fist": 0.8771929824561403,
+          "index_pinch": 0.8571428571428571,
+          "neutral": 0.9523809523809523,
+          "open_hand": 0.9538461538461539
+        },
+        "recall": {
+          "fist": 0.8064516129032258,
+          "index_pinch": 0.8709677419354839,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 2,
+        "arm": "session_minus_F5window",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 8,
+        "trials": 124,
+        "macro_f1": 0.9105184837092732,
+        "accuracy": 0.9112903225806451,
+        "log_loss": 0.38133030659231476,
+        "brier": 0.04287673939192984,
+        "per_class_f1": {
+          "fist": 0.8771929824561403,
+          "index_pinch": 0.84375,
+          "neutral": 0.9523809523809523,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 0.8064516129032258,
+          "index_pinch": 0.8709677419354839,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 5,
+        "arm": "F0",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8983426655891279,
+        "accuracy": 0.9032258064516129,
+        "log_loss": 0.25229167242646183,
+        "brier": 0.03360146144088601,
+        "per_class_f1": {
+          "fist": 0.9230769230769231,
+          "index_pinch": 0.7924528301886793,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 5,
+        "arm": "population",
+        "long_term_calibration_trials": 0,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9254616910866911,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.29158469459869807,
+        "brier": 0.03239282740513591,
+        "per_class_f1": {
+          "fist": 0.9375,
+          "index_pinch": 0.8571428571428571,
+          "neutral": 0.9230769230769231,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.7741935483870968,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 5,
+        "arm": "personal",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.9157001279642789,
+        "accuracy": 0.9193548387096774,
+        "log_loss": 0.28249469164431307,
+        "brier": 0.0320707646988671,
+        "per_class_f1": {
+          "fist": 0.9393939393939394,
+          "index_pinch": 0.8301886792452831,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 5,
+        "arm": "session",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9066839048182332,
+        "accuracy": 0.9112903225806451,
+        "log_loss": 0.33404199888069075,
+        "brier": 0.03667878113809047,
+        "per_class_f1": {
+          "fist": 0.9393939393939394,
+          "index_pinch": 0.8076923076923077,
+          "neutral": 0.8955223880597015,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 5,
+        "arm": "session_minus_F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9246106902356902,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.4339244418431608,
+        "brier": 0.048312888918610256,
+        "per_class_f1": {
+          "fist": 0.96875,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 5,
+        "arm": "session_minus_F1",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9079910467503751,
+        "accuracy": 0.9112903225806451,
+        "log_loss": 0.3102484436642378,
+        "brier": 0.0333358048137762,
+        "per_class_f1": {
+          "fist": 0.9375,
+          "index_pinch": 0.8148148148148148,
+          "neutral": 0.8955223880597015,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 5,
+        "arm": "session_minus_F2ac",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.8904671717171717,
+        "accuracy": 0.8951612903225806,
+        "log_loss": 0.380911858386217,
+        "brier": 0.04290636868665262,
+        "per_class_f1": {
+          "fist": 0.90625,
+          "index_pinch": 0.7777777777777778,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.96875
+        },
+        "recall": {
+          "fist": 0.9354838709677419,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 5,
+        "arm": "session_minus_F3b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9247289747289748,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.25240265518349925,
+        "brier": 0.03129653866554948,
+        "per_class_f1": {
+          "fist": 0.9538461538461539,
+          "index_pinch": 0.8518518518518519,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.7419354838709677,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 5,
+        "arm": "session_minus_F4abc",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9066839048182332,
+        "accuracy": 0.9112903225806451,
+        "log_loss": 0.3387742424269215,
+        "brier": 0.03720598945931575,
+        "per_class_f1": {
+          "fist": 0.9393939393939394,
+          "index_pinch": 0.8076923076923077,
+          "neutral": 0.8955223880597015,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "raw",
+        "shots": 5,
+        "arm": "session_minus_F5window",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9066839048182332,
+        "accuracy": 0.9112903225806451,
+        "log_loss": 0.34044036715094184,
+        "brier": 0.037601250588783816,
+        "per_class_f1": {
+          "fist": 0.9393939393939394,
+          "index_pinch": 0.8076923076923077,
+          "neutral": 0.8955223880597015,
+          "open_hand": 0.9841269841269841
+        },
+        "recall": {
+          "fist": 1.0,
+          "index_pinch": 0.6774193548387096,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 5,
+        "arm": "F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.8576437074589104,
+        "accuracy": 0.8629032258064516,
+        "log_loss": 0.3550506983133161,
+        "brier": 0.05132548420887849,
+        "per_class_f1": {
+          "fist": 0.7450980392156863,
+          "index_pinch": 0.8059701492537313,
+          "neutral": 0.967741935483871,
+          "open_hand": 0.9117647058823529
+        },
+        "recall": {
+          "fist": 0.6129032258064516,
+          "index_pinch": 0.8709677419354839,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 5,
+        "arm": "population",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.8929046730123315,
+        "accuracy": 0.8951612903225806,
+        "log_loss": 0.3577842114516676,
+        "brier": 0.042884716339653094,
+        "per_class_f1": {
+          "fist": 0.8727272727272727,
+          "index_pinch": 0.819672131147541,
+          "neutral": 0.9253731343283582,
+          "open_hand": 0.9538461538461539
+        },
+        "recall": {
+          "fist": 0.7741935483870968,
+          "index_pinch": 0.8064516129032258,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 5,
+        "arm": "personal",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 0,
+        "trials": 124,
+        "macro_f1": 0.8412373749979201,
+        "accuracy": 0.8467741935483871,
+        "log_loss": 0.37622561516512965,
+        "brier": 0.047671682325840334,
+        "per_class_f1": {
+          "fist": 0.8076923076923077,
+          "index_pinch": 0.7333333333333333,
+          "neutral": 0.8985507246376812,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.6774193548387096,
+          "index_pinch": 0.7096774193548387,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 5,
+        "arm": "session",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.8752331002331003,
+        "accuracy": 0.8790322580645161,
+        "log_loss": 0.4054047767095866,
+        "brier": 0.04854494985397939,
+        "per_class_f1": {
+          "fist": 0.8076923076923077,
+          "index_pinch": 0.8,
+          "neutral": 0.9393939393939394,
+          "open_hand": 0.9538461538461539
+        },
+        "recall": {
+          "fist": 0.6774193548387096,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 5,
+        "arm": "session_minus_F0",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.9259216193642423,
+        "accuracy": 0.9274193548387096,
+        "log_loss": 0.5058287236313694,
+        "brier": 0.05989874958573778,
+        "per_class_f1": {
+          "fist": 0.9836065573770492,
+          "index_pinch": 0.8571428571428571,
+          "neutral": 0.9090909090909091,
+          "open_hand": 0.9538461538461539
+        },
+        "recall": {
+          "fist": 0.967741935483871,
+          "index_pinch": 0.7741935483870968,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 5,
+        "arm": "session_minus_F1",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.8922754623521133,
+        "accuracy": 0.8951612903225806,
+        "log_loss": 0.36513560132292594,
+        "brier": 0.043266180279935666,
+        "per_class_f1": {
+          "fist": 0.8301886792452831,
+          "index_pinch": 0.8307692307692308,
+          "neutral": 0.96875,
+          "open_hand": 0.9393939393939394
+        },
+        "recall": {
+          "fist": 0.7096774193548387,
+          "index_pinch": 0.8709677419354839,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 5,
+        "arm": "session_minus_F2ac",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.8479679334420335,
+        "accuracy": 0.8548387096774194,
+        "log_loss": 0.4848603482542908,
+        "brier": 0.059839280004054966,
+        "per_class_f1": {
+          "fist": 0.72,
+          "index_pinch": 0.7941176470588235,
+          "neutral": 0.9523809523809523,
+          "open_hand": 0.9253731343283582
+        },
+        "recall": {
+          "fist": 0.5806451612903226,
+          "index_pinch": 0.8709677419354839,
+          "neutral": 0.967741935483871,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 5,
+        "arm": "session_minus_F3b",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.8833916083916085,
+        "accuracy": 0.8870967741935484,
+        "log_loss": 0.3245037810628777,
+        "brier": 0.04258459001821829,
+        "per_class_f1": {
+          "fist": 0.8076923076923077,
+          "index_pinch": 0.8181818181818182,
+          "neutral": 0.9538461538461539,
+          "open_hand": 0.9538461538461539
+        },
+        "recall": {
+          "fist": 0.6774193548387096,
+          "index_pinch": 0.8709677419354839,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 5,
+        "arm": "session_minus_F4abc",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.8752331002331003,
+        "accuracy": 0.8790322580645161,
+        "log_loss": 0.4034470072586088,
+        "brier": 0.0480078955910282,
+        "per_class_f1": {
+          "fist": 0.8076923076923077,
+          "index_pinch": 0.8,
+          "neutral": 0.9393939393939394,
+          "open_hand": 0.9538461538461539
+        },
+        "recall": {
+          "fist": 0.6774193548387096,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      },
+      {
+        "mode": "normalized",
+        "shots": 5,
+        "arm": "session_minus_F5window",
+        "long_term_calibration_trials": 20,
+        "current_calibration_trials": 20,
+        "trials": 124,
+        "macro_f1": 0.8663581516522694,
+        "accuracy": 0.8709677419354839,
+        "log_loss": 0.41245641211430023,
+        "brier": 0.04955765725582767,
+        "per_class_f1": {
+          "fist": 0.7843137254901961,
+          "index_pinch": 0.7878787878787878,
+          "neutral": 0.9393939393939394,
+          "open_hand": 0.9538461538461539
+        },
+        "recall": {
+          "fist": 0.6451612903225806,
+          "index_pinch": 0.8387096774193549,
+          "neutral": 1.0,
+          "open_hand": 1.0
+        }
+      }
+    ],
+    "primary_guards": {
+      "lower_log_loss": false,
+      "lower_brier": false,
+      "nonworse_macro_f1": false,
+      "nonworse_all_class_recall": false
+    },
+    "primary_pass": false,
+    "source_model_fit_ids": [
+      "S01:101",
+      "S01:102",
+      "S01:103",
+      "S01:104",
+      "S01:105",
+      "S01:106",
+      "S01:107",
+      "S01:108",
+      "S01:109",
+      "S01:110",
+      "S01:111",
+      "S01:112",
+      "S01:113",
+      "S01:114",
+      "S01:115",
+      "S01:116",
+      "S01:117",
+      "S01:118",
+      "S01:119",
+      "S01:120",
+      "S01:121",
+      "S01:122",
+      "S01:123",
+      "S01:124",
+      "S01:125",
+      "S01:127",
+      "S01:128",
+      "S01:129",
+      "S01:130",
+      "S01:131",
+      "S01:132",
+      "S01:134",
+      "S01:135",
+      "S01:136",
+      "S01:137",
+      "S01:139",
+      "S01:140",
+      "S01:141",
+      "S01:142",
+      "S01:144",
+      "S01:146",
+      "S01:147",
+      "S01:148",
+      "S01:149",
+      "S01:150",
+      "S01:151",
+      "S01:152",
+      "S01:153",
+      "S01:154",
+      "S01:155",
+      "S01:156",
+      "S01:158",
+      "S01:159",
+      "S01:161",
+      "S01:162",
+      "S01:163",
+      "S01:164",
+      "S01:165",
+      "S01:167",
+      "S01:168",
+      "S01:169",
+      "S01:170",
+      "S01:27",
+      "S01:30",
+      "S01:31",
+      "S01:32",
+      "S01:33",
+      "S01:34",
+      "S01:35",
+      "S01:36",
+      "S01:37",
+      "S01:38",
+      "S01:39",
+      "S01:40",
+      "S01:42",
+      "S01:43",
+      "S01:44",
+      "S01:45",
+      "S01:46",
+      "S01:47",
+      "S01:48",
+      "S01:49",
+      "S01:50",
+      "S01:51",
+      "S01:52",
+      "S01:53",
+      "S01:54",
+      "S01:56",
+      "S01:57",
+      "S01:59",
+      "S01:60",
+      "S01:61",
+      "S01:62",
+      "S01:63",
+      "S01:64",
+      "S01:65",
+      "S01:67",
+      "S01:68",
+      "S01:70",
+      "S01:71",
+      "S01:72",
+      "S01:73",
+      "S01:74",
+      "S01:75",
+      "S01:76",
+      "S01:77",
+      "S01:78",
+      "S01:79",
+      "S01:81",
+      "S01:82",
+      "S01:83",
+      "S01:84",
+      "S01:85",
+      "S01:86",
+      "S01:87",
+      "S01:88",
+      "S01:90",
+      "S01:91",
+      "S01:93",
+      "S01:95",
+      "S01:97",
+      "S01:98",
+      "S01:99",
+      "S02:100",
+      "S02:101",
+      "S02:102",
+      "S02:103",
+      "S02:104",
+      "S02:105",
+      "S02:106",
+      "S02:109",
+      "S02:110",
+      "S02:111",
+      "S02:112",
+      "S02:113",
+      "S02:114",
+      "S02:115",
+      "S02:116",
+      "S02:120",
+      "S02:121",
+      "S02:122",
+      "S02:123",
+      "S02:124",
+      "S02:125",
+      "S02:126",
+      "S02:127",
+      "S02:128",
+      "S02:129",
+      "S02:131",
+      "S02:132",
+      "S02:133",
+      "S02:134",
+      "S02:135",
+      "S02:137",
+      "S02:138",
+      "S02:139",
+      "S02:140",
+      "S02:142",
+      "S02:143",
+      "S02:144",
+      "S02:146",
+      "S02:148",
+      "S02:149",
+      "S02:150",
+      "S02:151",
+      "S02:153",
+      "S02:154",
+      "S02:155",
+      "S02:156",
+      "S02:157",
+      "S02:158",
+      "S02:159",
+      "S02:160",
+      "S02:161",
+      "S02:162",
+      "S02:163",
+      "S02:164",
+      "S02:165",
+      "S02:166",
+      "S02:168",
+      "S02:169",
+      "S02:170",
+      "S02:28",
+      "S02:29",
+      "S02:30",
+      "S02:31",
+      "S02:32",
+      "S02:33",
+      "S02:34",
+      "S02:35",
+      "S02:36",
+      "S02:37",
+      "S02:38",
+      "S02:40",
+      "S02:41",
+      "S02:42",
+      "S02:43",
+      "S02:44",
+      "S02:45",
+      "S02:46",
+      "S02:47",
+      "S02:48",
+      "S02:49",
+      "S02:50",
+      "S02:51",
+      "S02:52",
+      "S02:54",
+      "S02:55",
+      "S02:56",
+      "S02:57",
+      "S02:58",
+      "S02:60",
+      "S02:61",
+      "S02:62",
+      "S02:63",
+      "S02:64",
+      "S02:65",
+      "S02:66",
+      "S02:67",
+      "S02:68",
+      "S02:70",
+      "S02:72",
+      "S02:73",
+      "S02:74",
+      "S02:75",
+      "S02:76",
+      "S02:77",
+      "S02:79",
+      "S02:80",
+      "S02:81",
+      "S02:82",
+      "S02:84",
+      "S02:85",
+      "S02:86",
+      "S02:87",
+      "S02:88",
+      "S02:89",
+      "S02:91",
+      "S02:92",
+      "S02:93",
+      "S02:94",
+      "S02:96",
+      "S02:97",
+      "S02:98",
+      "S02:99"
+    ],
+    "source_normalization_ids": {
+      "S01": [
+        "S01:100",
+        "S01:126",
+        "S01:133",
+        "S01:138",
+        "S01:143",
+        "S01:145",
+        "S01:160",
+        "S01:166",
+        "S01:28",
+        "S01:29",
+        "S01:41",
+        "S01:55",
+        "S01:58",
+        "S01:66",
+        "S01:69",
+        "S01:80",
+        "S01:89",
+        "S01:92",
+        "S01:94",
+        "S01:96"
+      ],
+      "S02": [
+        "S02:107",
+        "S02:108",
+        "S02:117",
+        "S02:130",
+        "S02:136",
+        "S02:141",
+        "S02:145",
+        "S02:147",
+        "S02:152",
+        "S02:167",
+        "S02:27",
+        "S02:39",
+        "S02:53",
+        "S02:59",
+        "S02:69",
+        "S02:71",
+        "S02:78",
+        "S02:83",
+        "S02:90",
+        "S02:95"
+      ]
+    },
+    "scope": "Six declared EMG window providers with matched normalization training, not full document F0-F9. Separate source checkpoints and profile identities; source/current calibration trials excluded from evaluation. No raw-ADC quality or F8 routing is inferred from normalized classifier inputs. No GUI normalized-candidate integration, live efficacy, physical re-donning, cross-day/general-user proof or mechanical-force claim."
+  },
+  "song_matched_normalization_acceptance": {
+    "checked_cells": 80,
+    "checked_trial_probabilities": 9920,
+    "maximum_probability_error": 4.440892098500626e-16,
+    "maximum_normalization_error": 0.0,
+    "scope": "Six declared EMG window providers with matched normalization training, not full document F0-F9. Separate source checkpoints and profile identities; source/current calibration trials excluded from evaluation. No raw-ADC quality or F8 routing is inferred from normalized classifier inputs. No GUI normalized-candidate integration, live efficacy, physical re-donning, cross-day/general-user proof or mechanical-force claim."
   },
   "song_f0_stream": {
     "classes": [
