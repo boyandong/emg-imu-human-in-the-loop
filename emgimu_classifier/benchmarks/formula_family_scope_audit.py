@@ -361,6 +361,14 @@ def build() -> dict:
             unresolved += (' The matched subsets differ, so conditional classification scores are descriptive. '
                            'u07 fist classification still gets only9/30 references correct. This is previously inspected four-channel200Hz evidence; '
                            'eight-channel highpass/current-device efficacy and chronological onboarding remain unproven. No default promotion.')
+        if family=='F9':
+            evidence += ('|feature_bank/AVAILABLE_BANK_QUALITY_ACCEPTANCE_V2.json'
+                         '|src/emgimu/feature_bank/available_bank_quality_fusion_v2.py'
+                         '|tests/test_quality_mask_product_oracle_v2.py'
+                         '|tests/test_available_bank_quality_v2_delivery.py')
+            supported += (' A generic opt-in available-provider quality interface now retains strict trial/policy identity, unavailable observations, per-row weights and scoreable Unknown fallback. '
+                          'Direct seven-factor source-quantile mask arithmetic and288 frozen-probability algebra fixtures pass;96 invalid contracts reject.')
+            unresolved += (' The native probability algebra uses synthetic quality fixtures; measured quality-effect and hardware-fault efficacy remain unproved. No default promotion or full-bank representation claim.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

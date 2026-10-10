@@ -667,6 +667,10 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json')},
              'song_extended_gui_acceptance': {'path':'../SONG_EXTENDED_GUI_V1_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json')},
+             'available_quality_fusion_acceptance': {'path':'../AVAILABLE_BANK_QUALITY_ACCEPTANCE_V2.json',
+                 'sha256':sha(ROOT/'feature_bank/AVAILABLE_BANK_QUALITY_ACCEPTANCE_V2.json')},
+             'formula_numerical_acceptance': {'path':'../FORMULA_NUMERICAL_ACCEPTANCE.json',
+                 'sha256':sha(ROOT/'feature_bank/FORMULA_NUMERICAL_ACCEPTANCE.json')},
              'completion_proven': False}
     (BASE/'INDEX.json').write_text(json.dumps(index, indent=2)+'\n', encoding='utf8')
     print(json.dumps({n: len(rows) for n, (rows, _) in tables.items()}), flush=True)

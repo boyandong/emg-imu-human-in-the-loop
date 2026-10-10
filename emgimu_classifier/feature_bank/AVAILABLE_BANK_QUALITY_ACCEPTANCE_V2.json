@@ -1,0 +1,267 @@
+{
+  "schema": "available_bank_quality_acceptance_v2",
+  "protocol_sha256": "b3acce0407c64e6f9c1f4513501762e92ed2dc92d5ee0d9ce9f416170e9c8f34",
+  "source_sha256": {
+    "src/emgimu/feature_bank/available_bank_quality_fusion_v2.py": "1820b806326aef7e403e9c8a6383780d7a180ea79de268327f302710ac729e86",
+    "src/emgimu/feature_bank/available_bank_fusion_v1.py": "ba60eda7eaa3d87694e664d1acdee5df6fa3b393eca9d63064463b7d7f077179",
+    "src/emgimu/feature_bank/document_reliability_v2.py": "34ac2da3bd1f380098320fd1f1a7c15ba2567ec6da67dc86150876a7263728a4",
+    "src/emgimu/feature_bank/quality_mask_v1.py": "8df014fdf04042a585c1a1a7d7f82e0c18fda1dbff95aa2f62e16c397cc4083e",
+    "tests/test_available_bank_quality_fusion_v2.py": "f7302d739d7c59778d9465e12bec016c082d1fc0e3c7a30bdc2d979803b92b2d",
+    "tests/test_quality_mask_product_oracle_v2.py": "e27ef54bbb95f45813c9170820ba0375c11b087ee6c4dc1623daa06cefe3f36e",
+    "tests/test_available_bank_quality_v2_delivery.py": "42016202d00be6d0690e80ca4f13f94ad43d0e1512ffd1c83de6d41e5c13ab35",
+    "benchmarks/new_bank_v3/verify_available_bank_quality_v2.py": "a28bcf095a04817b0220c9b7be0c8bf6e17b84f68a73e085f6c293ebd8f655fd"
+  },
+  "native_probability_artifact_sha256": {
+    "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858"
+  },
+  "records": [
+    {
+      "phase": "validation",
+      "user": 3,
+      "shots_per_class": 1,
+      "native_evaluation_trials": 12,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "validation",
+      "user": 4,
+      "shots_per_class": 1,
+      "native_evaluation_trials": 12,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "validation",
+      "user": 5,
+      "shots_per_class": 1,
+      "native_evaluation_trials": 12,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "validation",
+      "user": 6,
+      "shots_per_class": 1,
+      "native_evaluation_trials": 12,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "validation",
+      "user": 7,
+      "shots_per_class": 1,
+      "native_evaluation_trials": 12,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "validation",
+      "user": 8,
+      "shots_per_class": 1,
+      "native_evaluation_trials": 12,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "validation",
+      "user": 3,
+      "shots_per_class": 2,
+      "native_evaluation_trials": 6,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "validation",
+      "user": 4,
+      "shots_per_class": 2,
+      "native_evaluation_trials": 6,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "validation",
+      "user": 5,
+      "shots_per_class": 2,
+      "native_evaluation_trials": 6,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "validation",
+      "user": 6,
+      "shots_per_class": 2,
+      "native_evaluation_trials": 6,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "validation",
+      "user": 7,
+      "shots_per_class": 2,
+      "native_evaluation_trials": 6,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "validation",
+      "user": 8,
+      "shots_per_class": 2,
+      "native_evaluation_trials": 6,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 3,
+      "shots_per_class": 1,
+      "native_evaluation_trials": 12,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 4,
+      "shots_per_class": 1,
+      "native_evaluation_trials": 12,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 5,
+      "shots_per_class": 1,
+      "native_evaluation_trials": 12,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 6,
+      "shots_per_class": 1,
+      "native_evaluation_trials": 12,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 7,
+      "shots_per_class": 1,
+      "native_evaluation_trials": 12,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 8,
+      "shots_per_class": 1,
+      "native_evaluation_trials": 12,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 3,
+      "shots_per_class": 2,
+      "native_evaluation_trials": 6,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 4,
+      "shots_per_class": 2,
+      "native_evaluation_trials": 6,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 5,
+      "shots_per_class": 2,
+      "native_evaluation_trials": 6,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 6,
+      "shots_per_class": 2,
+      "native_evaluation_trials": 6,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 7,
+      "shots_per_class": 2,
+      "native_evaluation_trials": 6,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    },
+    {
+      "phase": "descriptive_final",
+      "user": 8,
+      "shots_per_class": 2,
+      "native_evaluation_trials": 6,
+      "cases": 12,
+      "source_and_fusion_state_immutable": true,
+      "weights_mode": "imported_frozen_weights",
+      "quality_inputs": "Explicit software fixtures; no measured native quality."
+    }
+  ],
+  "verification_cases": 288,
+  "checked_probability_values": 15552,
+  "rejected_invalid_quality_calls": 96,
+  "maximum_probability_error": 2.220446049250313e-16,
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Frozen public native probabilities verify arithmetic and source-state parity only. Quality scores are synthetic verification inputs; no native quality-effect, F0-F9 representation-completeness, fitted-policy, device or accuracy claim."
+}

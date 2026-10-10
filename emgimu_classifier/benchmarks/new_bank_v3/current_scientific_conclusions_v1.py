@@ -32,6 +32,9 @@ def build():
     availability_path=ROOT/'feature_bank/AVAILABLE_BANK_FUSION_ACCEPTANCE_V1.json'
     sources[availability_path.relative_to(ROOT).as_posix()]=sha(availability_path)
     availability=json.loads(availability_path.read_text(encoding='utf8'))
+    quality_fusion_path=ROOT/'feature_bank/AVAILABLE_BANK_QUALITY_ACCEPTANCE_V2.json'
+    sources[quality_fusion_path.relative_to(ROOT).as_posix()]=sha(quality_fusion_path)
+    quality_fusion=json.loads(quality_fusion_path.read_text(encoding='utf8'))
     portable_path=ROOT/'feature_bank/FROZEN_EMG_BANK_ACCEPTANCE_V1.json'
     sources[portable_path.relative_to(ROOT).as_posix()]=sha(portable_path)
     portable=json.loads(portable_path.read_text(encoding='utf8'))
@@ -306,11 +309,14 @@ def build():
                 'primary_pass':registered_rest['primary_pass'],
                 'user_success_wins':registered_rest['primary_user_success_wins'],
                 'scope':registered_rest['scope']}
+    verification_tests += ['tests/test_available_bank_quality_v2_delivery.py',
+        'tests/test_formula_quality_register_v2_delivery.py']
     for name in verification_tests: sources[name] = sha(ROOT / name)
     result = {'schema': 'current_scientific_conclusions_v1', 'generator_sha256': sha(Path(__file__)),
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
               'requirement_lines': [1013, 1049], 'verification_tests': verification_tests,
               'source_sha256': sources, 'questions': answers,
+              'available_quality_fusion': {k:quality_fusion[k] for k in ('verification_cases','checked_probability_values','rejected_invalid_quality_calls','maximum_probability_error','scope','default_promoted','physical_validation_proven')},
               'available_provider_fusion': {k:availability[k] for k in ('native_full_cases','native_missing_provider_cases','rejected_invalid_native_calls','software_scope','native_scope')},
               'portable_emg_bank':{k:portable[k] for k in ('package_path','package_sha256','channels','sample_rate_hz','window_samples','requires_IMU','native_provider_cases','native_fusion_cases','native_omission_cases','source_state_immutable','scope')},
               'song_f0_runtime':{k:song_runtime[k] for k in ('package_path','package_sha256','classes','sample_rate_hz','channels','window_samples','preprocessing_id','source_windows','source_trials','prediction_rows','records','source_state_immutable','scope')},

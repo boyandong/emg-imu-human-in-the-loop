@@ -707,6 +707,13 @@ def render(data, source_sha):
                         'and unknown physical time. Zero-shot F7 is unavailable. Curves are',
                         'separate by cohort; neither longer calibration nor a few-second physical',
                         'calibration guarantee follows from these mixed outcomes.']
+    if 'available_quality_fusion' in data:
+        qf=data['available_quality_fusion']
+        variation_lines += ['', '#### Available-provider quality fusion V2 (arithmetic verification)', '',
+            f"The independent generic interface verifies{qf['verification_cases']} arithmetic cases and{qf['checked_probability_values']} probability values, with maximum error{qf['maximum_probability_error']:.3g}. It rejects{qf['rejected_invalid_quality_calls']} invalid quality contracts.",
+            'Missing providers, unavailable quality observations and all-quality-rejected Unknown decisions remain distinct. Scoreable probabilities and per-row effective weights are retained.',
+            'The verification reuses frozen MANUS predictions with synthetic quality-one/zero inputs. It performs no source refit, threshold selection or efficacy experiment, and does not establish physical fault detection or complete F0-F9 representation coverage.',
+            '[Quality fusion arithmetic acceptance](AVAILABLE_BANK_QUALITY_ACCEPTANCE_V2.json).']
     lines[-1:-1] = variation_lines
     return '\n'.join(lines)
 

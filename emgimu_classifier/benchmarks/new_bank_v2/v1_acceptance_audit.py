@@ -674,6 +674,15 @@ def build(pre: Path, goal: Path) -> dict:
                          'Five-shot full changes367 to407 correct;5/7 user success wins and six frozen guards pass; misses fall69 to16. '
                          'u07 fist matching resumes20/30 but classification remains9/30. Conditional matched subsets differ; no paired-loss increment, '
                          'default promotion, prospective cohort, chronological onboarding or physical8-channel efficacy follows.')
+        if ident in ('GOAL-03','GOAL-20'):
+            evidence += ('|feature_bank/AVAILABLE_BANK_QUALITY_ACCEPTANCE_V2.json'
+                         '|src/emgimu/feature_bank/available_bank_quality_fusion_v2.py'
+                         '|tests/test_quality_mask_product_oracle_v2.py'
+                         '|feature_bank/FORMULA_NUMERICAL_ACCEPTANCE.json')
+            boundary += (' Generic available-provider quality fusion now retains aligned observations, per-row effective weights, Unknown decisions and scoreable fallback. '
+                         'Independent source-quantile/seven-factor F9 mask arithmetic and288 frozen-probability algebra fixtures pass;96 invalid contracts reject. '
+                         'Personal normalization, activation envelope, reliability/shrinkage and late-fusion clauses are separately registered with current source/test hashes. '
+                         'This is arithmetic/software evidence, not native quality efficacy, all-subfamily composition or physical completion.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

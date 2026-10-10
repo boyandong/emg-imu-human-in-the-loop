@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `c119be66b6cc1a63914e95b5934ac9586fca47f4f86a1b4c8e9ad5dea819a54b`.
+Source SHA-256: `9ef8fea9b8bd8cfc1871e45cee8996fe737436a87020f28e79f4002f64406b1f`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -1180,6 +1180,13 @@ retain the distinction between extracted exposure, stored recordings
 and unknown physical time. Zero-shot F7 is unavailable. Curves are
 separate by cohort; neither longer calibration nor a few-second physical
 calibration guarantee follows from these mixed outcomes.
+
+#### Available-provider quality fusion V2 (arithmetic verification)
+
+The independent generic interface verifies288 arithmetic cases and15552 probability values, with maximum error2.22e-16. It rejects96 invalid quality contracts.
+Missing providers, unavailable quality observations and all-quality-rejected Unknown decisions remain distinct. Scoreable probabilities and per-row effective weights are retained.
+The verification reuses frozen MANUS predictions with synthetic quality-one/zero inputs. It performs no source refit, threshold selection or efficacy experiment, and does not establish physical fault detection or complete F0-F9 representation coverage.
+[Quality fusion arithmetic acceptance](AVAILABLE_BANK_QUALITY_ACCEPTANCE_V2.json).
 <!-- CURRENT_SCIENTIFIC_ANSWERS_V1_STOP -->
 
 ### Calibration recovery and model-composition limits

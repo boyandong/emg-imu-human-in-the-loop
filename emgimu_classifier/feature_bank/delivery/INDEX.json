@@ -81,7 +81,7 @@
   },
   "current_scientific_conclusions": {
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
-    "sha256": "c119be66b6cc1a63914e95b5934ac9586fca47f4f86a1b4c8e9ad5dea819a54b"
+    "sha256": "9ef8fea9b8bd8cfc1871e45cee8996fe737436a87020f28e79f4002f64406b1f"
   },
   "current_regression_snapshot": {
     "path": "../CLASSIFIER_REGRESSION_20261008.json",
@@ -162,6 +162,14 @@
   "song_extended_gui_acceptance": {
     "path": "../SONG_EXTENDED_GUI_V1_ACCEPTANCE.json",
     "sha256": "6e2f17850abc9fd6611089dddd0300ba5e4e2d974de3a1e7b391912dc35f2016"
+  },
+  "available_quality_fusion_acceptance": {
+    "path": "../AVAILABLE_BANK_QUALITY_ACCEPTANCE_V2.json",
+    "sha256": "d9a737b035627936172dc1b664178a565afaa804dcb00f923f9898c419307e3c"
+  },
+  "formula_numerical_acceptance": {
+    "path": "../FORMULA_NUMERICAL_ACCEPTANCE.json",
+    "sha256": "dc9d9b0a9e668de79a316c3b3e70a893ae8abacbc1da21a8a9395f4e3aa101b4"
   },
   "completion_proven": false
 }

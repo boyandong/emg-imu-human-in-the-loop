@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "cffc64e9adcc507524f7f15324144c4828fd68bcf1219db029b059ecabe00aa9",
+  "generator_sha256": "94707d97838d33d03afe7727efd671c0bb641131add991550db486718b183446",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -52,7 +52,9 @@
     "tests/test_personal_temporal_unibo_v1_delivery.py",
     "tests/test_temporal_live_gui_v1_delivery.py",
     "tests/test_detected_personal_temporal_unibo_v3_delivery.py",
-    "tests/test_calibration_rest_continuous_unibo_v1_delivery.py"
+    "tests/test_calibration_rest_continuous_unibo_v1_delivery.py",
+    "tests/test_available_bank_quality_v2_delivery.py",
+    "tests/test_formula_quality_register_v2_delivery.py"
   ],
   "source_sha256": {
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
@@ -65,6 +67,7 @@
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
     "feature_bank/AVAILABLE_BANK_FUSION_ACCEPTANCE_V1.json": "88868941c9c11ff0eed76e9706f75998652df4cc23d0b7388a23de3500aa52aa",
+    "feature_bank/AVAILABLE_BANK_QUALITY_ACCEPTANCE_V2.json": "d9a737b035627936172dc1b664178a565afaa804dcb00f923f9898c419307e3c",
     "feature_bank/FROZEN_EMG_BANK_ACCEPTANCE_V1.json": "6daf189264bf7b77ff890718d0d0b80a81c97a2d1b262744fde3e76c54b1dd95",
     "src/emgimu/feature_bank/frozen_emg_bank_cli_v1.py": "f92bfc422dfa258329f3d182bd93e0c9435d7723c9a6ff17001bd28eb9d0e648",
     "feature_bank/SONG_F0_RUNTIME_ACCEPTANCE_V1.json": "2ee8d5ccbe203154ff0d48612286eefa39898fcde76d4539e052e0e5c2bf4d7c",
@@ -103,7 +106,7 @@
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "e3b03fa6557876d758f9f80d2f6cdcb24c5a8c71a661bb6c1145ab44d58445ac",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "ec243200b39a4237a8fcd81317a5ad7fb849498dda2b0b85a27ca11ae6da3a07",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -147,7 +150,9 @@
     "tests/test_personal_session_stream_v4.py": "218b05bc9f6ccf3679e1f50f5d4fb388cf47c673ddecc215530bbff0c5410379",
     "tests/test_extended_window_delivery_v1.py": "90c9b8939ce57646a17fad1a7b4c3d56383d0bb3745dd6e0aae25e04708ccf3c",
     "tests/test_temporal_live_gui_v1_delivery.py": "88ff841d9643a9d3b9d3b20877a560a29700193586a3e757a8e75c35e8e0d6b9",
-    "tests/test_calibration_rest_continuous_unibo_v1_delivery.py": "95b35775649e704e0456ec4056a09856e23310de365fe262b5a9cb201868e3b3"
+    "tests/test_calibration_rest_continuous_unibo_v1_delivery.py": "95b35775649e704e0456ec4056a09856e23310de365fe262b5a9cb201868e3b3",
+    "tests/test_available_bank_quality_v2_delivery.py": "42016202d00be6d0690e80ca4f13f94ad43d0e1512ffd1c83de6d41e5c13ab35",
+    "tests/test_formula_quality_register_v2_delivery.py": "e7b6f99ec9b0e90d26cfaaf459cbfba4d1d446f648eaf5ea0614c8932a20d7ad"
   },
   "questions": [
     {
@@ -3371,6 +3376,15 @@
       }
     }
   ],
+  "available_quality_fusion": {
+    "verification_cases": 288,
+    "checked_probability_values": 15552,
+    "rejected_invalid_quality_calls": 96,
+    "maximum_probability_error": 2.220446049250313e-16,
+    "scope": "Frozen public native probabilities verify arithmetic and source-state parity only. Quality scores are synthetic verification inputs; no native quality-effect, F0-F9 representation-completeness, fitted-policy, device or accuracy claim.",
+    "default_promoted": false,
+    "physical_validation_proven": false
+  },
   "available_provider_fusion": {
     "native_full_cases": 24,
     "native_missing_provider_cases": 96,

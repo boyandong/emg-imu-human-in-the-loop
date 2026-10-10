@@ -41,7 +41,7 @@ EVIDENCE = {
     2205: ('test_document_quality_v3.py', 'test_f9_known_signal.py'),
     2224: ('test_document_quality_v3.py',),
     2244: ('test_document_quality_v3.py',),
-    2271: ('test_quality_mask_v1.py', 'test_feature_bank.py'),
+    2271: ('test_quality_mask_v1.py', 'test_quality_mask_product_oracle_v2.py'),
 }
 
 
@@ -55,17 +55,42 @@ def run():
     with table.open(encoding='utf-8', newline='') as stream:
         sections = list(csv.DictReader(stream))
     assert {int(s['section_start']) for s in sections if s['mapping'] != 'context_heading'} == set(EVIDENCE)
-    additional = {'clause_start': 2399, 'clause_end': 2474,
-                  'title': 'Personal feature reliability and population shrinkage (D/E)',
-                  'test_paths': ['tests/test_document_reliability_v2.py',
-                                 'tests/test_document_reliability_direct_oracle.py'],
-                  'source_paths': ['src/emgimu/feature_bank/document_reliability_v2.py']}
+    additional = [
+        {'clause_start': 2310, 'clause_end': 2343,
+         'title': 'Personal Rest/Q95 normalization (A)',
+         'test_paths': ['tests/test_document_personal_normalizer.py'],
+         'source_paths': ['src/emgimu/feature_bank/calibration.py'],
+         'boundary': 'Known near-zero Rest/active signals verify raw Q95 plus epsilon and immutable transforms. This does not prove predictive benefit or a valid device calibration.'},
+        {'clause_start': 2370, 'clause_end': 2397,
+         'title': 'Personal natural activation envelope (C)',
+         'test_paths': ['tests/test_activation_profile.py'],
+         'source_paths': ['src/emgimu/feature_bank/activation_profile.py'],
+         'boundary': 'Independent constant-waveform quantile/pattern/spread arithmetic includes equal trial mass, Rest exclusion and duplicate-window controls. Signal activation is not measured force.'},
+        {'clause_start': 2399, 'clause_end': 2474,
+         'title': 'Personal feature reliability and population shrinkage (D/E)',
+         'test_paths': ['tests/test_document_reliability_v2.py',
+                        'tests/test_document_reliability_direct_oracle.py'],
+         'source_paths': ['src/emgimu/feature_bank/document_reliability_v2.py'],
+         'boundary': 'Known three-class nonzero distances verify B/W, additive epsilon, temperature2, six independent trials and population shrinkage. Does not prove source-CV parameter selection or predictive benefit.'},
+        {'clause_start': 2514, 'clause_end': 2560,
+         'title': 'Available-provider quality-weighted probability fusion and Unknown',
+         'test_paths': ['tests/test_available_bank_quality_fusion_v2.py',
+                        'tests/test_available_bank_quality_v2_delivery.py',
+                        'tests/test_quality_mask_product_oracle_v2.py'],
+         'source_paths': ['src/emgimu/feature_bank/available_bank_quality_fusion_v2.py',
+                          'src/emgimu/feature_bank/available_bank_fusion_v1.py',
+                          'src/emgimu/feature_bank/quality_mask_v1.py'],
+         'boundary': 'Independent rational mixtures, seven quality factors, unknown-quality availability, missing providers, all-rejected probability fallback and tiny positive qualities are checked. Frozen native probability algebra uses synthetic quality fixtures, not measured native quality or a new efficacy experiment.'},
+    ]
     files = sorted({f'tests/{name}' for names in EVIDENCE.values() for name in names}
-                   | set(additional['test_paths']))
+                   | {p for clause in additional for p in clause['test_paths']})
     for path in files:
         if not (ROOT / path).is_file():
             raise FileNotFoundError(path)
-    result = subprocess.run([sys.executable, '-m', 'pytest', '-q', *files], cwd=ROOT,
+    junit = ROOT / 'feature_bank/regression/formula_arithmetic_v2/classifier.xml'
+    result = subprocess.run([sys.executable, '-m', 'pytest', '-q', '-p', 'no:cacheprovider',
+                             '--basetemp', str(ROOT/'tmp/formula_arithmetic_v2'),
+                             '--junitxml', str(junit), *files], cwd=ROOT,
                             capture_output=True, text=True)
     print(result.stdout, end='')
     if result.returncode:
@@ -88,12 +113,13 @@ def run():
         'schema': 'formula_numerical_acceptance_v1', 'sections': rows,
         'fixture_sections': len(EVIDENCE), 'suite_exit_code': result.returncode,
         'additional_clause_fixtures': [{
-            'clause_start': additional['clause_start'], 'clause_end': additional['clause_end'],
-            'title': additional['title'],
-            'test_sha256': {p: sha(ROOT/p) for p in additional['test_paths']},
-            'reviewed_source_sha256': {p: sha(ROOT/p) for p in additional['source_paths']},
+            'clause_start': clause['clause_start'], 'clause_end': clause['clause_end'],
+            'title': clause['title'],
+            'test_sha256': {p: sha(ROOT/p) for p in clause['test_paths']},
+            'reviewed_source_sha256': {p: sha(ROOT/p) for p in clause['source_paths']},
             'arithmetic_status': 'reviewed_fixture_suite_passed', 'scientific_completion': False,
-            'boundary': 'Known three-class nonzero distances verify B/W, additive epsilon, temperature2, six independent trials and population shrinkage. Does not prove source-CV parameter selection or predictive benefit.'}],
+            'boundary': clause['boundary']} for clause in additional],
+        'regression_junit': {'path': junit.relative_to(ROOT).as_posix(), 'sha256': sha(junit)},
         'suite_summary': result.stdout.strip().splitlines()[-1],
         'inventory_sha256': sha(table), 'generator_sha256': sha(Path(__file__)),
         'completion_proven': False,

@@ -473,7 +473,7 @@
       "arithmetic_status": "reviewed_fixture_suite_passed",
       "test_sha256": {
         "tests/test_quality_mask_v1.py": "30b661643f80d8911fabe95e17f8dd7a7a6d5a32d8794a3d3099b6c0fb9a4a7e",
-        "tests/test_feature_bank.py": "6495d24465f878d5f65d8c295b89b92af18cbf2a74b3686b4f6124b5433e844b"
+        "tests/test_quality_mask_product_oracle_v2.py": "e27ef54bbb95f45813c9170820ba0375c11b087ee6c4dc1623daa06cefe3f36e"
       },
       "reviewed_source_sha256": {
         "src/emgimu/feature_bank/quality_mask_v1.py": "8df014fdf04042a585c1a1a7d7f82e0c18fda1dbff95aa2f62e16c397cc4083e"
@@ -485,6 +485,34 @@
   "fixture_sections": 32,
   "suite_exit_code": 0,
   "additional_clause_fixtures": [
+    {
+      "clause_start": 2310,
+      "clause_end": 2343,
+      "title": "Personal Rest/Q95 normalization (A)",
+      "test_sha256": {
+        "tests/test_document_personal_normalizer.py": "3871f978e0b4c5bb92cf6ea5e46f8b42e7ecb7b35a5eded105b2e63269fa199c"
+      },
+      "reviewed_source_sha256": {
+        "src/emgimu/feature_bank/calibration.py": "495e4354327d3af31a912f70e0eb5db1c617c4054d01fe422715f5e98e08c90e"
+      },
+      "arithmetic_status": "reviewed_fixture_suite_passed",
+      "scientific_completion": false,
+      "boundary": "Known near-zero Rest/active signals verify raw Q95 plus epsilon and immutable transforms. This does not prove predictive benefit or a valid device calibration."
+    },
+    {
+      "clause_start": 2370,
+      "clause_end": 2397,
+      "title": "Personal natural activation envelope (C)",
+      "test_sha256": {
+        "tests/test_activation_profile.py": "3564d0c4bf4ed2a383b65d728d1b2ddfa59beb2791e894c263062eececb48371"
+      },
+      "reviewed_source_sha256": {
+        "src/emgimu/feature_bank/activation_profile.py": "912f07fc5c053e9b996b60f95a60b3f48c0f045d4ab6eb37b58f801ca4235b00"
+      },
+      "arithmetic_status": "reviewed_fixture_suite_passed",
+      "scientific_completion": false,
+      "boundary": "Independent constant-waveform quantile/pattern/spread arithmetic includes equal trial mass, Rest exclusion and duplicate-window controls. Signal activation is not measured force."
+    },
     {
       "clause_start": 2399,
       "clause_end": 2474,
@@ -499,11 +527,33 @@
       "arithmetic_status": "reviewed_fixture_suite_passed",
       "scientific_completion": false,
       "boundary": "Known three-class nonzero distances verify B/W, additive epsilon, temperature2, six independent trials and population shrinkage. Does not prove source-CV parameter selection or predictive benefit."
+    },
+    {
+      "clause_start": 2514,
+      "clause_end": 2560,
+      "title": "Available-provider quality-weighted probability fusion and Unknown",
+      "test_sha256": {
+        "tests/test_available_bank_quality_fusion_v2.py": "f7302d739d7c59778d9465e12bec016c082d1fc0e3c7a30bdc2d979803b92b2d",
+        "tests/test_available_bank_quality_v2_delivery.py": "42016202d00be6d0690e80ca4f13f94ad43d0e1512ffd1c83de6d41e5c13ab35",
+        "tests/test_quality_mask_product_oracle_v2.py": "e27ef54bbb95f45813c9170820ba0375c11b087ee6c4dc1623daa06cefe3f36e"
+      },
+      "reviewed_source_sha256": {
+        "src/emgimu/feature_bank/available_bank_quality_fusion_v2.py": "1820b806326aef7e403e9c8a6383780d7a180ea79de268327f302710ac729e86",
+        "src/emgimu/feature_bank/available_bank_fusion_v1.py": "ba60eda7eaa3d87694e664d1acdee5df6fa3b393eca9d63064463b7d7f077179",
+        "src/emgimu/feature_bank/quality_mask_v1.py": "8df014fdf04042a585c1a1a7d7f82e0c18fda1dbff95aa2f62e16c397cc4083e"
+      },
+      "arithmetic_status": "reviewed_fixture_suite_passed",
+      "scientific_completion": false,
+      "boundary": "Independent rational mixtures, seven quality factors, unknown-quality availability, missing providers, all-rejected probability fallback and tiny positive qualities are checked. Frozen native probability algebra uses synthetic quality fixtures, not measured native quality or a new efficacy experiment."
     }
   ],
-  "suite_summary": "104 passed, 7 subtests passed in 2.35s",
+  "regression_junit": {
+    "path": "feature_bank/regression/formula_arithmetic_v2/classifier.xml",
+    "sha256": "217b1c43c99cae5ced4711c6dc6f648a103dda9f64649c47daf77df6fb72553a"
+  },
+  "suite_summary": "135 passed, 7 subtests passed in 3.42s",
   "inventory_sha256": "2c88c69148c47730251e69a0a6f41f28538f39a6eb3dbed40349960dd9e76776",
-  "generator_sha256": "1d8f8509a0df045d3f051e84cb8003e506d667b075e8daed5ce783387e83ec37",
+  "generator_sha256": "b4fcb432f32648f5ea73c6b5840a4dda1fb3a4debf69db23f542c7224ac5b732",
   "completion_proven": false,
   "boundary": "Equation fixtures and source hashes are review evidence, not an efficacy acceptance. F6 native body-frame, physical electrode order and F9 physical faults remain deferred; F7 high-dimensional budget, autonomous bout boundaries and effective F8 routing are separate tasks."
 }
