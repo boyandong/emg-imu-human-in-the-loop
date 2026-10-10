@@ -1,0 +1,24 @@
+{
+  "schema": "roam_class_transition_v1_source_acceptance",
+  "protocol_sha256": "0520abf21bdfb5a9c17604385dcbe080e66b70373630a0a5ca54fb238a19418f",
+  "source_result_sha256": "90bb94d5cf1e15568a62d7eca6e599c2118b5a9b090348159df3b6a2e66c2f59",
+  "policy_sha256": "51a0adc125f9de671d6ef9542ddecb4b5df125f3e3f174f60adfcc5ca69d0966",
+  "verifier_sha256": "8af911f26308d97c40ad94de654a6e66bf151577252fd8642507db248f4a3b61",
+  "native_source_recordings": 72,
+  "independent_source_active_references": 360,
+  "candidates_verified": 18,
+  "maximum_independent_source_window_probability_error": 3.3306690738754696e-16,
+  "selected_config": {
+    "confirmations": 5,
+    "smoothing_windows": 1,
+    "confidence": 0.0
+  },
+  "source_query_users_excluded_from_representation_fit": true,
+  "source_grid_scores_are_unbiased": false,
+  "target_arrays_read": false,
+  "classifiers_refitted": false,
+  "independent_native_logits_FSM_matching_and_selection": true,
+  "read_only_no_fitting": true,
+  "native_experiment_rerun": false,
+  "scope": "Retrospective native8/200Hz ROAM source-selected class-transition segmentation, including active-to-active changes, followed by frozen window/joint classification. Source grid selection uses18 users/72 recordings, held out from each source representation fold, with360 independent active cue references. Existing source OOF temperatures/population used all source users; source grid scores are policy training, not unbiased generalization. Source policy is committed before target inference. Previously inspected19..28 users and active gt cue references do not establish blind/prospective or physiological boundary truth, pinch, physical ring/F6/quality,250Hz device efficacy or a universal/default benefit."
+}
