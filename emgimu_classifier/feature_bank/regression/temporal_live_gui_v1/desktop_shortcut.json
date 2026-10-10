@@ -1,0 +1,8 @@
+{
+  "shortcut": "C:\\Users\\SCQ666\\Desktop\\EMG-IMU 项目版（Song 8通道）.lnk",
+  "target": "D:\\miniconda\\envs\\emgforce\\pythonw.exe",
+  "arguments": "\"C:\\Users\\SCQ666\\Documents\\ChatGPT\\EMG-A\\collection\\emg_meta\\emg_meta\\main_decision_v3.py\"",
+  "working_directory": "C:\\Users\\SCQ666\\Documents\\ChatGPT\\EMG-A\\collection\\emg_meta\\emg_meta",
+  "installed_entry": "main_decision_v3.py",
+  "verified": true
+}

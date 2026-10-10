@@ -654,6 +654,8 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/SONG_DECISION_GUI_V1_ACCEPTANCE.json')},
              'song_extended_window_acceptance': {'path':'../SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json',
                  'sha256':sha(ROOT/'feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json')},
+             'temporal_live_gui_acceptance': {'path':'../TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json',
+                 'sha256':sha(ROOT/'feature_bank/TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json')},
              'personal_temporal_unibo_acceptance': {'path':'../PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json',
                  'sha256':sha(ROOT/'feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json')},
              'song_extended_gui_acceptance': {'path':'../SONG_EXTENDED_GUI_V1_ACCEPTANCE.json',

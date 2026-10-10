@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "e4df45f3fc74100361dc1093feb3a71e108984ab14dc42a52f598c19298ed9f9",
+  "generator_sha256": "ab4acc4c61039e7ac3173db6f6c34f21f2310ae046a90581ac0969275111fac4",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -49,7 +49,8 @@
     "tests/test_extended_window_cli_v1.py",
     "tests/test_personal_session_stream_v4.py",
     "tests/test_extended_window_delivery_v1.py",
-    "tests/test_personal_temporal_unibo_v1_delivery.py"
+    "tests/test_personal_temporal_unibo_v1_delivery.py",
+    "tests/test_temporal_live_gui_v1_delivery.py"
   ],
   "source_sha256": {
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
@@ -83,6 +84,7 @@
     "benchmarks/song_real8/SONG_DECISION_GUI_V1_PROTOCOL.json": "37d455fd3451a76ed63f5cf904dd8a8dab31a77fd14bc531af153e8dcd5348c0",
     "tests/test_personal_session_stream_v3.py": "d56e2533e26486e973eca1c23c134fb2db97eab1b70423f72e1e3cfe7ef1e378",
     "tests/test_decision_gui_v1_delivery.py": "46895ee2df343a1741cd2eca50254f4f766c3e9d39cf8b9fa6fd3b1eb38d78f9",
+    "feature_bank/TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json": "f09f47fb4efdebcd277d11ab06e19b4b1cf50671dcc426e3de8b969cbb14bbcf",
     "benchmarks/new_bank_v3/PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json": "291d5b903238e31c90f8997add01fcd0c86cf8da639a401c1bc0c259e6c38cdf",
     "feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json": "cdc50a21d93eec8e6b86878570cbd062e19552af7067eaf64ede184555d12583",
     "tests/test_personal_temporal_unibo_v1_delivery.py": "40671498030e735e7733e8c067d6cfdc1d682a82d5c4ed3a359a6050480f7b9d",
@@ -92,7 +94,7 @@
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "00953e07c98f7cd884586fb15d145aacd6bd1e45dae2032110d23ecee2929bae",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "4d07233a53e7e95649b0921143d8166a58daa01035902d39548a0d25184d9900",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -134,7 +136,8 @@
     "tests/test_extended_window_decision_v1.py": "794395e6bcb17dc95b1ade91e26321e8801fd7e63fb8209384ef1e2ce13cd059",
     "tests/test_extended_window_cli_v1.py": "b5b329f1ce686d8ad1cf69977429069c6d2a8dbf655ba763e1c879b180c8e69b",
     "tests/test_personal_session_stream_v4.py": "218b05bc9f6ccf3679e1f50f5d4fb388cf47c673ddecc215530bbff0c5410379",
-    "tests/test_extended_window_delivery_v1.py": "90c9b8939ce57646a17fad1a7b4c3d56383d0bb3745dd6e0aae25e04708ccf3c"
+    "tests/test_extended_window_delivery_v1.py": "90c9b8939ce57646a17fad1a7b4c3d56383d0bb3745dd6e0aae25e04708ccf3c",
+    "tests/test_temporal_live_gui_v1_delivery.py": "88ff841d9643a9d3b9d3b20877a560a29700193586a3e757a8e75c35e8e0d6b9"
   },
   "questions": [
     {
@@ -1369,7 +1372,7 @@
     {
       "question_id": "F",
       "question": "Session Signature能帮助跨天或重新佩戴吗？",
-      "answer": "MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。 Song新版在同人单日不同录制中也呈混合结果：1-shot会话权重改善损失，2/5-shot反而退步；尚非跨天或真实重贴证明。 新版配对训练进一步检验了个人归一化：五试次/类时总体F1、概率损失及握拳召回退步，四项主要守门均未通过；不能默认启用。 新七组F7/F8相对旧六组F7/F8也通过四项标准，但相对新七组基础方案，虽F1更高，损失/Brier更差。F4d仅为窗口/会话相对长期参考的背景坐标，不是分类器或疲劳测量。 新版完整动作长期/当次DTW和路径分支已完成84组合、924方案单元、187044逐试次概率核验；Day7/8仅描述性，不能证明实时八通道或自动边界收益。",
+      "answer": "MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。 Song新版在同人单日不同录制中也呈混合结果：1-shot会话权重改善损失，2/5-shot反而退步；尚非跨天或真实重贴证明。 新版配对训练进一步检验了个人归一化：五试次/类时总体F1、概率损失及握拳召回退步，四项主要守门均未通过；不能默认启用。 新七组F7/F8相对旧六组F7/F8也通过四项标准，但相对新七组基础方案，虽F1更高，损失/Brier更差。F4d仅为窗口/会话相对长期参考的背景坐标，不是分类器或疲劳测量。 新版完整动作长期/当次DTW和路径分支已完成84组合、924方案单元、187044逐试次概率核验；Day7/8仅描述性，不能证明实时八通道或自动边界收益。 独立V5桌面入口已支持完整动作登记、保存重载、会话校准、手动与自动估计边界判断；197项软件测试通过。自动边界保留估计属性，断流/超时丢弃动作；这不是新的实机或公开数据准确率结论。",
       "measurements": [
         {
           "cell": "validation_1shot",
@@ -1410,7 +1413,8 @@
         "feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json",
         "feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json",
         "benchmarks/new_bank_v3/PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json",
-        "feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json"
+        "feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json",
+        "feature_bank/TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json"
       ],
       "native_Song_recording_session_cells": [
         {
@@ -2612,7 +2616,8 @@
         "feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json",
         "feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json",
         "benchmarks/new_bank_v3/PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json",
-        "feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json"
+        "feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json",
+        "feature_bank/TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json"
       ],
       "native_Song_recording_session_cells": [
         {
@@ -12374,6 +12379,53 @@
     "physical_validation_proven": false,
     "completion_proven": false,
     "scope": "Previously inspected UniBo four-channel200Hz native oracle-labelled complete bouts. Native calibration/evaluation recording trials disjoint. Separate eight-channel250Hz window-adapter/CLI tests do not prove real eight-channel complete-action accuracy. Song stable-only excerpts are ineligible. Estimated boundaries stay estimated; output waits for interval end. No automatic segmentation or device/default efficacy claim."
+  },
+  "temporal_live_gui_acceptance": {
+    "schema": "temporal_live_gui_v1_acceptance",
+    "verifier_sha256": "8741ee19979d2606c51fae295551381166feaa0f81e644d380dda57c979d4bc2",
+    "protocol_sha256": "2e8a666591ddd4735bd541ec1498bb1023df2686a302e202d297edfcc6e67eea",
+    "records": [
+      {
+        "path": "emgimu_classifier/feature_bank/regression/temporal_live_gui_v1/classifier.xml",
+        "sha256": "c10145a937ff83054375c3513160f5fbcb8464914253832e12708f1bd1d1fc37",
+        "tests": 30,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "path": "emgimu_classifier/feature_bank/regression/temporal_live_gui_v1/collection.xml",
+        "sha256": "60fbd4acc5e03f0c54bc27db1f73cde02ffed47a6cfac61411082484f42e2a8f",
+        "tests": 167,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ],
+    "artifact_sha256": {
+      "emgimu_classifier/feature_bank/regression/temporal_live_gui_v1/desktop_shortcut.json": "e2addae69f86b864e767e6255264be24de9e373ff5ee0b01849fb05588f87cdb",
+      "emgimu_classifier/feature_bank/regression/temporal_live_gui_v1/panel.png": "68cc489edac7e05efc9bda915ff274e96cad47f82875ea5a528586b48f8aa451"
+    },
+    "unique_tests": 197,
+    "current_entry": "collection/emg_meta/emg_meta/main_decision_v3.py",
+    "desktop_shortcut_installed": true,
+    "raw_and_filtered_complete_capture_verified": true,
+    "source_calibration_labels_separate": true,
+    "neutral_only_fixed_detector_fit_verified": true,
+    "profiles_immutable_during_prediction": true,
+    "window_off_probability_identity_verified": true,
+    "manual_interval_direct_fusion_verified": true,
+    "estimated_auto_chunk_and_direct_interval_parity_verified": true,
+    "quality_Unknown_preserved": true,
+    "gap_overflow_unclosed_actions_discarded": true,
+    "actual_Qt_subprocess_acquisition_lifecycle_verified": true,
+    "native_four_channel_temporal_primary_guard": false,
+    "default_model": "six",
+    "default_temporal_mode": "off",
+    "default_promoted": false,
+    "physical_validation_proven": false,
+    "completion_proven": false,
+    "scope": "Software-only eight-channel250Hz full-action interface and automatic boundary composition. Existing native UniBo four-channel full-bout guard remains negative; Song stable excerpts are not certified full actions. No new native/physical accuracy, throughput or clinical-fatigue claim. Public-data native automatic fusion outcome remains separate."
   },
   "song_extended_gui_acceptance": {
     "records": [

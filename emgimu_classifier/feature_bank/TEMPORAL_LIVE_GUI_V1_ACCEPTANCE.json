@@ -1,0 +1,47 @@
+{
+  "schema": "temporal_live_gui_v1_acceptance",
+  "verifier_sha256": "8741ee19979d2606c51fae295551381166feaa0f81e644d380dda57c979d4bc2",
+  "protocol_sha256": "2e8a666591ddd4735bd541ec1498bb1023df2686a302e202d297edfcc6e67eea",
+  "records": [
+    {
+      "path": "emgimu_classifier/feature_bank/regression/temporal_live_gui_v1/classifier.xml",
+      "sha256": "c10145a937ff83054375c3513160f5fbcb8464914253832e12708f1bd1d1fc37",
+      "tests": 30,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "path": "emgimu_classifier/feature_bank/regression/temporal_live_gui_v1/collection.xml",
+      "sha256": "60fbd4acc5e03f0c54bc27db1f73cde02ffed47a6cfac61411082484f42e2a8f",
+      "tests": 167,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "artifact_sha256": {
+    "emgimu_classifier/feature_bank/regression/temporal_live_gui_v1/desktop_shortcut.json": "e2addae69f86b864e767e6255264be24de9e373ff5ee0b01849fb05588f87cdb",
+    "emgimu_classifier/feature_bank/regression/temporal_live_gui_v1/panel.png": "68cc489edac7e05efc9bda915ff274e96cad47f82875ea5a528586b48f8aa451"
+  },
+  "unique_tests": 197,
+  "current_entry": "collection/emg_meta/emg_meta/main_decision_v3.py",
+  "desktop_shortcut_installed": true,
+  "raw_and_filtered_complete_capture_verified": true,
+  "source_calibration_labels_separate": true,
+  "neutral_only_fixed_detector_fit_verified": true,
+  "profiles_immutable_during_prediction": true,
+  "window_off_probability_identity_verified": true,
+  "manual_interval_direct_fusion_verified": true,
+  "estimated_auto_chunk_and_direct_interval_parity_verified": true,
+  "quality_Unknown_preserved": true,
+  "gap_overflow_unclosed_actions_discarded": true,
+  "actual_Qt_subprocess_acquisition_lifecycle_verified": true,
+  "native_four_channel_temporal_primary_guard": false,
+  "default_model": "six",
+  "default_temporal_mode": "off",
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Software-only eight-channel250Hz full-action interface and automatic boundary composition. Existing native UniBo four-channel full-bout guard remains negative; Song stable excerpts are not certified full actions. No new native/physical accuracy, throughput or clinical-fatigue claim. Public-data native automatic fusion outcome remains separate."
+}

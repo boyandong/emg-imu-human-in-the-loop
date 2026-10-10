@@ -641,7 +641,17 @@ def build(pre: Path, goal: Path) -> dict:
                          'with complete-versus-estimated contracts, persistent profiles and eight-channel adapter/CLI checks. '
                          'Recording-level excluded calibration, independent DP/medoid/signature/probability and all weighted metric/cost checks pass. '
                          'Day6 five-shot primary guard fails: F1 rises slightly but log loss/Brier worsen, only1/7 user loss wins. '
-                         'Native scope is four-channel200Hz oracle boundaries; new temporal GUI/autonomous composition and physical eight-channel efficacy remain unproven.')
+                         'Native scope is four-channel200Hz oracle boundaries; physical eight-channel efficacy remains unproven.')
+            evidence += ('|feature_bank/TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json'
+                         '|benchmarks/song_real8/TEMPORAL_LIVE_GUI_V1_PROTOCOL.json'
+                         '|src/emgimu/feature_bank/temporal_bout_live_v1.py'
+                         '|src/emgimu/feature_bank/personal_session_stream_v5.py'
+                         '|tests/test_temporal_live_gui_v1_delivery.py')
+            boundary += (' Independent V5 full-action desktop/stream composition now has cued calibration, raw/filtered companions, persistent personal/session bundles and neutral-only fixed detector fitting. '
+                         'Manual and estimated-auto decisions remain separate from window output. '
+                         '197 software checks include real Qt/subprocess acquisition lifecycle, frozen window parity, chunk/direct-interval parity, profile identity, quality Unknown and gap/overflow/censoring. '
+                         'Desktop shortcut is installed to main_decision_v3.py; initial six-provider model and off temporal mode are preserved. '
+                         'This software scope does not prove native automatic-fusion gain, physical throughput, biological boundaries or independent multi-day eight-channel efficacy.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

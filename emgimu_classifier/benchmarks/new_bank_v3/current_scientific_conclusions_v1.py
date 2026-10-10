@@ -86,6 +86,9 @@ def build():
     for name in ('benchmarks/song_real8/SONG_DECISION_GUI_V1_PROTOCOL.json',
                  'tests/test_personal_session_stream_v3.py', 'tests/test_decision_gui_v1_delivery.py'):
         sources[name]=sha(ROOT/name)
+    temporal_gui_path=ROOT/'feature_bank/TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json'
+    temporal_gui=json.loads(temporal_gui_path.read_text(encoding='utf8'))
+    sources[temporal_gui_path.relative_to(ROOT).as_posix()]=sha(temporal_gui_path)
     temporal=read('PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json')
     temporal_acceptance_path=ROOT/'feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json'
     sources[temporal_acceptance_path.relative_to(ROOT).as_posix()]=sha(temporal_acceptance_path)
@@ -222,6 +225,8 @@ def build():
     answers[1]['answer'] += ' 完整动作新版F5融合在UniBo Day6五次/类校准时F1从.7705升到.7763，但损失从.3906升到.4558，7人仅1人损失改善，主要标准失败。'
     answers[5]['answer'] += ' 新版完整动作长期/当次DTW和路径分支已完成84组合、924方案单元、187044逐试次概率核验；Day7/8仅描述性，不能证明实时八通道或自动边界收益。'
     answers[7]['answer'] += ' 新时序分支额外使用20个长期动作段和当前0/4/8/20个独立动作段；原G5还使用Days1-5个人训练历史，不能把基础分支写成零总注册成本。'
+    for index in (5,7):answers[index]['evidence'].append(temporal_gui_path.relative_to(ROOT).as_posix())
+    answers[5]['answer'] += ' 独立V5桌面入口已支持完整动作登记、保存重载、会话校准、手动与自动估计边界判断；197项软件测试通过。自动边界保留估计属性，断流/超时丢弃动作；这不是新的实机或公开数据准确率结论。'
     for answer in answers:
         if not set(answer['evidence']) <= set(sources): raise ValueError('Unbound evidence')
     # REPORT is a rendered consumer, not independent experiment evidence.
@@ -268,7 +273,7 @@ def build():
                           'tests/test_f8_calibrated_manus_v2_delivery.py']
     verification_tests += ['tests/test_extended_window_decision_v1.py','tests/test_extended_window_cli_v1.py',
         'tests/test_personal_session_stream_v4.py','tests/test_extended_window_delivery_v1.py']
-    verification_tests += ['tests/test_personal_temporal_unibo_v1_delivery.py']
+    verification_tests += ['tests/test_personal_temporal_unibo_v1_delivery.py','tests/test_temporal_live_gui_v1_delivery.py']
     for name in verification_tests: sources[name] = sha(ROOT / name)
     result = {'schema': 'current_scientific_conclusions_v1', 'generator_sha256': sha(Path(__file__)),
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
@@ -291,6 +296,7 @@ def build():
               'song_extended_window_acceptance':extension_acceptance,
               'personal_temporal_unibo':{k:temporal[k] for k in ('pooled','primary_guards','primary_pass','primary_user_loss_wins','scope')},
               'personal_temporal_unibo_acceptance':temporal_acceptance,
+              'temporal_live_gui_acceptance':temporal_gui,
               'song_extended_gui_acceptance':{k:extension_gui[k] for k in ('records','verified_windows','scope','source_and_profiles_immutable','independent_direct_DFT_context','F4d_context_only')},
               'song_decision_gui_acceptance':{k:decision_gui[k] for k in ('records','verified_windows','scope',
                   'independent_filter_and_geometry_probabilities','chronological_confirmation_exact',

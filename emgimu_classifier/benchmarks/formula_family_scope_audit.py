@@ -330,7 +330,15 @@ def build() -> dict:
                           'Independent DP/medoids/signatures, recording-level calibration exclusion, equal-trial metrics, cost ledger and saved-profile state checks pass. '
                           'Eight-channel250Hz adapter and label-free CLI checks preserve raw-quality Unknown and complete-versus-estimated provenance.')
             unresolved += (' Day6 five-shot full F1 .7705 to.7763 but loss .3906 to.4558 and Brier worsen; only1/7 users improves loss. Primary guard fails. '
-                           'This is inspected four-channel200Hz oracle-boundary evidence, not eight-channel accuracy, automatic segmentation or current GUI integration. No default promotion.')
+                           'This native result is inspected four-channel200Hz oracle-boundary evidence, not eight-channel accuracy or automatic-fusion efficacy. No default promotion.')
+            evidence += ('|feature_bank/TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json'
+                         '|src/emgimu/feature_bank/temporal_bout_live_v1.py'
+                         '|src/emgimu/feature_bank/personal_session_stream_v5.py'
+                         '|tests/test_temporal_live_gui_v1_delivery.py')
+            supported += (' Independent V5 desktop entry now provides full-action cued registration, saved raw/filtered input, profile/session reload, manual and estimated-auto decisions. '
+                          'Fixed detector uses only neutral calibration; window-off identity, chunk/direct-interval parity, quality Unknown and gap/overflow/censoring checks pass. '
+                          'Actual Qt/subprocess acquisition lifecycle and whole collection regression total197 tests; desktop shortcut targets the new entry.')
+            unresolved += (' Software-only deterministic eight-channel fixtures do not prove a native automatic-fusion gain or physical/live accuracy; automatic boundaries remain estimated and output waits for interval completion.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

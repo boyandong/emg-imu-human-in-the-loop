@@ -1,0 +1,53 @@
+{
+  "schema": "temporal_live_gui_regression_v1",
+  "prefreeze_commit": "9470463",
+  "records": [
+    {
+      "path": "emgimu_classifier/feature_bank/regression/temporal_live_gui_v1/classifier.xml",
+      "sha256": "c10145a937ff83054375c3513160f5fbcb8464914253832e12708f1bd1d1fc37",
+      "tests": 30,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "path": "emgimu_classifier/feature_bank/regression/temporal_live_gui_v1/collection.xml",
+      "sha256": "60fbd4acc5e03f0c54bc27db1f73cde02ffed47a6cfac61411082484f42e2a8f",
+      "tests": 167,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "path": "emgimu_classifier/feature_bank/regression/temporal_live_gui_v1/final_metadata.xml",
+      "sha256": "ad49d316c7ea72e764c379fb769bddbb90314c8e4e736096c0549892e9cbbd32",
+      "tests": 27,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "unique_classifier_and_collection_tests": 197,
+  "final_metadata_rechecks": 27,
+  "source_sha256": {
+    "benchmarks/new_bank_v3/current_scientific_conclusions_v1.py": "ab4acc4c61039e7ac3173db6f6c34f21f2310ae046a90581ac0969275111fac4",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "4d07233a53e7e95649b0921143d8166a58daa01035902d39548a0d25184d9900",
+    "benchmarks/new_bank_v3/export_current_delivery.py": "33037eb8a0dd27a3e030c41bc555166e0e7144b41ec915e45c68a9a2a7c5c0cf",
+    "benchmarks/formula_family_scope_audit.py": "db073e183e98e3e9369a7afb94675935f07631b486dff443b57c47ebcd25c666",
+    "benchmarks/new_bank_v2/v1_acceptance_audit.py": "7138e6fde98d3086cae26bbf132fdaf92f011f78303f5bdaf9d2e3374bc30284",
+    "feature_bank/CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json": "df1cb6e16d7b4fe8a557a1b2f3d252e89d95cf1bae2aab5563278f0df62d6091",
+    "feature_bank/REPORT.md": "d9eed1650f596c7d84aa45aa8ea38f343f7a54b6b725720686b0d6e0cc2780ad",
+    "feature_bank/FORMULA_FAMILY_SCOPE_AUDIT.csv": "bcc50ed021ce7bdcf6375fa189fc94ddc411253bed490d2b86cffc7c893daf14",
+    "feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.csv": "0493445f00c33f9af7009c47f4558184ccd337ee0497ee668d981f32ee5391b0",
+    "feature_bank/DOCUMENT_TRACEABILITY_V1.json": "c4cafc8df78015b923e1d05b4d1346605468a2cb605611df61242b89c1b6feb1",
+    "feature_bank/delivery/INDEX.json": "1ecceafa9f554272051b1eb24c119e54db718e4690dc8fcb755b309871f44e01",
+    "feature_bank/delivery/new_bank_v3/MANIFEST.json": "114c09f7a1e6ce80f8543902f3d86f50079f4e4ccdf727cd03a77c0dbf7e2568",
+    "tests/test_temporal_live_gui_v1_delivery.py": "88ff841d9643a9d3b9d3b20877a560a29700193586a3e757a8e75c35e8e0d6b9"
+  },
+  "protocol_sha256": "2e8a666591ddd4735bd541ec1498bb1023df2686a302e202d297edfcc6e67eea",
+  "acceptance_sha256": "f09f47fb4efdebcd277d11ab06e19b4b1cf50671dcc426e3de8b969cbb14bbcf",
+  "scope": "Frozen full-action desktop/estimated-boundary software verification, entire collection regression and regenerated scientific/canonical/trace checks. Deterministic eight-channel fixtures, not new physical or native automatic-fusion efficacy.",
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false
+}
