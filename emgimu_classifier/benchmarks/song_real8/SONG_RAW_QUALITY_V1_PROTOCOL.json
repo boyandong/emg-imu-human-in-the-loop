@@ -1,0 +1,67 @@
+{
+  "schema": "song_raw_quality_v1",
+  "source_folder": "E:\\qxy\\emg_meta\\emg_meta\\data\\Song",
+  "hdf5_sha256": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+    "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+    "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+  },
+  "scenarios": [
+    "unmodified",
+    "dropout_ch3",
+    "flat_ch3",
+    "transport_rail_ch3",
+    "flat26_ch3",
+    "line50_source_rms",
+    "low5_source_rms",
+    "gain2_ch3"
+  ],
+  "known_injected_fault_scenarios": [
+    "dropout_ch3",
+    "flat_ch3",
+    "transport_rail_ch3",
+    "flat26_ch3"
+  ],
+  "modes": [
+    "off",
+    "structural",
+    "soft"
+  ],
+  "source_sessions": [
+    "S01",
+    "S02"
+  ],
+  "target_session": "S04",
+  "source_quantile": 0.995,
+  "adc_range": [
+    -8388608,
+    8388607
+  ],
+  "adc_range_provenance": "Acquisition signed24_be big-endian signed24 transport extrema; not a measured analogue-front-end clipping bound",
+  "rules": "Fixed half-count zero/flat tolerances. Source raw pre-software-highpass F9v3 references and0.995 quantile soft thresholds. Structural invalid>=0.5 zero/flat ratio or>=0.1 near transport rail. Structural mode rejects any invalid measured channel. Soft mode uses channel min for F0/F2ac and mean for remaining providers; Unknown only at zero effective mass. No target tuning.",
+  "source_sha256": {
+    "emgimu_classifier/src/emgimu/feature_bank/source_quality_gate_v1.py": "e17ebd35ca7d7ee0ae29897dd55e3f4603240cfc85b6ede6bf572abe797f7607",
+    "emgimu_classifier/src/emgimu/feature_bank/personal_session_stream_v2.py": "8536199e87cf7e38a9b8da0c05d26c4f284c95cff22034152cb66d47a757cb46",
+    "emgimu_classifier/tests/test_source_quality_gate_v1.py": "8424952d1800fa048745c82385114d8aa06ca9628294af8f8bd67789ee0503ee",
+    "emgimu_classifier/tests/test_personal_session_stream_v2.py": "85535d1caff5a7e4a674a61773871fa5d252f5e397515da052ad372ba40bbe75",
+    "emgimu_classifier/benchmarks/song_real8/song_raw_quality_v1.py": "2eac2e9660530ce60ac64a3d6051b354c5d06d8f1e33e7f7ae53c7d2a724496a",
+    "collection/emg_meta/emg_meta/emgforce/protocol.py": "f65cdb9ede35389849490685f620b866d9390e30d8f9dab06b791e5c71584c96",
+    "collection/emg_meta/emg_meta/emgforce/inference/personal_session_worker_v2.py": "30ba07756202eccff60f4ca553933aff9a409e8c5cc467a370bb9f535d00b96e",
+    "collection/emg_meta/emg_meta/emgforce/ui/realtime_inference_page_v2.py": "a9854e93d42bcf00634a538f18686efbf541a20afed9edbdfd6a82dcb8ca20ba",
+    "collection/emg_meta/emg_meta/emgforce/ui/main_window.py": "f2ab7020fb0ddeb45dca6f900e4a3d0e9f5a8904e97aaa4ed63442aca0a36116",
+    "collection/emg_meta/emg_meta/tests/test_quality_page_v2.py": "e6f93a502198ba66ded53327338317f5191a496cc930ad819b9c1be72f4e6ead",
+    "emgimu_classifier/src/emgimu/feature_bank/document_quality_v3.py": "af2eac5feebe4cc782c693c217711f6f8092f685178c4091a0d980363044a8e5",
+    "emgimu_classifier/src/emgimu/feature_bank/calibration.py": "495e4354327d3af31a912f70e0eb5db1c617c4054d01fe422715f5e98e08c90e",
+    "emgimu_classifier/src/emgimu/feature_bank/fault_gate_evaluation_v1.py": "49bfe4b94a5db2ef8480a80322b7c0d6f8cd216f325eed1777fa1e77caba7426"
+  },
+  "artifact_sha256": {
+    "emgimu_classifier/benchmarks/song_real8/song_personal_session_v1/source_bank.pkl": "2828f59ca3d142ec873ba330622bae71f0ce0793768d777bc7a40047a88efe3c",
+    "emgimu_classifier/benchmarks/song_real8/song_personal_session_v1/personal_S03.zip": "14407991c3ef6062f8f6f61932b947859ad6bde51a9984d4cf2c685846cf62b2",
+    "emgimu_classifier/benchmarks/song_real8/song_personal_session_v1/session_S04_5shot.zip": "5dce549f820a7c85e1e782a0fdb9105f256cb1e9b189c6e6899a4966f0ee15ec",
+    "emgimu_classifier/feature_bank/SONG_PERSONAL_SESSION_ACCEPTANCE_V1.json": "195b23cd57430b6b44395bd8c0aca2935fdee2734f35b3a8bf8d687fa99fc6d6"
+  },
+  "primary": "Structural mode catches all four explicit injected fault types at native-trial granularity and rejects no otherwise-correct unmodified trial; this is a synthetic check, not physical fault validation. Preserve soft-routing harms/failures and all modes. Off/default behavior remains unchanged.",
+  "scope": "Previously inspected same-person/day S04 fixed124 evaluation trials; original source-frozen six providers and20+20 personal/current calibration remain fixed. Inject into the full raw recording before causal filtering. Unmodified native data have UNKNOWN hardware-fault status, not normal labels; 50Hz/5Hz/gain perturbations are not assumed faults. No real fault false-positive rate, mechanical-force, hardware accuracy, live latency or default promotion proof.",
+  "default_promoted": false
+}

@@ -20,7 +20,7 @@ from .data_check_page import DataCheckPage
 from .dataset_upload_page import DatasetUploadPage
 from .device_page import DevicePage
 from .experiment_page import ExperimentPage
-from .realtime_inference_page import RealtimeInferencePage
+from .realtime_inference_page_v2 import RealtimeInferencePageV2 as RealtimeInferencePage
 from .training_page import TrainingPage
 
 
