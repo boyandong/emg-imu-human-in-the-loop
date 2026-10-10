@@ -1284,3 +1284,17 @@ emgimu_classifier/benchmarks/new_bank_v3/personal_temporal_unibo_v1/u07_Day8_1sh
 emgimu_classifier/benchmarks/new_bank_v3/personal_temporal_unibo_v1/u07_Day8_2shot.zip -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/personal_temporal_unibo_v1/u07_Day8_5shot.zip -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/new_bank_v3/personal_temporal_unibo_v1/u07_personal.zip -text -eol whitespace=cr-at-eol
+
+# Versioned full-action live interface and frozen GUI software protocol
+collection/emg_meta/emg_meta/emgforce/inference/personal_session_worker_v5.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/emgforce/ui/main_window_v4.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/emgforce/ui/realtime_inference_page_v5.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/install_decision_shortcut_v3.ps1 -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/main_decision_v3.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/tests/test_decision_launcher_v3.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/tests/test_decision_page_v5.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/TEMPORAL_LIVE_GUI_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/prepare_temporal_live_gui_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/personal_session_stream_v5.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/temporal_bout_live_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_personal_session_stream_v5.py -text -eol whitespace=cr-at-eol
