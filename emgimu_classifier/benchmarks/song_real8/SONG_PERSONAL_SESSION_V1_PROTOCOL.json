@@ -1,0 +1,73 @@
+{
+  "schema": "song_personal_session_v1",
+  "source_folder": "E:\\qxy\\emg_meta\\emg_meta\\data\\Song",
+  "hdf5_sha256": {
+    "S01": "2b6ccce2d1a1e855b58435d390547dda64068cc642be60ec81affeb298fcc72a",
+    "S02": "d3c1cdc7fc334ac0bcb2846f82cce292e1f6a068ecb64ef9776a226f49c3d479",
+    "S03": "5bd3fa87c6d88f738d08b54fa7c1776cfd7dbe0c00c3a597e34e366a59e67a1e",
+    "S04": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3"
+  },
+  "source_sessions": [
+    "S01",
+    "S02"
+  ],
+  "personal_session": "S03",
+  "current_session": "S04",
+  "groups": [
+    "F0",
+    "F1",
+    "F2ac",
+    "F3b",
+    "F4abc",
+    "F5window"
+  ],
+  "classes": [
+    "fist",
+    "index_pinch",
+    "neutral",
+    "open_hand"
+  ],
+  "long_term_shots_per_class": 5,
+  "current_shots_per_class": [
+    0,
+    1,
+    2,
+    5
+  ],
+  "selection_seed": "20261010_song_personal_session_v1",
+  "source_seed": 20261010,
+  "source_probability_calibration": "Leave-one-recorded-source-session-out; every representation/scaler/model refit. Temperature fit on source OOF only. These are two recordings of one person/day, not independent training users.",
+  "source_policy": "Population=softmax(-source OOF calibrated family logloss). Choose n0 in[4,12,24], reliability temperature in[.5,1,2] by mean source-only evaluation logloss across both source-session OOF folds and nested1/2/5-shot calibration. Calibration5/class is reserved from each source fold at all budgets; no target tuning. Source OOF temperatures/prior are reused inside this source policy search; not nested unbiased source-performance evidence.",
+  "target_split": "Reserve5 native formal trials/class in each of S03/S04 by SHA256(seed|trial_id). S03 reserved20 form long-term personal profile; S04 nested4/8/20 form session calibration. Identical S04 remaining evaluation trials for all budgets, including0. All previously inspected recordings; retrospective developmental evidence.",
+  "outputs": "Shared raw-feature source classifiers, separate long-term and current rest/scale/activation profiles, F7 standardized-feature coordinates, F8 descriptor, F9 observations and checksum-verified user/session packages. Only calibration-based reliability changes classifier fusion. No normalized classifier, trained F7 classifier, quality rejection, DTW/full-bout or anatomical F6 is silently added.",
+  "scope": "Six declared EMG window groups and all six leave-provider-out fusion readouts, not the entire document F0-F9 bank. Single operator-identified Song user/day, cued stable trial boundaries, S01-S03 readiness failures, prior S04 inspection. Source/control arms use0 target trials; personal uses20 S03 trials; session/removals use20 S03 plus0/4/8/20 S04. F7/F8/F9 outputs are descriptive context, not validated routing/gating. No cross-day, physical re-donning, whole-action, live accuracy or low-total-burden proof.",
+  "source_sha256": {
+    "benchmarks/song_real8/song_personal_session_workflow_v1.py": "9456e4ad55c1334a7bf3675b0cb1c692657fde553e40e280cff71579119b6ded",
+    "benchmarks/song_real8_study.py": "6051769442d6b68e5893dff9b991a2a60a056eca4b7bacd907bad98ebeb15b3b",
+    "benchmarks/new_bank_v3/emg_window_bank_v1.py": "a332ce6f4c3469876428eda9e8cc0ce0544fd3f8ef74b88fa15cdb2d9be456c0",
+    "src/emgimu/feature_bank/personal_session_workflow_v1.py": "18fca30ac5fd0e7299d258e14b9dc28121d9e00eb98d5c22584de6ac201794ee",
+    "src/emgimu/feature_bank/frozen_emg_provider_bank_v1.py": "26808ea01755979134bcadb09fbb6499068785ae8bec05a0d17d17cf361c96f5",
+    "src/emgimu/feature_bank/available_bank_fusion_v1.py": "ba60eda7eaa3d87694e664d1acdee5df6fa3b393eca9d63064463b7d7f077179",
+    "src/emgimu/feature_bank/calibration.py": "495e4354327d3af31a912f70e0eb5db1c617c4054d01fe422715f5e98e08c90e",
+    "src/emgimu/feature_bank/document_session_v3.py": "a6577662dc1a964c3eb972811faa280aa9e9d84ce6036ab050655457dc252f1a",
+    "src/emgimu/feature_bank/session_shift_summary.py": "2bd60eb4939ef8f3e7d9795dc4ea0565df2ef3583ce77d8227d768309913ee58",
+    "src/emgimu/feature_bank/document_quality_v3.py": "af2eac5feebe4cc782c693c217711f6f8092f685178c4091a0d980363044a8e5",
+    "src/emgimu/feature_bank/activation_profile.py": "912f07fc5c053e9b996b60f95a60b3f48c0f045d4ab6eb37b58f801ca4235b00",
+    "src/emgimu/feature_bank/document_reliability_v2.py": "34ac2da3bd1f380098320fd1f1a7c15ba2567ec6da67dc86150876a7263728a4",
+    "src/emgimu/feature_bank/new_bank_v2.py": "7f9195d7e591a2b3ac72f17142d36a32b32d4bfd7d049bdd4b40d7f06663c49e",
+    "src/emgimu/feature_bank/new_bank_v1.py": "91d7b76f50197b5ed412d8cf13339bdba16780d61e6b89a349e0c594a3678f24",
+    "src/emgimu/feature_bank/document_scale_v3.py": "5b160c09f2e7658383286fa39df1047d2327313fe2bbc3d4cec2c1431078d6e3",
+    "src/emgimu/feature_bank/spec_spatial_v3.py": "f2827bd8e448304d5ef51547241f7c6d59b9aa48fb83b1da64b8393db6f6df04",
+    "src/emgimu/feature_bank/document_ces_v3.py": "81c8bf26791b5e5aab3d5ef986ad8d343f32fef9e844628b6e951783a821644f",
+    "src/emgimu/feature_bank/document_spectral_v3.py": "cb7cd9149c21dee5279b454b23deed068e2ca58a12f8b24ce26a8fa86bc1c7e7",
+    "src/emgimu/feature_bank/document_temporal_v3.py": "58bb5655d52b82e860f1c7812cffe012f1850b5825129fb24f328271e9f68983",
+    "src/emgimu/feature_bank/families.py": "967a66a3f94554ef8df09c5a0bc2ffd49a634518fecfb7e63d7d1ee211a241ea",
+    "src/emgimu/feature_bank/quality_observability.py": "ab59c054a410f2930b69615a039ce57bf1e9281d70a64ec5f3191f5e7cbacc6a",
+    "src/emgimu/feature_bank/affine_spd_anchor.py": "4ddd02d2260448aad4f3ab98e013b7213b8ac2a31e93bd89975ec40049239808",
+    "src/emgimu/feature_bank/force_nested_oof.py": "6808324123f814bffdac2a9189d92861071d6107e7973cb1aa2319adb247c367",
+    "src/emgimu/feature_bank/core.py": "a272025baef6a52ed24088092d17937da26ba334453305e552b6690528bbfffe",
+    "tests/test_personal_session_workflow_v1.py": "9b09daee42857b3b71e1dc7551d9fa084435bbac901c2e4d9d0174ead1a24159",
+    "tests/test_song_personal_session_protocol_v1.py": "9ae76f957165632b4a9a33c68238fbc3cd4275e8ebc567d5bde9850c221d805d"
+  },
+  "default_promoted": false
+}
