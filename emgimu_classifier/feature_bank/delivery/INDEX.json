@@ -81,7 +81,7 @@
   },
   "current_scientific_conclusions": {
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
-    "sha256": "e4e7170887bd3074b6953e81825366ab2158fbec9c3c665cfc5bd976bbfd3288"
+    "sha256": "48ed303df75765657b83b4d26575ac625421932f9fec30b7d73ae518d10e7916"
   },
   "current_regression_snapshot": {
     "path": "../CLASSIFIER_REGRESSION_20261008.json",
@@ -174,6 +174,10 @@
   "joint_bout_gui_acceptance": {
     "path": "../JOINT_BOUT_GUI_V1_ACCEPTANCE.json",
     "sha256": "27e905148ec66fafffc7788d438f9e4e4044cc7fad709162e0387707d00d391d"
+  },
+  "document_window_composition_acceptance": {
+    "path": "../DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json",
+    "sha256": "79c7644d1418fd22d4a5985d31bd14173cccfa697c6467e9cdda0a803f9ab0c8"
   },
   "formula_numerical_acceptance": {
     "path": "../FORMULA_NUMERICAL_ACCEPTANCE.json",

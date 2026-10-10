@@ -1364,3 +1364,77 @@ emgimu_classifier/tests/test_calibration_rest_detector_v1.py -text -eol whitespa
 /emgimu_classifier/tests/test_document_window_composition_v1.py -text -eol whitespace=cr-at-eol
 
 /emgimu_classifier/benchmarks/song_real8/DOCUMENT_WINDOW_COMPOSITION_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/formula_family_scope_audit.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v2/v1_acceptance_audit.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/current_scientific_conclusions_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/export_current_delivery.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/render_current_scientific_report_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/song_real8/DOCUMENT_WINDOW_COMPOSITION_V1_RESULTS.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/song_real8/document_window_composition_v1/personal_S03.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/song_real8/document_window_composition_v1/policy.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/song_real8/document_window_composition_v1/predictions.csv -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/song_real8/document_window_composition_v1/readouts.npz -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/song_real8/document_window_composition_v1/session_S04_1shot.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/song_real8/document_window_composition_v1/session_S04_2shot.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/song_real8/document_window_composition_v1/session_S04_5shot.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/song_real8/document_window_composition_v1/source_bank.pkl -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/song_real8/verify_document_window_composition_v2.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/DOCUMENT_TRACEABILITY_V1.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/DOCUMENT_WINDOW_COMPOSITION_V1_REGRESSION.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/FORMULA_FAMILY_SCOPE_AUDIT.csv -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/FORMULA_FAMILY_SCOPE_AUDIT.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.csv -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/REPORT.md -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/delivery/INDEX.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/delivery/new_bank_v3/MANIFEST.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/delivery/new_bank_v3/ablation_full_bank.csv -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/delivery/new_bank_v3/calibration_curve.csv -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/delivery/new_bank_v3/conditional_incremental.csv -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/delivery/new_bank_v3/error_complementarity.csv -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/delivery/new_bank_v3/feature_family_results.csv -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/regression/document_window_composition_v1/classifier.xml -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/regression/document_window_composition_v1/delivery.xml -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_current_v3_delivery.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_document_window_composition_delivery_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_document_window_composition_register_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/DOCUMENT_WINDOW_COMPOSITION_V1_GIT_CHECKOUT.json -text -eol whitespace=cr-at-eol

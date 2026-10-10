@@ -1,0 +1,28 @@
+{
+  "schema": "document_window_composition_v1_regression",
+  "freeze_commit": "0e53085",
+  "suites": {
+    "classifier": {
+      "passed": 80,
+      "sha256": "06c9565932251f2ed9bf7124355376adfa3f496199208b9745b8e6789660b34d"
+    },
+    "delivery": {
+      "passed": 27,
+      "sha256": "ffe2eb85e1d37d062a733b8a26f8f4e2c62df8ca509813c7cc3265774c9199d0"
+    }
+  },
+  "total_passing_cases": 107,
+  "acceptance_sha256": "79c7644d1418fd22d4a5985d31bd14173cccfa697c6467e9cdda0a803f9ab0c8",
+  "native_cells": 96,
+  "native_predictions": 11904,
+  "existing_source_classifier_parameter_max_error": 0.0,
+  "matched_existing_probability_cells": 60,
+  "added_joint_F2_family_removal_cells": 4,
+  "independent_rebuild_is_not_a_new_accuracy_gain": true,
+  "verification_version": 2,
+  "frozen_v1_verifier_scaler_assumption_superseded": true,
+  "native_experiment_rerun": false,
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false
+}

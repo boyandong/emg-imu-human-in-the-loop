@@ -1,0 +1,7 @@
+{
+  "schema": "document_window_composition_v1",
+  "source_bank_sha256": "439d0da837560c58c10c445f84a0e766e5683237e240d498f527817b126bf57b",
+  "source_bank_id": "e3135c7124f7be8060e5ad2ab9f6ed001c1cec9ef405386ef1bc643b5e9f741c",
+  "decision_policy_id": "5d128fc0b4942d28e2eb172bccaf8d10b5fc33930aca593413ebf9a55b7c3cbd",
+  "anchor_mix": 0.5
+}

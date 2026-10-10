@@ -433,6 +433,43 @@ def export():
                 full_target_calibration_trials_per_user=costs[full_name],remaining_target_calibration_trials_per_user=costs[remaining],
                 **{'full_'+key:full[key] for key in METRICS},**{'remaining_'+key:alternative[key] for key in METRICS},
                 delta_logloss=alternative['log_loss']-full['log_loss'],delta_macro_f1=full['macro_f1']-alternative['macro_f1'],delta_brier=alternative['brier']-full['brier']))
+    composition_path=ROOT/'benchmarks/song_real8/DOCUMENT_WINDOW_COMPOSITION_V1_RESULTS.json'
+    composition_source=composition_path.relative_to(ROOT).as_posix();sources[composition_source]=sha(composition_path)
+    composition=json.loads(composition_path.read_text(encoding='utf8'))
+    composition_arrays=composition_path.parent/'document_window_composition_v1/readouts.npz'
+    sources[composition_arrays.relative_to(ROOT).as_posix()]=sha(composition_arrays)
+    composition_q=np.load(composition_arrays,allow_pickle=False)
+    composition_classes=['fist','index_pinch','neutral','open_hand']
+    cy=np.array([composition_classes.index(c) for c in composition['evaluation_labels']])
+    removals={'provider_'+g:'minus_provider_'+g for g in composition['source_dimensions']}
+    removals.update({'family_'+g:'minus_family_'+g for g in ('F0','F1','F2','F3','F4','F5')})
+    removals.update(F7_anchor='full_minus_F7',F8_router='full_minus_F8',F9_raw='full_minus_F9')
+    comparisons=[('old_reliability','new_reliability'),('old_full','new_full')]
+    comparisons += [('new_reliability',g) for g in ('new_F7','new_F8','new_full','new_population','new_uniform')]
+    comparisons += [('new_full',g) for g in removals.values()]
+    for shots in (0,1,2,5):
+        arms={c['arm']:(composition_q[f'shots{shots}_{c["arm"]}'].argmax(1),composition_q[f'shots{shots}_{c["arm"]}'])
+              for c in composition['cells'] if c['shots']==shots}
+        costs={c['arm']:c['long_term_calibration_trials']+c['current_calibration_trials']
+               for c in composition['cells'] if c['shots']==shots}
+        notes=dict(class_names=composition_classes,actual_total_target_calibration_trials=costs,
+            long_term_personal_trials=20,current_session_trials=4*shots,source_only_controls=['new_population','new_uniform'],
+            existing_source_classifiers_reproduced=True,independent_rebuild_is_not_a_new_accuracy_gain=True,
+            F2_family_removes_both_covariance_and_CSP=True,removals_do_not_refit_models=True,scope=composition['scope'])
+        add_group('document_window_composition_v1',composition_source,'Song_real8','Song','S04_document_composition',shots,
+            'same_person_day_cued_stable_native_trials',arms,cy,4,notes,comparison_pairs=comparisons)
+        full=score(cy,*arms['new_full'],4)
+        for removed,remaining in removals.items():
+            alternative=score(cy,*arms[remaining],4)
+            ablations.append(dict(run_id='document_window_composition_v1',source_artifact=composition_source,
+                source_sha256=sources[composition_source],dataset='Song_real8',subject='Song',
+                **{'session/domain':'S04_document_composition'},condition='same_person_day_cued_stable_native_trials',
+                calibration_budget=shots,evaluation_trials=len(cy),metadata_notes_json=json.dumps(notes,sort_keys=True),
+                full_bank='new_full',removed_provider=removed,remaining_bank=remaining,
+                full_target_calibration_trials_per_user=costs['new_full'],remaining_target_calibration_trials_per_user=costs[remaining],
+                **{'full_'+key:full[key] for key in METRICS},**{'remaining_'+key:alternative[key] for key in METRICS},
+                delta_logloss=alternative['log_loss']-full['log_loss'],delta_macro_f1=full['macro_f1']-alternative['macro_f1'],delta_brier=alternative['brier']-full['brier']))
+    composition_q.close()
     temporal_name='PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json';temporal=read(temporal_name)
     temporal_source=(HERE/temporal_name).relative_to(ROOT).as_posix()
     temporal_arrays=HERE/'personal_temporal_unibo_v1/readouts.npz'
@@ -673,6 +710,8 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json')},
              'joint_bout_gui_acceptance': {'path':'../JOINT_BOUT_GUI_V1_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/JOINT_BOUT_GUI_V1_ACCEPTANCE.json')},
+             'document_window_composition_acceptance': {'path':'../DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json',
+                 'sha256':sha(ROOT/'feature_bank/DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json')},
              'formula_numerical_acceptance': {'path':'../FORMULA_NUMERICAL_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/FORMULA_NUMERICAL_ACCEPTANCE.json')},
              'completion_proven': False}

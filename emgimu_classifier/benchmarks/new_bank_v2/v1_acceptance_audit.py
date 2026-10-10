@@ -683,6 +683,16 @@ def build(pre: Path, goal: Path) -> dict:
                          'Independent source-quantile/seven-factor F9 mask arithmetic and288 frozen-probability algebra fixtures pass;96 invalid contracts reject. '
                          'Personal normalization, activation envelope, reliability/shrinkage and late-fusion clauses are separately registered with current source/test hashes. '
                          'This is arithmetic/software evidence, not native quality efficacy, all-subfamily composition or physical completion.')
+        if ident in ('GOAL-03','GOAL-20'):
+            evidence += ('|feature_bank/DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json'
+                         '|benchmarks/song_real8/DOCUMENT_WINDOW_COMPOSITION_V1_RESULTS.json'
+                         '|src/emgimu/feature_bank/document_window_composition_v1.py'
+                         '|tests/test_document_window_composition_delivery_v1.py')
+            boundary += (' Independent source-refitted document window composition verifies exact V3 implementations and source-fold identities. '
+                         'All seven classifier/scaler parameter sets, source temperatures and60 native probability cells reproduce the existing source exactly. '
+                         '96 cells/11904 predictions retain seven provider and six whole-family removals, including joint F2 covariance/CSP removal. '
+                         'This closes a scoped composition/rebuild/family-LOFO check, not a new gain, ring/anatomical/full-bout native8-channel eligibility, all formulas or physical acceptance. '
+                         'The corrected read-only V2 scaler oracle has zero provider error; the frozen native experiment is unchanged.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

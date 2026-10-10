@@ -369,6 +369,12 @@ def build() -> dict:
             supported += (' A generic opt-in available-provider quality interface now retains strict trial/policy identity, unavailable observations, per-row weights and scoreable Unknown fallback. '
                           'Direct seven-factor source-quantile mask arithmetic and288 frozen-probability algebra fixtures pass;96 invalid contracts reject.')
             unresolved += (' The native probability algebra uses synthetic quality fixtures; measured quality-effect and hardware-fault efficacy remain unproved. No default promotion or full-bank representation claim.')
+        if family != 'F6':
+            evidence += ('|feature_bank/DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json'
+                         '|benchmarks/song_real8/DOCUMENT_WINDOW_COMPOSITION_V1_RESULTS.json')
+            supported += (' Independent source-refitted document window composition reproduces the existing seven source classifiers, temperatures and60 native probability cells exactly. '
+                          'Whole-family LOFO supplements provider LOFO, including joint removal of both F2 covariance/tangent and CSP branches on same124 Song trials.')
+            unresolved += (' This is same-person/day reproducibility and scoped family-removal evidence, not a new algorithmic gain, all ring/full-bout subfamilies, independent generalization or hardware proof.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

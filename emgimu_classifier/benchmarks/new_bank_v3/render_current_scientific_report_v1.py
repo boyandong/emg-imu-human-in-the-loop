@@ -729,6 +729,15 @@ def render(data, source_sha):
             'The installed desktop shortcut targets main_decision_v4.py; its target was read back. The rendered panel uses the actual Windows platform, Microsoft YaHei UI font and reloaded software-fixture profiles. The six-provider initial selection and off-by-default decision/quality branches stay unchanged.',
             'This supersedes the earlier API-only desktop-integration gap. Synthetic acquisition tests do not establish native action accuracy, physical boundaries/latency/faults, independent user/day generalization or full-document scientific completion.',
             '[Desktop joint-registration acceptance](JOINT_BOUT_GUI_V1_ACCEPTANCE.json).']
+    if 'document_window_composition' in data:
+        composition=data['document_window_composition']
+        variation_lines += ['', '#### Document window composition and family removals', '',
+            'The existing seven-provider source already used the document V3 views. A separately frozen source-only rebuild verifies the composition and reproduces all source classifier/scaler parameters, temperatures and60 existing native probability cells exactly; this is reproducibility evidence, not a new algorithmic gain.',
+            'The study retains96 cells/11904 predictions on the same124 previously inspected Song trials. Seven provider removals and six whole-family removals are separate: removing F2 removes both covariance/tangent and CSP branches. At five current shots, full F1 is0.9509 and loss0.5588; removing all F2 gives F1 0.8983 and loss0.6410. Removing F1 instead gives F1 0.9591 and loss0.5429, so more feature families are not uniformly helpful.',
+            'The strict improvement guard fails because the rebuilt and old reliability probabilities are identical. Calibration-only F7/F8 increases F1 but worsens loss/Brier versus reliability. No target-selected default change follows from these inspected data.',
+            'A corrected read-only V2 verifier casts scaler parameters to the actual input dtype before arithmetic, matching the installed sklearn. The frozen V1 verification assumption is retained; the native experiment was not rerun or edited. Independent provider probability error is zero and fusion error is below1e-12.',
+            'Ring F3a/c, anatomical F6, full-bout native Song evidence and physical/new-person/day validation remain outside this window scope. The rebuild is available through its Python workflow API; the desktop selection remains unchanged.',
+            '[Document composition acceptance](DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json).']
     lines[-1:-1] = variation_lines
     return '\n'.join(lines)
 
