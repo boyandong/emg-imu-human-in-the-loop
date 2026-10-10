@@ -1354,3 +1354,13 @@ emgimu_classifier/src/emgimu/feature_bank/calibration_rest_detector_v1.py -text 
 emgimu_classifier/src/emgimu/feature_bank/continuous_calibration_isolation_v1.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_available_bank_quality_fusion_v2.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_calibration_rest_detector_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/document_window_composition_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/song_real8/document_window_composition_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/song_real8/verify_document_window_composition_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_document_window_composition_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/song_real8/DOCUMENT_WINDOW_COMPOSITION_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
