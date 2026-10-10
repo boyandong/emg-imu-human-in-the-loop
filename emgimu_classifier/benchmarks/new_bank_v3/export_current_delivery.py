@@ -358,6 +358,43 @@ def export():
                         'delta_logloss':alternative['log_loss']-full['log_loss'],
                         'delta_macro_f1':full['macro_f1']-alternative['macro_f1'],
                         'delta_brier':alternative['brier']-full['brier']})
+    integrated_path=ROOT/'benchmarks/song_real8/SONG_INTEGRATED_DECISION_V1_RESULTS.json'
+    integrated_source=integrated_path.relative_to(ROOT).as_posix();sources[integrated_source]=sha(integrated_path)
+    integrated=json.loads(integrated_path.read_text(encoding='utf8'))
+    integrated_csv=integrated_path.parent/'song_integrated_decision_v1/predictions.csv'
+    sources[integrated_csv.relative_to(ROOT).as_posix()]=sha(integrated_csv)
+    with integrated_csv.open(encoding='utf8',newline='') as stream:integrated_rows=list(csv.DictReader(stream))
+    classes=['fist','index_pinch','neutral','open_hand'];y=np.array([classes.index(c) for c in integrated['evaluation_labels']])
+    groups=list(song['source_dimensions']);full_name='F7_F8_F9_structural'
+    comparisons=[('baseline',name) for name in ('F7_long','F7_local','F7_blended','F8_only','F7_F8',full_name,'F7_standalone')]
+    comparisons += [(full_name,name) for name in ('F7_blended','F8_only','F7_F8')]+[(full_name,'full_minus_'+name) for name in groups]
+    for shots in (0,1,2,5):
+        arms={}
+        for cell in integrated['cells']:
+            if cell['shots']!=shots:continue
+            records=[v for v in integrated_rows if int(v['shots'])==shots and v['arm']==cell['arm']]
+            if [v['trial_id'] for v in records]!=integrated['evaluation_ids']:raise ValueError('Integrated canonical trial axis differs')
+            q=np.array([[float(v['p_'+c]) for c in classes] for v in records]);arms[cell['arm']]=(q.argmax(1),q)
+        notes=dict(class_names=classes,actual_total_target_calibration_trials={name:20+4*shots for name in arms},
+            long_term_personal_trials=20,current_session_trials=4*shots,anchor_mixture_fixed=.5,
+            anchor_temperature_from_calibration_class_geometry_only=True,F2ac_anchor_is_exact_affine_SPD=True,
+            F8_is_calibration_only_domain_routing=True,F9_structural_rejects_no_unmodified_trials=True,
+            provider_and_branch_removals_do_not_refit_models=True,scope=integrated['scope'])
+        add_group('song_integrated_decision_v1',integrated_source,'Song_real8','Song','S04_integrated_decision',shots,
+            'same_person_day_cued_stable_native_trials',arms,y,4,notes,comparison_pairs=comparisons)
+        full=score(y,*arms[full_name],4)
+        removals={name:'full_minus_'+name for name in groups}
+        removals.update(F7_anchor='F8_only',F8_router='F7_blended',F9_raw='F7_F8')
+        for removed,remaining in removals.items():
+            alternative=score(y,*arms[remaining],4)
+            ablations.append(dict(run_id='song_integrated_decision_v1',source_artifact=integrated_source,
+                source_sha256=sources[integrated_source],dataset='Song_real8',subject='Song',
+                **{'session/domain':'S04_integrated_decision'},condition='same_person_day_cued_stable_native_trials',
+                calibration_budget=shots,evaluation_trials=len(y),metadata_notes_json=json.dumps(notes,sort_keys=True),
+                full_bank=full_name,removed_provider=removed,remaining_bank=remaining,
+                full_target_calibration_trials_per_user=20+4*shots,remaining_target_calibration_trials_per_user=20+4*shots,
+                **{'full_'+key:full[key] for key in METRICS},**{'remaining_'+key:alternative[key] for key in METRICS},
+                delta_logloss=alternative['log_loss']-full['log_loss'],delta_macro_f1=full['macro_f1']-alternative['macro_f1'],delta_brier=alternative['brier']-full['brier']))
     burden_name = 'MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json'
     burden = read(burden_name)
     burden_source = (HERE/burden_name).relative_to(ROOT).as_posix()
@@ -505,6 +542,8 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/SONG_MATCHED_NORMALIZATION_ACCEPTANCE_V1.json')},
              'song_raw_quality_acceptance': {'path':'../SONG_RAW_QUALITY_ACCEPTANCE_V1.json',
                  'sha256':sha(ROOT/'feature_bank/SONG_RAW_QUALITY_ACCEPTANCE_V1.json')},
+             'song_integrated_decision_acceptance': {'path':'../SONG_INTEGRATED_DECISION_ACCEPTANCE_V1.json',
+                 'sha256':sha(ROOT/'feature_bank/SONG_INTEGRATED_DECISION_ACCEPTANCE_V1.json')},
              'completion_proven': False}
     (BASE/'INDEX.json').write_text(json.dumps(index, indent=2)+'\n', encoding='utf8')
     print(json.dumps({n: len(rows) for n, (rows, _) in tables.items()}), flush=True)

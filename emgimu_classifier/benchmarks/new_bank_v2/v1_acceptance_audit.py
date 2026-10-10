@@ -591,6 +591,19 @@ def build(pre: Path, goal: Path) -> dict:
                          'Unknown hardware truth prevents a real false-positive rate. Soft routing hurts unmodified accuracy and can accept single-channel severe faults, so remains off by default. '
                          'Four full S04 population/session by off/structural streams each reproduce29790 emissions and confirmation labels without source/profile mutation. '
                          'Qt exercises separate raw calibration/replay, retry of invalid calibration trials and explicit Unknown. Numerical/synthetic integration is not physical efficacy or full F0-F9 completion.')
+        if ident in ('GOAL-03','GOAL-20','GOAL-21','GOAL-22','GOAL-23'):
+            evidence += ('|benchmarks/song_real8/SONG_INTEGRATED_DECISION_V1_PROTOCOL.json'
+                         '|benchmarks/song_real8/SONG_INTEGRATED_DECISION_V1_RESULTS.json'
+                         '|feature_bank/SONG_INTEGRATED_DECISION_ACCEPTANCE_V1.json'
+                         '|src/emgimu/feature_bank/personal_session_decision_v1.py'
+                         '|src/emgimu/feature_bank/personal_session_decision_cli_v1.py'
+                         '|tests/test_personal_session_decision_v1.py'
+                         '|tests/test_integrated_decision_cli_v1.py'
+                         '|tests/test_integrated_decision_delivery_v1.py')
+            boundary += (' Operational F7/F8/raw-F9 now surrounds six frozen providers: calibration-only ordinary/affine-SPD prototypes contribute probabilities, '
+                         'and same-user generic/family drift adjusts weights. Nested0/1/2/5 current budgets retain56 cells/6944 same124-trial predictions, six provider removals and F7/F8/F9 removals. '
+                         'Zero current still uses20 long-term trials. Independent geometry/routing/probability and versioned profile/CLI checks pass. '
+                         'Five-shot F1/recall improve but loss/Brier worsen, failing the joint guard. No default promotion; this new layer has no autonomous GUI stream evidence or full-document/subfamily/device proof.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

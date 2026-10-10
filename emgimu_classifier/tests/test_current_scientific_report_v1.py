@@ -43,6 +43,9 @@ def test_required_report_current_answers_numerical_boundaries_and_local_links():
     assert 'Soft routing changes3 previously correct unmodified trials to wrong' in section
     assert '| dropout_ch3 | structural | 124 | 0.0000 | 0.0000 | N/A |' in section
     assert 'real' in section and 'normal-data false-rejection rate cannot be estimated' in section
+    assert '#### Operational F7 anchors and F8 routing around the frozen Song bank' in section
+    assert '| 5 | F7_F8_F9_structural | 0.9244 | 0.6093 | 0.7419 |' in section
+    assert 'zero current shots is not zero total onboarding' in section
 
 
 def test_report_renderer_escapes_table_text_and_rejects_incomplete_question_sets():

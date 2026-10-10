@@ -286,6 +286,17 @@ def build() -> dict:
             unresolved += (' Unmodified hardware-fault truth is unknown, preventing a physical false-positive rate. '
                            'Soft routing changes3 correct unmodified trials to wrong, none to correct, and can accept severe single-channel faults. '
                            'Quality remains off by default; numerical/synthetic checks do not validate physical faults or full-bank efficacy.')
+        if family in ('F7','F8','F9'):
+            evidence += ('|benchmarks/song_real8/SONG_INTEGRATED_DECISION_V1_RESULTS.json'
+                         '|feature_bank/SONG_INTEGRATED_DECISION_ACCEPTANCE_V1.json'
+                         '|src/emgimu/feature_bank/personal_session_decision_v1.py'
+                         '|tests/test_personal_session_decision_v1.py'
+                         '|tests/test_integrated_decision_cli_v1.py'
+                         '|tests/test_integrated_decision_delivery_v1.py')
+            supported += (' A separate operational six-provider decision layer now fuses ordinary/affine-SPD F7 probabilities and applies calibration-only F8 drift/geometry weights, with optional raw F9. '
+                          'Same124 native evaluation trials yield56 cells/6944 predictions and all six provider removals. Independent prototypes, generalized SPD eigenvalues, routing and persistence are verified; a label-free CLI supports separate-process lifecycle.')
+            unresolved += (' Five-shot full F1/pinch recall improve, but loss/Brier worsen; joint guard fails. No default promotion. '
+                           'This decision layer still needs its own autonomous GUI stream integration and does not cover every document subfamily or device efficacy.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

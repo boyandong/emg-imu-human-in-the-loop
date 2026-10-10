@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `b9ce420db991e2e314660f6d8d0dfbe8de22f74d5010ac404264f5f6651d129c`.
+Source SHA-256: `e7681e2fa45ff7f8d0dfa9e364110eb0f956e774ad4f3d50a058c09a995d0dd5`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -846,6 +846,78 @@ subprocess. Physical contact faults, live latency and full F0-F9 remain open.
 [Frozen raw-quality experiment](../benchmarks/song_real8/SONG_RAW_QUALITY_V1_RESULTS.json)
 and [independent raw-quality acceptance](SONG_RAW_QUALITY_ACCEPTANCE_V1.json)
 bind the experimental implementation and its negative results.
+
+#### Operational F7 anchors and F8 routing around the frozen Song bank
+
+The separate precommitted decision V1 uses the unchanged six source models
+and source probability temperatures. Each F7 head uses calibration-only
+class means and a temperature equal to their mean pairwise distance.
+F2ac instead uses exact affine-invariant SPD distances on trial-balanced
+centered/shrunk trace-normalized covariance matrices. Its source classifier
+still consumes its original source-fitted coordinates. The anchor mixture
+is fixed at.5; standalone F7 is also retained. Collapsed class geometry
+produces uniform probabilities, rather than invented discrimination.
+
+Session-local prototypes and long/current count-weighted blended prototypes
+remain separate. F8 combines normalized same-gesture drift, class-pair
+geometry change and declared family-specific shifts. Its clipped exponential
+multipliers adjust the existing reliability weights. A missing personal
+profile bypasses F7/F8; a missing session bypasses F8 and uses long-term F7.
+Provider omissions renormalize the surviving weights. Optional F9 consumes
+separate raw windows and yields explicit Unknown on structural faults.
+
+| Current shots/class | Arm | Macro F1 | Logloss | Pinch recall |
+|---|---|---:|---:|---:|
+| 0 | baseline | 0.9062 | 0.2787 | 0.6774 |
+| 0 | F7_blended | 0.9244 | 0.5886 | 0.7419 |
+| 0 | F8_only | 0.9062 | 0.2787 | 0.6774 |
+| 0 | F7_F8_F9_structural | 0.9244 | 0.5886 | 0.7419 |
+| 0 | F7_standalone | 0.8309 | 1.0837 | 0.8387 |
+| 1 | baseline | 0.9247 | 0.2524 | 0.7419 |
+| 1 | F7_blended | 0.9337 | 0.5761 | 0.7742 |
+| 1 | F8_only | 0.9247 | 0.2386 | 0.7419 |
+| 1 | F7_F8_F9_structural | 0.9333 | 0.5647 | 0.7742 |
+| 1 | F7_standalone | 0.8543 | 1.0938 | 0.8710 |
+| 2 | baseline | 0.9154 | 0.3298 | 0.7097 |
+| 2 | F7_blended | 0.9244 | 0.6236 | 0.7419 |
+| 2 | F8_only | 0.9154 | 0.3122 | 0.7097 |
+| 2 | F7_F8_F9_structural | 0.9244 | 0.6097 | 0.7419 |
+| 2 | F7_standalone | 0.8536 | 1.0749 | 0.8387 |
+| 5 | baseline | 0.9154 | 0.3303 | 0.7097 |
+| 5 | F7_blended | 0.9244 | 0.6176 | 0.7419 |
+| 5 | F8_only | 0.9154 | 0.3196 | 0.7097 |
+| 5 | F7_F8_F9_structural | 0.9244 | 0.6093 | 0.7419 |
+| 5 | F7_standalone | 0.8473 | 1.0577 | 0.8387 |
+
+All56 cells/6944 native-trial predictions are retained on the same124
+S04 evaluation trials. Every arm consumes20 long-term trials plus0/4/8/20
+current trials; zero current shots is not zero total onboarding. Six
+provider removals and separate F7/F8/F9 branch removals are exported.
+Native unmodified data cause no structural rejects, so that F9 removal
+is a numerical identity here, not evidence of physical fault efficacy.
+
+The fixed five-shot full candidate improves macro-F1 and pinch recall,
+but increases loss and Brier, failing the joint primary guard. Its pair-
+geometry temperature is an auditable calibration rule, not evidence of
+probability calibration. F8-only lowers loss without changing gesture
+decisions in these cells. No target-selected mixture or default promotion
+follows. All previously inspected single-user/day and cue-window limits
+remain. Full document subfamily composition and autonomous GUI streaming
+for this new decision layer are still separate work.
+
+Independent no-fit checks reconstruct ordinary class means, covariance
+prototypes, generalized SPD eigenvalues, F8 risks and every saved probability.
+The original baseline probabilities remain unchanged. Versioned checksummed
+profiles bind source, policy, user and session; a separate-process CLI checks
+enrollment, session calibration, unlabeled prediction, output preservation
+and raw-structural Unknown. It needs packages/profiles, not raw source archives.
+
+`python -m emgimu.feature_bank.personal_session_decision_cli_v1 --help`
+lists explicit enrollment/session/prediction inputs and branch controls.
+
+[Integrated decision results](../benchmarks/song_real8/SONG_INTEGRATED_DECISION_V1_RESULTS.json)
+and [independent integrated acceptance](SONG_INTEGRATED_DECISION_ACCEPTANCE_V1.json)
+bind the versioned candidate and preserve its signed outcomes.
 
 #### Target calibration burden: extracted signal versus stored recording time
 

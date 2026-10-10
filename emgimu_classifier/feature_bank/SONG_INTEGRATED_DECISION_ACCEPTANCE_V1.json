@@ -1,0 +1,32 @@
+{
+  "schema": "song_integrated_decision_acceptance_v1",
+  "source_sha256": {
+    "benchmarks/song_real8/verify_integrated_decision_v1.py": "65cd183cfe71e852552351691b28518abeaa4ad9a4e43b73862150704bbd2a2f",
+    "benchmarks/song_real8/SONG_INTEGRATED_DECISION_V1_PROTOCOL.json": "871623bb263cf224ebb2af2b0746ce2243b01d44127388222ff549837f4f7878",
+    "benchmarks/song_real8/SONG_INTEGRATED_DECISION_V1_RESULTS.json": "dcc64db6db2475783468d0459dfb9b798298b93fc218867315e218a27ea6a79a",
+    "tests/test_integrated_decision_delivery_v1.py": "760d0fd34d974e643f6e0e6602daf14db576ef9278f0f2175ec89865c9809777",
+    "tests/test_integrated_decision_cli_v1.py": "81213041cfd3f47b68b216a06f20aa9df3381816623b58559d312c0db620c29c"
+  },
+  "artifact_sha256": {
+    "benchmarks/song_real8/song_integrated_decision_v1/decision_policy.json": "9434803e3b5f845d144e056947f388c840ae6567adc91b6b36e9a7bbf76bb0d9",
+    "benchmarks/song_real8/song_integrated_decision_v1/personal_S03.zip": "724fec9f1c4600a9df0ca8ae4ca018fc52638e385e5446a27a4c13e140895b5e",
+    "benchmarks/song_real8/song_integrated_decision_v1/predictions.csv": "1e6ea52299097efce743fa5c0c4cffa34264492dc21b1f9beed1b9890e0096f0",
+    "benchmarks/song_real8/song_integrated_decision_v1/readouts.npz": "252ac932f919152f71ac2dab75bd1d17cd7a808ef21ef88e40a28aea4632ebec",
+    "benchmarks/song_real8/song_integrated_decision_v1/session_S04_1shot.zip": "f55fb6eaf10669790b31dfd03eff0c47915b5cf90c7a71c1917178913b61807e",
+    "benchmarks/song_real8/song_integrated_decision_v1/session_S04_2shot.zip": "bdba33fc91983ae5bca0bc24815fd9e564e8b041dedce79168ad87f18c772718",
+    "benchmarks/song_real8/song_integrated_decision_v1/session_S04_5shot.zip": "4dce7a91a8bca321f26a17c300882ad5da5064b162a0228bc3ff6351ec4f1968"
+  },
+  "checked_cells": 56,
+  "checked_trial_probabilities": 6944,
+  "maximum_probability_error": 4.163336342344337e-16,
+  "independent_covariance_prototype_oracle": true,
+  "independent_generalized_eigenvalue_oracle": true,
+  "independent_session_routing_oracle": true,
+  "previous_baseline_parity": true,
+  "source_and_profiles_immutable": true,
+  "primary_pass": false,
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Operational F7/F8/raw-F9 around six frozen EMG window providers, not every document subfamily, anatomical F6, full-bout F5, future-free continuous inference or device efficacy. Same single operator-identified user/day, inspected sessions and cued stable trial windows. New profile schema/policy identity cannot silently reuse old archives."
+}
