@@ -1,0 +1,28 @@
+{
+  "schema": "available_bank_quality_v2_protocol",
+  "source_sha256": {
+    "src/emgimu/feature_bank/available_bank_quality_fusion_v2.py": "1820b806326aef7e403e9c8a6383780d7a180ea79de268327f302710ac729e86",
+    "src/emgimu/feature_bank/available_bank_fusion_v1.py": "ba60eda7eaa3d87694e664d1acdee5df6fa3b393eca9d63064463b7d7f077179",
+    "src/emgimu/feature_bank/document_reliability_v2.py": "34ac2da3bd1f380098320fd1f1a7c15ba2567ec6da67dc86150876a7263728a4",
+    "src/emgimu/feature_bank/quality_mask_v1.py": "8df014fdf04042a585c1a1a7d7f82e0c18fda1dbff95aa2f62e16c397cc4083e",
+    "tests/test_available_bank_quality_fusion_v2.py": "f7302d739d7c59778d9465e12bec016c082d1fc0e3c7a30bdc2d979803b92b2d",
+    "tests/test_quality_mask_product_oracle_v2.py": "e27ef54bbb95f45813c9170820ba0375c11b087ee6c4dc1623daa06cefe3f36e",
+    "tests/test_available_bank_quality_v2_delivery.py": "42016202d00be6d0690e80ca4f13f94ad43d0e1512ffd1c83de6d41e5c13ab35",
+    "benchmarks/new_bank_v3/verify_available_bank_quality_v2.py": "a28bcf095a04817b0220c9b7be0c8bf6e17b84f68a73e085f6c293ebd8f655fd"
+  },
+  "native_probability_artifact_sha256": {
+    "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858"
+  },
+  "purpose": "Read-only algebra verification of frozen probabilities, not a new efficacy experiment.",
+  "cases": [
+    "unobserved quality identity",
+    "unit quality identity",
+    "four provider omissions",
+    "four synthetic single-zero quality fixtures",
+    "synthetic all-zero Unknown",
+    "partial unavailable quality observation"
+  ],
+  "forbidden": "No source refit, native raw-signal replay, target labels, temperature/threshold/weight selection or device claim.",
+  "default_promoted": false,
+  "completion_proven": false
+}
