@@ -1,0 +1,13 @@
+{
+  "schema": "detected_personal_temporal_unibo_v2_incomplete_coverage_abort",
+  "stage": "Stopped at u07 matched-class validation after six users computed; no probabilities, metrics or result persisted.",
+  "native_experiment_completed": false,
+  "partial_users_computed": 6,
+  "persisted_predictions": 0,
+  "known_parent_limitation": "u07 original saved matched labels include pinch/open but no fist, prior to any new calibration exclusion.",
+  "result_exists": false,
+  "output_files": [],
+  "successor": "DETECTED_PERSONAL_TEMPORAL_UNIBO_V3_PROTOCOL.json",
+  "policy_or_fusion_changed": false,
+  "original_complete_class_primary_eligibility_preserved": true
+}
