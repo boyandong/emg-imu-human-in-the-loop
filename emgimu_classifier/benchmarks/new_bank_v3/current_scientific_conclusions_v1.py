@@ -344,11 +344,21 @@ def build():
     for path in (source_fusion_path,source_fusion_result_path,source_fusion_train_path,HERE/'verify_roam_source_fusion_v1.py'):
         sources[path.relative_to(ROOT).as_posix()]=sha(path)
     verification_tests += ['tests/test_roam_source_fusion_delivery_v1.py','tests/test_roam_source_fusion_register_v1.py']
+    native_continuous_path=ROOT/'feature_bank/ROAM_NATIVE_CONTINUOUS_V1_ACCEPTANCE.json'
+    native_continuous=json.loads(native_continuous_path.read_text(encoding='utf8'))
+    native_continuous_diag_path=HERE/'ROAM_NATIVE_CONTINUOUS_V1_DIAGNOSTIC.json'
+    native_continuous_diag=json.loads(native_continuous_diag_path.read_text(encoding='utf8'))
+    for path in (native_continuous_path,native_continuous_diag_path,HERE/'ROAM_NATIVE_CONTINUOUS_V1_RESULTS.json',
+                 HERE/'verify_roam_native_continuous_v2.py',HERE/'audit_roam_native_continuous_v1.py'):
+        sources[path.relative_to(ROOT).as_posix()]=sha(path)
+    verification_tests += ['tests/test_roam_native_continuous_delivery_v1.py']
     for name in verification_tests: sources[name] = sha(ROOT / name)
     result = {'schema': 'current_scientific_conclusions_v1', 'generator_sha256': sha(Path(__file__)),
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
               'requirement_lines': [1013, 1049], 'verification_tests': verification_tests,
               'source_sha256': sources, 'questions': answers,
+              'roam_native_continuous': dict(native_continuous,interval_diagnostic=native_continuous_diag['summaries'],
+                  interpretation='Native eight-channel200Hz whole-recording inference uses no query labels or cue edges. Fixed saved neutral-only detectors and classifiers are reused. All100 active cue references remain in each budget denominator; matched conditional classification cannot substitute for end-to-end success. Post-run geometry diagnostics are not a causal or physiological-boundary claim. The primary guard fails; no default promotion.'),
               'roam_source_fusion': dict(source_fusion,source_weights=source_fusion_train['policy_weights'],
                   two_shot_summary=[c for c in source_fusion_result['aggregates'] if c['shots']==2 and
                       c['arm'] in ('source_selected','fixed_joint','population','reliability')],

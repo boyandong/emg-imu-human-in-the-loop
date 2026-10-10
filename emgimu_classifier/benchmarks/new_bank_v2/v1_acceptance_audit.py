@@ -709,6 +709,11 @@ def build(pre: Path, goal: Path) -> dict:
             boundary += (' Source-only convex five-component population weights are fitted on324 native source-user queries/972 budget rows, committed before frozen180-query target application, and verified by54 native source replays plus independent target equations. '
                          'Classifier/source representations and target arrays are reused without refitting. Both fixed-joint and zero-calibration population guards remain explicit; zero temporal coefficients and computed6+3*shots registration costs are retained. '
                          'Top-level component omissions are not document-wide family removals. Source training loss is not unbiased evaluation; oracle/posture/previously inspected-user limits and physical/formula gaps remain open.')
+        if ident in ('GOAL-03','GOAL-05','GOAL-12','GOAL-20','GOAL-22'):
+            evidence += ('|feature_bank/ROAM_NATIVE_CONTINUOUS_V1_ACCEPTANCE.json'
+                         '|benchmarks/new_bank_v3/ROAM_NATIVE_CONTINUOUS_V1_RESULTS.json'
+                         '|tests/test_roam_native_continuous_delivery_v1.py')
+            boundary += (' Native eight-channel200Hz continuous detector/window/full-path inference is now executed on whole query recordings without their labels or cue edges. Frozen classifiers, profiles and neutral-only detectors are reused.60 recording/budget blocks and90 cells preserve all100 active references per budget, misses, unmatched detections and shared6+3*shots cost. Independent FSM/logits/geometry/path/metrics verify execution. At2 shots/class16 references match and15 classify correctly; primary guard fails with0/5 validation user success wins. Posthoc cue-overlap diagnostics do not establish physiology or causes. Physical250Hz efficacy, full-formula and anatomy/topology gaps remain open.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

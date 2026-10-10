@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "da60cd097abf4a3780ab1b431ecfc8f7c7406ab908ef7d9c044451366f07f51b",
+  "generator_sha256": "bc86f78eafb6df238d193980f9f78fab89d74198be325e608ef976bf2d600c8c",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -64,7 +64,8 @@
     "tests/test_roam_native_joint_delivery_v1.py",
     "tests/test_roam_native_joint_register_v1.py",
     "tests/test_roam_source_fusion_delivery_v1.py",
-    "tests/test_roam_source_fusion_register_v1.py"
+    "tests/test_roam_source_fusion_register_v1.py",
+    "tests/test_roam_native_continuous_delivery_v1.py"
   ],
   "source_sha256": {
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
@@ -116,7 +117,7 @@
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "3885ff300bee71cc1a0f91ddba8cb1e3d4a94f776d663304d69386983f4160d1",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "d0e0241f5e0f1906a525a0a3cb70b2b6efaf5e7f51f8bd2eb4fe11e2a6925b45",
     "feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json": "9bf4a118a99d7cc8034738b69b11154f85fb123022dd3d8a715eb248c3df89f2",
     "feature_bank/JOINT_BOUT_GUI_V1_ACCEPTANCE.json": "27e905148ec66fafffc7788d438f9e4e4044cc7fad709162e0387707d00d391d",
     "benchmarks/new_bank_v3/render_joint_bout_gui_v1.py": "9decc46e4dc83409237e42e4a075a3683e20e308c6ab39b46af9c3fe9c02e652",
@@ -131,6 +132,11 @@
     "benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_TARGET_RESULTS.json": "d927d5c020200e6a06df5a1d450364b70f376afca278c4f18693c1e5d09e812a",
     "benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_SOURCE_RESULTS.json": "8a513d6f56b75e2411d583bccd2f9c082ade8fc159c455f7ba110b0789c58185",
     "benchmarks/new_bank_v3/verify_roam_source_fusion_v1.py": "0dcac0975aa96e0b7b9d47f2349aab4f5543a1b06149378912738c2f73cde4cf",
+    "feature_bank/ROAM_NATIVE_CONTINUOUS_V1_ACCEPTANCE.json": "bb9691b30a492e8ae1028bd28d2ff836fe13b54bbf31d37caedba149f640de55",
+    "benchmarks/new_bank_v3/ROAM_NATIVE_CONTINUOUS_V1_DIAGNOSTIC.json": "90ddf268d50d391827b2c5efe47d58c3d0005ddc63cf7fed3be890cc8d11fb52",
+    "benchmarks/new_bank_v3/ROAM_NATIVE_CONTINUOUS_V1_RESULTS.json": "c94d9fd3b28d7a537b7edd8f6cbc66b616b99051e219a90841b24b91657074d8",
+    "benchmarks/new_bank_v3/verify_roam_native_continuous_v2.py": "39bc3623a3a7af507bb4a5873163436ac6f7bc1963501995926a6f49760bfbc8",
+    "benchmarks/new_bank_v3/audit_roam_native_continuous_v1.py": "cd673dfd82e42be8d0283cc3624b57197ab23ec73c5193c32bd038f8f36551f7",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -186,7 +192,8 @@
     "tests/test_roam_native_joint_delivery_v1.py": "af9c07637aea9e1d356d4dbe8c113ce3f019f2fa2d6aa0d41caed694689a9988",
     "tests/test_roam_native_joint_register_v1.py": "212db04dd7dff579edc31b6ea7c94eaba9753f6a1953d6e6495c91de835e9aa5",
     "tests/test_roam_source_fusion_delivery_v1.py": "7022808c6a479df85c5dc86e2648ada7c1c08690f2f48aa4ce31f59992e8d25b",
-    "tests/test_roam_source_fusion_register_v1.py": "36cb59599e4f03046591aa96555c52f7e804249013401b3514552361a9687226"
+    "tests/test_roam_source_fusion_register_v1.py": "36cb59599e4f03046591aa96555c52f7e804249013401b3514552361a9687226",
+    "tests/test_roam_native_continuous_delivery_v1.py": "2f84489aafe6a90dbf9ec018c7911eb4b6e1639cad2004f4e1c7127d8b9ae794"
   },
   "questions": [
     {
@@ -3410,6 +3417,454 @@
       }
     }
   ],
+  "roam_native_continuous": {
+    "protocol_verifier_sha256": "a2aa88c0f91ff7cd3fb31d2cd6d02e75bf6042ce204f0f88d12abd789c6a0baa",
+    "native_experiment_rerun": false,
+    "schema": "roam_native_continuous_v1_acceptance",
+    "protocol_sha256": "1817ba3ba4e86027fc5c35abe771102a92d063b5c97565fd56f510151227f033",
+    "result_sha256": "c94d9fd3b28d7a537b7edd8f6cbc66b616b99051e219a90841b24b91657074d8",
+    "verifier_sha256": "39bc3623a3a7af507bb4a5873163436ac6f7bc1963501995926a6f49760bfbc8",
+    "recording_budget_blocks": 60,
+    "distinct_query_recordings": 20,
+    "independent_active_references": 100,
+    "cells": 90,
+    "detected_event_budget_rows": 88,
+    "csv_probability_rows": 264,
+    "maximum_independent_probability_error": 2.220446049250313e-16,
+    "maximum_rest_threshold_error": 0.0,
+    "independent_native_energy_FSM": true,
+    "independent_logits_anchor_routing_path_and_metric_equations": true,
+    "all_misses_and_unmatched_detections_retained": true,
+    "calibration_query_recordings_disjoint": true,
+    "primary_guards": {
+      "higher_end_to_end_success": false,
+      "nonworse_active_recalls": true,
+      "nonworse_active_event_f1": true,
+      "lower_conditional_log_loss": false,
+      "lower_conditional_brier": false,
+      "at_least3_user_success_wins": false
+    },
+    "primary_pass": false,
+    "validation_user_success_wins": 0,
+    "classifier_refitted": false,
+    "detector_refitted": false,
+    "read_only_no_fitting": true,
+    "physiological_boundary_ground_truth": false,
+    "physical_validation_proven": false,
+    "default_promoted": false,
+    "completion_proven": false,
+    "two_shot_summary": [
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "source_window",
+        "metrics": {
+          "references": 50,
+          "detections": 20,
+          "matched": 12,
+          "missed": 38,
+          "unmatched_detections": 8,
+          "correct": 11,
+          "detection_recall": 0.24,
+          "detection_precision": 0.6,
+          "end_to_end_success": 0.22,
+          "active_event_macro_f1": 0.31414473684210525,
+          "active_recall": {
+            "close": 0.25,
+            "open": 0.2
+          },
+          "conditional_accuracy": 0.9166666666666666,
+          "conditional_log_loss": 0.3616280894966188,
+          "conditional_brier": 0.05776665134654166,
+          "onset_cue_mae_s": 0.3529166666666667,
+          "offset_cue_mae_s": 1.1920833333333334,
+          "eof_censored_recordings": 3
+        }
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "window_full",
+        "metrics": {
+          "references": 50,
+          "detections": 20,
+          "matched": 12,
+          "missed": 38,
+          "unmatched_detections": 8,
+          "correct": 11,
+          "detection_recall": 0.24,
+          "detection_precision": 0.6,
+          "end_to_end_success": 0.22,
+          "active_event_macro_f1": 0.31666666666666665,
+          "active_recall": {
+            "close": 0.25,
+            "open": 0.2
+          },
+          "conditional_accuracy": 0.9166666666666666,
+          "conditional_log_loss": 0.5298364857962551,
+          "conditional_brier": 0.08734692542777953,
+          "onset_cue_mae_s": 0.3529166666666667,
+          "offset_cue_mae_s": 1.1920833333333334,
+          "eof_censored_recordings": 3
+        }
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "joint_full",
+        "metrics": {
+          "references": 50,
+          "detections": 20,
+          "matched": 12,
+          "missed": 38,
+          "unmatched_detections": 8,
+          "correct": 11,
+          "detection_recall": 0.24,
+          "detection_precision": 0.6,
+          "end_to_end_success": 0.22,
+          "active_event_macro_f1": 0.31666666666666665,
+          "active_recall": {
+            "close": 0.25,
+            "open": 0.2
+          },
+          "conditional_accuracy": 0.9166666666666666,
+          "conditional_log_loss": 0.6175791702267298,
+          "conditional_brier": 0.1072653117920736,
+          "onset_cue_mae_s": 0.3529166666666667,
+          "offset_cue_mae_s": 1.1920833333333334,
+          "eof_censored_recordings": 3
+        }
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "source_window",
+        "metrics": {
+          "references": 50,
+          "detections": 7,
+          "matched": 4,
+          "missed": 46,
+          "unmatched_detections": 3,
+          "correct": 4,
+          "detection_recall": 0.08,
+          "detection_precision": 0.5714285714285714,
+          "end_to_end_success": 0.08,
+          "active_event_macro_f1": 0.13116883116883116,
+          "active_recall": {
+            "close": 0.05,
+            "open": 0.1
+          },
+          "conditional_accuracy": 1.0,
+          "conditional_log_loss": 0.31547465444591355,
+          "conditional_brier": 0.04679555991015393,
+          "onset_cue_mae_s": 0.37250000000000005,
+          "offset_cue_mae_s": 1.1375,
+          "eof_censored_recordings": 2
+        }
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "window_full",
+        "metrics": {
+          "references": 50,
+          "detections": 7,
+          "matched": 4,
+          "missed": 46,
+          "unmatched_detections": 3,
+          "correct": 4,
+          "detection_recall": 0.08,
+          "detection_precision": 0.5714285714285714,
+          "end_to_end_success": 0.08,
+          "active_event_macro_f1": 0.13116883116883116,
+          "active_recall": {
+            "close": 0.05,
+            "open": 0.1
+          },
+          "conditional_accuracy": 1.0,
+          "conditional_log_loss": 0.5152766813697053,
+          "conditional_brier": 0.08348307754577322,
+          "onset_cue_mae_s": 0.37250000000000005,
+          "offset_cue_mae_s": 1.1375,
+          "eof_censored_recordings": 2
+        }
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "joint_full",
+        "metrics": {
+          "references": 50,
+          "detections": 7,
+          "matched": 4,
+          "missed": 46,
+          "unmatched_detections": 3,
+          "correct": 4,
+          "detection_recall": 0.08,
+          "detection_precision": 0.5714285714285714,
+          "end_to_end_success": 0.08,
+          "active_event_macro_f1": 0.13116883116883116,
+          "active_recall": {
+            "close": 0.05,
+            "open": 0.1
+          },
+          "conditional_accuracy": 1.0,
+          "conditional_log_loss": 0.6084523698170479,
+          "conditional_brier": 0.10469246981984882,
+          "onset_cue_mae_s": 0.37250000000000005,
+          "offset_cue_mae_s": 1.1375,
+          "eof_censored_recordings": 2
+        }
+      },
+      {
+        "phase": "all",
+        "shots": 2,
+        "arm": "source_window",
+        "metrics": {
+          "references": 100,
+          "detections": 27,
+          "matched": 16,
+          "missed": 84,
+          "unmatched_detections": 11,
+          "correct": 15,
+          "detection_recall": 0.16,
+          "detection_precision": 0.5925925925925926,
+          "end_to_end_success": 0.15,
+          "active_event_macro_f1": 0.2343987823439878,
+          "active_recall": {
+            "close": 0.15,
+            "open": 0.15
+          },
+          "conditional_accuracy": 0.9375,
+          "conditional_log_loss": 0.35008973073394245,
+          "conditional_brier": 0.05502387848744472,
+          "onset_cue_mae_s": 0.3578125,
+          "offset_cue_mae_s": 1.1784374999999998,
+          "eof_censored_recordings": 5
+        }
+      },
+      {
+        "phase": "all",
+        "shots": 2,
+        "arm": "window_full",
+        "metrics": {
+          "references": 100,
+          "detections": 27,
+          "matched": 16,
+          "missed": 84,
+          "unmatched_detections": 11,
+          "correct": 15,
+          "detection_recall": 0.16,
+          "detection_precision": 0.5925925925925926,
+          "end_to_end_success": 0.15,
+          "active_event_macro_f1": 0.2353846153846154,
+          "active_recall": {
+            "close": 0.15,
+            "open": 0.15
+          },
+          "conditional_accuracy": 0.9375,
+          "conditional_log_loss": 0.5261965346896177,
+          "conditional_brier": 0.08638096345727796,
+          "onset_cue_mae_s": 0.3578125,
+          "offset_cue_mae_s": 1.1784374999999998,
+          "eof_censored_recordings": 5
+        }
+      },
+      {
+        "phase": "all",
+        "shots": 2,
+        "arm": "joint_full",
+        "metrics": {
+          "references": 100,
+          "detections": 27,
+          "matched": 16,
+          "missed": 84,
+          "unmatched_detections": 11,
+          "correct": 15,
+          "detection_recall": 0.16,
+          "detection_precision": 0.5925925925925926,
+          "end_to_end_success": 0.15,
+          "active_event_macro_f1": 0.2353846153846154,
+          "active_recall": {
+            "close": 0.15,
+            "open": 0.15
+          },
+          "conditional_accuracy": 0.9375,
+          "conditional_log_loss": 0.6152974701243095,
+          "conditional_brier": 0.10662210129901743,
+          "onset_cue_mae_s": 0.3578125,
+          "offset_cue_mae_s": 1.1784374999999998,
+          "eof_censored_recordings": 5
+        }
+      }
+    ],
+    "scope": "Retrospective native eight-channel200Hz continuous ROAM query recordings; no query labels or cue boundaries enter detection/classification. Saved target calibration profiles and their neutral-only fixed detectors are reused, not fitted. Active gt cue intervals are evaluation references, not physiological action boundaries. Postures are not days/redonnings; inspected users19..28 are not a new blind cohort. No pinch, own-device250Hz efficacy, F6/ring/raw-quality validation, physical latency or default promotion. Misses and unmatched detections remain visible.",
+    "interval_diagnostic": [
+      {
+        "phase": "validation",
+        "shots": 0,
+        "references": 50,
+        "categories": {
+          "matched": 19,
+          "miss_no_detected_interval_overlap": 16,
+          "miss_overlap_below_iou_threshold": 15,
+          "miss_one_to_one_assignment_conflict": 0
+        },
+        "active_cues_touching_another_active_cue": 30,
+        "detected_intervals_half_covering_multiple_active_cues": 3,
+        "correct": {
+          "source_window": 18,
+          "window_full": 19,
+          "joint_full": 19
+        }
+      },
+      {
+        "phase": "validation",
+        "shots": 1,
+        "references": 50,
+        "categories": {
+          "matched": 7,
+          "miss_no_detected_interval_overlap": 29,
+          "miss_overlap_below_iou_threshold": 14,
+          "miss_one_to_one_assignment_conflict": 0
+        },
+        "active_cues_touching_another_active_cue": 30,
+        "detected_intervals_half_covering_multiple_active_cues": 5,
+        "correct": {
+          "source_window": 7,
+          "window_full": 7,
+          "joint_full": 7
+        }
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "references": 50,
+        "categories": {
+          "matched": 12,
+          "miss_no_detected_interval_overlap": 15,
+          "miss_overlap_below_iou_threshold": 23,
+          "miss_one_to_one_assignment_conflict": 0
+        },
+        "active_cues_touching_another_active_cue": 30,
+        "detected_intervals_half_covering_multiple_active_cues": 8,
+        "correct": {
+          "source_window": 11,
+          "window_full": 11,
+          "joint_full": 11
+        }
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 0,
+        "references": 50,
+        "categories": {
+          "matched": 8,
+          "miss_no_detected_interval_overlap": 30,
+          "miss_overlap_below_iou_threshold": 12,
+          "miss_one_to_one_assignment_conflict": 0
+        },
+        "active_cues_touching_another_active_cue": 30,
+        "detected_intervals_half_covering_multiple_active_cues": 3,
+        "correct": {
+          "source_window": 6,
+          "window_full": 6,
+          "joint_full": 6
+        }
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 1,
+        "references": 50,
+        "categories": {
+          "matched": 3,
+          "miss_no_detected_interval_overlap": 37,
+          "miss_overlap_below_iou_threshold": 10,
+          "miss_one_to_one_assignment_conflict": 0
+        },
+        "active_cues_touching_another_active_cue": 30,
+        "detected_intervals_half_covering_multiple_active_cues": 3,
+        "correct": {
+          "source_window": 3,
+          "window_full": 3,
+          "joint_full": 3
+        }
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "references": 50,
+        "categories": {
+          "matched": 4,
+          "miss_no_detected_interval_overlap": 38,
+          "miss_overlap_below_iou_threshold": 8,
+          "miss_one_to_one_assignment_conflict": 0
+        },
+        "active_cues_touching_another_active_cue": 30,
+        "detected_intervals_half_covering_multiple_active_cues": 3,
+        "correct": {
+          "source_window": 4,
+          "window_full": 4,
+          "joint_full": 4
+        }
+      },
+      {
+        "phase": "all",
+        "shots": 0,
+        "references": 100,
+        "categories": {
+          "matched": 27,
+          "miss_no_detected_interval_overlap": 46,
+          "miss_overlap_below_iou_threshold": 27,
+          "miss_one_to_one_assignment_conflict": 0
+        },
+        "active_cues_touching_another_active_cue": 60,
+        "detected_intervals_half_covering_multiple_active_cues": 6,
+        "correct": {
+          "source_window": 24,
+          "window_full": 25,
+          "joint_full": 25
+        }
+      },
+      {
+        "phase": "all",
+        "shots": 1,
+        "references": 100,
+        "categories": {
+          "matched": 10,
+          "miss_no_detected_interval_overlap": 66,
+          "miss_overlap_below_iou_threshold": 24,
+          "miss_one_to_one_assignment_conflict": 0
+        },
+        "active_cues_touching_another_active_cue": 60,
+        "detected_intervals_half_covering_multiple_active_cues": 8,
+        "correct": {
+          "source_window": 10,
+          "window_full": 10,
+          "joint_full": 10
+        }
+      },
+      {
+        "phase": "all",
+        "shots": 2,
+        "references": 100,
+        "categories": {
+          "matched": 16,
+          "miss_no_detected_interval_overlap": 53,
+          "miss_overlap_below_iou_threshold": 31,
+          "miss_one_to_one_assignment_conflict": 0
+        },
+        "active_cues_touching_another_active_cue": 60,
+        "detected_intervals_half_covering_multiple_active_cues": 11,
+        "correct": {
+          "source_window": 15,
+          "window_full": 15,
+          "joint_full": 15
+        }
+      }
+    ],
+    "interpretation": "Native eight-channel200Hz whole-recording inference uses no query labels or cue edges. Fixed saved neutral-only detectors and classifiers are reused. All100 active cue references remain in each budget denominator; matched conditional classification cannot substitute for end-to-end success. Post-run geometry diagnostics are not a causal or physiological-boundary claim. The primary guard fails; no default promotion."
+  },
   "roam_source_fusion": {
     "schema": "roam_source_fusion_v1_acceptance",
     "protocol_sha256": "1426edfd216ccf77c0ad27c53a894a8d70c9c97ac2bbe3ecca9b6659117ea20d",

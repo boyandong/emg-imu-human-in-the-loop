@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `664292e29e3f92033a269e7c5aabff81229e05d06d54197a5887705ac8991c9b`.
+Source SHA-256: `0ccf895ad9f1d789990f8d279359822a9fbcc91bfb1fbe3bc51a3f254ef90628`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -1231,6 +1231,16 @@ Source weights have an independently verified simplex stationarity gap below1e-6
 All five branches are computed, so selected/omission arms retain6 long plus0/3/6 current calibration cues even when a coefficient is zero. Population controls consume zero target calibration. If available mass is zero, Unknown is scored as wrong and its uniform probability fallback remains separately scoreable.
 This is three-class oracle-cue/posture evidence. It does not prove automatic segmentation, physiological boundaries, pinch, cross-day/redonning, ADC-bound quality, own-device efficacy or a universal family role. Desktop defaults remain unchanged.
 [Source-only fusion acceptance](ROAM_SOURCE_FUSION_V1_ACCEPTANCE.json).
+
+#### Native eight-channel autonomous cue-reference evaluation
+
+Whole native eight-channel200Hz query recordings enter the detector without labels or cue boundaries. Frozen source classifiers, personal/current profiles and neutral-only detector thresholds are reused without fitting. All arms share identical detected intervals and matches within a budget.
+At2 current cues/class, all100 active cue references retain16 matches,84 misses and11 unmatched detections. Joint classification gets15/100 references correct, end-to-end success=0.1500; conditional classification accuracy is not end-to-end success (matched-only accuracy=0.9375).
+The fixed primary guard passes=False, with0/5 validation users improving end-to-end success over the source-window classifier. Window and joint classification cannot recover references absent from detected intervals.
+Post-run overlap geometry partitions misses into53 references without any detected overlap,31 below the fixed0.5 IoU threshold and0 one-to-one assignment conflicts. There are60 directly adjacent active cues and11 detected intervals covering at least half of multiple active references. These are geometric observations, not proven causes or physiological annotations.
+Population, window and joint arms all consume the shared6 long plus0/3/6 current calibration cues, including the selected detector; the source classifier does not make this complete pipeline zero-cost. Incomplete EOF candidates are discarded. Independent vector-energy FSM, neutral thresholds, logits, anchor/routing/path arithmetic, every metric and CSV row are verified without fitting.
+References are active gt cue intervals, not measured muscle onset. Gesture transitions can occur without a return to Rest. Conditional scores cannot be compared between budgets as if matched subsets were identical. This is previously inspected three-class posture evidence; no pinch,250Hz own-device transfer, physical latency or default efficacy follows.
+[Native continuous acceptance](ROAM_NATIVE_CONTINUOUS_V1_ACCEPTANCE.json).
 <!-- CURRENT_SCIENTIFIC_ANSWERS_V1_STOP -->
 
 ### Calibration recovery and model-composition limits

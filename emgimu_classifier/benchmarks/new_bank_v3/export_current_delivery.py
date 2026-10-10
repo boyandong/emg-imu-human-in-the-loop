@@ -720,6 +720,19 @@ def export():
               'calibration_curve.csv': (curve, context_fields+['feature_bank', 'shots_per_class', 'method', 'supported', 'macro_f1', 'log_loss']),
               'calibration_burden.csv': (burden_rows, list(burden_rows[0])),
               'budget_eligibility.csv': (eligibility, list(eligibility[0])), 'boundary_detection.csv': (boundaries, list(boundaries[0]))}
+    native_path=HERE/'ROAM_NATIVE_CONTINUOUS_V1_RESULTS.json'
+    native=json.loads(native_path.read_text(encoding='utf8'))
+    relative=native_path.relative_to(ROOT).as_posix();sources[relative]=sha(native_path)
+    native_rows=[]
+    for cell in native['cells']:
+        m=cell['metrics']
+        row=dict(run_id='roam_native_continuous_v1',source_artifact=relative,source_sha256=sources[relative],
+            dataset='ROAM_EMG_native8_200Hz',subject=cell['user'],current_shots_per_class=cell['shots'],arm=cell['arm'],
+            total_calibration_trials=cell['unique_calibration_trials'],reference_unit='active_gt_cue_interval_not_physiological_bout')
+        row.update({k:('N/A' if v is None else v) for k,v in m.items() if k!='active_recall'})
+        row.update(active_close_recall=m['active_recall']['close'],active_open_recall=m['active_recall']['open'])
+        native_rows.append(row)
+    tables['native_continuous_detection.csv']=(native_rows,list(native_rows[0]))
     for filename, (rows, fields) in tables.items():
         write(filename, rows, fields)
     manifest = {'schema': 'current_v3_canonical_delivery_v1', 'generator_sha256': sha(Path(__file__)),
@@ -794,6 +807,9 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json')},
              'joint_bout_gui_acceptance': {'path':'../JOINT_BOUT_GUI_V1_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/JOINT_BOUT_GUI_V1_ACCEPTANCE.json')},
+             'roam_native_continuous_acceptance': {'path':'../ROAM_NATIVE_CONTINUOUS_V1_ACCEPTANCE.json',
+                 'sha256':sha(ROOT/'feature_bank/ROAM_NATIVE_CONTINUOUS_V1_ACCEPTANCE.json')},
+             'roam_native_continuous_summary': 'new_bank_v3/native_continuous_detection.csv',
              'roam_source_fusion_acceptance': {'path':'../ROAM_SOURCE_FUSION_V1_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/ROAM_SOURCE_FUSION_V1_ACCEPTANCE.json')},
              'roam_native_joint_acceptance': {'path':'../ROAM_NATIVE_JOINT_V1_ACCEPTANCE.json',

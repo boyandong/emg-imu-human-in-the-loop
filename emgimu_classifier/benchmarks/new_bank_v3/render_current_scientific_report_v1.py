@@ -762,6 +762,18 @@ def render(data, source_sha):
             'All five branches are computed, so selected/omission arms retain6 long plus0/3/6 current calibration cues even when a coefficient is zero. Population controls consume zero target calibration. If available mass is zero, Unknown is scored as wrong and its uniform probability fallback remains separately scoreable.',
             'This is three-class oracle-cue/posture evidence. It does not prove automatic segmentation, physiological boundaries, pinch, cross-day/redonning, ADC-bound quality, own-device efficacy or a universal family role. Desktop defaults remain unchanged.',
             '[Source-only fusion acceptance](ROAM_SOURCE_FUSION_V1_ACCEPTANCE.json).']
+    if 'roam_native_continuous' in data:
+        native=data['roam_native_continuous']
+        full=next(c['metrics'] for c in native['two_shot_summary'] if c['phase']=='all' and c['arm']=='joint_full')
+        diag=next(c for c in native['interval_diagnostic'] if c['phase']=='all' and c['shots']==2)
+        variation_lines += ['', '#### Native eight-channel autonomous cue-reference evaluation', '',
+            'Whole native eight-channel200Hz query recordings enter the detector without labels or cue boundaries. Frozen source classifiers, personal/current profiles and neutral-only detector thresholds are reused without fitting. All arms share identical detected intervals and matches within a budget.',
+            f"At2 current cues/class, all100 active cue references retain{full['matched']} matches,{full['missed']} misses and{full['unmatched_detections']} unmatched detections. Joint classification gets{full['correct']}/100 references correct, end-to-end success={full['end_to_end_success']:.4f}; conditional classification accuracy is not end-to-end success (matched-only accuracy={full['conditional_accuracy']:.4f}).",
+            f"The fixed primary guard passes={native['primary_pass']}, with{native['validation_user_success_wins']}/5 validation users improving end-to-end success over the source-window classifier. Window and joint classification cannot recover references absent from detected intervals.",
+            f"Post-run overlap geometry partitions misses into{diag['categories']['miss_no_detected_interval_overlap']} references without any detected overlap,{diag['categories']['miss_overlap_below_iou_threshold']} below the fixed0.5 IoU threshold and{diag['categories']['miss_one_to_one_assignment_conflict']} one-to-one assignment conflicts. There are{diag['active_cues_touching_another_active_cue']} directly adjacent active cues and{diag['detected_intervals_half_covering_multiple_active_cues']} detected intervals covering at least half of multiple active references. These are geometric observations, not proven causes or physiological annotations.",
+            'Population, window and joint arms all consume the shared6 long plus0/3/6 current calibration cues, including the selected detector; the source classifier does not make this complete pipeline zero-cost. Incomplete EOF candidates are discarded. Independent vector-energy FSM, neutral thresholds, logits, anchor/routing/path arithmetic, every metric and CSV row are verified without fitting.',
+            'References are active gt cue intervals, not measured muscle onset. Gesture transitions can occur without a return to Rest. Conditional scores cannot be compared between budgets as if matched subsets were identical. This is previously inspected three-class posture evidence; no pinch,250Hz own-device transfer, physical latency or default efficacy follows.',
+            '[Native continuous acceptance](ROAM_NATIVE_CONTINUOUS_V1_ACCEPTANCE.json).']
     lines[-1:-1] = variation_lines
     return '\n'.join(lines)
 

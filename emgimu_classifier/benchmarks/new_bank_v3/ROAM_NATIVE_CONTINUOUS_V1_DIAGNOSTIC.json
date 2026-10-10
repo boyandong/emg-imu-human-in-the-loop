@@ -1,0 +1,5552 @@
+{
+  "schema": "roam_native_continuous_v1_interval_diagnostic",
+  "source_sha256": "cd673dfd82e42be8d0283cc3624b57197ab23ec73c5193c32bd038f8f36551f7",
+  "result_sha256": "c94d9fd3b28d7a537b7edd8f6cbc66b616b99051e219a90841b24b91657074d8",
+  "recordings_sha256": "b9b8cd67ab4ffd056b09e97d8940ec46b1058b609476fed262a6538ac45cb6c5",
+  "reference_budget_rows": 300,
+  "independent_references": 100,
+  "rows": [
+    {
+      "user": 19,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.5887691435053886,
+      "best_reference_coverage": 0.9234875444839857,
+      "touches_another_active_cue": true,
+      "matched_event_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:estimated0",
+      "correct": {
+        "source_window": false,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 19,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.29231473010064046,
+      "best_reference_coverage": 0.5566202090592335,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.8013698630136986,
+      "best_reference_coverage": 0.9030874785591767,
+      "touches_another_active_cue": true,
+      "matched_event_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 19,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.7605150214592274,
+      "best_reference_coverage": 0.8311444652908068,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 19,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.769811320754717,
+      "best_reference_coverage": 0.85,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:estimated3",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.29040156709108716,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2938295788442703,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2880549682875264,
+      "best_reference_coverage": 0.9697508896797153,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3061333333333333,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.31093333333333334,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.6649145860709592,
+      "best_reference_coverage": 0.949343339587242,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.7995923913043478,
+      "best_reference_coverage": 0.9808333333333333,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.310021436227224,
+      "best_reference_coverage": 0.975548060708263,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.32406157169862276,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2880549682875264,
+      "best_reference_coverage": 0.9697508896797153,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3061333333333333,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.31093333333333334,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.6649145860709592,
+      "best_reference_coverage": 0.949343339587242,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.7995923913043478,
+      "best_reference_coverage": 0.9808333333333333,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 20,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.19335604770017037,
+      "best_reference_coverage": 0.19335604770017037,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.22902684563758388,
+      "best_reference_coverage": 0.22902684563758388,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.6941666666666667,
+      "best_reference_coverage": 0.6941666666666667,
+      "touches_another_active_cue": true,
+      "matched_event_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 20,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.4230118443316413,
+      "best_reference_coverage": 0.4230118443316413,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.16584158415841585,
+      "best_reference_coverage": 0.16584158415841585,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.5027322404371585,
+      "best_reference_coverage": 0.5027322404371585,
+      "touches_another_active_cue": true,
+      "matched_event_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:estimated0",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 20,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2925170068027211,
+      "best_reference_coverage": 0.2925170068027211,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.9088785046728972,
+      "best_reference_coverage": 0.9692691029900332,
+      "touches_another_active_cue": true,
+      "matched_event_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 20,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.21568627450980393,
+      "best_reference_coverage": 0.21568627450980393,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.25873015873015875,
+      "best_reference_coverage": 0.25873015873015875,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.24526696447564347,
+      "best_reference_coverage": 0.9821124361158433,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2547008547008547,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2564102564102564,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.6411830357142857,
+      "best_reference_coverage": 0.9720812182741116,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:estimated1",
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 20,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s20/s20_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s20/s20_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.7687443541102078,
+      "best_reference_coverage": 0.7807339449541284,
+      "touches_another_active_cue": true,
+      "matched_event_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:estimated0",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 21,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.7161639597834494,
+      "best_reference_coverage": 0.852670349907919,
+      "touches_another_active_cue": true,
+      "matched_event_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 21,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.7882249560632689,
+      "best_reference_coverage": 0.8320964749536178,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 21,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.18005456198848135,
+      "best_reference_coverage": 0.5635673624288425,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.37477985206058473,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.37196195843606905,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.782392026578073,
+      "best_reference_coverage": 0.8903591682419659,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 21,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.7927852348993288,
+      "best_reference_coverage": 0.8544303797468354,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2786465737844754,
+      "best_reference_coverage": 0.9158878504672897,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3180624452874234,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3168952436533411,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.7638110488390712,
+      "best_reference_coverage": 0.8849721706864564,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.8646551724137931,
+      "best_reference_coverage": 0.9304267161410018,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.28575721153846156,
+      "best_reference_coverage": 0.9022770398481973,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.32992248062015506,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.32744186046511625,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.7939053728949479,
+      "best_reference_coverage": 0.9357277882797732,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.8206521739130435,
+      "best_reference_coverage": 0.9556962025316456,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:estimated3",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.26802642918701525,
+      "best_reference_coverage": 0.8719626168224299,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.32595693779904306,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.32476076555023925,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.7536585365853659,
+      "best_reference_coverage": 0.859925788497217,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.8311575282854656,
+      "best_reference_coverage": 0.885899814471243,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.28213639106819555,
+      "best_reference_coverage": 0.8870967741935484,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3330203442879499,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3305164319248826,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.797242497972425,
+      "best_reference_coverage": 0.9291115311909263,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.764614185502728,
+      "best_reference_coverage": 0.8869801084990958,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 22,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.28149867374005305,
+      "best_reference_coverage": 0.889937106918239,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.34558570937822053,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.35383029886636896,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.8783666377063423,
+      "best_reference_coverage": 0.9610266159695817,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 22,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.8658641444539983,
+      "best_reference_coverage": 0.95,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 22,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.7082695252679939,
+      "best_reference_coverage": 0.9458077709611452,
+      "touches_another_active_cue": true,
+      "matched_event_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:estimated0",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 22,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.1679467485919099,
+      "best_reference_coverage": 0.31906614785992216,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.8429458740017747,
+      "best_reference_coverage": 0.9152215799614644,
+      "touches_another_active_cue": true,
+      "matched_event_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 22,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.8887892376681614,
+      "best_reference_coverage": 0.9528846153846153,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 22,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.8179571663920923,
+      "best_reference_coverage": 0.9211502782931354,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:estimated3",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 22,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2580547112462006,
+      "best_reference_coverage": 0.889937106918239,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.31585557299843015,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.32339089481946626,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.8680377035132819,
+      "best_reference_coverage": 0.9629277566539924,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.8629441624365483,
+      "best_reference_coverage": 0.9622641509433962,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2830188679245283,
+      "best_reference_coverage": 0.950920245398773,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.31747992588017293,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.32056825200741196,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.7365313653136532,
+      "best_reference_coverage": 0.9596153846153846,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.8457234212629896,
+      "best_reference_coverage": 0.9089347079037801,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:estimated0",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 23,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.28709219858156027,
+      "best_reference_coverage": 0.9250457038391224,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3247168167295963,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3467905896020912,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.7577319587628866,
+      "best_reference_coverage": 0.9154804270462633,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 23,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s23/s23_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.28709219858156027,
+      "best_reference_coverage": 0.9250457038391224,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3247168167295963,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3467905896020912,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 23,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.7577319587628866,
+      "best_reference_coverage": 0.9154804270462633,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 23,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.8346518987341772,
+      "best_reference_coverage": 0.957350272232305,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 24,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.5787037037037037,
+      "best_reference_coverage": 0.5787037037037037,
+      "touches_another_active_cue": true,
+      "matched_event_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:estimated0",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 24,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.34237995824634654,
+      "best_reference_coverage": 0.9965277777777778,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.32248432367871005,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.31113765303075547,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.8936708860759494,
+      "best_reference_coverage": 0.9971751412429378,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 24,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.4701049748973072,
+      "best_reference_coverage": 0.9537037037037037,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.48668846333489024,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.8214890016920474,
+      "best_reference_coverage": 0.9143126177024482,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 24,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 24,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s24/s24_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s24/s24_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s25/s25_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 25,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s25/s25_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s25/s25_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.22675521821631878,
+      "best_reference_coverage": 0.22675521821631878,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2314990512333966,
+      "best_reference_coverage": 0.2314990512333966,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2569573283858998,
+      "best_reference_coverage": 0.2569573283858998,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s26/s26_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 26,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s26/s26_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s26/s26_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.355674709562109,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.30324694667858204,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3264819779565088,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.9708090075062552,
+      "best_reference_coverage": 0.9906382978723405,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 27,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.7465940054495913,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 27,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.5768261964735516,
+      "best_reference_coverage": 0.8357664233576643,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:estimated0",
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.20326864147088866,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.17330609465440927,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.18658495062989444,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2000340483486551,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3112617309697602,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2653806047966632,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2857142857142857,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.7929155313351499,
+      "best_reference_coverage": 0.9906382978723405,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 27,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 27,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s27/s27_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s27/s27_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.2998522895125554,
+      "best_reference_coverage": 0.9611742424242424,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.31698564593301437,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3223684210526316,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.7620504973221117,
+      "best_reference_coverage": 0.9343339587242027,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.7513639906469213,
+      "best_reference_coverage": 0.8827838827838828,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3011173184357542,
+      "best_reference_coverage": 0.9917203311867525,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.31251750210025203,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3394007280873705,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.8143344709897611,
+      "best_reference_coverage": 0.9835119538334708,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:estimated1",
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.9455284552845529,
+      "best_reference_coverage": 0.9991408934707904,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 28,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3008849557522124,
+      "best_reference_coverage": 0.9659090909090909,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.31604054859868813,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.32140727489564697,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.7328918322295805,
+      "best_reference_coverage": 0.9343339587242027,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 28,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.7453703703703703,
+      "best_reference_coverage": 0.8846153846153846,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 28,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue1",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3010625737898465,
+      "best_reference_coverage": 0.9659090909090909,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue2",
+      "class_name": "close",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.3162291169451074,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue3",
+      "class_name": "open",
+      "category": "miss_overlap_below_iou_threshold",
+      "best_detected_iou": 0.32159904534606204,
+      "best_reference_coverage": 1.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue5",
+      "class_name": "open",
+      "category": "matched",
+      "best_detected_iou": 0.7328918322295805,
+      "best_reference_coverage": 0.9343339587242027,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:estimated1",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 28,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue7",
+      "class_name": "close",
+      "category": "matched",
+      "best_detected_iou": 0.7453703703703703,
+      "best_reference_coverage": 0.8846153846153846,
+      "touches_another_active_cue": false,
+      "matched_event_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:estimated2",
+      "correct": {
+        "source_window": true,
+        "window_full": true,
+        "joint_full": true
+      }
+    },
+    {
+      "user": 28,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue1",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue2",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue3",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": true,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue5",
+      "class_name": "open",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    },
+    {
+      "user": 28,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "reference_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:cue7",
+      "class_name": "close",
+      "category": "miss_no_detected_interval_overlap",
+      "best_detected_iou": 0.0,
+      "best_reference_coverage": 0.0,
+      "touches_another_active_cue": false,
+      "matched_event_id": null,
+      "correct": {
+        "source_window": false,
+        "window_full": false,
+        "joint_full": false
+      }
+    }
+  ],
+  "multi_cue_intervals": [
+    {
+      "user": 19,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "event_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s19/s19_static_reaching.csv:cue1",
+        "data/ROAM_EMG/s19/s19_static_reaching.csv:cue2"
+      ]
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue5",
+        "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue7"
+      ]
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "event_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s19/s19_static_reaching.csv:cue1",
+        "data/ROAM_EMG/s19/s19_static_reaching.csv:cue2",
+        "data/ROAM_EMG/s19/s19_static_reaching.csv:cue3"
+      ]
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s19/s19_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s19/s19_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue5",
+        "data/ROAM_EMG/s19/s19_static_unsupported.csv:cue7"
+      ]
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s19/s19_static_reaching.csv",
+      "event_id": "data/ROAM_EMG/s19/s19_static_reaching.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s19/s19_static_reaching.csv:cue1",
+        "data/ROAM_EMG/s19/s19_static_reaching.csv:cue2",
+        "data/ROAM_EMG/s19/s19_static_reaching.csv:cue3"
+      ]
+    },
+    {
+      "user": 20,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s20/s20_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s20/s20_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue1",
+        "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue2",
+        "data/ROAM_EMG/s20/s20_static_unsupported.csv:cue3"
+      ]
+    },
+    {
+      "user": 21,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "event_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s21/s21_static_reaching.csv:cue1",
+        "data/ROAM_EMG/s21/s21_static_reaching.csv:cue2",
+        "data/ROAM_EMG/s21/s21_static_reaching.csv:cue3"
+      ]
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue1",
+        "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue2",
+        "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue3"
+      ]
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "event_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:estimated1",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s21/s21_static_reaching.csv:cue1",
+        "data/ROAM_EMG/s21/s21_static_reaching.csv:cue2",
+        "data/ROAM_EMG/s21/s21_static_reaching.csv:cue3"
+      ]
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s21/s21_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s21/s21_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue1",
+        "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue2",
+        "data/ROAM_EMG/s21/s21_static_unsupported.csv:cue3"
+      ]
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s21/s21_static_reaching.csv",
+      "event_id": "data/ROAM_EMG/s21/s21_static_reaching.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s21/s21_static_reaching.csv:cue1",
+        "data/ROAM_EMG/s21/s21_static_reaching.csv:cue2",
+        "data/ROAM_EMG/s21/s21_static_reaching.csv:cue3"
+      ]
+    },
+    {
+      "user": 22,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue1",
+        "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue2",
+        "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue3"
+      ]
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s22/s22_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s22/s22_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue1",
+        "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue2",
+        "data/ROAM_EMG/s22/s22_static_unsupported.csv:cue3"
+      ]
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s22/s22_static_reaching.csv",
+      "event_id": "data/ROAM_EMG/s22/s22_static_reaching.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s22/s22_static_reaching.csv:cue1",
+        "data/ROAM_EMG/s22/s22_static_reaching.csv:cue2",
+        "data/ROAM_EMG/s22/s22_static_reaching.csv:cue3"
+      ]
+    },
+    {
+      "user": 23,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "event_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s23/s23_static_reaching.csv:cue1",
+        "data/ROAM_EMG/s23/s23_static_reaching.csv:cue2",
+        "data/ROAM_EMG/s23/s23_static_reaching.csv:cue3"
+      ]
+    },
+    {
+      "user": 23,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s23/s23_static_reaching.csv",
+      "event_id": "data/ROAM_EMG/s23/s23_static_reaching.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s23/s23_static_reaching.csv:cue1",
+        "data/ROAM_EMG/s23/s23_static_reaching.csv:cue2",
+        "data/ROAM_EMG/s23/s23_static_reaching.csv:cue3"
+      ]
+    },
+    {
+      "user": 24,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue1",
+        "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue2",
+        "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue3"
+      ]
+    },
+    {
+      "user": 24,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s24/s24_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s24/s24_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue2",
+        "data/ROAM_EMG/s24/s24_static_unsupported.csv:cue3"
+      ]
+    },
+    {
+      "user": 27,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue1",
+        "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue2",
+        "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue3"
+      ]
+    },
+    {
+      "user": 27,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue1",
+        "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue2",
+        "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue3",
+        "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue5"
+      ]
+    },
+    {
+      "user": 27,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s27/s27_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s27/s27_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue1",
+        "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue2",
+        "data/ROAM_EMG/s27/s27_static_unsupported.csv:cue3"
+      ]
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue1",
+        "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue2",
+        "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue3"
+      ]
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "member": "data/ROAM_EMG/s28/s28_static_reaching.csv",
+      "event_id": "data/ROAM_EMG/s28/s28_static_reaching.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s28/s28_static_reaching.csv:cue1",
+        "data/ROAM_EMG/s28/s28_static_reaching.csv:cue2",
+        "data/ROAM_EMG/s28/s28_static_reaching.csv:cue3"
+      ]
+    },
+    {
+      "user": 28,
+      "shots": 1,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue1",
+        "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue2",
+        "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue3"
+      ]
+    },
+    {
+      "user": 28,
+      "shots": 2,
+      "member": "data/ROAM_EMG/s28/s28_static_unsupported.csv",
+      "event_id": "data/ROAM_EMG/s28/s28_static_unsupported.csv:estimated0",
+      "half_covered_reference_ids": [
+        "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue1",
+        "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue2",
+        "data/ROAM_EMG/s28/s28_static_unsupported.csv:cue3"
+      ]
+    }
+  ],
+  "summaries": [
+    {
+      "phase": "validation",
+      "shots": 0,
+      "references": 50,
+      "categories": {
+        "matched": 19,
+        "miss_no_detected_interval_overlap": 16,
+        "miss_overlap_below_iou_threshold": 15,
+        "miss_one_to_one_assignment_conflict": 0
+      },
+      "active_cues_touching_another_active_cue": 30,
+      "detected_intervals_half_covering_multiple_active_cues": 3,
+      "correct": {
+        "source_window": 18,
+        "window_full": 19,
+        "joint_full": 19
+      }
+    },
+    {
+      "phase": "validation",
+      "shots": 1,
+      "references": 50,
+      "categories": {
+        "matched": 7,
+        "miss_no_detected_interval_overlap": 29,
+        "miss_overlap_below_iou_threshold": 14,
+        "miss_one_to_one_assignment_conflict": 0
+      },
+      "active_cues_touching_another_active_cue": 30,
+      "detected_intervals_half_covering_multiple_active_cues": 5,
+      "correct": {
+        "source_window": 7,
+        "window_full": 7,
+        "joint_full": 7
+      }
+    },
+    {
+      "phase": "validation",
+      "shots": 2,
+      "references": 50,
+      "categories": {
+        "matched": 12,
+        "miss_no_detected_interval_overlap": 15,
+        "miss_overlap_below_iou_threshold": 23,
+        "miss_one_to_one_assignment_conflict": 0
+      },
+      "active_cues_touching_another_active_cue": 30,
+      "detected_intervals_half_covering_multiple_active_cues": 8,
+      "correct": {
+        "source_window": 11,
+        "window_full": 11,
+        "joint_full": 11
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 0,
+      "references": 50,
+      "categories": {
+        "matched": 8,
+        "miss_no_detected_interval_overlap": 30,
+        "miss_overlap_below_iou_threshold": 12,
+        "miss_one_to_one_assignment_conflict": 0
+      },
+      "active_cues_touching_another_active_cue": 30,
+      "detected_intervals_half_covering_multiple_active_cues": 3,
+      "correct": {
+        "source_window": 6,
+        "window_full": 6,
+        "joint_full": 6
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 1,
+      "references": 50,
+      "categories": {
+        "matched": 3,
+        "miss_no_detected_interval_overlap": 37,
+        "miss_overlap_below_iou_threshold": 10,
+        "miss_one_to_one_assignment_conflict": 0
+      },
+      "active_cues_touching_another_active_cue": 30,
+      "detected_intervals_half_covering_multiple_active_cues": 3,
+      "correct": {
+        "source_window": 3,
+        "window_full": 3,
+        "joint_full": 3
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "references": 50,
+      "categories": {
+        "matched": 4,
+        "miss_no_detected_interval_overlap": 38,
+        "miss_overlap_below_iou_threshold": 8,
+        "miss_one_to_one_assignment_conflict": 0
+      },
+      "active_cues_touching_another_active_cue": 30,
+      "detected_intervals_half_covering_multiple_active_cues": 3,
+      "correct": {
+        "source_window": 4,
+        "window_full": 4,
+        "joint_full": 4
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 0,
+      "references": 100,
+      "categories": {
+        "matched": 27,
+        "miss_no_detected_interval_overlap": 46,
+        "miss_overlap_below_iou_threshold": 27,
+        "miss_one_to_one_assignment_conflict": 0
+      },
+      "active_cues_touching_another_active_cue": 60,
+      "detected_intervals_half_covering_multiple_active_cues": 6,
+      "correct": {
+        "source_window": 24,
+        "window_full": 25,
+        "joint_full": 25
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 1,
+      "references": 100,
+      "categories": {
+        "matched": 10,
+        "miss_no_detected_interval_overlap": 66,
+        "miss_overlap_below_iou_threshold": 24,
+        "miss_one_to_one_assignment_conflict": 0
+      },
+      "active_cues_touching_another_active_cue": 60,
+      "detected_intervals_half_covering_multiple_active_cues": 8,
+      "correct": {
+        "source_window": 10,
+        "window_full": 10,
+        "joint_full": 10
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "references": 100,
+      "categories": {
+        "matched": 16,
+        "miss_no_detected_interval_overlap": 53,
+        "miss_overlap_below_iou_threshold": 31,
+        "miss_one_to_one_assignment_conflict": 0
+      },
+      "active_cues_touching_another_active_cue": 60,
+      "detected_intervals_half_covering_multiple_active_cues": 11,
+      "correct": {
+        "source_window": 15,
+        "window_full": 15,
+        "joint_full": 15
+      }
+    }
+  ],
+  "posthoc_geometric_diagnostic": true,
+  "native_inference_rerun": false,
+  "thresholds_changed": false,
+  "interpretation": "Overlap-only categories partition every saved reference. Continuous active-to-active cue changes and multi-cue detection intervals are visible; this does not prove a causal mechanism or physiological boundary truth. No target-based detector fix or selection is performed."
+}

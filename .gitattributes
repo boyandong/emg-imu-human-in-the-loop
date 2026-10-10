@@ -1714,3 +1714,279 @@ emgimu_classifier/tests/test_calibration_rest_detector_v1.py -text -eol whitespa
 /emgimu_classifier/tests/test_native_joint_bout_stream_v1.py -text -eol whitespace=cr-at-eol
 
 /emgimu_classifier/tests/test_roam_native_continuous_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/ROAM_NATIVE_CONTINUOUS_V1_DIAGNOSTIC.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/ROAM_NATIVE_CONTINUOUS_V1_RESULTS.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/audit_roam_native_continuous_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_continuous_v1/events.csv -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_continuous_v1/recordings.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/verify_roam_native_continuous_v2.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/ROAM_NATIVE_CONTINUOUS_V1_ACCEPTANCE.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/ROAM_NATIVE_CONTINUOUS_V1_REGRESSION.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/delivery/new_bank_v3/native_continuous_detection.csv -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/regression/roam_native_continuous_v1/classifier.xml -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_roam_native_continuous_delivery_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/ROAM_NATIVE_CONTINUOUS_V1_GIT_CHECKOUT.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/verify_calibration_rest_continuous_unibo_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/song_real8/verify_integrated_decision_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/__init__.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/activation_profile.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/affine_spd_anchor.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/autonomous_bouts_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/autonomous_g5_stream_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/available_bank_fusion_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/available_bank_quality_fusion_v2.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/body_frame.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/body_frame_v2.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/calibration.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/calibration_diagnostics.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/calibration_rest_detector_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/calibration_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/causal_label_debounce_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/causal_window_recognition_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/complete_bout_window_adapter_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/continuous_calibration_isolation_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/core.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/core_incremental_heldout.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/core_probability_oof.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/cued_replay.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/detected_g5_reader_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/detected_template_reader_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/document_ces_v3.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/document_path_v3.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/document_quality_v3.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/document_reliability_v2.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/document_scale_v3.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/document_session_v3.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/document_signal.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/document_spectral_v3.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/document_temporal_v3.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/electrode_layout_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/electrode_shift_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/emg_fmg_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/epn_calibration.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/epn_selection_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/epn_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/extended_window_cli_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/extended_window_decision_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/families.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/fault_gate_evaluation_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/force_condition_audit.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/force_core_calibration.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/force_core_incremental.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/force_final_reference.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/force_full_fusion.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/force_nested_oof.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/force_zero_shot_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/frozen_emg_bank_cli_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/frozen_emg_provider_bank_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/full_fusion_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/fusion_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/joint_bout_cli_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/joint_bout_live_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/joint_bout_workflow_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/load_position_full_fusion.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/manus_calibration.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/manus_core_calibration.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/manus_core_incremental.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/manus_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/mapped_session_pipeline_v3.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/matched_normalization_cli_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/matched_normalized_bank_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/new_bank_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/new_bank_v2.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/normalization_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/personal_session_cli_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/personal_session_decision_cli_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/personal_session_decision_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/personal_session_stream_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/personal_session_stream_v2.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/personal_session_stream_v3.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/personal_session_stream_v4.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/personal_session_stream_v5.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/personal_session_stream_v6.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/personal_session_workflow_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/personal_temporal_bouts_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/personal_temporal_cli_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/quality_corruption_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/quality_mask_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/quality_observability.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/quality_robustness.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/quality_role_ablation.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/quality_unknown_replay.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/reconstructed_ring.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/relative_spectrum.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/relative_spectrum_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/reliability_selection.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/replay_force_fusion.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/replay_fusion.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/replay_load_position.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/replay_unibo.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/replay_wearing.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/ring_covariance.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/screening.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/selection_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/session_anchor.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/session_anchor_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/session_context_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/session_fusion_v2.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/session_pipeline.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/session_router_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/session_shift_summary.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/song_f0_runtime_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/song_f0_stream_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/source_quality_gate_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/spd_anchor.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/spec_spatial_v3.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/template_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/temporal.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/temporal_bout_live_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/trial_mahalanobis_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/unibo_full_fusion.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/unibo_reuse_screening.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/unibo_sequence_incremental.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/unibo_sequence_temporal.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/unibo_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/unibo_temporal_complementarity.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/validated_unibo.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/wearing_core_ring.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/wearing_full_fusion.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/wearing_session_normalization.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/wearing_session_study.py -text -eol whitespace=cr-at-eol

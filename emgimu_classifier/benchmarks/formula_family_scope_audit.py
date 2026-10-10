@@ -389,6 +389,11 @@ def build() -> dict:
                           'Source simplex stationarity,54 native replay blocks and target composition/metrics are independently verified without classifier refitting.')
             unresolved += (' This source policy selects zero DTW/signature mass in this three-class task; it does not establish their universal uselessness or all-family superiority. '
                            'Strict comparisons against both fixed joint and zero-calibration population are retained. Oracle boundaries, posture domains and previously inspected users do not prove autonomous/device or cross-day efficacy.')
+        if family in ('F5','F7','F8'):
+            evidence += ('|feature_bank/ROAM_NATIVE_CONTINUOUS_V1_ACCEPTANCE.json'
+                         '|benchmarks/new_bank_v3/ROAM_NATIVE_CONTINUOUS_V1_DIAGNOSTIC.json')
+            supported += (' Native8/200Hz continuous whole-recording inference now reuses frozen classifiers/profiles/neutral detectors without query cue boundaries.60 recording/budget blocks,90 cells and all100 active references per budget are independently checked. Misses and unmatched detections are retained.')
+            unresolved += (' At2 current shots/class, only16/100 references match and15/100 classify correctly; joint fusion cannot restore undetected references and the primary guard fails. Cue-transition geometry is posthoc, not physiological truth or proof of a cause. Own-device250Hz and default efficacy remain unproved.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

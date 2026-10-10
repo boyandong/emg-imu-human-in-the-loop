@@ -1,0 +1,283 @@
+{
+  "protocol_verifier_sha256": "a2aa88c0f91ff7cd3fb31d2cd6d02e75bf6042ce204f0f88d12abd789c6a0baa",
+  "native_experiment_rerun": false,
+  "schema": "roam_native_continuous_v1_acceptance",
+  "protocol_sha256": "1817ba3ba4e86027fc5c35abe771102a92d063b5c97565fd56f510151227f033",
+  "result_sha256": "c94d9fd3b28d7a537b7edd8f6cbc66b616b99051e219a90841b24b91657074d8",
+  "verifier_sha256": "39bc3623a3a7af507bb4a5873163436ac6f7bc1963501995926a6f49760bfbc8",
+  "recording_budget_blocks": 60,
+  "distinct_query_recordings": 20,
+  "independent_active_references": 100,
+  "cells": 90,
+  "detected_event_budget_rows": 88,
+  "csv_probability_rows": 264,
+  "maximum_independent_probability_error": 2.220446049250313e-16,
+  "maximum_rest_threshold_error": 0.0,
+  "independent_native_energy_FSM": true,
+  "independent_logits_anchor_routing_path_and_metric_equations": true,
+  "all_misses_and_unmatched_detections_retained": true,
+  "calibration_query_recordings_disjoint": true,
+  "primary_guards": {
+    "higher_end_to_end_success": false,
+    "nonworse_active_recalls": true,
+    "nonworse_active_event_f1": true,
+    "lower_conditional_log_loss": false,
+    "lower_conditional_brier": false,
+    "at_least3_user_success_wins": false
+  },
+  "primary_pass": false,
+  "validation_user_success_wins": 0,
+  "classifier_refitted": false,
+  "detector_refitted": false,
+  "read_only_no_fitting": true,
+  "physiological_boundary_ground_truth": false,
+  "physical_validation_proven": false,
+  "default_promoted": false,
+  "completion_proven": false,
+  "two_shot_summary": [
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 50,
+        "detections": 20,
+        "matched": 12,
+        "missed": 38,
+        "unmatched_detections": 8,
+        "correct": 11,
+        "detection_recall": 0.24,
+        "detection_precision": 0.6,
+        "end_to_end_success": 0.22,
+        "active_event_macro_f1": 0.31414473684210525,
+        "active_recall": {
+          "close": 0.25,
+          "open": 0.2
+        },
+        "conditional_accuracy": 0.9166666666666666,
+        "conditional_log_loss": 0.3616280894966188,
+        "conditional_brier": 0.05776665134654166,
+        "onset_cue_mae_s": 0.3529166666666667,
+        "offset_cue_mae_s": 1.1920833333333334,
+        "eof_censored_recordings": 3
+      }
+    },
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 50,
+        "detections": 20,
+        "matched": 12,
+        "missed": 38,
+        "unmatched_detections": 8,
+        "correct": 11,
+        "detection_recall": 0.24,
+        "detection_precision": 0.6,
+        "end_to_end_success": 0.22,
+        "active_event_macro_f1": 0.31666666666666665,
+        "active_recall": {
+          "close": 0.25,
+          "open": 0.2
+        },
+        "conditional_accuracy": 0.9166666666666666,
+        "conditional_log_loss": 0.5298364857962551,
+        "conditional_brier": 0.08734692542777953,
+        "onset_cue_mae_s": 0.3529166666666667,
+        "offset_cue_mae_s": 1.1920833333333334,
+        "eof_censored_recordings": 3
+      }
+    },
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 50,
+        "detections": 20,
+        "matched": 12,
+        "missed": 38,
+        "unmatched_detections": 8,
+        "correct": 11,
+        "detection_recall": 0.24,
+        "detection_precision": 0.6,
+        "end_to_end_success": 0.22,
+        "active_event_macro_f1": 0.31666666666666665,
+        "active_recall": {
+          "close": 0.25,
+          "open": 0.2
+        },
+        "conditional_accuracy": 0.9166666666666666,
+        "conditional_log_loss": 0.6175791702267298,
+        "conditional_brier": 0.1072653117920736,
+        "onset_cue_mae_s": 0.3529166666666667,
+        "offset_cue_mae_s": 1.1920833333333334,
+        "eof_censored_recordings": 3
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 50,
+        "detections": 7,
+        "matched": 4,
+        "missed": 46,
+        "unmatched_detections": 3,
+        "correct": 4,
+        "detection_recall": 0.08,
+        "detection_precision": 0.5714285714285714,
+        "end_to_end_success": 0.08,
+        "active_event_macro_f1": 0.13116883116883116,
+        "active_recall": {
+          "close": 0.05,
+          "open": 0.1
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.31547465444591355,
+        "conditional_brier": 0.04679555991015393,
+        "onset_cue_mae_s": 0.37250000000000005,
+        "offset_cue_mae_s": 1.1375,
+        "eof_censored_recordings": 2
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 50,
+        "detections": 7,
+        "matched": 4,
+        "missed": 46,
+        "unmatched_detections": 3,
+        "correct": 4,
+        "detection_recall": 0.08,
+        "detection_precision": 0.5714285714285714,
+        "end_to_end_success": 0.08,
+        "active_event_macro_f1": 0.13116883116883116,
+        "active_recall": {
+          "close": 0.05,
+          "open": 0.1
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5152766813697053,
+        "conditional_brier": 0.08348307754577322,
+        "onset_cue_mae_s": 0.37250000000000005,
+        "offset_cue_mae_s": 1.1375,
+        "eof_censored_recordings": 2
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 50,
+        "detections": 7,
+        "matched": 4,
+        "missed": 46,
+        "unmatched_detections": 3,
+        "correct": 4,
+        "detection_recall": 0.08,
+        "detection_precision": 0.5714285714285714,
+        "end_to_end_success": 0.08,
+        "active_event_macro_f1": 0.13116883116883116,
+        "active_recall": {
+          "close": 0.05,
+          "open": 0.1
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.6084523698170479,
+        "conditional_brier": 0.10469246981984882,
+        "onset_cue_mae_s": 0.37250000000000005,
+        "offset_cue_mae_s": 1.1375,
+        "eof_censored_recordings": 2
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 100,
+        "detections": 27,
+        "matched": 16,
+        "missed": 84,
+        "unmatched_detections": 11,
+        "correct": 15,
+        "detection_recall": 0.16,
+        "detection_precision": 0.5925925925925926,
+        "end_to_end_success": 0.15,
+        "active_event_macro_f1": 0.2343987823439878,
+        "active_recall": {
+          "close": 0.15,
+          "open": 0.15
+        },
+        "conditional_accuracy": 0.9375,
+        "conditional_log_loss": 0.35008973073394245,
+        "conditional_brier": 0.05502387848744472,
+        "onset_cue_mae_s": 0.3578125,
+        "offset_cue_mae_s": 1.1784374999999998,
+        "eof_censored_recordings": 5
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 100,
+        "detections": 27,
+        "matched": 16,
+        "missed": 84,
+        "unmatched_detections": 11,
+        "correct": 15,
+        "detection_recall": 0.16,
+        "detection_precision": 0.5925925925925926,
+        "end_to_end_success": 0.15,
+        "active_event_macro_f1": 0.2353846153846154,
+        "active_recall": {
+          "close": 0.15,
+          "open": 0.15
+        },
+        "conditional_accuracy": 0.9375,
+        "conditional_log_loss": 0.5261965346896177,
+        "conditional_brier": 0.08638096345727796,
+        "onset_cue_mae_s": 0.3578125,
+        "offset_cue_mae_s": 1.1784374999999998,
+        "eof_censored_recordings": 5
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 100,
+        "detections": 27,
+        "matched": 16,
+        "missed": 84,
+        "unmatched_detections": 11,
+        "correct": 15,
+        "detection_recall": 0.16,
+        "detection_precision": 0.5925925925925926,
+        "end_to_end_success": 0.15,
+        "active_event_macro_f1": 0.2353846153846154,
+        "active_recall": {
+          "close": 0.15,
+          "open": 0.15
+        },
+        "conditional_accuracy": 0.9375,
+        "conditional_log_loss": 0.6152974701243095,
+        "conditional_brier": 0.10662210129901743,
+        "onset_cue_mae_s": 0.3578125,
+        "offset_cue_mae_s": 1.1784374999999998,
+        "eof_censored_recordings": 5
+      }
+    }
+  ],
+  "scope": "Retrospective native eight-channel200Hz continuous ROAM query recordings; no query labels or cue boundaries enter detection/classification. Saved target calibration profiles and their neutral-only fixed detectors are reused, not fitted. Active gt cue intervals are evaluation references, not physiological action boundaries. Postures are not days/redonnings; inspected users19..28 are not a new blind cohort. No pinch, own-device250Hz efficacy, F6/ring/raw-quality validation, physical latency or default promotion. Misses and unmatched detections remain visible."
+}
