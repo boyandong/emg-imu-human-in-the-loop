@@ -720,6 +720,11 @@ def build(pre: Path, goal: Path) -> dict:
                          '|tests/test_roam_class_transition_delivery_v1.py'
                          '|tests/test_class_transition_policy_v1.py')
             boundary += (' Source-only class-aware native segmentation now closes/opens active-to-active transitions. Source18 users/72 recordings/360 active references select18 precommitted settings; independent selection is committed before target inference. Same100 target references retain16 to78 matches and15 to77 correct, but unmatched detections increase11 to49 and the detector primary guard fails. Within identical new matches, joint loss/Brier worsen against the zero-calibration source window. Detector/source-window require0 target cues; personal/joint branches retain6+3*shots. Exact policy loader rejects changed checksum/bank/rate/class/rest and parameter overrides. Native200Hz public retrospective evidence does not prove250Hz own-device efficacy, physiological boundaries or full-formula acceptance.')
+        if ident in ('GOAL-03','GOAL-05','GOAL-12','GOAL-20','GOAL-22','GOAL-25'):
+            evidence += ('|feature_bank/ROAM_PRECISION_TRANSITION_V2_ACCEPTANCE.json'
+                         '|benchmarks/new_bank_v3/ROAM_PRECISION_TRANSITION_V2_TARGET_RESULTS.json'
+                         '|tests/test_roam_precision_transition_delivery_v2.py')
+            boundary += (' A source-only36-setting precision-biased class-transition policy reuses the verified source-window cache without repeating native source inference or fitting. Source eligibility preserves>=90% old mean source recall and no more source unmatched detections. Source policy/independent receipt are committed before single target evaluation. The actual target fixed-reference efficacy guards, delays and costs remain explicit; source eligibility is not target efficacy or full-formula/physical completion.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

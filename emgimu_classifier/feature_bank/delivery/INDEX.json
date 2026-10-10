@@ -78,6 +78,8 @@
     "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json": "9964583ef8211b09fa5e594a3aa8e46825d65418afd50c69a99939f62a7eea0a",
     "benchmarks/new_bank_v3/ROAM_NATIVE_CONTINUOUS_V1_RESULTS.json": "c94d9fd3b28d7a537b7edd8f6cbc66b616b99051e219a90841b24b91657074d8",
     "benchmarks/new_bank_v3/ROAM_NATIVE_JOINT_V1_RESULTS.json": "c1691293a0e1df662838c58137d05ce377753fa860d99c9309c05987ec26ef98",
+    "benchmarks/new_bank_v3/ROAM_PRECISION_TRANSITION_V2_SOURCE_RESULTS.json": "2b2dbffdba62e3dd401e20dc1826ff1f8753fe7ae9cf6a9e4e250db7afa82a25",
+    "benchmarks/new_bank_v3/ROAM_PRECISION_TRANSITION_V2_TARGET_RESULTS.json": "f3e47700db686d5618b19f46efd3325ee9e3e6eea5fc6be47be6d7da1b1c38a5",
     "benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_SOURCE_RESULTS.json": "8a513d6f56b75e2411d583bccd2f9c082ade8fc159c455f7ba110b0789c58185",
     "benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_TARGET_RESULTS.json": "d927d5c020200e6a06df5a1d450364b70f376afca278c4f18693c1e5d09e812a",
     "benchmarks/new_bank_v3/SPEC_F2C_GRAB_RESULTS.json": "8d2058a17e63b66e2bbe3ffedc97656d5a20e64a30499dc329efca5120e745bb",
@@ -87,7 +89,7 @@
   },
   "current_scientific_conclusions": {
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
-    "sha256": "5d03c435985c64aabe15984ac2b78815cea514aceaee2e7716fd42cea9abae10"
+    "sha256": "f91aa533cb8eaad8bd7156ef45d4f8ffe655905d95cef5ef43d0f26575789c96"
   },
   "current_regression_snapshot": {
     "path": "../CLASSIFIER_REGRESSION_20261008.json",
@@ -181,6 +183,11 @@
     "path": "../JOINT_BOUT_GUI_V1_ACCEPTANCE.json",
     "sha256": "27e905148ec66fafffc7788d438f9e4e4044cc7fad709162e0387707d00d391d"
   },
+  "roam_precision_transition_acceptance": {
+    "path": "../ROAM_PRECISION_TRANSITION_V2_ACCEPTANCE.json",
+    "sha256": "29fd685aa6c271be5c4eb46bb340c5f180a44f75b0c315dc051931773944dc8b"
+  },
+  "roam_precision_transition_summary": "new_bank_v3/precision_transition_detection.csv",
   "roam_class_transition_acceptance": {
     "path": "../ROAM_CLASS_TRANSITION_V1_ACCEPTANCE.json",
     "sha256": "5da7314445f90ce80ef21b42b37bd33e3aa29d8ef8c13e94bf902ca02eda557b"

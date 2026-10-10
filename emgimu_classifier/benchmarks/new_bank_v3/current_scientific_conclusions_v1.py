@@ -364,11 +364,24 @@ def build():
     answers[0]['class_transition_fixed_reference']={'new':new_all,'old':old_all,'primary_pass':class_transition['detector_primary_pass']}
     answers[0]['answer'] += f" 新增公开八通道类别切换分段，使同100个动作参考的正确识别从{old_all['correct']}个增至{new_all['correct']}个，但额外未匹配检测从{old_all['unmatched_detections']}个增至{new_all['unmatched_detections']}个；误检守门失败，不能默认部署或推定当前设备效果。"
     answers[0]['evidence'] += [class_transition_path.relative_to(ROOT).as_posix(),'benchmarks/new_bank_v3/ROAM_CLASS_TRANSITION_V1_TARGET_RESULTS.json']
+    precision_path=ROOT/'feature_bank/ROAM_PRECISION_TRANSITION_V2_ACCEPTANCE.json'
+    precision=json.loads(precision_path.read_text(encoding='utf8'))
+    for path in (precision_path,ROOT/'feature_bank/ROAM_PRECISION_TRANSITION_V2_SOURCE_ACCEPTANCE.json',
+                 HERE/'ROAM_PRECISION_TRANSITION_V2_SOURCE_RESULTS.json',HERE/'ROAM_PRECISION_TRANSITION_V2_TARGET_RESULTS.json',
+                 HERE/'verify_roam_precision_transition_v2.py'):
+        sources[path.relative_to(ROOT).as_posix()]=sha(path)
+    verification_tests += ['tests/test_roam_precision_transition_v2.py','tests/test_roam_precision_transition_delivery_v2.py']
+    precision_all=next(c['metrics'] for c in precision['two_shot_summary'] if c['phase']=='all' and c['arm']=='joint_full')
+    answers[0]['precision_transition_fixed_reference']={'new':precision_all,'previous':new_all,'primary_pass':precision['detector_primary_pass']}
+    answers[0]['answer'] += f" 后续只用源数据选择更长确认与平滑策略，同100个参考的正确识别为{precision_all['correct']}个、额外未匹配检测为{precision_all['unmatched_detections']}个；目标阶段主要标准通过={precision['detector_primary_pass']}，仍不是实机或前瞻验证。"
+    answers[0]['evidence'] += [precision_path.relative_to(ROOT).as_posix(),'benchmarks/new_bank_v3/ROAM_PRECISION_TRANSITION_V2_TARGET_RESULTS.json']
     for name in verification_tests: sources[name] = sha(ROOT / name)
     result = {'schema': 'current_scientific_conclusions_v1', 'generator_sha256': sha(Path(__file__)),
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
               'requirement_lines': [1013, 1049], 'verification_tests': verification_tests,
               'source_sha256': sources, 'questions': answers,
+              'roam_precision_transition': dict(precision,previous_class_transition=class_transition['two_shot_summary'],
+                  interpretation='A precommitted36-setting source-only precision-biased policy selects with >=90% previous source mean recall and no more source extra detections. Cached source probabilities avoid repeated source inference. Target efficacy guards remain independently checked; prior source eligibility is not a target guarantee. Longer confirmation delays estimated event availability. No default, physical250Hz, prospective or physiological claim.'),
               'roam_class_transition': dict(class_transition,previous_neutral_detector=native_continuous['two_shot_summary'],
                   interpretation='Active-to-active class changes are segmented using a source-only selected five-window confirmation policy, committed before target inference. Detection and source-window classification require zero target calibration; personal/joint classification still requires6+3*shots. Fixed-reference success improves but unmatched detections increase, so the detector primary guard fails. Within identical new matches, temporal/personal fusion does not improve probability loss. No default or own-device promotion.'),
               'roam_native_continuous': dict(native_continuous,interval_diagnostic=native_continuous_diag['summaries'],

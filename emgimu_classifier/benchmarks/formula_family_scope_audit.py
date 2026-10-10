@@ -399,6 +399,10 @@ def build() -> dict:
                          '|benchmarks/new_bank_v3/ROAM_CLASS_TRANSITION_V1_TARGET_RESULTS.json')
             supported += (' Source-only class-transition selection on18 users/72 recordings/360 active references is committed before target inference. Native active-to-active estimated boundaries improve same100-reference matches16 to78 and correct15 to77; independent source/target logits/FSM/geometry/metric checks pass.')
             unresolved += (' Unmatched detections increase11 to49, failing the predeclared detector guard. Within new matches, joint loss is worse than zero-target-calibration source-window classification. No default, physiology,250Hz device, cross-day or full-formula claim follows.')
+        if family in ('F5','F7','F8'):
+            evidence += ('|feature_bank/ROAM_PRECISION_TRANSITION_V2_ACCEPTANCE.json|benchmarks/new_bank_v3/ROAM_PRECISION_TRANSITION_V2_TARGET_RESULTS.json')
+            supported += (' A separate precommitted36-setting cached-source precision-biased policy preserves source recall/extra-event eligibility and is frozen before native target inference; all fixed-reference target metrics and actual guards are independently retained.')
+            unresolved += (' Source precision/recall constraints are not a target guarantee; longer confirmation adds algorithmic delay. Retrospective200Hz cue metrics do not establish250Hz device, physiological or default efficacy.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

@@ -1,0 +1,297 @@
+{
+  "schema": "roam_precision_transition_v2_acceptance",
+  "protocol_sha256": "13af4e9a54059dd0abae6a19acde37c1f30e22c131ff68478df93142417cccdd",
+  "source_result_sha256": "2b2dbffdba62e3dd401e20dc1826ff1f8753fe7ae9cf6a9e4e250db7afa82a25",
+  "source_acceptance_sha256": "feab5a29ff440fe554f251072df6775657275fa5b7a1ef47e5d97a9980ef2126",
+  "target_result_sha256": "f3e47700db686d5618b19f46efd3325ee9e3e6eea5fc6be47be6d7da1b1c38a5",
+  "policy_sha256": "4fea7b694826a7ef703ca0cb08bab80f2e22071c45d655bda8be00c860dc5980",
+  "verifier_sha256": "6b76a0f2c71bb0de528b123576bf9cb05389b0ae39ac1537d5d895123fc447c9",
+  "selected_config": {
+    "confirmations": 20,
+    "smoothing_windows": 5,
+    "confidence": 0.0
+  },
+  "distinct_query_recordings": 20,
+  "independent_active_references": 100,
+  "recording_budget_blocks": 60,
+  "cells": 90,
+  "checked_event_budget_rows": 282,
+  "maximum_independent_probability_error": 2.498001805406602e-16,
+  "independent_native_logits_FSM_geometry_metrics": true,
+  "detector_primary_guards": {
+    "fewer_unmatched_detections": true,
+    "nonworse_end_to_end_success": true,
+    "nonworse_detection_recall": true,
+    "nonworse_active_f1": true,
+    "nonworse_both_active_recalls": true,
+    "at_least3_user_false_event_wins": true
+  },
+  "detector_primary_pass": true,
+  "within_detector_joint_guards": {
+    "lower_log_loss": false,
+    "lower_brier": false,
+    "nonworse_end_to_end_success": true,
+    "nonworse_active_f1": true,
+    "nonworse_both_active_recalls": true,
+    "at_least3_user_loss_wins": false
+  },
+  "within_detector_joint_pass": false,
+  "validation_user_false_event_wins": 4,
+  "validation_user_loss_wins": 0,
+  "target_fitted_or_selected": false,
+  "source_policy_committed_before_target_inference": true,
+  "detector_target_calibration_trials": 0,
+  "source_window_target_calibration_trials": 0,
+  "conditional_loss_across_detectors_is_paired": false,
+  "read_only_no_fitting": true,
+  "native_experiment_rerun": false,
+  "two_shot_summary": [
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 50,
+        "detections": 48,
+        "matched": 46,
+        "missed": 4,
+        "unmatched_detections": 2,
+        "correct": 46,
+        "detection_recall": 0.92,
+        "detection_precision": 0.9583333333333334,
+        "end_to_end_success": 0.92,
+        "active_event_macro_f1": 0.9482758620689655,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8666666666666667
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.31973267436917063,
+        "conditional_brier": 0.04711733549092113,
+        "onset_cue_mae_s": 0.6330434782608695,
+        "offset_cue_mae_s": 0.8695652173913042,
+        "eof_censored_recordings": 1
+      }
+    },
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 50,
+        "detections": 48,
+        "matched": 46,
+        "missed": 4,
+        "unmatched_detections": 2,
+        "correct": 46,
+        "detection_recall": 0.92,
+        "detection_precision": 0.9583333333333334,
+        "end_to_end_success": 0.92,
+        "active_event_macro_f1": 0.9482758620689655,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8666666666666667
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5070013442781606,
+        "conditional_brier": 0.08212697897345256,
+        "onset_cue_mae_s": 0.6330434782608695,
+        "offset_cue_mae_s": 0.8695652173913042,
+        "eof_censored_recordings": 1
+      }
+    },
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 50,
+        "detections": 48,
+        "matched": 46,
+        "missed": 4,
+        "unmatched_detections": 2,
+        "correct": 46,
+        "detection_recall": 0.92,
+        "detection_precision": 0.9583333333333334,
+        "end_to_end_success": 0.92,
+        "active_event_macro_f1": 0.9482758620689655,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8666666666666667
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.6037913869616579,
+        "conditional_brier": 0.10404716383545481,
+        "onset_cue_mae_s": 0.6330434782608695,
+        "offset_cue_mae_s": 0.8695652173913042,
+        "eof_censored_recordings": 1
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 50,
+        "detections": 46,
+        "matched": 42,
+        "missed": 8,
+        "unmatched_detections": 4,
+        "correct": 41,
+        "detection_recall": 0.84,
+        "detection_precision": 0.9130434782608695,
+        "end_to_end_success": 0.82,
+        "active_event_macro_f1": 0.8509977827050997,
+        "active_recall": {
+          "close": 0.85,
+          "open": 0.8
+        },
+        "conditional_accuracy": 0.9761904761904762,
+        "conditional_log_loss": 0.2865629922465009,
+        "conditional_brier": 0.040109401885566213,
+        "onset_cue_mae_s": 0.4311904761904762,
+        "offset_cue_mae_s": 0.5767857142857145,
+        "eof_censored_recordings": 2
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 50,
+        "detections": 46,
+        "matched": 42,
+        "missed": 8,
+        "unmatched_detections": 4,
+        "correct": 42,
+        "detection_recall": 0.84,
+        "detection_precision": 0.9130434782608695,
+        "end_to_end_success": 0.84,
+        "active_event_macro_f1": 0.8714285714285714,
+        "active_recall": {
+          "close": 0.85,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.4839437954106041,
+        "conditional_brier": 0.076056442558276,
+        "onset_cue_mae_s": 0.4311904761904762,
+        "offset_cue_mae_s": 0.5767857142857145,
+        "eof_censored_recordings": 2
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 50,
+        "detections": 46,
+        "matched": 42,
+        "missed": 8,
+        "unmatched_detections": 4,
+        "correct": 42,
+        "detection_recall": 0.84,
+        "detection_precision": 0.9130434782608695,
+        "end_to_end_success": 0.84,
+        "active_event_macro_f1": 0.8714285714285714,
+        "active_recall": {
+          "close": 0.85,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5771006624038604,
+        "conditional_brier": 0.09723656350875168,
+        "onset_cue_mae_s": 0.4311904761904762,
+        "offset_cue_mae_s": 0.5767857142857145,
+        "eof_censored_recordings": 2
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 100,
+        "detections": 94,
+        "matched": 88,
+        "missed": 12,
+        "unmatched_detections": 6,
+        "correct": 87,
+        "detection_recall": 0.88,
+        "detection_precision": 0.9361702127659575,
+        "end_to_end_success": 0.87,
+        "active_event_macro_f1": 0.8992679995629849,
+        "active_recall": {
+          "close": 0.925,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 0.9886363636363636,
+        "conditional_log_loss": 0.30390168971971465,
+        "conditional_brier": 0.043772639906547194,
+        "onset_cue_mae_s": 0.5367045454545455,
+        "offset_cue_mae_s": 0.7298295454545454,
+        "eof_censored_recordings": 3
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 100,
+        "detections": 94,
+        "matched": 88,
+        "missed": 12,
+        "unmatched_detections": 6,
+        "correct": 88,
+        "detection_recall": 0.88,
+        "detection_precision": 0.9361702127659575,
+        "end_to_end_success": 0.88,
+        "active_event_macro_f1": 0.9098684210526315,
+        "active_recall": {
+          "close": 0.925,
+          "open": 0.85
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.49599660504591775,
+        "conditional_brier": 0.07922967750257284,
+        "onset_cue_mae_s": 0.5367045454545455,
+        "offset_cue_mae_s": 0.7298295454545454,
+        "eof_censored_recordings": 3
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 100,
+        "detections": 94,
+        "matched": 88,
+        "missed": 12,
+        "unmatched_detections": 6,
+        "correct": 88,
+        "detection_recall": 0.88,
+        "detection_precision": 0.9361702127659575,
+        "end_to_end_success": 0.88,
+        "active_event_macro_f1": 0.9098684210526315,
+        "active_recall": {
+          "close": 0.925,
+          "open": 0.85
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5910526320590728,
+        "conditional_brier": 0.1007966500431647,
+        "onset_cue_mae_s": 0.5367045454545455,
+        "offset_cue_mae_s": 0.7298295454545454,
+        "eof_censored_recordings": 3
+      }
+    }
+  ],
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "New source-only precision-biased class-transition policy on previously inspected native8/200Hz ROAM. Reuse verified frozen source per-window probabilities, without source refits or native source inference. Source18 users/72 recordings/360 active cue references select36 precommitted settings. Source policy selection is training, not unbiased evaluation. Target20 recordings/100 active cue references remain retrospective, not physiological boundaries, independent prospective validation, pinch,250Hz own-device, physical ring/F6/F9 or a universal/default benefit."
+}

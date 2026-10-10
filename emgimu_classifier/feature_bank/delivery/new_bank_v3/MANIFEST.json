@@ -1,6 +1,6 @@
 {
   "schema": "current_v3_canonical_delivery_v1",
-  "generator_sha256": "fb762519bcb1c57b22f335bcdb4bab92e8cbdd018291888796c92dbb88624b2c",
+  "generator_sha256": "5b3904a08e99bbb84531a36e50aa77347f3d6bc857a56f7c70b94233dc9b395e",
   "source_sha256": {
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
@@ -76,7 +76,8 @@
     "benchmarks/song_real8/SONG_RAW_QUALITY_V1_RESULTS.json": "5137cef44fddd58073ac12702978095862db0b2aacfa6cfe183efe82ad49887f",
     "benchmarks/song_real8/song_raw_quality_v1/predictions.csv": "1b1ae4d11c7e98c326fa7d23708794799d74cf4b79e19cea9ef6578a754d4153",
     "benchmarks/new_bank_v3/ROAM_NATIVE_CONTINUOUS_V1_RESULTS.json": "c94d9fd3b28d7a537b7edd8f6cbc66b616b99051e219a90841b24b91657074d8",
-    "benchmarks/new_bank_v3/ROAM_CLASS_TRANSITION_V1_TARGET_RESULTS.json": "7ebf3df81cf59dbd19a1a74a1c241aef129bbab2fb896b44ebf5a106c2391c71"
+    "benchmarks/new_bank_v3/ROAM_CLASS_TRANSITION_V1_TARGET_RESULTS.json": "7ebf3df81cf59dbd19a1a74a1c241aef129bbab2fb896b44ebf5a106c2391c71",
+    "benchmarks/new_bank_v3/ROAM_PRECISION_TRANSITION_V2_TARGET_RESULTS.json": "f3e47700db686d5618b19f46efd3325ee9e3e6eea5fc6be47be6d7da1b1c38a5"
   },
   "brier_normalization": "mean across trials and classes; not class-summed; compare only matched class ontologies",
   "calibration_burden_scope": "Extracted window exposure differs from complete recording duration and physical session wall time; hardware times remain N/A.",
@@ -145,6 +146,10 @@
     "class_transition_detection.csv": {
       "rows": 90,
       "sha256": "7ccb71e3bf6740c6e90f33ac57683b24e6b4a3efe52e0f136c510ff258572c95"
+    },
+    "precision_transition_detection.csv": {
+      "rows": 90,
+      "sha256": "d7b9330a1ce44c21860d3a77c25bffb3b9080487cc2e07562d2510dc8a85a613"
     }
   },
   "boundary": "Paired alternatives are labelled explicitly; actual source-refit concatenated group increments have a distinct comparison_kind. DTW has no probability metrics. Budget failures are in eligibility, not fake performance rows. Conditions/datasets/class ontologies cannot be pooled indiscriminately.",
