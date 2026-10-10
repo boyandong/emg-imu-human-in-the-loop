@@ -1438,3 +1438,23 @@ emgimu_classifier/tests/test_calibration_rest_detector_v1.py -text -eol whitespa
 /emgimu_classifier/tests/test_document_window_composition_register_v1.py -text -eol whitespace=cr-at-eol
 
 /emgimu_classifier/feature_bank/DOCUMENT_WINDOW_COMPOSITION_V1_GIT_CHECKOUT.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/native_bout_window_adapter_v2.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/native_document_window_v2.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/native_joint_bout_workflow_v2.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/datasets/roam_cued_intervals_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_native_joint_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/verify_roam_native_joint_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_native_joint_bout_workflow_v2.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_roam_cued_intervals_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_roam_native_joint_study_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/ROAM_NATIVE_JOINT_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
