@@ -1126,3 +1126,17 @@ emgimu_classifier/benchmarks/song_real8/verify_integrated_decision_v1.py -text -
 emgimu_classifier/tests/test_integrated_decision_delivery_v1.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_integrated_decision_cli_v1.py -text -eol whitespace=cr-at-eol
 emgimu_classifier/feature_bank/SONG_INTEGRATED_DECISION_ACCEPTANCE_V1.json -text -eol whitespace=cr-at-eol
+
+# Operational F7/F8 GUI and continuous stream V1 hash-bound sources/artifacts
+emgimu_classifier/src/emgimu/feature_bank/personal_session_stream_v3.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_personal_session_stream_v3.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/verify_decision_gui_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/SONG_DECISION_GUI_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/SONG_DECISION_GUI_V1_ACCEPTANCE.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/song_decision_gui_v1/** -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/emgforce/inference/personal_session_worker_v3.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/emgforce/ui/realtime_inference_page_v3.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/emgforce/ui/main_window_v2.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/emgforce/ui/__init__.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/tests/test_decision_page_v3.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_decision_gui_v1_delivery.py -text -eol whitespace=cr-at-eol
