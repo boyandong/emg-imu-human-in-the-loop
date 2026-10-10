@@ -577,6 +577,20 @@ def build(pre: Path, goal: Path) -> dict:
                          "invalid trial contracts and missing provenance. "
                          "Independent leakage and unequal-window trial-mass "
                          "tests preserve the source state.")
+        if ident in ('GOAL-03','GOAL-20','GOAL-22','GOAL-23'):
+            evidence += ('|benchmarks/song_real8/SONG_RAW_QUALITY_V1_PROTOCOL.json'
+                         '|benchmarks/song_real8/SONG_RAW_QUALITY_V1_RESULTS.json'
+                         '|feature_bank/SONG_RAW_QUALITY_ACCEPTANCE_V1.json'
+                         '|src/emgimu/feature_bank/source_quality_gate_v1.py'
+                         '|src/emgimu/feature_bank/personal_session_stream_v2.py'
+                         '|tests/test_source_quality_gate_v1.py'
+                         '|tests/test_personal_session_stream_v2.py'
+                         '|tests/test_song_raw_quality_v1_delivery.py')
+            boundary += (' Separate versioned raw pre-software-highpass F9 integration now uses explicit signed24 transport bounds and source-only quantiles. '
+                         'All24 same124-trial cells/2976 predictions are independently verified; structural mode rejects all four injected severe faults and no unmodified trials. '
+                         'Unknown hardware truth prevents a real false-positive rate. Soft routing hurts unmodified accuracy and can accept single-channel severe faults, so remains off by default. '
+                         'Four full S04 population/session by off/structural streams each reproduce29790 emissions and confirmation labels without source/profile mutation. '
+                         'Qt exercises separate raw calibration/replay, retry of invalid calibration trials and explicit Unknown. Numerical/synthetic integration is not physical efficacy or full F0-F9 completion.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

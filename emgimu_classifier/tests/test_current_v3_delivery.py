@@ -72,7 +72,7 @@ def test_delivery_sources_schemas_and_unavailable_results():
         assert sha(ROOT/path) == digest
     expected = {'feature_family_results.csv': 1517, 'conditional_incremental.csv': 2660,
                 'error_complementarity.csv': 2660, 'calibration_curve.csv': 1517, 'ablation_full_bank.csv':468,
-                'budget_eligibility.csv': 170, 'boundary_detection.csv': 2, 'calibration_burden.csv': 710, 'continuous_recognition.csv':40, 'transition_hold.csv':40, 'label_stability_control.csv':80}
+                'budget_eligibility.csv': 170, 'boundary_detection.csv': 2, 'calibration_burden.csv': 710, 'continuous_recognition.csv':40, 'transition_hold.csv':40, 'label_stability_control.csv':80, 'quality_gate.csv':24}
     for name, count in expected.items():
         table = rows(name)
         assert len(table) == manifest['tables'][name]['rows'] == count
@@ -212,3 +212,30 @@ def test_continuous_tables_preserve_sample_units_warmup_and_native_event_scores(
         for field in ('annotated_transitions','eligible_transitions','correct_transitions','maintenance_switches'):
             assert int(row[field])==native[field]
         assert float(row['transition_hold_accuracy'])==native['transition_hold_accuracy']
+
+
+def test_quality_table_keeps_rejections_separate_from_fallback_probability_accuracy():
+    artifact=ROOT/'benchmarks/song_real8/SONG_RAW_QUALITY_V1_RESULTS.json'
+    result=json.loads(artifact.read_text(encoding='utf8'))
+    with (artifact.parent/'song_raw_quality_v1/predictions.csv').open(encoding='utf8',newline='') as stream:
+        native=list(csv.DictReader(stream))
+    table=rows('quality_gate.csv')
+    assert len(table)==24
+    for row in table:
+        selected=[v for v in native if (v['scenario'],v['mode'])==(row['scenario'],row['mode'])]
+        rejected=np.array([v['rejected']=='True' for v in selected])
+        correct=np.array([v['label']==v['predicted_label'] for v in selected])
+        assert int(row['evaluation_trials'])==len(selected)==124
+        assert int(row['rejected'])==int(rejected.sum())
+        assert float(row['accuracy_unknown_wrong'])==float(correct.mean())
+        assert float(row['coverage'])==float((~rejected).mean())
+        if rejected.all(): assert row['accepted_accuracy']=='N/A'
+        else: assert float(row['accepted_accuracy'])==float(correct[~rejected].mean())
+        assert row['normal_false_rejection_rate']=='N/A'
+        if row['fault_annotation']=='synthetic_known_fault': assert float(row['fault_recall'])==float(rejected.mean())
+        else: assert row['fault_recall']=='N/A'
+        assert int(row['long_term_calibration_trials'])==int(row['current_calibration_trials'])==20
+        assert row['physical_validation_proven']==row['default_promoted']=='False'
+    index=json.loads((BASE/'INDEX.json').read_text())
+    entry=index['song_raw_quality_acceptance']
+    assert entry['sha256']==sha((BASE/entry['path']).resolve())

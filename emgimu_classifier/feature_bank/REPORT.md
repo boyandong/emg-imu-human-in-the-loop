@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `9bb1d01f8c014b8221002ae4752a85ab4646661e05a3d68c2312eb5ccd805639`.
+Source SHA-256: `b9ce420db991e2e314660f6d8d0dfbe8de22f74d5010ac404264f5f6651d129c`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -776,6 +776,76 @@ cross-day/re-donning and normalized-candidate GUI integration remain open.
 [Matched normalization results](../benchmarks/song_real8/SONG_MATCHED_NORMALIZATION_V1_RESULTS.json)
 and [independent normalization/package acceptance](SONG_MATCHED_NORMALIZATION_ACCEPTANCE_V1.json)
 bind this developmental comparison to its frozen implementation.
+
+#### Raw quality masks and explicit Unknown decisions
+
+The opt-in V2 personal/session page checks raw samples before software
+highpass/notch filtering. Source-only thresholds use849 windows from285
+S01/S02 trials. Signed24 transport extrema come from the acquisition decoder;
+they do not measure all analogue-front-end saturation limits. Eight channel
+identities are explicit; no circular electrode layout is invented.
+
+The same source models,20 personal plus20 current calibration trials and124
+S04 evaluation trials remain fixed. Corruptions are injected into the full
+raw recording before continuous causal filtering. Four artificial channel
+faults are labelled known synthetic faults; unmodified recordings and the
+50Hz/5Hz/gain perturbations have unknown hardware-fault truth. A real
+normal-data false-rejection rate cannot be estimated from these labels.
+
+| Scenario | Mode | Rejected /124 | Coverage | Accuracy, Unknown wrong | Accepted accuracy |
+|---|---|---:|---:|---:|---:|
+| unmodified | off | 0 | 1.0000 | 0.9194 | 0.9194 |
+| unmodified | structural | 0 | 1.0000 | 0.9194 | 0.9194 |
+| unmodified | soft | 0 | 1.0000 | 0.8952 | 0.8952 |
+| dropout_ch3 | off | 0 | 1.0000 | 0.8952 | 0.8952 |
+| dropout_ch3 | structural | 124 | 0.0000 | 0.0000 | N/A |
+| dropout_ch3 | soft | 0 | 1.0000 | 0.4919 | 0.4919 |
+| flat_ch3 | off | 0 | 1.0000 | 0.8952 | 0.8952 |
+| flat_ch3 | structural | 124 | 0.0000 | 0.0000 | N/A |
+| flat_ch3 | soft | 0 | 1.0000 | 0.4919 | 0.4919 |
+| transport_rail_ch3 | off | 0 | 1.0000 | 0.8952 | 0.8952 |
+| transport_rail_ch3 | structural | 124 | 0.0000 | 0.0000 | N/A |
+| transport_rail_ch3 | soft | 0 | 1.0000 | 0.4919 | 0.4919 |
+| flat26_ch3 | off | 0 | 1.0000 | 0.9113 | 0.9113 |
+| flat26_ch3 | structural | 124 | 0.0000 | 0.0000 | N/A |
+| flat26_ch3 | soft | 0 | 1.0000 | 0.7903 | 0.7903 |
+| line50_source_rms | off | 0 | 1.0000 | 0.9194 | 0.9194 |
+| line50_source_rms | structural | 0 | 1.0000 | 0.9194 | 0.9194 |
+| line50_source_rms | soft | 0 | 1.0000 | 0.9194 | 0.9194 |
+| low5_source_rms | off | 0 | 1.0000 | 0.9194 | 0.9194 |
+| low5_source_rms | structural | 0 | 1.0000 | 0.9194 | 0.9194 |
+| low5_source_rms | soft | 123 | 0.0081 | 0.0081 | 1.0000 |
+| gain2_ch3 | off | 0 | 1.0000 | 0.8548 | 0.8548 |
+| gain2_ch3 | structural | 0 | 1.0000 | 0.8548 | 0.8548 |
+| gain2_ch3 | soft | 0 | 1.0000 | 0.6532 | 0.6532 |
+
+Structural mode rejects all124 trials for each of the four explicit
+synthetic faults and rejects none of the unmodified trials. Its zero
+classification accuracy on the injected-fault rows reflects the explicit
+Unknown decision; accepted accuracy is undefined when no trials are accepted.
+Fallback probabilities are retained for numeric diagnosis and must not be
+scored as accepted gesture predictions.
+
+Soft routing changes3 previously correct unmodified trials to wrong and
+0 wrong trials to correct, without rejecting any of them.
+Its unmodified accuracy decreases from.9194 to.8952; single-channel severe
+faults can retain mean-masked providers and produce no Unknown decisions.
+The5Hz perturbation rejects123/124 trials. These harms remain visible;
+soft routing is not approved as a default. The page starts with quality off.
+
+Independent no-fit arithmetic verifies source RMS/median/MAD/covariance,
+all quantile masks and all24 cells/2976 per-trial probability rows. Original
+five-shot baseline probabilities are unchanged. Four full-recording V2
+population/session by off/structural checks each verify29790 emissions,
+rejections and chronological two-confirmation labels. These streams include
+calibration intervals and prove numerical integration only. Guided severe-
+fault trials are not counted; separate raw/filtered calibration companions
+and paired unlabeled replay are exercised through Qt and a real classifier
+subprocess. Physical contact faults, live latency and full F0-F9 remain open.
+
+[Frozen raw-quality experiment](../benchmarks/song_real8/SONG_RAW_QUALITY_V1_RESULTS.json)
+and [independent raw-quality acceptance](SONG_RAW_QUALITY_ACCEPTANCE_V1.json)
+bind the experimental implementation and its negative results.
 
 #### Target calibration burden: extracted signal versus stored recording time
 

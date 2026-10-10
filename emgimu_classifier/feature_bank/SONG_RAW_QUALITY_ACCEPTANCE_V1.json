@@ -1,0 +1,67 @@
+{
+  "schema": "song_raw_quality_acceptance_v1",
+  "protocol_sha256": "4ac9dcdfbd01095fea437ea9f57a3aa49432d7ff00bf461a6d5ff1e222ca73c7",
+  "source_sha256": {
+    "benchmarks/song_real8/verify_song_raw_quality_v1.py": "22efa3348238ff6c3713a101e7664a679730ab82c0963942a84f5656f23ded5f",
+    "tests/test_song_raw_quality_v1_delivery.py": "44d4f7672084e40afcbc60d865e9d4118160beaee5918d347dce7cda8c292b5e",
+    "benchmarks/song_real8/SONG_RAW_QUALITY_V1_PROTOCOL.json": "4ac9dcdfbd01095fea437ea9f57a3aa49432d7ff00bf461a6d5ff1e222ca73c7",
+    "benchmarks/song_real8/SONG_RAW_QUALITY_V1_RESULTS.json": "5137cef44fddd58073ac12702978095862db0b2aacfa6cfe183efe82ad49887f"
+  },
+  "artifact_sha256": {
+    "benchmarks/song_real8/song_raw_quality_v1/predictions.csv": "1b1ae4d11c7e98c326fa7d23708794799d74cf4b79e19cea9ef6578a754d4153",
+    "benchmarks/song_real8/song_raw_quality_v1/readouts.npz": "a50139526027744a12c68b8050141fdd61983afd7f1017f622e9670c86aa89e6",
+    "benchmarks/song_real8/song_raw_quality_v1/source_gate.pkl": "035e80ba6cb77cded5c12ac35bda7c32bf779516599da4cbcc6f9868e31a55c1"
+  },
+  "checked_cells": 24,
+  "checked_trial_probabilities": 2976,
+  "source_trials": 285,
+  "source_windows": 849,
+  "maximum_probability_error": 0.0,
+  "source_observation_and_quantile_oracles": true,
+  "baseline_probability_parity": true,
+  "unmodified_soft_correct_to_wrong": 3,
+  "unmodified_soft_wrong_to_correct": 0,
+  "full_stream_records": [
+    {
+      "arm": "population",
+      "mode": "off",
+      "windows": 29790,
+      "rejected_windows": 0,
+      "maximum_probability_error": 4.440892098500626e-16,
+      "confirmation_exact": true,
+      "source_and_profiles_immutable": true
+    },
+    {
+      "arm": "population",
+      "mode": "structural",
+      "windows": 29790,
+      "rejected_windows": 0,
+      "maximum_probability_error": 4.440892098500626e-16,
+      "confirmation_exact": true,
+      "source_and_profiles_immutable": true
+    },
+    {
+      "arm": "session_5shot",
+      "mode": "off",
+      "windows": 29790,
+      "rejected_windows": 0,
+      "maximum_probability_error": 4.440892098500626e-16,
+      "confirmation_exact": true,
+      "source_and_profiles_immutable": true
+    },
+    {
+      "arm": "session_5shot",
+      "mode": "structural",
+      "windows": 29790,
+      "rejected_windows": 0,
+      "maximum_probability_error": 4.440892098500626e-16,
+      "confirmation_exact": true,
+      "source_and_profiles_immutable": true
+    }
+  ],
+  "source_and_profiles_immutable": true,
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Raw pre-software-highpass synthetic fault guards and independent no-fit fusion oracles. Full S04 streams include calibration data and verify numerical integration only. Unmodified fault truth is unknown; physical false-positive rate is unavailable. Soft routing harms are retained. Not full F0-F9 or hardware efficacy."
+}

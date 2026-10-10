@@ -426,8 +426,24 @@ def export():
                 'correct_transitions':diagnostic['correct_transitions'],
                 'maintenance_switches':diagnostic['maintenance_switches'],
                 'log_loss':'N/A', 'brier':'N/A', 'ece':'N/A', 'scope':control['scope']})
+    quality_path=ROOT/'benchmarks/song_real8/SONG_RAW_QUALITY_V1_RESULTS.json'
+    quality_source=quality_path.relative_to(ROOT).as_posix();sources[quality_source]=sha(quality_path)
+    quality=json.loads(quality_path.read_text(encoding='utf8'))
+    quality_csv=quality_path.parent/'song_raw_quality_v1/predictions.csv'
+    sources[quality_csv.relative_to(ROOT).as_posix()]=sha(quality_csv)
+    quality_rows=[]
+    for cell in quality['cells']:
+        metrics=cell['gate_evaluation']['trial_balanced_metrics']
+        quality_rows.append(dict(run_id='song_raw_quality_v1',source_artifact=quality_source,source_sha256=sources[quality_source],
+            dataset='Song_real8',subject='Song',scenario=cell['scenario'],mode=cell['mode'],evaluation_trials=cell['trials'],
+            long_term_calibration_trials=20,current_calibration_trials=20,rejected=cell['rejected'],coverage=cell['coverage'],
+            accuracy_unknown_wrong=cell['accuracy_unknown_wrong'],accepted_accuracy=cell['accepted_accuracy'] if cell['accepted_accuracy'] is not None else 'N/A',
+            fault_annotation=cell['fault_annotation'],fault_recall=metrics['fault_recall'] if metrics['fault_recall'] is not None else 'N/A',
+            normal_false_rejection_rate='N/A',physical_validation_proven=False,default_promoted=False,
+            scope='Raw pre-software-highpass synthetic faults; fallback probabilities are not accepted decisions; physical normal/fault truth unavailable.'))
     context_fields = ['run_id', 'source_artifact', 'source_sha256', 'dataset', 'subject', 'session/domain', 'condition', 'calibration_budget', 'evaluation_trials', 'metadata_notes_json']
     tables = {'ablation_full_bank.csv': (ablations, list(ablations[0])),
+              'quality_gate.csv': (quality_rows, list(quality_rows[0])),
               'label_stability_control.csv': (control_rows, list(control_rows[0])),
               'continuous_recognition.csv': (continuous_rows, list(continuous_rows[0])),
               'transition_hold.csv': (transition_rows, list(transition_rows[0])),
@@ -456,7 +472,7 @@ def export():
     (OUT/'MANIFEST.json').write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf8')
     index = {'schema': 'versioned_feature_bank_delivery_index_v1',
              'tables': {n: [n, 'new_bank_v3/'+n] for n in tables if (BASE/n).exists()},
-             'additional_tables': ['new_bank_v3/boundary_detection.csv', 'new_bank_v3/budget_eligibility.csv', 'new_bank_v3/calibration_burden.csv', 'new_bank_v3/continuous_recognition.csv', 'new_bank_v3/transition_hold.csv', 'new_bank_v3/label_stability_control.csv'],
+             'additional_tables': ['new_bank_v3/boundary_detection.csv', 'new_bank_v3/budget_eligibility.csv', 'new_bank_v3/calibration_burden.csv', 'new_bank_v3/continuous_recognition.csv', 'new_bank_v3/transition_hold.csv', 'new_bank_v3/label_stability_control.csv', 'new_bank_v3/quality_gate.csv'],
              'full_bank_ablation': 'ablation_full_bank.csv', 'current_manifest': 'new_bank_v3/MANIFEST.json',
              'current_ablation_scope': 'new_bank_v3/ablation_full_bank.csv contains restricted F0/F7 removals, source-only six-window-group removals and OOF-calibrated six-provider frozen-weight removals; none is the document-wide bank. The base table remains unchanged.',
              'base_provenance': 'PROVENANCE_AUDIT.json',
@@ -487,6 +503,8 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/SONG_PERSONAL_GUI_V1_ACCEPTANCE.json')},
              'song_matched_normalization_acceptance': {'path':'../SONG_MATCHED_NORMALIZATION_ACCEPTANCE_V1.json',
                  'sha256':sha(ROOT/'feature_bank/SONG_MATCHED_NORMALIZATION_ACCEPTANCE_V1.json')},
+             'song_raw_quality_acceptance': {'path':'../SONG_RAW_QUALITY_ACCEPTANCE_V1.json',
+                 'sha256':sha(ROOT/'feature_bank/SONG_RAW_QUALITY_ACCEPTANCE_V1.json')},
              'completion_proven': False}
     (BASE/'INDEX.json').write_text(json.dumps(index, indent=2)+'\n', encoding='utf8')
     print(json.dumps({n: len(rows) for n, (rows, _) in tables.items()}), flush=True)

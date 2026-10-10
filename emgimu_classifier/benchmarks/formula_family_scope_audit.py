@@ -272,6 +272,20 @@ def build() -> dict:
                            "device-frame anatomical forward-axis or IMU-unit fields; "
                            "binary sync labels and quaternions do not replace them. "
                            "Strict F6 native evaluation is ineligible here.")
+        if family == 'F9':
+            evidence += ('|benchmarks/song_real8/SONG_RAW_QUALITY_V1_PROTOCOL.json'
+                         '|benchmarks/song_real8/SONG_RAW_QUALITY_V1_RESULTS.json'
+                         '|feature_bank/SONG_RAW_QUALITY_ACCEPTANCE_V1.json'
+                         '|tests/test_source_quality_gate_v1.py'
+                         '|tests/test_personal_session_stream_v2.py'
+                         '|tests/test_song_raw_quality_v1_delivery.py')
+            supported += (' A versioned GUI raw-input gate uses explicit signed24 transport extrema and source-only thresholds. '
+                          'Independent raw-mask and fusion oracles verify24 cells/2976 predictions. Structural mode rejects '
+                          'all124 trials in each of four artificial fault scenarios and no unmodified trials. '
+                          'Four whole-recording streams verify119160 emissions and chronological confirmations; invalid guided trials are not counted.')
+            unresolved += (' Unmodified hardware-fault truth is unknown, preventing a physical false-positive rate. '
+                           'Soft routing changes3 correct unmodified trials to wrong, none to correct, and can accept severe single-channel faults. '
+                           'Quality remains off by default; numerical/synthetic checks do not validate physical faults or full-bank efficacy.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

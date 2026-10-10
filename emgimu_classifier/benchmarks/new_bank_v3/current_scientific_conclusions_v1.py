@@ -60,6 +60,12 @@ def build():
     matched_acceptance_path=ROOT/'feature_bank/SONG_MATCHED_NORMALIZATION_ACCEPTANCE_V1.json'
     sources[matched_acceptance_path.relative_to(ROOT).as_posix()]=sha(matched_acceptance_path)
     matched_acceptance=json.loads(matched_acceptance_path.read_text(encoding='utf8'))
+    quality_path=ROOT/'benchmarks/song_real8/SONG_RAW_QUALITY_V1_RESULTS.json'
+    sources[quality_path.relative_to(ROOT).as_posix()]=sha(quality_path)
+    quality=json.loads(quality_path.read_text(encoding='utf8'))
+    quality_acceptance_path=ROOT/'feature_bank/SONG_RAW_QUALITY_ACCEPTANCE_V1.json'
+    sources[quality_acceptance_path.relative_to(ROOT).as_posix()]=sha(quality_acceptance_path)
+    quality_acceptance=json.loads(quality_acceptance_path.read_text(encoding='utf8'))
     native_cost_curve=read('EMG_CALIBRATION_COST_CURVE_V1.json')
     calibrated_fusion=read('EMG_CALIBRATED_FUSION_V1_RESULTS.json')
     window_bank = read('EMG_WINDOW_BANK_V1_RESULTS.json')
@@ -209,6 +215,9 @@ def build():
                           'tests/test_matched_normalized_bank_v1.py',
                           'tests/test_matched_normalization_cli_v1.py',
                           'tests/test_matched_normalization_delivery_v1.py',
+                          'tests/test_source_quality_gate_v1.py',
+                          'tests/test_personal_session_stream_v2.py',
+                          'tests/test_song_raw_quality_v1_delivery.py',
                           'tests/test_available_bank_fusion_v1.py',
                           'tests/test_available_bank_fusion_v1_delivery.py',
                           'tests/test_epn_holdout_user_robustness_v2.py',
@@ -228,6 +237,8 @@ def build():
               'song_personal_gui':{k:song_lifecycle[k] for k in ('records','gui_flow','scope','physical_validation_proven','default_promoted')},
               'song_matched_normalization':{k:matched[k] for k in ('cells','primary_guards','primary_pass','source_model_fit_ids','source_normalization_ids','scope')},
               'song_matched_normalization_acceptance':{k:matched_acceptance[k] for k in ('checked_cells','checked_trial_probabilities','maximum_probability_error','maximum_normalization_error','scope')},
+              'song_raw_quality':{k:quality[k] for k in ('cells','primary_guards','primary_pass','scope')},
+              'song_raw_quality_acceptance':{k:quality_acceptance[k] for k in ('checked_cells','checked_trial_probabilities','maximum_probability_error','unmodified_soft_correct_to_wrong','unmodified_soft_wrong_to_correct','full_stream_records','scope')},
               'song_f0_stream':{'classes':song_stream['classes'],'scope':song_stream['scope'],
                   'cells':[{k:row[k] for k in ('session','arm','raw_samples','emissions','unscored_emissions','one_pass_max_probability_error')} | {policy:{k:row[policy][k] for k in ('eligible_windows','eligible_trials','unknown_windows','trial_balanced_macro_f1','trial_balanced_accuracy','whole_stable_hold_correct','within_stable_trial_switches')} for policy in ('raw','confirmed')} for row in song_stream['records']]},
               'emg_native_calibration_cost':native_cost_curve['cells'],

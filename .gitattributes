@@ -1112,3 +1112,6 @@ collection/emg_meta/emg_meta/emgforce/inference/personal_session_worker_v2.py -t
 collection/emg_meta/emg_meta/emgforce/ui/realtime_inference_page_v2.py -text -eol whitespace=cr-at-eol
 collection/emg_meta/emg_meta/emgforce/ui/main_window.py -text -eol whitespace=cr-at-eol
 collection/emg_meta/emg_meta/tests/test_quality_page_v2.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/delivery/new_bank_v3/quality_gate.csv -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/SONG_RAW_QUALITY_REGRESSION_V1.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/regression/song_raw_quality_v1/** -text -eol whitespace=cr-at-eol
