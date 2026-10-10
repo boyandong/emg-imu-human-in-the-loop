@@ -1,0 +1,13 @@
+{
+  "schema": "joint_bout_git_checkout_v1",
+  "checked_base_commit": "b1dabcff0e26c1d856f28870ec0299f7d60105fd",
+  "protocol_sha256": {
+    "benchmarks/new_bank_v3/JOINT_BOUT_WORKFLOW_V1_PROTOCOL.json": "43efe48637d9dfc11fb2964d2b44e40ec9103274da4edaee45c34ee24adb38a9",
+    "benchmarks/new_bank_v3/JOINT_BOUT_GUI_V1_PROTOCOL.json": "c371465d0d31b632d63fac87cf651839ec5ebf5389cb38fc2a5ba5d61a9ac6f2"
+  },
+  "checked_paths": 289,
+  "git_checkout_filters_match_worktree_bytes": true,
+  "source_protocol_hashes_match": true,
+  "method": "git cat-file --filters HEAD:path under byte-preservation attributes; compared to actual working bytes",
+  "scope": "Git source/artifact transport integrity; no model refit, native accuracy or physical validation claim"
+}
