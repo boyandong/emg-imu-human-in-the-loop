@@ -582,6 +582,31 @@ def render(data, source_sha):
         '[independent arithmetic acceptance](SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json)',
         'and [continuous GUI acceptance](SONG_EXTENDED_GUI_V1_ACCEPTANCE.json)',
         'preserve the positive scoped increment and remaining boundaries.']
+    temporal=data['personal_temporal_unibo'];checked=data['personal_temporal_unibo_acceptance']
+    variation_lines += ['', '#### Complete-action personal/session temporal fusion, independent V1', '',
+        'Frozen personalized G5 probabilities are combined with long-term/current-session',
+        'DTW medoids and order1/2 path signatures. All native samples enter32 RMS bins.',
+        'Seven users, three days and four budgets retain84 blocks/924 arm cells,',
+        f"{checked['matched_evaluation_bouts']} matched evaluation bouts and {checked['retained_predictions']} probability readouts.",
+        'All20 reserved current-day recording trials are excluded at every budget.',
+        'Native DP/medoid/signature/fusion checks and saved-profile replay pass.', '',
+        '| Phase | Five-shot arm | Weighted ACC | Macro F1 | Log loss | Brier |',
+        '|---|---|---:|---:|---:|---:|']
+    for cell in temporal['pooled']:
+        if cell['shots']!=5 or cell['arm'] not in ('base','DTW_local','base_full','base_uniform'):continue
+        variation_lines.append(f"| {cell['phase']} | {cell['arm']} | {cell['accuracy']:.6f} | {cell['macro_f1']:.6f} | {cell['log_loss']:.6f} | {cell['brier']:.6f} |")
+    variation_lines += ['',
+        'Day6 five-shot full fusion raises F1 slightly but worsens log loss and Brier;',
+        'only1/7 users improves log loss, so the predeclared primary guard fails.',
+        'Day7/8 results are descriptive; improved pooled final loss cannot reverse that decision.',
+        'Additional temporal registration uses20 long-term trials plus0/4/8/20 current trials.',
+        'The common G5 model already uses personal Days1-5 history; base is not zero total onboarding.',
+        'Native evaluation is four-channel200Hz with labelled complete-bout boundaries.',
+        'Eight-channel250Hz adapter/CLI tests check software contracts and fault rejection,',
+        'not real eight-channel complete-action efficacy. Song stable excerpts remain ineligible.',
+        'The temporal branch is opt-in, waits for interval completion and is not yet a GUI/live-segmentation delivery.', '',
+        '[Native temporal results](../benchmarks/new_bank_v3/PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json)',
+        'and [independent acceptance](PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json) retain every budget and arm.']
     variation_lines += ['', '#### Target calibration burden: extracted signal versus stored recording time', '',
                         'Native archive accounting binds 600 reserved trial durations and 690',
                         'method-specific cost rows for the two experiments above. Every source-',

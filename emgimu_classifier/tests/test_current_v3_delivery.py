@@ -70,8 +70,8 @@ def test_delivery_sources_schemas_and_unavailable_results():
     assert manifest['generator_sha256'] == sha(ROOT/'benchmarks/new_bank_v3/export_current_delivery.py')
     for path, digest in manifest['source_sha256'].items():
         assert sha(ROOT/path) == digest
-    expected = {'feature_family_results.csv': 1649, 'conditional_incremental.csv': 2796,
-                'error_complementarity.csv': 2796, 'calibration_curve.csv': 1649, 'ablation_full_bank.csv':544,
+    expected = {'feature_family_results.csv': 2573, 'conditional_incremental.csv': 3888,
+                'error_complementarity.csv': 3888, 'calibration_curve.csv': 2573, 'ablation_full_bank.csv':712,
                 'budget_eligibility.csv': 170, 'boundary_detection.csv': 2, 'calibration_burden.csv': 710, 'continuous_recognition.csv':40, 'transition_hold.csv':40, 'label_stability_control.csv':80, 'quality_gate.csv':24}
     for name, count in expected.items():
         table = rows(name)
@@ -96,7 +96,9 @@ def test_delivery_sources_schemas_and_unavailable_results():
     assert all(r[k] == 'N/A' for r in dtw for k in ('log_loss', 'brier', 'ece'))
     for row in rows('conditional_incremental.csv'):
         is_concat=(row['run_id']=='emg_window_bank_v1' and row['core_bank']=='F0' and row['added_family'].startswith('F0_plus_'))
-        assert row['comparison_kind']==('source_refit_concatenated_group_increment' if is_concat else 'paired_alternative_not_concatenated_increment')
+        expected_kind=('paired_fixed_probability_mixture_not_concatenated_increment' if row['run_id']=='personal_temporal_unibo_v1' else
+                       'source_refit_concatenated_group_increment' if is_concat else 'paired_alternative_not_concatenated_increment')
+        assert row['comparison_kind']==expected_kind
 
 
 def test_delivery_pooled_g5_metrics_and_paired_errors_from_predictions():
@@ -135,7 +137,7 @@ def test_comparison_budget_identity_and_positive_improvement_signs():
                                ('error_complementarity.csv',('family_a','family_b'))]:
         comparisons = rows(table)
         keys = [tuple(r[k] for k in context+pair_fields) for r in comparisons]
-        assert len(keys) == len(set(keys)) == 2796
+        assert len(keys) == len(set(keys)) == 3888
         for row in comparisons:
             key = tuple(row[k] for k in context)
             a = lookup[key+(row[pair_fields[0]],)]
@@ -157,7 +159,10 @@ def test_error_probabilities_denominators_and_class_confusion_metrics():
         n = int(row['evaluation_trials']); assert n > 0
         for count,rate in [('a_correct_b_wrong','a_correct_b_wrong_probability'),
                            ('a_wrong_b_correct','a_wrong_b_correct_probability')]:
-            assert np.isclose(float(row[rate]),int(row[count])/n,rtol=0,atol=1e-12)
+            if row['run_id']!='personal_temporal_unibo_v1':
+                assert np.isclose(float(row[rate]),int(row[count])/n,rtol=0,atol=1e-12)
+            else:
+                assert 0 <= float(row[rate]) <= 1  # Exact trial-mass values checked against retained probabilities below.
         assert row['correlation_status'] == ('undefined_constant_error_vector' if row['error_correlation'] == 'N/A' else 'defined')
     for row in rows('feature_family_results.csv'):
         metrics = json.loads(row['class_metrics_json']); n = int(row['evaluation_trials'])
@@ -166,9 +171,15 @@ def test_error_probabilities_denominators_and_class_confusion_metrics():
         for c in metrics.values():
             tp,fp,fn = c['true_positives'],c['false_positives'],c['false_negatives']
             assert tp+fp == c['predicted'] and tp+fn == c['support']
-            assert c['recall'] == (tp/(tp+fn) if tp+fn else None)
-            assert c['precision'] == (tp/(tp+fp) if tp+fp else None)
-            assert c['f1'] == (2*tp/(2*tp+fp+fn) if c['support'] else None)
+            if row['run_id']=='personal_temporal_unibo_v1':
+                tw,sw,pw=c['true_positive_weight'],c['support_weight'],c['predicted_weight']
+                assert c['recall']==(tw/sw if sw else None)
+                assert c['precision']==(tw/pw if pw else None)
+                assert c['f1']==(2*tw/(sw+pw) if sw else None)
+            else:
+                assert c['recall'] == (tp/(tp+fn) if tp+fn else None)
+                assert c['precision'] == (tp/(tp+fp) if tp+fp else None)
+                assert c['f1'] == (2*tp/(2*tp+fp+fn) if c['support'] else None)
         if row['run_id'] == 'detected_g5_unibo_v1':
             assert metrics['0']['support'] == 0 and metrics['0']['recall'] is None and metrics['0']['f1'] is None
 

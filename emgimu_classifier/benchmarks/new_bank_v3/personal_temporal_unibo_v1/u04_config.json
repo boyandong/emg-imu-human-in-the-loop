@@ -1,0 +1,19 @@
+{
+  "source_bank_id": "8d26130260b26802a06aa2e7593c73b879e08d37bf65f52a922c9d1667d9a658|u04",
+  "sample_rate_hz": 200.0,
+  "channel_ids": [
+    "EMG1",
+    "EMG2",
+    "EMG3",
+    "EMG4"
+  ],
+  "preprocessing_id": "unibo_native_processed200_complete_bout_v1",
+  "class_names": [
+    "neutral",
+    "index_pinch",
+    "fist",
+    "open_hand"
+  ],
+  "temporal_mix": 0.25,
+  "band_fraction": 0.1
+}

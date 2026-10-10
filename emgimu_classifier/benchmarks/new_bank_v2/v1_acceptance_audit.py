@@ -629,6 +629,19 @@ def build(pre: Path, goal: Path) -> dict:
                          'Independent native eigen/variance/DFT/prototype/routing checks and ten new-seven full-stream arms/297900 emissions pass. '
                          'The explicit versioned desktop entry offers six/seven selection, separate persistent profiles and spectral context; actual Qt/subprocess lifecycle tests pass. '
                          'New-seven full F7/F8 still has worse loss/Brier than new-seven reliability. No default promotion, all-subfamily/full-bout composition, physical ring/F6, independent user/day or device proof follows.')
+        if ident in ('GOAL-03','GOAL-20','GOAL-22'):
+            evidence += ('|benchmarks/new_bank_v3/PERSONAL_TEMPORAL_UNIBO_V1_PROTOCOL.json'
+                         '|benchmarks/new_bank_v3/PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json'
+                         '|feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json'
+                         '|src/emgimu/feature_bank/personal_temporal_bouts_v1.py'
+                         '|src/emgimu/feature_bank/complete_bout_window_adapter_v1.py'
+                         '|src/emgimu/feature_bank/personal_temporal_cli_v1.py'
+                         '|tests/test_personal_temporal_unibo_v1_delivery.py')
+            boundary += (' Independent full-bout personal/session DTW and path fusion now delivers84 blocks/924 arm cells/187044 retained probabilities, '
+                         'with complete-versus-estimated contracts, persistent profiles and eight-channel adapter/CLI checks. '
+                         'Recording-level excluded calibration, independent DP/medoid/signature/probability and all weighted metric/cost checks pass. '
+                         'Day6 five-shot primary guard fails: F1 rises slightly but log loss/Brier worsen, only1/7 user loss wins. '
+                         'Native scope is four-channel200Hz oracle boundaries; new temporal GUI/autonomous composition and physical eight-channel efficacy remain unproven.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

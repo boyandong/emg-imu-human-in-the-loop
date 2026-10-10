@@ -1,0 +1,45 @@
+{
+  "schema": "personal_temporal_regression_v1",
+  "prefreeze_commit": "7d42819",
+  "records": [
+    {
+      "path": "emgimu_classifier/feature_bank/regression/personal_temporal_v1/classifier.xml",
+      "sha256": "b28425dd60c3c3d438508f6f92eff856dc0deb1530b49d98ef338b122a039b0b",
+      "tests": 33,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "source_sha256": {
+    "src/emgimu/feature_bank/personal_temporal_bouts_v1.py": "cf0d48becc65acd8b6336be421253070b160b345f0eee8acc2924938853af5c6",
+    "src/emgimu/feature_bank/complete_bout_window_adapter_v1.py": "49c124f12ceb6530f9c219d57698bfd8d1c38ad1879368cb597fef135eefda31",
+    "src/emgimu/feature_bank/personal_temporal_cli_v1.py": "4acb69eab4c0ec1796fbe535694ea1794290f4146a529cad5006cf65a1140568",
+    "src/emgimu/feature_bank/document_path_v3.py": "8c5b3f84b0d7ac74c82f736606823846d812f2f34ea9962f2c4c3d6fff7ab98d",
+    "src/emgimu/feature_bank/temporal.py": "ce23e7a046d27ecbd5ee38e2c0e54976cbe668ac5d44fb28a9b5826b6950b45a",
+    "src/emgimu/feature_bank/core.py": "a272025baef6a52ed24088092d17937da26ba334453305e552b6690528bbfffe",
+    "src/emgimu/feature_bank/unibo_sequence_temporal.py": "c081d69336f3126689e55df688af09b4644eb7b3db0ba893dbdeb4dc88dfbb7f",
+    "src/emgimu/feature_bank/unibo_study.py": "45be90b3f0cd6810b737df1c304df238ae6a65f544d02f79c30ea5e96ec73db7",
+    "src/emgimu/feature_bank/screening.py": "ff32a8bfe3e4f5d7bf7143e4df0e9a90468e73215bcb01c24734ebc70fc42c2b",
+    "src/emgimu/datasets/benchmark.py": "98a1252c72231e1ad0fdbb17b319b56c51c2c21b91b3a5f39729b300a7358585",
+    "src/emgimu/state.py": "226a29b7d958ce3ac3180d923bf3e8310904edd1f950917003e74cd9949582c6",
+    "src/emgimu/datasets/unibo_baseline.py": "86055861e9e192d7eedb4e329f4e83594af842159ab72dc811bd5280e039c539",
+    "tests/test_personal_temporal_bouts_v1.py": "35c894e83b5e3c151e96c25bc721683cad2e5f567a2564efe05ae1bf41764050",
+    "tests/test_personal_temporal_cli_v1.py": "778f1912d1024782520093ddab7a761b6d8e3cba7aff8bd86787fa306681ac40",
+    "tests/test_personal_temporal_native_oracles_v1.py": "a7b5ac3040edeae726db88e7f65295990a9ab1f84c8e4fbee6e9a2568156ac4c",
+    "benchmarks/new_bank_v3/personal_temporal_unibo_v1.py": "c632795aacdcffb46d91b0728cec63bdb880afdd512d932e34ae22aa8e17bfad",
+    "benchmarks/new_bank_v3/verify_personal_temporal_unibo_v1.py": "80a7c48c56897aec20f83a48ac879406448c63646c5f59d2099aa62f43ef641a",
+    "tests/test_personal_temporal_unibo_v1_delivery.py": "40671498030e735e7733e8c067d6cfdc1d682a82d5c4ed3a359a6050480f7b9d",
+    "tests/test_current_v3_delivery.py": "f616dac52688dfed4f9cd1cbad2334b742d962d8fe7a7bbdb458963848bce17b",
+    "benchmarks/new_bank_v3/export_current_delivery.py": "f2a4fcb9fcfe9354956abd91ea66a72000815b60ac6ca2cfb9a7b64ffee6349e",
+    "benchmarks/new_bank_v3/current_scientific_conclusions_v1.py": "e4df45f3fc74100361dc1093feb3a71e108984ab14dc42a52f598c19298ed9f9",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "00953e07c98f7cd884586fb15d145aacd6bd1e45dae2032110d23ecee2929bae"
+  },
+  "native_blocks": 84,
+  "native_arm_cells": 924,
+  "native_retained_predictions": 187044,
+  "acceptance_sha256": "cdc50a21d93eec8e6b86878570cbd062e19552af7067eaf64ede184555d12583",
+  "scope": "33 focused runtime, subprocess, native-oracle, canonical, scientific and specification-trace checks. Existing Qt code is unchanged; previous frozen GUI regression remains separate. No new temporal GUI or physical efficacy claim.",
+  "default_promoted": false,
+  "completion_proven": false
+}

@@ -433,6 +433,74 @@ def export():
                 full_target_calibration_trials_per_user=costs[full_name],remaining_target_calibration_trials_per_user=costs[remaining],
                 **{'full_'+key:full[key] for key in METRICS},**{'remaining_'+key:alternative[key] for key in METRICS},
                 delta_logloss=alternative['log_loss']-full['log_loss'],delta_macro_f1=full['macro_f1']-alternative['macro_f1'],delta_brier=alternative['brier']-full['brier']))
+    temporal_name='PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json';temporal=read(temporal_name)
+    temporal_source=(HERE/temporal_name).relative_to(ROOT).as_posix()
+    temporal_arrays=HERE/'personal_temporal_unibo_v1/readouts.npz'
+    sources[temporal_arrays.relative_to(ROOT).as_posix()]=sha(temporal_arrays)
+    for path in (ROOT/'feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json',
+                 HERE/'verify_personal_temporal_unibo_v1.py'):
+        sources[path.relative_to(ROOT).as_posix()]=sha(path)
+    comparisons=[('base',name) for name in temporal['blocks'][0]['scores'] if name!='base']
+    comparisons += [('base_uniform','base_full'),('DTW_long','DTW_local'),('base_DTW_long','base_DTW_blended')]
+    with np.load(temporal_arrays,allow_pickle=False) as native:
+        for block in temporal['blocks']:
+            y=np.array(block['labels']);weights=np.array(block['weights']);weights/=weights.sum()
+            probabilities={name:native[block['key']+'_'+name] for name in block['scores']}
+            notes=dict(class_names=['neutral','index_pinch','fist','open_hand'],
+                metric_weighting='equal user-day, recording trial, observed label, bout',
+                actual_additional_temporal_calibration_trials=block['predictive_calibration_cost'],
+                lifecycle_requires_long20_except_base_controls=True,
+                G5_personalized_source_history_common_to_all_arms='Days1-5; not zero total onboarding',
+                all_reserved_recordings_excluded_at_all_budgets=True,
+                branch_ablation='fixed .25 temporal mass reallocated to the remaining branch; not renormalization',
+                oracle_complete_boundaries=True,scope=temporal['scope'])
+            context=dict(run_id='personal_temporal_unibo_v1',source_artifact=temporal_source,
+                source_sha256=sources[temporal_source],dataset='UniBo_native_complete4',subject=block['user'],
+                **{'session/domain':f"Day{block['day']}"},condition='complete_cued_oracle_boundaries',
+                calibration_budget=block['shots'],evaluation_trials=len(y),metadata_notes_json=json.dumps(notes,sort_keys=True))
+            for name,q in probabilities.items():
+                prediction=q.argmax(1);class_metrics={}
+                for c in range(4):
+                    support=int((y==c).sum());predicted=int((prediction==c).sum());tp=int(((y==c)&(prediction==c)).sum())
+                    sw=weights[y==c].sum();pw=weights[prediction==c].sum();tw=weights[(y==c)&(prediction==c)].sum()
+                    class_metrics[str(c)]=dict(support=support,predicted=predicted,true_positives=tp,
+                        false_positives=predicted-tp,false_negatives=support-tp,
+                        support_weight=float(sw),predicted_weight=float(pw),true_positive_weight=float(tw),
+                        precision=float(tw/pw) if pw else None,recall=float(tw/sw) if sw else None,
+                        f1=float(2*tw/(sw+pw)) if sw else None)
+                s=block['scores'][name]
+                family.append({**context,'feature_family':name,**{k:s[k] for k in METRICS},
+                    'class_metrics_json':json.dumps(class_metrics,sort_keys=True)})
+                curve.append({**context,'feature_bank':name,'shots_per_class':block['shots'],
+                    'method':'personal_temporal_unibo_v1','supported':True,'macro_f1':s['macro_f1'],'log_loss':s['log_loss']})
+            for a,b in comparisons:
+                ea=probabilities[a].argmax(1)!=y;eb=probabilities[b].argmax(1)!=y
+                ma=np.average(ea,weights=weights);mb=np.average(eb,weights=weights)
+                va=np.average((ea-ma)**2,weights=weights);vb=np.average((eb-mb)**2,weights=weights)
+                corr=float(np.average((ea-ma)*(eb-mb),weights=weights)/np.sqrt(va*vb)) if va>0 and vb>0 else 'N/A'
+                errors.append({**context,'family_a':a,'family_b':b,'error_correlation':corr,
+                    'correlation_status':'undefined_constant_error_vector' if corr=='N/A' else 'defined',
+                    'disagreement_rate':float(np.average(ea!=eb,weights=weights)),
+                    'a_correct_b_wrong':int((~ea&eb).sum()),'a_wrong_b_correct':int((ea&~eb).sum()),
+                    'a_correct_b_wrong_probability':float(weights[~ea&eb].sum()),
+                    'a_wrong_b_correct_probability':float(weights[ea&~eb].sum())})
+                x,z=block['scores'][a],block['scores'][b]
+                incremental.append({**context,'core_bank':a,'added_family':b,
+                    'comparison_kind':'paired_fixed_probability_mixture_not_concatenated_increment',
+                    'delta_logloss':x['log_loss']-z['log_loss'],'delta_macro_f1':z['macro_f1']-x['macro_f1'],
+                    'delta_brier':x['brier']-z['brier']})
+            full=block['scores']['base_full']
+            for removed,remaining in (('DTW_branch_reallocation','base_signature_blended'),
+                                      ('signature_branch_reallocation','base_DTW_blended')):
+                alternative=block['scores'][remaining]
+                cost=block['predictive_calibration_cost'][remaining]
+                ablations.append({**context,'full_bank':'base_full','removed_provider':removed,'remaining_bank':remaining,
+                    'full_target_calibration_trials_per_user':20+4*block['shots'],
+                    'remaining_target_calibration_trials_per_user':cost['long_term']+cost['current'],
+                    **{'full_'+k:full[k] for k in METRICS},**{'remaining_'+k:alternative[k] for k in METRICS},
+                    'delta_logloss':alternative['log_loss']-full['log_loss'],
+                    'delta_macro_f1':full['macro_f1']-alternative['macro_f1'],
+                    'delta_brier':alternative['brier']-full['brier']})
     burden_name = 'MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json'
     burden = read(burden_name)
     burden_source = (HERE/burden_name).relative_to(ROOT).as_posix()
@@ -586,6 +654,8 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/SONG_DECISION_GUI_V1_ACCEPTANCE.json')},
              'song_extended_window_acceptance': {'path':'../SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json',
                  'sha256':sha(ROOT/'feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json')},
+             'personal_temporal_unibo_acceptance': {'path':'../PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json',
+                 'sha256':sha(ROOT/'feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json')},
              'song_extended_gui_acceptance': {'path':'../SONG_EXTENDED_GUI_V1_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json')},
              'completion_proven': False}

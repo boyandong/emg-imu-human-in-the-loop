@@ -86,6 +86,13 @@ def build():
     for name in ('benchmarks/song_real8/SONG_DECISION_GUI_V1_PROTOCOL.json',
                  'tests/test_personal_session_stream_v3.py', 'tests/test_decision_gui_v1_delivery.py'):
         sources[name]=sha(ROOT/name)
+    temporal=read('PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json')
+    temporal_acceptance_path=ROOT/'feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json'
+    sources[temporal_acceptance_path.relative_to(ROOT).as_posix()]=sha(temporal_acceptance_path)
+    temporal_acceptance=json.loads(temporal_acceptance_path.read_text(encoding='utf8'))
+    for name in ('tests/test_personal_temporal_unibo_v1_delivery.py',
+                 'benchmarks/new_bank_v3/verify_personal_temporal_unibo_v1.py'):
+        sources[name]=sha(ROOT/name)
     native_cost_curve=read('EMG_CALIBRATION_COST_CURVE_V1.json')
     calibrated_fusion=read('EMG_CALIBRATED_FUSION_V1_RESULTS.json')
     window_bank = read('EMG_WINDOW_BANK_V1_RESULTS.json')
@@ -209,6 +216,12 @@ def build():
     answers[1]['answer'] += ' 独立新版在六组冻结模型外加入仅源数据训练的CSP；同124试次上五次/类校准时，F1从.9154升到.9422，损失从.3303降到.2675，四项预声明标准通过。仅为已检查的同人同日记录结果。'
     answers[5]['answer'] += ' 新七组F7/F8相对旧六组F7/F8也通过四项标准，但相对新七组基础方案，虽F1更高，损失/Brier更差。F4d仅为窗口/会话相对长期参考的背景坐标，不是分类器或疲劳测量。'
     answers[7]['answer'] += ' 新七组人口权重、均匀权重和单CSP控制实际目标校准成本为0；可靠性/个人原型等分支仍需长期20加当前0/4/8/20试次。新版界面提供明确选择，保留六组初始选项。'
+    for index in (1,5,7):
+        answers[index]['evidence'].extend(['benchmarks/new_bank_v3/PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json',
+            temporal_acceptance_path.relative_to(ROOT).as_posix()])
+    answers[1]['answer'] += ' 完整动作新版F5融合在UniBo Day6五次/类校准时F1从.7705升到.7763，但损失从.3906升到.4558，7人仅1人损失改善，主要标准失败。'
+    answers[5]['answer'] += ' 新版完整动作长期/当次DTW和路径分支已完成84组合、924方案单元、187044逐试次概率核验；Day7/8仅描述性，不能证明实时八通道或自动边界收益。'
+    answers[7]['answer'] += ' 新时序分支额外使用20个长期动作段和当前0/4/8/20个独立动作段；原G5还使用Days1-5个人训练历史，不能把基础分支写成零总注册成本。'
     for answer in answers:
         if not set(answer['evidence']) <= set(sources): raise ValueError('Unbound evidence')
     # REPORT is a rendered consumer, not independent experiment evidence.
@@ -255,6 +268,7 @@ def build():
                           'tests/test_f8_calibrated_manus_v2_delivery.py']
     verification_tests += ['tests/test_extended_window_decision_v1.py','tests/test_extended_window_cli_v1.py',
         'tests/test_personal_session_stream_v4.py','tests/test_extended_window_delivery_v1.py']
+    verification_tests += ['tests/test_personal_temporal_unibo_v1_delivery.py']
     for name in verification_tests: sources[name] = sha(ROOT / name)
     result = {'schema': 'current_scientific_conclusions_v1', 'generator_sha256': sha(Path(__file__)),
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
@@ -275,6 +289,8 @@ def build():
               'song_integrated_decision_acceptance':{k:integrated_acceptance[k] for k in ('checked_cells','checked_trial_probabilities','maximum_probability_error','scope')},
               'song_extended_window':{k:extension[k] for k in ('cells','source_dimensions','primary_guards','primary_pass','full_anchor_guards','F4d_context_only','scope')},
               'song_extended_window_acceptance':extension_acceptance,
+              'personal_temporal_unibo':{k:temporal[k] for k in ('pooled','primary_guards','primary_pass','primary_user_loss_wins','scope')},
+              'personal_temporal_unibo_acceptance':temporal_acceptance,
               'song_extended_gui_acceptance':{k:extension_gui[k] for k in ('records','verified_windows','scope','source_and_profiles_immutable','independent_direct_DFT_context','F4d_context_only')},
               'song_decision_gui_acceptance':{k:decision_gui[k] for k in ('records','verified_windows','scope',
                   'independent_filter_and_geometry_probabilities','chronological_confirmation_exact',

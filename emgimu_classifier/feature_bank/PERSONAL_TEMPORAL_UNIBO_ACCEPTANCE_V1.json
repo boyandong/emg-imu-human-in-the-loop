@@ -1,0 +1,25 @@
+{
+  "schema": "personal_temporal_unibo_acceptance_v1",
+  "verifier_sha256": "80a7c48c56897aec20f83a48ac879406448c63646c5f59d2099aa62f43ef641a",
+  "protocol_sha256": "8c03dbe6f424f6342671b9269926859598bed0b37193b7c5ac8efa9cd831529a",
+  "result_sha256": "291d5b903238e31c90f8997add01fcd0c86cf8da639a401c1bc0c259e6c38cdf",
+  "blocks": 84,
+  "arm_cells": 924,
+  "pooled_cells": 88,
+  "retained_predictions": 187044,
+  "matched_evaluation_bouts": 4251,
+  "independent_metrics_splits_fusion_costs_profiles_verified": true,
+  "native_inrun_DP_medoid_signature_probability_oracle_max_error": 6.106226635438361e-16,
+  "primary_guards": {
+    "lower_log_loss": false,
+    "lower_brier": false,
+    "nonworse_macro_f1": true,
+    "at_least5_of7_user_loss_wins": false
+  },
+  "primary_pass": false,
+  "user_loss_wins": 1,
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Previously inspected UniBo four-channel200Hz native oracle-labelled complete bouts. Native calibration/evaluation recording trials disjoint. Separate eight-channel250Hz window-adapter/CLI tests do not prove real eight-channel complete-action accuracy. Song stable-only excerpts are ineligible. Estimated boundaries stay estimated; output waits for interval end. No automatic segmentation or device/default efficacy claim."
+}

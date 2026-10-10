@@ -320,6 +320,17 @@ def build() -> dict:
             unresolved += (' This positive CSP increment is retrospective on one user/day, not a reversal of historical public-cohort negatives. '
                            'New-seven F7/F8 still worsens probability loss/Brier versus new-seven reliability despite higher F1; no default promotion. '
                            'F4d is only background/session coordinates, not a fatigue measurement. Full-bout F5, physical ring/F6 and independent deployment remain outside this window-bank scope.')
+        if family=='F5':
+            evidence += ('|benchmarks/new_bank_v3/PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json'
+                         '|feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json'
+                         '|src/emgimu/feature_bank/personal_temporal_bouts_v1.py'
+                         '|src/emgimu/feature_bank/complete_bout_window_adapter_v1.py'
+                         '|tests/test_personal_temporal_unibo_v1_delivery.py')
+            supported += (' Independent full-bout personal/current-session DTW and order1/2 signature fusion now retains84 blocks/924 arms/187044 native probabilities on4251 matched UniBo bouts. '
+                          'Independent DP/medoids/signatures, recording-level calibration exclusion, equal-trial metrics, cost ledger and saved-profile state checks pass. '
+                          'Eight-channel250Hz adapter and label-free CLI checks preserve raw-quality Unknown and complete-versus-estimated provenance.')
+            unresolved += (' Day6 five-shot full F1 .7705 to.7763 but loss .3906 to.4558 and Brier worsen; only1/7 users improves loss. Primary guard fails. '
+                           'This is inspected four-channel200Hz oracle-boundary evidence, not eight-channel accuracy, automatic segmentation or current GUI integration. No default promotion.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")
