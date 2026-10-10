@@ -295,8 +295,15 @@ def build() -> dict:
                          '|tests/test_integrated_decision_delivery_v1.py')
             supported += (' A separate operational six-provider decision layer now fuses ordinary/affine-SPD F7 probabilities and applies calibration-only F8 drift/geometry weights, with optional raw F9. '
                           'Same124 native evaluation trials yield56 cells/6944 predictions and all six provider removals. Independent prototypes, generalized SPD eigenvalues, routing and persistence are verified; a label-free CLI supports separate-process lifecycle.')
+            evidence += ('|feature_bank/SONG_DECISION_GUI_V1_ACCEPTANCE.json'
+                         '|benchmarks/song_real8/SONG_DECISION_GUI_V1_PROTOCOL.json'
+                         '|tests/test_decision_gui_v1_delivery.py'
+                         '|tests/test_personal_session_stream_v3.py')
+            supported += (' The versioned application now has explicit operational F7/F8 controls with persistent decision profiles and raw F9. '
+                          'Ten full-S04 streams/297900 emissions match independent filtering/geometry/fusion/gating and chronological confirmation. '
+                          'Actual Qt/subprocess tests exercise guided personal/new-session registration and packet-loss clearing. Source/profile state stays immutable.')
             unresolved += (' Five-shot full F1/pinch recall improve, but loss/Brier worsen; joint guard fails. No default promotion. '
-                           'This decision layer still needs its own autonomous GUI stream integration and does not cover every document subfamily or device efficacy.')
+                           'Continuous numerical integration includes calibration intervals, does not score accuracy and does not cover every document subfamily or device efficacy.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

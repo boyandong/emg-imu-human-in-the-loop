@@ -544,6 +544,8 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/SONG_RAW_QUALITY_ACCEPTANCE_V1.json')},
              'song_integrated_decision_acceptance': {'path':'../SONG_INTEGRATED_DECISION_ACCEPTANCE_V1.json',
                  'sha256':sha(ROOT/'feature_bank/SONG_INTEGRATED_DECISION_ACCEPTANCE_V1.json')},
+             'song_decision_gui_acceptance': {'path':'../SONG_DECISION_GUI_V1_ACCEPTANCE.json',
+                 'sha256':sha(ROOT/'feature_bank/SONG_DECISION_GUI_V1_ACCEPTANCE.json')},
              'completion_proven': False}
     (BASE/'INDEX.json').write_text(json.dumps(index, indent=2)+'\n', encoding='utf8')
     print(json.dumps({n: len(rows) for n, (rows, _) in tables.items()}), flush=True)

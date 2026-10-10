@@ -72,6 +72,12 @@ def build():
     integrated_acceptance_path=ROOT/'feature_bank/SONG_INTEGRATED_DECISION_ACCEPTANCE_V1.json'
     sources[integrated_acceptance_path.relative_to(ROOT).as_posix()]=sha(integrated_acceptance_path)
     integrated_acceptance=json.loads(integrated_acceptance_path.read_text(encoding='utf8'))
+    decision_gui_path=ROOT/'feature_bank/SONG_DECISION_GUI_V1_ACCEPTANCE.json'
+    sources[decision_gui_path.relative_to(ROOT).as_posix()]=sha(decision_gui_path)
+    decision_gui=json.loads(decision_gui_path.read_text(encoding='utf8'))
+    for name in ('benchmarks/song_real8/SONG_DECISION_GUI_V1_PROTOCOL.json',
+                 'tests/test_personal_session_stream_v3.py', 'tests/test_decision_gui_v1_delivery.py'):
+        sources[name]=sha(ROOT/name)
     native_cost_curve=read('EMG_CALIBRATION_COST_CURVE_V1.json')
     calibrated_fusion=read('EMG_CALIBRATED_FUSION_V1_RESULTS.json')
     window_bank = read('EMG_WINDOW_BANK_V1_RESULTS.json')
@@ -250,6 +256,9 @@ def build():
               'song_raw_quality_acceptance':{k:quality_acceptance[k] for k in ('checked_cells','checked_trial_probabilities','maximum_probability_error','unmodified_soft_correct_to_wrong','unmodified_soft_wrong_to_correct','full_stream_records','scope')},
               'song_integrated_decision':{k:integrated[k] for k in ('cells','primary_guards','primary_pass','scope')},
               'song_integrated_decision_acceptance':{k:integrated_acceptance[k] for k in ('checked_cells','checked_trial_probabilities','maximum_probability_error','scope')},
+              'song_decision_gui_acceptance':{k:decision_gui[k] for k in ('records','verified_windows','scope',
+                  'independent_filter_and_geometry_probabilities','chronological_confirmation_exact',
+                  'source_and_profiles_immutable','unmodified_structural_off_probability_identity')},
               'song_f0_stream':{'classes':song_stream['classes'],'scope':song_stream['scope'],
                   'cells':[{k:row[k] for k in ('session','arm','raw_samples','emissions','unscored_emissions','one_pass_max_probability_error')} | {policy:{k:row[policy][k] for k in ('eligible_windows','eligible_trials','unknown_windows','trial_balanced_macro_f1','trial_balanced_accuracy','whole_stable_hold_correct','within_stable_trial_switches')} for policy in ('raw','confirmed')} for row in song_stream['records']]},
               'emg_native_calibration_cost':native_cost_curve['cells'],

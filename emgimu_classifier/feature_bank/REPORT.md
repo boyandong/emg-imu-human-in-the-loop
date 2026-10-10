@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `e7681e2fa45ff7f8d0dfa9e364110eb0f956e774ad4f3d50a058c09a995d0dd5`.
+Source SHA-256: `78363b10b516ab9701978f5ec2ca56df56bedf63ea8d9dd25520c295f4ef3238`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -902,8 +902,7 @@ geometry temperature is an auditable calibration rule, not evidence of
 probability calibration. F8-only lowers loss without changing gesture
 decisions in these cells. No target-selected mixture or default promotion
 follows. All previously inspected single-user/day and cue-window limits
-remain. Full document subfamily composition and autonomous GUI streaming
-for this new decision layer are still separate work.
+remain. Full document subfamily composition remains separate work.
 
 Independent no-fit checks reconstruct ordinary class means, covariance
 prototypes, generalized SPD eigenvalues, F8 risks and every saved probability.
@@ -918,6 +917,48 @@ lists explicit enrollment/session/prediction inputs and branch controls.
 [Integrated decision results](../benchmarks/song_real8/SONG_INTEGRATED_DECISION_V1_RESULTS.json)
 and [independent integrated acceptance](SONG_INTEGRATED_DECISION_ACCEPTANCE_V1.json)
 bind the versioned candidate and preserve its signed outcomes.
+
+#### Operational decision GUI and future-free continuous integration
+
+The versioned application entry now uses the V3 personal/session panel
+and a persistent classifier subprocess. Its initial selection retains
+the previous reliability route. F8-only and experimental F7+F8 are explicit
+choices. Guided registration, new-session calibration and persistent
+decision profiles use the same bound policy; old profile formats are
+rejected. Branch/quality changes stop recognition and reset confirmations.
+Raw F9 gates the actual F7-mixed probabilities and F8-routed weights.
+
+| Full-recording arm | Windows | Rejected | Maximum probability error |
+|---|---:|---:|---:|
+| population | 29790 | 0 | 4.44e-16 |
+| session_baseline | 29790 | 0 | 4.44e-16 |
+| personal_anchor | 29790 | 0 | 7.77e-16 |
+| session_router | 29790 | 0 | 4.44e-16 |
+| session_anchor_long | 29790 | 0 | 7.22e-16 |
+| session_anchor_local | 29790 | 0 | 9.99e-16 |
+| full_off | 29790 | 0 | 1.11e-15 |
+| full_structural | 29790 | 0 | 1.11e-15 |
+| full_soft | 29790 | 21 | 1.11e-15 |
+| full_dropout_structural | 29790 | 29790 | 1.22e-15 |
+
+All 297,900 chronological emissions match independent one-pass
+filtering, frozen provider readouts, ordinary/generalized-SPD anchor
+probabilities, routing arithmetic, raw quality masks and two-emission
+confirmation. Alternating irregular chunks preserve every 200ms window
+at 40ms steps. Unmodified structural and off probabilities are identical;
+the synthetic all-recording channel3 dropout is rejected throughout.
+Independent Qt/subprocess tests exercise the actual application entry,
+guided calibration, profile persistence, branch selection and packet-loss
+clearing. The source model and both calibration profiles remain unchanged.
+
+These recordings were inspected previously and include calibration
+intervals. No labels enter this stream, and no accuracy is scored here.
+Numerical integration does not reverse the failed offline loss/Brier
+guards, establish real fault specificity or prove device throughput.
+Default promotion and physical validation remain false.
+
+[Operational decision GUI acceptance](SONG_DECISION_GUI_V1_ACCEPTANCE.json)
+binds the frozen implementation, protocol, profiles and saved emissions.
 
 #### Target calibration burden: extracted signal versus stored recording time
 

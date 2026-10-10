@@ -46,6 +46,9 @@ def test_required_report_current_answers_numerical_boundaries_and_local_links():
     assert '#### Operational F7 anchors and F8 routing around the frozen Song bank' in section
     assert '| 5 | F7_F8_F9_structural | 0.9244 | 0.6093 | 0.7419 |' in section
     assert 'zero current shots is not zero total onboarding' in section
+    assert '#### Operational decision GUI and future-free continuous integration' in section
+    assert 'All 297,900 chronological emissions' in section
+    assert '| full_dropout_structural | 29790 | 29790 |' in section
 
 
 def test_report_renderer_escapes_table_text_and_rejects_incomplete_question_sets():

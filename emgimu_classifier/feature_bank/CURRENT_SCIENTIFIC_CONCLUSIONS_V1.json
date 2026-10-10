@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "0a55056f50f85e82fb9914b3d16a1c49820768c3fe389545b7f25c1326e0eef0",
+  "generator_sha256": "01d80519a3c207c95179de535e71c77f237d645d0f6f3aae0466d23e238ddd45",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -71,17 +71,21 @@
     "feature_bank/SONG_RAW_QUALITY_ACCEPTANCE_V1.json": "c09b5676513e6f367857e82f2953fd3cd8bfd42c2cf2c99873ddb2a5e35bf302",
     "benchmarks/song_real8/SONG_INTEGRATED_DECISION_V1_RESULTS.json": "dcc64db6db2475783468d0459dfb9b798298b93fc218867315e218a27ea6a79a",
     "feature_bank/SONG_INTEGRATED_DECISION_ACCEPTANCE_V1.json": "f391e1578b4c8f9971708b5aadf7442a763c931f20bb706818d2e208d731286e",
+    "feature_bank/SONG_DECISION_GUI_V1_ACCEPTANCE.json": "aca2a1365563a122d59cee6a08d9198c056d0ceef2538d60c562a41c9687472f",
+    "benchmarks/song_real8/SONG_DECISION_GUI_V1_PROTOCOL.json": "37d455fd3451a76ed63f5cf904dd8a8dab31a77fd14bc531af153e8dcd5348c0",
+    "tests/test_personal_session_stream_v3.py": "d56e2533e26486e973eca1c23c134fb2db97eab1b70423f72e1e3cfe7ef1e378",
+    "tests/test_decision_gui_v1_delivery.py": "46895ee2df343a1741cd2eca50254f4f766c3e9d39cf8b9fa6fd3b1eb38d78f9",
     "benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.json": "a079bff7bceae47930f3bb6579782cbc9208ee1e858a89caaf78c43b31b575db",
     "benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json": "0d38aad3bfef51ee962d8cc3ec5cbf2f5b4c96cd483c0b572b69a26661df12b1",
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "c0fab16acc8bbca0c1424e9b01ef76b7b38e7ad426cbef060f839e32a76cb90e",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "fac7142e9442e56d5e2b9a370b619ca6d2a3de0f0ce0cb711d1b7f83300a5835",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
     "tests/test_current_scientific_conclusions_v1.py": "2d05c2b95325cb6ec7b4b157f80aabc7691eb2ebf6bca16ce37aa18d73a35ad2",
-    "tests/test_current_scientific_report_v1.py": "2267450b91d0efa2c339c7a24881673b161d551b59f2cb0052a424d6d4297e17",
+    "tests/test_current_scientific_report_v1.py": "d9da7b89c16fe68c04e92f79ac61f2838e7dd3e9260fc8852ba4f5eef23e8143",
     "tests/test_emg_f0_f7_bank_v1_delivery.py": "a5b29ec5d9644963850211e06a37409da2c6c869631ea5291fc52e9b515a8ac8",
     "tests/test_emg_bank_class_diagnostics_v1.py": "cd1252f955099a0bc93e2164db1c8bb59123d458e5a5c7630095a8f8f130f7fc",
     "tests/test_emg_window_bank_v1_delivery.py": "ea873465e741a526d665da2b53f01533cc59d0c8a14bcbf8c1379f633189badf",
@@ -7515,6 +7519,106 @@
     "checked_trial_probabilities": 6944,
     "maximum_probability_error": 4.163336342344337e-16,
     "scope": "Operational F7/F8/raw-F9 around six frozen EMG window providers, not every document subfamily, anatomical F6, full-bout F5, future-free continuous inference or device efficacy. Same single operator-identified user/day, inspected sessions and cued stable trial windows. New profile schema/policy identity cannot silently reuse old archives."
+  },
+  "song_decision_gui_acceptance": {
+    "records": [
+      {
+        "arm": "population",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 4.440892098500626e-16,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 14.964786099997582
+      },
+      {
+        "arm": "session_baseline",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 4.440892098500626e-16,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 15.795280899998033
+      },
+      {
+        "arm": "personal_anchor",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 7.771561172376096e-16,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 21.81443169999693
+      },
+      {
+        "arm": "session_router",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 4.440892098500626e-16,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 16.38477010000497
+      },
+      {
+        "arm": "session_anchor_long",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 7.216449660063518e-16,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 20.528259300001082
+      },
+      {
+        "arm": "session_anchor_local",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 9.992007221626409e-16,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 20.03109720000066
+      },
+      {
+        "arm": "full_off",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 1.1102230246251565e-15,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 20.303250099997967
+      },
+      {
+        "arm": "full_structural",
+        "windows": 29790,
+        "rejected": 0,
+        "maximum_probability_error": 1.1102230246251565e-15,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 20.15777479999815
+      },
+      {
+        "arm": "full_soft",
+        "windows": 29790,
+        "rejected": 21,
+        "maximum_probability_error": 1.1102230246251565e-15,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 20.2049330999871
+      },
+      {
+        "arm": "full_dropout_structural",
+        "windows": 29790,
+        "rejected": 29790,
+        "maximum_probability_error": 1.2212453270876722e-15,
+        "confirmations_exact": true,
+        "source_and_profiles_immutable": true,
+        "elapsed_seconds": 20.22194600000512
+      }
+    ],
+    "verified_windows": 297900,
+    "scope": "Previously inspected single-user/day full S04 including calibration intervals. No fitting, labels, future context, selection, accuracy or device claims. Immutable pre-existing profiles and policy; injected channel3 zero is synthetic. Initial branches remain off.",
+    "independent_filter_and_geometry_probabilities": true,
+    "chronological_confirmation_exact": true,
+    "source_and_profiles_immutable": true,
+    "unmodified_structural_off_probability_identity": true
   },
   "song_f0_stream": {
     "classes": [

@@ -603,7 +603,16 @@ def build(pre: Path, goal: Path) -> dict:
             boundary += (' Operational F7/F8/raw-F9 now surrounds six frozen providers: calibration-only ordinary/affine-SPD prototypes contribute probabilities, '
                          'and same-user generic/family drift adjusts weights. Nested0/1/2/5 current budgets retain56 cells/6944 same124-trial predictions, six provider removals and F7/F8/F9 removals. '
                          'Zero current still uses20 long-term trials. Independent geometry/routing/probability and versioned profile/CLI checks pass. '
-                         'Five-shot F1/recall improve but loss/Brier worsen, failing the joint guard. No default promotion; this new layer has no autonomous GUI stream evidence or full-document/subfamily/device proof.')
+                         'Five-shot F1/recall improve but loss/Brier worsen, failing the joint guard. No default promotion or full-document/subfamily/device proof.')
+            evidence += ('|feature_bank/SONG_DECISION_GUI_V1_ACCEPTANCE.json'
+                         '|benchmarks/song_real8/SONG_DECISION_GUI_V1_PROTOCOL.json'
+                         '|src/emgimu/feature_bank/personal_session_stream_v3.py'
+                         '|tests/test_personal_session_stream_v3.py'
+                         '|tests/test_decision_gui_v1_delivery.py')
+            boundary += (' A separately frozen operational GUI/stream V3 now provides explicit baseline/F8/F7+F8 choices, persistent new-schema profiles, guided calibration and actual mixed-provider raw F9. '
+                         'Ten full-S04 streams/297900 emissions match independent filter/Euclidean/generalized-SPD/weight/gate arithmetic and chronological confirmations under irregular chunks. '
+                         'Qt exercises the actual default application entry, personal/new-session lifecycle and packet-loss clearing. '
+                         'No stream labels, fitting or source/profile mutation occur. Calibration intervals remain included, so this is execution parity, not new efficacy, hardware throughput or a reversal of negative offline guards.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]
