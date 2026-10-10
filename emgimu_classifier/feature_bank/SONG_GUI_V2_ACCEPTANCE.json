@@ -1,0 +1,66 @@
+{
+  "schema": "song_gui_v2_acceptance",
+  "source_sha256": {
+    "emgimu_classifier/benchmarks/song_real8/export_song_gui_v2.py": "e4f7cd9118f0a4e5b637b07b2a0eacf8df2978c63bea0f0ac7e1bd5cca093e73",
+    "emgimu_classifier/benchmarks/song_real8/F0_REST_MODEL_RESULTS.json": "df34a6923a0988d6b1af9f6d20348310335e5b49233f107ed60f67c08c904515",
+    "emgimu_classifier/benchmarks/song_real8/SONG_F0_STREAM_V1_PROTOCOL.json": "24d125eba628baf3b53d179c111f7cd14c97d04281f6d36d22fb14b93c4f58c0",
+    "emgimu_classifier/benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json": "3c41021ab3639d9b36b1d4f9c53ca0068a67c9a7749ce8c53127a77caf793b48",
+    "emgimu_classifier/benchmarks/song_real8/SONG_F0_STREAM_V1_EMISSIONS.npz": "08eb16b55ec32482a976ce8f8c9d8f520854950d52d40c15a6fc2f5334532864",
+    "collection/emg_meta/emg_meta/emgforce/inference/song_local.py": "47dc81fdf184286cbd2b097fa2879fc7b00cb6bbfe6d557d9e8bebd57539e8ed",
+    "collection/emg_meta/emg_meta/emgforce/inference/song_worker.py": "477976337ddef2b643cd196b56632b0189fbf3993ee59b9d3576611207bd43bc",
+    "collection/emg_meta/emg_meta/emgforce/ui/realtime_inference_page.py": "4ba993662805591f1ecf7cb1292d51fa58cfee0dd72687c9f9cd2a930b75703d",
+    "collection/emg_meta/emg_meta/tests/test_song_frozen_v2.py": "0aa2332cfe5ba83787f80ac00240e7112910bacc40e872322ecdd08fbe86c24c"
+  },
+  "source_checkpoint_sha256": "623e4f9ca282a03cde98236844039b6043f5f0471cfae35da94482af0e43b44c",
+  "bundles": [
+    {
+      "arm": "pooled_source_threshold",
+      "directory": "collection/emg_meta/emg_meta/model_assets/song_f0_pooled_frozen_v2",
+      "model_sha256": "0378b6aad2039904e196c49ad4bd99b7da9cf37aaf2b5cfd4a7769d2f07bc330",
+      "manifest_sha256": "f6b979c3b8ccb28d216c1d13fac652828dc49f2430da72aff32345f2e4e0d83b"
+    },
+    {
+      "arm": "rest_only_threshold",
+      "directory": "collection/emg_meta/emg_meta/model_assets/song_f0_rest_frozen_v2",
+      "model_sha256": "751f231a0c9ed89b983bce30cbae9c69318b16b00e002d8f589aa50e6c151ab9",
+      "manifest_sha256": "589ec7c73cdffd8be583eed656aa26cada04a207bd1adf355d10c3e1e6c0472d"
+    }
+  ],
+  "records": [
+    {
+      "session": "S03",
+      "arm": "pooled_source_threshold",
+      "emissions": 33610,
+      "maximum_probability_error": 1.6653345369377348e-15,
+      "confirmation_exact": true
+    },
+    {
+      "session": "S03",
+      "arm": "rest_only_threshold",
+      "emissions": 33610,
+      "maximum_probability_error": 1.7763568394002505e-15,
+      "confirmation_exact": true
+    },
+    {
+      "session": "S04",
+      "arm": "pooled_source_threshold",
+      "emissions": 29790,
+      "maximum_probability_error": 1.7763568394002505e-15,
+      "confirmation_exact": true
+    },
+    {
+      "session": "S04",
+      "arm": "rest_only_threshold",
+      "emissions": 29790,
+      "maximum_probability_error": 2.1094237467877974e-15,
+      "confirmation_exact": true
+    }
+  ],
+  "source_parameters_exact": true,
+  "source_state_immutable": true,
+  "builtin_discovery_verified": true,
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Two source-frozen JSON models load in the existing collection page without classifier Python package or source recordings. All126800 GUI runtime stream frames match frozen replay below1e-12; two-confirmation labels agree exactly. Qt worker/page simulated-input tests are separate from physical device efficacy. Legacy v1 rules remain unchanged."
+}

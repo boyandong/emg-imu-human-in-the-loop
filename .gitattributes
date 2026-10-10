@@ -1056,3 +1056,11 @@ emgimu_classifier/benchmarks/song_real8/SONG_F0_STREAM_V1_PROTOCOL.json -text -e
 emgimu_classifier/benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/song_real8/SONG_F0_STREAM_V1_EMISSIONS.npz -text -eol whitespace=cr-at-eol
 emgimu_classifier/tests/test_song_f0_stream_native_annotations_v1.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/tests/test_song_frozen_v2.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/model_assets/song_f0_pooled_frozen_v2/song_f0_model.json -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/model_assets/song_f0_pooled_frozen_v2/song_manifest.json -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/model_assets/song_f0_rest_frozen_v2/song_f0_model.json -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/model_assets/song_f0_rest_frozen_v2/song_manifest.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/export_song_gui_v2.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_song_gui_v2_delivery.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/SONG_GUI_V2_ACCEPTANCE.json -text -eol whitespace=cr-at-eol

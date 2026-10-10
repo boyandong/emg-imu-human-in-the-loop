@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `1ca86a04b5fb1a6c1f6e5ef94829a888a5b93cc07279729cd6a932f5ff36d8fd`.
+Source SHA-256: `ba43c23971aa865babba2ef393cdf4cc6060b6d0eb449eb7e8abed96793ee2a0`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -596,7 +596,36 @@ causal emissions. Initial and explicitly reset states preserve UNKNOWN.
 This new protocol is frozen separately from the prior three-window trial
 average benchmark. Stable cue intervals do not prove physiological onset
 timing or complete-action success. One user/day and readiness/inspection
-limitations persist; no UI or default model is promoted.
+limitations persist; no default model is promoted.
+
+#### Collection-page integration of the fixed Song models
+
+The existing realtime recognition page discovers two bundled v2 JSON
+models: pooled-source and rest-only thresholds. Select a model, click
+Load, and start recognition after connecting. These models require
+eight raw channels at250Hz; they do not resample other hardware rates
+or use IMU. Model SHA-256 is checked before loading. No source recordings
+or classifier/sklearn installation are required by the collection runtime.
+
+Both original source parameter arrays are preserved exactly. The runtime
+casts scaler parameters to float32 before its in-place standardization,
+matching the frozen source pipeline; probabilities remain float64.
+The fixed policy uses a200ms window,40ms hop and two consecutive argmax
+decisions, initially UNKNOWN. The confidence control is disabled for
+these bundles so the page cannot silently change the audited policy.
+
+All126800 emitted probabilities match the frozen native reference below1e-12,
+and all confirmed labels match exactly. The application Python environment
+also replays both native recordings. Offscreen Qt checks cover selection,
+loading, recognition, pause, explicit packet loss, index discontinuities
+and disconnect. Resets clear the displayed gesture and require a fresh
+complete window. Legacy v1 bundles retain their original policy.
+
+[GUI acceptance and bundle hashes](SONG_GUI_V2_ACCEPTANCE.json)
+bind the exporter, runtime, worker, page and collection tests.
+This proves software integration and retrospective equivalence, not live
+device accuracy or recovery after electrode reattachment. Both source
+arms remain user-selectable experimental candidates; neither is promoted.
 
 #### Target calibration burden: extracted signal versus stored recording time
 

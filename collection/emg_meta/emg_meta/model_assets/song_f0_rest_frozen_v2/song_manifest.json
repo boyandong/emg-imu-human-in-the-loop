@@ -1,0 +1,16 @@
+{
+  "format_version": 2,
+  "algorithm_id": "song_real8_local_v1",
+  "model_id": "Song250 frozen rest_only_threshold",
+  "artifact": "song_f0_model.json",
+  "model_status": "frozen_source_one_person_one_day_not_live_validated",
+  "threshold_arm": "rest_only_threshold",
+  "validation_trial_accuracy": 0.9285714285714286,
+  "validation_trial_macro_f1": 0.9277061588442663,
+  "source_checkpoint_sha256": "623e4f9ca282a03cde98236844039b6043f5f0471cfae35da94482af0e43b44c",
+  "source_original_state_sha256": "4ff578f9dfb0896ba4d626a60fc64669e52c3c13e404c9b3cc841ae5b2480ffb",
+  "stream_protocol_sha256": "24d125eba628baf3b53d179c111f7cd14c97d04281f6d36d22fb14b93c4f58c0",
+  "default_promoted": false,
+  "scope": "Both fixed source arms exported without fitting; single user/day retrospective data, readiness failures, stable-cue and hardware limitations persist. Stream confirmation reduces switching but slightly harms F1; user selection is required.",
+  "sha256": "751f231a0c9ed89b983bce30cbae9c69318b16b00e002d8f589aa50e6c151ab9"
+}

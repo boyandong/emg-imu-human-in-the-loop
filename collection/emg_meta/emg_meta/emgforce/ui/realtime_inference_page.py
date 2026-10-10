@@ -608,7 +608,7 @@ class RealtimeInferencePage(QWidget):
                 f"{macro_f1} · {active_f1}{context}",
                 info.combo_key,
             )
-        self._song_models = {info.combo_key: info for info in discover_song_models(self.models_root)}
+        self._song_models = {info.combo_key: info for info in discover_song_models(self.models_root, include_builtin=True)}
         for info in self._song_models.values():
             self.model_combo.addItem(
                 f"[Song 8ch] {info.model_id} · S03 val ACC {info.validation_accuracy:.3f} · "
@@ -669,20 +669,24 @@ class RealtimeInferencePage(QWidget):
         if song_path is not None:
             self.unibo_adapter_panel.setVisible(False)
             info = self._song_models.get(str(path_str))
-            if info is None:
-                try:
-                    runtime = SongLocalRuntime(song_path)
+            try:
+                runtime = SongLocalRuntime(song_path)
+                if info is None:
                     info = SongModelInfo(song_path, runtime.manifest["model_id"],
                                          float(runtime.manifest["validation_trial_accuracy"]),
                                          float(runtime.manifest["validation_trial_macro_f1"]))
-                except Exception as exc:
-                    self.model_details.setText("--")
-                    self.model_status.setText(f"Song 模型包无效：{exc}")
-                    self.load_model_button.setEnabled(False)
-                    return
+            except Exception as exc:
+                self.model_details.setText("--")
+                self.model_status.setText(f"Song 模型包无效：{exc}")
+                self.load_model_button.setEnabled(False)
+                return
             self.model_details.setText(
                 f"Song 真实 8 通道 / 250 Hz / 200 ms / 四分类 · S03 试次 F1 {info.validation_macro_f1:.3f}\n"
                 "S01/S02 训练；因果滤波；同一人同一天的探索性模型，连续实时准确率未验证")
+            if runtime.format_version == 2:
+                self.model_details.setText(
+                    "250 Hz / 8 通道 / 200 ms 窗口 / 每 40 ms 更新 / 连续两次确认\n"
+                    "S01/S02 固定源模型；已核对 S03/S04 连续录制回放，同人单日，实机待验证")
             self.model_status.setText(f"已选择 Song 实验模型（点击「加载模型」）")
             self.load_model_button.setEnabled(True)
             return
@@ -853,6 +857,8 @@ class RealtimeInferencePage(QWidget):
         worker.calibration_progress.connect(self._calibration_progress)
         worker.calibration_finished.connect(self._calibration_finished)
         worker.prediction_ready.connect(self._prediction_ready)
+        if isinstance(worker, SongRealtimeWorker):
+            worker.state_reset.connect(self._reset_current_gesture)
         worker.start()
 
     def set_connected(self, connected: bool) -> None:
@@ -1128,6 +1134,10 @@ class RealtimeInferencePage(QWidget):
         online_threshold = float(bundle.preprocessing.get(
             "online_event_threshold", 0.50))
         self.threshold.blockSignals(True)
+        frozen_song = bool(bundle.metadata.get("song_frozen_source_v2"))
+        self.threshold.setMinimum(0.0 if frozen_song else 0.05)
+        self.threshold.setEnabled(not frozen_song)
+        self.threshold.setToolTip("此模型采用固定的连续两次确认规则，无需设置置信度阈值" if frozen_song else "")
         self.threshold.setValue(online_threshold)
         self.threshold.blockSignals(False)
         training = bundle.metadata.get("training", {})
@@ -1179,7 +1189,13 @@ class RealtimeInferencePage(QWidget):
                 self.model_details.setText(
                     f"250 Hz / 8 通道 / 200 ms 因果滤波四分类 · S03 验证 ACC {float(val_acc):.1%}\n"
                     "同人单日探索性模型；只验证过提示动作稳定区间，连续实时性能与延迟未验证")
-                self.replay_result.setText("Song 原始 HDF5 回放请使用 benchmarks/song_real8_study.py 的因果模式")
+                if bundle.metadata.get("song_frozen_source_v2"):
+                    self.model_details.setText(
+                        "250 Hz / 8 通道 / 200 ms 窗口 / 每 40 ms 更新 / 连续两次确认\n"
+                        "已完成 S03/S04 连续录制回放；跳变减少但 F1 略降，同人单日，实机待验证")
+                    self.replay_result.setText("此模型已核对完整连续录制回放；离线结果不代表重新佩戴后的准确率")
+                else:
+                    self.replay_result.setText("Song 原始 HDF5 回放请使用 benchmarks/song_real8_study.py 的因果模式")
                 self.calibration_instruction.setText("零校准模型")
                 self.calibration_detail.setText("此模型当前不使用现场校准；连接设备后直接开始识别")
                 self._update_live_buttons()

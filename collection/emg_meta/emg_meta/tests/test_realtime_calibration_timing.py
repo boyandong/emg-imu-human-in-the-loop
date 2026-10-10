@@ -28,7 +28,8 @@ def test_calibration_records_click_to_completion_separately_from_requested_signa
     page = RealtimeInferencePage(tmp_path / "models")
     worker = FakeWorker()
     page.worker = worker
-    page.bundle = SimpleNamespace(model_id="example", sha256="abc", sample_rate=250, metadata={})
+    page.bundle = SimpleNamespace(model_id="example", sha256="abc", sample_rate=250,
+                                  metadata={}, artifact=tmp_path / "fixture-model.pt")
     page._connected = True
     page.calibration_seconds.setValue(5)
     ticks = iter((100.0, 107.5))
@@ -55,7 +56,8 @@ def test_disconnect_records_interrupted_calibration(tmp_path, monkeypatch) -> No
     page = RealtimeInferencePage(tmp_path / "models")
     worker = FakeWorker()
     page.worker = worker
-    page.bundle = SimpleNamespace(model_id="example", sha256="abc", sample_rate=250, metadata={})
+    page.bundle = SimpleNamespace(model_id="example", sha256="abc", sample_rate=250,
+                                  metadata={}, artifact=tmp_path / "fixture-model.pt")
     page._connected = True
     ticks = iter((10.0, 12.0))
     monkeypatch.setattr("emgforce.ui.realtime_inference_page.time.monotonic", lambda: next(ticks))

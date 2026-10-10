@@ -45,9 +45,13 @@ def _read_json(path: Path) -> dict:
     return value
 
 
-def discover_song_models(models_root: Path) -> list[SongModelInfo]:
+def discover_song_models(models_root: Path, *, include_builtin: bool = False) -> list[SongModelInfo]:
     found = []
-    for path in sorted(Path(models_root).glob("*/" + MANIFEST_NAME)):
+    roots = [Path(models_root)]
+    if include_builtin:
+        roots.append(Path(__file__).resolve().parents[2] / "model_assets")
+    paths = sorted({p.resolve() for root in roots for p in root.glob("*/" + MANIFEST_NAME)})
+    for path in paths:
         try:
             manifest = _read_json(path)
             if manifest["algorithm_id"] != SONG_REAL8_LOCAL:
@@ -99,20 +103,23 @@ class SongLocalRuntime:
         self.directory = Path(directory).resolve()
         manifest = _read_json(self.directory / MANIFEST_NAME)
         artifact = self.directory / MODEL_NAME
-        if (manifest.get("format_version") != 1 or
+        self.format_version = manifest.get("format_version")
+        expected_status = {1: "exploratory_one_person_one_day_not_formal_frozen",
+                           2: "frozen_source_one_person_one_day_not_live_validated"}
+        if (self.format_version not in expected_status or
                 manifest.get("algorithm_id") != SONG_REAL8_LOCAL or
                 manifest.get("artifact") != MODEL_NAME or
-                manifest.get("model_status") != "exploratory_one_person_one_day_not_formal_frozen"):
+                manifest.get("model_status") != expected_status[self.format_version]):
             raise ValueError("Song 模型清单与实验运行时不兼容")
         actual_hash = hashlib.sha256(artifact.read_bytes()).hexdigest()
         if actual_hash != manifest.get("sha256"):
             raise ValueError("Song 模型 SHA-256 不匹配")
         model = _read_json(artifact)
-        if (model.get("format_version") != 1 or
+        if (model.get("format_version") != self.format_version or
                 model.get("model_kind") not in {"song_real8_causal_f0_logistic",
                                                 "song_real8_causal_f0_spd_logistic"} or
                 model.get("sample_rate_hz") != 250 or model.get("channels") != 8 or
-                model.get("window_samples") != 50 or model.get("hop_samples") != 25 or
+                model.get("window_samples") != 50 or model.get("hop_samples") != (10 if self.format_version == 2 else 25) or
                 tuple(model.get("classes", ())) != LABELS):
             raise ValueError("Song 模型通道、采样率、窗口或类别不兼容")
         if model.get("filter") != {
@@ -121,6 +128,17 @@ class SongLocalRuntime:
             "implementation": "causal_sosfilt_zero_initial_state_continuous",
         }:
             raise ValueError("Song 模型因果滤波契约不匹配")
+        self.hop_samples = model["hop_samples"]
+        self.consecutive_frames = 2 if self.format_version == 2 else 3
+        self.online_event_threshold = 0.0 if self.format_version == 2 else 0.5
+        if self.format_version == 2:
+            expected_policy = {"consecutive_frames": 2, "online_event_threshold": 0.0,
+                               "confirmation": "consecutive_argmax_initial_unknown",
+                               "standard_scaler_dtype": "float32_inplace",
+                               "probability_dtype": "float64"}
+            if (model["model_kind"] != "song_real8_causal_f0_logistic"
+                    or model.get("stream_policy") != expected_policy):
+                raise ValueError("Song 冻结模型确认规则或数值精度不匹配")
         self.thresholds = self._array(model, "f0_thresholds", (8,), positive=True)
         self.with_spd = model["model_kind"] == "song_real8_causal_f0_spd_logistic"
         feature_width = 84 if self.with_spd else 48
@@ -162,10 +180,11 @@ class SongLocalRuntime:
                            sample_rate=250, input_channels=8, output_channels=4,
                            algorithm_id=SONG_REAL8_LOCAL,
                            runtime_backend="song_real8_f0_spd" if self.with_spd else "song_real8_f0",
-                           preprocessing={"online_event_threshold": 0.5, "window_samples": 50,
-                                          "hop_samples": 25},
+                           preprocessing={"online_event_threshold": self.online_event_threshold, "window_samples": 50,
+                                          "hop_samples": self.hop_samples, "consecutive_frames": self.consecutive_frames},
                            metadata={"experimental_adapter": True,
                                      "song_real8_local": True,
+                                     "song_frozen_source_v2": self.format_version == 2,
                                      "training": {"val_accuracy": self.manifest["validation_trial_accuracy"],
                                                   "val_macro_f1": self.manifest["validation_trial_macro_f1"]},
                                      "source_checkpoint": {"path": str(self.artifact), "sha256": self.sha256},
@@ -212,11 +231,18 @@ class SongLocalRuntime:
             spd = tangent_log[rows, cols].copy()
             spd[rows != cols] *= np.sqrt(2.0)
             features = np.concatenate((features, spd.astype(np.float32)))
-        standardized = ((features - self.scaler_mean) / self.scaler_scale)
+        if self.format_version == 2:
+            # Source sklearn casts fitted parameters to the input dtype first.
+            # Casting only the result changes probabilities near boundaries.
+            standardized = features.copy()
+            standardized -= self.scaler_mean.astype(features.dtype)
+            standardized /= self.scaler_scale.astype(features.dtype)
+        else:
+            standardized = ((features - self.scaler_mean) / self.scaler_scale)
         probabilities = softmax(self.coef @ standardized + self.intercept)
         if not np.isfinite(probabilities).all():
             raise RuntimeError("Song 模型输出异常")
-        return probabilities.astype(np.float32)
+        return probabilities if self.format_version == 2 else probabilities.astype(np.float32)
 
     def ingest(self, raw: np.ndarray, indices: np.ndarray) -> tuple[bool, list[tuple[int, np.ndarray]]]:
         raw = np.asarray(raw)
@@ -239,6 +265,6 @@ class SongLocalRuntime:
                 self._window.append(sample)
                 self._since_reset += 1
                 self._last_index = sample_id
-                if self._since_reset >= 50 and (self._since_reset - 50) % 25 == 0:
+                if self._since_reset >= 50 and (self._since_reset - 50) % self.hop_samples == 0:
                     frames.append((sample_id, self.predict_filtered_window(np.stack(self._window))))
         return discontinuity, frames

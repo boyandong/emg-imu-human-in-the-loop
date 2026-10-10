@@ -20,6 +20,7 @@ class SongRealtimeWorker(QThread):
     calibration_progress = Signal(int, int)
     calibration_finished = Signal(float)
     prediction_ready = Signal(object)
+    state_reset = Signal()
 
     def __init__(self, directory: Path, parent=None):
         super().__init__(parent)
@@ -55,11 +56,12 @@ class SongRealtimeWorker(QThread):
     def run(self):
         try:
             runtime = SongLocalRuntime(self.directory)
+            self._threshold = runtime.online_event_threshold
             self.model_loaded.emit(runtime.make_bundle())
             self.status_changed.emit("Song 8 通道实验模型已校验；连接设备后可直接开始识别")
             mode = "idle"
             pending: tuple[str, object, object] | None = None
-            decision = SongOnlineDecision()
+            decision = SongOnlineDecision(runtime.consecutive_frames)
             while not self._stopping.is_set():
                 if pending is None:
                     try:
@@ -72,11 +74,12 @@ class SongRealtimeWorker(QThread):
                 if command == "stop":
                     break
                 if command == "threshold":
-                    self._threshold = float(value)
+                    self._threshold = 0.0 if runtime.format_version == 2 else float(value)
                     continue
                 if command == "gap":
                     runtime.reset()
                     decision.reset()
+                    self.state_reset.emit()
                     self.status_changed.emit(f"检测到 {value} 帧丢失；Song 滤波状态已重置")
                     continue
                 if command == "calibrate":
@@ -85,13 +88,15 @@ class SongRealtimeWorker(QThread):
                 if command == "recognize":
                     runtime.reset()
                     decision.reset()
+                    self.state_reset.emit()
                     mode = "recognizing"
-                    self.status_changed.emit("Song 四分类因果推理运行中；连续动作/延迟尚未验证")
+                    self.status_changed.emit("Song 四分类因果推理运行中；实机效果与延迟待验证")
                     continue
                 if command == "pause":
                     mode = "idle"
                     runtime.reset()
                     decision.reset()
+                    self.state_reset.emit()
                     self.status_changed.emit("Song 实时识别已暂停")
                     continue
                 if command != "emg" or mode != "recognizing":
@@ -115,9 +120,12 @@ class SongRealtimeWorker(QThread):
                     had_gap |= gap
                     if gap:
                         decision.reset()
+                        self.state_reset.emit()
                         # A gap may occur inside this chunk; omit any pre-gap
                         # predictions rather than mixing two stream epochs.
                         frames = []
+                        latest = None
+                        events = []
                     for sample_index, probabilities in frames:
                         latest = (sample_index, probabilities)
                         name, changed = decision.step(probabilities, self._threshold)

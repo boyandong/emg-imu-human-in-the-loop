@@ -262,6 +262,17 @@ def build(pre: Path, goal: Path) -> dict:
                          "from EPN feature means; no evaluation labels or IMU are needed. "
                          "Single-user/day readiness and prior-inspection limits persist; "
                          "no autonomous live or default accuracy claim.")
+        if ident in ("GOAL-02", "GOAL-03", "GOAL-20", "GOAL-23"):
+            evidence += ("|feature_bank/SONG_GUI_V2_ACCEPTANCE.json"
+                         "|tests/test_song_gui_v2_delivery.py")
+            boundary += (" Both fixed Song250Hz models are integrated into the "
+                         "collection page as checksum-verified JSON bundles. "
+                         "All126800 native stream emissions and confirmation labels "
+                         "match the frozen reference; offscreen Qt verifies model "
+                         "loading, pause, packet loss, index-gap resets and disconnect. "
+                         "The fixed200ms/40ms/two-confirmation policy cannot be changed "
+                         "by the confidence control. Software integration does not "
+                         "prove current-device accuracy or physical timing.")
         if ident in ("GOAL-02", "GOAL-03", "GOAL-18", "GOAL-20", "GOAL-23"):
             evidence += ("|benchmarks/song_real8/SONG_F0_STREAM_V1_PROTOCOL.json"
                          "|benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json"
