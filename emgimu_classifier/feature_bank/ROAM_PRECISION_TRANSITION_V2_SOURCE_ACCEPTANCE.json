@@ -1,0 +1,29 @@
+{
+  "schema": "roam_precision_transition_v2_source_acceptance",
+  "protocol_sha256": "13af4e9a54059dd0abae6a19acde37c1f30e22c131ff68478df93142417cccdd",
+  "source_result_sha256": "2b2dbffdba62e3dd401e20dc1826ff1f8753fe7ae9cf6a9e4e250db7afa82a25",
+  "policy_sha256": "4fea7b694826a7ef703ca0cb08bab80f2e22071c45d655bda8be00c860dc5980",
+  "verifier_sha256": "6b76a0f2c71bb0de528b123576bf9cb05389b0ae39ac1537d5d895123fc447c9",
+  "inherited_native_source_receipt_sha256": "9afeba23cb677525ab84c901122f452ab7f45852f252b6d7c6fa499c0ac48cb1",
+  "source_probability_cache_sha256": "6fa00e81331ac2f3d252613076f6329a9a11dd2d9bbaf8dfd3ad3c8fd01751be",
+  "source_recordings": 72,
+  "independent_active_references": 360,
+  "candidates_verified": 36,
+  "selected_config": {
+    "confirmations": 20,
+    "smoothing_windows": 5,
+    "confidence": 0.0
+  },
+  "source_recall_retention": 0.970479704797048,
+  "old_source_unmatched_detections": 190,
+  "new_source_unmatched_detections": 50,
+  "inherited_source_logits_verified": true,
+  "independent_cached_FSM_matching_metrics_and_selection": true,
+  "native_source_inference_repeated": false,
+  "target_arrays_read": false,
+  "classifiers_refitted": false,
+  "source_scores_are_unbiased": false,
+  "read_only_no_fitting": true,
+  "native_experiment_rerun": false,
+  "scope": "New source-only precision-biased class-transition policy on previously inspected native8/200Hz ROAM. Reuse verified frozen source per-window probabilities, without source refits or native source inference. Source18 users/72 recordings/360 active cue references select36 precommitted settings. Source policy selection is training, not unbiased evaluation. Target20 recordings/100 active cue references remain retrospective, not physiological boundaries, independent prospective validation, pinch,250Hz own-device, physical ring/F6/F9 or a universal/default benefit."
+}

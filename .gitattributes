@@ -2137,3 +2137,6 @@ emgimu_classifier/tests/test_calibration_rest_detector_v1.py -text -eol whitespa
 /emgimu_classifier/benchmarks/new_bank_v3/verify_roam_precision_transition_v2.py -text -eol whitespace=cr-at-eol
 /emgimu_classifier/benchmarks/new_bank_v3/ROAM_PRECISION_TRANSITION_V2_PROTOCOL.json -text -eol whitespace=cr-at-eol
 /emgimu_classifier/tests/test_roam_precision_transition_v2.py -text -eol whitespace=cr-at-eol
+/emgimu_classifier/benchmarks/new_bank_v3/ROAM_PRECISION_TRANSITION_V2_SOURCE_RESULTS.json -text -eol whitespace=cr-at-eol
+/emgimu_classifier/benchmarks/new_bank_v3/roam_precision_transition_v2/source/policy.json -text -eol whitespace=cr-at-eol
+/emgimu_classifier/feature_bank/ROAM_PRECISION_TRANSITION_V2_SOURCE_ACCEPTANCE.json -text -eol whitespace=cr-at-eol
