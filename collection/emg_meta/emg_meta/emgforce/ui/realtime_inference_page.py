@@ -35,6 +35,7 @@ from emgforce.inference.unibo_adapter import (
     UniBoRealtimeWorker, discover_unibo_models, unibo_key_path,
 )
 from emgforce.inference.worker import OfflineReplayWorker, RealtimeInferenceWorker
+from emgforce.ui.personal_session_panel import PersonalSessionPanel
 from emgforce.transfer.dataset_upload import CommandResult
 from emgforce.transfer.remote_models import (
     RemoteModelInfo, download_remote_model, list_remote_models,
@@ -322,6 +323,10 @@ class RealtimeInferencePage(QWidget):
         self.unibo_adapter_panel.setVisible(False)
         model_layout.addWidget(self.unibo_adapter_panel)
         page.addWidget(model_card)
+
+        self.personal_session_panel = PersonalSessionPanel(
+            self.models_root / 'personal_session_profiles', self._activate_personal_workflow, self)
+        page.addWidget(self.personal_session_panel)
 
         remote_card, remote_layout = self._make_card(
             "服务器训练模型",
@@ -827,6 +832,8 @@ class RealtimeInferencePage(QWidget):
         path = self.model_combo.currentData()
         if not path:
             return
+        if not self.personal_session_panel.shutdown():
+            return
         if not self._stop_realtime_worker():
             return
         self.model_status.setText("正在校验并加载模型……")
@@ -863,6 +870,7 @@ class RealtimeInferencePage(QWidget):
 
     def set_connected(self, connected: bool) -> None:
         self._connected = bool(connected)
+        self.personal_session_panel.set_connected(connected)
         if not connected:
             self.stop_diagnostic()
             self._finish_calibration_timing("device_disconnected")
@@ -873,6 +881,7 @@ class RealtimeInferencePage(QWidget):
 
     def ingest_emg(self, raw: np.ndarray, indices: np.ndarray,
                    received_ns: np.ndarray | None = None) -> None:
+        self.personal_session_panel.submit_emg(raw, indices)
         if (isinstance(self.worker, SongJoint28RealtimeWorker) and received_ns is not None
                 and np.asarray(received_ns).shape == np.asarray(indices).shape):
             for index, stamp in zip(indices, received_ns):
@@ -905,6 +914,7 @@ class RealtimeInferencePage(QWidget):
                 self.worker.submit_imu(accel, gyro, emg_indices)
 
     def notify_packet_loss(self, lost: int, previous_sequence: int, sequence: int) -> None:
+        self.personal_session_panel.notify_packet_loss(lost)
         if self._diagnostic is not None:
             self._diagnostic.record_packet_loss(lost)
         if isinstance(self.worker, (SongRealtimeWorker, SongJoint28RealtimeWorker)) and self.worker.isRunning():
@@ -1044,7 +1054,7 @@ class RealtimeInferencePage(QWidget):
 
     def shutdown(self, timeout_ms: int = 5000) -> bool:
         self.stop_diagnostic()
-        ok = True
+        ok = self.personal_session_panel.shutdown(timeout_ms)
         if self.remote_model_worker is not None:
             self.remote_model_worker.cancel()
             ok = self.remote_model_worker.wait(timeout_ms) and ok
@@ -1059,6 +1069,16 @@ class RealtimeInferencePage(QWidget):
             ok = worker.wait(timeout_ms) and ok
             self.worker = None
         return ok
+
+    def _activate_personal_workflow(self) -> bool:
+        if not self._stop_realtime_worker():
+            return False
+        self.stop_diagnostic()
+        self.bundle = None
+        self._reset_current_gesture()
+        self.model_status.setText('个人／会话后端已选择；使用下方专用控制和识别结果')
+        self._update_live_buttons()
+        return True
 
     def _start_remote_model_worker(self, worker: RemoteModelWorker) -> None:
         self.remote_model_worker = worker

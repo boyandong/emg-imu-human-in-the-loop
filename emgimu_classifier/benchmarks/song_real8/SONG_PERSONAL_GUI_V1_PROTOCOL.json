@@ -1,0 +1,30 @@
+{
+  "schema": "song_personal_gui_v1_protocol",
+  "source_sha256": {
+    "emgimu_classifier/src/emgimu/feature_bank/personal_session_stream_v1.py": "860c716053ed67b8788c444ec1884a69b65a1064b950ac6e8b3cc2b57d834059",
+    "emgimu_classifier/tests/test_personal_session_stream_v1.py": "6e196d48620fd82672ab42fdb73718255da58b9cf1cf3c649189fca5cb2ec1ca",
+    "emgimu_classifier/benchmarks/song_real8/verify_personal_session_gui_v1.py": "0bee02e012f24086fc7cb995c27fc2b186491b3437464c57af6f0b8de821f8a8",
+    "collection/emg_meta/emg_meta/emgforce/inference/personal_session_worker.py": "d2bcb27071587e302dd1ea6531b15d4b76c94910030d558edb07cdfb3e51f85e",
+    "collection/emg_meta/emg_meta/emgforce/ui/personal_session_panel.py": "4c0e07a2ada7bdcbc8db2dc98042dfdb4521d6e34a81cfabf04ba03682024416",
+    "collection/emg_meta/emg_meta/emgforce/ui/realtime_inference_page.py": "beb35dc227a83efc568c5f565d023b4ba10e69320b63851042954cef8cd280a3",
+    "collection/emg_meta/emg_meta/tests/test_personal_session_panel.py": "7a3926781669265fd3d0ead13bdd52bd7794e9cf2f37ef6aa919ee61aacfa49a"
+  },
+  "native_path": "E:\\qxy\\emg_meta\\emg_meta\\data\\Song\\2026-09-18_S04\\session.h5",
+  "native_sha256": "2fa432b707c0c28bac64c9057d5fa201efe9a59fc08a3405cf9ffad4bf998fe3",
+  "arms": [
+    "population",
+    "session_5shot"
+  ],
+  "chunk_samples": 4096,
+  "sample_rate_hz": 250,
+  "window_samples": 50,
+  "hop_samples": 10,
+  "consecutive_frames": 2,
+  "source_bank_sha256": "2828f59ca3d142ec873ba330622bae71f0ce0793768d777bc7a40047a88efe3c",
+  "offline_acceptance_sha256": "195b23cd57430b6b44395bd8c0aca2935fdee2734f35b3a8bf8d687fa99fc6d6",
+  "profile_sha256": {
+    "personal_S03.zip": "14407991c3ef6062f8f6f61932b947859ad6bde51a9984d4cf2c685846cf62b2",
+    "session_S04_5shot.zip": "5dce549f820a7c85e1e782a0fdb9105f256cb1e9b189c6e6899a4966f0ee15ec"
+  },
+  "scope": "Previously inspected complete S04 recording, including calibration intervals. Fixed numerical parity only; no fitting, target tuning, accuracy or hardware claims."
+}
