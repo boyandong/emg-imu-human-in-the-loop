@@ -352,11 +352,25 @@ def build():
                  HERE/'verify_roam_native_continuous_v2.py',HERE/'audit_roam_native_continuous_v1.py'):
         sources[path.relative_to(ROOT).as_posix()]=sha(path)
     verification_tests += ['tests/test_roam_native_continuous_delivery_v1.py']
+    class_transition_path=ROOT/'feature_bank/ROAM_CLASS_TRANSITION_V1_ACCEPTANCE.json'
+    class_transition=json.loads(class_transition_path.read_text(encoding='utf8'))
+    for path in (class_transition_path,ROOT/'feature_bank/ROAM_CLASS_TRANSITION_V1_SOURCE_ACCEPTANCE.json',
+                 HERE/'ROAM_CLASS_TRANSITION_V1_SOURCE_RESULTS.json',HERE/'ROAM_CLASS_TRANSITION_V1_TARGET_RESULTS.json',
+                 HERE/'verify_roam_class_transition_v1.py',ROOT/'src/emgimu/feature_bank/class_transition_policy_v1.py'):
+        sources[path.relative_to(ROOT).as_posix()]=sha(path)
+    verification_tests += ['tests/test_roam_class_transition_delivery_v1.py','tests/test_class_transition_policy_v1.py']
+    new_all=next(c['metrics'] for c in class_transition['two_shot_summary'] if c['phase']=='all' and c['arm']=='joint_full')
+    old_all=next(c['metrics'] for c in native_continuous['two_shot_summary'] if c['phase']=='all' and c['arm']=='joint_full')
+    answers[0]['class_transition_fixed_reference']={'new':new_all,'old':old_all,'primary_pass':class_transition['detector_primary_pass']}
+    answers[0]['answer'] += f" 新增公开八通道类别切换分段，使同100个动作参考的正确识别从{old_all['correct']}个增至{new_all['correct']}个，但额外未匹配检测从{old_all['unmatched_detections']}个增至{new_all['unmatched_detections']}个；误检守门失败，不能默认部署或推定当前设备效果。"
+    answers[0]['evidence'] += [class_transition_path.relative_to(ROOT).as_posix(),'benchmarks/new_bank_v3/ROAM_CLASS_TRANSITION_V1_TARGET_RESULTS.json']
     for name in verification_tests: sources[name] = sha(ROOT / name)
     result = {'schema': 'current_scientific_conclusions_v1', 'generator_sha256': sha(Path(__file__)),
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
               'requirement_lines': [1013, 1049], 'verification_tests': verification_tests,
               'source_sha256': sources, 'questions': answers,
+              'roam_class_transition': dict(class_transition,previous_neutral_detector=native_continuous['two_shot_summary'],
+                  interpretation='Active-to-active class changes are segmented using a source-only selected five-window confirmation policy, committed before target inference. Detection and source-window classification require zero target calibration; personal/joint classification still requires6+3*shots. Fixed-reference success improves but unmatched detections increase, so the detector primary guard fails. Within identical new matches, temporal/personal fusion does not improve probability loss. No default or own-device promotion.'),
               'roam_native_continuous': dict(native_continuous,interval_diagnostic=native_continuous_diag['summaries'],
                   interpretation='Native eight-channel200Hz whole-recording inference uses no query labels or cue edges. Fixed saved neutral-only detectors and classifiers are reused. All100 active cue references remain in each budget denominator; matched conditional classification cannot substitute for end-to-end success. Post-run geometry diagnostics are not a causal or physiological-boundary claim. The primary guard fails; no default promotion.'),
               'roam_source_fusion': dict(source_fusion,source_weights=source_fusion_train['policy_weights'],

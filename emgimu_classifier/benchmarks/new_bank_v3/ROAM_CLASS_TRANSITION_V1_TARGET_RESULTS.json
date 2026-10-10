@@ -1,0 +1,3296 @@
+{
+  "schema": "roam_class_transition_v1_target",
+  "protocol_sha256": "0520abf21bdfb5a9c17604385dcbe080e66b70373630a0a5ca54fb238a19418f",
+  "source_result_sha256": "90bb94d5cf1e15568a62d7eca6e599c2118b5a9b090348159df3b6a2e66c2f59",
+  "source_acceptance_sha256": "9afeba23cb677525ab84c901122f452ab7f45852f252b6d7c6fa499c0ac48cb1",
+  "policy_sha256": "51a0adc125f9de671d6ef9542ddecb4b5df125f3e3f174f60adfcc5ca69d0966",
+  "selected_config": {
+    "confirmations": 5,
+    "smoothing_windows": 1,
+    "confidence": 0.0
+  },
+  "independent_active_references": 100,
+  "recording_budget_blocks": 60,
+  "cells": [
+    {
+      "user": 19,
+      "shots": 0,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 13,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 4,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.6923076923076923,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.7846153846153847,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.45216981847644244,
+        "conditional_brier": 0.070060845048444,
+        "onset_cue_mae_s": 0.45444444444444443,
+        "offset_cue_mae_s": 0.49,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 19,
+      "shots": 0,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 13,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 4,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.6923076923076923,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.7846153846153847,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5883023761015034,
+        "conditional_brier": 0.0998094023539209,
+        "onset_cue_mae_s": 0.45444444444444443,
+        "offset_cue_mae_s": 0.49,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 19,
+      "shots": 0,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 13,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 4,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.6923076923076923,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.7846153846153847,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.6638042236569901,
+        "conditional_brier": 0.1180212620484924,
+        "onset_cue_mae_s": 0.45444444444444443,
+        "offset_cue_mae_s": 0.49,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 13,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 4,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.6923076923076923,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.7846153846153847,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.45216981847644244,
+        "conditional_brier": 0.070060845048444,
+        "onset_cue_mae_s": 0.45444444444444443,
+        "offset_cue_mae_s": 0.49,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 13,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 4,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.6923076923076923,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.7846153846153847,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5589275146447155,
+        "conditional_brier": 0.09298980411195042,
+        "onset_cue_mae_s": 0.45444444444444443,
+        "offset_cue_mae_s": 0.49,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 19,
+      "shots": 1,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 13,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 4,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.6923076923076923,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.7846153846153847,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.6332521721116285,
+        "conditional_brier": 0.1105450780602873,
+        "onset_cue_mae_s": 0.45444444444444443,
+        "offset_cue_mae_s": 0.49,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 13,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 4,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.6923076923076923,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.7846153846153847,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.45216981847644244,
+        "conditional_brier": 0.070060845048444,
+        "onset_cue_mae_s": 0.45444444444444443,
+        "offset_cue_mae_s": 0.49,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 13,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 4,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.6923076923076923,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.7846153846153847,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5525349906544869,
+        "conditional_brier": 0.09127846340126515,
+        "onset_cue_mae_s": 0.45444444444444443,
+        "offset_cue_mae_s": 0.49,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 19,
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 13,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 4,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.6923076923076923,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.7846153846153847,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.6359000185660562,
+        "conditional_brier": 0.1111869610709161,
+        "onset_cue_mae_s": 0.45444444444444443,
+        "offset_cue_mae_s": 0.49,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 20,
+      "shots": 0,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 19,
+        "matched": 3,
+        "missed": 7,
+        "unmatched_detections": 16,
+        "correct": 3,
+        "detection_recall": 0.3,
+        "detection_precision": 0.15789473684210525,
+        "end_to_end_success": 0.3,
+        "active_event_macro_f1": 0.22916666666666666,
+        "active_recall": {
+          "close": 0.5,
+          "open": 0.16666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.19723965455289502,
+        "conditional_brier": 0.01852702053012819,
+        "onset_cue_mae_s": 0.4033333333333333,
+        "offset_cue_mae_s": 0.36000000000000004,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 20,
+      "shots": 0,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 19,
+        "matched": 3,
+        "missed": 7,
+        "unmatched_detections": 16,
+        "correct": 3,
+        "detection_recall": 0.3,
+        "detection_precision": 0.15789473684210525,
+        "end_to_end_success": 0.3,
+        "active_event_macro_f1": 0.23737373737373738,
+        "active_recall": {
+          "close": 0.5,
+          "open": 0.16666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.46662994655054035,
+        "conditional_brier": 0.07037304568050896,
+        "onset_cue_mae_s": 0.4033333333333333,
+        "offset_cue_mae_s": 0.36000000000000004,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 20,
+      "shots": 0,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 19,
+        "matched": 3,
+        "missed": 7,
+        "unmatched_detections": 16,
+        "correct": 3,
+        "detection_recall": 0.3,
+        "detection_precision": 0.15789473684210525,
+        "end_to_end_success": 0.3,
+        "active_event_macro_f1": 0.23737373737373738,
+        "active_recall": {
+          "close": 0.5,
+          "open": 0.16666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5810447238589376,
+        "conditional_brier": 0.09738491291463064,
+        "onset_cue_mae_s": 0.4033333333333333,
+        "offset_cue_mae_s": 0.36000000000000004,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 20,
+      "shots": 1,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 19,
+        "matched": 3,
+        "missed": 7,
+        "unmatched_detections": 16,
+        "correct": 3,
+        "detection_recall": 0.3,
+        "detection_precision": 0.15789473684210525,
+        "end_to_end_success": 0.3,
+        "active_event_macro_f1": 0.22916666666666666,
+        "active_recall": {
+          "close": 0.5,
+          "open": 0.16666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.19723965455289502,
+        "conditional_brier": 0.01852702053012819,
+        "onset_cue_mae_s": 0.4033333333333333,
+        "offset_cue_mae_s": 0.36000000000000004,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 20,
+      "shots": 1,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 19,
+        "matched": 3,
+        "missed": 7,
+        "unmatched_detections": 16,
+        "correct": 3,
+        "detection_recall": 0.3,
+        "detection_precision": 0.15789473684210525,
+        "end_to_end_success": 0.3,
+        "active_event_macro_f1": 0.22549019607843135,
+        "active_recall": {
+          "close": 0.5,
+          "open": 0.16666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.4313115955691365,
+        "conditional_brier": 0.06238974869804818,
+        "onset_cue_mae_s": 0.4033333333333333,
+        "offset_cue_mae_s": 0.36000000000000004,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 20,
+      "shots": 1,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 19,
+        "matched": 3,
+        "missed": 7,
+        "unmatched_detections": 16,
+        "correct": 3,
+        "detection_recall": 0.3,
+        "detection_precision": 0.15789473684210525,
+        "end_to_end_success": 0.3,
+        "active_event_macro_f1": 0.23737373737373738,
+        "active_recall": {
+          "close": 0.5,
+          "open": 0.16666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5551078313665506,
+        "conditional_brier": 0.0910386223816317,
+        "onset_cue_mae_s": 0.4033333333333333,
+        "offset_cue_mae_s": 0.36000000000000004,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 20,
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 19,
+        "matched": 3,
+        "missed": 7,
+        "unmatched_detections": 16,
+        "correct": 3,
+        "detection_recall": 0.3,
+        "detection_precision": 0.15789473684210525,
+        "end_to_end_success": 0.3,
+        "active_event_macro_f1": 0.22916666666666666,
+        "active_recall": {
+          "close": 0.5,
+          "open": 0.16666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.19723965455289502,
+        "conditional_brier": 0.01852702053012819,
+        "onset_cue_mae_s": 0.4033333333333333,
+        "offset_cue_mae_s": 0.36000000000000004,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 20,
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 19,
+        "matched": 3,
+        "missed": 7,
+        "unmatched_detections": 16,
+        "correct": 3,
+        "detection_recall": 0.3,
+        "detection_precision": 0.15789473684210525,
+        "end_to_end_success": 0.3,
+        "active_event_macro_f1": 0.24064171122994654,
+        "active_recall": {
+          "close": 0.5,
+          "open": 0.16666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.4476943795098632,
+        "conditional_brier": 0.06651877311952642,
+        "onset_cue_mae_s": 0.4033333333333333,
+        "offset_cue_mae_s": 0.36000000000000004,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 20,
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 19,
+        "matched": 3,
+        "missed": 7,
+        "unmatched_detections": 16,
+        "correct": 3,
+        "detection_recall": 0.3,
+        "detection_precision": 0.15789473684210525,
+        "end_to_end_success": 0.3,
+        "active_event_macro_f1": 0.24064171122994654,
+        "active_recall": {
+          "close": 0.5,
+          "open": 0.16666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5686476114638405,
+        "conditional_brier": 0.09455017726023471,
+        "onset_cue_mae_s": 0.4033333333333333,
+        "offset_cue_mae_s": 0.36000000000000004,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 21,
+      "shots": 0,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8846153846153846,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.1567008460451628,
+        "conditional_brier": 0.014216633131716295,
+        "onset_cue_mae_s": 0.6644444444444445,
+        "offset_cue_mae_s": 0.5655555555555556,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 21,
+      "shots": 0,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8846153846153846,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.41642279601223525,
+        "conditional_brier": 0.05857199824364739,
+        "onset_cue_mae_s": 0.6644444444444445,
+        "offset_cue_mae_s": 0.5655555555555556,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 21,
+      "shots": 0,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8846153846153846,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5313971439251093,
+        "conditional_brier": 0.08539174372694779,
+        "onset_cue_mae_s": 0.6644444444444445,
+        "offset_cue_mae_s": 0.5655555555555556,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8846153846153846,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.1567008460451628,
+        "conditional_brier": 0.014216633131716295,
+        "onset_cue_mae_s": 0.6644444444444445,
+        "offset_cue_mae_s": 0.5655555555555556,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8846153846153846,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.3872502129144185,
+        "conditional_brier": 0.05202079399904275,
+        "onset_cue_mae_s": 0.6644444444444445,
+        "offset_cue_mae_s": 0.5655555555555556,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 21,
+      "shots": 1,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8846153846153846,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5078522663722392,
+        "conditional_brier": 0.07953790276778216,
+        "onset_cue_mae_s": 0.6644444444444445,
+        "offset_cue_mae_s": 0.5655555555555556,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8846153846153846,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.1567008460451628,
+        "conditional_brier": 0.014216633131716295,
+        "onset_cue_mae_s": 0.6644444444444445,
+        "offset_cue_mae_s": 0.5655555555555556,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8846153846153846,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.3947047519861952,
+        "conditional_brier": 0.05380362176298952,
+        "onset_cue_mae_s": 0.6644444444444445,
+        "offset_cue_mae_s": 0.5655555555555556,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 21,
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8846153846153846,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5130436838030598,
+        "conditional_brier": 0.08075884645077575,
+        "onset_cue_mae_s": 0.6644444444444445,
+        "offset_cue_mae_s": 0.5655555555555556,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 22,
+      "shots": 0,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 10,
+        "matched": 10,
+        "missed": 0,
+        "unmatched_detections": 0,
+        "correct": 10,
+        "detection_recall": 1.0,
+        "detection_precision": 1.0,
+        "end_to_end_success": 1.0,
+        "active_event_macro_f1": 1.0,
+        "active_recall": {
+          "close": 1.0,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.1184782255436723,
+        "conditional_brier": 0.007083905084890687,
+        "onset_cue_mae_s": 0.348,
+        "offset_cue_mae_s": 0.308,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 22,
+      "shots": 0,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 10,
+        "matched": 10,
+        "missed": 0,
+        "unmatched_detections": 0,
+        "correct": 10,
+        "detection_recall": 1.0,
+        "detection_precision": 1.0,
+        "end_to_end_success": 1.0,
+        "active_event_macro_f1": 1.0,
+        "active_recall": {
+          "close": 1.0,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.37220354847158327,
+        "conditional_brier": 0.04889107884564315,
+        "onset_cue_mae_s": 0.348,
+        "offset_cue_mae_s": 0.308,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 22,
+      "shots": 0,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 10,
+        "matched": 10,
+        "missed": 0,
+        "unmatched_detections": 0,
+        "correct": 10,
+        "detection_recall": 1.0,
+        "detection_precision": 1.0,
+        "end_to_end_success": 1.0,
+        "active_event_macro_f1": 1.0,
+        "active_recall": {
+          "close": 1.0,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.4779141609374592,
+        "conditional_brier": 0.07253240836611165,
+        "onset_cue_mae_s": 0.348,
+        "offset_cue_mae_s": 0.308,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 22,
+      "shots": 1,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 10,
+        "matched": 10,
+        "missed": 0,
+        "unmatched_detections": 0,
+        "correct": 10,
+        "detection_recall": 1.0,
+        "detection_precision": 1.0,
+        "end_to_end_success": 1.0,
+        "active_event_macro_f1": 1.0,
+        "active_recall": {
+          "close": 1.0,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.1184782255436723,
+        "conditional_brier": 0.007083905084890687,
+        "onset_cue_mae_s": 0.348,
+        "offset_cue_mae_s": 0.308,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 22,
+      "shots": 1,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 10,
+        "matched": 10,
+        "missed": 0,
+        "unmatched_detections": 0,
+        "correct": 10,
+        "detection_recall": 1.0,
+        "detection_precision": 1.0,
+        "end_to_end_success": 1.0,
+        "active_event_macro_f1": 1.0,
+        "active_recall": {
+          "close": 1.0,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.345674247365818,
+        "conditional_brier": 0.04316464123803792,
+        "onset_cue_mae_s": 0.348,
+        "offset_cue_mae_s": 0.308,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 22,
+      "shots": 1,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 10,
+        "matched": 10,
+        "missed": 0,
+        "unmatched_detections": 0,
+        "correct": 10,
+        "detection_recall": 1.0,
+        "detection_precision": 1.0,
+        "end_to_end_success": 1.0,
+        "active_event_macro_f1": 1.0,
+        "active_recall": {
+          "close": 1.0,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.46442792977571673,
+        "conditional_brier": 0.0692415663864318,
+        "onset_cue_mae_s": 0.348,
+        "offset_cue_mae_s": 0.308,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 10,
+        "matched": 10,
+        "missed": 0,
+        "unmatched_detections": 0,
+        "correct": 10,
+        "detection_recall": 1.0,
+        "detection_precision": 1.0,
+        "end_to_end_success": 1.0,
+        "active_event_macro_f1": 1.0,
+        "active_recall": {
+          "close": 1.0,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.1184782255436723,
+        "conditional_brier": 0.007083905084890687,
+        "onset_cue_mae_s": 0.348,
+        "offset_cue_mae_s": 0.308,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 10,
+        "matched": 10,
+        "missed": 0,
+        "unmatched_detections": 0,
+        "correct": 10,
+        "detection_recall": 1.0,
+        "detection_precision": 1.0,
+        "end_to_end_success": 1.0,
+        "active_event_macro_f1": 1.0,
+        "active_recall": {
+          "close": 1.0,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.3731645930940825,
+        "conditional_brier": 0.04925908879612526,
+        "onset_cue_mae_s": 0.348,
+        "offset_cue_mae_s": 0.308,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 22,
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 10,
+        "matched": 10,
+        "missed": 0,
+        "unmatched_detections": 0,
+        "correct": 10,
+        "detection_recall": 1.0,
+        "detection_precision": 1.0,
+        "end_to_end_success": 1.0,
+        "active_event_macro_f1": 1.0,
+        "active_recall": {
+          "close": 1.0,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.4841904395832291,
+        "conditional_brier": 0.0740211890401232,
+        "onset_cue_mae_s": 0.348,
+        "offset_cue_mae_s": 0.308,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 23,
+      "shots": 0,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 16,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 9,
+        "correct": 7,
+        "detection_recall": 0.7,
+        "detection_precision": 0.4375,
+        "end_to_end_success": 0.7,
+        "active_event_macro_f1": 0.6209150326797386,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.5
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.28158252835247605,
+        "conditional_brier": 0.03511181249345612,
+        "onset_cue_mae_s": 0.7814285714285714,
+        "offset_cue_mae_s": 0.42857142857142855,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 23,
+      "shots": 0,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 16,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 9,
+        "correct": 7,
+        "detection_recall": 0.7,
+        "detection_precision": 0.4375,
+        "end_to_end_success": 0.7,
+        "active_event_macro_f1": 0.6209150326797386,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.5
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5301686973114698,
+        "conditional_brier": 0.08573345756146819,
+        "onset_cue_mae_s": 0.7814285714285714,
+        "offset_cue_mae_s": 0.42857142857142855,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 23,
+      "shots": 0,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 16,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 9,
+        "correct": 7,
+        "detection_recall": 0.7,
+        "detection_precision": 0.4375,
+        "end_to_end_success": 0.7,
+        "active_event_macro_f1": 0.6209150326797386,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.5
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.6150326794419103,
+        "conditional_brier": 0.10616852063362674,
+        "onset_cue_mae_s": 0.7814285714285714,
+        "offset_cue_mae_s": 0.42857142857142855,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 23,
+      "shots": 1,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 16,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 9,
+        "correct": 7,
+        "detection_recall": 0.7,
+        "detection_precision": 0.4375,
+        "end_to_end_success": 0.7,
+        "active_event_macro_f1": 0.6209150326797386,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.5
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.28158252835247605,
+        "conditional_brier": 0.03511181249345612,
+        "onset_cue_mae_s": 0.7814285714285714,
+        "offset_cue_mae_s": 0.42857142857142855,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 23,
+      "shots": 1,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 16,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 9,
+        "correct": 7,
+        "detection_recall": 0.7,
+        "detection_precision": 0.4375,
+        "end_to_end_success": 0.7,
+        "active_event_macro_f1": 0.6209150326797386,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.5
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.4900630797193627,
+        "conditional_brier": 0.07591712782349219,
+        "onset_cue_mae_s": 0.7814285714285714,
+        "offset_cue_mae_s": 0.42857142857142855,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 23,
+      "shots": 1,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 16,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 9,
+        "correct": 7,
+        "detection_recall": 0.7,
+        "detection_precision": 0.4375,
+        "end_to_end_success": 0.7,
+        "active_event_macro_f1": 0.6209150326797386,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.5
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5766248597814425,
+        "conditional_brier": 0.09635253272047807,
+        "onset_cue_mae_s": 0.7814285714285714,
+        "offset_cue_mae_s": 0.42857142857142855,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 23,
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 16,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 9,
+        "correct": 7,
+        "detection_recall": 0.7,
+        "detection_precision": 0.4375,
+        "end_to_end_success": 0.7,
+        "active_event_macro_f1": 0.6209150326797386,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.5
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.28158252835247605,
+        "conditional_brier": 0.03511181249345612,
+        "onset_cue_mae_s": 0.7814285714285714,
+        "offset_cue_mae_s": 0.42857142857142855,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 23,
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 16,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 9,
+        "correct": 7,
+        "detection_recall": 0.7,
+        "detection_precision": 0.4375,
+        "end_to_end_success": 0.7,
+        "active_event_macro_f1": 0.6209150326797386,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.5
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5236211978510912,
+        "conditional_brier": 0.08492127384106316,
+        "onset_cue_mae_s": 0.7814285714285714,
+        "offset_cue_mae_s": 0.42857142857142855,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 23,
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 16,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 9,
+        "correct": 7,
+        "detection_recall": 0.7,
+        "detection_precision": 0.4375,
+        "end_to_end_success": 0.7,
+        "active_event_macro_f1": 0.6209150326797386,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.5
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.603810464388982,
+        "conditional_brier": 0.10368066288288606,
+        "onset_cue_mae_s": 0.7814285714285714,
+        "offset_cue_mae_s": 0.42857142857142855,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 24,
+      "shots": 0,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 12,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 4,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6666666666666666,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.7857142857142857,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.25163894610298476,
+        "conditional_brier": 0.027966563788678917,
+        "onset_cue_mae_s": 0.18,
+        "offset_cue_mae_s": 0.25,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 24,
+      "shots": 0,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 12,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 4,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6666666666666666,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.7857142857142857,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5328401357412798,
+        "conditional_brier": 0.08602744788874367,
+        "onset_cue_mae_s": 0.18,
+        "offset_cue_mae_s": 0.25,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 24,
+      "shots": 0,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 12,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 4,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6666666666666666,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.7857142857142857,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.6136473799907407,
+        "conditional_brier": 0.1054963872740771,
+        "onset_cue_mae_s": 0.18,
+        "offset_cue_mae_s": 0.25,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 24,
+      "shots": 1,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 12,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 4,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6666666666666666,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.7857142857142857,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.25163894610298476,
+        "conditional_brier": 0.027966563788678917,
+        "onset_cue_mae_s": 0.18,
+        "offset_cue_mae_s": 0.25,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 24,
+      "shots": 1,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 12,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 4,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6666666666666666,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.7857142857142857,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5151350277136518,
+        "conditional_brier": 0.08187222186838287,
+        "onset_cue_mae_s": 0.18,
+        "offset_cue_mae_s": 0.25,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 24,
+      "shots": 1,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 12,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 4,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6666666666666666,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.7857142857142857,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.6117944831397539,
+        "conditional_brier": 0.10517782675839889,
+        "onset_cue_mae_s": 0.18,
+        "offset_cue_mae_s": 0.25,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 24,
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 12,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 4,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6666666666666666,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.7857142857142857,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.25163894610298476,
+        "conditional_brier": 0.027966563788678917,
+        "onset_cue_mae_s": 0.18,
+        "offset_cue_mae_s": 0.25,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 24,
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 12,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 4,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6666666666666666,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.7857142857142857,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5049655377030211,
+        "conditional_brier": 0.0795546264344764,
+        "onset_cue_mae_s": 0.18,
+        "offset_cue_mae_s": 0.25,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 24,
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 12,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 4,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6666666666666666,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.7857142857142857,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.6000117105753556,
+        "conditional_brier": 0.10227036063945115,
+        "onset_cue_mae_s": 0.18,
+        "offset_cue_mae_s": 0.25,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 25,
+      "shots": 0,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 3,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.7272727272727273,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.8076923076923077,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.2992340500700195,
+        "conditional_brier": 0.03704599505191362,
+        "onset_cue_mae_s": 0.185,
+        "offset_cue_mae_s": 0.51125,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 25,
+      "shots": 0,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 3,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.7272727272727273,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.8076923076923077,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.49804552131074203,
+        "conditional_brier": 0.0782340468466091,
+        "onset_cue_mae_s": 0.185,
+        "offset_cue_mae_s": 0.51125,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 25,
+      "shots": 0,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 3,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.7272727272727273,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.8076923076923077,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.586796049836656,
+        "conditional_brier": 0.09902702883703422,
+        "onset_cue_mae_s": 0.185,
+        "offset_cue_mae_s": 0.51125,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 25,
+      "shots": 1,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 3,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.7272727272727273,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.8076923076923077,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.2992340500700195,
+        "conditional_brier": 0.03704599505191362,
+        "onset_cue_mae_s": 0.185,
+        "offset_cue_mae_s": 0.51125,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 25,
+      "shots": 1,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 3,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.7272727272727273,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.8076923076923077,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.47825514426712223,
+        "conditional_brier": 0.0733586475456381,
+        "onset_cue_mae_s": 0.185,
+        "offset_cue_mae_s": 0.51125,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 25,
+      "shots": 1,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 3,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.7272727272727273,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.8076923076923077,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.576925183292001,
+        "conditional_brier": 0.0964781322563824,
+        "onset_cue_mae_s": 0.185,
+        "offset_cue_mae_s": 0.51125,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 25,
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 3,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.7272727272727273,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.8076923076923077,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.2992340500700195,
+        "conditional_brier": 0.03704599505191362,
+        "onset_cue_mae_s": 0.185,
+        "offset_cue_mae_s": 0.51125,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 25,
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 3,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.7272727272727273,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.8076923076923077,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.4938241478967928,
+        "conditional_brier": 0.07719725268056925,
+        "onset_cue_mae_s": 0.185,
+        "offset_cue_mae_s": 0.51125,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 25,
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 3,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.7272727272727273,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.8076923076923077,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5836849253743015,
+        "conditional_brier": 0.09827206885491462,
+        "onset_cue_mae_s": 0.185,
+        "offset_cue_mae_s": 0.51125,
+        "eof_censored_recordings": 0
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 26,
+      "shots": 0,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8571428571428571,
+        "active_recall": {
+          "close": 0.75,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.16519078565127288,
+        "conditional_brier": 0.013164843012365013,
+        "onset_cue_mae_s": 0.16000000000000003,
+        "offset_cue_mae_s": 0.18777777777777777,
+        "eof_censored_recordings": 2
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 26,
+      "shots": 0,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8571428571428571,
+        "active_recall": {
+          "close": 0.75,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.4069944909638388,
+        "conditional_brier": 0.05627530051991371,
+        "onset_cue_mae_s": 0.16000000000000003,
+        "offset_cue_mae_s": 0.18777777777777777,
+        "eof_censored_recordings": 2
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 26,
+      "shots": 0,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8571428571428571,
+        "active_recall": {
+          "close": 0.75,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5019740031228767,
+        "conditional_brier": 0.07816735801485289,
+        "onset_cue_mae_s": 0.16000000000000003,
+        "offset_cue_mae_s": 0.18777777777777777,
+        "eof_censored_recordings": 2
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 26,
+      "shots": 1,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8571428571428571,
+        "active_recall": {
+          "close": 0.75,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.16519078565127288,
+        "conditional_brier": 0.013164843012365013,
+        "onset_cue_mae_s": 0.16000000000000003,
+        "offset_cue_mae_s": 0.18777777777777777,
+        "eof_censored_recordings": 2
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 26,
+      "shots": 1,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8571428571428571,
+        "active_recall": {
+          "close": 0.75,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.37595740754378354,
+        "conditional_brier": 0.04940645608060738,
+        "onset_cue_mae_s": 0.16000000000000003,
+        "offset_cue_mae_s": 0.18777777777777777,
+        "eof_censored_recordings": 2
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 26,
+      "shots": 1,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8571428571428571,
+        "active_recall": {
+          "close": 0.75,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.4825063224299391,
+        "conditional_brier": 0.07348368079487509,
+        "onset_cue_mae_s": 0.16000000000000003,
+        "offset_cue_mae_s": 0.18777777777777777,
+        "eof_censored_recordings": 2
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 26,
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8571428571428571,
+        "active_recall": {
+          "close": 0.75,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.16519078565127288,
+        "conditional_brier": 0.013164843012365013,
+        "onset_cue_mae_s": 0.16000000000000003,
+        "offset_cue_mae_s": 0.18777777777777777,
+        "eof_censored_recordings": 2
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 26,
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8571428571428571,
+        "active_recall": {
+          "close": 0.75,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.3810818278806889,
+        "conditional_brier": 0.05048769191308776,
+        "onset_cue_mae_s": 0.16000000000000003,
+        "offset_cue_mae_s": 0.18777777777777777,
+        "eof_censored_recordings": 2
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 26,
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 11,
+        "matched": 9,
+        "missed": 1,
+        "unmatched_detections": 2,
+        "correct": 9,
+        "detection_recall": 0.9,
+        "detection_precision": 0.8181818181818182,
+        "end_to_end_success": 0.9,
+        "active_event_macro_f1": 0.8571428571428571,
+        "active_recall": {
+          "close": 0.75,
+          "open": 1.0
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.48325380350312996,
+        "conditional_brier": 0.0735961177209907,
+        "onset_cue_mae_s": 0.16000000000000003,
+        "offset_cue_mae_s": 0.18777777777777777,
+        "eof_censored_recordings": 2
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 27,
+      "shots": 0,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 9,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 2,
+        "correct": 6,
+        "detection_recall": 0.7,
+        "detection_precision": 0.7777777777777778,
+        "end_to_end_success": 0.6,
+        "active_event_macro_f1": 0.6333333333333333,
+        "active_recall": {
+          "close": 0.75,
+          "open": 0.5
+        },
+        "conditional_accuracy": 0.8571428571428571,
+        "conditional_log_loss": 0.4009968643859593,
+        "conditional_brier": 0.0721627516708752,
+        "onset_cue_mae_s": 0.32,
+        "offset_cue_mae_s": 0.48499999999999993,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 27,
+      "shots": 0,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 9,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 2,
+        "correct": 6,
+        "detection_recall": 0.7,
+        "detection_precision": 0.7777777777777778,
+        "end_to_end_success": 0.6,
+        "active_event_macro_f1": 0.6333333333333333,
+        "active_recall": {
+          "close": 0.75,
+          "open": 0.5
+        },
+        "conditional_accuracy": 0.8571428571428571,
+        "conditional_log_loss": 0.6016232144631789,
+        "conditional_brier": 0.10552678217018448,
+        "onset_cue_mae_s": 0.32,
+        "offset_cue_mae_s": 0.48499999999999993,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 27,
+      "shots": 0,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 9,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 2,
+        "correct": 6,
+        "detection_recall": 0.7,
+        "detection_precision": 0.7777777777777778,
+        "end_to_end_success": 0.6,
+        "active_event_macro_f1": 0.6333333333333333,
+        "active_recall": {
+          "close": 0.75,
+          "open": 0.5
+        },
+        "conditional_accuracy": 0.8571428571428571,
+        "conditional_log_loss": 0.6800867060603571,
+        "conditional_brier": 0.1224788523207057,
+        "onset_cue_mae_s": 0.32,
+        "offset_cue_mae_s": 0.48499999999999993,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 27,
+      "shots": 1,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 9,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 2,
+        "correct": 6,
+        "detection_recall": 0.7,
+        "detection_precision": 0.7777777777777778,
+        "end_to_end_success": 0.6,
+        "active_event_macro_f1": 0.6333333333333333,
+        "active_recall": {
+          "close": 0.75,
+          "open": 0.5
+        },
+        "conditional_accuracy": 0.8571428571428571,
+        "conditional_log_loss": 0.4009968643859593,
+        "conditional_brier": 0.0721627516708752,
+        "onset_cue_mae_s": 0.32,
+        "offset_cue_mae_s": 0.48499999999999993,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 27,
+      "shots": 1,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 9,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 2,
+        "correct": 6,
+        "detection_recall": 0.7,
+        "detection_precision": 0.7777777777777778,
+        "end_to_end_success": 0.6,
+        "active_event_macro_f1": 0.6333333333333333,
+        "active_recall": {
+          "close": 0.75,
+          "open": 0.5
+        },
+        "conditional_accuracy": 0.8571428571428571,
+        "conditional_log_loss": 0.5613099752886045,
+        "conditional_brier": 0.09564090643237436,
+        "onset_cue_mae_s": 0.32,
+        "offset_cue_mae_s": 0.48499999999999993,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 27,
+      "shots": 1,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 9,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 2,
+        "correct": 6,
+        "detection_recall": 0.7,
+        "detection_precision": 0.7777777777777778,
+        "end_to_end_success": 0.6,
+        "active_event_macro_f1": 0.6333333333333333,
+        "active_recall": {
+          "close": 0.75,
+          "open": 0.5
+        },
+        "conditional_accuracy": 0.8571428571428571,
+        "conditional_log_loss": 0.6431052898607613,
+        "conditional_brier": 0.11358591604661143,
+        "onset_cue_mae_s": 0.32,
+        "offset_cue_mae_s": 0.48499999999999993,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 27,
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 9,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 2,
+        "correct": 6,
+        "detection_recall": 0.7,
+        "detection_precision": 0.7777777777777778,
+        "end_to_end_success": 0.6,
+        "active_event_macro_f1": 0.6333333333333333,
+        "active_recall": {
+          "close": 0.75,
+          "open": 0.5
+        },
+        "conditional_accuracy": 0.8571428571428571,
+        "conditional_log_loss": 0.4009968643859593,
+        "conditional_brier": 0.0721627516708752,
+        "onset_cue_mae_s": 0.32,
+        "offset_cue_mae_s": 0.48499999999999993,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 27,
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 9,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 2,
+        "correct": 6,
+        "detection_recall": 0.7,
+        "detection_precision": 0.7777777777777778,
+        "end_to_end_success": 0.6,
+        "active_event_macro_f1": 0.6333333333333333,
+        "active_recall": {
+          "close": 0.75,
+          "open": 0.5
+        },
+        "conditional_accuracy": 0.8571428571428571,
+        "conditional_log_loss": 0.5344578639571395,
+        "conditional_brier": 0.09016565336402287,
+        "onset_cue_mae_s": 0.32,
+        "offset_cue_mae_s": 0.48499999999999993,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 27,
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 9,
+        "matched": 7,
+        "missed": 3,
+        "unmatched_detections": 2,
+        "correct": 6,
+        "detection_recall": 0.7,
+        "detection_precision": 0.7777777777777778,
+        "end_to_end_success": 0.6,
+        "active_event_macro_f1": 0.6333333333333333,
+        "active_recall": {
+          "close": 0.75,
+          "open": 0.5
+        },
+        "conditional_accuracy": 0.8571428571428571,
+        "conditional_log_loss": 0.6185489056400153,
+        "conditional_brier": 0.1083152734713993,
+        "onset_cue_mae_s": 0.32,
+        "offset_cue_mae_s": 0.48499999999999993,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 15,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 7,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.5333333333333333,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.641025641025641,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.12142487923569154,
+        "conditional_brier": 0.011287181312622801,
+        "onset_cue_mae_s": 0.736875,
+        "offset_cue_mae_s": 0.499375,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 15,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 7,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.5333333333333333,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.641025641025641,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.3672394516256811,
+        "conditional_brier": 0.04889653374445793,
+        "onset_cue_mae_s": 0.736875,
+        "offset_cue_mae_s": 0.499375,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 28,
+      "shots": 0,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 15,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 7,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.5333333333333333,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.641025641025641,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.47636311201901366,
+        "conditional_brier": 0.07257908324737898,
+        "onset_cue_mae_s": 0.736875,
+        "offset_cue_mae_s": 0.499375,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 6
+    },
+    {
+      "user": 28,
+      "shots": 1,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 15,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 7,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.5333333333333333,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.641025641025641,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.12142487923569154,
+        "conditional_brier": 0.011287181312622801,
+        "onset_cue_mae_s": 0.736875,
+        "offset_cue_mae_s": 0.499375,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 28,
+      "shots": 1,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 15,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 7,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.5333333333333333,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.641025641025641,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.34761176618495754,
+        "conditional_brier": 0.04474771243556438,
+        "onset_cue_mae_s": 0.736875,
+        "offset_cue_mae_s": 0.499375,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 28,
+      "shots": 1,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 15,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 7,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.5333333333333333,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.641025641025641,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.46410460850249813,
+        "conditional_brier": 0.0696770268368868,
+        "onset_cue_mae_s": 0.736875,
+        "offset_cue_mae_s": 0.499375,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 9
+    },
+    {
+      "user": 28,
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 10,
+        "detections": 15,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 7,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.5333333333333333,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.641025641025641,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.12142487923569154,
+        "conditional_brier": 0.011287181312622801,
+        "onset_cue_mae_s": 0.736875,
+        "offset_cue_mae_s": 0.499375,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 0
+    },
+    {
+      "user": 28,
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 10,
+        "detections": 15,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 7,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.5333333333333333,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.641025641025641,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.34530011741930855,
+        "conditional_brier": 0.04394073654786254,
+        "onset_cue_mae_s": 0.736875,
+        "offset_cue_mae_s": 0.499375,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 12
+    },
+    {
+      "user": 28,
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 10,
+        "detections": 15,
+        "matched": 8,
+        "missed": 2,
+        "unmatched_detections": 7,
+        "correct": 8,
+        "detection_recall": 0.8,
+        "detection_precision": 0.5333333333333333,
+        "end_to_end_success": 0.8,
+        "active_event_macro_f1": 0.641025641025641,
+        "active_recall": {
+          "close": 1.0,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.4595374268739071,
+        "conditional_brier": 0.06849779669506285,
+        "onset_cue_mae_s": 0.736875,
+        "offset_cue_mae_s": 0.499375,
+        "eof_censored_recordings": 1
+      },
+      "target_calibration_trials": 12
+    }
+  ],
+  "aggregates": [
+    {
+      "phase": "validation",
+      "shots": 0,
+      "arm": "source_window",
+      "metrics": {
+        "references": 50,
+        "detections": 69,
+        "matched": 38,
+        "missed": 12,
+        "unmatched_detections": 31,
+        "correct": 38,
+        "detection_recall": 0.76,
+        "detection_precision": 0.5507246376811594,
+        "end_to_end_success": 0.76,
+        "active_event_macro_f1": 0.6646688642493257,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.24282670784887336,
+        "conditional_brier": 0.02975526588197176,
+        "onset_cue_mae_s": 0.5323684210526316,
+        "offset_cue_mae_s": 0.43842105263157893,
+        "eof_censored_recordings": 1
+      }
+    },
+    {
+      "phase": "validation",
+      "shots": 0,
+      "arm": "window_full",
+      "metrics": {
+        "references": 50,
+        "detections": 69,
+        "matched": 38,
+        "missed": 12,
+        "unmatched_detections": 31,
+        "correct": 38,
+        "detection_recall": 0.76,
+        "detection_precision": 0.5507246376811594,
+        "end_to_end_success": 0.76,
+        "active_event_macro_f1": 0.6652769505658129,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.4704113882781945,
+        "conditional_brier": 0.0717262298370092,
+        "onset_cue_mae_s": 0.5323684210526316,
+        "offset_cue_mae_s": 0.43842105263157893,
+        "eof_censored_recordings": 1
+      }
+    },
+    {
+      "phase": "validation",
+      "shots": 0,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 50,
+        "detections": 69,
+        "matched": 38,
+        "missed": 12,
+        "unmatched_detections": 31,
+        "correct": 38,
+        "detection_recall": 0.76,
+        "detection_precision": 0.5507246376811594,
+        "end_to_end_success": 0.76,
+        "active_event_macro_f1": 0.6652769505658129,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5680083380337808,
+        "conditional_brier": 0.09450988207419363,
+        "onset_cue_mae_s": 0.5323684210526316,
+        "offset_cue_mae_s": 0.43842105263157893,
+        "eof_censored_recordings": 1
+      }
+    },
+    {
+      "phase": "validation",
+      "shots": 1,
+      "arm": "source_window",
+      "metrics": {
+        "references": 50,
+        "detections": 69,
+        "matched": 38,
+        "missed": 12,
+        "unmatched_detections": 31,
+        "correct": 38,
+        "detection_recall": 0.76,
+        "detection_precision": 0.5507246376811594,
+        "end_to_end_success": 0.76,
+        "active_event_macro_f1": 0.6646688642493257,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.24282670784887336,
+        "conditional_brier": 0.02975526588197176,
+        "onset_cue_mae_s": 0.5323684210526316,
+        "offset_cue_mae_s": 0.43842105263157893,
+        "eof_censored_recordings": 1
+      }
+    },
+    {
+      "phase": "validation",
+      "shots": 1,
+      "arm": "window_full",
+      "metrics": {
+        "references": 50,
+        "detections": 69,
+        "matched": 38,
+        "missed": 12,
+        "unmatched_detections": 31,
+        "correct": 38,
+        "detection_recall": 0.76,
+        "detection_precision": 0.5507246376811594,
+        "end_to_end_success": 0.76,
+        "active_event_macro_f1": 0.6607565011820331,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.4393873254324562,
+        "conditional_brier": 0.06461397200626073,
+        "onset_cue_mae_s": 0.5323684210526316,
+        "offset_cue_mae_s": 0.43842105263157893,
+        "eof_censored_recordings": 1
+      }
+    },
+    {
+      "phase": "validation",
+      "shots": 1,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 50,
+        "detections": 69,
+        "matched": 38,
+        "missed": 12,
+        "unmatched_detections": 31,
+        "correct": 38,
+        "detection_recall": 0.76,
+        "detection_precision": 0.5507246376811594,
+        "end_to_end_success": 0.76,
+        "active_event_macro_f1": 0.6652769505658129,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.542524125175835,
+        "conditional_brier": 0.0881775286185575,
+        "onset_cue_mae_s": 0.5323684210526316,
+        "offset_cue_mae_s": 0.43842105263157893,
+        "eof_censored_recordings": 1
+      }
+    },
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 50,
+        "detections": 69,
+        "matched": 38,
+        "missed": 12,
+        "unmatched_detections": 31,
+        "correct": 38,
+        "detection_recall": 0.76,
+        "detection_precision": 0.5507246376811594,
+        "end_to_end_success": 0.76,
+        "active_event_macro_f1": 0.6646688642493257,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.24282670784887336,
+        "conditional_brier": 0.02975526588197176,
+        "onset_cue_mae_s": 0.5323684210526316,
+        "offset_cue_mae_s": 0.43842105263157893,
+        "eof_censored_recordings": 1
+      }
+    },
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 50,
+        "detections": 69,
+        "matched": 38,
+        "missed": 12,
+        "unmatched_detections": 31,
+        "correct": 38,
+        "detection_recall": 0.76,
+        "detection_precision": 0.5507246376811594,
+        "end_to_end_success": 0.76,
+        "active_event_macro_f1": 0.6690821256038648,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.4543482931103735,
+        "conditional_brier": 0.06821933922856753,
+        "onset_cue_mae_s": 0.5323684210526316,
+        "offset_cue_mae_s": 0.43842105263157893,
+        "eof_censored_recordings": 1
+      }
+    },
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 50,
+        "detections": 69,
+        "matched": 38,
+        "missed": 12,
+        "unmatched_detections": 31,
+        "correct": 38,
+        "detection_recall": 0.76,
+        "detection_precision": 0.5507246376811594,
+        "end_to_end_success": 0.76,
+        "active_event_macro_f1": 0.6690821256038648,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6666666666666666
+        },
+        "conditional_accuracy": 1.0,
+        "conditional_log_loss": 0.5556582579544402,
+        "conditional_brier": 0.09150366658045696,
+        "onset_cue_mae_s": 0.5323684210526316,
+        "offset_cue_mae_s": 0.43842105263157893,
+        "eof_censored_recordings": 1
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 0,
+      "arm": "source_window",
+      "metrics": {
+        "references": 50,
+        "detections": 58,
+        "matched": 40,
+        "missed": 10,
+        "unmatched_detections": 18,
+        "correct": 39,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6896551724137931,
+        "end_to_end_success": 0.78,
+        "active_event_macro_f1": 0.7333333333333334,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.7
+        },
+        "conditional_accuracy": 0.975,
+        "conditional_log_loss": 0.24180195312081842,
+        "conditional_brier": 0.030850519250828358,
+        "onset_cue_mae_s": 0.31237499999999996,
+        "offset_cue_mae_s": 0.37925,
+        "eof_censored_recordings": 4
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 0,
+      "arm": "window_full",
+      "metrics": {
+        "references": 50,
+        "detections": 58,
+        "matched": 40,
+        "missed": 10,
+        "unmatched_detections": 18,
+        "correct": 39,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6896551724137931,
+        "end_to_end_success": 0.78,
+        "active_event_macro_f1": 0.7333333333333334,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.7
+        },
+        "conditional_accuracy": 0.975,
+        "conditional_log_loss": 0.47648284473346064,
+        "conditional_brier": 0.073760735192725,
+        "onset_cue_mae_s": 0.31237499999999996,
+        "offset_cue_mae_s": 0.37925,
+        "eof_censored_recordings": 4
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 0,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 50,
+        "detections": 58,
+        "matched": 40,
+        "missed": 10,
+        "unmatched_detections": 18,
+        "correct": 39,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6896551724137931,
+        "end_to_end_success": 0.78,
+        "active_event_macro_f1": 0.7333333333333334,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.7
+        },
+        "conditional_accuracy": 0.975,
+        "conditional_log_loss": 0.5673206326324919,
+        "conditional_brier": 0.09444195458116346,
+        "onset_cue_mae_s": 0.31237499999999996,
+        "offset_cue_mae_s": 0.37925,
+        "eof_censored_recordings": 4
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 1,
+      "arm": "source_window",
+      "metrics": {
+        "references": 50,
+        "detections": 58,
+        "matched": 40,
+        "missed": 10,
+        "unmatched_detections": 18,
+        "correct": 39,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6896551724137931,
+        "end_to_end_success": 0.78,
+        "active_event_macro_f1": 0.7333333333333334,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.7
+        },
+        "conditional_accuracy": 0.975,
+        "conditional_log_loss": 0.24180195312081842,
+        "conditional_brier": 0.030850519250828358,
+        "onset_cue_mae_s": 0.31237499999999996,
+        "offset_cue_mae_s": 0.37925,
+        "eof_censored_recordings": 4
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 1,
+      "arm": "window_full",
+      "metrics": {
+        "references": 50,
+        "detections": 58,
+        "matched": 40,
+        "missed": 10,
+        "unmatched_detections": 18,
+        "correct": 39,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6896551724137931,
+        "end_to_end_success": 0.78,
+        "active_event_macro_f1": 0.7333333333333334,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.7
+        },
+        "conditional_accuracy": 0.975,
+        "conditional_log_loss": 0.45102005000600337,
+        "conditional_brier": 0.06784932761371924,
+        "onset_cue_mae_s": 0.31237499999999996,
+        "offset_cue_mae_s": 0.37925,
+        "eof_censored_recordings": 4
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 1,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 50,
+        "detections": 58,
+        "matched": 40,
+        "missed": 10,
+        "unmatched_detections": 18,
+        "correct": 39,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6896551724137931,
+        "end_to_end_success": 0.78,
+        "active_event_macro_f1": 0.7333333333333334,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.7
+        },
+        "conditional_accuracy": 0.975,
+        "conditional_log_loss": 0.5516722032592202,
+        "conditional_brier": 0.09067796065733752,
+        "onset_cue_mae_s": 0.31237499999999996,
+        "offset_cue_mae_s": 0.37925,
+        "eof_censored_recordings": 4
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 50,
+        "detections": 58,
+        "matched": 40,
+        "missed": 10,
+        "unmatched_detections": 18,
+        "correct": 39,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6896551724137931,
+        "end_to_end_success": 0.78,
+        "active_event_macro_f1": 0.7333333333333334,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.7
+        },
+        "conditional_accuracy": 0.975,
+        "conditional_log_loss": 0.24180195312081842,
+        "conditional_brier": 0.030850519250828358,
+        "onset_cue_mae_s": 0.31237499999999996,
+        "offset_cue_mae_s": 0.37925,
+        "eof_censored_recordings": 4
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 50,
+        "detections": 58,
+        "matched": 40,
+        "missed": 10,
+        "unmatched_detections": 18,
+        "correct": 39,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6896551724137931,
+        "end_to_end_success": 0.78,
+        "active_event_macro_f1": 0.7333333333333334,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.7
+        },
+        "conditional_accuracy": 0.975,
+        "conditional_log_loss": 0.4480914980694789,
+        "conditional_brier": 0.06727724315173038,
+        "onset_cue_mae_s": 0.31237499999999996,
+        "offset_cue_mae_s": 0.37925,
+        "eof_censored_recordings": 4
+      }
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 50,
+        "detections": 58,
+        "matched": 40,
+        "missed": 10,
+        "unmatched_detections": 18,
+        "correct": 39,
+        "detection_recall": 0.8,
+        "detection_precision": 0.6896551724137931,
+        "end_to_end_success": 0.78,
+        "active_event_macro_f1": 0.7333333333333334,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.7
+        },
+        "conditional_accuracy": 0.975,
+        "conditional_log_loss": 0.5456249768399197,
+        "conditional_brier": 0.08932234458260349,
+        "onset_cue_mae_s": 0.31237499999999996,
+        "offset_cue_mae_s": 0.37925,
+        "eof_censored_recordings": 4
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 0,
+      "arm": "source_window",
+      "metrics": {
+        "references": 100,
+        "detections": 127,
+        "matched": 78,
+        "missed": 22,
+        "unmatched_detections": 49,
+        "correct": 77,
+        "detection_recall": 0.78,
+        "detection_precision": 0.6141732283464567,
+        "end_to_end_success": 0.77,
+        "active_event_macro_f1": 0.6972744970798184,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6833333333333333
+        },
+        "conditional_accuracy": 0.9871794871794872,
+        "conditional_log_loss": 0.24230119260371702,
+        "conditional_brier": 0.03031693427625719,
+        "onset_cue_mae_s": 0.41955128205128206,
+        "offset_cue_mae_s": 0.40807692307692306,
+        "eof_censored_recordings": 5
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 0,
+      "arm": "window_full",
+      "metrics": {
+        "references": 100,
+        "detections": 127,
+        "matched": 78,
+        "missed": 22,
+        "unmatched_detections": 49,
+        "correct": 77,
+        "detection_recall": 0.78,
+        "detection_precision": 0.6141732283464567,
+        "end_to_end_success": 0.77,
+        "active_event_macro_f1": 0.6970749838396897,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6833333333333333
+        },
+        "conditional_accuracy": 0.9871794871794872,
+        "conditional_log_loss": 0.4735249556911515,
+        "conditional_brier": 0.07276956591686347,
+        "onset_cue_mae_s": 0.41955128205128206,
+        "offset_cue_mae_s": 0.40807692307692306,
+        "eof_censored_recordings": 5
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 0,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 100,
+        "detections": 127,
+        "matched": 78,
+        "missed": 22,
+        "unmatched_detections": 49,
+        "correct": 77,
+        "detection_recall": 0.78,
+        "detection_precision": 0.6141732283464567,
+        "end_to_end_success": 0.77,
+        "active_event_macro_f1": 0.6970749838396897,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6833333333333333
+        },
+        "conditional_accuracy": 0.9871794871794872,
+        "conditional_log_loss": 0.5676556685972225,
+        "conditional_brier": 0.09447504746238328,
+        "onset_cue_mae_s": 0.41955128205128206,
+        "offset_cue_mae_s": 0.40807692307692306,
+        "eof_censored_recordings": 5
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 1,
+      "arm": "source_window",
+      "metrics": {
+        "references": 100,
+        "detections": 127,
+        "matched": 78,
+        "missed": 22,
+        "unmatched_detections": 49,
+        "correct": 77,
+        "detection_recall": 0.78,
+        "detection_precision": 0.6141732283464567,
+        "end_to_end_success": 0.77,
+        "active_event_macro_f1": 0.6972744970798184,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6833333333333333
+        },
+        "conditional_accuracy": 0.9871794871794872,
+        "conditional_log_loss": 0.24230119260371702,
+        "conditional_brier": 0.03031693427625719,
+        "onset_cue_mae_s": 0.41955128205128206,
+        "offset_cue_mae_s": 0.40807692307692306,
+        "eof_censored_recordings": 5
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 1,
+      "arm": "window_full",
+      "metrics": {
+        "references": 100,
+        "detections": 127,
+        "matched": 78,
+        "missed": 22,
+        "unmatched_detections": 49,
+        "correct": 77,
+        "detection_recall": 0.78,
+        "detection_precision": 0.6141732283464567,
+        "end_to_end_success": 0.77,
+        "active_event_macro_f1": 0.6950080515297907,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6833333333333333
+        },
+        "conditional_accuracy": 0.9871794871794872,
+        "conditional_log_loss": 0.44535282521376257,
+        "conditional_brier": 0.06627312872803433,
+        "onset_cue_mae_s": 0.41955128205128206,
+        "offset_cue_mae_s": 0.40807692307692306,
+        "eof_censored_recordings": 5
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 1,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 100,
+        "detections": 127,
+        "matched": 78,
+        "missed": 22,
+        "unmatched_detections": 49,
+        "correct": 77,
+        "detection_recall": 0.78,
+        "detection_precision": 0.6141732283464567,
+        "end_to_end_success": 0.77,
+        "active_event_macro_f1": 0.6970749838396897,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6833333333333333
+        },
+        "conditional_accuracy": 0.9871794871794872,
+        "conditional_log_loss": 0.5472154472698786,
+        "conditional_brier": 0.0894598014589575,
+        "onset_cue_mae_s": 0.41955128205128206,
+        "offset_cue_mae_s": 0.40807692307692306,
+        "eof_censored_recordings": 5
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "source_window",
+      "metrics": {
+        "references": 100,
+        "detections": 127,
+        "matched": 78,
+        "missed": 22,
+        "unmatched_detections": 49,
+        "correct": 77,
+        "detection_recall": 0.78,
+        "detection_precision": 0.6141732283464567,
+        "end_to_end_success": 0.77,
+        "active_event_macro_f1": 0.6972744970798184,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6833333333333333
+        },
+        "conditional_accuracy": 0.9871794871794872,
+        "conditional_log_loss": 0.24230119260371702,
+        "conditional_brier": 0.03031693427625719,
+        "onset_cue_mae_s": 0.41955128205128206,
+        "offset_cue_mae_s": 0.40807692307692306,
+        "eof_censored_recordings": 5
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "window_full",
+      "metrics": {
+        "references": 100,
+        "detections": 127,
+        "matched": 78,
+        "missed": 22,
+        "unmatched_detections": 49,
+        "correct": 77,
+        "detection_recall": 0.78,
+        "detection_precision": 0.6141732283464567,
+        "end_to_end_success": 0.77,
+        "active_event_macro_f1": 0.6993080993080993,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6833333333333333
+        },
+        "conditional_accuracy": 0.9871794871794872,
+        "conditional_log_loss": 0.451139680268889,
+        "conditional_brier": 0.06773621303531771,
+        "onset_cue_mae_s": 0.41955128205128206,
+        "offset_cue_mae_s": 0.40807692307692306,
+        "eof_censored_recordings": 5
+      }
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "joint_full",
+      "metrics": {
+        "references": 100,
+        "detections": 127,
+        "matched": 78,
+        "missed": 22,
+        "unmatched_detections": 49,
+        "correct": 77,
+        "detection_recall": 0.78,
+        "detection_precision": 0.6141732283464567,
+        "end_to_end_success": 0.77,
+        "active_event_macro_f1": 0.6993080993080993,
+        "active_recall": {
+          "close": 0.9,
+          "open": 0.6833333333333333
+        },
+        "conditional_accuracy": 0.9871794871794872,
+        "conditional_log_loss": 0.5505129855880195,
+        "conditional_brier": 0.0903850399148911,
+        "onset_cue_mae_s": 0.41955128205128206,
+        "offset_cue_mae_s": 0.40807692307692306,
+        "eof_censored_recordings": 5
+      }
+    }
+  ],
+  "detector_primary_guards": {
+    "higher_end_to_end_success": true,
+    "higher_detection_recall": true,
+    "nonworse_active_f1": true,
+    "nonworse_both_active_recalls": true,
+    "no_more_unmatched_detections": false,
+    "at_least3_user_success_wins": true
+  },
+  "detector_primary_pass": false,
+  "validation_user_success_wins": 5,
+  "within_detector_joint_guards": {
+    "lower_log_loss": false,
+    "lower_brier": false,
+    "nonworse_end_to_end_success": true,
+    "nonworse_active_f1": true,
+    "nonworse_both_active_recalls": true,
+    "at_least3_user_loss_wins": false
+  },
+  "within_detector_joint_pass": false,
+  "validation_user_loss_wins": 0,
+  "artifacts_sha256": {
+    "benchmarks/new_bank_v3/roam_class_transition_v1/target/recordings.json": "efa9de77ffa382e8bb717acec79ff62d4e83eefa5638ad9f9433442d28c3e244"
+  },
+  "source_policy_committed_before_target_inference": true,
+  "target_fitted_or_selected": false,
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Retrospective native8/200Hz ROAM source-selected class-transition segmentation, including active-to-active changes, followed by frozen window/joint classification. Source grid selection uses18 users/72 recordings, held out from each source representation fold, with360 independent active cue references. Existing source OOF temperatures/population used all source users; source grid scores are policy training, not unbiased generalization. Source policy is committed before target inference. Previously inspected19..28 users and active gt cue references do not establish blind/prospective or physiological boundary truth, pinch, physical ring/F6/quality,250Hz device efficacy or a universal/default benefit."
+}

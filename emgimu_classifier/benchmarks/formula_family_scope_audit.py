@@ -394,6 +394,11 @@ def build() -> dict:
                          '|benchmarks/new_bank_v3/ROAM_NATIVE_CONTINUOUS_V1_DIAGNOSTIC.json')
             supported += (' Native8/200Hz continuous whole-recording inference now reuses frozen classifiers/profiles/neutral detectors without query cue boundaries.60 recording/budget blocks,90 cells and all100 active references per budget are independently checked. Misses and unmatched detections are retained.')
             unresolved += (' At2 current shots/class, only16/100 references match and15/100 classify correctly; joint fusion cannot restore undetected references and the primary guard fails. Cue-transition geometry is posthoc, not physiological truth or proof of a cause. Own-device250Hz and default efficacy remain unproved.')
+        if family in ('F5','F7','F8'):
+            evidence += ('|feature_bank/ROAM_CLASS_TRANSITION_V1_ACCEPTANCE.json'
+                         '|benchmarks/new_bank_v3/ROAM_CLASS_TRANSITION_V1_TARGET_RESULTS.json')
+            supported += (' Source-only class-transition selection on18 users/72 recordings/360 active references is committed before target inference. Native active-to-active estimated boundaries improve same100-reference matches16 to78 and correct15 to77; independent source/target logits/FSM/geometry/metric checks pass.')
+            unresolved += (' Unmatched detections increase11 to49, failing the predeclared detector guard. Within new matches, joint loss is worse than zero-target-calibration source-window classification. No default, physiology,250Hz device, cross-day or full-formula claim follows.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

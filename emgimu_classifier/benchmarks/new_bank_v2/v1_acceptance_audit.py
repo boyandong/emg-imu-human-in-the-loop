@@ -714,6 +714,12 @@ def build(pre: Path, goal: Path) -> dict:
                          '|benchmarks/new_bank_v3/ROAM_NATIVE_CONTINUOUS_V1_RESULTS.json'
                          '|tests/test_roam_native_continuous_delivery_v1.py')
             boundary += (' Native eight-channel200Hz continuous detector/window/full-path inference is now executed on whole query recordings without their labels or cue edges. Frozen classifiers, profiles and neutral-only detectors are reused.60 recording/budget blocks and90 cells preserve all100 active references per budget, misses, unmatched detections and shared6+3*shots cost. Independent FSM/logits/geometry/path/metrics verify execution. At2 shots/class16 references match and15 classify correctly; primary guard fails with0/5 validation user success wins. Posthoc cue-overlap diagnostics do not establish physiology or causes. Physical250Hz efficacy, full-formula and anatomy/topology gaps remain open.')
+        if ident in ('GOAL-03','GOAL-05','GOAL-12','GOAL-20','GOAL-22','GOAL-25'):
+            evidence += ('|feature_bank/ROAM_CLASS_TRANSITION_V1_ACCEPTANCE.json'
+                         '|benchmarks/new_bank_v3/ROAM_CLASS_TRANSITION_V1_TARGET_RESULTS.json'
+                         '|tests/test_roam_class_transition_delivery_v1.py'
+                         '|tests/test_class_transition_policy_v1.py')
+            boundary += (' Source-only class-aware native segmentation now closes/opens active-to-active transitions. Source18 users/72 recordings/360 active references select18 precommitted settings; independent selection is committed before target inference. Same100 target references retain16 to78 matches and15 to77 correct, but unmatched detections increase11 to49 and the detector primary guard fails. Within identical new matches, joint loss/Brier worsen against the zero-calibration source window. Detector/source-window require0 target cues; personal/joint branches retain6+3*shots. Exact policy loader rejects changed checksum/bank/rate/class/rest and parameter overrides. Native200Hz public retrospective evidence does not prove250Hz own-device efficacy, physiological boundaries or full-formula acceptance.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

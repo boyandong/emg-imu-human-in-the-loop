@@ -73,6 +73,8 @@
     "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_RESULTS.json": "a423f944b65c5d9d494ab3b85dc5cd6df528ac07968d35d5445ea060d6d4999e",
     "benchmarks/new_bank_v3/PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json": "291d5b903238e31c90f8997add01fcd0c86cf8da639a401c1bc0c259e6c38cdf",
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
+    "benchmarks/new_bank_v3/ROAM_CLASS_TRANSITION_V1_SOURCE_RESULTS.json": "90bb94d5cf1e15568a62d7eca6e599c2118b5a9b090348159df3b6a2e66c2f59",
+    "benchmarks/new_bank_v3/ROAM_CLASS_TRANSITION_V1_TARGET_RESULTS.json": "7ebf3df81cf59dbd19a1a74a1c241aef129bbab2fb896b44ebf5a106c2391c71",
     "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json": "9964583ef8211b09fa5e594a3aa8e46825d65418afd50c69a99939f62a7eea0a",
     "benchmarks/new_bank_v3/ROAM_NATIVE_CONTINUOUS_V1_RESULTS.json": "c94d9fd3b28d7a537b7edd8f6cbc66b616b99051e219a90841b24b91657074d8",
     "benchmarks/new_bank_v3/ROAM_NATIVE_JOINT_V1_RESULTS.json": "c1691293a0e1df662838c58137d05ce377753fa860d99c9309c05987ec26ef98",
@@ -85,7 +87,7 @@
   },
   "current_scientific_conclusions": {
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
-    "sha256": "0ccf895ad9f1d789990f8d279359822a9fbcc91bfb1fbe3bc51a3f254ef90628"
+    "sha256": "5d03c435985c64aabe15984ac2b78815cea514aceaee2e7716fd42cea9abae10"
   },
   "current_regression_snapshot": {
     "path": "../CLASSIFIER_REGRESSION_20261008.json",
@@ -179,6 +181,11 @@
     "path": "../JOINT_BOUT_GUI_V1_ACCEPTANCE.json",
     "sha256": "27e905148ec66fafffc7788d438f9e4e4044cc7fad709162e0387707d00d391d"
   },
+  "roam_class_transition_acceptance": {
+    "path": "../ROAM_CLASS_TRANSITION_V1_ACCEPTANCE.json",
+    "sha256": "5da7314445f90ce80ef21b42b37bd33e3aa29d8ef8c13e94bf902ca02eda557b"
+  },
+  "roam_class_transition_summary": "new_bank_v3/class_transition_detection.csv",
   "roam_native_continuous_acceptance": {
     "path": "../ROAM_NATIVE_CONTINUOUS_V1_ACCEPTANCE.json",
     "sha256": "bb9691b30a492e8ae1028bd28d2ff836fe13b54bbf31d37caedba149f640de55"
