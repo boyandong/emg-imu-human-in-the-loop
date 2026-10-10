@@ -1,0 +1,31 @@
+{
+  "schema": "song_extended_window_acceptance_v1",
+  "protocol_sha256": "371266f1b4c3c7f24cf2b4e77a9da5a172ec3c82ed193816153334e09cf0d618",
+  "result_sha256": "dab1fba20d7f09404605c944d317cbcfdc8c19e100fcb830f030c4d4dd49f34f",
+  "verifier_sha256": "f2b212a7fde24ad8fccf7c65fd41d73790cad2c865e24c1880616fee8e5536a7",
+  "artifact_sha256": {
+    "benchmarks/song_real8/song_extended_window_v1/personal_S03.zip": "e30a3d201be5da00fda02d412de4ae9ad418b8e0b8884ba90f4591579dcf14bb",
+    "benchmarks/song_real8/song_extended_window_v1/policy.json": "a46078eb37a0ce26f149e3d8f6b923010f90b342f83b7cc7bc38c5526800006c",
+    "benchmarks/song_real8/song_extended_window_v1/predictions.csv": "95cac50cdba1af19a323b6d7c307f8989165003e2f2eba1e03b99af390588c76",
+    "benchmarks/song_real8/song_extended_window_v1/readouts.npz": "713fd585cf146da69291bf236b8066e927fc631b09ce49fa537069f24dcb6def",
+    "benchmarks/song_real8/song_extended_window_v1/session_S04_1shot.zip": "c813c8f1b2cd4cb6d0eedd401a708063e0a70b7f173e840acc41df3cdd14d849",
+    "benchmarks/song_real8/song_extended_window_v1/session_S04_2shot.zip": "5da0d2dcefa50e03ecb12ffbe469b5dc0f2b9d3fa66a094bd2e47964bcd1dd00",
+    "benchmarks/song_real8/song_extended_window_v1/session_S04_5shot.zip": "765b279e46fac30e53d5c33b8479a8838c91a82524023bc97c6552e243d9071a",
+    "benchmarks/song_real8/song_extended_window_v1/source_bank.pkl": "a0d3d8816cffeaa22b3c7e9d761d05cbd5704a4e57ca806ad1f076c5dc1f3d73"
+  },
+  "checked_cells": 76,
+  "checked_trial_probabilities": 9424,
+  "maximum_probability_error": 2.914335439641036e-16,
+  "maximum_CSP_eigen_residual": 9.43689570931383e-16,
+  "independent_source_CSP_eigen_and_variance": true,
+  "independent_direct_DFT_context": true,
+  "independent_trial_balanced_prototypes_and_routing": true,
+  "previous_six_baseline_parity": true,
+  "source_and_profiles_immutable": true,
+  "primary_pass": true,
+  "F4d_context_only": true,
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Seven declared window groups/281coordinates plus context-only F4d. Not every F0-F9 subfamily, full-bout F5, physical ring/F6, unseen-person/day, hardware or deployment efficacy. Retrospective source OOF temperatures/prior reuse is not unbiased source performance. No default promotion."
+}

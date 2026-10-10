@@ -1155,3 +1155,29 @@ emgimu_classifier/benchmarks/song_real8/song_extended_window_v1.py -text -eol wh
 emgimu_classifier/benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_RESULTS.json -text -eol whitespace=cr-at-eol
 emgimu_classifier/benchmarks/song_real8/song_extended_window_v1/** -text -eol whitespace=cr-at-eol
+
+# Seven-provider lifecycle and frozen GUI verification
+emgimu_classifier/src/emgimu/feature_bank/personal_session_stream_v4.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_personal_session_stream_v4.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/verify_extended_gui_v1.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/emgforce/inference/personal_session_worker_v4.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/emgforce/ui/realtime_inference_page_v4.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/emgforce/ui/main_window_v3.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/main_decision_v2.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/install_decision_shortcut_v2.ps1 -text -eol whitespace=cr-at-eol
+emgimu_classifier/src/emgimu/feature_bank/extended_window_cli_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/tests/test_extended_window_cli_v1.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/tests/test_decision_launcher_v2.py -text -eol whitespace=cr-at-eol
+collection/emg_meta/emg_meta/tests/test_decision_page_v4.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/SONG_EXTENDED_GUI_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_RESULTS.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/verify_extended_window_v1.py -text -eol whitespace=cr-at-eol
+emgimu_classifier/feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/song_extended_window_v1/personal_S03.zip -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/song_extended_window_v1/policy.json -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/song_extended_window_v1/predictions.csv -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/song_extended_window_v1/readouts.npz -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/song_extended_window_v1/session_S04_1shot.zip -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/song_extended_window_v1/session_S04_2shot.zip -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/song_extended_window_v1/session_S04_5shot.zip -text -eol whitespace=cr-at-eol
+emgimu_classifier/benchmarks/song_real8/song_extended_window_v1/source_bank.pkl -text -eol whitespace=cr-at-eol

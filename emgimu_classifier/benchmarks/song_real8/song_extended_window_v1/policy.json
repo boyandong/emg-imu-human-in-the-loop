@@ -1,0 +1,7 @@
+{
+  "source_bank_sha256": "a0d3d8816cffeaa22b3c7e9d761d05cbd5704a4e57ca806ad1f076c5dc1f3d73",
+  "source_bank_id": "656360eeefee0a8c4cf95338805acb9e81ea5fa7cbad817cd1e72c51b669fdbe",
+  "decision_policy_id": "4a1aa349eb9adbaa75cb0800adb71e87fe8300c8c7c0f4da47be309c9c08523d",
+  "anchor_mix": 0.5,
+  "gate_policy_id": "3ae9b9d85f9ca60fa1a421983e9e87eed6e12c10b43de8ff612ef9cb4dd32690"
+}
