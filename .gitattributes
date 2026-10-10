@@ -1562,3 +1562,125 @@ emgimu_classifier/tests/test_calibration_rest_detector_v1.py -text -eol whitespa
 /emgimu_classifier/benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
 
 /emgimu_classifier/benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_SOURCE_INPUT.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/ROAM_SOURCE_FUSION_V1_SOURCE_RESULTS.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/feature_bank/ROAM_SOURCE_FUSION_V1_SOURCE_ACCEPTANCE.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/bank_fold0.pkl -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/bank_fold1.pkl -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/bank_fold2.pkl -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/policy.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/readouts.npz -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s10_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s10_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s10_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s11_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s11_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s11_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s12_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s12_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s12_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s13_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s13_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s13_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s14_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s14_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s14_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s15_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s15_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s15_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s16_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s16_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s16_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s17_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s17_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s17_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s18_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s18_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s18_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s1_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s1_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s1_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s2_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s2_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s2_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s3_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s3_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s3_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s4_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s4_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s4_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s5_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s5_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s5_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s6_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s6_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s6_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s7_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s7_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s7_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s8_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s8_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s8_personal.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s9_current1.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s9_current2.zip -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_source_fusion_v1/source/s9_personal.zip -text -eol whitespace=cr-at-eol
