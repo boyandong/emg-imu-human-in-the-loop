@@ -8,7 +8,7 @@
     "emgimu_classifier/benchmarks/song_real8/SONG_F0_STREAM_V1_EMISSIONS.npz": "08eb16b55ec32482a976ce8f8c9d8f520854950d52d40c15a6fc2f5334532864",
     "collection/emg_meta/emg_meta/emgforce/inference/song_local.py": "47dc81fdf184286cbd2b097fa2879fc7b00cb6bbfe6d557d9e8bebd57539e8ed",
     "collection/emg_meta/emg_meta/emgforce/inference/song_worker.py": "477976337ddef2b643cd196b56632b0189fbf3993ee59b9d3576611207bd43bc",
-    "collection/emg_meta/emg_meta/emgforce/ui/realtime_inference_page.py": "4ba993662805591f1ecf7cb1292d51fa58cfee0dd72687c9f9cd2a930b75703d",
+    "collection/emg_meta/emg_meta/emgforce/ui/realtime_inference_page.py": "beb35dc227a83efc568c5f565d023b4ba10e69320b63851042954cef8cd280a3",
     "collection/emg_meta/emg_meta/tests/test_song_frozen_v2.py": "0aa2332cfe5ba83787f80ac00240e7112910bacc40e872322ecdd08fbe86c24c"
   },
   "source_checkpoint_sha256": "623e4f9ca282a03cde98236844039b6043f5f0471cfae35da94482af0e43b44c",

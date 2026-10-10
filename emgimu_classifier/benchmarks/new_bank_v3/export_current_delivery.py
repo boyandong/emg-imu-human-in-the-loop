@@ -432,6 +432,8 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/SONG_GUI_V2_ACCEPTANCE.json')},
              'song_personal_session_acceptance': {'path':'../SONG_PERSONAL_SESSION_ACCEPTANCE_V1.json',
                  'sha256':sha(ROOT/'feature_bank/SONG_PERSONAL_SESSION_ACCEPTANCE_V1.json')},
+             'song_personal_gui_acceptance': {'path':'../SONG_PERSONAL_GUI_V1_ACCEPTANCE.json',
+                 'sha256':sha(ROOT/'feature_bank/SONG_PERSONAL_GUI_V1_ACCEPTANCE.json')},
              'completion_proven': False}
     (BASE/'INDEX.json').write_text(json.dumps(index, indent=2)+'\n', encoding='utf8')
     print(json.dumps({n: len(rows) for n, (rows, _) in tables.items()}), flush=True)

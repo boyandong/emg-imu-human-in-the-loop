@@ -1,0 +1,38 @@
+{
+  "schema": "song_personal_gui_v1_acceptance",
+  "protocol_sha256": "0bef8bce68f0d22d09f61f78bdb70812d8ee109bcb9e85f8b78a1a5de48432de",
+  "source_sha256": {
+    "emgimu_classifier/src/emgimu/feature_bank/personal_session_stream_v1.py": "860c716053ed67b8788c444ec1884a69b65a1064b950ac6e8b3cc2b57d834059",
+    "emgimu_classifier/tests/test_personal_session_stream_v1.py": "6e196d48620fd82672ab42fdb73718255da58b9cf1cf3c649189fca5cb2ec1ca",
+    "emgimu_classifier/benchmarks/song_real8/verify_personal_session_gui_v1.py": "0bee02e012f24086fc7cb995c27fc2b186491b3437464c57af6f0b8de821f8a8",
+    "collection/emg_meta/emg_meta/emgforce/inference/personal_session_worker.py": "d2bcb27071587e302dd1ea6531b15d4b76c94910030d558edb07cdfb3e51f85e",
+    "collection/emg_meta/emg_meta/emgforce/ui/personal_session_panel.py": "4c0e07a2ada7bdcbc8db2dc98042dfdb4521d6e34a81cfabf04ba03682024416",
+    "collection/emg_meta/emg_meta/emgforce/ui/realtime_inference_page.py": "beb35dc227a83efc568c5f565d023b4ba10e69320b63851042954cef8cd280a3",
+    "collection/emg_meta/emg_meta/tests/test_personal_session_panel.py": "7a3926781669265fd3d0ead13bdd52bd7794e9cf2f37ef6aa919ee61aacfa49a"
+  },
+  "records": [
+    {
+      "arm": "population",
+      "windows": 29790,
+      "maximum_probability_error": 5.551115123125783e-16,
+      "confirmation_exact": true,
+      "source_and_profiles_immutable": true,
+      "personal_trials": 0,
+      "session_trials": 0
+    },
+    {
+      "arm": "session_5shot",
+      "windows": 29790,
+      "maximum_probability_error": 4.440892098500626e-16,
+      "confirmation_exact": true,
+      "source_and_profiles_immutable": true,
+      "personal_trials": 20,
+      "session_trials": 20
+    }
+  ],
+  "gui_flow": "Qt subprocess tests: guided personal enrollment, new-session calibration, ZIP+calibration-input persistence, replay, live input, disconnect, identity rejection and backend switching.",
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Opt-in six-provider GUI lifecycle. Full native-recording window parity, not native trial efficacy or hardware validation. F7/F8/F9 remain context outputs; normalization does not replace classifier inputs; quality rejection and full F0-F9 integration remain open."
+}

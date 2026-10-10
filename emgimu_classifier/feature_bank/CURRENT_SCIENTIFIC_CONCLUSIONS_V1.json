@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "ad1b49d199e635a618581a32272645213f3cbf76c18e881048491d20c48fa3f0",
+  "generator_sha256": "aa2bfbdf671bb2a3583e792a04a4c302d8c5364285084f7bbdcbec311f54233d",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -29,6 +29,8 @@
     "tests/test_personal_session_cli_v1.py",
     "tests/test_song_personal_session_protocol_v1.py",
     "tests/test_song_personal_session_v1_delivery.py",
+    "tests/test_personal_session_stream_v1.py",
+    "tests/test_personal_session_gui_v1_delivery.py",
     "tests/test_available_bank_fusion_v1.py",
     "tests/test_available_bank_fusion_v1_delivery.py",
     "tests/test_epn_holdout_user_robustness_v2.py",
@@ -50,15 +52,16 @@
     "src/emgimu/feature_bank/frozen_emg_bank_cli_v1.py": "f92bfc422dfa258329f3d182bd93e0c9435d7723c9a6ff17001bd28eb9d0e648",
     "feature_bank/SONG_F0_RUNTIME_ACCEPTANCE_V1.json": "2ee8d5ccbe203154ff0d48612286eefa39898fcde76d4539e052e0e5c2bf4d7c",
     "benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json": "3c41021ab3639d9b36b1d4f9c53ca0068a67c9a7749ce8c53127a77caf793b48",
-    "feature_bank/SONG_GUI_V2_ACCEPTANCE.json": "e369b74e8e55f2febc8fb95ddafbd93ca2207c28a8719d3c61528952835f0c4b",
+    "feature_bank/SONG_GUI_V2_ACCEPTANCE.json": "66010090de6a00b2199ee8e69e7cd594aa3a24db7300835da6e58dcc0e74206c",
     "benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json": "1378f1c4e1655a59588f2d6dc6c35bc48e0d30c5a22bab2568c705a768551e38",
     "feature_bank/SONG_PERSONAL_SESSION_ACCEPTANCE_V1.json": "195b23cd57430b6b44395bd8c0aca2935fdee2734f35b3a8bf8d687fa99fc6d6",
+    "feature_bank/SONG_PERSONAL_GUI_V1_ACCEPTANCE.json": "e4a613649f41ea7cdc5c5d1d00b59d7ebbf355179157fd47d6eaa5c4117831db",
     "benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.json": "a079bff7bceae47930f3bb6579782cbc9208ee1e858a89caaf78c43b31b575db",
     "benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json": "0d38aad3bfef51ee962d8cc3ec5cbf2f5b4c96cd483c0b572b69a26661df12b1",
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "71ab9a951a4e731f465840dbaee4b2658a595b293526ff876d652be79f0d0ac7",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "848a2b343b24316246b50eb6a150dc26bf32c72f44bbc03cedbe2af2bf17b2d1",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -81,6 +84,8 @@
     "tests/test_personal_session_cli_v1.py": "fc76494cafa08cdd6857313df22fbcba6b75263108ed3547d65931d954d5e53d",
     "tests/test_song_personal_session_protocol_v1.py": "9ae76f957165632b4a9a33c68238fbc3cd4275e8ebc567d5bde9850c221d805d",
     "tests/test_song_personal_session_v1_delivery.py": "243d9b6785c730ee142a925aeaad811e9132eb7b88c8c4de376add34f0f972a7",
+    "tests/test_personal_session_stream_v1.py": "6e196d48620fd82672ab42fdb73718255da58b9cf1cf3c649189fca5cb2ec1ca",
+    "tests/test_personal_session_gui_v1_delivery.py": "c3618500af12d37119474e7c97888752a1ae4c1592bf3caf9b2d9b571b68357f",
     "tests/test_available_bank_fusion_v1.py": "d2d3d2ce3bd12a5e6e5ef37d77eadb39f529e126b1abdd8585d7e624a7014f07",
     "tests/test_available_bank_fusion_v1_delivery.py": "43c2870143b5c534581c435c06c7dec1506747012bd389d1b62a46d98403266e",
     "tests/test_epn_holdout_user_robustness_v2.py": "797631cfe13ddb072dc95aaeb95d4b5aa7d7e40da4a15a82de34022f94f3e350",
@@ -3032,6 +3037,32 @@
     "maximum_probability_error": 4.440892098500626e-16,
     "workflow_contract_id": "77d8cbd7d3ee662b45ac7c8bb5af1d2bdd3eb4e40a03fc76ae5f322457b8cb0a",
     "scope": "Source-frozen six-provider Song lifecycle; all44 cells/5456 native trial predictions and persisted context outputs reverified without fitting. Long-term20 trials plus current0/4/8/20 are separate costs. No GUI calibration integration, full F0-F9 composition, learned anchor/context classifier, quality gate, native anatomical F6 or live efficacy claim."
+  },
+  "song_personal_gui": {
+    "records": [
+      {
+        "arm": "population",
+        "windows": 29790,
+        "maximum_probability_error": 5.551115123125783e-16,
+        "confirmation_exact": true,
+        "source_and_profiles_immutable": true,
+        "personal_trials": 0,
+        "session_trials": 0
+      },
+      {
+        "arm": "session_5shot",
+        "windows": 29790,
+        "maximum_probability_error": 4.440892098500626e-16,
+        "confirmation_exact": true,
+        "source_and_profiles_immutable": true,
+        "personal_trials": 20,
+        "session_trials": 20
+      }
+    ],
+    "gui_flow": "Qt subprocess tests: guided personal enrollment, new-session calibration, ZIP+calibration-input persistence, replay, live input, disconnect, identity rejection and backend switching.",
+    "scope": "Opt-in six-provider GUI lifecycle. Full native-recording window parity, not native trial efficacy or hardware validation. F7/F8/F9 remain context outputs; normalization does not replace classifier inputs; quality rejection and full F0-F9 integration remain open.",
+    "physical_validation_proven": false,
+    "default_promoted": false
   },
   "song_f0_stream": {
     "classes": [

@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `cb1eed5129d1ad0208d30ec8282e3a249c374f72f755b418c06d5331ad8d96ee`.
+Source SHA-256: `d95910474771bd815caae36824ee7ba5daa9f27ac61b4c163228d691b51c4574`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -683,12 +683,44 @@ only source checkpoint, acceptance, windows and profile files, not raw recording
 [Native workflow results](../benchmarks/song_real8/SONG_PERSONAL_SESSION_V1_RESULTS.json)
 and [package/configuration acceptance](SONG_PERSONAL_SESSION_ACCEPTANCE_V1.json)
 retain44 cells, source-only policy selection and every calibration reservation.
-This is an offline workflow, not the GUI calibration path. Normalized views and
+This experiment evaluates the offline workflow. A separate GUI integration is described below. Normalized views and
 F7/F8/F9 context are not silently inserted into raw-trained classifiers. No
 quality rejection, learned anchor/context classifier, complete DTW bout, native
 anatomical F6 or full document-wide F0-F9 fusion is proved. All four recordings
 are from one user/day with readiness and prior-inspection limits; recording IDs
 do not establish separate days or physical electrode reattachment.
+
+#### Guided personal/session calibration in the collection page
+
+The opt-in Song250 personal/session card invokes the frozen classifier in a
+persistent background Python process, preserving the existing Qt environment.
+Enter the actual user, a unique recording/session ID and observed CH1-CH8
+column order. Load the backend, optionally apply matching ZIP profiles,
+then enroll a person or calibrate a new session. Each guided trial has one
+second to settle and one second of held capture; the user explicitly starts
+the next action. A recording gap cancels pending calibration. Shots count
+native guided trials, not overlapping windows.
+
+Saving creates the profile ZIP plus separate `.windows.npz`, `.labels.json`
+and `.capture.json` companions, without overwriting existing files. Capture
+metadata distinguishes nominal sampled time from begin-to-save wall time.
+New-session profiles require their original personal profile and a different
+recording ID. Calibration changes reliability weights; source classifiers
+and long-term profiles remain fixed. Zero-personal source-population
+prediction is available, as is unlabeled preprocessed-window replay.
+
+Both population and five-shot session paths verify 59580 emitted windows
+over the complete S04 recording against independently filtered, source-frozen
+provider probabilities. Errors are below1e-12 and chronological two-confirmation
+labels agree exactly. This recording includes calibration intervals and was
+previously inspected: the check proves numerical parity, not independent
+classification accuracy. Qt tests use the actual classifier subprocess to
+exercise enrollment, persistence, new-session calibration, live input, replay,
+profile mismatch rejection, disconnect and switching back to ordinary models.
+
+[GUI lifecycle provenance](SONG_PERSONAL_GUI_V1_ACCEPTANCE.json)
+retains experimental status. Physical usability, end-to-end latency, new
+electrode placement, quality rejection and full F0-F9 integration remain open.
 
 #### Target calibration burden: extracted signal versus stored recording time
 

@@ -288,9 +288,24 @@ def build(pre: Path, goal: Path) -> dict:
                          "are separate budgets. Current calibration changes reliability "
                          "weights; normalization, F7 anchors, F8 and F9 remain separate "
                          "context outputs. Session effects are mixed, and more shots "
-                         "can harm loss. No GUI calibration path, complete document "
+                         "can harm loss. The offline result alone does not prove complete document "
                          "F0-F9 integration, native anatomical F6, quality rejection "
-                         "or cross-day/re-donning/device proof follows.")
+                         "or cross-day/re-donning/device efficacy.")
+            evidence += ("|feature_bank/SONG_PERSONAL_GUI_V1_ACCEPTANCE.json"
+                         "|benchmarks/song_real8/SONG_PERSONAL_GUI_V1_PROTOCOL.json"
+                         "|tests/test_personal_session_stream_v1.py"
+                         "|tests/test_personal_session_gui_v1_delivery.py")
+            boundary += (" A separate opt-in collection-page lifecycle now supports guided "
+                         "personal enrollment and new-session calibration, persistent profiles "
+                         "with separate calibration-window/label/capture companions, source-population "
+                         "or calibrated live inference, unlabeled-window replay and explicit identity "
+                         "checks. Qt plus an actual classifier subprocess verifies the flow; both "
+                         "population and five-shot session streams reproduce all29,790 S04 windows "
+                         "within1e-12 without source/profile mutation. This is numerical equivalence "
+                         "on previously inspected data including calibration intervals, not a new "
+                         "efficacy experiment. Device disconnection or discontinuity cancels pending "
+                         "calibration and clears displayed recognition. Full F0-F9 fusion, quality "
+                         "rejection and hardware efficacy remain unproved.")
         if ident in ("GOAL-02", "GOAL-03", "GOAL-18", "GOAL-20", "GOAL-23"):
             evidence += ("|benchmarks/song_real8/SONG_F0_STREAM_V1_PROTOCOL.json"
                          "|benchmarks/song_real8/SONG_F0_STREAM_V1_RESULTS.json"
