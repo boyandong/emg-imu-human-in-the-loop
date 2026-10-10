@@ -1990,3 +1990,19 @@ emgimu_classifier/tests/test_calibration_rest_detector_v1.py -text -eol whitespa
 /emgimu_classifier/src/emgimu/feature_bank/wearing_session_normalization.py -text -eol whitespace=cr-at-eol
 
 /emgimu_classifier/src/emgimu/feature_bank/wearing_session_study.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/ROAM_CLASS_TRANSITION_V1_PROTOCOL.json -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/roam_class_transition_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/benchmarks/new_bank_v3/verify_roam_class_transition_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/class_transition_bouts_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/src/emgimu/feature_bank/native_class_transition_stream_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_class_transition_bouts_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_native_class_transition_stream_v1.py -text -eol whitespace=cr-at-eol
+
+/emgimu_classifier/tests/test_roam_class_transition_study_v1.py -text -eol whitespace=cr-at-eol
