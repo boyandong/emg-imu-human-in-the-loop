@@ -70,8 +70,8 @@ def test_delivery_sources_schemas_and_unavailable_results():
     assert manifest['generator_sha256'] == sha(ROOT/'benchmarks/new_bank_v3/export_current_delivery.py')
     for path, digest in manifest['source_sha256'].items():
         assert sha(ROOT/path) == digest
-    expected = {'feature_family_results.csv': 3189, 'conditional_incremental.csv': 4616,
-                'error_complementarity.csv': 4616, 'calibration_curve.csv': 3189, 'ablation_full_bank.csv':824,
+    expected = {'feature_family_results.csv': 3497, 'conditional_incremental.csv': 4980,
+                'error_complementarity.csv': 4980, 'calibration_curve.csv': 3497, 'ablation_full_bank.csv':880,
                 'budget_eligibility.csv': 170, 'boundary_detection.csv': 2, 'calibration_burden.csv': 710, 'continuous_recognition.csv':40, 'transition_hold.csv':40, 'label_stability_control.csv':80, 'quality_gate.csv':24}
     for name, count in expected.items():
         table = rows(name)
@@ -96,7 +96,7 @@ def test_delivery_sources_schemas_and_unavailable_results():
     assert all(r[k] == 'N/A' for r in dtw for k in ('log_loss', 'brier', 'ece'))
     for row in rows('conditional_incremental.csv'):
         is_concat=(row['run_id']=='emg_window_bank_v1' and row['core_bank']=='F0' and row['added_family'].startswith('F0_plus_'))
-        expected_kind=('paired_fixed_probability_mixture_not_concatenated_increment' if row['run_id'] in ('personal_temporal_unibo_v1','detected_personal_temporal_unibo_v3') else
+        expected_kind=('paired_fixed_probability_mixture_not_concatenated_increment' if row['run_id'] in ('personal_temporal_unibo_v1','detected_personal_temporal_unibo_v3','calibration_rest_continuous_unibo_v1') else
                        'source_refit_concatenated_group_increment' if is_concat else 'paired_alternative_not_concatenated_increment')
         assert row['comparison_kind']==expected_kind
 
@@ -137,7 +137,7 @@ def test_comparison_budget_identity_and_positive_improvement_signs():
                                ('error_complementarity.csv',('family_a','family_b'))]:
         comparisons = rows(table)
         keys = [tuple(r[k] for k in context+pair_fields) for r in comparisons]
-        assert len(keys) == len(set(keys)) == 4616
+        assert len(keys) == len(set(keys)) == 4980
         for row in comparisons:
             key = tuple(row[k] for k in context)
             a = lookup[key+(row[pair_fields[0]],)]
@@ -159,7 +159,7 @@ def test_error_probabilities_denominators_and_class_confusion_metrics():
         n = int(row['evaluation_trials']); assert n > 0
         for count,rate in [('a_correct_b_wrong','a_correct_b_wrong_probability'),
                            ('a_wrong_b_correct','a_wrong_b_correct_probability')]:
-            if row['run_id'] not in ('personal_temporal_unibo_v1','detected_personal_temporal_unibo_v3'):
+            if row['run_id'] not in ('personal_temporal_unibo_v1','detected_personal_temporal_unibo_v3','calibration_rest_continuous_unibo_v1'):
                 assert np.isclose(float(row[rate]),int(row[count])/n,rtol=0,atol=1e-12)
             else:
                 assert 0 <= float(row[rate]) <= 1  # Exact trial-mass values checked against retained probabilities below.
@@ -171,7 +171,7 @@ def test_error_probabilities_denominators_and_class_confusion_metrics():
         for c in metrics.values():
             tp,fp,fn = c['true_positives'],c['false_positives'],c['false_negatives']
             assert tp+fp == c['predicted'] and tp+fn == c['support']
-            if row['run_id'] in ('personal_temporal_unibo_v1','detected_personal_temporal_unibo_v3'):
+            if row['run_id'] in ('personal_temporal_unibo_v1','detected_personal_temporal_unibo_v3','calibration_rest_continuous_unibo_v1'):
                 tw,sw,pw=c['true_positive_weight'],c['support_weight'],c['predicted_weight']
                 assert c['recall']==(tw/sw if sw else None)
                 assert c['precision']==(tw/pw if pw else None)

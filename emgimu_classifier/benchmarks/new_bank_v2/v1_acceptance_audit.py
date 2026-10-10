@@ -663,6 +663,17 @@ def build(pre: Path, goal: Path) -> dict:
                          '596 supported references retain69 misses; full five-shot changes366 to367 correct, conditional loss .8001 to.7005. '
                          'Only2/7 user loss wins and u07 lacks matched fist; complete-class primary stays ineligible and fails. '
                          'This closes public native automatic-fusion execution, not stable gain, current8-channel detector or physical efficacy.')
+        if ident in ('GOAL-03','GOAL-20','GOAL-22'):
+            evidence += ('|benchmarks/new_bank_v3/CALIBRATION_REST_CONTINUOUS_UNIBO_V1_PROTOCOL.json'
+                         '|benchmarks/new_bank_v3/CALIBRATION_REST_CONTINUOUS_UNIBO_V1_RESULTS.json'
+                         '|feature_bank/CALIBRATION_REST_CONTINUOUS_UNIBO_ACCEPTANCE_V1.json'
+                         '|tests/test_calibration_rest_continuous_unibo_v1_delivery.py')
+            boundary += (' Neutral-profile detector calibration now matches desktop selection/equations on a separate public4-channel200Hz comparison. '
+                         'Fixed1152 references/596 supported references and140 guarded calibration record exclusions persist across candidates. '
+                         'Independent vector-energy FSM, direct G5 algebra,308 cells/192764 probabilities and costs pass. '
+                         'Five-shot full changes367 to407 correct;5/7 user success wins and six frozen guards pass; misses fall69 to16. '
+                         'u07 fist matching resumes20/30 but classification remains9/30. Conditional matched subsets differ; no paired-loss increment, '
+                         'default promotion, prospective cohort, chronological onboarding or physical8-channel efficacy follows.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

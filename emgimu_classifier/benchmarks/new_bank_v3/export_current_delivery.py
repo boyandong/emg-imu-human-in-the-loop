@@ -503,6 +503,7 @@ def export():
                     'delta_brier':alternative['brier']-full['brier']})
     from benchmarks.new_bank_v3.export_detected_personal_temporal_v3 import append as append_continuous_temporal
     append_continuous_temporal(sources, family, incremental, errors, curve, ablations)
+    append_continuous_temporal(sources, family, incremental, errors, curve, ablations, registration=True)
     burden_name = 'MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json'
     burden = read(burden_name)
     burden_source = (HERE/burden_name).relative_to(ROOT).as_posix()
@@ -658,6 +659,8 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json')},
              'detected_personal_temporal_unibo_acceptance': {'path':'../DETECTED_PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V3.json',
                  'sha256':sha(ROOT/'feature_bank/DETECTED_PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V3.json')},
+             'calibration_rest_continuous_unibo_acceptance': {'path':'../CALIBRATION_REST_CONTINUOUS_UNIBO_ACCEPTANCE_V1.json',
+                 'sha256':sha(ROOT/'feature_bank/CALIBRATION_REST_CONTINUOUS_UNIBO_ACCEPTANCE_V1.json')},
              'temporal_live_gui_acceptance': {'path':'../TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json')},
              'personal_temporal_unibo_acceptance': {'path':'../PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json',

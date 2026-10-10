@@ -1,0 +1,7 @@
+{
+  "protocol_sha256": "847912141356b64432b67a918ddfcc63c212e1e3665b99f3ea1af2e145e15ccb",
+  "artifacts": {
+    "parts/u01.json": "9b3bd5ea71d68e6b29ff3d08f37f06a4067b371acb9cbde5da8bf95f8116fdca",
+    "parts/u01.npz": "b3e64b1e5c58ecdaab82d1a73cfeb9d0925b08e9b23db5bcb88d6d940f22ee8e"
+  }
+}

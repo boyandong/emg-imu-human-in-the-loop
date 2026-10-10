@@ -103,6 +103,11 @@ def build():
     for name in ('benchmarks/new_bank_v3/verify_detected_personal_temporal_unibo_v3.py',
                  'tests/test_detected_personal_temporal_unibo_v3_delivery.py'):
         sources[name]=sha(ROOT/name)
+    registered_rest=read('CALIBRATION_REST_CONTINUOUS_UNIBO_V1_RESULTS.json')
+    registered_rest_acceptance_path=ROOT/'feature_bank/CALIBRATION_REST_CONTINUOUS_UNIBO_ACCEPTANCE_V1.json'
+    registered_rest_acceptance=json.loads(registered_rest_acceptance_path.read_text(encoding='utf8'))
+    sources[registered_rest_acceptance_path.relative_to(ROOT).as_posix()]=sha(registered_rest_acceptance_path)
+    sources['benchmarks/new_bank_v3/verify_calibration_rest_continuous_unibo_v1.py']=sha(HERE/'verify_calibration_rest_continuous_unibo_v1.py')
     native_cost_curve=read('EMG_CALIBRATION_COST_CURVE_V1.json')
     calibrated_fusion=read('EMG_CALIBRATED_FUSION_V1_RESULTS.json')
     window_bank = read('EMG_WINDOW_BANK_V1_RESULTS.json')
@@ -281,7 +286,8 @@ def build():
     verification_tests += ['tests/test_extended_window_decision_v1.py','tests/test_extended_window_cli_v1.py',
         'tests/test_personal_session_stream_v4.py','tests/test_extended_window_delivery_v1.py']
     verification_tests += ['tests/test_personal_temporal_unibo_v1_delivery.py','tests/test_temporal_live_gui_v1_delivery.py']
-    verification_tests += ['tests/test_detected_personal_temporal_unibo_v3_delivery.py']
+    verification_tests += ['tests/test_detected_personal_temporal_unibo_v3_delivery.py',
+        'tests/test_calibration_rest_continuous_unibo_v1_delivery.py']
     for answer in answers:
         if answer['question_id'] in ('A','B','G','H'):
             answer['continuous_temporal_diagnostic'] = {
@@ -291,6 +297,15 @@ def build():
                 'user_loss_wins':2,'users':7,'primary_eligible':False,'primary_pass':False,
                 'missing_matched_class':'u07 fist; misses remain in the reference denominator',
                 'scope':detected_temporal['scope']}
+    for answer in answers:
+        if answer['question_id'] in ('A','B','G','H'):
+            answer['registered_rest_diagnostic']={
+                'old_correct':registered_rest_acceptance['old_correct'],
+                'new_correct':registered_rest_acceptance['registered_rest_correct'],
+                'supported_references':registered_rest_acceptance['supported_references'],
+                'primary_pass':registered_rest['primary_pass'],
+                'user_success_wins':registered_rest['primary_user_success_wins'],
+                'scope':registered_rest['scope']}
     for name in verification_tests: sources[name] = sha(ROOT / name)
     result = {'schema': 'current_scientific_conclusions_v1', 'generator_sha256': sha(Path(__file__)),
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
@@ -315,6 +330,8 @@ def build():
               'personal_temporal_unibo_acceptance':temporal_acceptance,
               'detected_personal_temporal_unibo':{k:detected_temporal[k] for k in ('pooled','totals','primary_guards','primary_eligible','primary_pass','primary_user_loss_wins','scope')},
               'detected_personal_temporal_unibo_acceptance':detected_temporal_acceptance,
+              'calibration_rest_continuous_unibo':{k:registered_rest[k] for k in ('pooled','primary_detection','primary_guards','primary_pass','primary_user_success_wins','scope')},
+              'calibration_rest_continuous_unibo_acceptance':registered_rest_acceptance,
               'temporal_live_gui_acceptance':temporal_gui,
               'song_extended_gui_acceptance':{k:extension_gui[k] for k in ('records','verified_windows','scope','source_and_profiles_immutable','independent_direct_DFT_context','F4d_context_only')},
               'song_decision_gui_acceptance':{k:decision_gui[k] for k in ('records','verified_windows','scope',

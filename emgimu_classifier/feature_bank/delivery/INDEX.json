@@ -46,6 +46,7 @@
     "benchmarks/new_bank_v3/AUTONOMOUS_CONTINUOUS_UNIBO_V1_RESULTS.json": "8af20ead1bdbbd8782d2ca1483f9ea8e9f4874a555ff267b0b60203d93b8ed2e",
     "benchmarks/new_bank_v3/AUTONOMOUS_G5_STREAM_V1_RESULTS.json": "c64348c7a45fbaf7057a793526e98b0f875fff0fd267a81cf5f01a80b5730b7a",
     "benchmarks/new_bank_v3/AUTONOMOUS_UNIBO_V1_RESULTS.json": "5799c215e7d3379054996847d95fd92e075f0422cfec866343c24a6171ba0400",
+    "benchmarks/new_bank_v3/CALIBRATION_REST_CONTINUOUS_UNIBO_V1_RESULTS.json": "6878274105322f10adc8170128d6189a713a09db17e2fd9261dbb11eabdda464",
     "benchmarks/new_bank_v3/DETECTED_DTW_UNIBO_V1_RESULTS.json": "b15a1ab102bb2369f79c03e20b968fc3dc43055454cfd678c9868c7ac13a07dd",
     "benchmarks/new_bank_v3/DETECTED_G5_OUTCOME_V1_RESULTS.json": "4d0f831256567fd4cc56749bfed6d872c99ce8bf8496a5d9efd0596deaf81778",
     "benchmarks/new_bank_v3/DETECTED_G5_UNIBO_V1_RESULTS.json": "3ecf34f3713f473045d1778fea63a910ac8f1fa71b692983c8dcc90970048a69",
@@ -80,7 +81,7 @@
   },
   "current_scientific_conclusions": {
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
-    "sha256": "03bb2faba11a4129288fa179219a84298318ca144290a782fb9385dc8a47dd94"
+    "sha256": "c119be66b6cc1a63914e95b5934ac9586fca47f4f86a1b4c8e9ad5dea819a54b"
   },
   "current_regression_snapshot": {
     "path": "../CLASSIFIER_REGRESSION_20261008.json",
@@ -145,6 +146,10 @@
   "detected_personal_temporal_unibo_acceptance": {
     "path": "../DETECTED_PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V3.json",
     "sha256": "d25b51d15472416b0e3f983b78b90f522f574902c05bdee46b0efe738154342f"
+  },
+  "calibration_rest_continuous_unibo_acceptance": {
+    "path": "../CALIBRATION_REST_CONTINUOUS_UNIBO_ACCEPTANCE_V1.json",
+    "sha256": "ab203cff94b5f6660699984dde0a918bddd9b821d164ef2223d9817e662eadfc"
   },
   "temporal_live_gui_acceptance": {
     "path": "../TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json",

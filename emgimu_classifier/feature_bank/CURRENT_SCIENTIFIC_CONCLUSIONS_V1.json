@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "9433c62f8acf878821bacc92355a0d09cec53d9224bbd134fd90a229419dcfee",
+  "generator_sha256": "cffc64e9adcc507524f7f15324144c4828fd68bcf1219db029b059ecabe00aa9",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -51,7 +51,8 @@
     "tests/test_extended_window_delivery_v1.py",
     "tests/test_personal_temporal_unibo_v1_delivery.py",
     "tests/test_temporal_live_gui_v1_delivery.py",
-    "tests/test_detected_personal_temporal_unibo_v3_delivery.py"
+    "tests/test_detected_personal_temporal_unibo_v3_delivery.py",
+    "tests/test_calibration_rest_continuous_unibo_v1_delivery.py"
   ],
   "source_sha256": {
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
@@ -94,12 +95,15 @@
     "feature_bank/DETECTED_PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V3.json": "d25b51d15472416b0e3f983b78b90f522f574902c05bdee46b0efe738154342f",
     "benchmarks/new_bank_v3/verify_detected_personal_temporal_unibo_v3.py": "37362db168dfb00e4f348034db45c2bc0cf29da4a969325cc118edaae0284702",
     "tests/test_detected_personal_temporal_unibo_v3_delivery.py": "5046af8e7b532c9bdb7ac3b9cdf5f006b078390fa1b3ef82f88db00442a43024",
+    "benchmarks/new_bank_v3/CALIBRATION_REST_CONTINUOUS_UNIBO_V1_RESULTS.json": "6878274105322f10adc8170128d6189a713a09db17e2fd9261dbb11eabdda464",
+    "feature_bank/CALIBRATION_REST_CONTINUOUS_UNIBO_ACCEPTANCE_V1.json": "ab203cff94b5f6660699984dde0a918bddd9b821d164ef2223d9817e662eadfc",
+    "benchmarks/new_bank_v3/verify_calibration_rest_continuous_unibo_v1.py": "4071b32da7413bb6fe232e6857ef33250b2c2dc2b171440d600e5ffe2aab4d2d",
     "benchmarks/new_bank_v3/EMG_CALIBRATION_COST_CURVE_V1.json": "a079bff7bceae47930f3bb6579782cbc9208ee1e858a89caaf78c43b31b575db",
     "benchmarks/new_bank_v3/EMG_CALIBRATED_FUSION_V1_RESULTS.json": "0d38aad3bfef51ee962d8cc3ec5cbf2f5b4c96cd483c0b572b69a26661df12b1",
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "6084bcc6ca63f0c39a16b3f2ff9fe16313204384957b0755617ea2a151259005",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "e3b03fa6557876d758f9f80d2f6cdcb24c5a8c71a661bb6c1145ab44d58445ac",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -142,7 +146,8 @@
     "tests/test_extended_window_cli_v1.py": "b5b329f1ce686d8ad1cf69977429069c6d2a8dbf655ba763e1c879b180c8e69b",
     "tests/test_personal_session_stream_v4.py": "218b05bc9f6ccf3679e1f50f5d4fb388cf47c673ddecc215530bbff0c5410379",
     "tests/test_extended_window_delivery_v1.py": "90c9b8939ce57646a17fad1a7b4c3d56383d0bb3745dd6e0aae25e04708ccf3c",
-    "tests/test_temporal_live_gui_v1_delivery.py": "88ff841d9643a9d3b9d3b20877a560a29700193586a3e757a8e75c35e8e0d6b9"
+    "tests/test_temporal_live_gui_v1_delivery.py": "88ff841d9643a9d3b9d3b20877a560a29700193586a3e757a8e75c35e8e0d6b9",
+    "tests/test_calibration_rest_continuous_unibo_v1_delivery.py": "95b35775649e704e0456ec4056a09856e23310de365fe262b5a9cb201868e3b3"
   },
   "questions": [
     {
@@ -200,6 +205,14 @@
         "primary_pass": false,
         "missing_matched_class": "u07 fist; misses remain in the reference denominator",
         "scope": "Retrospective public four-channel200Hz continuous diagnostic with original Day1 source-Rest boundaries and personalized Days1-5 G5 history. Calibration and evaluation use disjoint regions of the SAME Day6 continuous files, not independent-day files. No physical8-channel250Hz or current-Rest GUI-detector efficacy, physiological onset, prospective validation or default promotion."
+      },
+      "registered_rest_diagnostic": {
+        "old_correct": 367,
+        "new_correct": 407,
+        "supported_references": 596,
+        "primary_pass": true,
+        "user_success_wins": 5,
+        "scope": "Retrospective public4-channel200Hz registered-Rest detector diagnostic. GUI neutral-selection and detector equations match, but its8-channel250Hz highpass-filtered sensor stream differs; no own-device, physical boundary, latency, fatigue, prospective generalization or clinical claim."
       }
     },
     {
@@ -682,6 +695,14 @@
         "primary_pass": false,
         "missing_matched_class": "u07 fist; misses remain in the reference denominator",
         "scope": "Retrospective public four-channel200Hz continuous diagnostic with original Day1 source-Rest boundaries and personalized Days1-5 G5 history. Calibration and evaluation use disjoint regions of the SAME Day6 continuous files, not independent-day files. No physical8-channel250Hz or current-Rest GUI-detector efficacy, physiological onset, prospective validation or default promotion."
+      },
+      "registered_rest_diagnostic": {
+        "old_correct": 367,
+        "new_correct": 407,
+        "supported_references": 596,
+        "primary_pass": true,
+        "user_success_wins": 5,
+        "scope": "Retrospective public4-channel200Hz registered-Rest detector diagnostic. GUI neutral-selection and detector equations match, but its8-channel250Hz highpass-filtered sensor stream differs; no own-device, physical boundary, latency, fatigue, prospective generalization or clinical claim."
       }
     },
     {
@@ -2612,6 +2633,14 @@
         "primary_pass": false,
         "missing_matched_class": "u07 fist; misses remain in the reference denominator",
         "scope": "Retrospective public four-channel200Hz continuous diagnostic with original Day1 source-Rest boundaries and personalized Days1-5 G5 history. Calibration and evaluation use disjoint regions of the SAME Day6 continuous files, not independent-day files. No physical8-channel250Hz or current-Rest GUI-detector efficacy, physiological onset, prospective validation or default promotion."
+      },
+      "registered_rest_diagnostic": {
+        "old_correct": 367,
+        "new_correct": 407,
+        "supported_references": 596,
+        "primary_pass": true,
+        "user_success_wins": 5,
+        "scope": "Retrospective public4-channel200Hz registered-Rest detector diagnostic. GUI neutral-selection and detector equations match, but its8-channel250Hz highpass-filtered sensor stream differs; no own-device, physical boundary, latency, fatigue, prospective generalization or clinical claim."
       }
     },
     {
@@ -3331,6 +3360,14 @@
         "primary_pass": false,
         "missing_matched_class": "u07 fist; misses remain in the reference denominator",
         "scope": "Retrospective public four-channel200Hz continuous diagnostic with original Day1 source-Rest boundaries and personalized Days1-5 G5 history. Calibration and evaluation use disjoint regions of the SAME Day6 continuous files, not independent-day files. No physical8-channel250Hz or current-Rest GUI-detector efficacy, physiological onset, prospective validation or default promotion."
+      },
+      "registered_rest_diagnostic": {
+        "old_correct": 367,
+        "new_correct": 407,
+        "supported_references": 596,
+        "primary_pass": true,
+        "user_success_wins": 5,
+        "scope": "Retrospective public4-channel200Hz registered-Rest detector diagnostic. GUI neutral-selection and detector equations match, but its8-channel250Hz highpass-filtered sensor stream differs; no own-device, physical boundary, latency, fatigue, prospective generalization or clinical claim."
       }
     }
   ],
@@ -15512,6 +15549,2218 @@
     "physical_validation_proven": false,
     "completion_proven": false,
     "scope": "Retrospective public four-channel200Hz continuous diagnostic with original Day1 source-Rest boundaries and personalized Days1-5 G5 history. Calibration and evaluation use disjoint regions of the SAME Day6 continuous files, not independent-day files. No physical8-channel250Hz or current-Rest GUI-detector efficacy, physiological onset, prospective validation or default promotion."
+  },
+  "calibration_rest_continuous_unibo": {
+    "pooled": [
+      {
+        "shots": 0,
+        "arm": "DTW_long",
+        "conditional_scores": {
+          "macro_f1": 0.3369130223521898,
+          "accuracy": 0.4478186749657073,
+          "log_loss": 1.2420577814910545,
+          "brier": 0.17013132300105926,
+          "ece": 0.11136029501624063,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.529889621470999,\"FIST\":0.42953543417845774,\"OPEN\":0.3882270337593024}",
+          "active_macro_f1": 0.44921736313625305,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 19
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 234,
+          "supported_references": 596,
+          "success": 0.3926174496644295,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 108,
+              "success": 0.5775401069518716
+            },
+            "fist": {
+              "references": 202,
+              "matched": 172,
+              "misses": 30,
+              "correct": 97,
+              "success": 0.4801980198019802
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 29,
+              "success": 0.14009661835748793
+            }
+          }
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "signature_long",
+        "conditional_scores": {
+          "macro_f1": 0.355433593748114,
+          "accuracy": 0.46922469912356746,
+          "log_loss": 1.248623647636815,
+          "brier": 0.17031229785168078,
+          "ece": 0.14913330071227016,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5555190363679561,\"FIST\":0.3728611396483178,\"OPEN\":0.4933541989761822}",
+          "active_macro_f1": 0.47391145833081866,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 24
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 254,
+          "supported_references": 596,
+          "success": 0.4261744966442953,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 89,
+              "success": 0.47593582887700536
+            },
+            "fist": {
+              "references": 202,
+              "matched": 172,
+              "misses": 30,
+              "correct": 62,
+              "success": 0.3069306930693069
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 103,
+              "success": 0.4975845410628019
+            }
+          }
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "DTW_local",
+        "conditional_scores": {
+          "macro_f1": 0.3369130223521898,
+          "accuracy": 0.4478186749657073,
+          "log_loss": 1.2420577814910545,
+          "brier": 0.17013132300105926,
+          "ece": 0.11136029501624063,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.529889621470999,\"FIST\":0.42953543417845774,\"OPEN\":0.3882270337593024}",
+          "active_macro_f1": 0.44921736313625305,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 19
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 234,
+          "supported_references": 596,
+          "success": 0.3926174496644295,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 108,
+              "success": 0.5775401069518716
+            },
+            "fist": {
+              "references": 202,
+              "matched": 172,
+              "misses": 30,
+              "correct": 97,
+              "success": 0.4801980198019802
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 29,
+              "success": 0.14009661835748793
+            }
+          }
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "DTW_blended",
+        "conditional_scores": {
+          "macro_f1": 0.3369130223521898,
+          "accuracy": 0.4478186749657073,
+          "log_loss": 1.2420577814910545,
+          "brier": 0.17013132300105926,
+          "ece": 0.11136029501624063,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.529889621470999,\"FIST\":0.42953543417845774,\"OPEN\":0.3882270337593024}",
+          "active_macro_f1": 0.44921736313625305,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 19
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 234,
+          "supported_references": 596,
+          "success": 0.3926174496644295,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 108,
+              "success": 0.5775401069518716
+            },
+            "fist": {
+              "references": 202,
+              "matched": 172,
+              "misses": 30,
+              "correct": 97,
+              "success": 0.4801980198019802
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 29,
+              "success": 0.14009661835748793
+            }
+          }
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "signature_blended",
+        "conditional_scores": {
+          "macro_f1": 0.355433593748114,
+          "accuracy": 0.46922469912356746,
+          "log_loss": 1.248623647636815,
+          "brier": 0.17031229785168078,
+          "ece": 0.14913330071227016,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5555190363679561,\"FIST\":0.3728611396483178,\"OPEN\":0.4933541989761822}",
+          "active_macro_f1": 0.47391145833081866,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 24
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 254,
+          "supported_references": 596,
+          "success": 0.4261744966442953,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 89,
+              "success": 0.47593582887700536
+            },
+            "fist": {
+              "references": 202,
+              "matched": 172,
+              "misses": 30,
+              "correct": 62,
+              "success": 0.3069306930693069
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 103,
+              "success": 0.4975845410628019
+            }
+          }
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "base",
+        "conditional_scores": {
+          "macro_f1": 0.5385003705758171,
+          "accuracy": 0.7247425860396388,
+          "log_loss": 0.8032769037906133,
+          "brier": 0.09514880664204714,
+          "ece": 0.10897261883027606,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7125644666954873,\"FIST\":0.6592060649933587,\"OPEN\":0.7822309506144223}",
+          "active_macro_f1": 0.7180004941010895,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 1
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 365,
+          "supported_references": 596,
+          "success": 0.6124161073825504,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 127,
+              "success": 0.679144385026738
+            },
+            "fist": {
+              "references": 202,
+              "matched": 172,
+              "misses": 30,
+              "correct": 94,
+              "success": 0.46534653465346537
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 144,
+              "success": 0.6956521739130435
+            }
+          }
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "base_DTW_long",
+        "conditional_scores": {
+          "macro_f1": 0.5414346271449669,
+          "accuracy": 0.7278147826602226,
+          "log_loss": 0.7015477644714884,
+          "brier": 0.09425175311832212,
+          "ece": 0.08633222674153197,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7125644666954873,\"FIST\":0.6676681823466206,\"OPEN\":0.7855058595377599}",
+          "active_macro_f1": 0.7219128361932893,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 1
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 367,
+          "supported_references": 596,
+          "success": 0.6157718120805369,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 127,
+              "success": 0.679144385026738
+            },
+            "fist": {
+              "references": 202,
+              "matched": 172,
+              "misses": 30,
+              "correct": 96,
+              "success": 0.4752475247524752
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 144,
+              "success": 0.6956521739130435
+            }
+          }
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "base_DTW_blended",
+        "conditional_scores": {
+          "macro_f1": 0.5414346271449669,
+          "accuracy": 0.7278147826602226,
+          "log_loss": 0.7015477644714884,
+          "brier": 0.09425175311832212,
+          "ece": 0.08633222674153197,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7125644666954873,\"FIST\":0.6676681823466206,\"OPEN\":0.7855058595377599}",
+          "active_macro_f1": 0.7219128361932893,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 1
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 367,
+          "supported_references": 596,
+          "success": 0.6157718120805369,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 127,
+              "success": 0.679144385026738
+            },
+            "fist": {
+              "references": 202,
+              "matched": 172,
+              "misses": 30,
+              "correct": 96,
+              "success": 0.4752475247524752
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 144,
+              "success": 0.6956521739130435
+            }
+          }
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "base_signature_blended",
+        "conditional_scores": {
+          "macro_f1": 0.5412448065336882,
+          "accuracy": 0.7282893840691954,
+          "log_loss": 0.6986239020769731,
+          "brier": 0.0934091638158634,
+          "ece": 0.0883782487532846,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.721343014263912,\"FIST\":0.6627852403568181,\"OPEN\":0.7808509715140227}",
+          "active_macro_f1": 0.7216597420449177,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 2
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 367,
+          "supported_references": 596,
+          "success": 0.6157718120805369,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 129,
+              "success": 0.6898395721925134
+            },
+            "fist": {
+              "references": 202,
+              "matched": 172,
+              "misses": 30,
+              "correct": 93,
+              "success": 0.4603960396039604
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 145,
+              "success": 0.7004830917874396
+            }
+          }
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "base_full",
+        "conditional_scores": {
+          "macro_f1": 0.5426523508682255,
+          "accuracy": 0.7298254823794873,
+          "log_loss": 0.6994676964440665,
+          "brier": 0.09375228702912537,
+          "ece": 0.07891881062482994,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7184088211578998,\"FIST\":0.6683355977838609,\"OPEN\":0.7838649845311416}",
+          "active_macro_f1": 0.7235364678243007,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 1
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 368,
+          "supported_references": 596,
+          "success": 0.6174496644295302,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 129,
+              "success": 0.6898395721925134
+            },
+            "fist": {
+              "references": 202,
+              "matched": 172,
+              "misses": 30,
+              "correct": 95,
+              "success": 0.47029702970297027
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 144,
+              "success": 0.6956521739130435
+            }
+          }
+        }
+      },
+      {
+        "shots": 0,
+        "arm": "base_uniform",
+        "conditional_scores": {
+          "macro_f1": 0.5385003705758171,
+          "accuracy": 0.7247425860396388,
+          "log_loss": 0.7222263298505516,
+          "brier": 0.09474120507583803,
+          "ece": 0.08698542453136167,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7125644666954873,\"FIST\":0.6592060649933587,\"OPEN\":0.7822309506144223}",
+          "active_macro_f1": 0.7180004941010895,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 1
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 365,
+          "supported_references": 596,
+          "success": 0.6124161073825504,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 167,
+              "misses": 20,
+              "correct": 127,
+              "success": 0.679144385026738
+            },
+            "fist": {
+              "references": 202,
+              "matched": 172,
+              "misses": 30,
+              "correct": 94,
+              "success": 0.46534653465346537
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 189,
+              "misses": 18,
+              "correct": 144,
+              "success": 0.6956521739130435
+            }
+          }
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "DTW_long",
+        "conditional_scores": {
+          "macro_f1": 0.31134458858648734,
+          "accuracy": 0.4191391531869436,
+          "log_loss": 1.245028258211491,
+          "brier": 0.1705806407435037,
+          "ece": 0.08485829199379831,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5449284579444065,\"FIST\":0.41063057100517664,\"OPEN\":0.2898193253963662}",
+          "active_macro_f1": 0.41512611811531647,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 20
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 249,
+          "supported_references": 596,
+          "success": 0.41778523489932884,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 109,
+              "success": 0.5828877005347594
+            },
+            "fist": {
+              "references": 202,
+              "matched": 184,
+              "misses": 18,
+              "correct": 95,
+              "success": 0.47029702970297027
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 45,
+              "success": 0.21739130434782608
+            }
+          }
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "signature_long",
+        "conditional_scores": {
+          "macro_f1": 0.39147762516418894,
+          "accuracy": 0.5081999166936056,
+          "log_loss": 1.2336684773529103,
+          "brier": 0.16830865710042064,
+          "ece": 0.18594251265975312,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6033778762853378,\"FIST\":0.4687135037101311,\"OPEN\":0.4938191206612869}",
+          "active_macro_f1": 0.5219701668855853,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 30
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 281,
+          "supported_references": 596,
+          "success": 0.4714765100671141,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 104,
+              "success": 0.5561497326203209
+            },
+            "fist": {
+              "references": 202,
+              "matched": 184,
+              "misses": 18,
+              "correct": 72,
+              "success": 0.3564356435643564
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 105,
+              "success": 0.5072463768115942
+            }
+          }
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "DTW_local",
+        "conditional_scores": {
+          "macro_f1": 0.4964207560205195,
+          "accuracy": 0.6671411671513559,
+          "log_loss": 1.0929528974301634,
+          "brier": 0.15014436975009884,
+          "ece": 0.3121029653797688,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7659770465231498,\"FIST\":0.5152522232261173,\"OPEN\":0.7044537543328108}",
+          "active_macro_f1": 0.6618943413606927,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 10
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 388,
+          "supported_references": 596,
+          "success": 0.6510067114093959,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 155,
+              "success": 0.8288770053475936
+            },
+            "fist": {
+              "references": 202,
+              "matched": 184,
+              "misses": 18,
+              "correct": 85,
+              "success": 0.4207920792079208
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 148,
+              "success": 0.714975845410628
+            }
+          }
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "DTW_blended",
+        "conditional_scores": {
+          "macro_f1": 0.4656449027157039,
+          "accuracy": 0.6172941053435721,
+          "log_loss": 1.1601888744773299,
+          "brier": 0.15916503131102344,
+          "ece": 0.2850351551426057,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6876864513402163,\"FIST\":0.512676721991795,\"OPEN\":0.6622164375308045}",
+          "active_macro_f1": 0.6208598702876053,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 11
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 363,
+          "supported_references": 596,
+          "success": 0.6090604026845637,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 143,
+              "success": 0.7647058823529411
+            },
+            "fist": {
+              "references": 202,
+              "matched": 184,
+              "misses": 18,
+              "correct": 98,
+              "success": 0.48514851485148514
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 122,
+              "success": 0.5893719806763285
+            }
+          }
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "signature_blended",
+        "conditional_scores": {
+          "macro_f1": 0.42042593308770815,
+          "accuracy": 0.5517126148041295,
+          "log_loss": 1.2378358827660279,
+          "brier": 0.1690301786695119,
+          "ece": 0.23965212224560448,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5435665645969875,\"FIST\":0.4994343894159326,\"OPEN\":0.6387027783379124}",
+          "active_macro_f1": 0.5605679107836109,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 27
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 310,
+          "supported_references": 596,
+          "success": 0.5201342281879194,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 86,
+              "success": 0.45989304812834225
+            },
+            "fist": {
+              "references": 202,
+              "matched": 184,
+              "misses": 18,
+              "correct": 79,
+              "success": 0.3910891089108911
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 145,
+              "success": 0.7004830917874396
+            }
+          }
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "base",
+        "conditional_scores": {
+          "macro_f1": 0.5059277632865937,
+          "accuracy": 0.6767515392810226,
+          "log_loss": 0.8450780522064854,
+          "brier": 0.10806343833485194,
+          "ece": 0.12501911899985368,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6544902900258195,\"FIST\":0.6246879405342524,\"OPEN\":0.7445328225863033}",
+          "active_macro_f1": 0.6745703510487916,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 1
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 395,
+          "supported_references": 596,
+          "success": 0.662751677852349,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 129,
+              "success": 0.6898395721925134
+            },
+            "fist": {
+              "references": 202,
+              "matched": 184,
+              "misses": 18,
+              "correct": 105,
+              "success": 0.5198019801980198
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 161,
+              "success": 0.7777777777777778
+            }
+          }
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "base_DTW_long",
+        "conditional_scores": {
+          "macro_f1": 0.5122331417340005,
+          "accuracy": 0.6847025506088018,
+          "log_loss": 0.7613200039961818,
+          "brier": 0.10500735131577382,
+          "ece": 0.06722176560985942,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6624307154934229,\"FIST\":0.6205686108944622,\"OPEN\":0.7659332405481168}",
+          "active_macro_f1": 0.6829775223120006,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 1
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 400,
+          "supported_references": 596,
+          "success": 0.6711409395973155,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 131,
+              "success": 0.7005347593582888
+            },
+            "fist": {
+              "references": 202,
+              "matched": 184,
+              "misses": 18,
+              "correct": 107,
+              "success": 0.5297029702970297
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 162,
+              "success": 0.782608695652174
+            }
+          }
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "base_DTW_blended",
+        "conditional_scores": {
+          "macro_f1": 0.5141714692432663,
+          "accuracy": 0.6871297785532711,
+          "log_loss": 0.7432797789719457,
+          "brier": 0.10308780441616129,
+          "ece": 0.08181276057914827,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6634383194159278,\"FIST\":0.627022489762016,\"OPEN\":0.7662250677951215}",
+          "active_macro_f1": 0.6855619589910217,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 1
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 401,
+          "supported_references": 596,
+          "success": 0.6728187919463087,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 131,
+              "success": 0.7005347593582888
+            },
+            "fist": {
+              "references": 202,
+              "matched": 184,
+              "misses": 18,
+              "correct": 108,
+              "success": 0.5346534653465347
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 162,
+              "success": 0.782608695652174
+            }
+          }
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "base_signature_blended",
+        "conditional_scores": {
+          "macro_f1": 0.5085200308940389,
+          "accuracy": 0.6801923994960765,
+          "log_loss": 0.7522617849919563,
+          "brier": 0.10325217733387393,
+          "ece": 0.08355937729965031,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6575133951317088,\"FIST\":0.6290285900745787,\"OPEN\":0.7475381383698682}",
+          "active_macro_f1": 0.6780267078587184,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 1
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 397,
+          "supported_references": 596,
+          "success": 0.6661073825503355,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 129,
+              "success": 0.6898395721925134
+            },
+            "fist": {
+              "references": 202,
+              "matched": 184,
+              "misses": 18,
+              "correct": 106,
+              "success": 0.5247524752475248
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 162,
+              "success": 0.782608695652174
+            }
+          }
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "base_full",
+        "conditional_scores": {
+          "macro_f1": 0.5111688201519808,
+          "accuracy": 0.6834291780784771,
+          "log_loss": 0.7474735594708644,
+          "brier": 0.10311568125363119,
+          "ece": 0.08134354638367154,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6592540463863613,\"FIST\":0.6280158858396483,\"OPEN\":0.7574053483819136}",
+          "active_macro_f1": 0.6815584268693078,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 1
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 399,
+          "supported_references": 596,
+          "success": 0.6694630872483222,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 130,
+              "success": 0.6951871657754011
+            },
+            "fist": {
+              "references": 202,
+              "matched": 184,
+              "misses": 18,
+              "correct": 107,
+              "success": 0.5297029702970297
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 162,
+              "success": 0.782608695652174
+            }
+          }
+        }
+      },
+      {
+        "shots": 1,
+        "arm": "base_uniform",
+        "conditional_scores": {
+          "macro_f1": 0.5059277632865937,
+          "accuracy": 0.6767515392810226,
+          "log_loss": 0.7808561987251699,
+          "brier": 0.1051367860734812,
+          "ece": 0.07592317471905724,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6544902900258195,\"FIST\":0.6246879405342524,\"OPEN\":0.7445328225863033}",
+          "active_macro_f1": 0.6745703510487916,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 1
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 395,
+          "supported_references": 596,
+          "success": 0.662751677852349,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 129,
+              "success": 0.6898395721925134
+            },
+            "fist": {
+              "references": 202,
+              "matched": 184,
+              "misses": 18,
+              "correct": 105,
+              "success": 0.5198019801980198
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 161,
+              "success": 0.7777777777777778
+            }
+          }
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "DTW_long",
+        "conditional_scores": {
+          "macro_f1": 0.3143199754712728,
+          "accuracy": 0.4239120300796362,
+          "log_loss": 1.244457848872495,
+          "brier": 0.17052708265668048,
+          "ece": 0.08827689772603126,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5485147984439852,\"FIST\":0.4148325369847191,\"OPEN\":0.29393256645638666}",
+          "active_macro_f1": 0.4190933006283637,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 19
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 252,
+          "supported_references": 596,
+          "success": 0.4228187919463087,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 110,
+              "success": 0.5882352941176471
+            },
+            "fist": {
+              "references": 202,
+              "matched": 186,
+              "misses": 16,
+              "correct": 97,
+              "success": 0.4801980198019802
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 45,
+              "success": 0.21739130434782608
+            }
+          }
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "signature_long",
+        "conditional_scores": {
+          "macro_f1": 0.38277909399329263,
+          "accuracy": 0.49662029639159533,
+          "log_loss": 1.2401740588535421,
+          "brier": 0.16912730515924004,
+          "ece": 0.17778216838515942,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5712626863650317,\"FIST\":0.48107453194515204,\"OPEN\":0.4787791576629867}",
+          "active_macro_f1": 0.5103721253243901,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 28
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 276,
+          "supported_references": 596,
+          "success": 0.46308724832214765,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 97,
+              "success": 0.5187165775401069
+            },
+            "fist": {
+              "references": 202,
+              "matched": 186,
+              "misses": 16,
+              "correct": 75,
+              "success": 0.3712871287128713
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 104,
+              "success": 0.5024154589371981
+            }
+          }
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "DTW_local",
+        "conditional_scores": {
+          "macro_f1": 0.5016507726840399,
+          "accuracy": 0.6754157497116527,
+          "log_loss": 1.0898933220976792,
+          "brier": 0.14975324326490194,
+          "ece": 0.31977255975886354,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7763541721093911,\"FIST\":0.5209668059116452,\"OPEN\":0.7092821127151235}",
+          "active_macro_f1": 0.6688676969120532,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 10
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 393,
+          "supported_references": 596,
+          "success": 0.6593959731543624,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 158,
+              "success": 0.8449197860962567
+            },
+            "fist": {
+              "references": 202,
+              "matched": 186,
+              "misses": 16,
+              "correct": 85,
+              "success": 0.4207920792079208
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 150,
+              "success": 0.7246376811594203
+            }
+          }
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "DTW_blended",
+        "conditional_scores": {
+          "macro_f1": 0.4639511139273601,
+          "accuracy": 0.6155241139422443,
+          "log_loss": 1.1581739153924917,
+          "brier": 0.15893137162926096,
+          "ece": 0.28199952459611155,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6900926096767667,\"FIST\":0.5116233206585418,\"OPEN\":0.6540885253741321}",
+          "active_macro_f1": 0.6186014852364802,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 11
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 362,
+          "supported_references": 596,
+          "success": 0.6073825503355704,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 144,
+              "success": 0.7700534759358288
+            },
+            "fist": {
+              "references": 202,
+              "matched": 186,
+              "misses": 16,
+              "correct": 98,
+              "success": 0.48514851485148514
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 120,
+              "success": 0.5797101449275363
+            }
+          }
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "signature_blended",
+        "conditional_scores": {
+          "macro_f1": 0.42670165119507264,
+          "accuracy": 0.5648288644969988,
+          "log_loss": 1.2150084164601562,
+          "brier": 0.1661182788392211,
+          "ece": 0.24693581206433945,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5951023075305499,\"FIST\":0.5113380949063262,\"OPEN\":0.6003662023434144}",
+          "active_macro_f1": 0.5689355349267635,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 13
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 321,
+          "supported_references": 596,
+          "success": 0.5385906040268457,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 100,
+              "success": 0.5347593582887701
+            },
+            "fist": {
+              "references": 202,
+              "matched": 186,
+              "misses": 16,
+              "correct": 80,
+              "success": 0.39603960396039606
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 141,
+              "success": 0.6811594202898551
+            }
+          }
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "base",
+        "conditional_scores": {
+          "macro_f1": 0.5057903664609242,
+          "accuracy": 0.6782006501103974,
+          "log_loss": 0.8570124014457449,
+          "brier": 0.10952322502476533,
+          "ece": 0.13809357610958242,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6597716092905759,\"FIST\":0.6248110780792137,\"OPEN\":0.7385787784739077}",
+          "active_macro_f1": 0.6743871552812323,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 0
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 396,
+          "supported_references": 596,
+          "success": 0.6644295302013423,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 131,
+              "success": 0.7005347593582888
+            },
+            "fist": {
+              "references": 202,
+              "matched": 186,
+              "misses": 16,
+              "correct": 101,
+              "success": 0.5
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 164,
+              "success": 0.7922705314009661
+            }
+          }
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "base_DTW_long",
+        "conditional_scores": {
+          "macro_f1": 0.5065904751420893,
+          "accuracy": 0.6788918943500286,
+          "log_loss": 0.7654560469492298,
+          "brier": 0.1058635914453047,
+          "ece": 0.08798436766437837,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6551591102043676,\"FIST\":0.6294820244020127,\"OPEN\":0.7417207659619769}",
+          "active_macro_f1": 0.6754539668561191,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 0
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 397,
+          "supported_references": 596,
+          "success": 0.6661073825503355,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 130,
+              "success": 0.6951871657754011
+            },
+            "fist": {
+              "references": 202,
+              "matched": 186,
+              "misses": 16,
+              "correct": 103,
+              "success": 0.5099009900990099
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 164,
+              "success": 0.7922705314009661
+            }
+          }
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "base_DTW_blended",
+        "conditional_scores": {
+          "macro_f1": 0.5132494922548723,
+          "accuracy": 0.6876448100921917,
+          "log_loss": 0.7485699228628502,
+          "brier": 0.10402090413959461,
+          "ece": 0.09643973801596663,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6612347610232364,\"FIST\":0.64114054149788,\"OPEN\":0.7506226664983725}",
+          "active_macro_f1": 0.6843326563398296,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 0
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 402,
+          "supported_references": 596,
+          "success": 0.674496644295302,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 131,
+              "success": 0.7005347593582888
+            },
+            "fist": {
+              "references": 202,
+              "matched": 186,
+              "misses": 16,
+              "correct": 105,
+              "success": 0.5198019801980198
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 166,
+              "success": 0.8019323671497585
+            }
+          }
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "base_signature_blended",
+        "conditional_scores": {
+          "macro_f1": 0.5070313700516891,
+          "accuracy": 0.6799643185407325,
+          "log_loss": 0.7561018955789462,
+          "brier": 0.1040681078916085,
+          "ece": 0.08424847555789187,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6597716092905759,\"FIST\":0.6267149810545973,\"OPEN\":0.7416388898615832}",
+          "active_macro_f1": 0.6760418267355854,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 0
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 397,
+          "supported_references": 596,
+          "success": 0.6661073825503355,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 131,
+              "success": 0.7005347593582888
+            },
+            "fist": {
+              "references": 202,
+              "matched": 186,
+              "misses": 16,
+              "correct": 101,
+              "success": 0.5
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 165,
+              "success": 0.7971014492753623
+            }
+          }
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "base_full",
+        "conditional_scores": {
+          "macro_f1": 0.5109260387625374,
+          "accuracy": 0.684572613471608,
+          "log_loss": 0.7520504159333026,
+          "brier": 0.10398466131211809,
+          "ece": 0.08112466275444369,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6597716092905759,\"FIST\":0.6375626384701406,\"OPEN\":0.746369907289433}",
+          "active_macro_f1": 0.6812347183500499,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 0
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 400,
+          "supported_references": 596,
+          "success": 0.6711409395973155,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 131,
+              "success": 0.7005347593582888
+            },
+            "fist": {
+              "references": 202,
+              "matched": 186,
+              "misses": 16,
+              "correct": 104,
+              "success": 0.5148514851485149
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 165,
+              "success": 0.7971014492753623
+            }
+          }
+        }
+      },
+      {
+        "shots": 2,
+        "arm": "base_uniform",
+        "conditional_scores": {
+          "macro_f1": 0.5057903664609242,
+          "accuracy": 0.6782006501103974,
+          "log_loss": 0.786792732323403,
+          "brier": 0.10606848867789458,
+          "ece": 0.07897099741915124,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6597716092905759,\"FIST\":0.6248110780792137,\"OPEN\":0.7385787784739077}",
+          "active_macro_f1": 0.6743871552812323,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 0
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 396,
+          "supported_references": 596,
+          "success": 0.6644295302013423,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 131,
+              "success": 0.7005347593582888
+            },
+            "fist": {
+              "references": 202,
+              "matched": 186,
+              "misses": 16,
+              "correct": 101,
+              "success": 0.5
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 206,
+              "misses": 1,
+              "correct": 164,
+              "success": 0.7922705314009661
+            }
+          }
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "DTW_long",
+        "conditional_scores": {
+          "macro_f1": 0.3120269066099329,
+          "accuracy": 0.42078509892155924,
+          "log_loss": 1.2442175204126882,
+          "brier": 0.17048481111076813,
+          "ece": 0.08632684337659752,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.5467798823694552,\"FIST\":0.409360164483763,\"OPEN\":0.29196757958651326}",
+          "active_macro_f1": 0.4160358754799105,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 19
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 250,
+          "supported_references": 596,
+          "success": 0.41946308724832215,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 110,
+              "success": 0.5882352941176471
+            },
+            "fist": {
+              "references": 202,
+              "matched": 192,
+              "misses": 10,
+              "correct": 95,
+              "success": 0.47029702970297027
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 207,
+              "misses": 0,
+              "correct": 45,
+              "success": 0.21739130434782608
+            }
+          }
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "signature_long",
+        "conditional_scores": {
+          "macro_f1": 0.4044712255939419,
+          "accuracy": 0.529212342655976,
+          "log_loss": 1.2307497437482275,
+          "brier": 0.16791302126460014,
+          "ece": 0.21209768026577291,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.624886742399265,\"FIST\":0.48375571983592824,\"OPEN\":0.5092424401405742}",
+          "active_macro_f1": 0.5392949674585892,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 23
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 299,
+          "supported_references": 596,
+          "success": 0.5016778523489933,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 109,
+              "success": 0.5828877005347594
+            },
+            "fist": {
+              "references": 202,
+              "matched": 192,
+              "misses": 10,
+              "correct": 79,
+              "success": 0.3910891089108911
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 207,
+              "misses": 0,
+              "correct": 111,
+              "success": 0.5362318840579711
+            }
+          }
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "DTW_local",
+        "conditional_scores": {
+          "macro_f1": 0.5928681552975779,
+          "accuracy": 0.786481036611901,
+          "log_loss": 1.0678935466176824,
+          "brier": 0.14536978048283905,
+          "ece": 0.42769240331001274,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.8970691100278952,\"FIST\":0.692550892283352,\"OPEN\":0.7818526188790644}",
+          "active_macro_f1": 0.7904908737301038,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 7
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 456,
+          "supported_references": 596,
+          "success": 0.7651006711409396,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 156,
+              "success": 0.8342245989304813
+            },
+            "fist": {
+              "references": 202,
+              "matched": 192,
+              "misses": 10,
+              "correct": 126,
+              "success": 0.6237623762376238
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 207,
+              "misses": 0,
+              "correct": 174,
+              "success": 0.8405797101449275
+            }
+          }
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "DTW_blended",
+        "conditional_scores": {
+          "macro_f1": 0.5218864333327226,
+          "accuracy": 0.6908262061018158,
+          "log_loss": 1.1466817718192117,
+          "brier": 0.15670703612154868,
+          "ece": 0.35983350264421715,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.7439664416788617,\"FIST\":0.6018876857564257,\"OPEN\":0.741691605895603}",
+          "active_macro_f1": 0.6958485777769634,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 6
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 405,
+          "supported_references": 596,
+          "success": 0.6795302013422819,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 138,
+              "success": 0.7379679144385026
+            },
+            "fist": {
+              "references": 202,
+              "matched": 192,
+              "misses": 10,
+              "correct": 122,
+              "success": 0.6039603960396039
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 207,
+              "misses": 0,
+              "correct": 145,
+              "success": 0.7004830917874396
+            }
+          }
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "signature_blended",
+        "conditional_scores": {
+          "macro_f1": 0.45984202717863926,
+          "accuracy": 0.6088230354830655,
+          "log_loss": 1.2000081695447262,
+          "brier": 0.1636968445495974,
+          "ece": 0.2861259466300788,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6621828687356986,\"FIST\":0.5277223733079598,\"OPEN\":0.6494628666708986}",
+          "active_macro_f1": 0.6131227029048524,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 13
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 352,
+          "supported_references": 596,
+          "success": 0.5906040268456376,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 116,
+              "success": 0.6203208556149733
+            },
+            "fist": {
+              "references": 202,
+              "matched": 192,
+              "misses": 10,
+              "correct": 90,
+              "success": 0.44554455445544555
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 207,
+              "misses": 0,
+              "correct": 146,
+              "success": 0.7053140096618358
+            }
+          }
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "base",
+        "conditional_scores": {
+          "macro_f1": 0.5124120256022449,
+          "accuracy": 0.6856550492698656,
+          "log_loss": 0.842956373804062,
+          "brier": 0.10713346712510599,
+          "ece": 0.12000947783889337,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.650277369106915,\"FIST\":0.6365274122399837,\"OPEN\":0.7628433210620806}",
+          "active_macro_f1": 0.6832160341363265,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 0
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 405,
+          "supported_references": 596,
+          "success": 0.6795302013422819,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 129,
+              "success": 0.6898395721925134
+            },
+            "fist": {
+              "references": 202,
+              "matched": 192,
+              "misses": 10,
+              "correct": 111,
+              "success": 0.5495049504950495
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 207,
+              "misses": 0,
+              "correct": 165,
+              "success": 0.7971014492753623
+            }
+          }
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "base_DTW_long",
+        "conditional_scores": {
+          "macro_f1": 0.5112005480698513,
+          "accuracy": 0.6837377710085013,
+          "log_loss": 0.7584742442342167,
+          "brier": 0.10439417270775862,
+          "ece": 0.05726049145060581,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6487337143526765,\"FIST\":0.619072429290305,\"OPEN\":0.7769960486364235}",
+          "active_macro_f1": 0.6816007307598017,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 0
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 405,
+          "supported_references": 596,
+          "success": 0.6795302013422819,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 129,
+              "success": 0.6898395721925134
+            },
+            "fist": {
+              "references": 202,
+              "matched": 192,
+              "misses": 10,
+              "correct": 111,
+              "success": 0.5495049504950495
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 207,
+              "misses": 0,
+              "correct": 165,
+              "success": 0.7971014492753623
+            }
+          }
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "base_DTW_blended",
+        "conditional_scores": {
+          "macro_f1": 0.5145235810278266,
+          "accuracy": 0.6884048578594963,
+          "log_loss": 0.7400816653723442,
+          "brier": 0.10207437776820537,
+          "ece": 0.06487562230600147,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.6543900059754746,\"FIST\":0.6254361182553061,\"OPEN\":0.7782681998805254}",
+          "active_macro_f1": 0.6860314413704355,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 0
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 407,
+          "supported_references": 596,
+          "success": 0.6828859060402684,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 130,
+              "success": 0.6951871657754011
+            },
+            "fist": {
+              "references": 202,
+              "matched": 192,
+              "misses": 10,
+              "correct": 111,
+              "success": 0.5495049504950495
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 207,
+              "misses": 0,
+              "correct": 166,
+              "success": 0.8019323671497585
+            }
+          }
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "base_signature_blended",
+        "conditional_scores": {
+          "macro_f1": 0.5153724837243683,
+          "accuracy": 0.6895720999611099,
+          "log_loss": 0.7442181493446332,
+          "brier": 0.1019794557483714,
+          "ece": 0.07869565168793767,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.653280519773513,\"FIST\":0.6418629829403858,\"OPEN\":0.7663464321835743}",
+          "active_macro_f1": 0.687163311632491,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 0
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 407,
+          "supported_references": 596,
+          "success": 0.6828859060402684,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 129,
+              "success": 0.6898395721925134
+            },
+            "fist": {
+              "references": 202,
+              "matched": 192,
+              "misses": 10,
+              "correct": 112,
+              "success": 0.5544554455445545
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 207,
+              "misses": 0,
+              "correct": 166,
+              "success": 0.8019323671497585
+            }
+          }
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "base_full",
+        "conditional_scores": {
+          "macro_f1": 0.5147595522386597,
+          "accuracy": 0.6887272458904494,
+          "log_loss": 0.7418421000393269,
+          "brier": 0.10196943947783382,
+          "ece": 0.06963271513785146,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.653280519773513,\"FIST\":0.6332072499303978,\"OPEN\":0.772550439250728}",
+          "active_macro_f1": 0.6863460696515462,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 0
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 407,
+          "supported_references": 596,
+          "success": 0.6828859060402684,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 129,
+              "success": 0.6898395721925134
+            },
+            "fist": {
+              "references": 202,
+              "matched": 192,
+              "misses": 10,
+              "correct": 112,
+              "success": 0.5544554455445545
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 207,
+              "misses": 0,
+              "correct": 166,
+              "success": 0.8019323671497585
+            }
+          }
+        }
+      },
+      {
+        "shots": 5,
+        "arm": "base_uniform",
+        "conditional_scores": {
+          "macro_f1": 0.5124120256022449,
+          "accuracy": 0.6856550492698656,
+          "log_loss": 0.7780741881695244,
+          "brier": 0.1045352633911418,
+          "ece": 0.08357303995637962,
+          "per_class_f1_json": "{\"NEUTRAL\":0.0,\"PINCH\":0.650277369106915,\"FIST\":0.6365274122399837,\"OPEN\":0.7628433210620806}",
+          "active_macro_f1": 0.6832160341363265,
+          "observed_active_classes": [
+            1,
+            2,
+            3
+          ],
+          "all_active_classes_observed": true,
+          "predicted_rest_count": 0
+        },
+        "conditional_users": 7,
+        "end_to_end": {
+          "correct": 405,
+          "supported_references": 596,
+          "success": 0.6795302013422819,
+          "per_class": {
+            "index_pinch": {
+              "references": 187,
+              "matched": 181,
+              "misses": 6,
+              "correct": 129,
+              "success": 0.6898395721925134
+            },
+            "fist": {
+              "references": 202,
+              "matched": 192,
+              "misses": 10,
+              "correct": 111,
+              "success": 0.5495049504950495
+            },
+            "open_hand": {
+              "references": 207,
+              "matched": 207,
+              "misses": 0,
+              "correct": 165,
+              "success": 0.7971014492753623
+            }
+          }
+        }
+      }
+    ],
+    "primary_detection": {
+      "detections": 1126,
+      "matches": 1119,
+      "references": 1152,
+      "precision": 0.9937833037300178,
+      "recall": 0.9713541666666666
+    },
+    "primary_guards": {
+      "higher_supported_reference_success": true,
+      "nonworse_detection_recall": true,
+      "nonworse_detection_precision": true,
+      "at_least5of7_user_success_wins": true,
+      "all7_users_all3_matched_classes": true,
+      "nonworse_fist_success": true
+    },
+    "primary_pass": true,
+    "primary_user_success_wins": 5,
+    "scope": "Retrospective public4-channel200Hz registered-Rest detector diagnostic. GUI neutral-selection and detector equations match, but its8-channel250Hz highpass-filtered sensor stream differs; no own-device, physical boundary, latency, fatigue, prospective generalization or clinical claim."
+  },
+  "calibration_rest_continuous_unibo_acceptance": {
+    "schema": "calibration_rest_continuous_unibo_acceptance_v1",
+    "verifier_sha256": "4071b32da7413bb6fe232e6857ef33250b2c2dc2b171440d600e5ffe2aab4d2d",
+    "protocol_sha256": "847912141356b64432b67a918ddfcc63c212e1e3665b99f3ea1af2e145e15ccb",
+    "result_sha256": "6878274105322f10adc8170128d6189a713a09db17e2fd9261dbb11eabdda464",
+    "blocks": 28,
+    "arm_cells": 308,
+    "recordings": 112,
+    "checked_detected_intervals": 4381,
+    "retained_probability_values": 192764,
+    "independent_threshold_max_error": 0.0,
+    "independent_direct_G5_max_probability_error": 3.66021648434689e-07,
+    "independent_vector_energy_FSM_boundaries_exact": true,
+    "independent_matching_and_fixed_reference_axes": true,
+    "metrics_and_misses_independently_reconstructed": true,
+    "native_inrun_DP_path_fusion_max_error": 7.494005416219807e-16,
+    "primary_pass": true,
+    "primary_guards": {
+      "higher_supported_reference_success": true,
+      "nonworse_detection_recall": true,
+      "nonworse_detection_precision": true,
+      "at_least5of7_user_success_wins": true,
+      "all7_users_all3_matched_classes": true,
+      "nonworse_fist_success": true
+    },
+    "user_success_wins": 5,
+    "supported_references": 596,
+    "old_correct": 367,
+    "registered_rest_correct": 407,
+    "default_promoted": false,
+    "physical_validation_proven": false,
+    "completion_proven": false,
+    "scope": "Retrospective public4-channel200Hz registered-Rest detector diagnostic. GUI neutral-selection and detector equations match, but its8-channel250Hz highpass-filtered sensor stream differs; no own-device, physical boundary, latency, fatigue, prospective generalization or clinical claim."
   },
   "temporal_live_gui_acceptance": {
     "schema": "temporal_live_gui_v1_acceptance",

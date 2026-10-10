@@ -650,6 +650,38 @@ def render(data, source_sha):
         'GUI current-Rest detector, physical latency or physiological action boundaries.', '',
         '[Continuous native results](../benchmarks/new_bank_v3/DETECTED_PERSONAL_TEMPORAL_UNIBO_V3_RESULTS.json)',
         'and [independent acceptance](DETECTED_PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V3.json) preserve every budget, miss and control.']
+    registered=data['calibration_rest_continuous_unibo']
+    checked_rest=data['calibration_rest_continuous_unibo_acceptance']
+    variation_lines += ['', '#### Registered-neutral automatic detector comparison, independent V1', '',
+        'The default detector equations and all classifier/temporal parameters are unchanged.',
+        'Only neutral calibration determines thresholds: five long-term neutral bouts at0 current,',
+        'or nested1/2/5 current neutral bouts, as in desktop registration. Full temporal lifecycle',
+        'still uses20 long-term plus0/4/8/20 current trials; neutral cost is a subset, not extra trials.',
+        'All1152 protocol references including596 supported references are fixed BEFORE new fits.',
+        'The same140 calibration recording regions and resampling guards remain excluded.',
+        'New detections are matched using the unchanged one-to-one IoU>=.5 rule.',
+        'Independent vector-energy FSM boundaries, direct G5 waveform/scaler/logit arithmetic,',
+        f"all {checked_rest['retained_probability_values']} probability values and missed-reference metrics pass.", '',
+        '| Current shots/class | Arm | Correct/all supported references | End-to-end success | Conditional active F1 | Conditional log loss |',
+        '|---:|---|---|---:|---:|---:|']
+    for cell in registered['pooled']:
+        if cell['arm'] not in ('base','base_full','DTW_local'):continue
+        scores=cell['conditional_scores'];outcome=cell['end_to_end']
+        variation_lines.append(f"| {cell['shots']} | {cell['arm']} | {outcome['correct']}/{outcome['supported_references']} | {outcome['success']:.6f} | {scores['active_macro_f1']:.6f} | {scores['log_loss']:.6f} |")
+    variation_lines += ['',
+        'Five-shot full improves from367/596 under the old Day1-Rest detector to407/596',
+        '(61.58% to68.29% end-to-end);5/7 users improves. Detection precision rises',
+        '1008/1026 to1119/1126, and recall1008/1152 to1119/1152. All six frozen guards pass.',
+        'Supported matched references increase527 to580; missed supported references fall69 to16.',
+        'u07 fist changes from0 matched to20/30 matched, with9 correctly classified; classification',
+        'is still imperfect. All29 u07 open references are detected and correctly classified.',
+        'Old/new matched subsets differ, so their conditional F1/loss are NOT paired information gains.',
+        'This does not reverse the earlier fixed-boundary fusion failure or prove a universal default.',
+        'Previously inspected public4-channel200Hz data do not establish8-channel250Hz highpass',
+        'hardware performance, physical latency or chronological onboarding: calibration regions',
+        'are disjoint but are not necessarily earlier than the evaluated regions.', '',
+        '[Registered-Rest native results](../benchmarks/new_bank_v3/CALIBRATION_REST_CONTINUOUS_UNIBO_V1_RESULTS.json)',
+        'and [independent acceptance](CALIBRATION_REST_CONTINUOUS_UNIBO_ACCEPTANCE_V1.json) retain all budgets and checkpoints.']
     variation_lines += ['', '#### Target calibration burden: extracted signal versus stored recording time', '',
                         'Native archive accounting binds 600 reserved trial durations and 690',
                         'method-specific cost rows for the two experiments above. Every source-',

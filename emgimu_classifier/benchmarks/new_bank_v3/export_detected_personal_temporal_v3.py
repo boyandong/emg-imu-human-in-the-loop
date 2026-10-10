@@ -1,6 +1,7 @@
 """Append weighted, explicitly conditional continuous temporal native results."""
 import hashlib
 import json
+from contextlib import nullcontext
 from pathlib import Path
 import numpy as np
 
@@ -9,19 +10,37 @@ HERE = Path(__file__).resolve().parent
 METRICS = ('macro_f1', 'accuracy', 'log_loss', 'brier', 'ece')
 
 
-def append(sources, family, incremental, errors, curve, ablations):
-    result_path = HERE/'DETECTED_PERSONAL_TEMPORAL_UNIBO_V3_RESULTS.json'
+def append(sources, family, incremental, errors, curve, ablations, *, registration=False):
+    run_id = 'calibration_rest_continuous_unibo_v1' if registration else 'detected_personal_temporal_unibo_v3'
+    prefix = 'CALIBRATION_REST_CONTINUOUS_UNIBO_V1' if registration else 'DETECTED_PERSONAL_TEMPORAL_UNIBO_V3'
+    result_path = HERE/(prefix+'_RESULTS.json')
     result = json.loads(result_path.read_text(encoding='utf8'))
     source = result_path.relative_to(ROOT).as_posix()
-    for path in (result_path, HERE/'DETECTED_PERSONAL_TEMPORAL_UNIBO_V3_PROTOCOL.json',
+    paths = (result_path, HERE/'DETECTED_PERSONAL_TEMPORAL_UNIBO_V3_PROTOCOL.json',
                  HERE/'detected_personal_temporal_unibo_v3/readouts.npz',
                  HERE/'detected_personal_temporal_unibo_v3/intervals.json',
                  HERE/'verify_detected_personal_temporal_unibo_v3.py', Path(__file__),
-                 ROOT/'feature_bank/DETECTED_PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V3.json'):
+                 ROOT/'feature_bank/DETECTED_PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V3.json')
+    if registration:
+        paths = (result_path, HERE/(prefix+'_PROTOCOL.json'), Path(__file__),
+            HERE/'verify_calibration_rest_continuous_unibo_v1.py',
+            ROOT/'feature_bank/CALIBRATION_REST_CONTINUOUS_UNIBO_ACCEPTANCE_V1.json',
+            *[ROOT/name for name in result['artifact_sha256']])
+        result['blocks'] = [{**b, 'mode':'registered_rest',
+            'predictive_calibration_cost':b['temporal_calibration_cost']} for b in result['blocks']]
+    for path in paths:
         sources[path.relative_to(ROOT).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
     comparisons = [('base', arm) for arm in result['blocks'][0]['scores'] if arm != 'base']
     comparisons += [('base_uniform', 'base_full'), ('DTW_long', 'DTW_local'), ('base_DTW_long', 'base_DTW_blended')]
-    with np.load(HERE/'detected_personal_temporal_unibo_v3/readouts.npz', allow_pickle=False) as arrays:
+    manager = np.load(HERE/'detected_personal_temporal_unibo_v3/readouts.npz', allow_pickle=False)
+    if registration:
+        manager.close()
+        collected = {}
+        for path in (HERE/run_id/'parts').glob('*.npz'):
+            with np.load(path, allow_pickle=False) as values:
+                collected.update({name:values[name].copy() for name in values.files})
+        manager = nullcontext(collected)
+    with manager as arrays:
         for block in result['blocks']:
             y = np.array(block['labels']); weights = np.array(block['weights']); weights /= weights.sum()
             probabilities = {arm:arrays[block['key']+'_'+arm][block['matched_positions']] for arm in block['scores']}
@@ -29,7 +48,7 @@ def append(sources, family, incremental, errors, curve, ablations):
                 metric_weighting='equal observed matched active class within user; pooled equal users',
                 conditional_on_supported_matched_references=True, no_rest_ground_truth=True,
                 observed_active_classes=sorted(map(int, set(y))),
-                primary_eligible=result['primary_eligible'], primary_pass=result['primary_pass'],
+                primary_eligible=result.get('primary_eligible', True), primary_pass=result['primary_pass'],
                 active_macro_f1={arm:score['active_macro_f1'] for arm, score in block['scores'].items()},
                 end_to_end_including_missed_references=block['end_to_end'],
                 actual_additional_temporal_calibration_trials=block['predictive_calibration_cost'],
@@ -40,7 +59,12 @@ def append(sources, family, incremental, errors, curve, ablations):
                 branch_ablation='fixed .25 temporal mass reallocated to the remaining branch; not renormalization',
                 oracle_complete_boundaries=block['mode'] == 'matched_oracle',
                 boundary_kind='estimated' if block['mode'] == 'detected' else 'protocol_oracle', scope=result['scope'])
-            context = dict(run_id='detected_personal_temporal_unibo_v3', source_artifact=source,
+            if registration:
+                notes.update(boundary_kind='estimated',
+                    detector_used_neutral_calibration_trials=block['detector_calibration_cost'],
+                    fixed_reference_axis_across_detector_candidates=True,
+                    matched_subsets_differ_between_detector_candidates=True)
+            context = dict(run_id=run_id, source_artifact=source,
                 source_sha256=sources[source], dataset='UniBo_native_continuous4', subject=block['user'],
                 **{'session/domain':'Day6_'+block['mode']}, condition='supported_matched_active_conditional',
                 calibration_budget=block['shots'], evaluation_trials=len(y), metadata_notes_json=json.dumps(notes, sort_keys=True))
@@ -60,7 +84,7 @@ def append(sources, family, incremental, errors, curve, ablations):
                 family.append({**context, 'feature_family':arm, **{k:score[k] for k in METRICS},
                     'class_metrics_json':json.dumps(class_metrics, sort_keys=True)})
                 curve.append({**context, 'feature_bank':arm, 'shots_per_class':block['shots'],
-                    'method':'detected_personal_temporal_unibo_v3', 'supported':True,
+                    'method':run_id, 'supported':True,
                     'macro_f1':score['macro_f1'], 'log_loss':score['log_loss']})
             for a, b in comparisons:
                 ea = probabilities[a].argmax(1) != y; eb = probabilities[b].argmax(1) != y

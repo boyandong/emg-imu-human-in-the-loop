@@ -1,6 +1,6 @@
 {
   "schema": "current_v3_canonical_delivery_v1",
-  "generator_sha256": "2fcbcd01bc56b8660058986e36da95fd1711417f76cd4f7533f3f4462c192b72",
+  "generator_sha256": "bca3c046316172dba98fa7fd4218058d69d0706b5ccebaa45656311fb0726f47",
   "source_sha256": {
     "benchmarks/new_bank_v3/F8_ROUTER_MANUS_V1_RESULTS.json": "26e46ca5fc22e347c9d69dd1bcdcf00184c3ae05974424091a4addb5540e3e4f",
     "benchmarks/new_bank_v3/F8_CALIBRATED_MANUS_V2_RESULTS.json": "d1ff024f62ff8c66906d8dea9ccb6f5228f33a5fbccbf09d99c92378152c2858",
@@ -31,8 +31,34 @@
     "benchmarks/new_bank_v3/detected_personal_temporal_unibo_v3/readouts.npz": "a1a05f9cbcc962d244d70c0b77a4c396b6751583f6a02fa3967ee4962ab177aa",
     "benchmarks/new_bank_v3/detected_personal_temporal_unibo_v3/intervals.json": "db2366697fdc961819ee4ad80b13fdbbe25908ebbad48cd87f804e3e4276471d",
     "benchmarks/new_bank_v3/verify_detected_personal_temporal_unibo_v3.py": "37362db168dfb00e4f348034db45c2bc0cf29da4a969325cc118edaae0284702",
-    "benchmarks/new_bank_v3/export_detected_personal_temporal_v3.py": "cfe1c10ed4690dea6283d884d22a438f295e6a23d26b3d19e16749b14056e89e",
+    "benchmarks/new_bank_v3/export_detected_personal_temporal_v3.py": "67a93eddb309ab74b1f21989da6389f873d46b90610630875d0630995b3ceaea",
     "feature_bank/DETECTED_PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V3.json": "d25b51d15472416b0e3f983b78b90f522f574902c05bdee46b0efe738154342f",
+    "benchmarks/new_bank_v3/CALIBRATION_REST_CONTINUOUS_UNIBO_V1_RESULTS.json": "6878274105322f10adc8170128d6189a713a09db17e2fd9261dbb11eabdda464",
+    "benchmarks/new_bank_v3/CALIBRATION_REST_CONTINUOUS_UNIBO_V1_PROTOCOL.json": "847912141356b64432b67a918ddfcc63c212e1e3665b99f3ea1af2e145e15ccb",
+    "benchmarks/new_bank_v3/verify_calibration_rest_continuous_unibo_v1.py": "4071b32da7413bb6fe232e6857ef33250b2c2dc2b171440d600e5ffe2aab4d2d",
+    "feature_bank/CALIBRATION_REST_CONTINUOUS_UNIBO_ACCEPTANCE_V1.json": "ab203cff94b5f6660699984dde0a918bddd9b821d164ef2223d9817e662eadfc",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/run_manifest.json": "1c119ef897ad735ebecd008ff32d33574faf064bcab5ff493f1015d98ba342b3",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u01.json": "9b3bd5ea71d68e6b29ff3d08f37f06a4067b371acb9cbde5da8bf95f8116fdca",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u01.npz": "b3e64b1e5c58ecdaab82d1a73cfeb9d0925b08e9b23db5bcb88d6d940f22ee8e",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u01.ready.json": "3657af8c64554af83677a2b09419f18f91af9bd807abb037d9e58a533b6bec52",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u02.json": "b0db05d86fe4b1bc06ae31042518dbe7af98a6e477ff045988619ce708af5aed",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u02.npz": "a2b03ab4994ae3e2922d53956b91412f2c5e8379903c72e02724fc56258d5d47",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u02.ready.json": "5689c7abe2aa2d642832467e1b88e56dde150c0eca4c55c582aea8095a13d932",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u03.json": "a6cefcbe589c339fcc4da195592ffe0927567b1a11d778aed3701757566fe44d",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u03.npz": "d3a2a2bb8192358e7ce703032198522953fb87622e9c5288f41c4bd47e365053",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u03.ready.json": "a75cbef33023c55004a8659c75fa186387f584d3f2532a99db91588133061840",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u04.json": "256f2850b6b363c4af80aa2a2d0edcde68b717d141ef5461578badc5a5f84113",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u04.npz": "2ed92cf0ec414e603d16d9a2928e0e8d6f32da5bc51232eb717ef16f5aedf920",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u04.ready.json": "a00a322822f40b32357fc858aff03a203bd17d2eef7b1640530ea9bc441cc250",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u05.json": "7f92eb7ed0d6f5efbe063c164a4fa42e809d540605eafd095f6fb446a57d710a",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u05.npz": "6a393d0c9056b8fe4dc1df1dc6c9bf1438b5e3645b63f0d790d9837c4ab28832",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u05.ready.json": "a387eb68dd256a91b040e1d3d05f2ee8dccd5db3b4d0877202648c0c43992606",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u06.json": "f9d255b62269f07943ffadec3c03f827c0a12a34b7499b791982b3bd1457204c",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u06.npz": "5a685b94689a4ee40b9d40b31fc4e93038e7df306613879e80d02afda05c3ba9",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u06.ready.json": "e362aa581fc29468becbff9c5d9cc40b11fa6b4792b3d5613c2f4ac2af03a98f",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u07.json": "cbd0e90616502d47a3b24651cf1c1d4d64b13add9c310ffc937a64540f78ad14",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u07.npz": "66577fbbdf83e43c7d750de05eb902c24e252a1936d4ee03611aff811316d222",
+    "benchmarks/new_bank_v3/calibration_rest_continuous_unibo_v1/parts/u07.ready.json": "b65ace0a1893c661584886bd1efb17dcf9c6a78da0cde2e4c9fbb80e08bafd4e",
     "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_BURDEN.json": "9b2b7ed27a0747b31a129f229d5ff933d06cf4108485fa60f1f496758907a894",
     "benchmarks/new_bank_v3/EMG_CALIBRATION_BURDEN_V1.json": "beba067d8cfff25ce2f8a752203f2be1cd293bbe648ba6948e47b952a4076974",
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
@@ -54,8 +80,8 @@
   },
   "tables": {
     "ablation_full_bank.csv": {
-      "rows": 824,
-      "sha256": "d43312e4f93a8a7c6e31af61e8ea9cc918b9171aafc012b1d4193551de09aeab"
+      "rows": 880,
+      "sha256": "4c167e1fbd77415da4102aa12330e36df5e391a6a04d89c7e7a7133d5c1c6be5"
     },
     "quality_gate.csv": {
       "rows": 24,
@@ -74,20 +100,20 @@
       "sha256": "f8df5629a04323364db46db43617f32b29787a49226a2a5d1e6aca5c5d34dec8"
     },
     "feature_family_results.csv": {
-      "rows": 3189,
-      "sha256": "f42ae72af0dec7d8edbad74a6718f98f2c2e6080b12bf378e491151829a67034"
+      "rows": 3497,
+      "sha256": "7d6d15f71bde2fb3b602b7768610125c90cdd47adcca7ef747bc765cb755caff"
     },
     "conditional_incremental.csv": {
-      "rows": 4616,
-      "sha256": "72a94fe362201a25171e79b107c547c07f3b8317bb9772f8e9c09ba4161197a7"
+      "rows": 4980,
+      "sha256": "ee957b6ab5d99a8ee724a68551819356d5e0769fe9563cbf8e3f5af9df47a415"
     },
     "error_complementarity.csv": {
-      "rows": 4616,
-      "sha256": "1f9870eadd4bb695707ca3d20a3797abe0e8fb4a1a357a5fd361bda323ffc43f"
+      "rows": 4980,
+      "sha256": "b36dc72f96fe0c287cacd762a41c68793180178b72a5a74a64db766190069e95"
     },
     "calibration_curve.csv": {
-      "rows": 3189,
-      "sha256": "85d1874c703588cf4d0e8e61855ed034ebbf67752ce2edfe6bbc2d67c0efe1c9"
+      "rows": 3497,
+      "sha256": "1c6f2072f930ad180978a062b92be39378967dc57527bc949369a03c393517b3"
     },
     "calibration_burden.csv": {
       "rows": 710,

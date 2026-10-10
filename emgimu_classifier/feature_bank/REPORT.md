@@ -269,7 +269,7 @@ experiments below retain their original cohort, method and budget boundaries.
 No new own-device efficacy or complete seven-axis robustness is claimed.
 
 [Machine-readable answers and measurements](CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json).
-Source SHA-256: `03bb2faba11a4129288fa179219a84298318ca144290a782fb9385dc8a47dd94`.
+Source SHA-256: `c119be66b6cc1a63914e95b5934ac9586fca47f4f86a1b4c8e9ad5dea819a54b`.
 
 | Question | Current evidence-based answer | Interpretation boundary |
 |---|---|---|
@@ -1104,6 +1104,48 @@ GUI current-Rest detector, physical latency or physiological action boundaries.
 
 [Continuous native results](../benchmarks/new_bank_v3/DETECTED_PERSONAL_TEMPORAL_UNIBO_V3_RESULTS.json)
 and [independent acceptance](DETECTED_PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V3.json) preserve every budget, miss and control.
+
+#### Registered-neutral automatic detector comparison, independent V1
+
+The default detector equations and all classifier/temporal parameters are unchanged.
+Only neutral calibration determines thresholds: five long-term neutral bouts at0 current,
+or nested1/2/5 current neutral bouts, as in desktop registration. Full temporal lifecycle
+still uses20 long-term plus0/4/8/20 current trials; neutral cost is a subset, not extra trials.
+All1152 protocol references including596 supported references are fixed BEFORE new fits.
+The same140 calibration recording regions and resampling guards remain excluded.
+New detections are matched using the unchanged one-to-one IoU>=.5 rule.
+Independent vector-energy FSM boundaries, direct G5 waveform/scaler/logit arithmetic,
+all 192764 probability values and missed-reference metrics pass.
+
+| Current shots/class | Arm | Correct/all supported references | End-to-end success | Conditional active F1 | Conditional log loss |
+|---:|---|---|---:|---:|---:|
+| 0 | DTW_local | 234/596 | 0.392617 | 0.449217 | 1.242058 |
+| 0 | base | 365/596 | 0.612416 | 0.718000 | 0.803277 |
+| 0 | base_full | 368/596 | 0.617450 | 0.723536 | 0.699468 |
+| 1 | DTW_local | 388/596 | 0.651007 | 0.661894 | 1.092953 |
+| 1 | base | 395/596 | 0.662752 | 0.674570 | 0.845078 |
+| 1 | base_full | 399/596 | 0.669463 | 0.681558 | 0.747474 |
+| 2 | DTW_local | 393/596 | 0.659396 | 0.668868 | 1.089893 |
+| 2 | base | 396/596 | 0.664430 | 0.674387 | 0.857012 |
+| 2 | base_full | 400/596 | 0.671141 | 0.681235 | 0.752050 |
+| 5 | DTW_local | 456/596 | 0.765101 | 0.790491 | 1.067894 |
+| 5 | base | 405/596 | 0.679530 | 0.683216 | 0.842956 |
+| 5 | base_full | 407/596 | 0.682886 | 0.686346 | 0.741842 |
+
+Five-shot full improves from367/596 under the old Day1-Rest detector to407/596
+(61.58% to68.29% end-to-end);5/7 users improves. Detection precision rises
+1008/1026 to1119/1126, and recall1008/1152 to1119/1152. All six frozen guards pass.
+Supported matched references increase527 to580; missed supported references fall69 to16.
+u07 fist changes from0 matched to20/30 matched, with9 correctly classified; classification
+is still imperfect. All29 u07 open references are detected and correctly classified.
+Old/new matched subsets differ, so their conditional F1/loss are NOT paired information gains.
+This does not reverse the earlier fixed-boundary fusion failure or prove a universal default.
+Previously inspected public4-channel200Hz data do not establish8-channel250Hz highpass
+hardware performance, physical latency or chronological onboarding: calibration regions
+are disjoint but are not necessarily earlier than the evaluated regions.
+
+[Registered-Rest native results](../benchmarks/new_bank_v3/CALIBRATION_REST_CONTINUOUS_UNIBO_V1_RESULTS.json)
+and [independent acceptance](CALIBRATION_REST_CONTINUOUS_UNIBO_ACCEPTANCE_V1.json) retain all budgets and checkpoints.
 
 #### Target calibration burden: extracted signal versus stored recording time
 

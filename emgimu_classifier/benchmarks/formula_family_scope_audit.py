@@ -349,6 +349,18 @@ def build() -> dict:
                           'All596 supported references retain69 misses; full five-shot changes366 to367 correct.')
             unresolved += (' Conditional loss improves .8001 to.7005, but only2/7 user loss wins; u07 has no matched fist. '
                            'Complete-class primary remains ineligible and fails. No default/8-channel/physical efficacy claim.')
+        if family in ('F5','F8'):
+            evidence += ('|benchmarks/new_bank_v3/CALIBRATION_REST_CONTINUOUS_UNIBO_V1_PROTOCOL.json'
+                         '|benchmarks/new_bank_v3/CALIBRATION_REST_CONTINUOUS_UNIBO_V1_RESULTS.json'
+                         '|feature_bank/CALIBRATION_REST_CONTINUOUS_UNIBO_ACCEPTANCE_V1.json'
+                         '|tests/test_calibration_rest_continuous_unibo_v1_delivery.py')
+            supported += (' Registered-neutral automatic thresholds now reuse exact long/current profiles and fixed596 supported references. '
+                          'Independent energy/FSM boundaries, direct G5 arithmetic and308 arm cells/192764 probability values pass. '
+                          'Five-shot full changes367 to407 correct;5/7 user success wins and all six frozen guards pass. '
+                          'Supported misses fall69 to16; u07 now matches20/30 fist references.')
+            unresolved += (' The matched subsets differ, so conditional classification scores are descriptive. '
+                           'u07 fist classification still gets only9/30 references correct. This is previously inspected four-channel200Hz evidence; '
+                           'eight-channel highpass/current-device efficacy and chronological onboarding remain unproven. No default promotion.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")
