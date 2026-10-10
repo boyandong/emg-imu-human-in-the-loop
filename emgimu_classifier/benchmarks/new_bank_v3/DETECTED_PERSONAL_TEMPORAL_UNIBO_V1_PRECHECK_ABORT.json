@@ -1,0 +1,11 @@
+{
+  "schema": "detected_personal_temporal_unibo_v1_precheck_abort",
+  "protocol": "DETECTED_PERSONAL_TEMPORAL_UNIBO_V1_PROTOCOL.json",
+  "failure": "Reserved raw reconstruction mismatched because original float32 MAT was resampled without converter float64 cast.",
+  "stage": "Input reconstruction; before output directory, predictions, scores or fitting.",
+  "predictions_produced": 0,
+  "result_exists": false,
+  "output_directory_exists": false,
+  "successor": "DETECTED_PERSONAL_TEMPORAL_UNIBO_V2_PROTOCOL.json",
+  "policy_selection_or_score_changed": false
+}
