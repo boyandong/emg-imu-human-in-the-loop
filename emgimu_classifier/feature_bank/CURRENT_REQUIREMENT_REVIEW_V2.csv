@@ -1,0 +1,79 @@
+document,source_sha256,section_start,section_end,title,nonblank_lines,major_clause_ids,major_status_counts_json,supplemental_review_ids,numeric_fixture_available,disposition,individual_completion_proven
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,1,15,你现在负责本项目的 Phase -1：,10,,{},PRE-INTRO,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,16,54,0. 核心原则,26,PRE-01,"{""superseded_history"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,55,99,1. 先检查现有 repo,32,PRE-01,"{""superseded_history"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,100,167,2. Dataset 选择评分体系,54,PRE-02,"{""superseded_history"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,168,649,3. 强制研究以下候选,318,PRE-03,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,650,777,4. Failure → Benchmark 映射,90,PRE-04,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,778,783,5. 不要一次全下载,4,PRE-05,"{""superseded_history"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,784,806,Tier 0：metadata only,18,PRE-05,"{""superseded_history"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,807,834,Tier 1：核心 benchmark,21,PRE-05,"{""superseded_history"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,835,847,Tier 2：验证 / secondary,10,PRE-05,"{""superseded_history"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,848,858,Tier 3：large / future,8,PRE-05,"{""superseded_history"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,859,904,6. 下载安全规则,32,PRE-05,"{""superseded_history"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,905,942,7. 下载目录,28,PRE-06,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,943,975,8. 每个 dataset 下载后立即 sanity check,24,PRE-06,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,976,1011,9. 标签映射不要强行统一,24,PRE-06,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,1012,1049,10. Channel topology 也必须记录,27,PRE-06,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,1050,1071,11. 最终不要凭感觉决定“最好”,17,PRE-07,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,1072,1107,12. 最终最重要的原则,23,PRE-07,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_pre.txt,9b70fb41ebbb4f8183e19533facf80df81b1d7ce73bd3a976a2714347d3f11d8,1108,1133,13. 本阶段完成标准,20,PRE-07,"{""verified_scoped"": 1}",PRE-DIGEST|PRE-FAILURES|PRE-LICENSE|PRE-ORDER|PRE-SANITY,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1,5,你现在要在现有 EMG/IMU Human-in-the-loop 项目上开展一轮新的“Feature Bank + Personal Calibration”系统性实验。,3,,{},GOAL-INTRO,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,6,47,一、研究目标,30,,{},GOAL-COMPONENTS|GOAL-HYPOTHESIS|GOAL-INFO|GOAL-INTRO|GOAL-PRIORS|GOAL-QUESTIONS,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,48,89,二、核心评价思想,26,,{},GOAL-HOLDOUT|GOAL-INFO,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,90,132,三、首先做数据与实验能力审计,31,GOAL-01,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,133,175,四、冻结 baseline 和 split,30,GOAL-02,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,176,446,五、本轮 Feature Bank 家族,182,GOAL-03,"{""partial_active"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,447,533,六、Personal Calibration v0,58,GOAL-04,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,534,581,七、校准后的简单融合,32,GOAL-05,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,582,740,八、Feature screening：不要跑 2^N,109,GOAL-06|GOAL-07|GOAL-08|GOAL-09|GOAL-10,"{""verified_scoped"": 5}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,741,766,九、Feature family 最终角色分类,17,GOAL-11,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,767,799,十、评价指标,24,GOAL-12,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,800,836,十一、系统级评价：Robustness Vector,25,GOAL-13,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,837,863,十二、Calibration burden,19,GOAL-14,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,864,893,十三、必须防止的错误,19,GOAL-15,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,894,932,十四、推荐执行顺序,27,GOAL-16,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,933,1012,十五、输出文件,60,GOAL-17,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1013,1051,十六、本轮最重要的科研问题,27,GOAL-18,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1052,1073,十七、当前先验，不要擅自改写,17,GOAL-19,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1074,1109,十八、工程要求,29,GOAL-19,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1110,1273,五、Feature Bank：精确定义与计算方式,117,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1274,1313,F2a. Trace-normalized covariance,27,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1314,1364,F2b. CSP-like spatial feature,34,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1365,1400,F2c. SPD / Riemannian tangent feature,24,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1401,1404,F3. Ring Geometry / Wearing,3,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1405,1443,F3a. RLCS,26,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1444,1479,F3b. CES,21,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1480,1534,F3c. Ring-relative covariance,39,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1535,1550,F4. Spectral State,10,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1551,1590,F4a. Frequency coordination,25,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1591,1625,F4b. Spectral summary,22,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1626,1662,F4c. Cepstral / CCA-like candidate,24,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1663,1696,F4d. Personal/session-relative spectral shift,23,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1697,1704,F5. Temporal Form,5,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1705,1776,F5a. Existing G5,45,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1777,1825,F5b. DTW / template distance,36,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1826,1860,F5c. Low-order path signature（可选）,22,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1861,1866,F6. Body Context / IMU,4,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1867,1922,F6a. IMU body-frame context,37,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1923,1940,F6b. Public dataset posture context,11,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1941,1967,F7. Personal Anchor Coordinates,16,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1968,1974,普通 Euclidean family,5,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1975,1984,Standardized Euclidean,7,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1985,1992,Cosine,6,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,1993,2004,Shrinkage Mahalanobis（样本足够时）,9,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2005,2046,SPD feature,30,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2047,2139,F8. Session Signature,65,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2140,2145,F9. Quality / Observability,4,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2146,2168,F9a. Missing / zero / flatline,15,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2169,2184,F9b. Clipping,12,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2185,2204,F9c. Line-noise ratio,14,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2205,2223,F9d. Low-frequency artifact,14,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2224,2243,F9e. Abnormal channel amplitude,14,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2244,2270,F9f. Correlation/covariance anomaly,15,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2271,2300,F9g. Quality mask,20,GOAL-20,"{""partial_active"": 1}",,True,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2301,2475,六、Personal Calibration v0：精确定义,120,GOAL-21,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2476,2513,七、Session Calibration v0,27,GOAL-22,"{""deferred_data_device"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2514,2562,八、Late Fusion：精确定义,32,GOAL-23,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2563,2605,九、对 feature family 的额外诊断,26,GOAL-24,"{""verified_scoped"": 1}",,False,navigation_with_scoped_reviews,False
+docx_goal.txt,4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0,2606,2642,十、特别重要的实现边界,29,GOAL-25,"{""verified_scoped"": 1}",GOAL-TAIL,False,navigation_with_scoped_reviews,False

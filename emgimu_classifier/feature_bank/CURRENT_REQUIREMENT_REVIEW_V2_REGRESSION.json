@@ -1,0 +1,26 @@
+{
+  "schema": "current_requirement_review_v2_regression",
+  "passing_cases": 31,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "junit_path": "feature_bank/regression/current_requirement_review_v2/classifier.xml",
+  "junit_sha256": "6021af7c2c2ca2c217f6be33b963badc0f6d2133b851fcee2ae817de808dc89d",
+  "test_source_sha256": {
+    "tests/test_current_requirement_review_v2.py": "2d0a64b17bb239b2c640271bc9a351d87bdbc77d95bab72ba7fd1064bf689f89",
+    "tests/test_document_traceability_v1.py": "4015f84d5448eff28b4e3bd28e73c4a7111252be47c5851e1485a819a2c88494",
+    "tests/test_formula_family_scope_audit.py": "d6d867f26d34af93aa127d04620a36b9935a5c591f123d97b9d74c6628f0e357",
+    "tests/test_v1_acceptance_audit.py": "851d577823297687034259e02f54bc5bb4860dc656777f2e78bb42f9f915b236",
+    "tests/test_current_scientific_conclusions_v1.py": "2d05c2b95325cb6ec7b4b157f80aabc7691eb2ebf6bca16ce37aa18d73a35ad2",
+    "tests/test_current_scientific_report_v1.py": "d9da7b89c16fe68c04e92f79ac61f2838e7dd3e9260fc8852ba4f5eef23e8143",
+    "tests/test_body_frame_units_v3_delivery.py": "ba5c0476c5d53bcbb6e605d5293926d1594e7e5dc8f591d87b1b3a1b0b20ab0d",
+    "tests/test_roam_document_reliability_delivery_v3.py": "b44b34895efd78d48408618aabdd7c195b1afdf19872a7aaa79850d9fd8ad20c",
+    "tests/test_roam_precision_transition_delivery_v2.py": "c0e10428a44a4d8387e66f42435be5fc79db6376dd230f4e240d6eafcc49a83a"
+  },
+  "review_sha256": "b6df31ee706d45916fa4739845c6809d0225b0b3ffb6a0415d72b128d23808d5",
+  "review_csv_sha256": "41a098c1bf87ff230a6b85b1e9b1167d90be8740d7c603e89b8e41f441c31c73",
+  "native_experiment_rerun": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Actual31 metadata/source-coverage/current-delivery regression cases across9 files. No model fitting or native inference; not exhaustive per-line scientific or physical acceptance."
+}

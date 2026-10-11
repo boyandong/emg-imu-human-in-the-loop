@@ -869,6 +869,11 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/DOCUMENT_WINDOW_COMPOSITION_V1_ACCEPTANCE.json')},
              'formula_numerical_acceptance': {'path':'../FORMULA_NUMERICAL_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/FORMULA_NUMERICAL_ACCEPTANCE.json')},
+             # Path only: the review binds the clause audit, which binds INDEX.
+             # A digest here would create a circular evidence dependency.
+             'current_requirement_review': {'path':'../CURRENT_REQUIREMENT_REVIEW_V2.json',
+                 'role':'Current source navigation and scoped evidence; not full scientific acceptance',
+                 'completion_proven':False},
              'completion_proven': False}
     (BASE/'INDEX.json').write_text(json.dumps(index, indent=2)+'\n', encoding='utf8')
     print(json.dumps({n: len(rows) for n, (rows, _) in tables.items()}), flush=True)

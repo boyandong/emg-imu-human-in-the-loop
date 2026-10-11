@@ -225,5 +225,10 @@
     "path": "../FORMULA_NUMERICAL_ACCEPTANCE.json",
     "sha256": "dc9d9b0a9e668de79a316c3b3e70a893ae8abacbc1da21a8a9395f4e3aa101b4"
   },
+  "current_requirement_review": {
+    "path": "../CURRENT_REQUIREMENT_REVIEW_V2.json",
+    "role": "Current source navigation and scoped evidence; not full scientific acceptance",
+    "completion_proven": false
+  },
   "completion_proven": false
 }
