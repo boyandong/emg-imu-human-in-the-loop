@@ -1,0 +1,24 @@
+{
+  "schema": "roam_document_reliability_v3_source_acceptance",
+  "protocol_sha256": "741978ae0b6309d4d307891edbe1d8b8764f86dc44c05a5eeb9afcb42c90bffd",
+  "source_result_sha256": "fab0d97ff48b47b53fcb31888675cacb832735905f93527034b96930087d030d",
+  "policy_sha256": "b589dc475be4cc55f37faf958f9b485f1eb71661eb5d923dd71d053a150631f2",
+  "verifier_sha256": "a62aa11e1d2124177d27c0430245697b4c26a92c02d5cfae925042297ed49ca1",
+  "selected_config": {
+    "n0": 64.0,
+    "temperature": 0.25
+  },
+  "source_query_trials": 324,
+  "source_budget_rows": 972,
+  "source_users": 18,
+  "candidates_verified": 16,
+  "maximum_independent_calibration_feature_error": 0.0,
+  "maximum_independent_probability_error": 0.0,
+  "independent_exact_hierarchy_and_source_selection": true,
+  "target_arrays_read": false,
+  "classifiers_refitted": false,
+  "source_scores_are_unbiased": false,
+  "read_only_no_fitting": true,
+  "native_experiment_rerun": false,
+  "scope": "Versioned native8/200Hz document-exact hierarchical D/E reliability with16-setting source-user CV. Three inherited source-user-out frozen classifiers and source OOF temperatures/population are reused. Global source OOF temperature/prior fitting and hyperparameter selection are policy training, not an unbiased source generalization estimate. Target composition reuses frozen180 cue-query provider/path arrays and saved calibrations. No target query feature inference, source classifier retraining, target tuning, independent prospective, automatic/physiological boundary, pinch,250Hz device, physical F6/F9 or default claim."
+}
