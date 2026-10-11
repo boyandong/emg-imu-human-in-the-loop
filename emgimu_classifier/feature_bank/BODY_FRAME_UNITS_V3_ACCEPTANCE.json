@@ -1,0 +1,77 @@
+{
+  "schema": "body_frame_units_v3_acceptance",
+  "passing_cases": 58,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "regression_junit": {
+    "path": "feature_bank/regression/body_frame_units_v3/classifier.xml",
+    "sha256": "125139196a2b6e4248f9d21951f6c7a598722a92952530fffff36dc607cc8d93"
+  },
+  "generator_sha256": "a0ebeb82259a88f9049864cec27178df281936269e0a4eb36f01fc30a3cdc3a7",
+  "source_sha256": {
+    "src/emgimu/feature_bank/body_frame_units_v3.py": "6046b11056d4c8d30a6be55b060e165972e1497038fb502d4d9a6d1d74acfcdb",
+    "src/emgimu/feature_bank/body_frame.py": "f2091339813e4b63a2965ceffb13b19200c0914abba3e257a43293be50100d8d",
+    "src/emgimu/feature_bank/body_frame_v2.py": "fbeb222cd40e9c6dd1709d9eba7cab88fc5910fef948233432506f4cd24ad540",
+    "src/emgimu/feature_bank/core.py": "a272025baef6a52ed24088092d17937da26ba334453305e552b6690528bbfffe",
+    "tests/test_body_frame_units_v3.py": "16d03f2c26dd049bb7592ddff6794b015becafc71aaf06bbf989eadefa6ed84c",
+    "tests/test_body_frame.py": "832fcc452a7505157c01f4d5cbd5321da3567f61fe9ba7712b8afa980ecef7b7",
+    "tests/test_posture_context_oracle.py": "976f44f607ddfcb4f3ffeb4176e04fcbd87e3e7d02a4e7e198e1c386dade4a23",
+    "tests/test_native_document_reliability_v3.py": "060d7cdc15d9b9b955039fcd95bb8fceb018f48ec1e4bb6fb0501610e87ec794",
+    "tests/test_document_session_v3.py": "e3ce1e9dd0c37695a4a909f9e5158937eafb1a922750f4242cc6d85e1a98c479"
+  },
+  "fixture_imu_rate_hz": 100.0,
+  "fixture_emg_rate_hz": 250.0,
+  "output_dimensions": 15,
+  "acceleration_units": [
+    "m/s^2",
+    "g"
+  ],
+  "angular_velocity_units": [
+    "rad/s",
+    "deg/s"
+  ],
+  "standard_gravity_m_per_s2": 9.80665,
+  "canonical_output_units": [
+    "m/s^2",
+    "m/s^2",
+    "m/s^2",
+    "m/s^2",
+    "m/s^2",
+    "rad/s",
+    "rad/s",
+    "rad/s",
+    "rad/s",
+    "rad/s",
+    "dimensionless",
+    "dimensionless",
+    "dimensionless",
+    "m/s^2",
+    "rad/s"
+  ],
+  "numeric_evidence": [
+    "constant gravity/rotation hand-computable15-output oracle",
+    "all four acceleration/angular unit combinations preserve SI features",
+    "guided nonorthogonal device axis creates a right-handed orthonormal frame"
+  ],
+  "contract_evidence": [
+    "unknown/empty/non-string units rejected",
+    "explicit accel/gyro column order",
+    "same real IMU rate and preprocessing for neutral/source/query",
+    "distinct nonempty string calibration trials and recording IDs",
+    "user and wearing identity bind the calibrated frame",
+    "calibration trials/recordings excluded from held-out query",
+    "dependent windows keep one trial identity",
+    "pickle and inference preserve source profile"
+  ],
+  "frozen_v1_source_modified": false,
+  "frozen_v2_source_modified": false,
+  "native_experiment_rerun": false,
+  "native_data_used": false,
+  "native_accuracy_proven": false,
+  "physical_validation_proven": false,
+  "absolute_yaw_proven": false,
+  "default_promoted": false,
+  "completion_proven": false,
+  "scope": "Versioned opt-in F6 software only. Known-unit conversion, guided-frame arithmetic and calibration provenance are verified on synthetic physical signals with100Hz IMU/250Hz EMG. Unit strings are validated, not independently measured. Measured anatomical forward direction, neutral calibration, native units/channel order and real user/wearing data remain required; no absent IMU or physical calibration is fabricated."
+}

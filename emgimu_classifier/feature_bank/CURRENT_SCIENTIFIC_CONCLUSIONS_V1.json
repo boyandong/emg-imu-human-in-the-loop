@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "74339af23a337f3738dc7044efcda9d05f7abb161841b15c1fd107aee6ad3f24",
+  "generator_sha256": "a85cea2338bfa876b998d4a0069dd9af59da7c918fad459578b80531a23ce9c2",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -72,7 +72,9 @@
     "tests/test_roam_precision_transition_delivery_v2.py",
     "tests/test_native_document_reliability_v3.py",
     "tests/test_roam_document_reliability_study_v3.py",
-    "tests/test_roam_document_reliability_delivery_v3.py"
+    "tests/test_roam_document_reliability_delivery_v3.py",
+    "tests/test_body_frame_units_v3.py",
+    "tests/test_body_frame_units_v3_delivery.py"
   ],
   "source_sha256": {
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
@@ -124,7 +126,7 @@
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "7aa83aa7305cb0c876da9e2ab061b9d92bffdb26b847c870734e66826600f818",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "d558e53aab05483bba121958310d44ef97018aef9ccef543d8eb0a1b15af6cb7",
     "feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json": "9bf4a118a99d7cc8034738b69b11154f85fb123022dd3d8a715eb248c3df89f2",
     "feature_bank/JOINT_BOUT_GUI_V1_ACCEPTANCE.json": "27e905148ec66fafffc7788d438f9e4e4044cc7fad709162e0387707d00d391d",
     "benchmarks/new_bank_v3/render_joint_bout_gui_v1.py": "9decc46e4dc83409237e42e4a075a3683e20e308c6ab39b46af9c3fe9c02e652",
@@ -161,6 +163,9 @@
     "benchmarks/new_bank_v3/ROAM_DOCUMENT_RELIABILITY_V3_TARGET_RESULTS.json": "7641cfae893b67a5aa56e2ae5c23145a40add9e05e3cdb4f3c3343d87b521c80",
     "benchmarks/new_bank_v3/verify_roam_document_reliability_v3.py": "a62aa11e1d2124177d27c0430245697b4c26a92c02d5cfae925042297ed49ca1",
     "src/emgimu/feature_bank/native_document_reliability_v3.py": "6902733200dbb08cb625763bf6bf27e764eae7558ec2c93e05197b5d87c34035",
+    "feature_bank/BODY_FRAME_UNITS_V3_ACCEPTANCE.json": "69ce5c4f176e1443dfefd8c3de1daac6beda7674ad85417e08d6943e1b2f6f03",
+    "src/emgimu/feature_bank/body_frame_units_v3.py": "6046b11056d4c8d30a6be55b060e165972e1497038fb502d4d9a6d1d74acfcdb",
+    "benchmarks/body_frame_units_v3_acceptance.py": "a0ebeb82259a88f9049864cec27178df281936269e0a4eb36f01fc30a3cdc3a7",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -224,7 +229,9 @@
     "tests/test_roam_precision_transition_delivery_v2.py": "c0e10428a44a4d8387e66f42435be5fc79db6376dd230f4e240d6eafcc49a83a",
     "tests/test_native_document_reliability_v3.py": "060d7cdc15d9b9b955039fcd95bb8fceb018f48ec1e4bb6fb0501610e87ec794",
     "tests/test_roam_document_reliability_study_v3.py": "9ad1a0292b6e090e27de843411b94914722b0e7e6b3ecc20205427cc450e96c9",
-    "tests/test_roam_document_reliability_delivery_v3.py": "b44b34895efd78d48408618aabdd7c195b1afdf19872a7aaa79850d9fd8ad20c"
+    "tests/test_roam_document_reliability_delivery_v3.py": "b44b34895efd78d48408618aabdd7c195b1afdf19872a7aaa79850d9fd8ad20c",
+    "tests/test_body_frame_units_v3.py": "16d03f2c26dd049bb7592ddff6794b015becafc71aaf06bbf989eadefa6ed84c",
+    "tests/test_body_frame_units_v3_delivery.py": "ba5c0476c5d53bcbb6e605d5293926d1594e7e5dc8f591d87b1b3a1b0b20ab0d"
   },
   "questions": [
     {
@@ -2359,7 +2366,7 @@
     {
       "question_id": "G",
       "question": "是否改善最差场景R_min，而不只是均值？",
-      "answer": "低维Mahalanobis改善相同预算下这组EPN最差用户，但增加到20shot仍可能损害最差用户；不能将单轴最差用户指标冒充完整七轴R_min。连续识别的样本F1也不能代替动作保持成功率。",
+      "answer": "低维Mahalanobis改善相同预算下这组EPN最差用户，但增加到20shot仍可能损害最差用户；不能将单轴最差用户指标冒充完整七轴R_min。连续识别的样本F1也不能代替动作保持成功率。 F6新增单位和佩戴批次绑定的软件版本，明确转换到m/s²与rad/s，拒绝未知单位、列顺序错误及校准记录重用；已知物理量测试通过，但缺失的真实标定和IMU元数据仍不能由软件补造。",
       "measurements": {
         "EPN_user_macro_f1": [
           {
@@ -2852,7 +2859,8 @@
       "evidence": [
         "benchmarks/new_bank_v3/MAHALANOBIS_EPN_HOLDOUT_V2_USER_ROBUSTNESS.json",
         "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json",
-        "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json"
+        "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json",
+        "feature_bank/BODY_FRAME_UNITS_V3_ACCEPTANCE.json"
       ],
       "continuous_temporal_diagnostic": {
         "supported_references": 596,
@@ -2876,6 +2884,28 @@
         "primary_pass": true,
         "user_success_wins": 5,
         "scope": "Retrospective public4-channel200Hz registered-Rest detector diagnostic. GUI neutral-selection and detector equations match, but its8-channel250Hz highpass-filtered sensor stream differs; no own-device, physical boundary, latency, fatigue, prospective generalization or clinical claim."
+      },
+      "body_frame_software": {
+        "passing_cases": 58,
+        "output_dimensions": 15,
+        "canonical_output_units": [
+          "m/s^2",
+          "m/s^2",
+          "m/s^2",
+          "m/s^2",
+          "m/s^2",
+          "rad/s",
+          "rad/s",
+          "rad/s",
+          "rad/s",
+          "rad/s",
+          "dimensionless",
+          "dimensionless",
+          "dimensionless",
+          "m/s^2",
+          "rad/s"
+        ],
+        "physical_validation_proven": false
       }
     },
     {
@@ -3636,6 +3666,84 @@
       }
     }
   ],
+  "body_frame_units": {
+    "schema": "body_frame_units_v3_acceptance",
+    "passing_cases": 58,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "regression_junit": {
+      "path": "feature_bank/regression/body_frame_units_v3/classifier.xml",
+      "sha256": "125139196a2b6e4248f9d21951f6c7a598722a92952530fffff36dc607cc8d93"
+    },
+    "generator_sha256": "a0ebeb82259a88f9049864cec27178df281936269e0a4eb36f01fc30a3cdc3a7",
+    "source_sha256": {
+      "src/emgimu/feature_bank/body_frame_units_v3.py": "6046b11056d4c8d30a6be55b060e165972e1497038fb502d4d9a6d1d74acfcdb",
+      "src/emgimu/feature_bank/body_frame.py": "f2091339813e4b63a2965ceffb13b19200c0914abba3e257a43293be50100d8d",
+      "src/emgimu/feature_bank/body_frame_v2.py": "fbeb222cd40e9c6dd1709d9eba7cab88fc5910fef948233432506f4cd24ad540",
+      "src/emgimu/feature_bank/core.py": "a272025baef6a52ed24088092d17937da26ba334453305e552b6690528bbfffe",
+      "tests/test_body_frame_units_v3.py": "16d03f2c26dd049bb7592ddff6794b015becafc71aaf06bbf989eadefa6ed84c",
+      "tests/test_body_frame.py": "832fcc452a7505157c01f4d5cbd5321da3567f61fe9ba7712b8afa980ecef7b7",
+      "tests/test_posture_context_oracle.py": "976f44f607ddfcb4f3ffeb4176e04fcbd87e3e7d02a4e7e198e1c386dade4a23",
+      "tests/test_native_document_reliability_v3.py": "060d7cdc15d9b9b955039fcd95bb8fceb018f48ec1e4bb6fb0501610e87ec794",
+      "tests/test_document_session_v3.py": "e3ce1e9dd0c37695a4a909f9e5158937eafb1a922750f4242cc6d85e1a98c479"
+    },
+    "fixture_imu_rate_hz": 100.0,
+    "fixture_emg_rate_hz": 250.0,
+    "output_dimensions": 15,
+    "acceleration_units": [
+      "m/s^2",
+      "g"
+    ],
+    "angular_velocity_units": [
+      "rad/s",
+      "deg/s"
+    ],
+    "standard_gravity_m_per_s2": 9.80665,
+    "canonical_output_units": [
+      "m/s^2",
+      "m/s^2",
+      "m/s^2",
+      "m/s^2",
+      "m/s^2",
+      "rad/s",
+      "rad/s",
+      "rad/s",
+      "rad/s",
+      "rad/s",
+      "dimensionless",
+      "dimensionless",
+      "dimensionless",
+      "m/s^2",
+      "rad/s"
+    ],
+    "numeric_evidence": [
+      "constant gravity/rotation hand-computable15-output oracle",
+      "all four acceleration/angular unit combinations preserve SI features",
+      "guided nonorthogonal device axis creates a right-handed orthonormal frame"
+    ],
+    "contract_evidence": [
+      "unknown/empty/non-string units rejected",
+      "explicit accel/gyro column order",
+      "same real IMU rate and preprocessing for neutral/source/query",
+      "distinct nonempty string calibration trials and recording IDs",
+      "user and wearing identity bind the calibrated frame",
+      "calibration trials/recordings excluded from held-out query",
+      "dependent windows keep one trial identity",
+      "pickle and inference preserve source profile"
+    ],
+    "frozen_v1_source_modified": false,
+    "frozen_v2_source_modified": false,
+    "native_experiment_rerun": false,
+    "native_data_used": false,
+    "native_accuracy_proven": false,
+    "physical_validation_proven": false,
+    "absolute_yaw_proven": false,
+    "default_promoted": false,
+    "completion_proven": false,
+    "scope": "Versioned opt-in F6 software only. Known-unit conversion, guided-frame arithmetic and calibration provenance are verified on synthetic physical signals with100Hz IMU/250Hz EMG. Unit strings are validated, not independently measured. Measured anatomical forward direction, neutral calibration, native units/channel order and real user/wearing data remain required; no absent IMU or physical calibration is fabricated.",
+    "interpretation": "Versioned F6 accepts only known acceleration/angular units and explicit IMU column/rate/preprocessing identity, converting to SI before source-neutral frame calibration and query features. User/wearing and independent trial/recording identities prevent frame reuse and calibration leakage. Synthetic physical oracles and adjacent regressions pass; this neither measures units nor supplies missing anatomical/native calibration. Existing F6 runs and all native classifier results remain unchanged."
+  },
   "roam_document_reliability": {
     "schema": "roam_document_reliability_v3_acceptance",
     "protocol_sha256": "741978ae0b6309d4d307891edbe1d8b8764f86dc44c05a5eeb9afcb42c90bffd",

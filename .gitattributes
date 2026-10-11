@@ -2214,3 +2214,16 @@ emgimu_classifier/tests/test_calibration_rest_detector_v1.py -text -eol whitespa
 /emgimu_classifier/feature_bank/delivery/new_bank_v3/transition_hold.csv -text -eol whitespace=cr-at-eol
 /emgimu_classifier/feature_bank/regression/roam_document_reliability_v3/classifier.xml -text -eol whitespace=cr-at-eol
 /emgimu_classifier/tests/test_roam_document_reliability_delivery_v3.py -text -eol whitespace=cr-at-eol
+/emgimu_classifier/benchmarks/body_frame_units_v3_acceptance.py -text -eol whitespace=cr-at-eol
+/emgimu_classifier/feature_bank/BODY_FRAME_UNITS_V3_ACCEPTANCE.json -text -eol whitespace=cr-at-eol
+/emgimu_classifier/feature_bank/BODY_FRAME_UNITS_V3_GIT_CHECKOUT.json -text -eol whitespace=cr-at-eol
+/emgimu_classifier/feature_bank/BODY_FRAME_UNITS_V3_REGRESSION.json -text -eol whitespace=cr-at-eol
+/emgimu_classifier/feature_bank/regression/body_frame_units_v3/classifier.xml -text -eol whitespace=cr-at-eol
+/emgimu_classifier/feature_bank/regression/body_frame_units_v3_delivery/classifier.xml -text -eol whitespace=cr-at-eol
+/emgimu_classifier/src/emgimu/feature_bank/body_frame_units_v3.py -text -eol whitespace=cr-at-eol
+/emgimu_classifier/tests/test_body_frame.py -text -eol whitespace=cr-at-eol
+/emgimu_classifier/tests/test_body_frame_units_v3.py -text -eol whitespace=cr-at-eol
+/emgimu_classifier/tests/test_body_frame_units_v3_delivery.py -text -eol whitespace=cr-at-eol
+/emgimu_classifier/tests/test_document_session_v3.py -text -eol whitespace=cr-at-eol
+/emgimu_classifier/tests/test_hardware_preparation_v1.py -text -eol whitespace=cr-at-eol
+/emgimu_classifier/tests/test_posture_context_oracle.py -text -eol whitespace=cr-at-eol

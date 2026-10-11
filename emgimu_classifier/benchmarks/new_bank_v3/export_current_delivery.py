@@ -847,6 +847,8 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json')},
              'joint_bout_gui_acceptance': {'path':'../JOINT_BOUT_GUI_V1_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/JOINT_BOUT_GUI_V1_ACCEPTANCE.json')},
+             'body_frame_units_acceptance': {'path':'../BODY_FRAME_UNITS_V3_ACCEPTANCE.json',
+                 'sha256':sha(ROOT/'feature_bank/BODY_FRAME_UNITS_V3_ACCEPTANCE.json')},
              'roam_document_reliability_acceptance': {'path':'../ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json')},
              'roam_document_reliability_summary': 'new_bank_v3/document_reliability.csv',

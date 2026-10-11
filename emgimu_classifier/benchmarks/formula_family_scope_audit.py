@@ -410,6 +410,12 @@ def build() -> dict:
             supported += (' Document-exact hierarchical D/E weights now have16-setting source-user CV on18 source users, with policy committed before target cached composition. '
                           'Independent calibration geometry, shrinkage, F8 routing, seven-arm probability composition and210 cells/3780 prediction rows on180 oracle queries are verified.')
             unresolved += (' The joint primary guard fails against both legacy joint and zero-calibration source window. Source training scores and previously inspected oracle-cue posture targets do not establish independent generalization, autonomous recognition,250Hz device or all-subformula efficacy. No default promotion.')
+        if family=='F6':
+            evidence += ('|feature_bank/BODY_FRAME_UNITS_V3_ACCEPTANCE.json'
+                         '|src/emgimu/feature_bank/body_frame_units_v3.py|tests/test_body_frame_units_v3.py')
+            supported += (' Versioned opt-in F6 units V3 validates known acceleration/angular units and converts to SI, with explicit rate/column/preprocessing contracts, user/wearing identity and disjoint calibration recording provenance. '
+                          '58 targeted synthetic physical/context/calibration regressions pass, including all four unit combinations and hand-computable15-output coordinates. Frozen V1/native experiments are unchanged.')
+            unresolved += (' Unit declarations are validated, not independently measured. Missing anatomical forward/neutral calibration, native units/rate/channel order and physical efficacy remain unavailable; stable absolute yaw and strict native F6 are not claimed.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

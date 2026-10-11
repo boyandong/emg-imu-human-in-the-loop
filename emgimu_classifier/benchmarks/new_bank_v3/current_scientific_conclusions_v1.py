@@ -392,11 +392,23 @@ def build():
                 '这完成了有限选参与实现验证，不证明少量校准的稳定收益或当前设备效果。')
             answer['evidence'] += [reliability_path.relative_to(ROOT).as_posix(),
                 'benchmarks/new_bank_v3/ROAM_DOCUMENT_RELIABILITY_V3_TARGET_RESULTS.json']
+    body_frame_path=ROOT/'feature_bank/BODY_FRAME_UNITS_V3_ACCEPTANCE.json'
+    body_frame=json.loads(body_frame_path.read_text(encoding='utf8'))
+    for path in (body_frame_path,ROOT/'src/emgimu/feature_bank/body_frame_units_v3.py',ROOT/'benchmarks/body_frame_units_v3_acceptance.py'):
+        sources[path.relative_to(ROOT).as_posix()]=sha(path)
+    verification_tests += ['tests/test_body_frame_units_v3.py','tests/test_body_frame_units_v3_delivery.py']
+    answers[6]['body_frame_software']={k:body_frame[k] for k in
+        ('passing_cases','output_dimensions','canonical_output_units','physical_validation_proven')}
+    answers[6]['answer'] += (' F6新增单位和佩戴批次绑定的软件版本，明确转换到m/s²与rad/s，'
+        '拒绝未知单位、列顺序错误及校准记录重用；已知物理量测试通过，但缺失的真实标定和IMU元数据仍不能由软件补造。')
+    answers[6]['evidence'] += [body_frame_path.relative_to(ROOT).as_posix()]
     for name in verification_tests: sources[name] = sha(ROOT / name)
     result = {'schema': 'current_scientific_conclusions_v1', 'generator_sha256': sha(Path(__file__)),
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
               'requirement_lines': [1013, 1049], 'verification_tests': verification_tests,
               'source_sha256': sources, 'questions': answers,
+              'body_frame_units': dict(body_frame,
+                  interpretation='Versioned F6 accepts only known acceleration/angular units and explicit IMU column/rate/preprocessing identity, converting to SI before source-neutral frame calibration and query features. User/wearing and independent trial/recording identities prevent frame reuse and calibration leakage. Synthetic physical oracles and adjacent regressions pass; this neither measures units nor supplies missing anatomical/native calibration. Existing F6 runs and all native classifier results remain unchanged.'),
               'roam_document_reliability': dict(reliability,
                   interpretation='Document-exact D/E hierarchical source-population/long/current weights with16-setting source-user CV. Source policy is frozen before target cached composition; no target classifier fit or target query feature inference. The selected n0=64/tau=.25 are grid boundaries, not universal optima. Same180 oracle queries and shared6+3*shots cost retain all seven arms. Primary guard fails against legacy joint and zero-calibration source window. Existing precision-transition100-reference results are separate and unchanged. No default, physical250Hz, independent prospective or full-formula completion claim.'),
               'roam_precision_transition': dict(precision,previous_class_transition=class_transition['two_shot_summary'],

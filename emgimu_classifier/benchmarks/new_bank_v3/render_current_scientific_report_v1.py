@@ -814,6 +814,14 @@ def render(data, source_sha):
             'Source-window uses zero target registration. Every personal/session arm uses6 long plus0/3/6 current cues once;0 current shots is not zero total calibration. Immutable state binds user/session/bank/policy/profile IDs and trial/recording provenance. Direct rational formula fixtures and native200/250Hz software fixtures cover the adapter; this learned200Hz policy is not a250Hz device model.',
             'This study changes calibration weights, not segmentation. The separate precision-transition88/100 correct and6 unmatched detections remain unchanged. No physiological boundary, pinch, new independent cohort, physical F6/F9, default promotion or full-document completion follows.',
             '[Document reliability acceptance](ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json).']
+    if 'body_frame_units' in data:
+        c=data['body_frame_units']
+        variation_lines += ['', '#### Unit-checked and wearing-bound F6 software', '',
+            'The frozen F6 V2 already converts known units to SI. This opt-in units V3 interface extends it with per-call unit/rate/preprocessing contracts and user/wearing/recording identity. Acceleration must be m/s^2 or g; angular velocity must be rad/s or deg/s. Each call declares its units. Known conversions use standard gravity9.80665m/s^2 and pi/180 radians/degree; the15 output coordinates have explicit SI/dimensionless units. A declared unit change is converted, not treated as an anatomical frame change.',
+            'Neutral, source and query must share real IMU rate, ax/ay/az/gx/gy/gz order and preprocessing identity, and window durations must match the actual EMG/IMU rates. Guided anatomical-forward direction and at least one second of neutral calibration remain required. User/wearing identity binds the frame; re-donning needs a new profile. Explicit unique calibration trials and recording provenance reject held-out reuse, including different trial names from a calibration recording.',
+            f"The actual targeted suite passes{c['passing_cases']} cases: constant-gravity/rotation hand-computable15-output coordinates, all four known unit combinations, a guided nonorthogonal axis, invalid metadata, profile/recording isolation, pickle round trip and adjacent context/calibration checks. Tests use synthetic100Hz IMU with250Hz EMG and do not access native recordings. The V1 source and completed native experiments remain frozen.",
+            'This proves software arithmetic/contracts only. It does not independently measure unit metadata, establish anatomical calibration, supply missing IMU, prove physical sensor quality or estimate stable absolute yaw. Strict native F6 remains ineligible without the missing measured metadata; no default promotion or full-document completion.',
+            '[F6 units acceptance](BODY_FRAME_UNITS_V3_ACCEPTANCE.json).']
     lines[-1:-1] = variation_lines
     return '\n'.join(lines)
 

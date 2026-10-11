@@ -736,6 +736,11 @@ def build(pre: Path, goal: Path) -> dict:
                          'The joint primary guard fails against legacy joint and zero-calibration source window, with2/5 and0/5 validation user loss wins. '
                          'n0=64/tau=.25 are finite-grid boundary choices, not universal optima. Target query inference and classifier fitting are not repeated. '
                          'Native200/250Hz software contracts do not transfer the selected200Hz policy to physical250Hz hardware or prove autonomous, all-formula, anatomical or prospective efficacy.')
+        if ident in ('GOAL-03','GOAL-20','GOAL-22','GOAL-25'):
+            evidence += ('|feature_bank/BODY_FRAME_UNITS_V3_ACCEPTANCE.json'
+                         '|src/emgimu/feature_bank/body_frame_units_v3.py|tests/test_body_frame_units_v3.py')
+            boundary += (' F6 units V3 extends the frozen V2 SI conversion with per-call units, explicit real-rate/column/preprocessing contracts and user/wearing/calibration-record identity. '
+                         '58 targeted synthetic physical/context/calibration cases pass without native data or modifying frozen V1. Measured native anatomical calibration/units and physical multi-day/rewearing efficacy remain unavailable; these tests do not close strict native F6.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]
