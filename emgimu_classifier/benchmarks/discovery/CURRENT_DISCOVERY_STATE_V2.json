@@ -1,0 +1,572 @@
+{
+  "schema": "current_discovery_state_v2",
+  "historical_manifest": "DATASET_MANIFEST.json",
+  "source_sha256": {
+    "DATASET_MANIFEST.json": "efd4f05ea43cc75101ffcb3a7204d44cd9823ac2ac9016ce4f9b53d508708940",
+    "DISCOVERY_DELIVERY_AUDIT.json": "a88af2b0d2b374f418f5db6e70e31cf52a7c6d4a6a9798d9e4167b49545f4934",
+    "DS2_V9_FORCE_LABEL_AUDIT.json": "f0cee7da6421444718d33ca648bbb31633b09188f2265d292f78149f612f2ef5",
+    "DS2_V9_FORCE_TRIAL_JOIN.csv": "bdfcb4dd250fb90b713d1dd835f91304d685d751b0d081ba0c48622484d272b7",
+    "public_ds2_force_v9/RESULTS.json": "86d7d79c3a63d3b01d64d1425859c27d0aebd3915a5c277921e637702bec2541",
+    "public_ds2_force_v9/TRIAL_PREDICTIONS.csv": "8b2f35d7b91f5b65e5f874ed4a59e959c2047d4ea63ce33a6873a3a6777a5dc3",
+    "scripts/current_discovery_state.py": "dc6e3efa9bd1ce7036b79ca792a494c1985ca8346476d1a9891dfb360be32e1c",
+    "SECONDARY_LICENSE_METADATA_V1.json": "50bcb5e340bc69ea2fda2cb9f457cb59d1dc27ed3d718700ee2aa20f3297801d",
+    "scripts/fetch_secondary_license_metadata.py": "1ffd848656457092a980784d3a722475a580765d98e4d5d07f4d257d20abe11c",
+    "SECONDARY_PAPER_REVIEW_V1.json": "c75f56a6a48397e9e983cb5bf905081814d40677fb10a52e8f3eae457ad1ab0c",
+    "GRAB_CHANNEL_CENSUS_V1.json": "521b16cd3e1f006167ac6bd91e4b82c9607a3bd10026be48522dad81b08a7641",
+    "scripts/grab_channel_census_v1.py": "ecfe53aea73ae1bf2b519ee40d4e3b38f33340a85faa368bafa93f437e61c8d5",
+    "SECONDARY_PRIMARY_REVIEW_V1.json": "91b9aaaed40126779029a758043cb1d648c579db807123a6579b2514da0206f7",
+    "GRAB_PRIMARY_TOPOLOGY_V1.json": "ad5db2d68546ffb26a8b207714861074b0e085181d7696a79c7bca7947848e89",
+    "scripts/grab_primary_topology_v1.py": "76d1e99cfc3a8e969f1eb9fd1564f1f57d25008db1fd35b38ba38fec5552b80d"
+  },
+  "datasets": [
+    {
+      "id": "ds2_force",
+      "status": "public_v8_raw_with_verified_publisher_v9_subjective_force_labels",
+      "source": "https://www.mdpi.com/2306-5729/10/12/194",
+      "dataset_url": "https://www.kaggle.com/datasets/d4d7612f90e026339cb1eba7ba2bcb68295fd5cbb11944eadd489d8fe0399584",
+      "dataset_ref": "cinthyazuniga/ds2-emg-signals-three-force-type",
+      "dataset_version": 8,
+      "expected": "20 subjects; 3 channels; 1500 Hz; 5 gestures; low/medium/high",
+      "path": "C:/Users/SCQ666/Documents/Codex/2026-09-13/files-pasted-by-the-user-emg/work/datasets/historical_ds2_candidate/ds2_kaggle_v8.zip",
+      "size": 1123505003,
+      "sha256": "a19bfeb945392b38f5f41bde62e8135918da7d475e479b16e322e1fc4b867110",
+      "file_count": 102,
+      "uncompressed_bytes": 1312583609,
+      "license": "conflict: publication CC-BY-4.0; Kaggle page CC0",
+      "access_audit": "benchmarks/discovery/DS2_ACCESS_AUDIT.json",
+      "archive_audit": "benchmarks/discovery/DS2_ARCHIVE_AUDIT.json",
+      "tdms_first_metadata_audit": "benchmarks/discovery/DS2_TDMS_FIRST_METADATA_AUDIT.json",
+      "tdms_group_audit": "benchmarks/discovery/DS2_TDMS_GROUP_AUDIT.json",
+      "raw_mav_window_join_audit": "benchmarks/discovery/DS2_MAT_TRIAL_WINDOW_JOIN_AUDIT.json",
+      "tdms_exact_waveform_join_audit": "benchmarks/discovery/DS2_TDMS_RAW_EXACT_JOIN_AUDIT.json",
+      "force_annotation_source_audit": "benchmarks/discovery/DS2_FORCE_ANNOTATION_SOURCE_AUDIT.json",
+      "per_trial_force_labels": "verified_exact_window_to_raw_trial_join",
+      "subject_held_out_gesture_study": "benchmarks/discovery/public_ds2_subject_gesture/RESULTS.json",
+      "verified_tdms_subject_trials": 2833,
+      "unmatched_tdms_subject_trials": 30,
+      "note": "Versioned independent public-data experiment. Missing legacy B0/X1/X2 code is superseded by user instruction and is not a prerequisite. Force labels are subjective instructed categories, not measured mechanical force. Final cohort results remain descriptive; no own-device or deployment claim.",
+      "force_label_publisher_version": 9,
+      "force_label_audit": "DS2_V9_FORCE_LABEL_AUDIT.json",
+      "force_trial_join": "DS2_V9_FORCE_TRIAL_JOIN.csv",
+      "force_labelled_raw_trials": 2863,
+      "subject_gesture_force_eligible_trials": 2832,
+      "active_study_trials": 2297,
+      "current_force_study": "public_ds2_force_v9/RESULTS.json"
+    },
+    {
+      "id": "libemg_force",
+      "status": "downloaded_verified",
+      "source": "https://github.com/LibEMG/ContractionIntensity/archive/refs/heads/main.zip",
+      "size": 207707607,
+      "sha256": "237212D87F50C9B621E572BC780D99FAC3A9AF60B99EC8B455FB3D3DBB2D15E7",
+      "md5": "61D4A5AAEA134F3C730517A354E20870",
+      "file_count_csv": 3220,
+      "license": "not declared by repository",
+      "path": "D:/emg-imu-benchmarks/data/raw/libemg_force/contraction-intensity-main.zip"
+    },
+    {
+      "id": "libemg_electrode_shift",
+      "status": "downloaded_verified",
+      "source": "https://github.com/LibEMG/CIILData/archive/refs/heads/main.zip",
+      "expected_size_source": "GitHub repository reports about 11 MB",
+      "license": "not declared by repository",
+      "path": "D:/emg-imu-benchmarks/data/raw/libemg_electrode_shift/CIILData-main.zip",
+      "size": 11563732,
+      "sha256": "4CFA9A4861193F230179FA87D53EDA7503E66B5CFEDEAE81C81E476F53F6B2B6",
+      "md5": "711DF74C47DFE811968B8F41A37E2438"
+    },
+    {
+      "id": "unibo_inail",
+      "status": "downloaded_verified",
+      "source": "https://github.com/pulp-bio/unibo-inail-semg-dataset/archive/refs/heads/main.zip",
+      "expected_size": 513385791,
+      "expected_sha256": "E32F1649B7B9B775A6B03328FB862EBF21A18C7CA6B4D9ABB50B7281CAEFBCE3",
+      "license": "LGPL-2.1",
+      "path": "D:/emg-imu-benchmarks/data/raw/unibo_inail/unibo-inail-main.zip",
+      "size": 513385791,
+      "sha256": "E32F1649B7B9B775A6B03328FB862EBF21A18C7CA6B4D9ABB50B7281CAEFBCE3"
+    },
+    {
+      "id": "epn612",
+      "status": "downloaded_verified",
+      "source": "https://zenodo.org/api/records/4421500/files/EMG-EPN612%20Dataset.zip/content",
+      "expected_size": 5483385161,
+      "expected_md5": "98bd3c315efab607cc54b2ed2f8f3ada",
+      "license": "CC-BY-4.0",
+      "path": "D:/emg-imu-benchmarks/data/raw/epn612/EMG-EPN612-Dataset.zip",
+      "size": 5483385161,
+      "sha256": "4EE8DB037385E7BEE1E6AC6F9E9EEA4F0869E25F7825F5EB7E5BE0DFF4F93C21",
+      "md5": "98BD3C315EFAB607CC54B2ED2F8F3ADA"
+    },
+    {
+      "id": "semg_manus",
+      "status": "downloaded_verified",
+      "source": "https://zenodo.org/api/records/19261324/files/semg-manus-dataset-v1.zip/content",
+      "expected_size": 594438686,
+      "expected_md5": "2d3975173cd6b6832d50d0be0948e1f0",
+      "license": "CC-BY-4.0",
+      "path": "D:/emg-imu-benchmarks/data/raw/semg_manus/semg-manus-dataset-v1.zip",
+      "size": 594438686,
+      "sha256": "2D9E1DF613485B9A4AFE9A5A71010CA84E75A521B596F836A195B5EAF3DC1F29",
+      "md5": "2D3975173CD6B6832D50D0BE0948E1F0"
+    },
+    {
+      "id": "emg_fmg",
+      "status": "downloaded_verified",
+      "source": "https://zenodo.org/api/records/15420178/files/Data.zip/content",
+      "expected_size": 9125369365,
+      "expected_md5": "453a9e17b5a2ee4c5e8da683d4df2c29",
+      "license": "CC0",
+      "path": "D:/emg-imu-benchmarks/data/raw/emg_fmg/Data.zip",
+      "size": 9125369365,
+      "sha256": "3021E8B5FF31FD5AABA5E11F5F1C4D370D07407C0F1451F36C64A3A03B42C677",
+      "md5": "453A9E17B5A2EE4C5E8DA683D4DF2C29"
+    },
+    {
+      "id": "great",
+      "status": "deferred",
+      "source": "https://doi.org/10.5061/dryad.8sf7m0czv",
+      "expected_size": 3800000000,
+      "license": "CC0-1.0",
+      "primary_metadata_review": {
+        "id": "great",
+        "sources": [
+          "https://datadryad.org/dataset/doi:10.5061/dryad.8sf7m0czv"
+        ],
+        "paper_review": "Author repository and README reviewed; linked full paper not reviewed.",
+        "license_verified": "CC0-1.0",
+        "subjects": 8,
+        "days": 2,
+        "emg_sample_rate_hz": 2000,
+        "stored_emg_channels": 16,
+        "layout": "Four Trigno Quattro sensors, two staggered rows of eight; first row starts at extensor carpi ulnaris.",
+        "six_axis_imu_verified": false,
+        "physical_eight_channel_layout_verified": false,
+        "uncued_continuous_transitions_verified": false,
+        "limitations": [
+          "Recording starts after position and grasp formation to avoid transitions; not automatic onset/offset ground truth.",
+          "Nine-position grid described, five positions acquired; do not invent nine acquired conditions.",
+          "README repeats day1block2 in its four-folder listing; native names must be inspected."
+        ]
+      },
+      "recorded_license": "CC0",
+      "current_primary_review_v2": {
+        "source_names": [
+          "great_fulltext.xml"
+        ],
+        "reviewed_sections": [
+          "Methods/Subjects",
+          "Acquisition apparatus",
+          "Acquisition protocol",
+          "Data Records",
+          "Technical Validation",
+          "Usage Notes"
+        ],
+        "visually_reviewed_pdf_pages": {},
+        "paper_review": "Official Europe PMC JATS full text retrieved; acquisition, records, validation protocol and usage sections reviewed. Author-hosted PDF returned403; figures were not visually reviewed.",
+        "facts": {
+          "subjects": 8,
+          "days": 2,
+          "sessions_per_day": 2,
+          "emg_sample_rate_hz": 2000,
+          "emg_channels": 16,
+          "day1_positions": [
+            2,
+            4,
+            5,
+            6,
+            8
+          ],
+          "day2_positions": [
+            1,
+            3,
+            5,
+            7,
+            9
+          ],
+          "shared_position": 5,
+          "repetitions_per_gesture_position": 5,
+          "hold_seconds": 5,
+          "rest_seconds": 3,
+          "sensors_removed_between_same_day_sessions": false,
+          "recording_starts_after_gesture_formed": true,
+          "recording_start_after_audio_cue_ms": 250
+        },
+        "layout": "Four Quattro sensors yield16 EMG channels in two staggered rows of8; first row starts at extensor carpi ulnaris.",
+        "boundaries": [
+          "Day and noncentral position sets are confounded. Five positions are acquired per day, not nine per day.",
+          "Only five-second holds are stored per trial; cue timing is not physiological onset/offset truth. No new native data, six-axis IMU, stored-column wiring or benchmark reproduction."
+        ],
+        "visual_review_sha256": {},
+        "source_sha256": {
+          "great_fulltext.xml": "523a87d7d694e923aeef6b33e8c2cdaf96d41e68091cd7782e5d54972d33efc2"
+        },
+        "physical_eight_channel_layout_verified": false,
+        "six_axis_imu_verified": false,
+        "new_native_experiment": false
+      }
+    },
+    {
+      "id": "ninapro_db6",
+      "status": "access_required",
+      "source": "https://ninapro.hevs.ch/",
+      "license": "NinaPro terms",
+      "primary_metadata_review": {
+        "id": "ninapro_db6",
+        "sources": [
+          "https://ninapro.hevs.ch/instructions/DB6.html",
+          "https://publications.hevs.ch/index.php/attachments/single/1135"
+        ],
+        "paper": "Palermo et al., Analysis of the repeatability of grasp recognition for hand robotic prosthesis control based on sEMG data, ICORR (2017).",
+        "paper_review": "Author's six-page paper retrieved; acquisition/synchronization/analysis paragraphs extracted and pages 2/3 visually reviewed. Reported experiments not reproduced.",
+        "license_verified": null,
+        "subjects": 10,
+        "days": 5,
+        "sessions_per_day": 2,
+        "emg_sample_rate_hz": 2000,
+        "raw_acceleration_sample_rate_hz": 148.148,
+        "aligned_export_sample_rate_hz": 2000,
+        "active_emg_channels": 14,
+        "stored_emg_channels": 16,
+        "acceleration_columns": 48,
+        "layout": "Eight Trigno sensors in proximal ring, six below; two EMG columns and six acceleration columns empty according to official variables.",
+        "six_axis_imu_verified": false,
+        "physical_eight_channel_layout_verified": false,
+        "limitations": [
+          "Acceleration is sampled at 148.148 Hz then interpolated to 2000 Hz; aligned export rows are not native IMU rate.",
+          "No synchronized gyro confirmed; do not infer full six-axis eligibility from inertial modality label.",
+          "Official preprocessed ZIP links visible; raw data and acquisition access not tested."
+        ]
+      }
+    },
+    {
+      "id": "grabmyo",
+      "status": "selected_subset_verified",
+      "source": "https://physionet.org/content/grabmyo/1.1.0/",
+      "uncompressed_size": 9400000000,
+      "license": "CC-BY-4.0",
+      "selected_subset_path": "D:/emg-imu-benchmarks/data/raw/grabmyo_crossday_subset_v1",
+      "selected_subset_records": 672,
+      "selected_subset_files": 1344,
+      "selected_subset_bytes": 442479520,
+      "selected_subset_verified_against": "official SHA256SUMS.txt",
+      "official_checksum_manifest_sha256": "757ea64fa5134b7b3b84d9f79e30cfa1ac4d2c65a40ce9b427db11dd8258974e",
+      "full_dataset_downloaded": false,
+      "primary_metadata_review": {
+        "id": "grabmyo",
+        "sources": [
+          "https://physionet.org/content/grabmyo/1.1.0/"
+        ],
+        "publisher_version": "1.1.0",
+        "paper": "Pradhan, He and Jiang, Multi-day dataset of forearm and wrist electromyogram for hand gesture recognition and biometrics, Scientific Data 9, 733 (2022).",
+        "paper_review": "Official Europe PMC JATS full text retrieved; acquisition, protocol, preprocessing, waveform and usage sections reviewed. See GRAB_PRIMARY_TOPOLOGY_V1.json; no figure or performance reproduction claim.",
+        "license_verified": "CC-BY-4.0",
+        "subjects": 43,
+        "days": 3,
+        "emg_sample_rate_hz": 2048,
+        "stored_emg_channels": 32,
+        "layout": "Official metadata assigns F1-F8 to columns1-8 and forearm ring1, F9-F16 to columns9-16 and ring2; unused columns17/24/25/32. Existing672-record subset headers and signal checksums are verified. Circumferential direction and our device wiring remain unverified; no differential-pair transformation assumed.",
+        "six_axis_imu_verified": false,
+        "physical_eight_channel_layout_verified": false,
+        "limitations": [
+          "Public stored-column identity does not authenticate our device wiring, arm, direction or bipolar subtraction sign.",
+          "Figure and supplementary geometry are not visually reviewed; selected text sections do not reproduce paper performance."
+        ],
+        "native_channel_audit": "GRAB_CHANNEL_CENSUS_V1.json",
+        "stored_column_mapping_verified": true,
+        "paper_topology_artifact": "GRAB_PRIMARY_TOPOLOGY_V1.json",
+        "stored_signal_montage": "Monopolar columns; bipolar pairs can be constructed separately. Current F1-F8 selection retains eight single-ring monopolar signals."
+      }
+    },
+    {
+      "id": "ninapro_db5",
+      "status": "access_required",
+      "source": "https://ninapro.hevs.ch/",
+      "license": "CC-BY-ND-4.0",
+      "primary_metadata_review": {
+        "id": "ninapro_db5",
+        "sources": [
+          "https://ninapro.hevs.ch/instructions/DB5.html",
+          "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0186132",
+          "https://zenodo.org/records/1000116"
+        ],
+        "paper": "Pizzolato et al., Comparison of six electromyography acquisition setups on hand movement classification tasks (2017).",
+        "paper_review": "Article title, public-data statement and official acquisition guidelines read; not exhaustive full-paper validation.",
+        "license_verified": "CC-BY-ND-4.0",
+        "subjects": 10,
+        "emg_sample_rate_hz": 200,
+        "stored_emg_channels": 16,
+        "acceleration_columns": 3,
+        "layout": "Two eight-channel Myo rings; second tilted 22.5 degrees clockwise. Acceleration from first Myo.",
+        "six_axis_imu_verified": false,
+        "physical_eight_channel_layout_verified": false,
+        "limitations": [
+          "Acceleration does not establish synchronized gyro, raw units or guided body-frame calibration.",
+          "Paper's DB5 data DOI resolves to dataset 4; corrected author record 1000116 independently confirms DB5 identity and license.",
+          "Official subject ZIP links are visible; native download access was not tested."
+        ]
+      },
+      "recorded_license": "NinaPro terms"
+    },
+    {
+      "id": "fors_emg",
+      "status": "deferred",
+      "source": "https://www.kaggle.com/datasets/ummerummanchaity/fors-emg-a-novel-semg-dataset",
+      "license": "verify at download"
+    },
+    {
+      "id": "electrode_replacement",
+      "status": "secondary",
+      "source": "https://zenodo.org/api/records/4039550/files/EMG%20dataset.7z/content",
+      "expected_size": 315604904,
+      "expected_md5": "c577384488e7fd0d7f7916485c87d72b",
+      "license": "CC-BY-4.0"
+    },
+    {
+      "id": "hyser",
+      "status": "metadata_only",
+      "source": "https://physionet.org/content/hd-semg/2.0.0/",
+      "uncompressed_size": 142600000000,
+      "license": "ODC-BY-1.0",
+      "primary_metadata_review": {
+        "id": "hyser",
+        "sources": [
+          "https://physionet.org/content/hd-semg/2.0.0/"
+        ],
+        "publisher_version": "2.0.0",
+        "paper": "Open Access Dataset, Toolbox and Benchmark Processing Results of High-Density Surface Electromyogram Recordings; DOI 10.1109/TNSRE.2021.3082551.",
+        "paper_review": "Publisher-linked citation; equipment geometry not independently reviewed.",
+        "license_verified": "ODC-BY-1.0",
+        "subjects": 20,
+        "days": 2,
+        "emg_sample_rate_hz": 2048,
+        "stored_emg_channels": 256,
+        "force_sample_rate_hz": 100,
+        "layout": "High-density array; not an eight-channel circumferential device.",
+        "six_axis_imu_verified": false,
+        "physical_eight_channel_layout_verified": false,
+        "limitations": [
+          "PR gesture task and four synchronous force subtasks are distinct; no force trajectory inferred for PR.",
+          "No new raw download or native experiment in this review."
+        ]
+      },
+      "current_primary_review_v2": {
+        "source_names": [
+          "hyser_author_v1.pdf",
+          "hyser_equipment.pdf"
+        ],
+        "reviewed_sections": [
+          "II.B Data Acquisition",
+          "II.C Experimental Paradigm",
+          "equipment_info"
+        ],
+        "visually_reviewed_pdf_pages": {
+          "hyser_author_v1.pdf": [
+            2,
+            3
+          ],
+          "hyser_equipment.pdf": [
+            1
+          ]
+        },
+        "paper_review": "Official v1 author manuscript acquisition/protocol and Figure1 reviewed; official v2 equipment sheet reviewed. This is not a reproduction of published benchmarks.",
+        "facts": {
+          "array_count": 4,
+          "electrodes_per_array": 64,
+          "array_shape": [
+            8,
+            8
+          ],
+          "interelectrode_distance_mm": 10,
+          "emg_sample_rate_hz": 2048,
+          "force_sample_rate_hz": 100,
+          "force_sensors": 5,
+          "adc_bits": 16,
+          "interday_interval_range_days": [
+            3,
+            25
+          ],
+          "source_array_concatenation": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "synchronization": "Task-onset trigger sent to EMG and force acquisition systems."
+        },
+        "layout": "Four64-channel8x8 arrays, two per flexor/extensor side; array1-4 signals concatenated. Figure1 gives within-array numbering, not an eight-channel circumferential ring.",
+        "boundaries": [
+          "Author manuscript belongs to dataset v1; equipment sheet is v2. This does not prove all v1/v2 raw files are identical.",
+          "Finger-force subtasks and PR gestures remain distinct. No new raw population download, header mapping, IMU calibration or performance reproduction."
+        ],
+        "visual_review_sha256": {
+          "hyser_author_v1.pdf.page2.png": "ffee34d29a74ec9c06961845a1a618fb4706592b2f45f405893326cd5f355860",
+          "hyser_author_v1.pdf.page3.png": "0472e596f451ec36d6deb93e9876db5363281bdc6ac32f228ca523a92988bd56",
+          "hyser_equipment.pdf.page1.png": "9fe2adca61adee3fa9334b3c8bf4aae1eb1a2e41a186a4861dfbfe8b08e0407c"
+        },
+        "source_sha256": {
+          "hyser_author_v1.pdf": "9c44dfb27fb95682ed22561fd9f1904c037368371ed73ac8141b5f80d0712f03",
+          "hyser_equipment.pdf": "f32a0b4745f84f24e1c8acefb87b40ec561a83e4956a7473a9d7c9ba6f2dfb7c"
+        },
+        "physical_eight_channel_layout_verified": false,
+        "six_axis_imu_verified": false,
+        "new_native_experiment": false
+      }
+    },
+    {
+      "id": "roam_emg",
+      "tier": "public_supplement",
+      "status": "downloaded_verified",
+      "source": "https://github.com/roamlab/reactemg",
+      "download_url": "https://www.dropbox.com/scl/fi/isj4450alriqjfstkna2s/data.zip?rlkey=n5sf910lopskewzyae0vgn6j7&st=vt89hfpj&dl=1",
+      "path": "D:/emg-imu-benchmarks/data/raw/roam_emg/data.zip",
+      "size": 1423366661,
+      "sha256": "c9de0e25c187c216e4771d17ccfa19acb0e4028f907ea726b2a87a18d2db5343",
+      "zip_member_count": 187515,
+      "roam_subjects": 28,
+      "roam_static_recordings": 112,
+      "roam_emg_channels": 8,
+      "roam_nominal_sample_rate_hz": 200,
+      "roam_native_sanity_audit": "benchmarks/discovery/ROAM_NATIVE_AUDIT.json",
+      "license": "project repository MIT; data archive terms not separately stated in README",
+      "scope": "Author-hosted archive also includes preprocessed external datasets; only ROAM_EMG static CSVs used for posture/quality and source Rest. Raw archive kept outside Git.",
+      "primary_metadata_review": {
+        "id": "roam_emg",
+        "sources": [
+          "https://github.com/roamlab/reactemg",
+          "https://arxiv.org/abs/2506.19815"
+        ],
+        "paper": "ReactEMG: Stable, Low-Latency Intent Detection from sEMG via Masked Modeling; arXiv 2506.19815.",
+        "paper_review": "arXiv v6 selected inference, datasets, training, metrics and limitations sections reviewed; full model results not reproduced.",
+        "license_verified": null,
+        "code_license_verified": "MIT",
+        "six_axis_imu_verified": false,
+        "physical_eight_channel_layout_verified": false,
+        "limitations": [
+          "Code license does not prove hosted mixed data-archive license.",
+          "Use existing native ROAM static subset audit for channel/rate; do not infer properties from model generalization claims.",
+          "ROAM three-class task excludes pinch;50-sample smoothing uses future data (.25s at200Hz). Native112-static-record audit does not cover all published tasks."
+        ],
+        "paper_version": "2506.19815v6",
+        "native_emg_channels": 8,
+        "native_emg_sample_rate_hz": 200,
+        "native_gesture_names": [
+          "relax",
+          "open",
+          "close"
+        ]
+      }
+    },
+    {
+      "id": "electrode_replacement_secondary",
+      "tier": "secondary",
+      "status": "downloaded_verified_secondary_missing_fields",
+      "source": "https://zenodo.org/records/4039550",
+      "license": "CC-BY-4.0",
+      "path": "C:\\Users\\SCQ666\\Documents\\Codex\\2026-09-13\\files-pasted-by-the-user-emg\\work\\secondary_raw\\electrode_replacement\\EMG dataset.7z",
+      "size": 315604904,
+      "md5": "c577384488e7fd0d7f7916485c87d72b",
+      "sha256": "d30a1096ed2522b32bfafcfcb2d9cdf5ccf28e1e21a41dda77824317a8c1b1ff",
+      "native_recordings": 267,
+      "sanity_audit": "electrode_replacement_native_sanity.json",
+      "interval_labels": null,
+      "repetition_boundaries": null,
+      "note": "Optional secondary archive; sampled missing fields reject two full recordings; not historical DS2; no classifier scores.",
+      "primary_metadata_review": {
+        "id": "electrode_replacement_secondary",
+        "sources": [
+          "https://zenodo.org/records/4039550"
+        ],
+        "paper": "Miljkovic and Isakovic, Effect of the sEMG electrode (re) placement and feature set size on the hand movement recognition; DOI 10.1016/j.bspc.2020.102292.",
+        "paper_review": "Publisher-linked citation; paper retrieval failed this review.",
+        "license_verified": "CC-BY-4.0",
+        "emg_sample_rate_hz": 1000,
+        "stored_emg_channels": 8,
+        "layout": "CH1 through CH8; detailed assembly/position referred to linked paper and not verified here.",
+        "native_text_files": 267,
+        "six_axis_imu_verified": false,
+        "physical_eight_channel_layout_verified": false,
+        "limitations": [
+          "Record describes at least ten repetitions but no sample-level repetition boundaries supplied in eight-column files.",
+          "Some analysis repetitions discarded; cannot reconstruct segmentation from count alone."
+        ]
+      },
+      "current_primary_review_v2": {
+        "source_names": [
+          "electrode_preprint_v2.pdf"
+        ],
+        "reviewed_sections": [
+          "2.1 Subjects",
+          "2.2 Measurement setup",
+          "2.3 Measurement protocol",
+          "2.4 Processing",
+          "4 Limitations"
+        ],
+        "visually_reviewed_pdf_pages": {
+          "electrode_preprint_v2.pdf": [
+            5
+          ]
+        },
+        "paper_review": "Author arXiv2005.02105v2 acquisition, protocol, processing and limitations reviewed; PDFpage5/Figures1-2 visually checked. Paper links the Zenodo4039550 dataset.",
+        "facts": {
+          "subjects": 10,
+          "emg_channels": 8,
+          "emg_sample_rate_hz": 1000,
+          "adc_bits": 16,
+          "amplifier_gain": 1000,
+          "montage": "bipolar",
+          "dominant_arm": true,
+          "interelectrode_longitudinal_distance_cm": 2,
+          "proximal_translation_cm": 1,
+          "medial_circumferential_displacement_cm": 2,
+          "electrodes_removed_and_replaced_for_all_positions": true,
+          "all_positions_single_session": true,
+          "requested_active_seconds": 5,
+          "requested_rest_seconds": 3
+        },
+        "layout": "Eight uniformly circumferential bipolar pairs; reference over elbow bone. Figure2 shows the shift, but does not label raw columns CH1-CH8 around the arm.",
+        "boundaries": [
+          "A2cm circumferential displacement is not a2-degree rotation. Re-donning is within one recording session, not across days.",
+          "Requested5+3second timing does not reconstruct retained/discarded repetitions or sample-level action labels. Circumferential channel order and differential sign remain unattested."
+        ],
+        "visual_review_sha256": {
+          "electrode_preprint_v2.pdf.page5.png": "21d9d17b9b32c47640d35dd228118e23a65504dd82d5474930c8de2f7ecd148e"
+        },
+        "source_sha256": {
+          "electrode_preprint_v2.pdf": "32663cc595654900fda44a539fce9b8d3e5b24c67f6658b21d14b4033e526f7a"
+        },
+        "physical_eight_channel_layout_verified": false,
+        "six_axis_imu_verified": false,
+        "new_native_experiment": false
+      }
+    }
+  ],
+  "superseded_conclusions": [
+    {
+      "source": "DATASET_MANIFEST.json:ds2_force.per_trial_force_labels",
+      "old": "unverified",
+      "current": "verified_exact_window_to_raw_trial_join"
+    },
+    {
+      "source": "DISCOVERY_DELIVERY_AUDIT.json:limitations",
+      "old": "No verified per-trial DS2 force key or force-condition scores.",
+      "current": "Publisher v9 force keys and independent force-category scores now exist."
+    },
+    {
+      "source": "Historical baseline recovery",
+      "old": "Wait for unavailable legacy experiments.",
+      "current": "Superseded by user-authorized versioned independent implementation."
+    }
+  ],
+  "remaining": [
+    "Independent multi-user/day eight-channel recordings and physical device validation.",
+    "Some secondary full-paper/figure, native file-to-layout and archive inspection remain scoped; three publication reviews are extended in SECONDARY_PRIMARY_REVIEW_V2.json.",
+    "DB6 formal data terms, separately stated ROAM archive terms and reported DS2 license conflict remain unresolved. No licensing determination.",
+    "No calibrated anatomical IMU frame, own-device electrode wiring, physical fault truth or fresh prospective efficacy is established.",
+    "This overlay does not rehash multi-GB raw archives or authenticate physical clocks."
+  ],
+  "completion_proven": false,
+  "scope": "Current local evidence overlay. Historical SHA-bound artifacts are retained as snapshots. Dataset entries other than DS2 retain their recorded status and are not freshly externally verified.",
+  "previous_state": "CURRENT_DISCOVERY_STATE.json",
+  "secondary_primary_review": "SECONDARY_PRIMARY_REVIEW_V2.json"
+}

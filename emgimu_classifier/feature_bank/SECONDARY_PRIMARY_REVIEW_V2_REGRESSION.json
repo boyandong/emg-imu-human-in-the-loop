@@ -1,0 +1,29 @@
+{
+  "schema": "secondary_primary_review_v2_regression",
+  "passing_cases": 37,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "junit_path": "feature_bank/regression/secondary_primary_review_v2/classifier.xml",
+  "junit_sha256": "44f12322e5ec7bc6d290edb1bcde181424771bce1a332377ae8ea8ddf98101c0",
+  "test_source_sha256": {
+    "tests/test_secondary_primary_review_v2.py": "910747d0a7eb1a2df21ee8088d74e30932f9958eaa8b40a7b6a5475f6a609152",
+    "tests/test_current_requirement_review_v2.py": "2d0a64b17bb239b2c640271bc9a351d87bdbc77d95bab72ba7fd1064bf689f89",
+    "tests/test_document_traceability_v1.py": "4015f84d5448eff28b4e3bd28e73c4a7111252be47c5851e1485a819a2c88494",
+    "tests/test_formula_family_scope_audit.py": "d6d867f26d34af93aa127d04620a36b9935a5c591f123d97b9d74c6628f0e357",
+    "tests/test_v1_acceptance_audit.py": "851d577823297687034259e02f54bc5bb4860dc656777f2e78bb42f9f915b236",
+    "tests/test_current_scientific_conclusions_v1.py": "2d05c2b95325cb6ec7b4b157f80aabc7691eb2ebf6bca16ce37aa18d73a35ad2",
+    "tests/test_current_scientific_report_v1.py": "d9da7b89c16fe68c04e92f79ac61f2838e7dd3e9260fc8852ba4f5eef23e8143",
+    "tests/test_body_frame_units_v3_delivery.py": "ba5c0476c5d53bcbb6e605d5293926d1594e7e5dc8f591d87b1b3a1b0b20ab0d",
+    "tests/test_roam_document_reliability_delivery_v3.py": "b44b34895efd78d48408618aabdd7c195b1afdf19872a7aaa79850d9fd8ad20c",
+    "tests/test_roam_precision_transition_delivery_v2.py": "c0e10428a44a4d8387e66f42435be5fc79db6376dd230f4e240d6eafcc49a83a"
+  },
+  "secondary_review_sha256": "9a0658e098ea681672963b299f1f83b889fb92bf1372be187251496405eabb6e",
+  "current_requirement_review_sha256": "5fc7fefc0d81b35e44565817e92fc3ca826a020eedbe222c22d2d55362477d70",
+  "current_discovery_sha256": "6bd91ac1cb7f8cb9a8a3cd28ecc5c0c49317f58bc9ba3f3e8c959320089a4afc",
+  "supersedes_current_review_regression_snapshot": "feature_bank/CURRENT_REQUIREMENT_REVIEW_V2_REGRESSION.json",
+  "native_experiment_rerun": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Actual37 cases across10 files cover current metadata lineage, source coverage, delivery links, central-directory diagnostics and retained native/physical/licensing limits. Manual publication review is not proved by metadata tests; no native inference/fitting or whole-goal acceptance."
+}

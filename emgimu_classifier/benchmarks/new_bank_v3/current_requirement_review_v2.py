@@ -29,8 +29,9 @@ INPUTS = (
     'feature_bank/BODY_FRAME_UNITS_V3_ACCEPTANCE.json',
     'feature_bank/ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json',
     'feature_bank/ROAM_PRECISION_TRANSITION_V2_ACCEPTANCE.json',
-    'benchmarks/discovery/CURRENT_DISCOVERY_STATE.json',
+    'benchmarks/discovery/CURRENT_DISCOVERY_STATE_V2.json',
     'benchmarks/discovery/DS2_V9_FORCE_LABEL_AUDIT.json',
+    'benchmarks/discovery/SECONDARY_PRIMARY_REVIEW_V2.json',
 )
 
 
@@ -106,7 +107,10 @@ def build(root, documents_root):
     numeric = read(INPUTS[4])
     appendix = read(INPUTS[5])
     units, reliability, precision = (read(p) for p in INPUTS[6:9])
-    discovery, ds2 = (read(p) for p in INPUTS[9:])
+    discovery, ds2 = (read(p) for p in INPUTS[9:11])
+    secondary = read(INPUTS[11])
+    for rel, expected in secondary['source_sha256'].items():
+        bind(rel, expected)
     for row in major + families:
         for rel, expected in json.loads(row['evidence_sha256_json']).items():
             bind(rel, expected)
@@ -199,7 +203,11 @@ def build(root, documents_root):
             units_physical_validation_proven=units['physical_validation_proven'],
             negative_completed_experiments_are_not_unimplemented=True),
         remaining_conditions=[dict(id=i, needed=n, reason=r) for i,n,r in remaining],
-        discovery_remaining=discovery['remaining'], source_sha256=bound,
+        discovery_remaining=discovery['remaining'],
+        secondary_primary_review=dict(path=INPUTS[11],sha256=bound[INPUTS[11]],
+            extended_publication_reviews=sorted(secondary['datasets']),
+            raw_publications_in_git=False,native_efficacy_proven=False),
+        source_sha256=bound,
         native_experiment_rerun=False, default_promoted=False, completion_proven=False,
         scope='Current evidence navigation, not exhaustive per-line scientific acceptance. '
               'Historical section statuses are superseded only as current navigation; their files remain unchanged. '

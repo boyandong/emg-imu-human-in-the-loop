@@ -2483,3 +2483,10 @@ emgimu_classifier/tests/test_calibration_rest_detector_v1.py -text -eol whitespa
 /emgimu_classifier/tests/test_session_unlabeled_delivery.py -text -eol whitespace=cr-at-eol
 /emgimu_classifier/tests/test_spec_spatial_v3.py -text -eol whitespace=cr-at-eol
 /emgimu_classifier/tests/test_trial_mahalanobis_v1.py -text -eol whitespace=cr-at-eol
+/emgimu_classifier/benchmarks/discovery/CURRENT_DISCOVERY_STATE_V2.json -text -eol whitespace=cr-at-eol
+/emgimu_classifier/benchmarks/discovery/SECONDARY_PRIMARY_REVIEW_V2.json -text -eol whitespace=cr-at-eol
+/emgimu_classifier/benchmarks/discovery/scripts/review_secondary_sources_v2.py -text -eol whitespace=cr-at-eol
+/emgimu_classifier/feature_bank/SECONDARY_PRIMARY_REVIEW_V2_GIT_CHECKOUT.json -text -eol whitespace=cr-at-eol
+/emgimu_classifier/feature_bank/SECONDARY_PRIMARY_REVIEW_V2_REGRESSION.json -text -eol whitespace=cr-at-eol
+/emgimu_classifier/feature_bank/regression/secondary_primary_review_v2/classifier.xml -text -eol whitespace=cr-at-eol
+/emgimu_classifier/tests/test_secondary_primary_review_v2.py -text -eol whitespace=cr-at-eol

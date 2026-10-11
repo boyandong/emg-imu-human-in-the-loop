@@ -1132,9 +1132,9 @@
       "line_end": "649",
       "requirement": "Mandatory dataset research",
       "status": "verified_scoped",
-      "evidence": "benchmarks/discovery/DATASET_CANDIDATES.csv|benchmarks/discovery/CURRENT_DISCOVERY_STATE.json|tests/test_current_discovery_state.py",
-      "evidence_sha256_json": "{\"benchmarks/discovery/CURRENT_DISCOVERY_STATE.json\": \"225e6b7f4123c74731837c72a1dde22f0a686b03b1cff0ee4613999becd91cb2\", \"benchmarks/discovery/DATASET_CANDIDATES.csv\": \"84e7447358af0cb4978f2641ce65769a391ee45a67871d4ff3fad12b138b6b71\", \"tests/test_current_discovery_state.py\": \"dc7cbf0bad0a8b0fc14ba9acf20bcb924ef790c699a0a6a2b52156b09690471c\"}",
-      "boundary": "Mandatory native capabilities and confounds are researched; historical DS2 experiment identity is outside the replacement scope. Current discovery entry binds the publisher-v9 subjective force join and independent DS2 study; the earlier no-force-label conclusion is superseded. Legacy experiment recovery is not a prerequisite. Recorded licensing and secondary provenance limits remain explicit."
+      "evidence": "benchmarks/discovery/DATASET_CANDIDATES.csv|benchmarks/discovery/SECONDARY_PRIMARY_REVIEW_V2.json|benchmarks/discovery/CURRENT_DISCOVERY_STATE_V2.json|benchmarks/discovery/CURRENT_DISCOVERY_STATE.json|tests/test_current_discovery_state.py",
+      "evidence_sha256_json": "{\"benchmarks/discovery/CURRENT_DISCOVERY_STATE.json\": \"225e6b7f4123c74731837c72a1dde22f0a686b03b1cff0ee4613999becd91cb2\", \"benchmarks/discovery/CURRENT_DISCOVERY_STATE_V2.json\": \"6bd91ac1cb7f8cb9a8a3cd28ecc5c0c49317f58bc9ba3f3e8c959320089a4afc\", \"benchmarks/discovery/DATASET_CANDIDATES.csv\": \"84e7447358af0cb4978f2641ce65769a391ee45a67871d4ff3fad12b138b6b71\", \"benchmarks/discovery/SECONDARY_PRIMARY_REVIEW_V2.json\": \"9a0658e098ea681672963b299f1f83b889fb92bf1372be187251496405eabb6e\", \"tests/test_current_discovery_state.py\": \"dc7cbf0bad0a8b0fc14ba9acf20bcb924ef790c699a0a6a2b52156b09690471c\"}",
+      "boundary": "Mandatory native capabilities and confounds are researched; historical DS2 experiment identity is outside the replacement scope. Selected Hyser/GREAT/electrode-replacement primary methods and figures extend source review; native geometry, licensing and efficacy limits stay explicit. Current discovery entry binds the publisher-v9 subjective force join and independent DS2 study; the earlier no-force-label conclusion is superseded. Legacy experiment recovery is not a prerequisite. Recorded licensing and secondary provenance limits remain explicit."
     },
     {
       "requirement_id": "PRE-04",
@@ -1385,7 +1385,7 @@
       "requirement": "Required scientific output files",
       "status": "verified_scoped",
       "evidence": "feature_bank/REPORT.md|feature_bank/delivery/PROVENANCE_AUDIT.json|benchmarks/new_bank_v2/V1_CANONICAL_SCHEMA_AUDIT.json|feature_bank/delivery/INDEX.json|feature_bank/delivery/new_bank_v3/MANIFEST.json|benchmarks/new_bank_v3/export_current_delivery.py|tests/test_current_v3_delivery.py",
-      "evidence_sha256_json": "{\"benchmarks/new_bank_v2/V1_CANONICAL_SCHEMA_AUDIT.json\": \"a2946898564de25dc97baed42ba1bc49632396b96642ac59bc8033300b35cfcb\", \"benchmarks/new_bank_v3/export_current_delivery.py\": \"2a366cd4f174dbdf8489309f5110724374a6fa8daf3b08e8b6de3075bd07ffae\", \"feature_bank/REPORT.md\": \"103835ed6af32ea093265c5cb67d2cbd0da665d92f16afdcc9e9eb8010a60fce\", \"feature_bank/delivery/INDEX.json\": \"bf067b4304b4fcbb8a25678e0fd294b214072e282f4e4d849c7cb40f7cc9ed4e\", \"feature_bank/delivery/PROVENANCE_AUDIT.json\": \"5b26a3c143ea582726f03f1ab3cc0a1b156ede64a97910d23bcda11e44f928aa\", \"feature_bank/delivery/new_bank_v3/MANIFEST.json\": \"a993c0eb75b8846d00b6a52b8e19afeb27c39b1f4c386c87ccec4606a4166f15\", \"tests/test_current_v3_delivery.py\": \"113bac76d59ad4590cca672532feef5968be5d6b5e22750946eaf40636e4842a\"}",
+      "evidence_sha256_json": "{\"benchmarks/new_bank_v2/V1_CANONICAL_SCHEMA_AUDIT.json\": \"a2946898564de25dc97baed42ba1bc49632396b96642ac59bc8033300b35cfcb\", \"benchmarks/new_bank_v3/export_current_delivery.py\": \"bfa90a5423cf2b18aa01acd0952d6a62f231a07d01c2343fbca7655f2786b9f5\", \"feature_bank/REPORT.md\": \"103835ed6af32ea093265c5cb67d2cbd0da665d92f16afdcc9e9eb8010a60fce\", \"feature_bank/delivery/INDEX.json\": \"4a75b6a9ab4c48bef6454a4413a29859d3ad8f11c74f8e1bd1091d9f57aa5294\", \"feature_bank/delivery/PROVENANCE_AUDIT.json\": \"5b26a3c143ea582726f03f1ab3cc0a1b156ede64a97910d23bcda11e44f928aa\", \"feature_bank/delivery/new_bank_v3/MANIFEST.json\": \"957934a9dae7da8e1b150a6a84ad0182bc7adbed15704da914236576b05fd988\", \"tests/test_current_v3_delivery.py\": \"113bac76d59ad4590cca672532feef5968be5d6b5e22750946eaf40636e4842a\"}",
       "boundary": "All named files exist; 5,312 new-v1 family/conditional/error rows have complete required values while older records retain explicit N/A. Current V3 adds 8,784 hash-bound table rows with an additive version index; paired alternatives are explicitly distinguished from added-feature increments, DTW probability metrics are N/A, and 130 insufficient independent-trial budgets remain ineligible. Every paired comparison carries its calibration budget; loss and Brier deltas use base minus alternative, while F1 uses alternative minus base, so positive consistently means improvement. Paired-error probabilities now include their evaluation-trial denominators; per-class precision/recall/F1 carry explicit support and undefined/absent-ground-truth values rather than fake zeros."
     },
     {
@@ -2760,23 +2760,40 @@
     }
   ],
   "discovery_remaining": [
-    "Real multi-user/day eight-channel and hardware validation.",
-    "Seven secondary primary metadata reviews exist; full-paper, unresolved dataset-license and native physical-layout checks remain explicit per entry.",
-    "Reported DS2 license conflict is retained; no new license determination.",
-    "This entry point does not rehash multi-GB raw archives or authenticate physical clocks; the separate GRAB census rehashes all 672 existing subset header/signal pairs."
+    "Independent multi-user/day eight-channel recordings and physical device validation.",
+    "Some secondary full-paper/figure, native file-to-layout and archive inspection remain scoped; three publication reviews are extended in SECONDARY_PRIMARY_REVIEW_V2.json.",
+    "DB6 formal data terms, separately stated ROAM archive terms and reported DS2 license conflict remain unresolved. No licensing determination.",
+    "No calibrated anatomical IMU frame, own-device electrode wiring, physical fault truth or fresh prospective efficacy is established.",
+    "This overlay does not rehash multi-GB raw archives or authenticate physical clocks."
   ],
+  "secondary_primary_review": {
+    "path": "benchmarks/discovery/SECONDARY_PRIMARY_REVIEW_V2.json",
+    "sha256": "9a0658e098ea681672963b299f1f83b889fb92bf1372be187251496405eabb6e",
+    "extended_publication_reviews": [
+      "electrode_replacement_secondary",
+      "great",
+      "hyser"
+    ],
+    "raw_publications_in_git": false,
+    "native_efficacy_proven": false
+  },
   "source_sha256": {
     "feature_bank/DOCUMENT_SECTION_AUDIT.csv": "2c58bd493db445438ba05872f59d11ec55de318ce5f2c7b350f9ef3a84a9c351",
-    "feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.csv": "1e4ca2e050adb091698c1938af7613cf1da8bd26b96a532b61ecbcab2ee5bb1d",
-    "feature_bank/DOCUMENT_TRACEABILITY_V1.json": "014334fcaecc089ec1a32725689347b7377f3f529bbacdf6b7dd43cd99900ec8",
+    "feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.csv": "a711aa78c1115995029449936318451a53101cea9cbee618e63b4dad8fa5ec43",
+    "feature_bank/DOCUMENT_TRACEABILITY_V1.json": "7f9bd3bcb93421f530b6ebb5339b11b55a94e074f371c78cd47d0d857b11c8b1",
     "feature_bank/FORMULA_FAMILY_SCOPE_AUDIT.csv": "24cd51c42c87e1394eff302ff028efefd4b42406dbf2ee6f269e861c5c0edf37",
     "feature_bank/FORMULA_NUMERICAL_ACCEPTANCE.json": "dc9d9b0a9e668de79a316c3b3e70a893ae8abacbc1da21a8a9395f4e3aa101b4",
     "feature_bank/FORMULA_SUBSECTION_COVERAGE_AUDIT.json": "d2e9faa069dfd8a3a130c9348c7d009a9ae9c7364809626db1b0e48cb5f8632f",
     "feature_bank/BODY_FRAME_UNITS_V3_ACCEPTANCE.json": "69ce5c4f176e1443dfefd8c3de1daac6beda7674ad85417e08d6943e1b2f6f03",
     "feature_bank/ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json": "39bd273c351d1fd4370b0c03e4851b25ea6088c41340aa32a99ad541bfbb6d90",
     "feature_bank/ROAM_PRECISION_TRANSITION_V2_ACCEPTANCE.json": "29fd685aa6c271be5c4eb46bb340c5f180a44f75b0c315dc051931773944dc8b",
-    "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "225e6b7f4123c74731837c72a1dde22f0a686b03b1cff0ee4613999becd91cb2",
+    "benchmarks/discovery/CURRENT_DISCOVERY_STATE_V2.json": "6bd91ac1cb7f8cb9a8a3cd28ecc5c0c49317f58bc9ba3f3e8c959320089a4afc",
     "benchmarks/discovery/DS2_V9_FORCE_LABEL_AUDIT.json": "f0cee7da6421444718d33ca648bbb31633b09188f2265d292f78149f612f2ef5",
+    "benchmarks/discovery/SECONDARY_PRIMARY_REVIEW_V2.json": "9a0658e098ea681672963b299f1f83b889fb92bf1372be187251496405eabb6e",
+    "benchmarks/discovery/SECONDARY_PRIMARY_REVIEW_V1.json": "91b9aaaed40126779029a758043cb1d648c579db807123a6579b2514da0206f7",
+    "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "225e6b7f4123c74731837c72a1dde22f0a686b03b1cff0ee4613999becd91cb2",
+    "benchmarks/discovery/scripts/review_secondary_sources_v2.py": "ab726c6ca5956d4d5a83e7478648360df980c85021b9aedba63630c2c5ea20fd",
+    "tests/test_secondary_primary_review_v2.py": "910747d0a7eb1a2df21ee8088d74e30932f9958eaa8b40a7b6a5475f6a609152",
     "feature_bank/results/historical_source_recovery_audit.json": "26fe72ad14dc8ea5bfa6af4c90b0ddef283d9191d866d531e26f08023d07cc9a",
     "benchmarks/discovery/SCORE_REVIEW.md": "be4349343212f9a766d6130531851c276aed4f560a4a8ec3b12d5f429b12630a",
     "benchmarks/discovery/DATASET_CANDIDATES.csv": "84e7447358af0cb4978f2641ce65769a391ee45a67871d4ff3fad12b138b6b71",
@@ -3102,11 +3119,11 @@
     "tests/test_epn_holdout_cost_curve_v2.py": "19010173512e7e714209dd4a42c9bfe425352c2b624f3903dcda8700f74509fe",
     "feature_bank/results/integrity_audit.json": "50bf72f95847856dd0b34f293dbdeb3954bc1dad80a3c83288e78afa920314ac",
     "benchmarks/new_bank_v2/V1_CROSS_AXIS_DECISION_PROTOCOL.json": "68872796fbe4341a08e2f4dee630dfd6ba2ab7fc2e34e6a39cd74606273fe125",
-    "benchmarks/new_bank_v3/export_current_delivery.py": "2a366cd4f174dbdf8489309f5110724374a6fa8daf3b08e8b6de3075bd07ffae",
+    "benchmarks/new_bank_v3/export_current_delivery.py": "bfa90a5423cf2b18aa01acd0952d6a62f231a07d01c2343fbca7655f2786b9f5",
     "feature_bank/REPORT.md": "103835ed6af32ea093265c5cb67d2cbd0da665d92f16afdcc9e9eb8010a60fce",
-    "feature_bank/delivery/INDEX.json": "bf067b4304b4fcbb8a25678e0fd294b214072e282f4e4d849c7cb40f7cc9ed4e",
+    "feature_bank/delivery/INDEX.json": "4a75b6a9ab4c48bef6454a4413a29859d3ad8f11c74f8e1bd1091d9f57aa5294",
     "feature_bank/delivery/PROVENANCE_AUDIT.json": "5b26a3c143ea582726f03f1ab3cc0a1b156ede64a97910d23bcda11e44f928aa",
-    "feature_bank/delivery/new_bank_v3/MANIFEST.json": "a993c0eb75b8846d00b6a52b8e19afeb27c39b1f4c386c87ccec4606a4166f15",
+    "feature_bank/delivery/new_bank_v3/MANIFEST.json": "957934a9dae7da8e1b150a6a84ad0182bc7adbed15704da914236576b05fd988",
     "tests/test_current_v3_delivery.py": "113bac76d59ad4590cca672532feef5968be5d6b5e22750946eaf40636e4842a",
     "benchmarks/new_bank_v3/current_scientific_conclusions_v1.py": "a85cea2338bfa876b998d4a0069dd9af59da7c918fad459578b80531a23ce9c2",
     "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "d558e53aab05483bba121958310d44ef97018aef9ccef543d8eb0a1b15af6cb7",
@@ -3177,9 +3194,8 @@
     "tests/test_f9_document_song_delivery.py": "f8053681cd38c09a639706aa419678265718fed82dc3d3240b8a97763c5e8335",
     "benchmarks/new_bank_v3/document_traceability_v1.py": "27b0d9da633e8ab0e07fcf0a2ae302ac7dd6823d3c9c3bfa570df3b6132fe2cd",
     "tests/test_document_traceability_v1.py": "4015f84d5448eff28b4e3bd28e73c4a7111252be47c5851e1485a819a2c88494",
-    "benchmarks/new_bank_v2/v1_acceptance_audit.py": "2a682b0ad93913e861ece0a4f21307287efdd5d07136730cddca4caf10852966",
-    "feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.json": "28ab0c17053f3102c6a56f0a177392f61d058f191bff7492e6f10cba3db9ff0d",
-    "benchmarks/discovery/SECONDARY_PRIMARY_REVIEW_V1.json": "91b9aaaed40126779029a758043cb1d648c579db807123a6579b2514da0206f7",
+    "benchmarks/new_bank_v2/v1_acceptance_audit.py": "843b95de868a001a747203875364915d7a8546e1940599bf8ac1fd561b8c78f6",
+    "feature_bank/NEW_VERSION_ACCEPTANCE_AUDIT.json": "94cae3f2efc27d56f69e4b473105a571be4afd7ba9d8590e1cc1d5bbd15c946d",
     "benchmarks/discovery/CORE_ARCHIVE_DIGEST_AUDIT.json": "7fb0ab1345434b8658ab5b03345cc8d36be773bc40db1f0068b7662d4041a525",
     "benchmarks/discovery/electrode_replacement_native_sanity.json": "59729d0cad79c6ff0afc7e721decdf31be352a1ef5afcc6b68c74d5436ee2df0",
     "benchmarks/new_bank_v2/PAIR_AUDIT.json": "0431d810212665667fec9bf34331f212be295e61c857a2782e3f45264a2cfc17",
@@ -3217,7 +3233,7 @@
     "src/emgimu/feature_bank/document_reliability_v2.py": "34ac2da3bd1f380098320fd1f1a7c15ba2567ec6da67dc86150876a7263728a4",
     "tests/test_available_bank_quality_fusion_v2.py": "f7302d739d7c59778d9465e12bec016c082d1fc0e3c7a30bdc2d979803b92b2d",
     "feature_bank/regression/formula_arithmetic_v2/classifier.xml": "217b1c43c99cae5ced4711c6dc6f648a103dda9f64649c47daf77df6fb72553a",
-    "benchmarks/new_bank_v3/current_requirement_review_v2.py": "6b331b8c649fe9f156e38d3bd3e30525091a5eb8c9f66b1c8fb42f0f7cfa8cc1",
+    "benchmarks/new_bank_v3/current_requirement_review_v2.py": "729e15437aabaa5c8aa690defbd91af5433d3be808673fab2ad2db9a715410fd",
     "tests/test_current_requirement_review_v2.py": "2d0a64b17bb239b2c640271bc9a351d87bdbc77d95bab72ba7fd1064bf689f89"
   },
   "native_experiment_rerun": false,

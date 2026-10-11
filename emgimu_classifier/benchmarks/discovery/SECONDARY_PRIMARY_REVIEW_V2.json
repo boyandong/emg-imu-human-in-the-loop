@@ -1,0 +1,266 @@
+{
+  "schema": "secondary_primary_review_v2",
+  "review_date": "2026-10-11",
+  "sources": {
+    "db6_page.html": {
+      "name": "db6_page.html",
+      "url": "https://ninapro.hevs.ch/instructions/DB6.html",
+      "final_url": "https://ninapro.hevs.ch/instructions/DB6.html",
+      "bytes": 15030,
+      "sha256": "5958d0af45380883239efcccb79b7313c1c408b46e08ed3cc64f49687c4a121e",
+      "retrieved_utc": "2026-10-11T01:19:31.257540+00:00",
+      "status": "downloaded"
+    },
+    "electrode_preprint_v2.pdf": {
+      "name": "electrode_preprint_v2.pdf",
+      "url": "https://arxiv.org/pdf/2005.02105v2",
+      "final_url": "https://arxiv.org/pdf/2005.02105v2",
+      "bytes": 2097888,
+      "sha256": "32663cc595654900fda44a539fce9b8d3e5b24c67f6658b21d14b4033e526f7a",
+      "retrieved_utc": "2026-10-11T01:13:41.891737+00:00",
+      "status": "downloaded"
+    },
+    "great_fulltext.xml": {
+      "name": "great_fulltext.xml",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11748697/fullTextXML",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11748697/fullTextXML",
+      "bytes": 132420,
+      "sha256": "523a87d7d694e923aeef6b33e8c2cdaf96d41e68091cd7782e5d54972d33efc2",
+      "retrieved_utc": "2026-10-11T01:19:32.145526+00:00",
+      "status": "downloaded"
+    },
+    "hyser_author_v1.pdf": {
+      "name": "hyser_author_v1.pdf",
+      "url": "https://physionet.org/files/hd-semg/1.0.0/manuscript_author_version.pdf",
+      "final_url": "https://physionet.org/files/hd-semg/1.0.0/manuscript_author_version.pdf",
+      "bytes": 6290495,
+      "sha256": "9c44dfb27fb95682ed22561fd9f1904c037368371ed73ac8141b5f80d0712f03",
+      "retrieved_utc": "2026-10-11T01:16:22.874404+00:00",
+      "status": "downloaded"
+    },
+    "hyser_equipment.pdf": {
+      "name": "hyser_equipment.pdf",
+      "url": "https://physionet.org/files/hd-semg/2.0.0/equipment_info.pdf",
+      "final_url": "https://physionet.org/files/hd-semg/2.0.0/equipment_info.pdf",
+      "bytes": 41706,
+      "sha256": "f32a0b4745f84f24e1c8acefb87b40ec561a83e4956a7473a9d7c9ba6f2dfb7c",
+      "retrieved_utc": "2026-10-11T01:13:42.197067+00:00",
+      "status": "downloaded"
+    },
+    "reactemg_readme.md": {
+      "name": "reactemg_readme.md",
+      "url": "https://raw.githubusercontent.com/roamlab/reactemg/main/README.md",
+      "final_url": "https://raw.githubusercontent.com/roamlab/reactemg/main/README.md",
+      "bytes": 9099,
+      "sha256": "5e5943bdffdf8ba9d504a38ca841b2e1444d4db5e933f97c0334e4f78c4fbb75",
+      "retrieved_utc": "2026-10-11T01:19:30.578881+00:00",
+      "status": "downloaded"
+    }
+  },
+  "datasets": {
+    "hyser": {
+      "source_names": [
+        "hyser_author_v1.pdf",
+        "hyser_equipment.pdf"
+      ],
+      "reviewed_sections": [
+        "II.B Data Acquisition",
+        "II.C Experimental Paradigm",
+        "equipment_info"
+      ],
+      "visually_reviewed_pdf_pages": {
+        "hyser_author_v1.pdf": [
+          2,
+          3
+        ],
+        "hyser_equipment.pdf": [
+          1
+        ]
+      },
+      "paper_review": "Official v1 author manuscript acquisition/protocol and Figure1 reviewed; official v2 equipment sheet reviewed. This is not a reproduction of published benchmarks.",
+      "facts": {
+        "array_count": 4,
+        "electrodes_per_array": 64,
+        "array_shape": [
+          8,
+          8
+        ],
+        "interelectrode_distance_mm": 10,
+        "emg_sample_rate_hz": 2048,
+        "force_sample_rate_hz": 100,
+        "force_sensors": 5,
+        "adc_bits": 16,
+        "interday_interval_range_days": [
+          3,
+          25
+        ],
+        "source_array_concatenation": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "synchronization": "Task-onset trigger sent to EMG and force acquisition systems."
+      },
+      "layout": "Four64-channel8x8 arrays, two per flexor/extensor side; array1-4 signals concatenated. Figure1 gives within-array numbering, not an eight-channel circumferential ring.",
+      "boundaries": [
+        "Author manuscript belongs to dataset v1; equipment sheet is v2. This does not prove all v1/v2 raw files are identical.",
+        "Finger-force subtasks and PR gestures remain distinct. No new raw population download, header mapping, IMU calibration or performance reproduction."
+      ],
+      "visual_review_sha256": {
+        "hyser_author_v1.pdf.page2.png": "ffee34d29a74ec9c06961845a1a618fb4706592b2f45f405893326cd5f355860",
+        "hyser_author_v1.pdf.page3.png": "0472e596f451ec36d6deb93e9876db5363281bdc6ac32f228ca523a92988bd56",
+        "hyser_equipment.pdf.page1.png": "9fe2adca61adee3fa9334b3c8bf4aae1eb1a2e41a186a4861dfbfe8b08e0407c"
+      },
+      "source_sha256": {
+        "hyser_author_v1.pdf": "9c44dfb27fb95682ed22561fd9f1904c037368371ed73ac8141b5f80d0712f03",
+        "hyser_equipment.pdf": "f32a0b4745f84f24e1c8acefb87b40ec561a83e4956a7473a9d7c9ba6f2dfb7c"
+      },
+      "physical_eight_channel_layout_verified": false,
+      "six_axis_imu_verified": false,
+      "new_native_experiment": false
+    },
+    "great": {
+      "source_names": [
+        "great_fulltext.xml"
+      ],
+      "reviewed_sections": [
+        "Methods/Subjects",
+        "Acquisition apparatus",
+        "Acquisition protocol",
+        "Data Records",
+        "Technical Validation",
+        "Usage Notes"
+      ],
+      "visually_reviewed_pdf_pages": {},
+      "paper_review": "Official Europe PMC JATS full text retrieved; acquisition, records, validation protocol and usage sections reviewed. Author-hosted PDF returned403; figures were not visually reviewed.",
+      "facts": {
+        "subjects": 8,
+        "days": 2,
+        "sessions_per_day": 2,
+        "emg_sample_rate_hz": 2000,
+        "emg_channels": 16,
+        "day1_positions": [
+          2,
+          4,
+          5,
+          6,
+          8
+        ],
+        "day2_positions": [
+          1,
+          3,
+          5,
+          7,
+          9
+        ],
+        "shared_position": 5,
+        "repetitions_per_gesture_position": 5,
+        "hold_seconds": 5,
+        "rest_seconds": 3,
+        "sensors_removed_between_same_day_sessions": false,
+        "recording_starts_after_gesture_formed": true,
+        "recording_start_after_audio_cue_ms": 250
+      },
+      "layout": "Four Quattro sensors yield16 EMG channels in two staggered rows of8; first row starts at extensor carpi ulnaris.",
+      "boundaries": [
+        "Day and noncentral position sets are confounded. Five positions are acquired per day, not nine per day.",
+        "Only five-second holds are stored per trial; cue timing is not physiological onset/offset truth. No new native data, six-axis IMU, stored-column wiring or benchmark reproduction."
+      ],
+      "visual_review_sha256": {},
+      "source_sha256": {
+        "great_fulltext.xml": "523a87d7d694e923aeef6b33e8c2cdaf96d41e68091cd7782e5d54972d33efc2"
+      },
+      "physical_eight_channel_layout_verified": false,
+      "six_axis_imu_verified": false,
+      "new_native_experiment": false
+    },
+    "electrode_replacement_secondary": {
+      "source_names": [
+        "electrode_preprint_v2.pdf"
+      ],
+      "reviewed_sections": [
+        "2.1 Subjects",
+        "2.2 Measurement setup",
+        "2.3 Measurement protocol",
+        "2.4 Processing",
+        "4 Limitations"
+      ],
+      "visually_reviewed_pdf_pages": {
+        "electrode_preprint_v2.pdf": [
+          5
+        ]
+      },
+      "paper_review": "Author arXiv2005.02105v2 acquisition, protocol, processing and limitations reviewed; PDFpage5/Figures1-2 visually checked. Paper links the Zenodo4039550 dataset.",
+      "facts": {
+        "subjects": 10,
+        "emg_channels": 8,
+        "emg_sample_rate_hz": 1000,
+        "adc_bits": 16,
+        "amplifier_gain": 1000,
+        "montage": "bipolar",
+        "dominant_arm": true,
+        "interelectrode_longitudinal_distance_cm": 2,
+        "proximal_translation_cm": 1,
+        "medial_circumferential_displacement_cm": 2,
+        "electrodes_removed_and_replaced_for_all_positions": true,
+        "all_positions_single_session": true,
+        "requested_active_seconds": 5,
+        "requested_rest_seconds": 3
+      },
+      "layout": "Eight uniformly circumferential bipolar pairs; reference over elbow bone. Figure2 shows the shift, but does not label raw columns CH1-CH8 around the arm.",
+      "boundaries": [
+        "A2cm circumferential displacement is not a2-degree rotation. Re-donning is within one recording session, not across days.",
+        "Requested5+3second timing does not reconstruct retained/discarded repetitions or sample-level action labels. Circumferential channel order and differential sign remain unattested."
+      ],
+      "visual_review_sha256": {
+        "electrode_preprint_v2.pdf.page5.png": "21d9d17b9b32c47640d35dd228118e23a65504dd82d5474930c8de2f7ecd148e"
+      },
+      "source_sha256": {
+        "electrode_preprint_v2.pdf": "32663cc595654900fda44a539fce9b8d3e5b24c67f6658b21d14b4033e526f7a"
+      },
+      "physical_eight_channel_layout_verified": false,
+      "six_axis_imu_verified": false,
+      "new_native_experiment": false
+    }
+  },
+  "roam_archive_census": {
+    "entries": 187515,
+    "metadata_like_names": [],
+    "central_directory_inventory_sha256": "8e756c75c0586a20acab4699ff1e0b2fa2d03b333ecca9f1fa82e22380072663",
+    "raw_archive_bytes_rehashed": false,
+    "data_license_proven": false,
+    "scope": "Current local ZIP central-directory inspection only. No metadata-like names does not establish license absence elsewhere or grant redistribution."
+  },
+  "license_rechecks": {
+    "ninapro_db6": {
+      "reviewed_url": "https://ninapro.hevs.ch/instructions/DB6.html",
+      "formal_data_license_verified": null,
+      "scope": "Official DB6 page was reread; it supplies access/citation instructions without an explicit formal data-license identifier. No claim about all external records."
+    },
+    "roam_emg": {
+      "reviewed_url": "https://raw.githubusercontent.com/roamlab/reactemg/main/README.md",
+      "project_license_reported": "MIT",
+      "separate_data_archive_license_verified": null,
+      "scope": "README states project MIT; local data ZIP has no metadata-like filenames. Neither is a separate data-archive rights determination."
+    }
+  },
+  "failed_retrievals": [
+    {
+      "name": "great_author.pdf",
+      "url": "https://www.research.ed.ac.uk/files/515000148/KyranouEtalSD2025EMGDataset.pdf",
+      "status": "failed",
+      "error": "403 Client Error: Forbidden for url: https://www.research.ed.ac.uk/files/515000148/KyranouEtalSD2025EMGDataset.pdf"
+    }
+  ],
+  "source_sha256": {
+    "benchmarks/discovery/SECONDARY_PRIMARY_REVIEW_V1.json": "91b9aaaed40126779029a758043cb1d648c579db807123a6579b2514da0206f7",
+    "benchmarks/discovery/CURRENT_DISCOVERY_STATE.json": "225e6b7f4123c74731837c72a1dde22f0a686b03b1cff0ee4613999becd91cb2",
+    "benchmarks/discovery/scripts/review_secondary_sources_v2.py": "ab726c6ca5956d4d5a83e7478648360df980c85021b9aedba63630c2c5ea20fd",
+    "tests/test_secondary_primary_review_v2.py": "910747d0a7eb1a2df21ee8088d74e30932f9958eaa8b40a7b6a5475f6a609152"
+  },
+  "raw_sources_redistributed": false,
+  "native_experiment_rerun": false,
+  "completion_proven": false,
+  "scope": "Manual selected full-text/figure review of three primary publications plus two scoped license rechecks. Remote retrieval digests and local render digests bind observed sources; raw publications are not in Git. Metadata tests do not prove paper claims, native efficacy, licensing rights or all-source/full-goal completion."
+}

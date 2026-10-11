@@ -230,5 +230,13 @@
     "role": "Current source navigation and scoped evidence; not full scientific acceptance",
     "completion_proven": false
   },
+  "secondary_primary_review": {
+    "path": "../../benchmarks/discovery/SECONDARY_PRIMARY_REVIEW_V2.json",
+    "sha256": "9a0658e098ea681672963b299f1f83b889fb92bf1372be187251496405eabb6e"
+  },
+  "current_discovery_state": {
+    "path": "../../benchmarks/discovery/CURRENT_DISCOVERY_STATE_V2.json",
+    "sha256": "6bd91ac1cb7f8cb9a8a3cd28ecc5c0c49317f58bc9ba3f3e8c959320089a4afc"
+  },
   "completion_proven": false
 }
