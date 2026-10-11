@@ -725,6 +725,17 @@ def build(pre: Path, goal: Path) -> dict:
                          '|benchmarks/new_bank_v3/ROAM_PRECISION_TRANSITION_V2_TARGET_RESULTS.json'
                          '|tests/test_roam_precision_transition_delivery_v2.py')
             boundary += (' A source-only36-setting precision-biased class-transition policy reuses the verified source-window cache without repeating native source inference or fitting. Source eligibility preserves>=90% old mean source recall and no more source unmatched detections. Source policy/independent receipt are committed before single target evaluation. The actual target fixed-reference efficacy guards, delays and costs remain explicit; source eligibility is not target efficacy or full-formula/physical completion.')
+        if ident in ('GOAL-03','GOAL-05','GOAL-12','GOAL-20','GOAL-21','GOAL-22','GOAL-25'):
+            evidence += ('|feature_bank/ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json'
+                         '|feature_bank/ROAM_DOCUMENT_RELIABILITY_V3_SOURCE_ACCEPTANCE.json'
+                         '|benchmarks/new_bank_v3/ROAM_DOCUMENT_RELIABILITY_V3_TARGET_RESULTS.json'
+                         '|tests/test_native_document_reliability_v3.py'
+                         '|tests/test_roam_document_reliability_delivery_v3.py')
+            boundary += (' Native document-exact D/E hierarchical source/long/current weights now select16 predeclared settings using18 source users before target cached composition. '
+                         'All180 oracle query IDs, seven arms,210 cells and6+3*shots personal costs are preserved; independent geometry/routing/probabilities/metrics agree. '
+                         'The joint primary guard fails against legacy joint and zero-calibration source window, with2/5 and0/5 validation user loss wins. '
+                         'n0=64/tau=.25 are finite-grid boundary choices, not universal optima. Target query inference and classifier fitting are not repeated. '
+                         'Native200/250Hz software contracts do not transfer the selected200Hz policy to physical250Hz hardware or prove autonomous, all-formula, anatomical or prospective efficacy.')
         if not (0 < start <= end <= len(lines[doc])):
             raise AssertionError(f"invalid specification locator: {ident}")
         paths = [ROOT / item for item in evidence.split("|")]

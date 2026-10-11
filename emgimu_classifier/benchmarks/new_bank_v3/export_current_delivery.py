@@ -761,6 +761,18 @@ def export():
         row.update(active_close_recall=m['active_recall']['close'],active_open_recall=m['active_recall']['open'])
         precision_rows.append(row)
     tables['precision_transition_detection.csv']=(precision_rows,list(precision_rows[0]))
+    reliability_path=HERE/'ROAM_DOCUMENT_RELIABILITY_V3_TARGET_RESULTS.json'
+    reliability=json.loads(reliability_path.read_text(encoding='utf8'))
+    relative=reliability_path.relative_to(ROOT).as_posix();sources[relative]=sha(reliability_path)
+    reliability_rows=[]
+    for cell in reliability['cells']:
+        row=dict(run_id='roam_document_reliability_v3',source_artifact=relative,source_sha256=sources[relative],
+            dataset='ROAM_EMG_native8_200Hz',subject=cell['user'],current_shots_per_class=cell['shots'],arm=cell['arm'],
+            total_calibration_trials=cell['target_calibration_trials'],reference_unit='oracle_gt_cue_interval_not_automatic_bout')
+        row.update({k:(json.dumps(v,sort_keys=True) if isinstance(v,(dict,list)) else v) for k,v in cell.items()
+                    if k not in ('user','shots','arm','target_calibration_trials')})
+        reliability_rows.append(row)
+    tables['document_reliability.csv']=(reliability_rows,list(reliability_rows[0]))
     for filename, (rows, fields) in tables.items():
         write(filename, rows, fields)
     manifest = {'schema': 'current_v3_canonical_delivery_v1', 'generator_sha256': sha(Path(__file__)),
@@ -835,6 +847,9 @@ def export():
                  'sha256':sha(ROOT/'feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json')},
              'joint_bout_gui_acceptance': {'path':'../JOINT_BOUT_GUI_V1_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/JOINT_BOUT_GUI_V1_ACCEPTANCE.json')},
+             'roam_document_reliability_acceptance': {'path':'../ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json',
+                 'sha256':sha(ROOT/'feature_bank/ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json')},
+             'roam_document_reliability_summary': 'new_bank_v3/document_reliability.csv',
              'roam_precision_transition_acceptance': {'path':'../ROAM_PRECISION_TRANSITION_V2_ACCEPTANCE.json',
                  'sha256':sha(ROOT/'feature_bank/ROAM_PRECISION_TRANSITION_V2_ACCEPTANCE.json')},
              'roam_precision_transition_summary': 'new_bank_v3/precision_transition_detection.csv',

@@ -76,6 +76,8 @@
     "benchmarks/new_bank_v3/ROAM_CLASS_TRANSITION_V1_SOURCE_RESULTS.json": "90bb94d5cf1e15568a62d7eca6e599c2118b5a9b090348159df3b6a2e66c2f59",
     "benchmarks/new_bank_v3/ROAM_CLASS_TRANSITION_V1_TARGET_RESULTS.json": "7ebf3df81cf59dbd19a1a74a1c241aef129bbab2fb896b44ebf5a106c2391c71",
     "benchmarks/new_bank_v3/ROAM_DEBOUNCE_CONTROL_V1_RESULTS.json": "9964583ef8211b09fa5e594a3aa8e46825d65418afd50c69a99939f62a7eea0a",
+    "benchmarks/new_bank_v3/ROAM_DOCUMENT_RELIABILITY_V3_SOURCE_RESULTS.json": "fab0d97ff48b47b53fcb31888675cacb832735905f93527034b96930087d030d",
+    "benchmarks/new_bank_v3/ROAM_DOCUMENT_RELIABILITY_V3_TARGET_RESULTS.json": "7641cfae893b67a5aa56e2ae5c23145a40add9e05e3cdb4f3c3343d87b521c80",
     "benchmarks/new_bank_v3/ROAM_NATIVE_CONTINUOUS_V1_RESULTS.json": "c94d9fd3b28d7a537b7edd8f6cbc66b616b99051e219a90841b24b91657074d8",
     "benchmarks/new_bank_v3/ROAM_NATIVE_JOINT_V1_RESULTS.json": "c1691293a0e1df662838c58137d05ce377753fa860d99c9309c05987ec26ef98",
     "benchmarks/new_bank_v3/ROAM_PRECISION_TRANSITION_V2_SOURCE_RESULTS.json": "2b2dbffdba62e3dd401e20dc1826ff1f8753fe7ae9cf6a9e4e250db7afa82a25",
@@ -89,7 +91,7 @@
   },
   "current_scientific_conclusions": {
     "path": "../CURRENT_SCIENTIFIC_CONCLUSIONS_V1.json",
-    "sha256": "f91aa533cb8eaad8bd7156ef45d4f8ffe655905d95cef5ef43d0f26575789c96"
+    "sha256": "485ec96af5d32b026d7a15e1718ce905bd24eb3c29331882c0929a5e4dc9a4b9"
   },
   "current_regression_snapshot": {
     "path": "../CLASSIFIER_REGRESSION_20261008.json",
@@ -183,6 +185,11 @@
     "path": "../JOINT_BOUT_GUI_V1_ACCEPTANCE.json",
     "sha256": "27e905148ec66fafffc7788d438f9e4e4044cc7fad709162e0387707d00d391d"
   },
+  "roam_document_reliability_acceptance": {
+    "path": "../ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json",
+    "sha256": "39bd273c351d1fd4370b0c03e4851b25ea6088c41340aa32a99ad541bfbb6d90"
+  },
+  "roam_document_reliability_summary": "new_bank_v3/document_reliability.csv",
   "roam_precision_transition_acceptance": {
     "path": "../ROAM_PRECISION_TRANSITION_V2_ACCEPTANCE.json",
     "sha256": "29fd685aa6c271be5c4eb46bb340c5f180a44f75b0c315dc051931773944dc8b"

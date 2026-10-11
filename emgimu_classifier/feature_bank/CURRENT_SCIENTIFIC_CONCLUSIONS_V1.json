@@ -1,6 +1,6 @@
 {
   "schema": "current_scientific_conclusions_v1",
-  "generator_sha256": "b758a578500ec9285c6c6590f949041509adacac76285dd84a384b8246f14d8f",
+  "generator_sha256": "74339af23a337f3738dc7044efcda9d05f7abb161841b15c1fd107aee6ad3f24",
   "requirement_document_sha256": "4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0",
   "requirement_lines": [
     1013,
@@ -69,7 +69,10 @@
     "tests/test_roam_class_transition_delivery_v1.py",
     "tests/test_class_transition_policy_v1.py",
     "tests/test_roam_precision_transition_v2.py",
-    "tests/test_roam_precision_transition_delivery_v2.py"
+    "tests/test_roam_precision_transition_delivery_v2.py",
+    "tests/test_native_document_reliability_v3.py",
+    "tests/test_roam_document_reliability_study_v3.py",
+    "tests/test_roam_document_reliability_delivery_v3.py"
   ],
   "source_sha256": {
     "benchmarks/new_bank_v3/ROAM_CAUSAL_WINDOW_V1_RESULTS.json": "b2799f2d868be3178cf505b6c5bc8ba9491f03dd7e07604ac44c25af2b2004c7",
@@ -121,7 +124,7 @@
     "benchmarks/new_bank_v3/EMG_WINDOW_BANK_V1_RESULTS.json": "3f622a6624fe7dd2dc3007e10f296cb470cfb959544e8d716c4619e23487c927",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json": "db2d1ee856c57691b80e98940c786fab6fab25c6e2d2e132fbbc0c9f8ece13d9",
     "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_CLASS_DIAGNOSTICS.json": "38f5b0732ab39531a60b7986fef844565710916bb3f02cf33e47fa8ccd22afa2",
-    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "0fe1a7d6a58e159c4a030ae293a7cb105d313db94e37e6f68be394ff841b81d6",
+    "benchmarks/new_bank_v3/render_current_scientific_report_v1.py": "7aa83aa7305cb0c876da9e2ab061b9d92bffdb26b847c870734e66826600f818",
     "feature_bank/JOINT_BOUT_WORKFLOW_V1_ACCEPTANCE.json": "9bf4a118a99d7cc8034738b69b11154f85fb123022dd3d8a715eb248c3df89f2",
     "feature_bank/JOINT_BOUT_GUI_V1_ACCEPTANCE.json": "27e905148ec66fafffc7788d438f9e4e4044cc7fad709162e0387707d00d391d",
     "benchmarks/new_bank_v3/render_joint_bout_gui_v1.py": "9decc46e4dc83409237e42e4a075a3683e20e308c6ab39b46af9c3fe9c02e652",
@@ -152,6 +155,12 @@
     "benchmarks/new_bank_v3/ROAM_PRECISION_TRANSITION_V2_SOURCE_RESULTS.json": "2b2dbffdba62e3dd401e20dc1826ff1f8753fe7ae9cf6a9e4e250db7afa82a25",
     "benchmarks/new_bank_v3/ROAM_PRECISION_TRANSITION_V2_TARGET_RESULTS.json": "f3e47700db686d5618b19f46efd3325ee9e3e6eea5fc6be47be6d7da1b1c38a5",
     "benchmarks/new_bank_v3/verify_roam_precision_transition_v2.py": "6b76a0f2c71bb0de528b123576bf9cb05389b0ae39ac1537d5d895123fc447c9",
+    "feature_bank/ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json": "39bd273c351d1fd4370b0c03e4851b25ea6088c41340aa32a99ad541bfbb6d90",
+    "feature_bank/ROAM_DOCUMENT_RELIABILITY_V3_SOURCE_ACCEPTANCE.json": "53c530b1ae1509807e3f5ecf4bd238d79a84d5ae568c8f0e0b099b11f7883859",
+    "benchmarks/new_bank_v3/ROAM_DOCUMENT_RELIABILITY_V3_SOURCE_RESULTS.json": "fab0d97ff48b47b53fcb31888675cacb832735905f93527034b96930087d030d",
+    "benchmarks/new_bank_v3/ROAM_DOCUMENT_RELIABILITY_V3_TARGET_RESULTS.json": "7641cfae893b67a5aa56e2ae5c23145a40add9e05e3cdb4f3c3343d87b521c80",
+    "benchmarks/new_bank_v3/verify_roam_document_reliability_v3.py": "a62aa11e1d2124177d27c0430245697b4c26a92c02d5cfae925042297ed49ca1",
+    "src/emgimu/feature_bank/native_document_reliability_v3.py": "6902733200dbb08cb625763bf6bf27e764eae7558ec2c93e05197b5d87c34035",
     "tests/test_roam_causal_window_v1_delivery.py": "01ff148a68491fd2174a6c799a8613ebb6f908940fe2fae500a8e2501f1539fd",
     "tests/test_roam_debounce_control_v1_delivery.py": "b8f4b20add2fab827f08dc771cf0df655790fee86d1e72dec90914b0990ba04c",
     "tests/test_f7_affine_fresh_delivery.py": "bf4ea8c232bbbf69fc37660c3839eee20dec288134e93d453530720a83a3e73c",
@@ -212,7 +221,10 @@
     "tests/test_roam_class_transition_delivery_v1.py": "fb32633eee5d6051857c6798553e252980a219f6e19cb4e07a0008762450256b",
     "tests/test_class_transition_policy_v1.py": "0e9339b9c86e86fcbbfbe696e26974760ab98e6b55141f75f4746aca932f0aac",
     "tests/test_roam_precision_transition_v2.py": "e99be8b2dd445884a2a8ab8289916701c53193751961c0f2e89a0a7a95df05fd",
-    "tests/test_roam_precision_transition_delivery_v2.py": "c0e10428a44a4d8387e66f42435be5fc79db6376dd230f4e240d6eafcc49a83a"
+    "tests/test_roam_precision_transition_delivery_v2.py": "c0e10428a44a4d8387e66f42435be5fc79db6376dd230f4e240d6eafcc49a83a",
+    "tests/test_native_document_reliability_v3.py": "060d7cdc15d9b9b955039fcd95bb8fceb018f48ec1e4bb6fb0501610e87ec794",
+    "tests/test_roam_document_reliability_study_v3.py": "9ad1a0292b6e090e27de843411b94914722b0e7e6b3ecc20205427cc450e96c9",
+    "tests/test_roam_document_reliability_delivery_v3.py": "b44b34895efd78d48408618aabdd7c195b1afdf19872a7aaa79850d9fd8ad20c"
   },
   "questions": [
     {
@@ -970,7 +982,7 @@
     {
       "question_id": "D",
       "question": "哪些family只有个人校准后才有明显价值？",
-      "answer": "两种已校准距离方法不能证明“只有校准才有效”。新增纯EMG实验在相同1200留出试次上比较source-only F0与1/2/5-shot F7组合，获得有限增益，但五shot主要门槛失败；其他family不能据此推断。",
+      "answer": "两种已校准距离方法不能证明“只有校准才有效”。新增纯EMG实验在相同1200留出试次上比较source-only F0与1/2/5-shot F7组合，获得有限增益，但五shot主要门槛失败；其他family不能据此推断。 新增文档精确的长期与当次分层权重，18名源用户选择16组参数后冻结，再用于同180个目标动作区间。联合分支未通过对旧联合分支和零校准基础模型的主要比较标准；这完成了有限选参与实现验证，不证明少量校准的稳定收益或当前设备效果。",
       "measurements": {
         "F7_five_shot": {
           "criteria": {
@@ -1079,7 +1091,9 @@
         "benchmarks/new_bank_v3/EMG_F0_F7_BANK_V1_RESULTS.json",
         "benchmarks/song_real8/SONG_EXTENDED_WINDOW_V1_RESULTS.json",
         "feature_bank/SONG_EXTENDED_WINDOW_ACCEPTANCE_V1.json",
-        "feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json"
+        "feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json",
+        "feature_bank/ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json",
+        "benchmarks/new_bank_v3/ROAM_DOCUMENT_RELIABILITY_V3_TARGET_RESULTS.json"
       ],
       "native_Song_CSP_extension_cells": [
         {
@@ -1450,7 +1464,35 @@
             "open_hand": 1.0
           }
         }
-      ]
+      ],
+      "document_reliability_source_cv": {
+        "selected_config": {
+          "n0": 64.0,
+          "temperature": 0.25
+        },
+        "independent_query_trials": 180,
+        "primary_guards": {
+          "legacy_joint": {
+            "lower_log_loss": false,
+            "lower_brier": true,
+            "nonworse_macro_f1": true,
+            "nonworse_all_recalls": true,
+            "at_least3_user_loss_wins": false
+          },
+          "source_window": {
+            "lower_log_loss": false,
+            "lower_brier": false,
+            "nonworse_macro_f1": true,
+            "nonworse_all_recalls": true,
+            "at_least3_user_loss_wins": false
+          }
+        },
+        "primary_pass": false,
+        "validation_user_loss_wins": {
+          "legacy_joint": 2,
+          "source_window": 0
+        }
+      }
     },
     {
       "question_id": "E",
@@ -1591,7 +1633,7 @@
     {
       "question_id": "F",
       "question": "Session Signature能帮助跨天或重新佩戴吗？",
-      "answer": "MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。 Song新版在同人单日不同录制中也呈混合结果：1-shot会话权重改善损失，2/5-shot反而退步；尚非跨天或真实重贴证明。 新版配对训练进一步检验了个人归一化：五试次/类时总体F1、概率损失及握拳召回退步，四项主要守门均未通过；不能默认启用。 新七组F7/F8相对旧六组F7/F8也通过四项标准，但相对新七组基础方案，虽F1更高，损失/Brier更差。F4d仅为窗口/会话相对长期参考的背景坐标，不是分类器或疲劳测量。 新版完整动作长期/当次DTW和路径分支已完成84组合、924方案单元、187044逐试次概率核验；Day7/8仅描述性，不能证明实时八通道或自动边界收益。 独立V5桌面入口已支持完整动作登记、保存重载、会话校准、手动与自动估计边界判断；197项软件测试通过。自动边界保留估计属性，断流/超时丢弃动作；这不是新的实机或公开数据准确率结论。",
+      "answer": "MANUS新版Session路由存在混合结果；源用户温度校准后的各格改善与退步都保留，不能确立可靠的跨天或重贴默认。 Song新版在同人单日不同录制中也呈混合结果：1-shot会话权重改善损失，2/5-shot反而退步；尚非跨天或真实重贴证明。 新版配对训练进一步检验了个人归一化：五试次/类时总体F1、概率损失及握拳召回退步，四项主要守门均未通过；不能默认启用。 新七组F7/F8相对旧六组F7/F8也通过四项标准，但相对新七组基础方案，虽F1更高，损失/Brier更差。F4d仅为窗口/会话相对长期参考的背景坐标，不是分类器或疲劳测量。 新版完整动作长期/当次DTW和路径分支已完成84组合、924方案单元、187044逐试次概率核验；Day7/8仅描述性，不能证明实时八通道或自动边界收益。 独立V5桌面入口已支持完整动作登记、保存重载、会话校准、手动与自动估计边界判断；197项软件测试通过。自动边界保留估计属性，断流/超时丢弃动作；这不是新的实机或公开数据准确率结论。 新增文档精确的长期与当次分层权重，18名源用户选择16组参数后冻结，再用于同180个目标动作区间。联合分支未通过对旧联合分支和零校准基础模型的主要比较标准；这完成了有限选参与实现验证，不证明少量校准的稳定收益或当前设备效果。",
       "measurements": [
         {
           "cell": "validation_1shot",
@@ -1633,7 +1675,9 @@
         "feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json",
         "benchmarks/new_bank_v3/PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json",
         "feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json",
-        "feature_bank/TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json"
+        "feature_bank/TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json",
+        "feature_bank/ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json",
+        "benchmarks/new_bank_v3/ROAM_DOCUMENT_RELIABILITY_V3_TARGET_RESULTS.json"
       ],
       "native_Song_recording_session_cells": [
         {
@@ -2282,7 +2326,35 @@
             "open_hand": 1.0
           }
         }
-      ]
+      ],
+      "document_reliability_source_cv": {
+        "selected_config": {
+          "n0": 64.0,
+          "temperature": 0.25
+        },
+        "independent_query_trials": 180,
+        "primary_guards": {
+          "legacy_joint": {
+            "lower_log_loss": false,
+            "lower_brier": true,
+            "nonworse_macro_f1": true,
+            "nonworse_all_recalls": true,
+            "at_least3_user_loss_wins": false
+          },
+          "source_window": {
+            "lower_log_loss": false,
+            "lower_brier": false,
+            "nonworse_macro_f1": true,
+            "nonworse_all_recalls": true,
+            "at_least3_user_loss_wins": false
+          }
+        },
+        "primary_pass": false,
+        "validation_user_loss_wins": {
+          "legacy_joint": 2,
+          "source_window": 0
+        }
+      }
     },
     {
       "question_id": "G",
@@ -2809,7 +2881,7 @@
     {
       "question_id": "H",
       "question": "新用户或新session需要多少校准？",
-      "answer": "该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。 Song新版另需20个S03长期试次，再加0/4/8/20个S04会话试次；0-shot当前会话不等于零总校准。 归一化分支即使使用人口权重或单F0，也需长期20试次及所用会话校准，不能记成零校准控制。 新七组人口权重、均匀权重和单CSP控制实际目标校准成本为0；可靠性/个人原型等分支仍需长期20加当前0/4/8/20试次。新版界面提供明确选择，保留六组初始选项。 新时序分支额外使用20个长期动作段和当前0/4/8/20个独立动作段；原G5还使用Days1-5个人训练历史，不能把基础分支写成零总注册成本。",
+      "answer": "该EPN有效低维实验使用每类10或20个独立试次，共60或120试次。提取信号曝光48或96秒，完整保存的录制更长；这些不是实际提示、休息、准备和设备总耗时。 Song新版另需20个S03长期试次，再加0/4/8/20个S04会话试次；0-shot当前会话不等于零总校准。 归一化分支即使使用人口权重或单F0，也需长期20试次及所用会话校准，不能记成零校准控制。 新七组人口权重、均匀权重和单CSP控制实际目标校准成本为0；可靠性/个人原型等分支仍需长期20加当前0/4/8/20试次。新版界面提供明确选择，保留六组初始选项。 新时序分支额外使用20个长期动作段和当前0/4/8/20个独立动作段；原G5还使用Days1-5个人训练历史，不能把基础分支写成零总注册成本。 新增文档精确的长期与当次分层权重，18名源用户选择16组参数后冻结，再用于同180个目标动作区间。联合分支未通过对旧联合分支和零校准基础模型的主要比较标准；这完成了有限选参与实现验证，不证明少量校准的稳定收益或当前设备效果。",
       "measurements": [
         {
           "shots_per_class": 10,
@@ -2859,7 +2931,9 @@
         "feature_bank/SONG_EXTENDED_GUI_V1_ACCEPTANCE.json",
         "benchmarks/new_bank_v3/PERSONAL_TEMPORAL_UNIBO_V1_RESULTS.json",
         "feature_bank/PERSONAL_TEMPORAL_UNIBO_ACCEPTANCE_V1.json",
-        "feature_bank/TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json"
+        "feature_bank/TEMPORAL_LIVE_GUI_V1_ACCEPTANCE.json",
+        "feature_bank/ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json",
+        "benchmarks/new_bank_v3/ROAM_DOCUMENT_RELIABILITY_V3_TARGET_RESULTS.json"
       ],
       "native_Song_recording_session_cells": [
         {
@@ -3531,9 +3605,971 @@
         "primary_pass": true,
         "user_success_wins": 5,
         "scope": "Retrospective public4-channel200Hz registered-Rest detector diagnostic. GUI neutral-selection and detector equations match, but its8-channel250Hz highpass-filtered sensor stream differs; no own-device, physical boundary, latency, fatigue, prospective generalization or clinical claim."
+      },
+      "document_reliability_source_cv": {
+        "selected_config": {
+          "n0": 64.0,
+          "temperature": 0.25
+        },
+        "independent_query_trials": 180,
+        "primary_guards": {
+          "legacy_joint": {
+            "lower_log_loss": false,
+            "lower_brier": true,
+            "nonworse_macro_f1": true,
+            "nonworse_all_recalls": true,
+            "at_least3_user_loss_wins": false
+          },
+          "source_window": {
+            "lower_log_loss": false,
+            "lower_brier": false,
+            "nonworse_macro_f1": true,
+            "nonworse_all_recalls": true,
+            "at_least3_user_loss_wins": false
+          }
+        },
+        "primary_pass": false,
+        "validation_user_loss_wins": {
+          "legacy_joint": 2,
+          "source_window": 0
+        }
       }
     }
   ],
+  "roam_document_reliability": {
+    "schema": "roam_document_reliability_v3_acceptance",
+    "protocol_sha256": "741978ae0b6309d4d307891edbe1d8b8764f86dc44c05a5eeb9afcb42c90bffd",
+    "source_result_sha256": "fab0d97ff48b47b53fcb31888675cacb832735905f93527034b96930087d030d",
+    "source_acceptance_sha256": "53c530b1ae1509807e3f5ecf4bd238d79a84d5ae568c8f0e0b099b11f7883859",
+    "target_result_sha256": "7641cfae893b67a5aa56e2ae5c23145a40add9e05e3cdb4f3c3343d87b521c80",
+    "policy_sha256": "b589dc475be4cc55f37faf958f9b485f1eb71661eb5d923dd71d053a150631f2",
+    "verifier_sha256": "a62aa11e1d2124177d27c0430245697b4c26a92c02d5cfae925042297ed49ca1",
+    "selected_config": {
+      "n0": 64.0,
+      "temperature": 0.25
+    },
+    "independent_query_trials": 180,
+    "budget_blocks": 30,
+    "cells": 210,
+    "prediction_rows": 3780,
+    "maximum_independent_probability_error": 2.220446049250313e-16,
+    "independent_calibration_hierarchy_routing_composition_and_metrics": true,
+    "primary_guards": {
+      "legacy_joint": {
+        "lower_log_loss": false,
+        "lower_brier": true,
+        "nonworse_macro_f1": true,
+        "nonworse_all_recalls": true,
+        "at_least3_user_loss_wins": false
+      },
+      "source_window": {
+        "lower_log_loss": false,
+        "lower_brier": false,
+        "nonworse_macro_f1": true,
+        "nonworse_all_recalls": true,
+        "at_least3_user_loss_wins": false
+      }
+    },
+    "primary_pass": false,
+    "validation_user_loss_wins": {
+      "legacy_joint": 2,
+      "source_window": 0
+    },
+    "two_shot_summary": [
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "source_window",
+        "trials": 90,
+        "macro_f1": 0.9902350561484271,
+        "accuracy": 0.9888888888888889,
+        "log_loss": 0.29383201882633614,
+        "brier": 0.04237359881954501,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9666666666666667,
+          "relax": 1.0
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            29,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            40,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "legacy_reliability",
+        "trials": 90,
+        "macro_f1": 0.9803756658256239,
+        "accuracy": 0.9777777777777777,
+        "log_loss": 0.3033377783827913,
+        "brier": 0.045418927803636926,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9333333333333333,
+          "relax": 1.0
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            28,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            40,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "legacy_window",
+        "trials": 90,
+        "macro_f1": 0.9902350561484271,
+        "accuracy": 0.9888888888888889,
+        "log_loss": 0.501149563548788,
+        "brier": 0.08056361502210421,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9666666666666667,
+          "relax": 1.0
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            29,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            40,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "legacy_joint",
+        "trials": 90,
+        "macro_f1": 0.9902350561484271,
+        "accuracy": 0.9888888888888889,
+        "log_loss": 0.5951586891389614,
+        "brier": 0.10183203890100707,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9666666666666667,
+          "relax": 1.0
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            29,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            40,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "document_reliability",
+        "trials": 90,
+        "macro_f1": 0.9902350561484271,
+        "accuracy": 0.9888888888888889,
+        "log_loss": 0.29318888326249937,
+        "brier": 0.042574891231233924,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9666666666666667,
+          "relax": 1.0
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            29,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            40,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "document_window",
+        "trials": 90,
+        "macro_f1": 0.9902350561484271,
+        "accuracy": 0.9888888888888889,
+        "log_loss": 0.5008881770392223,
+        "brier": 0.08024077528011818,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9666666666666667,
+          "relax": 1.0
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            29,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            40,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "validation",
+        "shots": 2,
+        "arm": "document_joint",
+        "trials": 90,
+        "macro_f1": 0.9902350561484271,
+        "accuracy": 0.9888888888888889,
+        "log_loss": 0.5951697829549668,
+        "brier": 0.1017143197308195,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9666666666666667,
+          "relax": 1.0
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            29,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            40,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "source_window",
+        "trials": 90,
+        "macro_f1": 0.903713436322132,
+        "accuracy": 0.9111111111111111,
+        "log_loss": 0.36782415087933346,
+        "brier": 0.06157275621048732,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334,
+          "relax": 0.925
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            25,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            37,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "legacy_reliability",
+        "trials": 90,
+        "macro_f1": 0.903713436322132,
+        "accuracy": 0.9111111111111111,
+        "log_loss": 0.3508815119040324,
+        "brier": 0.05874979010924447,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334,
+          "relax": 0.925
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            25,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            37,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "legacy_window",
+        "trials": 90,
+        "macro_f1": 0.9142949600615505,
+        "accuracy": 0.9222222222222223,
+        "log_loss": 0.5322977519527892,
+        "brier": 0.08886023141674483,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.8666666666666667,
+          "relax": 0.925
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            26,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            37,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "legacy_joint",
+        "trials": 90,
+        "macro_f1": 0.9269874442288235,
+        "accuracy": 0.9333333333333333,
+        "log_loss": 0.6210545125429404,
+        "brier": 0.10863265146772212,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9,
+          "relax": 0.925
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            27,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            37,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "document_reliability",
+        "trials": 90,
+        "macro_f1": 0.903713436322132,
+        "accuracy": 0.9111111111111111,
+        "log_loss": 0.36068703627316945,
+        "brier": 0.060266417296339844,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.8333333333333334,
+          "relax": 0.925
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            25,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            37,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "document_window",
+        "trials": 90,
+        "macro_f1": 0.9142949600615505,
+        "accuracy": 0.9222222222222223,
+        "log_loss": 0.5428900917162475,
+        "brier": 0.09123076185778638,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.8666666666666667,
+          "relax": 0.925
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            26,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            37,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "descriptive_final",
+        "shots": 2,
+        "arm": "document_joint",
+        "trials": 90,
+        "macro_f1": 0.9142949600615505,
+        "accuracy": 0.9222222222222223,
+        "log_loss": 0.6297597819530965,
+        "brier": 0.11068069220254452,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.8666666666666667,
+          "relax": 0.925
+        },
+        "confusion_with_Unknown": [
+          [
+            20,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            26,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            37,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "all",
+        "shots": 2,
+        "arm": "source_window",
+        "trials": 180,
+        "macro_f1": 0.9459721506805469,
+        "accuracy": 0.95,
+        "log_loss": 0.33082808485283477,
+        "brier": 0.051973177515016164,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9,
+          "relax": 0.9625
+        },
+        "confusion_with_Unknown": [
+          [
+            40,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            54,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            77,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "all",
+        "shots": 2,
+        "arm": "legacy_reliability",
+        "trials": 180,
+        "macro_f1": 0.9408523731810146,
+        "accuracy": 0.9444444444444444,
+        "log_loss": 0.32710964514341184,
+        "brier": 0.05208435895644069,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.8833333333333333,
+          "relax": 0.9625
+        },
+        "confusion_with_Unknown": [
+          [
+            40,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            53,
+            3,
+            0
+          ],
+          [
+            2,
+            1,
+            77,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "all",
+        "shots": 2,
+        "arm": "legacy_window",
+        "trials": 180,
+        "macro_f1": 0.951063988170766,
+        "accuracy": 0.9555555555555556,
+        "log_loss": 0.5167236577507887,
+        "brier": 0.08471192321942453,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9166666666666666,
+          "relax": 0.9625
+        },
+        "confusion_with_Unknown": [
+          [
+            40,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            55,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            77,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "all",
+        "shots": 2,
+        "arm": "legacy_joint",
+        "trials": 180,
+        "macro_f1": 0.95770832405233,
+        "accuracy": 0.9611111111111111,
+        "log_loss": 0.6081066008409509,
+        "brier": 0.10523234518436461,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9333333333333333,
+          "relax": 0.9625
+        },
+        "confusion_with_Unknown": [
+          [
+            40,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            56,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            77,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "all",
+        "shots": 2,
+        "arm": "document_reliability",
+        "trials": 180,
+        "macro_f1": 0.9459721506805469,
+        "accuracy": 0.95,
+        "log_loss": 0.3269379597678344,
+        "brier": 0.051420654263786884,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9,
+          "relax": 0.9625
+        },
+        "confusion_with_Unknown": [
+          [
+            40,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            54,
+            2,
+            0
+          ],
+          [
+            2,
+            1,
+            77,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "all",
+        "shots": 2,
+        "arm": "document_window",
+        "trials": 180,
+        "macro_f1": 0.951063988170766,
+        "accuracy": 0.9555555555555556,
+        "log_loss": 0.5218891343777349,
+        "brier": 0.08573576856895228,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9166666666666666,
+          "relax": 0.9625
+        },
+        "confusion_with_Unknown": [
+          [
+            40,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            55,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            77,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "phase": "all",
+        "shots": 2,
+        "arm": "document_joint",
+        "trials": 180,
+        "macro_f1": 0.951063988170766,
+        "accuracy": 0.9555555555555556,
+        "log_loss": 0.6124647824540316,
+        "brier": 0.10619750596668201,
+        "unknown_trials": 0,
+        "recall": {
+          "close": 1.0,
+          "open": 0.9166666666666666,
+          "relax": 0.9625
+        },
+        "confusion_with_Unknown": [
+          [
+            40,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            55,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            77,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "target_query_feature_inference_repeated": false,
+    "target_fitted_or_selected": false,
+    "source_policy_committed_before_target": true,
+    "read_only_no_fitting": true,
+    "native_experiment_rerun": false,
+    "default_promoted": false,
+    "physical_validation_proven": false,
+    "completion_proven": false,
+    "scope": "Versioned native8/200Hz document-exact hierarchical D/E reliability with16-setting source-user CV. Three inherited source-user-out frozen classifiers and source OOF temperatures/population are reused. Global source OOF temperature/prior fitting and hyperparameter selection are policy training, not an unbiased source generalization estimate. Target composition reuses frozen180 cue-query provider/path arrays and saved calibrations. No target query feature inference, source classifier retraining, target tuning, independent prospective, automatic/physiological boundary, pinch,250Hz device, physical F6/F9 or default claim.",
+    "interpretation": "Document-exact D/E hierarchical source-population/long/current weights with16-setting source-user CV. Source policy is frozen before target cached composition; no target classifier fit or target query feature inference. The selected n0=64/tau=.25 are grid boundaries, not universal optima. Same180 oracle queries and shared6+3*shots cost retain all seven arms. Primary guard fails against legacy joint and zero-calibration source window. Existing precision-transition100-reference results are separate and unchanged. No default, physical250Hz, independent prospective or full-formula completion claim."
+  },
   "roam_precision_transition": {
     "schema": "roam_precision_transition_v2_acceptance",
     "protocol_sha256": "13af4e9a54059dd0abae6a19acde37c1f30e22c131ff68478df93142417cccdd",

@@ -1,0 +1,933 @@
+{
+  "schema": "roam_document_reliability_v3_acceptance",
+  "protocol_sha256": "741978ae0b6309d4d307891edbe1d8b8764f86dc44c05a5eeb9afcb42c90bffd",
+  "source_result_sha256": "fab0d97ff48b47b53fcb31888675cacb832735905f93527034b96930087d030d",
+  "source_acceptance_sha256": "53c530b1ae1509807e3f5ecf4bd238d79a84d5ae568c8f0e0b099b11f7883859",
+  "target_result_sha256": "7641cfae893b67a5aa56e2ae5c23145a40add9e05e3cdb4f3c3343d87b521c80",
+  "policy_sha256": "b589dc475be4cc55f37faf958f9b485f1eb71661eb5d923dd71d053a150631f2",
+  "verifier_sha256": "a62aa11e1d2124177d27c0430245697b4c26a92c02d5cfae925042297ed49ca1",
+  "selected_config": {
+    "n0": 64.0,
+    "temperature": 0.25
+  },
+  "independent_query_trials": 180,
+  "budget_blocks": 30,
+  "cells": 210,
+  "prediction_rows": 3780,
+  "maximum_independent_probability_error": 2.220446049250313e-16,
+  "independent_calibration_hierarchy_routing_composition_and_metrics": true,
+  "primary_guards": {
+    "legacy_joint": {
+      "lower_log_loss": false,
+      "lower_brier": true,
+      "nonworse_macro_f1": true,
+      "nonworse_all_recalls": true,
+      "at_least3_user_loss_wins": false
+    },
+    "source_window": {
+      "lower_log_loss": false,
+      "lower_brier": false,
+      "nonworse_macro_f1": true,
+      "nonworse_all_recalls": true,
+      "at_least3_user_loss_wins": false
+    }
+  },
+  "primary_pass": false,
+  "validation_user_loss_wins": {
+    "legacy_joint": 2,
+    "source_window": 0
+  },
+  "two_shot_summary": [
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "source_window",
+      "trials": 90,
+      "macro_f1": 0.9902350561484271,
+      "accuracy": 0.9888888888888889,
+      "log_loss": 0.29383201882633614,
+      "brier": 0.04237359881954501,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.9666666666666667,
+        "relax": 1.0
+      },
+      "confusion_with_Unknown": [
+        [
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          29,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          40,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "legacy_reliability",
+      "trials": 90,
+      "macro_f1": 0.9803756658256239,
+      "accuracy": 0.9777777777777777,
+      "log_loss": 0.3033377783827913,
+      "brier": 0.045418927803636926,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.9333333333333333,
+        "relax": 1.0
+      },
+      "confusion_with_Unknown": [
+        [
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          28,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          40,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "legacy_window",
+      "trials": 90,
+      "macro_f1": 0.9902350561484271,
+      "accuracy": 0.9888888888888889,
+      "log_loss": 0.501149563548788,
+      "brier": 0.08056361502210421,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.9666666666666667,
+        "relax": 1.0
+      },
+      "confusion_with_Unknown": [
+        [
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          29,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          40,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "legacy_joint",
+      "trials": 90,
+      "macro_f1": 0.9902350561484271,
+      "accuracy": 0.9888888888888889,
+      "log_loss": 0.5951586891389614,
+      "brier": 0.10183203890100707,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.9666666666666667,
+        "relax": 1.0
+      },
+      "confusion_with_Unknown": [
+        [
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          29,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          40,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "document_reliability",
+      "trials": 90,
+      "macro_f1": 0.9902350561484271,
+      "accuracy": 0.9888888888888889,
+      "log_loss": 0.29318888326249937,
+      "brier": 0.042574891231233924,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.9666666666666667,
+        "relax": 1.0
+      },
+      "confusion_with_Unknown": [
+        [
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          29,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          40,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "document_window",
+      "trials": 90,
+      "macro_f1": 0.9902350561484271,
+      "accuracy": 0.9888888888888889,
+      "log_loss": 0.5008881770392223,
+      "brier": 0.08024077528011818,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.9666666666666667,
+        "relax": 1.0
+      },
+      "confusion_with_Unknown": [
+        [
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          29,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          40,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "validation",
+      "shots": 2,
+      "arm": "document_joint",
+      "trials": 90,
+      "macro_f1": 0.9902350561484271,
+      "accuracy": 0.9888888888888889,
+      "log_loss": 0.5951697829549668,
+      "brier": 0.1017143197308195,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.9666666666666667,
+        "relax": 1.0
+      },
+      "confusion_with_Unknown": [
+        [
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          29,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          40,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "source_window",
+      "trials": 90,
+      "macro_f1": 0.903713436322132,
+      "accuracy": 0.9111111111111111,
+      "log_loss": 0.36782415087933346,
+      "brier": 0.06157275621048732,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.8333333333333334,
+        "relax": 0.925
+      },
+      "confusion_with_Unknown": [
+        [
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          25,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          37,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "legacy_reliability",
+      "trials": 90,
+      "macro_f1": 0.903713436322132,
+      "accuracy": 0.9111111111111111,
+      "log_loss": 0.3508815119040324,
+      "brier": 0.05874979010924447,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.8333333333333334,
+        "relax": 0.925
+      },
+      "confusion_with_Unknown": [
+        [
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          25,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          37,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "legacy_window",
+      "trials": 90,
+      "macro_f1": 0.9142949600615505,
+      "accuracy": 0.9222222222222223,
+      "log_loss": 0.5322977519527892,
+      "brier": 0.08886023141674483,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.8666666666666667,
+        "relax": 0.925
+      },
+      "confusion_with_Unknown": [
+        [
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          26,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          37,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "legacy_joint",
+      "trials": 90,
+      "macro_f1": 0.9269874442288235,
+      "accuracy": 0.9333333333333333,
+      "log_loss": 0.6210545125429404,
+      "brier": 0.10863265146772212,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.9,
+        "relax": 0.925
+      },
+      "confusion_with_Unknown": [
+        [
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          27,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          37,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "document_reliability",
+      "trials": 90,
+      "macro_f1": 0.903713436322132,
+      "accuracy": 0.9111111111111111,
+      "log_loss": 0.36068703627316945,
+      "brier": 0.060266417296339844,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.8333333333333334,
+        "relax": 0.925
+      },
+      "confusion_with_Unknown": [
+        [
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          25,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          37,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "document_window",
+      "trials": 90,
+      "macro_f1": 0.9142949600615505,
+      "accuracy": 0.9222222222222223,
+      "log_loss": 0.5428900917162475,
+      "brier": 0.09123076185778638,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.8666666666666667,
+        "relax": 0.925
+      },
+      "confusion_with_Unknown": [
+        [
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          26,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          37,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "descriptive_final",
+      "shots": 2,
+      "arm": "document_joint",
+      "trials": 90,
+      "macro_f1": 0.9142949600615505,
+      "accuracy": 0.9222222222222223,
+      "log_loss": 0.6297597819530965,
+      "brier": 0.11068069220254452,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.8666666666666667,
+        "relax": 0.925
+      },
+      "confusion_with_Unknown": [
+        [
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          26,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          37,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "source_window",
+      "trials": 180,
+      "macro_f1": 0.9459721506805469,
+      "accuracy": 0.95,
+      "log_loss": 0.33082808485283477,
+      "brier": 0.051973177515016164,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.9,
+        "relax": 0.9625
+      },
+      "confusion_with_Unknown": [
+        [
+          40,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          54,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          77,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "legacy_reliability",
+      "trials": 180,
+      "macro_f1": 0.9408523731810146,
+      "accuracy": 0.9444444444444444,
+      "log_loss": 0.32710964514341184,
+      "brier": 0.05208435895644069,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.8833333333333333,
+        "relax": 0.9625
+      },
+      "confusion_with_Unknown": [
+        [
+          40,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          53,
+          3,
+          0
+        ],
+        [
+          2,
+          1,
+          77,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "legacy_window",
+      "trials": 180,
+      "macro_f1": 0.951063988170766,
+      "accuracy": 0.9555555555555556,
+      "log_loss": 0.5167236577507887,
+      "brier": 0.08471192321942453,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.9166666666666666,
+        "relax": 0.9625
+      },
+      "confusion_with_Unknown": [
+        [
+          40,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          55,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          77,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "legacy_joint",
+      "trials": 180,
+      "macro_f1": 0.95770832405233,
+      "accuracy": 0.9611111111111111,
+      "log_loss": 0.6081066008409509,
+      "brier": 0.10523234518436461,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.9333333333333333,
+        "relax": 0.9625
+      },
+      "confusion_with_Unknown": [
+        [
+          40,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          56,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          77,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "document_reliability",
+      "trials": 180,
+      "macro_f1": 0.9459721506805469,
+      "accuracy": 0.95,
+      "log_loss": 0.3269379597678344,
+      "brier": 0.051420654263786884,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.9,
+        "relax": 0.9625
+      },
+      "confusion_with_Unknown": [
+        [
+          40,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          54,
+          2,
+          0
+        ],
+        [
+          2,
+          1,
+          77,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "document_window",
+      "trials": 180,
+      "macro_f1": 0.951063988170766,
+      "accuracy": 0.9555555555555556,
+      "log_loss": 0.5218891343777349,
+      "brier": 0.08573576856895228,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.9166666666666666,
+        "relax": 0.9625
+      },
+      "confusion_with_Unknown": [
+        [
+          40,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          55,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          77,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "phase": "all",
+      "shots": 2,
+      "arm": "document_joint",
+      "trials": 180,
+      "macro_f1": 0.951063988170766,
+      "accuracy": 0.9555555555555556,
+      "log_loss": 0.6124647824540316,
+      "brier": 0.10619750596668201,
+      "unknown_trials": 0,
+      "recall": {
+        "close": 1.0,
+        "open": 0.9166666666666666,
+        "relax": 0.9625
+      },
+      "confusion_with_Unknown": [
+        [
+          40,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          55,
+          1,
+          0
+        ],
+        [
+          2,
+          1,
+          77,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "target_query_feature_inference_repeated": false,
+  "target_fitted_or_selected": false,
+  "source_policy_committed_before_target": true,
+  "read_only_no_fitting": true,
+  "native_experiment_rerun": false,
+  "default_promoted": false,
+  "physical_validation_proven": false,
+  "completion_proven": false,
+  "scope": "Versioned native8/200Hz document-exact hierarchical D/E reliability with16-setting source-user CV. Three inherited source-user-out frozen classifiers and source OOF temperatures/population are reused. Global source OOF temperature/prior fitting and hyperparameter selection are policy training, not an unbiased source generalization estimate. Target composition reuses frozen180 cue-query provider/path arrays and saved calibrations. No target query feature inference, source classifier retraining, target tuning, independent prospective, automatic/physiological boundary, pinch,250Hz device, physical F6/F9 or default claim."
+}

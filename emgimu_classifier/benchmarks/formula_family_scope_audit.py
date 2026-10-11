@@ -403,6 +403,13 @@ def build() -> dict:
             evidence += ('|feature_bank/ROAM_PRECISION_TRANSITION_V2_ACCEPTANCE.json|benchmarks/new_bank_v3/ROAM_PRECISION_TRANSITION_V2_TARGET_RESULTS.json')
             supported += (' A separate precommitted36-setting cached-source precision-biased policy preserves source recall/extra-event eligibility and is frozen before native target inference; all fixed-reference target metrics and actual guards are independently retained.')
             unresolved += (' Source precision/recall constraints are not a target guarantee; longer confirmation adds algorithmic delay. Retrospective200Hz cue metrics do not establish250Hz device, physiological or default efficacy.')
+        if family in ('F0','F1','F2','F3','F4','F5','F7','F8'):
+            evidence += ('|feature_bank/ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json'
+                         '|benchmarks/new_bank_v3/ROAM_DOCUMENT_RELIABILITY_V3_TARGET_RESULTS.json'
+                         '|src/emgimu/feature_bank/native_document_reliability_v3.py')
+            supported += (' Document-exact hierarchical D/E weights now have16-setting source-user CV on18 source users, with policy committed before target cached composition. '
+                          'Independent calibration geometry, shrinkage, F8 routing, seven-arm probability composition and210 cells/3780 prediction rows on180 oracle queries are verified.')
+            unresolved += (' The joint primary guard fails against both legacy joint and zero-calibration source window. Source training scores and previously inspected oracle-cue posture targets do not establish independent generalization, autonomous recognition,250Hz device or all-subformula efficacy. No default promotion.')
         paths = [ROOT / part for part in evidence.split("|")]
         if any(not path.is_file() for path in paths):
             raise AssertionError(f"missing F0–F9 public evidence: {family}")

@@ -375,11 +375,30 @@ def build():
     answers[0]['precision_transition_fixed_reference']={'new':precision_all,'previous':new_all,'primary_pass':precision['detector_primary_pass']}
     answers[0]['answer'] += f" 后续只用源数据选择更长确认与平滑策略，同100个参考的正确识别为{precision_all['correct']}个、额外未匹配检测为{precision_all['unmatched_detections']}个；目标阶段主要标准通过={precision['detector_primary_pass']}，仍不是实机或前瞻验证。"
     answers[0]['evidence'] += [precision_path.relative_to(ROOT).as_posix(),'benchmarks/new_bank_v3/ROAM_PRECISION_TRANSITION_V2_TARGET_RESULTS.json']
+    reliability_path=ROOT/'feature_bank/ROAM_DOCUMENT_RELIABILITY_V3_ACCEPTANCE.json'
+    reliability=json.loads(reliability_path.read_text(encoding='utf8'))
+    for path in (reliability_path,ROOT/'feature_bank/ROAM_DOCUMENT_RELIABILITY_V3_SOURCE_ACCEPTANCE.json',
+                 HERE/'ROAM_DOCUMENT_RELIABILITY_V3_SOURCE_RESULTS.json',HERE/'ROAM_DOCUMENT_RELIABILITY_V3_TARGET_RESULTS.json',
+                 HERE/'verify_roam_document_reliability_v3.py',ROOT/'src/emgimu/feature_bank/native_document_reliability_v3.py'):
+        sources[path.relative_to(ROOT).as_posix()]=sha(path)
+    verification_tests += ['tests/test_native_document_reliability_v3.py','tests/test_roam_document_reliability_study_v3.py',
+                           'tests/test_roam_document_reliability_delivery_v3.py']
+    for answer in answers:
+        if answer['question_id'] in ('D','F','H'):
+            answer['document_reliability_source_cv']={k:reliability[k] for k in
+                ('selected_config','independent_query_trials','primary_guards','primary_pass','validation_user_loss_wins')}
+            answer['answer'] += (' 新增文档精确的长期与当次分层权重，18名源用户选择16组参数后冻结，'
+                '再用于同180个目标动作区间。联合分支未通过对旧联合分支和零校准基础模型的主要比较标准；'
+                '这完成了有限选参与实现验证，不证明少量校准的稳定收益或当前设备效果。')
+            answer['evidence'] += [reliability_path.relative_to(ROOT).as_posix(),
+                'benchmarks/new_bank_v3/ROAM_DOCUMENT_RELIABILITY_V3_TARGET_RESULTS.json']
     for name in verification_tests: sources[name] = sha(ROOT / name)
     result = {'schema': 'current_scientific_conclusions_v1', 'generator_sha256': sha(Path(__file__)),
               'requirement_document_sha256': '4da8b372c8f07936c1156935114849f85c0d83957c1ecacc6a0b6462bdf3b1f0',
               'requirement_lines': [1013, 1049], 'verification_tests': verification_tests,
               'source_sha256': sources, 'questions': answers,
+              'roam_document_reliability': dict(reliability,
+                  interpretation='Document-exact D/E hierarchical source-population/long/current weights with16-setting source-user CV. Source policy is frozen before target cached composition; no target classifier fit or target query feature inference. The selected n0=64/tau=.25 are grid boundaries, not universal optima. Same180 oracle queries and shared6+3*shots cost retain all seven arms. Primary guard fails against legacy joint and zero-calibration source window. Existing precision-transition100-reference results are separate and unchanged. No default, physical250Hz, independent prospective or full-formula completion claim.'),
               'roam_precision_transition': dict(precision,previous_class_transition=class_transition['two_shot_summary'],
                   interpretation='A precommitted36-setting source-only precision-biased policy selects with >=90% previous source mean recall and no more source extra detections. Cached source probabilities avoid repeated source inference. Target efficacy guards remain independently checked; prior source eligibility is not a target guarantee. Longer confirmation delays estimated event availability. No default, physical250Hz, prospective or physiological claim.'),
               'roam_class_transition': dict(class_transition,previous_neutral_detector=native_continuous['two_shot_summary'],
